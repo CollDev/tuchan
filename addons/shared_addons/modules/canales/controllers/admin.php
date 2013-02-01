@@ -75,7 +75,7 @@ class Admin extends Admin_Controller
         public function detalle($canal_id)
         {
             $canal = $this->canales_m->get($canal_id);
-            
+
             $this->template
                     ->title($this->module_details['name'])
                     ->set('canal', $canal);

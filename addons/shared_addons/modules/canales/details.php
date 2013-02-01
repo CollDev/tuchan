@@ -18,10 +18,10 @@ class Module_Canales extends Module
             
             $opc_canales =  array(
                 'name' => array(
-                    'es' => 'Canales',
+                    'es' => 'Canal',
                 ),
                 'description' => array(
-                    'es' => 'Canales de televisión.',
+                    'es' => 'Detalle',
                 ),
                 'frontend' => false,
                 'backend' => true,

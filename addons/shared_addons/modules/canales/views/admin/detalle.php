@@ -3,11 +3,8 @@
 </section>
 
 <section class="item">
-canal x
     <?php if ($canal) : ?>
-        
-
+        <?php echo $canal->nombre ?> | <?php echo $canal->descripcion ?>
     <?php endif; ?>
-
 </section>
 
