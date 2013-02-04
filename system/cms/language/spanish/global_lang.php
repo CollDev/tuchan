@@ -6,6 +6,9 @@ if (!defined('BASEPATH'))
 $lang['global:control-panel'] = 'Panel de Control';
 $lang['global:profile'] = 'Perfil';
 
+$lang['global:estado'] = 'Estado';
+$lang['global:acciones'] = 'Acciones';
+
 $lang['global:yes'] = 'Si';
 $lang['global:no'] = 'No';
 

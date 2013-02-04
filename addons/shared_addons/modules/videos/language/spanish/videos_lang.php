@@ -17,10 +17,11 @@ $lang['videos:etiquetas_tematicas_label'] = 'Etiquetas temáticas';
 $lang['videos:etiquetas_personajes_label'] = 'Etiquetas personajes';
 $lang['videos:duracion'] = 'Duración';
 $lang['videos:fecha_subida_label'] = 'Fecha subida';
-$lang['videos:fecha_publicación'] = 'Fecha publicación';
-$lang['videos:fecha_transmisión'] = 'Fecha transmisión';
-$lang['videos:horario_transmisión'] = 'Horario transmisión';
-$lang['videos:fecha_transmisión'] = 'Fecha transmisión';
+$lang['videos:fecha_publicacion_label'] = 'Fecha publicación';
+$lang['videos:fecha_transmision_label'] = 'Fecha transmisión';
+$lang['videos:horario_transmision_label'] = 'Horario transmisión';
+$lang['videos:ubicacion_label'] = 'Ubicación';
+$lang['videos:tamanio_label'] = 'Tamaño';
 
 // mensajes
 $lang['videos:publish_success']        = 'El video "%s" ha sido publicado.';

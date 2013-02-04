@@ -100,14 +100,6 @@
 						}
 					}
                                         
-                                        // Link Temporal, debe ser dinámico
-                                        echo '<ul>
-                                                <li>'. anchor('admin/subir_video', 'Subir videos', array('class' => 'menu')) .'
-                                                    <ul>
-                                                        <li>'. anchor('admin/#', 'Carga unitaria', array('class' => $class)) .'</li>
-                                                        <li>'. anchor('admin/#', 'Carga masiva', array('class' => $class)) .'</li>
-                                              </li></ul>';
-
 				}
 			}
 			
