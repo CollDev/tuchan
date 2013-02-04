@@ -40,15 +40,149 @@
 
 <body>
 
-	<div id="container">
+                   <div class="bajada2">
+                                    <span class="boxgrid captionfull">	
+                                             <div class="cover boxcaption">
+                                             
+                                                <div class="toggle-icon-finder">
+                                                <a href="#" class="linker">EXPANDER</a>
+                                                <a href="#" class="linker2 hide">CONTRAER</a>
+                                                
+                                                <a href="#" class="plus_view"></a>	
+                                                </div>
+                                                 <div class="search-box">
+                                                          <span class="view_mc">BUSQUEDA</span>                          	  
+                                                          <div class="frm-input">
+                                                                <div class="input-wrapper">
+                                                                    <input id="q" name="q" type="text" autocomplete="off" class="ui-autocomplete-input" role="textbox" aria-autocomplete="list" aria-haspopup="true" placeholder="Titulo">   
+                                                                </div>
+                                                                <br />
+                                                                <br />
+                                                                <div class="input-wrapper">
+                                                                    <input id="q" name="q" type="text" autocomplete="off" class="ui-autocomplete-input" role="textbox" aria-autocomplete="list" aria-haspopup="true" placeholder="Categoria">
+                                                                </div>
+                                                                <br />
+                                                                <br />
+                                                                <div class="input-wrapper">
+                                                                    <input id="q" name="q" type="text" autocomplete="off" class="ui-autocomplete-input" role="textbox" aria-autocomplete="list" aria-haspopup="true" placeholder="Tipo">
+                                                                </div>
+                                                                <br />
+                                                                <br />
+                                                                <a href="#" id="s" name="s">
+                                                                    <span class="st">Buscar</span>
+                                                                
+                                                                </a>
+                                                          </div>
+                                                </div>   
+                                                                          
+                                                
+                                            </div>
+                                    </span>
+                    </div>
+              
+<!--<script src="jquery-1.7.1.min.js" type="text/javascript"></script>-->
+<script type="text/javascript">
+				$(document).ready(function() {
+						$(".cover").css("width", "2%");
 
+
+						$('.linker').live("click",function(event){
+							event.preventDefault();
+							$(".cover").stop().animate({width: "100%"},130);
+							$(".bajada2").stop().animate({width: "15%"},130);
+							$('.linker2').removeClass("hide");
+							$('.linker').addClass("hide");
+							
+							$(".search-box").fadeIn("slow", function(){
+								
+								
+										$(".plus_view").fadeIn("slow", function(){
+										
+										});
+								
+								
+								
+								
+								});
+							
+							
+						});
+						
+						$('.linker2').live("click",function(event){
+							event.preventDefault();
+							$(".plus_view").fadeOut("slow", function(){
+							
+							});							
+							$(".search-box").fadeOut("slow", function(){
+								
+
+								
+										$(".cover").stop().animate({width: "2%"},130);
+										$(".bajada2").stop().animate({width: "2%"},130);
+										$('.linker').removeClass("hide");
+										$('.linker2').addClass("hide");								
+
+								});
+							
+
+							
+							
+							
+						});
+						
+						
+						$('.plus_view').live("click",function(event){
+							event.preventDefault();
+
+							    $(".bajada2").stop().animate({width: "100%"},130);
+								$(".cover").stop().animate({width: "100%"},"fast", function(){
+										$(".plus_view").fadeOut("fast", function(){
+										
+										});	
+								});
+							
+							
+						});
+						
+
+						
+
+
+				});
+				
+				
+
+
+
+</script>
+              
+              
+               <!--END CODE FRONTEND-->
+
+
+
+
+
+
+
+
+
+	<div id="container">
+       <!--BEGIN FRONTEND CODE-->
+               
+               
+               
+ 
 		<section id="content">
 
 			<?php file_partial('header'); ?>
 
 			<div id="content-body">
+            
 				<?php file_partial('notices'); ?>
 				<?php echo $template['body']; ?>
+               
+
 			</div>
 
 		</section>
@@ -78,6 +212,8 @@
 	<script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
 	<script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
 	<![endif]-->
+    
+
 
 </body>
 </html>

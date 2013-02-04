@@ -90,3 +90,40 @@ ERROR - 2013-02-04 18:08:23 --> Severity: Notice  --> Undefined property: stdCla
 ERROR - 2013-02-04 18:08:38 --> Severity: Notice  --> Undefined property: stdClass::$nombre /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 34
 ERROR - 2013-02-04 18:08:38 --> Severity: Notice  --> Undefined property: stdClass::$status /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 36
 ERROR - 2013-02-04 18:08:38 --> Severity: Notice  --> Undefined property: stdClass::$status /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 39
+ERROR - 2013-02-04 19:16:18 --> Severity: Notice  --> unserialize(): Error at offset 77 of 39762 bytes C:\xampp\htdocs\adminmicanal\system\cms\libraries\Simplepie.php 230
+ERROR - 2013-02-04 19:19:09 --> Page Missing: admin/subir_video
+ERROR - 2013-02-04 19:19:15 --> Page Missing: admin/subir_video
+ERROR - 2013-02-04 19:19:23 --> Severity: Notice  --> Undefined property: stdClass::$nombre C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 34
+ERROR - 2013-02-04 19:19:23 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 36
+ERROR - 2013-02-04 19:19:23 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 39
+ERROR - 2013-02-04 19:23:08 --> Page Missing: admin/subir_video
+ERROR - 2013-02-04 19:23:13 --> Page Missing: admin/subir_video
+ERROR - 2013-02-04 19:23:35 --> Severity: Notice  --> Undefined property: stdClass::$nombre C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 34
+ERROR - 2013-02-04 19:23:35 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 36
+ERROR - 2013-02-04 19:23:35 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 39
+ERROR - 2013-02-04 19:26:21 --> Severity: Notice  --> Undefined property: stdClass::$nombre C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 34
+ERROR - 2013-02-04 19:26:21 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 36
+ERROR - 2013-02-04 19:26:21 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 39
+ERROR - 2013-02-04 19:27:01 --> Severity: Notice  --> Undefined property: stdClass::$nombre C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 34
+ERROR - 2013-02-04 19:27:01 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 36
+ERROR - 2013-02-04 19:27:01 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 39
+ERROR - 2013-02-04 21:01:20 --> Page Missing: admin/subir_video
+ERROR - 2013-02-04 21:01:22 --> Page Missing: admin/subir_video
+ERROR - 2013-02-04 21:01:25 --> Page Missing: admin/subir_video
+ERROR - 2013-02-04 21:01:27 --> Page Missing: admin/subir_video
+ERROR - 2013-02-04 21:14:38 --> Severity: Notice  --> Undefined property: stdClass::$nombre C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 34
+ERROR - 2013-02-04 21:14:38 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 36
+ERROR - 2013-02-04 21:14:38 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 39
+ERROR - 2013-02-04 21:14:48 --> Page Missing: admin/subir_video
+ERROR - 2013-02-04 21:14:53 --> Page Missing: admin/subir_video
+ERROR - 2013-02-04 21:18:10 --> Severity: Notice  --> Undefined property: stdClass::$nombre C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 34
+ERROR - 2013-02-04 21:18:10 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 36
+ERROR - 2013-02-04 21:18:10 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 39
+ERROR - 2013-02-04 21:32:24 --> Severity: Notice  --> Undefined property: stdClass::$nombre C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 34
+ERROR - 2013-02-04 21:32:24 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 36
+ERROR - 2013-02-04 21:32:24 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 39
+ERROR - 2013-02-04 21:32:27 --> Page Missing: admin/subir_video
+ERROR - 2013-02-04 21:32:33 --> Page Missing: admin/subir_video
+ERROR - 2013-02-04 21:32:36 --> Page Missing: admin/subir_video
+ERROR - 2013-02-04 21:32:38 --> Page Missing: admin/subir_video
+ERROR - 2013-02-04 21:32:40 --> Page Missing: admin/subir_video
