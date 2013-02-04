@@ -21,7 +21,7 @@ class Module_Canales extends Module
                     'es' => 'Canal',
                 ),
                 'description' => array(
-                    'es' => 'Detalle',
+                    'es' => 'Videos',
                 ),
                 'frontend' => false,
                 'backend' => true,

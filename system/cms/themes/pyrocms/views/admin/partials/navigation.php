@@ -86,7 +86,7 @@
                                                             if (count($this->session->userdata['canal_usuario']) > 0) {
                                                                 echo '<ul>';
                                                                 foreach ($this->session->userdata['canal_usuario'] as $canal_usr) {
-                                                                    echo '<li>'. anchor('admin/' . $module['slug'] . '/detalle/' . $canal_usr['canal_id'], $canal_usr['canal'], array('class' => $class)) .'</li>';
+                                                                    echo '<li>'. anchor('admin/' . $module['slug'] . '/videos/' . $canal_usr['canal_id'], $canal_usr['canal'], array('class' => $class)) .'</li>';
                                                                 }
                                                                 echo '</ul></li>';
                                                             }
@@ -99,6 +99,15 @@
                                                     }                                                   
 						}
 					}
+                                        
+                                        // Link Temporal, debe ser dinámico
+                                        echo '<ul>
+                                                <li>'. anchor('admin/subir_video', 'Subir videos', array('class' => 'menu')) .'
+                                                    <ul>
+                                                        <li>'. anchor('admin/#', 'Carga unitaria', array('class' => $class)) .'</li>
+                                                        <li>'. anchor('admin/#', 'Carga masiva', array('class' => $class)) .'</li>
+                                              </li></ul>';
+
 				}
 			}
 			

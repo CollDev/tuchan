@@ -25,9 +25,11 @@ class Admin extends Admin_Controller
 		parent::__construct();
 
 		$this->load->model('canales_m');
+		$this->load->model('videos/videos_m');
 		/*$this->load->library('settings');
 		$this->load->library('form_validation');*/
-		$this->lang->load('canales');		
+		$this->lang->load('canales');
+		$this->lang->load('videos/videos');
 	}
 
 	/**
@@ -68,21 +70,24 @@ class Admin extends Admin_Controller
                     : $this->template->build('admin/index');
 	}
         
-        /**
-         * Detalle del canal seleccionado
+           /**
+         * Lista de videos del canal seleccionado
          * @param int $canal_id
          */
-        public function detalle($canal_id)
+        public function videos($canal_id)
         {
-            $canal = $this->canales_m->get($canal_id);
-
+            $canal = $this->canales_m->get($canal_id);            
+            
+            $lista_videos = $this->videos_m->get_by_canal($canal_id);
+            
             $this->template
                     ->title($this->module_details['name'])
+                    ->set('lista_videos', $lista_videos)
                     ->set('canal', $canal);
             
             $this->input->is_ajax_request()
                     ? $this->template->build('admin/index')
-                    : $this->template->build('admin/detalle');
+                    : $this->template->build('admin/videos');
         }
 
 	/**
