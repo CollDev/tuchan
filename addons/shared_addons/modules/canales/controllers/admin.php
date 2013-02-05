@@ -70,10 +70,10 @@ class Admin extends Admin_Controller
                     : $this->template->build('admin/index');
 	}
         
-           /**
+        /**
          * Lista de videos del canal seleccionado
          * @param int $canal_id
-         */
+        */
         public function videos($canal_id)
         {
             $canal = $this->canales_m->get($canal_id);            
@@ -88,6 +88,42 @@ class Admin extends Admin_Controller
             $this->input->is_ajax_request()
                     ? $this->template->build('admin/index')
                     : $this->template->build('admin/videos');
+        }
+        
+        /**
+         * Vista carga unitaria
+         * @param int
+         */
+        public function carga_unitaria() 
+        {
+            $this->template
+                    ->title($this->module_details['name'])
+                    //->append_js('admin/filter.js')
+                    //->set_partial('filters', 'admin/partials/filters')
+                    //->set('pagination', $pagination)
+                    ->set('carga_unitaria', 'carga_unitaria');
+
+            $this->input->is_ajax_request()
+                    ? $this->template->build('admin/tables/posts')
+                    : $this->template->build('admin/carga_unitaria');
+        }
+     
+        /**
+         * Vista carga masiva
+         * @param int
+         */
+        public function carga_masiva() 
+        {
+            $this->template
+                    ->title($this->module_details['name'])
+                    //->append_js('admin/filter.js')
+                    //->set_partial('filters', 'admin/partials/filters')
+                    //->set('pagination', $pagination)
+                    ->set('carga_masiva', 'carga_masiva');
+
+            $this->input->is_ajax_request()
+                    ? $this->template->build('admin/tables/posts')
+                    : $this->template->build('admin/carga_unitaria');
         }
 
 	/**

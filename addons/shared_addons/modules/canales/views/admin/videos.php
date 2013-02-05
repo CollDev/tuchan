@@ -6,6 +6,14 @@
     </h4>
 </section>
 
+<section>
+    <?php     
+        echo anchor('admin/canales/carga_unitaria', 'Carga unitaria', array('class' => ''));  
+        echo '&nbsp;&nbsp;&nbsp;';
+        echo anchor('admin/canales/carga_masiva', 'Carga masiva', array('class' => ''));
+    ?>
+</section>
+
 <section class="item">
     <?php if ($lista_videos) : ?>
         <?php echo form_open('admin/videos/action'); ?>
@@ -14,8 +22,25 @@
                 <tr>
                     <th width="20"><?php echo form_checkbox(array('name' => 'action_to_all', 'class' => 'check-all')); ?></th>
                     <th><?php echo lang('videos:imagen_label'); ?></th>
-                    <th><?php echo lang('videos:imagen_label'); ?></th>
-                    <th class="collapse"><?php echo lang('videos:descripcion_label'); ?></th>
+                    <th><?php echo lang('videos:titulo_label'); ?></th>
+                    <th><?php echo lang('videos:descripcion_label'); ?></th>
+                    <th><?php echo lang('videos:categoria_label'); ?></th>
+                    <th><?php echo lang('videos:tipo_label'); ?></th>
+                    <th><?php echo lang('videos:programa_label'); ?></th>
+                    <th><?php echo lang('videos:coleccion_label'); ?></th>
+                    <th><?php echo lang('videos:lista_reprod_label'); ?></th>
+                    <th><?php echo lang('videos:fragmento_label'); ?></th>
+                    <th><?php echo lang('videos:fuente_label'); ?></th>
+                    <th><?php echo lang('videos:etiquetas_tematicas_label'); ?></th>
+                    <th><?php echo lang('videos:etiquetas_personajes_label'); ?></th>
+                    <th><?php echo lang('videos:duracion_label'); ?></th>
+                    <th><?php echo lang('videos:fecha_subida_label'); ?></th>
+                    <th><?php echo lang('videos:fecha_publicacion_label'); ?></th>
+                    <th><?php echo lang('videos:fecha_transmision_label'); ?></th>
+                    <th><?php echo lang('videos:horario_transmision_label'); ?></th>
+                    <th><?php echo lang('videos:ubicacion_label'); ?></th>
+                    <th><?php echo lang('videos:tamanio_label'); ?></th>
+                    <th><?php echo lang('global:estado_label'); ?></th>
                     <th class="collapse"><?php echo lang('videos:estado_label'); ?></th>
                     <th width="180"></th>
                 </tr>

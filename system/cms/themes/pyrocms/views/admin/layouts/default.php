@@ -35,10 +35,139 @@
 
 	<!-- metadata needs to load before some stuff -->
 	<?php file_partial('metadata'); ?>
+       <!--BEGIN FRONTEND CODE-->
+<!--	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>-->
+	<script type="text/javascript" src="jquery.dragsort-0.5.1.js"></script>
+<!--<script src="http://code.jquery.com/jquery-latest.min.js"></script>-->
+	<!--<script src="../ckeditor.js"></script><style>.cke{visibility:hidden;}</style>-->
+    
+<!--<script type="text/javascript" src="file:///D:/micanal_demo/BACK-END/ckeditor_4.0.1_basic/ckeditor/config.js?t=D08E"></script><link rel="stylesheet" type="text/css" href="file:///D:/micanal_demo/BACK-END/ckeditor_4.0.1_basic/ckeditor/skins/moono/editor.css?t=D08E"><script type="text/javascript" src="file:///D:/micanal_demo/BACK-END/ckeditor_4.0.1_basic/ckeditor/lang/es.js?t=D08E"></script>-->
+		<link rel="stylesheet" media="all" type="text/css" href="http://code.jquery.com/ui/1.10.0/themes/smoothness/jquery-ui.css" />
+<!--		<link rel="stylesheet" media="all" type="text/css" href="jquery-ui-timepicker-addon.css" />-->
+		<link rel="stylesheet" type="text/css" href="../../../css/jquery-ui-timepicker-addon.css">
+		
+		<script type="text/javascript" src="http://code.jquery.com/ui/1.10.0/jquery-ui.min.js"></script>
+<!--		<script type="text/javascript" src="jquery-ui-timepicker-addon.js"></script>
+		<script type="text/javascript" src="jquery-ui-sliderAccess.js"></script>-->
+		<script src="../../../js/jquery-ui-sliderAccess.js"></script>
+		<script src="../../../js/jquery-ui-timepicker-addon.js"></script>
+		<script type="text/javascript">
+			
+			$(function(){
+				$('#tabs').tabs();
+				$('.example-container > pre').each(function(i){
+					eval($(this).text());
+				});
+			});
+			
+		</script>
+
+		<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<!--		<script type="text/javascript" src="../../../js/google_dynamic_map.js"></script>-->
+<script type="text/javascript" >
+$(document).ready(function() {
+	
+$(".plus_item").each(function() {
+  		$(this).click(function(event){
+			 
+			 
+			 
+			  event.preventDefault();/* alert();*/
+			 
+			 
+			 				$(this).parent().find($(".h_text")).fadeIn("slow", function(){
+							
+							});	
+			 
+			 
+		});
+});
+			
+
+});
+
+
+
+
+
+
+// my functions map
+function initialize() 
+{
+
+	geocoder = new google.maps.Geocoder();
+	// Set static latitude, longitude value
+	var latlng = new google.maps.LatLng(37.7699298, -122.4469157);
+	// Set map options
+	var myOptions = {
+		zoom: 16,
+		center: latlng,
+		panControl: true,
+		zoomControl: true,
+		scaleControl: true,
+		mapTypeId: google.maps.MapTypeId.ROADMAP
+	}
+
+	map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+	// Create and set the marker
+	marker = new google.maps.Marker({
+		map: map,
+		draggable:true,	
+		position: latlng
+	});
+	
+
+	google.maps.event.addListener(marker, 'dragend', function() {
+		
+
+		var point = marker.getPosition();
+		map.panTo(point);
+		document.getElementById('txt_latlng').value=point.lat()+", "+point.lng();
+	});
+}
+
+
+
+
+
+
+
+</script>
+
+<style>
+.frm_content{ font-family:Arial, Helvetica, sans-serif;}
+.left_arm{
+	width:46%;
+	float:left;
+	padding:2%;
+}
+.right_arm{
+	width:46%;
+	float:left;
+	padding:2%;
+}
+
+label{
+	width:100%;
+	display:block;
+	
+	}
+	
+.h_text{ display:none;}	
+.plus_item{}
+.main_opt{ width:100%;}
+</style>
+
 
 </head>
 
-<body>
+
+
+
+
+</head>
+
+<body onLoad="initialize();">
 
                    <div class="bajada2">
                                     <span class="boxgrid captionfull">	
@@ -54,21 +183,21 @@
                                                           <span class="view_mc">BUSQUEDA</span>                          	  
                                                           <div class="frm-input">
                                                                 <div class="input-wrapper">
-                                                                    <input id="q" name="q" type="text" autocomplete="off" class="ui-autocomplete-input" role="textbox" aria-autocomplete="list" aria-haspopup="true" placeholder="Titulo">   
+                                                                    <input id="q" name="q" type="text" placeholder="Titulo">   
                                                                 </div>
                                                                 <br />
                                                                 <br />
                                                                 <div class="input-wrapper">
-                                                                    <input id="q" name="q" type="text" autocomplete="off" class="ui-autocomplete-input" role="textbox" aria-autocomplete="list" aria-haspopup="true" placeholder="Categoria">
+                                                                    <input id="q" name="q" type="text" placeholder="Categoria">
                                                                 </div>
                                                                 <br />
                                                                 <br />
                                                                 <div class="input-wrapper">
-                                                                    <input id="q" name="q" type="text" autocomplete="off" class="ui-autocomplete-input" role="textbox" aria-autocomplete="list" aria-haspopup="true" placeholder="Tipo">
+                                                                    <input id="q" name="q" type="text"  placeholder="Tipo">
                                                                 </div>
                                                                 <br />
                                                                 <br />
-                                                                <a href="#" id="s" name="s">
+                                                                <a href="#" id="s" name="s" class="btn blue">
                                                                     <span class="st">Buscar</span>
                                                                 
                                                                 </a>
@@ -156,19 +285,10 @@
 
 </script>
               
-              
-               <!--END CODE FRONTEND-->
-
-
-
-
-
-
-
-
+  <!--END CODE FRONTEND-->              
 
 	<div id="container">
-       <!--BEGIN FRONTEND CODE-->
+
                
                
                
