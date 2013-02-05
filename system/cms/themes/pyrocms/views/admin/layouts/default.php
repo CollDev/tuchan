@@ -69,17 +69,10 @@ $(document).ready(function() {
 	
 $(".plus_item").each(function() {
   		$(this).click(function(event){
-			 
-			 
-			 
 			  event.preventDefault();/* alert();*/
-			 
-			 
 			 				$(this).parent().find($(".h_text")).fadeIn("slow", function(){
-							
 							});	
-			 
-			 
+
 		});
 });
 			
@@ -223,18 +216,9 @@ label{
 							$('.linker').addClass("hide");
 							
 							$(".search-box").fadeIn("slow", function(){
-								
-								
 										$(".plus_view").fadeIn("slow", function(){
-										
 										});
-								
-								
-								
-								
 								});
-							
-							
 						});
 						
 						$('.linker2').live("click",function(event){
@@ -243,20 +227,12 @@ label{
 							
 							});							
 							$(".search-box").fadeOut("slow", function(){
-								
-
-								
 										$(".cover").stop().animate({width: "2%"},130);
 										$(".bajada2").stop().animate({width: "2%"},130);
 										$('.linker').removeClass("hide");
 										$('.linker2').addClass("hide");								
 
 								});
-							
-
-							
-							
-							
 						});
 						
 						
@@ -272,11 +248,6 @@ label{
 							
 							
 						});
-						
-
-						
-
-
 				});
 				
 				
@@ -289,10 +260,6 @@ label{
 
 	<div id="container">
 
-               
-               
-               
- 
 		<section id="content">
 
 			<?php file_partial('header'); ?>
@@ -311,7 +278,11 @@ label{
 
 	<footer>
 		<div class="wrapper">
-			<p>Copyright &copy; 2009 - <?php echo date('Y'); ?> PyroCMS &nbsp; -- &nbsp; Version <?php echo CMS_VERSION.' '.CMS_EDITION; ?> &nbsp; -- &nbsp; Rendered in {elapsed_time} sec. using {memory_usage}.</p>
+<!--			<p>Copyright &copy; 2009 - <?php //echo date('Y'); ?> PyroCMS &nbsp; -- &nbsp; Version <?php //echo CMS_VERSION.' '.CMS_EDITION; ?> &nbsp; -- &nbsp; Rendered in {elapsed_time} sec. using {memory_usage}.</p>-->
+            
+			<p>Copyright &copy; <?php echo date('Y'); ?>  &nbsp; El Comercio  -- &nbsp; <img src="../../../img/backend_code/logo_elcomercio.png" width="273" height="32">
+		    <!--Version--> <?php /*echo CMS_VERSION.' '.CMS_EDITION;*/ ?> &nbsp;  &nbsp;<!-- Rendered in {elapsed_time} sec. using {memory_usage}.--></p>
+            
 
 			<ul id="lang">
 				<form action="<?php echo current_url(); ?>" id="change_language" method="get">
@@ -332,8 +303,5 @@ label{
 	<script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
 	<script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
 	<![endif]-->
-    
-
-
 </body>
 </html>
