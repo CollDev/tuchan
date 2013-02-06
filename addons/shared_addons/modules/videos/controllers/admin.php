@@ -10,7 +10,7 @@ class Admin extends Admin_Controller
      
      function index() 
      {  
-         
+         echo 'index: ';
      }  
      
      function carga_unitaria() 
