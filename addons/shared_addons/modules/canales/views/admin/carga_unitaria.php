@@ -24,8 +24,11 @@
 <label>Etiquetas Tematicas</label>
 <input name="" type="text" />
 <label>Etiquetas Personajes</label>
-
 <input name="" type="text" />
+<label>Tipo</label>
+<select name="">
+	<option>item 01</option>
+</select>
 </div>
 <div class="right_arm">
 <label>Programa</label>
