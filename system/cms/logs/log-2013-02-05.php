@@ -210,3 +210,14 @@ ERROR - 2013-02-05 22:33:26 --> Severity: Notice  --> Undefined index: canal_usu
 ERROR - 2013-02-05 22:33:27 --> Page Missing: jquery.dragsort-0.5.1.js
 ERROR - 2013-02-05 22:35:36 --> Severity: Notice  --> Undefined index: canal_usuario C:\xampp\htdocs\adminmicanal\system\cms\themes\pyrocms\views\admin\partials\navigation.php 86
 ERROR - 2013-02-05 22:35:37 --> Page Missing: jquery.dragsort-0.5.1.js
+ERROR - 2013-02-05 22:36:30 --> Severity: Notice  --> Undefined index: canal_usuario C:\xampp\htdocs\adminmicanal\system\cms\themes\pyrocms\views\admin\partials\navigation.php 86
+ERROR - 2013-02-05 22:36:31 --> Page Missing: jquery.dragsort-0.5.1.js
+ERROR - 2013-02-05 22:38:25 --> Severity: Notice  --> Undefined index: canal_usuario C:\xampp\htdocs\adminmicanal\system\cms\themes\pyrocms\views\admin\partials\navigation.php 86
+ERROR - 2013-02-05 22:38:26 --> Page Missing: jquery.dragsort-0.5.1.js
+ERROR - 2013-02-05 22:44:42 --> Severity: Notice  --> Undefined index: canal_usuario C:\xampp\htdocs\adminmicanal\system\cms\themes\pyrocms\views\admin\partials\navigation.php 86
+ERROR - 2013-02-05 22:44:44 --> Page Missing: jquery.dragsort-0.5.1.js
+ERROR - 2013-02-05 23:02:44 --> Severity: Notice  --> Undefined index: canal_usuario C:\xampp\htdocs\adminmicanal\system\cms\themes\pyrocms\views\admin\partials\navigation.php 86
+ERROR - 2013-02-05 23:02:46 --> Page Missing: jquery.dragsort-0.5.1.js
+ERROR - 2013-02-05 23:04:59 --> Severity: Notice  --> Undefined index: canal_usuario C:\xampp\htdocs\adminmicanal\system\cms\themes\pyrocms\views\admin\partials\navigation.php 86
+ERROR - 2013-02-05 23:05:01 --> Page Missing: jquery.dragsort-0.5.1.js
+ERROR - 2013-02-05 23:43:43 --> Page Missing: jquery.dragsort-0.5.1.js

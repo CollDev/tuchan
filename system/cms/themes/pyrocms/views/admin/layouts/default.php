@@ -280,7 +280,7 @@ label{
 		<div class="wrapper">
 <!--			<p>Copyright &copy; 2009 - <?php //echo date('Y'); ?> PyroCMS &nbsp; -- &nbsp; Version <?php //echo CMS_VERSION.' '.CMS_EDITION; ?> &nbsp; -- &nbsp; Rendered in {elapsed_time} sec. using {memory_usage}.</p>-->
             
-			<p>Copyright &copy; <?php echo date('Y'); ?>  &nbsp; El Comercio  -- &nbsp; <img src="../../../img/backend_code/logo_elcomercio.png" width="273" height="32">
+			<p>Copyright &copy; <?php echo date('Y'); ?>  &nbsp; El Comercio  -- &nbsp; <span></span>
 		    <!--Version--> <?php /*echo CMS_VERSION.' '.CMS_EDITION;*/ ?> &nbsp;  &nbsp;<!-- Rendered in {elapsed_time} sec. using {memory_usage}.--></p>
             
 
