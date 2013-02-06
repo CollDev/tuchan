@@ -37,20 +37,37 @@
 	<?php file_partial('metadata'); ?>
        <!--BEGIN FRONTEND CODE-->
 <!--	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>-->
-	<script type="text/javascript" src="jquery.dragsort-0.5.1.js"></script>
+<!--	<script type="text/javascript" src="jquery.dragsort-0.5.1.js"></script>-->
 <!--<script src="http://code.jquery.com/jquery-latest.min.js"></script>-->
 	<!--<script src="../ckeditor.js"></script><style>.cke{visibility:hidden;}</style>-->
     
 <!--<script type="text/javascript" src="file:///D:/micanal_demo/BACK-END/ckeditor_4.0.1_basic/ckeditor/config.js?t=D08E"></script><link rel="stylesheet" type="text/css" href="file:///D:/micanal_demo/BACK-END/ckeditor_4.0.1_basic/ckeditor/skins/moono/editor.css?t=D08E"><script type="text/javascript" src="file:///D:/micanal_demo/BACK-END/ckeditor_4.0.1_basic/ckeditor/lang/es.js?t=D08E"></script>-->
 		<link rel="stylesheet" media="all" type="text/css" href="http://code.jquery.com/ui/1.10.0/themes/smoothness/jquery-ui.css" />
 <!--		<link rel="stylesheet" media="all" type="text/css" href="jquery-ui-timepicker-addon.css" />-->
-		<link rel="stylesheet" type="text/css" href="../../../css/jquery-ui-timepicker-addon.css">
+<!--		<link rel="stylesheet" type="text/css" href="../../../css/jquery-ui-timepicker-addon.css">-->
 		
-		<script type="text/javascript" src="http://code.jquery.com/ui/1.10.0/jquery-ui.min.js"></script>
+<!--		<script type="text/javascript" src="http://code.jquery.com/ui/1.10.0/jquery-ui.min.js"></script>-->
 <!--		<script type="text/javascript" src="jquery-ui-timepicker-addon.js"></script>
 		<script type="text/javascript" src="jquery-ui-sliderAccess.js"></script>-->
-		<script src="../../../js/jquery-ui-sliderAccess.js"></script>
-		<script src="../../../js/jquery-ui-timepicker-addon.js"></script>
+<!--		<script src="../../../js/jquery-ui-sliderAccess.js"></script>
+		<script src="../../../js/jquery-ui-timepicker-addon.js"></script>-->
+        
+<style>
+
+.ui-timepicker-div .ui-widget-header{ margin-bottom: 8px; }
+.ui-timepicker-div dl{ text-align: left; }
+.ui-timepicker-div dl dt{ height: 25px; }
+.ui-timepicker-div dl dd{ margin: -25px 0 10px 65px; }
+.ui-timepicker-div td { font-size: 90%; }
+</style>
+        
+        
+        
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.16/jquery-ui.min.js"></script>
+<link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.16/themes/hot-sneaks/jquery-ui.css" />
+    
+<script src="../../../js/jquery-ui-timepicker-addon.js"></script>       
 		<script type="text/javascript">
 			
 			$(function(){
@@ -62,11 +79,11 @@
 			
 		</script>
 
-		<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<!--		<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>-->
 <!--		<script type="text/javascript" src="../../../js/google_dynamic_map.js"></script>-->
 <script type="text/javascript" >
 $(document).ready(function() {
-	
+
 $(".plus_item").each(function() {
   		$(this).click(function(event){
 			  event.preventDefault();/* alert();*/
@@ -77,6 +94,9 @@ $(".plus_item").each(function() {
 });
 			
 
+
+
+
 });
 
 
@@ -84,14 +104,15 @@ $(".plus_item").each(function() {
 
 
 
+
+
 // my functions map
-function initialize() 
+/*function initialize() 
 {
 
 	geocoder = new google.maps.Geocoder();
-	// Set static latitude, longitude value
 	var latlng = new google.maps.LatLng(37.7699298, -122.4469157);
-	// Set map options
+
 	var myOptions = {
 		zoom: 16,
 		center: latlng,
@@ -102,7 +123,6 @@ function initialize()
 	}
 
 	map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
-	// Create and set the marker
 	marker = new google.maps.Marker({
 		map: map,
 		draggable:true,	
@@ -118,7 +138,7 @@ function initialize()
 		document.getElementById('txt_latlng').value=point.lat()+", "+point.lng();
 	});
 }
-
+*/
 
 
 
@@ -160,7 +180,7 @@ label{
 
 </head>
 
-<body onLoad="initialize();">
+<body>
 
                    <div class="bajada2">
                                     <span class="boxgrid captionfull">	
