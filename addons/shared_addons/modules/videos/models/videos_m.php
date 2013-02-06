@@ -173,7 +173,8 @@ class Videos_m extends MY_Model
 //	}
     
     /**
-     * Publica video, cambia el estado a 2
+     * Publica video, cambia el estado a 2 y 
+     * actualiza la fecha de publicacion
      * @param int $id
      * @return boolean
      */
