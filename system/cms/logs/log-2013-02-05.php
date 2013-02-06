@@ -1,110 +1,212 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed'); ?>
 
-ERROR - 2013-02-05 14:37:28 --> Page Missing: admin/canales/videos/1
-ERROR - 2013-02-05 14:37:33 --> Severity: Notice  --> Undefined property: stdClass::$status /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/index.php 33
-ERROR - 2013-02-05 14:37:33 --> Severity: Notice  --> Undefined property: stdClass::$status /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/index.php 36
-ERROR - 2013-02-05 14:38:23 --> Severity: Notice  --> Undefined property: stdClass::$status /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/index.php 33
-ERROR - 2013-02-05 14:38:23 --> Severity: Notice  --> Undefined property: stdClass::$status /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/index.php 36
-ERROR - 2013-02-05 14:38:28 --> Severity: Notice  --> Undefined property: stdClass::$status /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/index.php 33
-ERROR - 2013-02-05 14:38:28 --> Severity: Notice  --> Undefined property: stdClass::$status /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/index.php 36
-ERROR - 2013-02-05 15:13:00 --> Severity: Notice  --> Undefined property: stdClass::$fuente /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 56
-ERROR - 2013-02-05 15:16:34 --> Severity: Notice  --> Undefined property: stdClass::$imagen_1 /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 52
-ERROR - 2013-02-05 15:17:26 --> Severity: Notice  --> Undefined property: stdClass::$imagen_1 /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 51
-ERROR - 2013-02-05 15:18:20 --> Severity: Notice  --> Undefined property: stdClass::$imagen_1 /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 51
-ERROR - 2013-02-05 15:18:50 --> Severity: Notice  --> Undefined property: stdClass::$imagen_1 /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 51
-ERROR - 2013-02-05 16:02:09 --> Query error: Not unique table/alias: 'c'
-ERROR - 2013-02-05 16:03:29 --> Query error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'c.fuente = v.canales_id
-JOIN `default_cms_categorias` cat ON `cat`.`id` = `v`.`c' at line 3
-ERROR - 2013-02-05 16:03:32 --> Query error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'c.fuente = v.canales_id
-JOIN `default_cms_categorias` cat ON `cat`.`id` = `v`.`c' at line 3
-ERROR - 2013-02-05 16:03:33 --> Query error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'c.fuente = v.canales_id
-JOIN `default_cms_categorias` cat ON `cat`.`id` = `v`.`c' at line 3
-ERROR - 2013-02-05 16:03:33 --> Query error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'c.fuente = v.canales_id
-JOIN `default_cms_categorias` cat ON `cat`.`id` = `v`.`c' at line 3
-ERROR - 2013-02-05 16:03:33 --> Query error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'c.fuente = v.canales_id
-JOIN `default_cms_categorias` cat ON `cat`.`id` = `v`.`c' at line 3
-ERROR - 2013-02-05 16:03:34 --> Query error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'c.fuente = v.canales_id
-JOIN `default_cms_categorias` cat ON `cat`.`id` = `v`.`c' at line 3
-ERROR - 2013-02-05 16:03:34 --> Query error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'c.fuente = v.canales_id
-JOIN `default_cms_categorias` cat ON `cat`.`id` = `v`.`c' at line 3
-ERROR - 2013-02-05 16:03:35 --> Query error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'c.fuente = v.canales_id
-JOIN `default_cms_categorias` cat ON `cat`.`id` = `v`.`c' at line 3
-ERROR - 2013-02-05 16:13:14 --> Severity: Notice  --> Undefined property: CI_DB_mysql_driver::$last_query /var/www/admin3.micanal.dev/addons/shared_addons/modules/videos/models/videos_m.php 83
-ERROR - 2013-02-05 16:32:10 --> Query error: Table 'pyro_admin.default_cms_video_tags' doesn't exist
-ERROR - 2013-02-05 16:39:22 --> Query error: Column 'fuente' in field list is ambiguous
-ERROR - 2013-02-05 16:39:34 --> Severity: Notice  --> Undefined property: stdClass::$id /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 49
-ERROR - 2013-02-05 16:39:34 --> Severity: Notice  --> Undefined property: stdClass::$fecha_publicacion /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 58
-ERROR - 2013-02-05 16:39:34 --> Severity: Notice  --> Undefined property: stdClass::$fecha_transmision /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 59
-ERROR - 2013-02-05 16:39:34 --> Severity: Notice  --> Undefined property: stdClass::$horario_transmision /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 60
-ERROR - 2013-02-05 16:39:34 --> Severity: Notice  --> Undefined property: stdClass::$estado /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 63
-ERROR - 2013-02-05 16:39:34 --> Severity: Notice  --> Undefined variable: estado /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 77
-ERROR - 2013-02-05 16:39:34 --> Severity: Notice  --> Undefined property: stdClass::$estado /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 81
-ERROR - 2013-02-05 16:39:34 --> Severity: Notice  --> Undefined property: stdClass::$id /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 86
-ERROR - 2013-02-05 16:39:34 --> Severity: Notice  --> Undefined property: stdClass::$id /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 87
-ERROR - 2013-02-05 16:39:34 --> Severity: Notice  --> Undefined property: stdClass::$id /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 49
-ERROR - 2013-02-05 16:39:34 --> Severity: Notice  --> Undefined property: stdClass::$fecha_publicacion /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 58
-ERROR - 2013-02-05 16:39:34 --> Severity: Notice  --> Undefined property: stdClass::$fecha_transmision /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 59
-ERROR - 2013-02-05 16:39:34 --> Severity: Notice  --> Undefined property: stdClass::$horario_transmision /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 60
-ERROR - 2013-02-05 16:39:34 --> Severity: Notice  --> Undefined property: stdClass::$estado /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 63
-ERROR - 2013-02-05 16:39:34 --> Severity: Notice  --> Undefined variable: estado /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 77
-ERROR - 2013-02-05 16:39:34 --> Severity: Notice  --> Undefined property: stdClass::$estado /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 81
-ERROR - 2013-02-05 16:39:34 --> Severity: Notice  --> Undefined property: stdClass::$id /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 86
-ERROR - 2013-02-05 16:39:34 --> Severity: Notice  --> Undefined property: stdClass::$id /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 87
-ERROR - 2013-02-05 16:40:40 --> Severity: Notice  --> Undefined property: stdClass::$id /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 49
-ERROR - 2013-02-05 16:40:40 --> Severity: Notice  --> Undefined property: stdClass::$estado /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 63
-ERROR - 2013-02-05 16:40:40 --> Severity: Notice  --> Undefined variable: estado /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 77
-ERROR - 2013-02-05 16:40:40 --> Severity: Notice  --> Undefined property: stdClass::$estado /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 81
-ERROR - 2013-02-05 16:40:40 --> Severity: Notice  --> Undefined property: stdClass::$id /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 86
-ERROR - 2013-02-05 16:40:40 --> Severity: Notice  --> Undefined property: stdClass::$id /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 87
-ERROR - 2013-02-05 16:40:40 --> Severity: Notice  --> Undefined property: stdClass::$id /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 49
-ERROR - 2013-02-05 16:40:40 --> Severity: Notice  --> Undefined property: stdClass::$estado /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 63
-ERROR - 2013-02-05 16:40:40 --> Severity: Notice  --> Undefined variable: estado /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 77
-ERROR - 2013-02-05 16:40:40 --> Severity: Notice  --> Undefined property: stdClass::$estado /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 81
-ERROR - 2013-02-05 16:40:40 --> Severity: Notice  --> Undefined property: stdClass::$id /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 86
-ERROR - 2013-02-05 16:40:40 --> Severity: Notice  --> Undefined property: stdClass::$id /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 87
-ERROR - 2013-02-05 16:40:43 --> Severity: Notice  --> Undefined property: stdClass::$id /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 49
-ERROR - 2013-02-05 16:40:43 --> Severity: Notice  --> Undefined property: stdClass::$estado /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 63
-ERROR - 2013-02-05 16:40:43 --> Severity: Notice  --> Undefined variable: estado /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 77
-ERROR - 2013-02-05 16:40:43 --> Severity: Notice  --> Undefined property: stdClass::$estado /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 81
-ERROR - 2013-02-05 16:40:43 --> Severity: Notice  --> Undefined property: stdClass::$id /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 86
-ERROR - 2013-02-05 16:40:43 --> Severity: Notice  --> Undefined property: stdClass::$id /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 87
-ERROR - 2013-02-05 16:40:43 --> Severity: Notice  --> Undefined property: stdClass::$id /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 49
-ERROR - 2013-02-05 16:40:43 --> Severity: Notice  --> Undefined property: stdClass::$estado /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 63
-ERROR - 2013-02-05 16:40:43 --> Severity: Notice  --> Undefined variable: estado /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 77
-ERROR - 2013-02-05 16:40:43 --> Severity: Notice  --> Undefined property: stdClass::$estado /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 81
-ERROR - 2013-02-05 16:40:43 --> Severity: Notice  --> Undefined property: stdClass::$id /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 86
-ERROR - 2013-02-05 16:40:43 --> Severity: Notice  --> Undefined property: stdClass::$id /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 87
-ERROR - 2013-02-05 16:41:34 --> Query error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.nombre as canal, `c`.`nombre` as fuente, `cat`.`nombre` as categoria, `tv`.`nom' at line 2
-ERROR - 2013-02-05 16:41:57 --> Severity: Notice  --> Undefined property: stdClass::$id /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 49
-ERROR - 2013-02-05 16:41:57 --> Severity: Notice  --> Undefined property: stdClass::$id /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 86
-ERROR - 2013-02-05 16:41:57 --> Severity: Notice  --> Undefined property: stdClass::$id /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 87
-ERROR - 2013-02-05 16:41:57 --> Severity: Notice  --> Undefined property: stdClass::$id /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 49
-ERROR - 2013-02-05 16:41:57 --> Severity: Notice  --> Undefined property: stdClass::$id /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 86
-ERROR - 2013-02-05 16:41:57 --> Severity: Notice  --> Undefined property: stdClass::$id /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 87
-ERROR - 2013-02-05 16:57:02 --> Severity: Warning  --> Missing argument 2 for CI_DB_active_record::join(), called in /var/www/admin3.micanal.dev/addons/shared_addons/modules/videos/models/videos_m.php on line 86 and defined /var/www/admin3.micanal.dev/system/codeigniter/database/DB_active_rec.php 324
-ERROR - 2013-02-05 16:57:02 --> Severity: Notice  --> Undefined variable: cond /var/www/admin3.micanal.dev/system/codeigniter/database/DB_active_rec.php 345
-ERROR - 2013-02-05 16:57:02 --> Severity: Notice  --> Undefined variable: cond /var/www/admin3.micanal.dev/system/codeigniter/database/DB_active_rec.php 351
-ERROR - 2013-02-05 16:57:02 --> Query error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.tipo_tags_id ON 
-WHERE `canales_id` =  '1'' at line 8
-ERROR - 2013-02-05 17:54:32 --> Severity: Warning  --> explode() expects parameter 2 to be string, array given /var/www/admin3.micanal.dev/addons/shared_addons/modules/videos/models/videos_m.php 125
-ERROR - 2013-02-05 18:22:34 --> Query error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'as tematico, ((SELECT group_concat(t.nombre)
- FROM (`default_cms_videos` v) 
- JO' at line 6
-ERROR - 2013-02-05 19:57:09 --> Severity: Notice  --> Undefined property: stdClass::$tipo_tag /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 56
-ERROR - 2013-02-05 19:57:09 --> Severity: Notice  --> Undefined property: stdClass::$tipo_tag /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 58
-ERROR - 2013-02-05 20:13:25 --> Severity: Notice  --> Undefined index: canal_usuario /var/www/admin3.micanal.dev/system/cms/themes/pyrocms/views/admin/partials/navigation.php 86
-ERROR - 2013-02-05 22:04:56 --> Query error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELECT group_concat(t.nombre)
-                        FROM (`default_cms_videos`' at line 4
-ERROR - 2013-02-05 22:05:28 --> Query error: Table 'pyro_admin.defaul_cms_imagenes' doesn't exist
-ERROR - 2013-02-05 22:30:28 --> Unable to load the requested class: imagenes
-ERROR - 2013-02-05 22:31:03 --> Unable to load the requested class: imagenes
-ERROR - 2013-02-05 22:31:04 --> Unable to load the requested class: imagenes
-ERROR - 2013-02-05 22:31:04 --> Unable to load the requested class: imagenes
-ERROR - 2013-02-05 22:31:04 --> Unable to load the requested class: imagenes
-ERROR - 2013-02-05 22:31:35 --> Unable to load the requested class: imagenes
-ERROR - 2013-02-05 22:31:48 --> Unable to load the requested class: imagenes
-ERROR - 2013-02-05 22:47:49 --> Severity: Notice  --> Undefined property: MX_Config::$load /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/controllers/admin.php 79
-ERROR - 2013-02-05 22:55:32 --> Severity: Notice  --> Undefined property: MX_Config::$load /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/controllers/admin.php 79
-ERROR - 2013-02-05 22:57:28 --> Page Missing: uploads/default/imagenes
-ERROR - 2013-02-05 22:57:29 --> Page Missing: uploads/default/imagenes
-ERROR - 2013-02-05 22:57:43 --> Page Missing: uploads/default/imagenes
+ERROR - 2013-02-05 00:01:50 --> Severity: Notice  --> Undefined property: stdClass::$nombre C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 59
+ERROR - 2013-02-05 00:01:50 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 61
+ERROR - 2013-02-05 00:01:50 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 64
+ERROR - 2013-02-05 00:02:15 --> Severity: Notice  --> Undefined property: stdClass::$nombre C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 59
+ERROR - 2013-02-05 00:02:15 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 61
+ERROR - 2013-02-05 00:02:15 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 64
+ERROR - 2013-02-05 00:53:31 --> Page Missing: jquery-ui-timepicker-addon.css
+ERROR - 2013-02-05 00:53:32 --> Page Missing: jquery-ui-timepicker-addon.js
+ERROR - 2013-02-05 00:53:32 --> Page Missing: jquery-ui-sliderAccess.js
+ERROR - 2013-02-05 00:54:29 --> Page Missing: jquery-ui-timepicker-addon.js
+ERROR - 2013-02-05 00:54:29 --> Page Missing: jquery-ui-timepicker-addon.css
+ERROR - 2013-02-05 00:54:30 --> Page Missing: jquery-ui-sliderAccess.js
+ERROR - 2013-02-05 00:55:24 --> Severity: Notice  --> Undefined property: stdClass::$nombre C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 59
+ERROR - 2013-02-05 00:55:24 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 61
+ERROR - 2013-02-05 00:55:24 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 64
+ERROR - 2013-02-05 00:55:25 --> Page Missing: jquery-ui-sliderAccess.js
+ERROR - 2013-02-05 00:55:25 --> Page Missing: jquery-ui-timepicker-addon.css
+ERROR - 2013-02-05 00:55:26 --> Page Missing: jquery-ui-timepicker-addon.js
+ERROR - 2013-02-05 00:55:30 --> Page Missing: jquery-ui-timepicker-addon.css
+ERROR - 2013-02-05 00:55:30 --> Page Missing: jquery-ui-timepicker-addon.js
+ERROR - 2013-02-05 00:55:30 --> Page Missing: jquery-ui-sliderAccess.js
+ERROR - 2013-02-05 00:57:47 --> Page Missing: jquery-ui-timepicker-addon.js
+ERROR - 2013-02-05 00:57:48 --> Page Missing: jquery-ui-timepicker-addon.css
+ERROR - 2013-02-05 00:57:48 --> Page Missing: jquery-ui-sliderAccess.js
+ERROR - 2013-02-05 00:57:49 --> Page Missing: jquery-ui-timepicker-addon.js
+ERROR - 2013-02-05 00:57:50 --> Page Missing: jquery-ui-sliderAccess.js
+ERROR - 2013-02-05 16:07:52 --> Severity: Notice  --> Undefined property: stdClass::$nombre C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 59
+ERROR - 2013-02-05 16:07:52 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 61
+ERROR - 2013-02-05 16:07:52 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 64
+ERROR - 2013-02-05 16:08:00 --> Severity: Notice  --> Undefined property: stdClass::$nombre C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 59
+ERROR - 2013-02-05 16:08:00 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 61
+ERROR - 2013-02-05 16:08:00 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 64
+ERROR - 2013-02-05 16:08:03 --> Severity: Notice  --> Undefined property: stdClass::$nombre C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 59
+ERROR - 2013-02-05 16:08:03 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 61
+ERROR - 2013-02-05 16:08:03 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 64
+ERROR - 2013-02-05 16:09:17 --> Severity: Notice  --> Undefined property: stdClass::$nombre C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 59
+ERROR - 2013-02-05 16:09:17 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 61
+ERROR - 2013-02-05 16:09:17 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 64
+ERROR - 2013-02-05 16:38:13 --> Severity: Notice  --> Undefined property: stdClass::$nombre C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 59
+ERROR - 2013-02-05 16:38:13 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 61
+ERROR - 2013-02-05 16:38:13 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 64
+ERROR - 2013-02-05 17:54:11 --> Severity: Notice  --> Undefined property: stdClass::$nombre C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 59
+ERROR - 2013-02-05 17:54:11 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 61
+ERROR - 2013-02-05 17:54:11 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 64
+ERROR - 2013-02-05 17:54:16 --> Severity: Notice  --> Undefined property: stdClass::$nombre C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 59
+ERROR - 2013-02-05 17:54:16 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 61
+ERROR - 2013-02-05 17:54:16 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 64
+ERROR - 2013-02-05 17:55:08 --> Severity: Notice  --> Undefined property: stdClass::$nombre C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 59
+ERROR - 2013-02-05 17:55:08 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 61
+ERROR - 2013-02-05 17:55:08 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 64
+ERROR - 2013-02-05 17:58:02 --> Severity: Notice  --> Undefined property: stdClass::$nombre C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 59
+ERROR - 2013-02-05 17:58:02 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 61
+ERROR - 2013-02-05 17:58:02 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 64
+ERROR - 2013-02-05 18:11:15 --> Severity: Notice  --> Undefined property: stdClass::$nombre C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 59
+ERROR - 2013-02-05 18:11:15 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 61
+ERROR - 2013-02-05 18:11:15 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 64
+ERROR - 2013-02-05 18:31:40 --> Severity: Notice  --> Undefined property: stdClass::$nombre C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 59
+ERROR - 2013-02-05 18:31:40 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 61
+ERROR - 2013-02-05 18:31:40 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 64
+ERROR - 2013-02-05 18:31:41 --> Page Missing: jquery.dragsort-0.5.1.js
+ERROR - 2013-02-05 18:32:50 --> Severity: Notice  --> Undefined property: stdClass::$nombre C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 59
+ERROR - 2013-02-05 18:32:50 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 61
+ERROR - 2013-02-05 18:32:50 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 64
+ERROR - 2013-02-05 18:32:51 --> Page Missing: jquery.dragsort-0.5.1.js
+ERROR - 2013-02-05 18:46:50 --> Severity: Notice  --> Undefined property: stdClass::$nombre C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 59
+ERROR - 2013-02-05 18:46:50 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 61
+ERROR - 2013-02-05 18:46:50 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 64
+ERROR - 2013-02-05 18:46:51 --> Page Missing: jquery.dragsort-0.5.1.js
+ERROR - 2013-02-05 18:47:06 --> Severity: Notice  --> Undefined property: stdClass::$nombre C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 59
+ERROR - 2013-02-05 18:47:06 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 61
+ERROR - 2013-02-05 18:47:06 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 64
+ERROR - 2013-02-05 18:47:07 --> Page Missing: jquery.dragsort-0.5.1.js
+ERROR - 2013-02-05 18:51:58 --> Severity: Notice  --> Undefined property: stdClass::$nombre C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 59
+ERROR - 2013-02-05 18:51:58 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 61
+ERROR - 2013-02-05 18:51:58 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 64
+ERROR - 2013-02-05 18:52:00 --> Page Missing: jquery.dragsort-0.5.1.js
+ERROR - 2013-02-05 18:53:19 --> Severity: Notice  --> Undefined property: stdClass::$nombre C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 59
+ERROR - 2013-02-05 18:53:19 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 61
+ERROR - 2013-02-05 18:53:19 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 64
+ERROR - 2013-02-05 18:53:21 --> Page Missing: jquery.dragsort-0.5.1.js
+ERROR - 2013-02-05 18:53:53 --> Severity: Notice  --> Undefined property: stdClass::$nombre C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 59
+ERROR - 2013-02-05 18:53:53 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 61
+ERROR - 2013-02-05 18:53:53 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 64
+ERROR - 2013-02-05 18:53:55 --> Page Missing: jquery.dragsort-0.5.1.js
+ERROR - 2013-02-05 18:55:18 --> Page Missing: jquery.dragsort-0.5.1.js
+ERROR - 2013-02-05 19:00:51 --> Page Missing: jquery.dragsort-0.5.1.js
+ERROR - 2013-02-05 19:01:23 --> Page Missing: jquery.dragsort-0.5.1.js
+ERROR - 2013-02-05 19:02:13 --> Page Missing: jquery.dragsort-0.5.1.js
+ERROR - 2013-02-05 19:04:13 --> Page Missing: jquery.dragsort-0.5.1.js
+ERROR - 2013-02-05 19:05:55 --> Page Missing: jquery.dragsort-0.5.1.js
+ERROR - 2013-02-05 19:08:23 --> Page Missing: jquery.dragsort-0.5.1.js
+ERROR - 2013-02-05 19:08:26 --> Severity: Notice  --> Undefined property: stdClass::$nombre C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 59
+ERROR - 2013-02-05 19:08:26 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 61
+ERROR - 2013-02-05 19:08:26 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 64
+ERROR - 2013-02-05 19:08:28 --> Page Missing: jquery.dragsort-0.5.1.js
+ERROR - 2013-02-05 19:08:32 --> Page Missing: jquery.dragsort-0.5.1.js
+ERROR - 2013-02-05 21:16:22 --> Severity: Notice  --> Undefined index: canal_usuario C:\xampp\htdocs\adminmicanal\system\cms\themes\pyrocms\views\admin\partials\navigation.php 86
+ERROR - 2013-02-05 21:16:24 --> Page Missing: jquery.dragsort-0.5.1.js
+ERROR - 2013-02-05 21:16:29 --> Severity: Notice  --> Undefined index: canal_usuario C:\xampp\htdocs\adminmicanal\system\cms\themes\pyrocms\views\admin\partials\navigation.php 86
+ERROR - 2013-02-05 21:16:30 --> Severity: Notice  --> Undefined index: canal_usuario C:\xampp\htdocs\adminmicanal\system\cms\themes\pyrocms\views\admin\partials\navigation.php 86
+ERROR - 2013-02-05 21:16:30 --> Severity: Notice  --> Undefined index: canal_usuario C:\xampp\htdocs\adminmicanal\system\cms\themes\pyrocms\views\admin\partials\navigation.php 86
+ERROR - 2013-02-05 21:16:31 --> Severity: Notice  --> Undefined index: canal_usuario C:\xampp\htdocs\adminmicanal\system\cms\themes\pyrocms\views\admin\partials\navigation.php 86
+ERROR - 2013-02-05 21:16:32 --> Page Missing: jquery.dragsort-0.5.1.js
+ERROR - 2013-02-05 21:16:35 --> Severity: Notice  --> Undefined index: canal_usuario C:\xampp\htdocs\adminmicanal\system\cms\themes\pyrocms\views\admin\partials\navigation.php 86
+ERROR - 2013-02-05 21:16:36 --> Page Missing: jquery.dragsort-0.5.1.js
+ERROR - 2013-02-05 21:16:39 --> Severity: Notice  --> Undefined index: canal_usuario C:\xampp\htdocs\adminmicanal\system\cms\themes\pyrocms\views\admin\partials\navigation.php 86
+ERROR - 2013-02-05 21:16:40 --> Page Missing: jquery.dragsort-0.5.1.js
+ERROR - 2013-02-05 21:16:45 --> Severity: Notice  --> Undefined index: canal_usuario C:\xampp\htdocs\adminmicanal\system\cms\themes\pyrocms\views\admin\partials\navigation.php 86
+ERROR - 2013-02-05 21:16:46 --> Page Missing: jquery.dragsort-0.5.1.js
+ERROR - 2013-02-05 21:21:15 --> Severity: Notice  --> Undefined property: stdClass::$nombre C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 59
+ERROR - 2013-02-05 21:21:15 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 61
+ERROR - 2013-02-05 21:21:15 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 64
+ERROR - 2013-02-05 21:21:15 --> Severity: Notice  --> Undefined index: canal_usuario C:\xampp\htdocs\adminmicanal\system\cms\themes\pyrocms\views\admin\partials\navigation.php 86
+ERROR - 2013-02-05 21:21:15 --> Severity: Warning  --> Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\adminmicanal\system\cms\helpers\admin_theme_helper.php:29) C:\xampp\htdocs\adminmicanal\system\codeigniter\core\Output.php 368
+ERROR - 2013-02-05 21:21:15 --> Severity: Warning  --> Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\adminmicanal\system\cms\helpers\admin_theme_helper.php:29) C:\xampp\htdocs\adminmicanal\system\codeigniter\core\Output.php 368
+ERROR - 2013-02-05 21:21:15 --> Severity: Warning  --> Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\adminmicanal\system\cms\helpers\admin_theme_helper.php:29) C:\xampp\htdocs\adminmicanal\system\codeigniter\core\Output.php 368
+ERROR - 2013-02-05 21:21:15 --> Severity: Warning  --> Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\adminmicanal\system\cms\helpers\admin_theme_helper.php:29) C:\xampp\htdocs\adminmicanal\system\codeigniter\core\Output.php 368
+ERROR - 2013-02-05 21:21:15 --> Severity: Warning  --> Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\adminmicanal\system\cms\helpers\admin_theme_helper.php:29) C:\xampp\htdocs\adminmicanal\system\codeigniter\core\Output.php 368
+ERROR - 2013-02-05 21:21:16 --> Page Missing: jquery.dragsort-0.5.1.js
+ERROR - 2013-02-05 21:21:20 --> Severity: Notice  --> Undefined index: canal_usuario C:\xampp\htdocs\adminmicanal\system\cms\themes\pyrocms\views\admin\partials\navigation.php 86
+ERROR - 2013-02-05 21:21:21 --> Page Missing: jquery.dragsort-0.5.1.js
+ERROR - 2013-02-05 21:26:47 --> Severity: Notice  --> Undefined index: canal_usuario C:\xampp\htdocs\adminmicanal\system\cms\themes\pyrocms\views\admin\partials\navigation.php 86
+ERROR - 2013-02-05 21:26:49 --> Page Missing: jquery.dragsort-0.5.1.js
+ERROR - 2013-02-05 21:34:19 --> Severity: Notice  --> Undefined index: canal_usuario C:\xampp\htdocs\adminmicanal\system\cms\themes\pyrocms\views\admin\partials\navigation.php 86
+ERROR - 2013-02-05 21:34:20 --> Page Missing: jquery.dragsort-0.5.1.js
+ERROR - 2013-02-05 21:48:49 --> Severity: Notice  --> Undefined property: stdClass::$nombre C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 59
+ERROR - 2013-02-05 21:48:49 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 61
+ERROR - 2013-02-05 21:48:49 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 64
+ERROR - 2013-02-05 21:48:49 --> Severity: Notice  --> Undefined index: canal_usuario C:\xampp\htdocs\adminmicanal\system\cms\themes\pyrocms\views\admin\partials\navigation.php 86
+ERROR - 2013-02-05 21:48:49 --> Severity: Warning  --> Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\adminmicanal\system\cms\helpers\admin_theme_helper.php:29) C:\xampp\htdocs\adminmicanal\system\codeigniter\core\Output.php 368
+ERROR - 2013-02-05 21:48:49 --> Severity: Warning  --> Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\adminmicanal\system\cms\helpers\admin_theme_helper.php:29) C:\xampp\htdocs\adminmicanal\system\codeigniter\core\Output.php 368
+ERROR - 2013-02-05 21:48:49 --> Severity: Warning  --> Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\adminmicanal\system\cms\helpers\admin_theme_helper.php:29) C:\xampp\htdocs\adminmicanal\system\codeigniter\core\Output.php 368
+ERROR - 2013-02-05 21:48:49 --> Severity: Warning  --> Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\adminmicanal\system\cms\helpers\admin_theme_helper.php:29) C:\xampp\htdocs\adminmicanal\system\codeigniter\core\Output.php 368
+ERROR - 2013-02-05 21:48:49 --> Severity: Warning  --> Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\adminmicanal\system\cms\helpers\admin_theme_helper.php:29) C:\xampp\htdocs\adminmicanal\system\codeigniter\core\Output.php 368
+ERROR - 2013-02-05 21:48:50 --> Page Missing: jquery.dragsort-0.5.1.js
+ERROR - 2013-02-05 21:50:24 --> Severity: Notice  --> Undefined property: stdClass::$nombre C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 59
+ERROR - 2013-02-05 21:50:24 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 61
+ERROR - 2013-02-05 21:50:24 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 64
+ERROR - 2013-02-05 21:50:24 --> Severity: Notice  --> Undefined index: canal_usuario C:\xampp\htdocs\adminmicanal\system\cms\themes\pyrocms\views\admin\partials\navigation.php 86
+ERROR - 2013-02-05 21:50:25 --> Severity: Warning  --> Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\adminmicanal\system\cms\helpers\admin_theme_helper.php:29) C:\xampp\htdocs\adminmicanal\system\codeigniter\core\Output.php 368
+ERROR - 2013-02-05 21:50:25 --> Severity: Warning  --> Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\adminmicanal\system\cms\helpers\admin_theme_helper.php:29) C:\xampp\htdocs\adminmicanal\system\codeigniter\core\Output.php 368
+ERROR - 2013-02-05 21:50:25 --> Severity: Warning  --> Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\adminmicanal\system\cms\helpers\admin_theme_helper.php:29) C:\xampp\htdocs\adminmicanal\system\codeigniter\core\Output.php 368
+ERROR - 2013-02-05 21:50:25 --> Severity: Warning  --> Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\adminmicanal\system\cms\helpers\admin_theme_helper.php:29) C:\xampp\htdocs\adminmicanal\system\codeigniter\core\Output.php 368
+ERROR - 2013-02-05 21:50:25 --> Severity: Warning  --> Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\adminmicanal\system\cms\helpers\admin_theme_helper.php:29) C:\xampp\htdocs\adminmicanal\system\codeigniter\core\Output.php 368
+ERROR - 2013-02-05 21:50:26 --> Page Missing: jquery.dragsort-0.5.1.js
+ERROR - 2013-02-05 21:51:02 --> Severity: Notice  --> Undefined property: stdClass::$nombre C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 59
+ERROR - 2013-02-05 21:51:02 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 61
+ERROR - 2013-02-05 21:51:02 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 64
+ERROR - 2013-02-05 21:51:02 --> Severity: Notice  --> Undefined index: canal_usuario C:\xampp\htdocs\adminmicanal\system\cms\themes\pyrocms\views\admin\partials\navigation.php 86
+ERROR - 2013-02-05 21:51:02 --> Severity: Warning  --> Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\adminmicanal\system\cms\helpers\admin_theme_helper.php:29) C:\xampp\htdocs\adminmicanal\system\codeigniter\core\Output.php 368
+ERROR - 2013-02-05 21:51:02 --> Severity: Warning  --> Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\adminmicanal\system\cms\helpers\admin_theme_helper.php:29) C:\xampp\htdocs\adminmicanal\system\codeigniter\core\Output.php 368
+ERROR - 2013-02-05 21:51:02 --> Severity: Warning  --> Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\adminmicanal\system\cms\helpers\admin_theme_helper.php:29) C:\xampp\htdocs\adminmicanal\system\codeigniter\core\Output.php 368
+ERROR - 2013-02-05 21:51:02 --> Severity: Warning  --> Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\adminmicanal\system\cms\helpers\admin_theme_helper.php:29) C:\xampp\htdocs\adminmicanal\system\codeigniter\core\Output.php 368
+ERROR - 2013-02-05 21:51:02 --> Severity: Warning  --> Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\adminmicanal\system\cms\helpers\admin_theme_helper.php:29) C:\xampp\htdocs\adminmicanal\system\codeigniter\core\Output.php 368
+ERROR - 2013-02-05 21:51:03 --> Page Missing: jquery.dragsort-0.5.1.js
+ERROR - 2013-02-05 21:52:15 --> Severity: Notice  --> Undefined property: stdClass::$nombre C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 59
+ERROR - 2013-02-05 21:52:15 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 61
+ERROR - 2013-02-05 21:52:15 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 64
+ERROR - 2013-02-05 21:52:15 --> Severity: Notice  --> Undefined index: canal_usuario C:\xampp\htdocs\adminmicanal\system\cms\themes\pyrocms\views\admin\partials\navigation.php 86
+ERROR - 2013-02-05 21:52:15 --> Severity: Warning  --> Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\adminmicanal\system\cms\helpers\admin_theme_helper.php:29) C:\xampp\htdocs\adminmicanal\system\codeigniter\core\Output.php 368
+ERROR - 2013-02-05 21:52:15 --> Severity: Warning  --> Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\adminmicanal\system\cms\helpers\admin_theme_helper.php:29) C:\xampp\htdocs\adminmicanal\system\codeigniter\core\Output.php 368
+ERROR - 2013-02-05 21:52:15 --> Severity: Warning  --> Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\adminmicanal\system\cms\helpers\admin_theme_helper.php:29) C:\xampp\htdocs\adminmicanal\system\codeigniter\core\Output.php 368
+ERROR - 2013-02-05 21:52:15 --> Severity: Warning  --> Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\adminmicanal\system\cms\helpers\admin_theme_helper.php:29) C:\xampp\htdocs\adminmicanal\system\codeigniter\core\Output.php 368
+ERROR - 2013-02-05 21:52:15 --> Severity: Warning  --> Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\adminmicanal\system\cms\helpers\admin_theme_helper.php:29) C:\xampp\htdocs\adminmicanal\system\codeigniter\core\Output.php 368
+ERROR - 2013-02-05 21:52:16 --> Page Missing: jquery.dragsort-0.5.1.js
+ERROR - 2013-02-05 21:53:58 --> Severity: Notice  --> Undefined property: stdClass::$nombre C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 59
+ERROR - 2013-02-05 21:53:58 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 61
+ERROR - 2013-02-05 21:53:58 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 64
+ERROR - 2013-02-05 21:53:58 --> Severity: Notice  --> Undefined index: canal_usuario C:\xampp\htdocs\adminmicanal\system\cms\themes\pyrocms\views\admin\partials\navigation.php 86
+ERROR - 2013-02-05 21:53:58 --> Severity: Warning  --> Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\adminmicanal\system\cms\helpers\admin_theme_helper.php:29) C:\xampp\htdocs\adminmicanal\system\codeigniter\core\Output.php 368
+ERROR - 2013-02-05 21:53:58 --> Severity: Warning  --> Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\adminmicanal\system\cms\helpers\admin_theme_helper.php:29) C:\xampp\htdocs\adminmicanal\system\codeigniter\core\Output.php 368
+ERROR - 2013-02-05 21:53:58 --> Severity: Warning  --> Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\adminmicanal\system\cms\helpers\admin_theme_helper.php:29) C:\xampp\htdocs\adminmicanal\system\codeigniter\core\Output.php 368
+ERROR - 2013-02-05 21:53:58 --> Severity: Warning  --> Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\adminmicanal\system\cms\helpers\admin_theme_helper.php:29) C:\xampp\htdocs\adminmicanal\system\codeigniter\core\Output.php 368
+ERROR - 2013-02-05 21:53:58 --> Severity: Warning  --> Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\adminmicanal\system\cms\helpers\admin_theme_helper.php:29) C:\xampp\htdocs\adminmicanal\system\codeigniter\core\Output.php 368
+ERROR - 2013-02-05 21:54:00 --> Page Missing: jquery.dragsort-0.5.1.js
+ERROR - 2013-02-05 21:55:04 --> Severity: Notice  --> Undefined index: canal_usuario C:\xampp\htdocs\adminmicanal\system\cms\themes\pyrocms\views\admin\partials\navigation.php 86
+ERROR - 2013-02-05 21:55:05 --> Page Missing: jquery.dragsort-0.5.1.js
+ERROR - 2013-02-05 21:55:36 --> Severity: Notice  --> Undefined index: canal_usuario C:\xampp\htdocs\adminmicanal\system\cms\themes\pyrocms\views\admin\partials\navigation.php 86
+ERROR - 2013-02-05 21:58:26 --> Severity: Notice  --> Undefined index: canal_usuario C:\xampp\htdocs\adminmicanal\system\cms\themes\pyrocms\views\admin\partials\navigation.php 86
+ERROR - 2013-02-05 21:58:27 --> Page Missing: jquery.dragsort-0.5.1.js
+ERROR - 2013-02-05 22:00:24 --> Severity: Notice  --> Undefined index: canal_usuario C:\xampp\htdocs\adminmicanal\system\cms\themes\pyrocms\views\admin\partials\navigation.php 86
+ERROR - 2013-02-05 22:00:25 --> Page Missing: jquery.dragsort-0.5.1.js
+ERROR - 2013-02-05 22:00:56 --> Severity: Notice  --> Undefined index: canal_usuario C:\xampp\htdocs\adminmicanal\system\cms\themes\pyrocms\views\admin\partials\navigation.php 86
+ERROR - 2013-02-05 22:01:01 --> Severity: Notice  --> Undefined index: canal_usuario C:\xampp\htdocs\adminmicanal\system\cms\themes\pyrocms\views\admin\partials\navigation.php 86
+ERROR - 2013-02-05 22:01:02 --> Page Missing: jquery.dragsort-0.5.1.js
+ERROR - 2013-02-05 22:03:59 --> Severity: Notice  --> Undefined index: canal_usuario C:\xampp\htdocs\adminmicanal\system\cms\themes\pyrocms\views\admin\partials\navigation.php 86
+ERROR - 2013-02-05 22:04:01 --> Page Missing: jquery.dragsort-0.5.1.js
+ERROR - 2013-02-05 22:09:36 --> Severity: Notice  --> Undefined index: canal_usuario C:\xampp\htdocs\adminmicanal\system\cms\themes\pyrocms\views\admin\partials\navigation.php 86
+ERROR - 2013-02-05 22:09:37 --> Page Missing: jquery.dragsort-0.5.1.js
+ERROR - 2013-02-05 22:11:22 --> Severity: Notice  --> Undefined index: canal_usuario C:\xampp\htdocs\adminmicanal\system\cms\themes\pyrocms\views\admin\partials\navigation.php 86
+ERROR - 2013-02-05 22:11:23 --> Page Missing: jquery.dragsort-0.5.1.js
+ERROR - 2013-02-05 22:11:25 --> Page Missing: system/cms/themes/pyrocms/img/logo_elcomercio.png
+ERROR - 2013-02-05 22:12:24 --> Severity: Notice  --> Undefined index: canal_usuario C:\xampp\htdocs\adminmicanal\system\cms\themes\pyrocms\views\admin\partials\navigation.php 86
+ERROR - 2013-02-05 22:12:25 --> Page Missing: jquery.dragsort-0.5.1.js
+ERROR - 2013-02-05 22:20:36 --> Severity: Notice  --> Undefined index: canal_usuario C:\xampp\htdocs\adminmicanal\system\cms\themes\pyrocms\views\admin\partials\navigation.php 86
+ERROR - 2013-02-05 22:20:38 --> Page Missing: jquery.dragsort-0.5.1.js
+ERROR - 2013-02-05 22:21:06 --> Severity: Notice  --> Undefined index: canal_usuario C:\xampp\htdocs\adminmicanal\system\cms\themes\pyrocms\views\admin\partials\navigation.php 86
+ERROR - 2013-02-05 22:21:07 --> Page Missing: jquery.dragsort-0.5.1.js
+ERROR - 2013-02-05 22:21:25 --> Severity: Notice  --> Undefined index: canal_usuario C:\xampp\htdocs\adminmicanal\system\cms\themes\pyrocms\views\admin\partials\navigation.php 86
+ERROR - 2013-02-05 22:21:27 --> Page Missing: jquery.dragsort-0.5.1.js
+ERROR - 2013-02-05 22:22:04 --> Severity: Notice  --> Undefined index: canal_usuario C:\xampp\htdocs\adminmicanal\system\cms\themes\pyrocms\views\admin\partials\navigation.php 86
+ERROR - 2013-02-05 22:22:05 --> Page Missing: jquery.dragsort-0.5.1.js
+ERROR - 2013-02-05 22:29:20 --> Severity: Notice  --> Undefined index: canal_usuario C:\xampp\htdocs\adminmicanal\system\cms\themes\pyrocms\views\admin\partials\navigation.php 86
+ERROR - 2013-02-05 22:29:21 --> Page Missing: jquery.dragsort-0.5.1.js
+ERROR - 2013-02-05 22:31:07 --> Severity: Notice  --> Undefined index: canal_usuario C:\xampp\htdocs\adminmicanal\system\cms\themes\pyrocms\views\admin\partials\navigation.php 86
+ERROR - 2013-02-05 22:31:08 --> Page Missing: jquery.dragsort-0.5.1.js
+ERROR - 2013-02-05 22:33:26 --> Severity: Notice  --> Undefined index: canal_usuario C:\xampp\htdocs\adminmicanal\system\cms\themes\pyrocms\views\admin\partials\navigation.php 86
+ERROR - 2013-02-05 22:33:27 --> Page Missing: jquery.dragsort-0.5.1.js
+ERROR - 2013-02-05 22:35:36 --> Severity: Notice  --> Undefined index: canal_usuario C:\xampp\htdocs\adminmicanal\system\cms\themes\pyrocms\views\admin\partials\navigation.php 86
+ERROR - 2013-02-05 22:35:37 --> Page Missing: jquery.dragsort-0.5.1.js

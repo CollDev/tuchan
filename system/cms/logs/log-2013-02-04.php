@@ -90,78 +90,71 @@ ERROR - 2013-02-04 18:08:23 --> Severity: Notice  --> Undefined property: stdCla
 ERROR - 2013-02-04 18:08:38 --> Severity: Notice  --> Undefined property: stdClass::$nombre /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 34
 ERROR - 2013-02-04 18:08:38 --> Severity: Notice  --> Undefined property: stdClass::$status /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 36
 ERROR - 2013-02-04 18:08:38 --> Severity: Notice  --> Undefined property: stdClass::$status /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 39
-ERROR - 2013-02-04 18:17:25 --> Severity: Notice  --> Undefined property: stdClass::$nombre /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 34
-ERROR - 2013-02-04 18:17:25 --> Severity: Notice  --> Undefined property: stdClass::$status /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 36
-ERROR - 2013-02-04 18:17:25 --> Severity: Notice  --> Undefined property: stdClass::$status /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 39
-ERROR - 2013-02-04 18:21:53 --> Severity: Notice  --> Undefined property: stdClass::$nombre /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 51
-ERROR - 2013-02-04 18:21:53 --> Severity: Notice  --> Undefined property: stdClass::$status /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 53
-ERROR - 2013-02-04 18:21:53 --> Severity: Notice  --> Undefined property: stdClass::$status /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 56
-ERROR - 2013-02-04 18:33:09 --> Severity: Notice  --> Undefined property: stdClass::$nombre /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 51
-ERROR - 2013-02-04 18:33:09 --> Severity: Notice  --> Undefined property: stdClass::$status /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 53
-ERROR - 2013-02-04 18:33:09 --> Severity: Notice  --> Undefined property: stdClass::$status /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 56
-ERROR - 2013-02-04 18:33:16 --> Severity: Notice  --> Undefined property: stdClass::$nombre /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 51
-ERROR - 2013-02-04 18:33:16 --> Severity: Notice  --> Undefined property: stdClass::$status /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 53
-ERROR - 2013-02-04 18:33:16 --> Severity: Notice  --> Undefined property: stdClass::$status /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 56
-ERROR - 2013-02-04 18:34:55 --> Severity: Notice  --> Undefined property: stdClass::$nombre /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 51
-ERROR - 2013-02-04 18:34:55 --> Severity: Notice  --> Undefined property: stdClass::$status /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 53
-ERROR - 2013-02-04 18:34:55 --> Severity: Notice  --> Undefined property: stdClass::$status /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 56
-ERROR - 2013-02-04 18:36:19 --> Severity: Notice  --> Undefined property: stdClass::$nombre /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 51
-ERROR - 2013-02-04 18:36:19 --> Severity: Notice  --> Undefined property: stdClass::$status /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 53
-ERROR - 2013-02-04 18:36:19 --> Severity: Notice  --> Undefined property: stdClass::$status /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 56
-ERROR - 2013-02-04 19:33:00 --> Page Missing: admin/addoons
-ERROR - 2013-02-04 19:33:04 --> Page Missing: admin/addons
-ERROR - 2013-02-04 19:43:01 --> Severity: Notice  --> Undefined property: stdClass::$nombre /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 51
-ERROR - 2013-02-04 19:43:01 --> Severity: Notice  --> Undefined property: stdClass::$status /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 53
-ERROR - 2013-02-04 19:43:01 --> Severity: Notice  --> Undefined property: stdClass::$status /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 56
-ERROR - 2013-02-04 19:49:14 --> Severity: Notice  --> Undefined variable: class /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 14
-ERROR - 2013-02-04 19:49:14 --> Severity: Notice  --> Undefined variable: class /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 15
-ERROR - 2013-02-04 19:49:14 --> Severity: Notice  --> Undefined property: stdClass::$nombre /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 63
-ERROR - 2013-02-04 19:49:14 --> Severity: Notice  --> Undefined property: stdClass::$status /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 65
-ERROR - 2013-02-04 19:49:14 --> Severity: Notice  --> Undefined property: stdClass::$status /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 68
-ERROR - 2013-02-04 19:50:22 --> Severity: Notice  --> Undefined variable: class /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 13
-ERROR - 2013-02-04 19:50:22 --> Severity: Notice  --> Undefined property: stdClass::$nombre /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 60
-ERROR - 2013-02-04 19:50:22 --> Severity: Notice  --> Undefined property: stdClass::$status /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 62
-ERROR - 2013-02-04 19:50:22 --> Severity: Notice  --> Undefined property: stdClass::$status /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 65
-ERROR - 2013-02-04 19:51:06 --> Severity: Notice  --> Undefined property: stdClass::$nombre /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 58
-ERROR - 2013-02-04 19:51:06 --> Severity: Notice  --> Undefined property: stdClass::$status /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 60
-ERROR - 2013-02-04 19:51:06 --> Severity: Notice  --> Undefined property: stdClass::$status /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 63
-ERROR - 2013-02-04 19:52:24 --> Severity: Notice  --> Undefined property: stdClass::$nombre /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 58
-ERROR - 2013-02-04 19:52:24 --> Severity: Notice  --> Undefined property: stdClass::$status /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 60
-ERROR - 2013-02-04 19:52:24 --> Severity: Notice  --> Undefined property: stdClass::$status /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 63
-ERROR - 2013-02-04 19:52:48 --> Severity: Notice  --> Undefined property: stdClass::$nombre /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 58
-ERROR - 2013-02-04 19:52:48 --> Severity: Notice  --> Undefined property: stdClass::$status /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 60
-ERROR - 2013-02-04 19:52:48 --> Severity: Notice  --> Undefined property: stdClass::$status /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 63
-ERROR - 2013-02-04 19:53:53 --> Severity: Notice  --> Undefined property: stdClass::$nombre /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 59
-ERROR - 2013-02-04 19:53:53 --> Severity: Notice  --> Undefined property: stdClass::$status /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 61
-ERROR - 2013-02-04 19:53:53 --> Severity: Notice  --> Undefined property: stdClass::$status /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 64
-ERROR - 2013-02-04 19:54:08 --> Severity: Notice  --> Undefined property: stdClass::$nombre /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 59
-ERROR - 2013-02-04 19:54:08 --> Severity: Notice  --> Undefined property: stdClass::$status /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 61
-ERROR - 2013-02-04 19:54:08 --> Severity: Notice  --> Undefined property: stdClass::$status /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 64
-ERROR - 2013-02-04 19:58:24 --> Severity: Notice  --> Undefined property: stdClass::$nombre /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 59
-ERROR - 2013-02-04 19:58:24 --> Severity: Notice  --> Undefined property: stdClass::$status /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 61
-ERROR - 2013-02-04 19:58:24 --> Severity: Notice  --> Undefined property: stdClass::$status /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 64
-ERROR - 2013-02-04 20:01:33 --> Severity: Notice  --> Undefined property: stdClass::$nombre /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 59
-ERROR - 2013-02-04 20:01:33 --> Severity: Notice  --> Undefined property: stdClass::$status /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 61
-ERROR - 2013-02-04 20:01:33 --> Severity: Notice  --> Undefined property: stdClass::$status /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 64
-ERROR - 2013-02-04 20:02:11 --> Severity: Notice  --> Undefined property: stdClass::$nombre /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 59
-ERROR - 2013-02-04 20:02:11 --> Severity: Notice  --> Undefined property: stdClass::$status /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 61
-ERROR - 2013-02-04 20:02:11 --> Severity: Notice  --> Undefined property: stdClass::$status /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 64
-ERROR - 2013-02-04 20:02:45 --> Severity: Notice  --> Undefined property: stdClass::$nombre /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 59
-ERROR - 2013-02-04 20:02:45 --> Severity: Notice  --> Undefined property: stdClass::$status /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 61
-ERROR - 2013-02-04 20:02:45 --> Severity: Notice  --> Undefined property: stdClass::$status /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 64
-ERROR - 2013-02-04 20:03:25 --> Severity: Notice  --> Undefined property: stdClass::$nombre /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 59
-ERROR - 2013-02-04 20:03:25 --> Severity: Notice  --> Undefined property: stdClass::$status /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 61
-ERROR - 2013-02-04 20:03:25 --> Severity: Notice  --> Undefined property: stdClass::$status /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 64
-ERROR - 2013-02-04 20:29:06 --> Severity: Notice  --> Undefined property: stdClass::$imagen /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 59
-ERROR - 2013-02-04 20:29:06 --> Severity: Notice  --> Undefined property: stdClass::$status /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 66
-ERROR - 2013-02-04 20:30:14 --> Severity: Notice  --> Undefined property: stdClass::$imagen /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 59
-ERROR - 2013-02-04 20:30:14 --> Severity: Notice  --> Undefined property: stdClass::$status /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 66
-ERROR - 2013-02-04 20:45:30 --> Severity: Notice  --> Undefined property: stdClass::$lista_reproduccion /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 63
-ERROR - 2013-02-04 20:45:30 --> Severity: Notice  --> Undefined property: stdClass::$status /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 69
-ERROR - 2013-02-04 20:47:02 --> Severity: Notice  --> Undefined property: stdClass::$status /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 69
-ERROR - 2013-02-04 20:48:34 --> Severity: Notice  --> Undefined property: stdClass::$status /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 69
-ERROR - 2013-02-04 20:50:09 --> Severity: Notice  --> Undefined property: stdClass::$status /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 70
-ERROR - 2013-02-04 20:52:16 --> Severity: Notice  --> Undefined property: stdClass::$status /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 74
-ERROR - 2013-02-04 20:55:33 --> Severity: Notice  --> Undefined property: stdClass::$status /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 74
-ERROR - 2013-02-04 20:55:35 --> Severity: Notice  --> Undefined property: stdClass::$status /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 74
-ERROR - 2013-02-04 20:58:02 --> Severity: Notice  --> Undefined property: stdClass::$status /var/www/admin3.micanal.dev/addons/shared_addons/modules/canales/views/admin/videos.php 81
+ERROR - 2013-02-04 19:16:18 --> Severity: Notice  --> unserialize(): Error at offset 77 of 39762 bytes C:\xampp\htdocs\adminmicanal\system\cms\libraries\Simplepie.php 230
+ERROR - 2013-02-04 19:19:09 --> Page Missing: admin/subir_video
+ERROR - 2013-02-04 19:19:15 --> Page Missing: admin/subir_video
+ERROR - 2013-02-04 19:19:23 --> Severity: Notice  --> Undefined property: stdClass::$nombre C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 34
+ERROR - 2013-02-04 19:19:23 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 36
+ERROR - 2013-02-04 19:19:23 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 39
+ERROR - 2013-02-04 19:23:08 --> Page Missing: admin/subir_video
+ERROR - 2013-02-04 19:23:13 --> Page Missing: admin/subir_video
+ERROR - 2013-02-04 19:23:35 --> Severity: Notice  --> Undefined property: stdClass::$nombre C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 34
+ERROR - 2013-02-04 19:23:35 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 36
+ERROR - 2013-02-04 19:23:35 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 39
+ERROR - 2013-02-04 19:26:21 --> Severity: Notice  --> Undefined property: stdClass::$nombre C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 34
+ERROR - 2013-02-04 19:26:21 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 36
+ERROR - 2013-02-04 19:26:21 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 39
+ERROR - 2013-02-04 19:27:01 --> Severity: Notice  --> Undefined property: stdClass::$nombre C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 34
+ERROR - 2013-02-04 19:27:01 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 36
+ERROR - 2013-02-04 19:27:01 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 39
+ERROR - 2013-02-04 21:01:20 --> Page Missing: admin/subir_video
+ERROR - 2013-02-04 21:01:22 --> Page Missing: admin/subir_video
+ERROR - 2013-02-04 21:01:25 --> Page Missing: admin/subir_video
+ERROR - 2013-02-04 21:01:27 --> Page Missing: admin/subir_video
+ERROR - 2013-02-04 21:14:38 --> Severity: Notice  --> Undefined property: stdClass::$nombre C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 34
+ERROR - 2013-02-04 21:14:38 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 36
+ERROR - 2013-02-04 21:14:38 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 39
+ERROR - 2013-02-04 21:14:48 --> Page Missing: admin/subir_video
+ERROR - 2013-02-04 21:14:53 --> Page Missing: admin/subir_video
+ERROR - 2013-02-04 21:18:10 --> Severity: Notice  --> Undefined property: stdClass::$nombre C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 34
+ERROR - 2013-02-04 21:18:10 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 36
+ERROR - 2013-02-04 21:18:10 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 39
+ERROR - 2013-02-04 21:32:24 --> Severity: Notice  --> Undefined property: stdClass::$nombre C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 34
+ERROR - 2013-02-04 21:32:24 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 36
+ERROR - 2013-02-04 21:32:24 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 39
+ERROR - 2013-02-04 21:32:27 --> Page Missing: admin/subir_video
+ERROR - 2013-02-04 21:32:33 --> Page Missing: admin/subir_video
+ERROR - 2013-02-04 21:32:36 --> Page Missing: admin/subir_video
+ERROR - 2013-02-04 21:32:38 --> Page Missing: admin/subir_video
+ERROR - 2013-02-04 21:32:40 --> Page Missing: admin/subir_video
+ERROR - 2013-02-04 21:35:08 --> Severity: Notice  --> unserialize(): Error at offset 77 of 39762 bytes C:\xampp\htdocs\adminmicanal\system\cms\libraries\Simplepie.php 230
+ERROR - 2013-02-04 21:35:22 --> Severity: Notice  --> Undefined property: stdClass::$nombre C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 59
+ERROR - 2013-02-04 21:35:22 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 61
+ERROR - 2013-02-04 21:35:22 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 64
+ERROR - 2013-02-04 21:56:39 --> Severity: Notice  --> Undefined property: stdClass::$nombre C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 59
+ERROR - 2013-02-04 21:56:39 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 61
+ERROR - 2013-02-04 21:56:39 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 64
+ERROR - 2013-02-04 22:04:49 --> Page Missing: google_dynamic_map.js
+ERROR - 2013-02-04 22:06:34 --> Page Missing: google_dynamic_map.js
+ERROR - 2013-02-04 22:06:43 --> Page Missing: google_dynamic_map.js
+ERROR - 2013-02-04 22:10:42 --> Severity: Notice  --> Undefined property: stdClass::$nombre C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 59
+ERROR - 2013-02-04 22:10:42 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 61
+ERROR - 2013-02-04 22:10:42 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 64
+ERROR - 2013-02-04 22:11:17 --> Severity: Notice  --> Undefined property: stdClass::$nombre C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 59
+ERROR - 2013-02-04 22:11:17 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 61
+ERROR - 2013-02-04 22:11:17 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 64
+ERROR - 2013-02-04 22:22:06 --> Severity: Notice  --> Undefined property: stdClass::$nombre C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 59
+ERROR - 2013-02-04 22:22:06 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 61
+ERROR - 2013-02-04 22:22:06 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 64
+ERROR - 2013-02-04 22:24:39 --> Severity: Notice  --> Undefined property: stdClass::$nombre C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 59
+ERROR - 2013-02-04 22:24:39 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 61
+ERROR - 2013-02-04 22:24:39 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 64
+ERROR - 2013-02-04 22:41:59 --> Severity: Notice  --> Undefined property: stdClass::$nombre C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 59
+ERROR - 2013-02-04 22:41:59 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 61
+ERROR - 2013-02-04 22:41:59 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 64
+ERROR - 2013-02-04 23:49:40 --> Severity: Notice  --> Undefined property: stdClass::$nombre C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 59
+ERROR - 2013-02-04 23:49:40 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 61
+ERROR - 2013-02-04 23:49:40 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 64
+ERROR - 2013-02-04 23:54:53 --> Severity: Notice  --> Undefined property: stdClass::$nombre C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 59
+ERROR - 2013-02-04 23:54:53 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 61
+ERROR - 2013-02-04 23:54:53 --> Severity: Notice  --> Undefined property: stdClass::$status C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 64
