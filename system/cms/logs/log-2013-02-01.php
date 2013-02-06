@@ -387,3 +387,22 @@ ERROR - 2013-02-01 18:53:20 --> Page Missing: admin/canales/1
 ERROR - 2013-02-01 18:53:31 --> Page Missing: admin/canales/1
 ERROR - 2013-02-01 18:55:39 --> Page Missing: admin/canales/1
 ERROR - 2013-02-01 20:48:32 --> Query error: Unknown column 'canal_id' in 'where clause'
+ERROR - 2013-02-01 22:03:09 --> Severity: Notice  --> unserialize(): Error at offset 77 of 39752 bytes C:\xampp\htdocs\adminmicanal\system\cms\libraries\Simplepie.php 230
+ERROR - 2013-02-01 22:30:31 --> Page Missing: system/cms/themes/pyrocms/css/workless/icon_search.png
+ERROR - 2013-02-01 22:30:31 --> Page Missing: system/cms/themes/pyrocms/css/workless/plus_view.png
+ERROR - 2013-02-01 22:30:45 --> Page Missing: system/cms/themes/pyrocms/css/workless/icon_search.png
+ERROR - 2013-02-01 22:32:43 --> Page Missing: system/cms/themes/pyrocms/css/workless/plus_view.png
+ERROR - 2013-02-01 22:32:43 --> Page Missing: system/cms/themes/pyrocms/css/workless/icon_search.png
+ERROR - 2013-02-01 22:58:37 --> Page Missing: system/cms/themes/pyrocms/css/workless/plus_view.png
+ERROR - 2013-02-01 22:58:38 --> Page Missing: system/cms/themes/pyrocms/css/workless/icon_search.png
+ERROR - 2013-02-01 22:58:41 --> Page Missing: system/cms/themes/pyrocms/css/workless/bg-search-bar_.png
+ERROR - 2013-02-01 22:58:41 --> Page Missing: system/cms/themes/pyrocms/css/workless/buttons_03.png
+ERROR - 2013-02-01 22:58:59 --> Page Missing: system/cms/themes/pyrocms/css/workless/bg-search-bar_.png
+ERROR - 2013-02-01 23:00:11 --> Page Missing: system/cms/themes/pyrocms/css/workless/plus_view.png
+ERROR - 2013-02-01 23:00:11 --> Page Missing: system/cms/themes/pyrocms/css/workless/icon_search.png
+ERROR - 2013-02-01 23:00:12 --> Page Missing: system/cms/themes/pyrocms/css/workless/bg-search-bar_.png
+ERROR - 2013-02-01 23:00:12 --> Page Missing: system/cms/themes/pyrocms/css/workless/buttons_03.png
+ERROR - 2013-02-01 23:00:52 --> Page Missing: system/cms/themes/pyrocms/css/workless/icon_search.png
+ERROR - 2013-02-01 23:00:54 --> Page Missing: system/cms/themes/pyrocms/css/workless/bg-search-bar_.png
+ERROR - 2013-02-01 23:00:54 --> Page Missing: system/cms/themes/pyrocms/css/workless/buttons_03.png
+ERROR - 2013-02-01 23:00:55 --> Page Missing: system/cms/themes/pyrocms/css/workless/plus_view.png

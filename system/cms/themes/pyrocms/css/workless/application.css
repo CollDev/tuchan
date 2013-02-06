@@ -68,15 +68,21 @@
 	color: #ffffff;
 	float: left;
 }
-
+/* logo mi canal */
 #logo {
 	font-size: 16px;
 	color: #ffffff;
 	margin: 0 12px 0 3px;
 	padding: 15px 15px 15px 0;
-	border-right: 1px solid #383838;
+/*	border-right: 1px solid #383838;*/
 	float: left;
+	min-width:124px;
+	min-height:50px;
+	background:url(../../img/logo_micanal.png) no-repeat;
+	text-indent:-9999px;
 }
+
+
 
 #logo a {
 	font-size: 16px;
@@ -613,4 +619,13 @@ table > tbody > tr {
 
 #existing-comments .comment .content {
 	margin-left: 62px;
+}
+
+/* logo el comercio */
+
+#logo2 {
+background: url("../../img/logo_elcomercio.png") no-repeat 0 -104px;
+text-indent: -9999px;
+display:block;
+float:left;
 }
