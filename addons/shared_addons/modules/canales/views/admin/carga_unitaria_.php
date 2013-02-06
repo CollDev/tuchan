@@ -5,7 +5,7 @@
 <section class="item">
 <!--FORM CARGA UNITARIA-->
 
-<form action="load.php" id="frm" name="frm" class="frm" enctype="multipart/form-data">
+<form action="admin/videos" id="frm" name="frm" class="frm" enctype="multipart/form-data">
 <div class="left_arm">
 <label>Titulo</label>
 <input name="" type="text" />
