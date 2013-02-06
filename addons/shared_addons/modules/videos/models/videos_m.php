@@ -29,7 +29,7 @@ class Videos_m extends MY_Model
     public function get($where) 
     {
         if (!is_array($where)) {
-            $where = array('user_id' => $where);
+            $where = array('id' => $where);
         }
 
         return $this->db
@@ -171,6 +171,16 @@ class Videos_m extends MY_Model
 //	{
 //            return parent::update($id, array('status' => '1'));
 //	}
+    
+    /**
+     * Publica video, cambia el estado a 2
+     * @param int $id
+     * @return boolean
+     */
+    public function publish($id = 0)
+    {
+        return parent::update($id, array('estado' => '2', 'fecha_publicacion' => date('Y-m-d H:i:s')));
+    }
 }
 
 /* End of file usuario_rol_canales_m.php */

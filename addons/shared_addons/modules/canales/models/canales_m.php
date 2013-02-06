@@ -105,7 +105,7 @@ class Canales_m extends MY_Model
         
         public function publish($id = 0)
 	{
-            return parent::update($id, array('status' => '1'));
+            return parent::update($id, array('estado' => '1'));
 	}
 
 }
