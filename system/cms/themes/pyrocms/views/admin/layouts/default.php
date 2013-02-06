@@ -35,78 +35,41 @@
 
 	<!-- metadata needs to load before some stuff -->
 	<?php file_partial('metadata'); ?>
-       <!--BEGIN FRONTEND CODE-->
-<!--	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>-->
-<!--	<script type="text/javascript" src="jquery.dragsort-0.5.1.js"></script>-->
-<!--<script src="http://code.jquery.com/jquery-latest.min.js"></script>-->
-	<!--<script src="../ckeditor.js"></script><style>.cke{visibility:hidden;}</style>-->
-    
-<!--<script type="text/javascript" src="file:///D:/micanal_demo/BACK-END/ckeditor_4.0.1_basic/ckeditor/config.js?t=D08E"></script><link rel="stylesheet" type="text/css" href="file:///D:/micanal_demo/BACK-END/ckeditor_4.0.1_basic/ckeditor/skins/moono/editor.css?t=D08E"><script type="text/javascript" src="file:///D:/micanal_demo/BACK-END/ckeditor_4.0.1_basic/ckeditor/lang/es.js?t=D08E"></script>-->
-		<link rel="stylesheet" media="all" type="text/css" href="http://code.jquery.com/ui/1.10.0/themes/smoothness/jquery-ui.css" />
-<!--		<link rel="stylesheet" media="all" type="text/css" href="jquery-ui-timepicker-addon.css" />-->
-<!--		<link rel="stylesheet" type="text/css" href="../../../css/jquery-ui-timepicker-addon.css">-->
-		
-<!--		<script type="text/javascript" src="http://code.jquery.com/ui/1.10.0/jquery-ui.min.js"></script>-->
-<!--		<script type="text/javascript" src="jquery-ui-timepicker-addon.js"></script>
-		<script type="text/javascript" src="jquery-ui-sliderAccess.js"></script>-->
-<!--		<script src="../../../js/jquery-ui-sliderAccess.js"></script>
-		<script src="../../../js/jquery-ui-timepicker-addon.js"></script>-->
-        
-<style>
 
+
+ <!--BEGIN FRONTEND CODE-->
+
+<link rel="stylesheet" media="all" type="text/css" href="http://code.jquery.com/ui/1.10.0/themes/smoothness/jquery-ui.css" />
+
+<style>
 .ui-timepicker-div .ui-widget-header{ margin-bottom: 8px; }
 .ui-timepicker-div dl{ text-align: left; }
 .ui-timepicker-div dl dt{ height: 25px; }
 .ui-timepicker-div dl dd{ margin: -25px 0 10px 65px; }
 .ui-timepicker-div td { font-size: 90%; }
 </style>
-        
-        
-        
-<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
-<script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.16/jquery-ui.min.js"></script>
-<link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.16/themes/hot-sneaks/jquery-ui.css" />
-    
-<script src="../../../js/jquery-ui-timepicker-addon.js"></script>       
-		<script type="text/javascript">
-			
-			$(function(){
-				$('#tabs').tabs();
-				$('.example-container > pre').each(function(i){
-					eval($(this).text());
-				});
-			});
-			
-		</script>
+
+<script src="http://ckeditor.com/apps/ckeditor/4.0.1/ckeditor.js"></script><!--<style>.cke{visibility:hidden;}</style>-->
+<link rel="stylesheet" type="text/css" href="http://ckeditor.com/apps/ckeditor/4.0.1/skins/moono/editor.css?t=D08H" />    
+<script src="http://timjames.me/themes/timjames.me/scripts/libs/jquery-ui-timepicker.js"></script>       
+
 
 <!--		<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>-->
 <!--		<script type="text/javascript" src="../../../js/google_dynamic_map.js"></script>-->
 <script type="text/javascript" >
-$(document).ready(function() {
+CKEDITOR.replace( 'editor1', {
+	toolbarGroups: [
+		{ name: 'document',	   groups: [ 'mode', 'document' ] },			
+ 		{ name: 'clipboard',   groups: [ 'clipboard', 'undo' ] },			
+ 		'/',																
+ 		{ name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
+ 		{ name: 'links' }
+	]
 
-$(".plus_item").each(function() {
-  		$(this).click(function(event){
-			  event.preventDefault();/* alert();*/
-			 				$(this).parent().find($(".h_text")).fadeIn("slow", function(){
-							});	
-
-		});
-});
-			
-
-
-
-
+	
 });
 
-
-
-
-
-
-
-
-// my functions map
+// GOOGLE MAPS
 /*function initialize() 
 {
 
@@ -140,11 +103,6 @@ $(".plus_item").each(function() {
 }
 */
 
-
-
-
-
-
 </script>
 
 <style>
@@ -170,14 +128,6 @@ label{
 .plus_item{}
 .main_opt{ width:100%;}
 </style>
-
-
-</head>
-
-
-
-
-
 </head>
 
 <body>
@@ -221,10 +171,11 @@ label{
                                             </div>
                                     </span>
                     </div>
-              
-<!--<script src="jquery-1.7.1.min.js" type="text/javascript"></script>-->
+
 <script type="text/javascript">
+
 				$(document).ready(function() {
+						
 						$(".cover").css("width", "2%");
 
 
@@ -239,6 +190,7 @@ label{
 										$(".plus_view").fadeIn("slow", function(){
 										});
 								});
+								
 						});
 						
 						$('.linker2').live("click",function(event){
@@ -253,6 +205,8 @@ label{
 										$('.linker2').addClass("hide");								
 
 								});
+							
+								
 						});
 						
 						
@@ -268,15 +222,28 @@ label{
 							
 							
 						});
+						
+						
+						$(".plus_item").each(function() {
+								$(this).click(function(event){
+									  event.preventDefault();/* alert();*/
+													$(this).parent().find($(".h_text")).fadeIn("slow", function(){
+													});	
+						
+								});
+						});
+						
+						
 				});
-				
-				
+
+
+
 
 
 
 </script>
               
-  <!--END CODE FRONTEND-->              
+<!--END CODE FRONTEND-->              
 
 	<div id="container">
 
