@@ -23,6 +23,12 @@ $lang['videos:horario_transmision_label'] = 'Horario transmisión';
 $lang['videos:ubicacion_label'] = 'Ubicación';
 $lang['videos:tamanio_label'] = 'Tamaño';
 
+// estados
+$lang['videos:0_estado'] =  'Codificando';
+$lang['videos:1_estado'] =  'Borrador';
+$lang['videos:2_estado'] =  'Publicado';
+$lang['videos:3_estado'] =  'Eliminado';
+
 // mensajes
 $lang['videos:publish_success']        = 'El video "%s" ha sido publicado.';
 $lang['videos:mass_publish_success']   = 'Los videos "%s" han sido publicados.';
