@@ -8,6 +8,13 @@ $lang['global:profile'] = 'Perfil';
 
 $lang['global:estado'] = 'Estado';
 $lang['global:acciones'] = 'Acciones';
+$lang['global:no_data'] = 'No hay datos para mostrar';
+
+# estados
+$lang['global:0_estado'] = 'Borrador';
+$lang['global:1_estado'] = 'Publicado';
+$lang['global:2_estado'] = 'Eliminado';
+
 
 $lang['global:yes'] = 'Si';
 $lang['global:no'] = 'No';

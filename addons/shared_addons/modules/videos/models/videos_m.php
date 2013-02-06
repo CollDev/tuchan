@@ -74,14 +74,54 @@ class Videos_m extends MY_Model
             $where = array('canales_id' => $where);
         }
         
-        $this->db->select("v.*, c.nombre as canal, cat.nombre as categoria, tv.nombre as tipo_video");
-        $this->db->from($this->_table . ' v');
-        $this->db->join('default_cms_canales c', 'c.id = v.canales_id');
-        $this->db->join('default_cms_categorias cat', 'cat.id = v.categorias_id');
-        $this->db->join('default_cms_tipo_videos tv', 'tv.id = v.tipo_videos_id');
-        $this->db->where($where);
+        return $this->_obtener_query_videos($where['canales_id']);
+        
+    }
+    
+    /**
+     * Query que retorna lista de videos
+     * @param int $canal_id
+     * @return array obj
+     */
+    private function _obtener_query_videos($canal_id)
+    {        
+        $query = "SELECT v.id, v.titulo, v.fuente, v.fecha_registro, v.fecha_publicacion, v.fecha_transmision, 
+                    v.horario_transmision, v.estado,                            
+                    c.nombre as canal, c.nombre as fuente, cat.nombre as categoria, tv.nombre as tipo_video, 
+                    i.imagen, ";
 
-        $result = $this->db->get()->result();
+        // tags tematicos
+        $query .= "(SELECT group_concat(t.nombre)
+                        FROM (`". $this->_table . "` v) 
+                            JOIN `default_cms_video_tags` vt ON `vt`.`videos_id` = `v`.`id` 
+                            JOIN `default_cms_tags` t ON `t`.`id` = `vt`.`tags_id` 
+                            JOIN  default_cms_tipo_tags tt ON tt.id = t.tipo_tags_id
+                        WHERE tt.id = 1
+                   ) as tematico, ";
+
+        // tags personajes
+        $query .= "(SELECT group_concat(t.nombre)
+                        FROM (`". $this->_table . "` v) 
+                            JOIN `default_cms_video_tags` vt ON `vt`.`videos_id` = `v`.`id` 
+                            JOIN `default_cms_tags` t ON `t`.`id` = `vt`.`tags_id` 
+                            JOIN  default_cms_tipo_tags tt ON tt.id = t.tipo_tags_id
+                        WHERE tt.id = 2
+                    ) as personaje, ";
+ 
+        // agrupar tag
+	$query .= "group_concat(t.nombre) as tag ";
+        
+        $query .= "FROM (`". $this->_table . "` v) 
+                    JOIN `default_cms_canales` c ON `c`.`id` = `v`.`canales_id` AND c.id = v.canales_id 
+                    JOIN `default_cms_categorias` cat ON `cat`.`id` = `v`.`categorias_id` 
+                    JOIN `default_cms_tipo_videos` tv ON `tv`.`id` = `v`.`tipo_videos_id` 
+                    JOIN `default_cms_video_tags` vt ON `vt`.`videos_id` = `v`.`id` 
+                    JOIN `default_cms_tags` t ON `t`.`id` = `vt`.`tags_id` 
+                    JOIN  default_cms_tipo_tags tt ON tt.id = t.tipo_tags_id
+                    JOIN  default_cms_imagenes i ON i.videos_id = v.id
+                  WHERE `canales_id` = " . (int) $canal_id;
+        
+        $result = $this->db->query($query)->result();
 
         return $result;
     }

@@ -84,7 +84,7 @@
                                                             
                                                             // Sub menú canales
                                                             if (count($this->session->userdata['canal_usuario']) > 0) {
-                                                                echo '<ul>';
+                                                                echo '<ul>';                                                                
                                                                 foreach ($this->session->userdata['canal_usuario'] as $canal_usr) {
                                                                     echo '<li>'. anchor('admin/' . $module['slug'] . '/videos/' . $canal_usr['canal_id'], $canal_usr['canal'], array('class' => $class)) .'</li>';
                                                                 }
