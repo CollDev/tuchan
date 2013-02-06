@@ -5,7 +5,7 @@
  *
  * @author 	MiCanal Dev Team 
  */
-class Admin extends Admin_Controller 
+class Videos extends Admin_Controller 
 {
 
 	/**
@@ -93,7 +93,44 @@ class Admin extends Admin_Controller
             $this->input->is_ajax_request()
                     ? $this->template->build('admin/index')
                     : $this->template->build('admin/videos');
-        }        
+        }
+        
+        /**
+         * Vista carga unitaria
+         * @param int
+         */
+        public function carga_unitaria() 
+        {
+            //echo 'estamos en carga unitaria';exit;
+            $this->template
+                    ->title($this->module_details['name'])
+                    //->append_js('admin/filter.js')
+                    //->set_partial('filters', 'admin/partials/filters')
+                    //->set('pagination', $pagination)
+                    ->set('carga_unitaria', 'carga_unitaria');
+
+            $this->input->is_ajax_request()
+                    ? $this->template->build('admin/tables/posts')
+                    : $this->template->build('admin/carga_unitaria');
+        }
+     
+        /**
+         * Vista carga masiva
+         * @param int
+         */
+        public function carga_masiva() 
+        {
+            $this->template
+                    ->title($this->module_details['name'])
+                    //->append_js('admin/filter.js')
+                    //->set_partial('filters', 'admin/partials/filters')
+                    //->set('pagination', $pagination)
+                    ->set('carga_masiva', 'carga_masiva');
+
+            $this->input->is_ajax_request()
+                    ? $this->template->build('admin/tables/posts')
+                    : $this->template->build('admin/carga_masiva');
+        }
 
 	/**
 	 * Edit an existing settings item
@@ -169,7 +206,9 @@ class Admin extends Admin_Controller
 	 */
 	public function action()
 	{
-		switch ($this->input->post('btnAction'))
+            echo 'estamos en action';
+            
+	/*	switch ($this->input->post('btnAction'))
 		{
 			case 'publish':
 				$this->publish();
@@ -182,7 +221,7 @@ class Admin extends Admin_Controller
 			default:
 				redirect('admin/canales');
 			break;
-		}
+		}*/
 	}
         
         /**

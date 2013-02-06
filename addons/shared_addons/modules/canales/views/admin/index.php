@@ -30,10 +30,10 @@
                         <td><?php echo form_checkbox('action_to[]', $post->id); ?></td>
                         <td class="collapse"><?php echo $post->nombre; ?></td>
                         <td class="collapse"><?php echo $post->descripcion; ?></td>					
-                        <td><?php echo lang('canales:' . $post->status . '_label'); ?></td>
+                        <td><?php echo lang('canales:' . $post->estado . '_label'); ?></td>
                         <td>
 
-                            <?php if ($post->status == '1') : ?>
+                            <?php if ($post->estado == '1') : ?>
                                 <?php //echo anchor('blog/' . date('Y/m', '2013') . '/29'. $post->nombre, lang('global:view'), 'class="btn green" target="_blank"');?>
                             <?php else: ?>
                                 <?php echo anchor('', lang('global:preview'), 'class="btn green" target="_blank"');?>
