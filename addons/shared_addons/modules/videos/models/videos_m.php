@@ -184,4 +184,4 @@ class Videos_m extends MY_Model
     }
 }
 
-/* End of file usuario_rol_canales_m.php */
+/* End of file videos_m.php */
