@@ -37,4 +37,4 @@ $lang['videos:delete_success']         = 'El video "%s" ha sido eliminado.';
 $lang['videos:mass_delete_success']    = 'Los videos "%s" han sido eliminados.';
 $lang['videos:delete_error']           = 'Los videos no fueron eliminados.';
 
-/* End of file canales_lang.php */
+/* End of file videos_lang.php */

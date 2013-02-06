@@ -8,15 +8,15 @@
 
 <section>
     <?php     
-        echo anchor('admin/canales/carga_unitaria', 'Carga unitaria', array('class' => ''));  
+        echo anchor('canales/videos/carga_unitaria', 'Carga unitaria', array('class' => ''));  
         echo '&nbsp;&nbsp;&nbsp;';
-        echo anchor('admin/canales/carga_masiva', 'Carga masiva', array('class' => ''));
+        echo anchor('canales/videos/carga_masiva', 'Carga masiva', array('class' => ''));
     ?>
 </section>
 
 <section class="item">
     <?php if ($lista_videos) : ?>
-        <?php echo form_open('admin/videos/action'); ?>
+        <?php echo form_open('canales/videos/action'); ?>
          <table border="0" class="table-list">
             <thead>
                 <tr>

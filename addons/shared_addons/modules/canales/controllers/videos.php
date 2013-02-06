@@ -5,7 +5,7 @@
  *
  * @author 	MiCanal Dev Team 
  */
-class Admin extends Admin_Controller 
+class Videos extends Admin_Controller 
 {
 
 	/**
@@ -76,8 +76,8 @@ class Admin extends Admin_Controller
         */
         public function videos($canal_id)
         {
-            // Configuracion de imagenes de videos (upload)
-            $this->config->load('videos/uploads');
+            // Configuracion de imagenes de videos
+            $this->config->load('videos/imagenes');
             
             // Obtiene datos del canal
             $canal = $this->canales_m->get($canal_id);            
@@ -93,7 +93,44 @@ class Admin extends Admin_Controller
             $this->input->is_ajax_request()
                     ? $this->template->build('admin/index')
                     : $this->template->build('admin/videos');
-        }        
+        }
+        
+        /**
+         * Vista carga unitaria
+         * @param int
+         */
+        public function carga_unitaria() 
+        {
+            //echo 'estamos en carga unitaria';exit;
+            $this->template
+                    ->title($this->module_details['name'])
+                    //->append_js('admin/filter.js')
+                    //->set_partial('filters', 'admin/partials/filters')
+                    //->set('pagination', $pagination)
+                    ->set('carga_unitaria', 'carga_unitaria');
+
+            $this->input->is_ajax_request()
+                    ? $this->template->build('admin/tables/posts')
+                    : $this->template->build('admin/carga_unitaria');
+        }
+     
+        /**
+         * Vista carga masiva
+         * @param int
+         */
+        public function carga_masiva() 
+        {
+            $this->template
+                    ->title($this->module_details['name'])
+                    //->append_js('admin/filter.js')
+                    //->set_partial('filters', 'admin/partials/filters')
+                    //->set('pagination', $pagination)
+                    ->set('carga_masiva', 'carga_masiva');
+
+            $this->input->is_ajax_request()
+                    ? $this->template->build('admin/tables/posts')
+                    : $this->template->build('admin/carga_masiva');
+        }
 
 	/**
 	 * Edit an existing settings item
@@ -168,76 +205,72 @@ class Admin extends Admin_Controller
 	 * @return void
 	 */
 	public function action()
-	{
-		switch ($this->input->post('btnAction'))
-		{
-			case 'publish':
-				$this->publish();
-			break;
-			
-			case 'delete':
-				$this->delete();
-			break;
-			
-			default:
-				redirect('admin/canales');
-			break;
-		}
+	{                       
+            switch ($this->input->post('btnAction'))
+            {
+                case 'publish':
+                                $this->publish();
+                                break;
+
+                case 'delete':
+                                $this->delete();
+                                break;
+
+                default:
+                        redirect('canales/videos');
+                        break;
+            }
 	}
         
         /**
-	 * Publish canal
+	 * Publish video
 	 * 
 	 * @param int $id the ID of the canal post to make public
 	 * @return void
 	 */
-	public function publish($id = 0)
-	{            
-		role_or_die('canales', 'put_live');
+	public function publish($id = 0) 
+        {
+            role_or_die('videos', 'put_live');
 
-		// Publish one
-		$ids = ($id) ? array($id) : $this->input->post('action_to');
+            // Publish one
+            $ids = ($id) ? array($id) : $this->input->post('action_to');
 
-		if (!empty($ids))
-		{
-			// Go through the array of slugs to publish
-			$post_titles = array();
-			foreach ($ids as $id)
-			{
-				// Get the current page so we can grab the id too
-				if ($post = $this->canales_m->get($id))
-				{
-					$this->canales_m->publish($id);
+            if (!empty($ids)) {
+                
+                // Go through the array of slugs to publish
+                $post_titles = array();
+                
+                foreach ($ids as $id) {
+                    
+                    // Get the current page so we can grab the id too
+                    if ($post = $this->videos_m->get($id)) {
+                        $this->videos_m->publish($id);
 
-					// Wipe cache for this model, the content has changed
-					$this->pyrocache->delete('canales_m');
-					$post_titles[] = $post->nombre;
-				}
-			}
-		}
+                        // Wipe cache for this model, the content has changed
+                        $this->pyrocache->delete('videos_m');
+                        $post_titles[] = $post->titulo;
+                    }
+                }
+            }
 
-		// Some canales have been published
-		if ( ! empty($post_titles))
-		{
-			// Only publishing one canal
-			if (count($post_titles) == 1)
-			{
-                            $this->session->set_flashdata('success', sprintf($this->lang->line('canales:publish_success'), $post_titles[0]));
-			}
-			// Publishing multiple canales
-			else
-			{
-                            $this->session->set_flashdata('success', sprintf($this->lang->line('blog:mass_publish_success'), implode('", "', $post_titles)));
-			}
-		}
-		// For some reason, none of them were published
-		else
-		{
-                    $this->session->set_flashdata('notice', $this->lang->line('blog:publish_error'));
-		}
+            // Some canales have been published
+            if (!empty($post_titles)) {
+                // Only publishing one canal
+                if (count($post_titles) == 1) {
+                    $this->session->set_flashdata('success', sprintf($this->lang->line('videos:publish_success'), $post_titles[0]));
+                }
+                // Publishing multiple canales
+                else {
+                    $this->session->set_flashdata('success', sprintf($this->lang->line('videos:mass_publish_success'), implode('", "', $post_titles)));
+                }
+            }
+            // For some reason, none of them were published
+            else {
+                $this->session->set_flashdata('notice', $this->lang->line('videos:publish_error'));
+            }
 
-		redirect('admin/canales');
-	}
+            redirect('admin/canales/videos/' . $id);
+        }
 
 	/**
 	 * Delete blog post
@@ -249,7 +282,7 @@ class Admin extends Admin_Controller
 	{
 		$this->load->model('comments/comments_m');
 
-		role_or_die('blog', 'delete_live');
+		role_or_die('videos', 'delete_live');
 
 		// Delete one
 		$ids = ($id) ? array($id) : $this->input->post('action_to');
@@ -262,9 +295,9 @@ class Admin extends Admin_Controller
 			foreach ($ids as $id)
 			{
 				// Get the current page so we can grab the id too
-				if ($post = $this->blog_m->get($id))
+				if ($post = $this->videos_m->get($id))
 				{
-					if ($this->blog_m->delete($id))
+					if ($this->videos_m->delete($id))
 					{
 						$this->comments_m->where('module', 'blog')->delete_by('module_id', $id);
 
