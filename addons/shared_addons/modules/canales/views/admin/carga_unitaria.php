@@ -15,7 +15,7 @@
 <textarea class="ckeditor" name="editor1" id="editor1"></textarea>
 <label>Fragmento</label>
 <select class="fragments" name="">
-<!--	<option>item 01</option>-->
+	<option>item 01</option>
 </select>
 <label>Categoria</label>
 <select name="">

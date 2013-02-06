@@ -18,3 +18,5 @@ ERROR - 2013-02-06 18:48:54 --> Severity: Notice  --> unserialize(): Error at of
 ERROR - 2013-02-06 19:36:20 --> Page Missing: fragments.json
 ERROR - 2013-02-06 19:53:19 --> Page Missing: fragments.json
 ERROR - 2013-02-06 21:34:14 --> Page Missing: load.php
+ERROR - 2013-02-06 21:36:53 --> Severity: Warning  --> mysql_connect(): Access denied for user 'root'@'localhost' (using password: YES) C:\xampp\htdocs\adminmicanal\system\codeigniter\database\drivers\mysql\mysql_driver.php 84
+ERROR - 2013-02-06 21:36:53 --> Unable to connect to the database
