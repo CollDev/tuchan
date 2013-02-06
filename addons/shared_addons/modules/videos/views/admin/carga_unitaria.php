@@ -11,46 +11,49 @@
 
     <form action="admin/videos" id="frm" name="frm" class="frm" enctype="multipart/form-data">
         <div class="left_arm">
-            <label>Titulo</label>
-            <input name="" type="text" />
+            <label>Título</label>
+            <input name="titulo" type="text" />
             <label>Video</label>
-            <input name="" type="file" />
-            <label>Descripcion</label>
+            <input name="video" type="file" />
+            <label>Descripción</label>
             <textarea class="ckeditor" name="editor1" id="editor1"></textarea>
             <label>Fragmento</label>
             <select class="fragments" name="">
-                <option>item 01</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
             </select>
-            <label>Categoria</label>
-            <select name="">
-                <option>item 01</option>
+            <label>Categoría</label>
+            <select name="categoria">
+                <option value="1">Categoría 01</option>
             </select>
-            <label>Etiquetas Tematicas</label>
-            <input name="" type="text" />
+            <label>Etiquetas Temáticas</label>
+            <input name="tematicas" type="text" />
             <label>Etiquetas Personajes</label>
-            <input name="" type="text" />
+            <input name="personajes" type="text" />
             <label>Tipo</label>
-            <select name="">
-                <option>item 01</option>
+            <select name="tipo">
+                <option value="1">Tipo 01</option>
             </select>
         </div>
         <div class="right_arm">
             <label>Programa</label>
-            <select name="">
-                <option>item 01</option>
+            <select name="programa">
+                <option value="1">Programa 01</option>
             </select>
-            <label>Coleccion</label>
-            <select name="">
-                <option>item 01</option>
+            <label>Colección</label>
+            <select name="coleccion">
+                <option value="1">Colección 1</option>
             </select>
             <div class="i_plus">
                 <input class="h_text" name="" type="text" />
                 <a href="#" class="plus_item btn blue" type="button">+ Añadir</a>
             </div>
 
-            <label>Lista de Reproduccion</label>
-            <select name="">
-                <option>item 01</option>
+            <label>Lista de Reproducción</label>
+            <select name="lista_rep">
+                <option value="1">Lista 01</option>
             </select>
             <div class="i_plus">
                 <input class="h_text" name="" type="text" />
@@ -58,31 +61,31 @@
             </div>
 
             <label>Fuente</label>
-            <select name="">
-                <option>item 01</option>
+            <select name="fuente">
+                <option value="1">Fuente 01</option>
             </select>
 
-            <label>Fecha de Publicacion</label>
+            <label>Fecha de Publicación</label>
             Inicio
             <input type="text" class="selectedDateTime" />
             Fin
             <input type="text" class="selectedDateTime" />
 
 
-            <label>Fecha de Transmision</label>
+            <label>Fecha de Transmisión</label>
             <input type="text" class="selectedDate" />
 
-            <label>Horario de Transmision</label>
+            <label>Horario de Transmisión</label>
             Incio
             <input type="text" class="selectedHour" />
             Fin
             <input type="text" class="selectedHour" />
 
-            <label>Ubicacion</label>
+            <label>Ubicación</label>
             <!--<div id="map_canvas" style="width:100%;height:400px;border:solid black 1px;"></div>
             <input type="text" value="37.7699298, -122.4469157" name="txt_latlng" id="txt_latlng" size="89%" disabled="disabled">-->
 
-            <input name="" type="text" />
+            <input name="ubicacion" type="text" />
         </div>
 
         <div class="main_opt">
