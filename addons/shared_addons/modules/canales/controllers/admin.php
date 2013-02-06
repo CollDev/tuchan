@@ -76,8 +76,8 @@ class Admin extends Admin_Controller
         */
         public function videos($canal_id)
         {
-            // Configuracion de imagenes de videos
-            $this->config->load('videos/imagenes');
+            // Configuracion de imagenes de videos (upload)
+            $this->config->load('videos/uploads');
             
             // Obtiene datos del canal
             $canal = $this->canales_m->get($canal_id);            
