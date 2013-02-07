@@ -624,8 +624,11 @@ table > tbody > tr {
 /* logo el comercio */
 
 #logo2 {
-background: url("../../img/logo_elcomercio.png") no-repeat 0 -104px;
+background: url("../../img/logo_elcomercio.png") no-repeat 0px 14px;
 text-indent: -9999px;
 display:block;
 float:left;
+width:150px;
+min-height:40px;
+line-height: 60px;
 }
