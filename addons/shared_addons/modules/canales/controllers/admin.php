@@ -227,13 +227,13 @@ class Admin extends Admin_Controller
 			// Publishing multiple canales
 			else
 			{
-                            $this->session->set_flashdata('success', sprintf($this->lang->line('blog:mass_publish_success'), implode('", "', $post_titles)));
+                            $this->session->set_flashdata('success', sprintf($this->lang->line('canales:mass_publish_success'), implode('", "', $post_titles)));
 			}
 		}
 		// For some reason, none of them were published
 		else
 		{
-                    $this->session->set_flashdata('notice', $this->lang->line('blog:publish_error'));
+                    $this->session->set_flashdata('notice', $this->lang->line('canales:publish_error'));
 		}
 
 		redirect('admin/canales');

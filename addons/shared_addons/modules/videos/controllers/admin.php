@@ -6,20 +6,25 @@ class Admin extends Admin_Controller
      public function __construct()
      {  
          parent::__construct();  
+         $this->load->model('canales/canales_m');
      }  
      
      function index() 
      {  
-         
+         echo 'este es el index de videos';
      }  
      
-     function carga_unitaria() 
+     function carga_unitaria($canal_id) 
      {
+         // Obtener nombre del canal
+         $canal_id = (int) $canal_id;         
+         $canal = $this->canales_m->get($canal_id);
+         
          $this->template
                     ->title($this->module_details['name'])
                     //->append_js('admin/filter.js')
                     //->set_partial('filters', 'admin/partials/filters')
-                    //->set('pagination', $pagination)
+                    ->set('canal', $canal)
                     ->set('carga_unitaria', 'carga_unitaria');
 
             $this->input->is_ajax_request()

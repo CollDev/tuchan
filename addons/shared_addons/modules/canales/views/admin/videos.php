@@ -8,9 +8,9 @@
 
 <section>
     <?php     
-        echo anchor('canales/videos/carga_unitaria', 'Carga unitaria', array('class' => ''));  
+        echo anchor('admin/videos/carga_unitaria/' . $canal->id, 'Carga unitaria', array('class' => ''));  
         echo '&nbsp;&nbsp;&nbsp;';
-        echo anchor('canales/videos/carga_masiva', 'Carga masiva', array('class' => ''));
+        echo anchor('admin/videos/carga_masiva/' . $canal->id, 'Carga masiva', array('class' => ''));
     ?>
 </section>
 
