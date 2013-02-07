@@ -74,3 +74,11 @@ ERROR - 2013-02-07 03:05:19 --> Severity: Notice  --> Undefined variable: opc_ca
 ERROR - 2013-02-07 03:05:33 --> Severity: Notice  --> Undefined variable: opc_canales C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\videos\details.php 34
 ERROR - 2013-02-07 03:05:35 --> Page Missing: canales/videos/carga_unitaria
 ERROR - 2013-02-07 03:05:38 --> Page Missing: canales/videos/carga_unitaria
+ERROR - 2013-02-07 16:51:10 --> Severity: Notice  --> Undefined variable: opc_canales C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\videos\details.php 34
+ERROR - 2013-02-07 16:51:12 --> Severity: Notice  --> Undefined variable: opc_canales C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\videos\details.php 34
+ERROR - 2013-02-07 16:51:16 --> Severity: Notice  --> Undefined variable: opc_canales C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\videos\details.php 34
+ERROR - 2013-02-07 17:10:26 --> Severity: Notice  --> Undefined variable: canal C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\videos\views\admin\carga_unitaria.php 3
+ERROR - 2013-02-07 17:10:26 --> Severity: Notice  --> Trying to get property of non-object C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\videos\views\admin\carga_unitaria.php 3
+ERROR - 2013-02-07 18:06:49 --> Severity: Notice  --> Undefined variable: opc_canales C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\videos\details.php 34
+ERROR - 2013-02-07 18:06:50 --> Severity: Notice  --> Undefined variable: opc_canales C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\videos\details.php 34
+ERROR - 2013-02-07 18:06:53 --> Severity: Notice  --> Undefined variable: opc_canales C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\videos\details.php 34
