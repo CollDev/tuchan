@@ -12,11 +12,8 @@ class Module_Videos extends Module
     public $version = '1.0';    
 
     public function info() 
-    {           
-        // Verificar si existe la sesión 'canal_usuario'
-        if ($this->session->userdata('canal_usuario') && $this->session->userdata('canal_usuario') != "") {
-            
-            $opc_canales =  array(
+    {       
+        $opc_canales =  array(
                 'name' => array(
                     'es' => 'Videos',
                 ),
@@ -27,12 +24,14 @@ class Module_Videos extends Module
                 'backend' => true,
                 'skip_xss' => true,
                 'menu' => 'false'
-            );
-            
+        );
+        
+        // Verificar si existe la sesión 'canal_usuario'
+        if ($this->session->userdata('canal_usuario') && $this->session->userdata('canal_usuario') != "") {                        
+            return $opc_canales;
         } 
         
         return $opc_canales;
-
     }
 
     public function install() 
