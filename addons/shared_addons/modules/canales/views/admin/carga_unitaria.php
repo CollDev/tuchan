@@ -7,16 +7,24 @@
 
 <form action="load.php" id="frm" name="frm" class="frm" enctype="multipart/form-data">
 <div class="left_arm">
-<label>Titulo</label>
-<input name="" type="text" />
+<div>
+    <div class="left_arm">
+    <label>Titulo</label>
+    <input name="" type="text" />
+    </div>
+    <div class="right_arm">
+    <label>Fragmento</label>
+    <select class="fragments" name="">
+        <option>item 01</option>
+    </select>
+    </div>
+</div>
+<div class="row_arm">
 <label>Video</label>
 <input name="" type="file" />
 <label>Descripcion</label>
 <textarea class="ckeditor" name="editor1" id="editor1"></textarea>
-<label>Fragmento</label>
-<select class="fragments" name="">
-	<option>item 01</option>
-</select>
+
 <label>Categoria</label>
 <select name="">
 	<option>item 01</option>
@@ -29,6 +37,7 @@
 <select name="">
 	<option>item 01</option>
 </select>
+</div>
 </div>
 <div class="right_arm">
 <label>Programa</label>

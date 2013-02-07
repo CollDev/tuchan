@@ -117,6 +117,12 @@ CKEDITOR.replace( 'editor1', {
 	float:left;
 	padding:2%;
 }
+.row_arm{
+	width:92%;
+	float:left;
+	padding:2%;
+}
+
 
 label{
 	width:100%;
@@ -266,8 +272,8 @@ label{
 	<footer>
 		<div class="wrapper">
 <!--			<p>Copyright &copy; 2009 - <?php //echo date('Y'); ?> PyroCMS &nbsp; -- &nbsp; Version <?php //echo CMS_VERSION.' '.CMS_EDITION; ?> &nbsp; -- &nbsp; Rendered in {elapsed_time} sec. using {memory_usage}.</p>-->
-            
-			<p>Copyright &copy; <?php echo date('Y'); ?>  &nbsp; El Comercio  -- &nbsp; <span></span>
+            <span id="logo2">El Comercio</span>
+			<p>Copyright &copy; <?php echo date('Y'); ?>  &nbsp; El Comercio  -- &nbsp; 
 		    <!--Version--> <?php /*echo CMS_VERSION.' '.CMS_EDITION;*/ ?> &nbsp;  &nbsp;<!-- Rendered in {elapsed_time} sec. using {memory_usage}.--></p>
             
 

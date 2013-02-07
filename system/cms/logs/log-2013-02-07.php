@@ -1,0 +1,34 @@
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed'); ?>
+
+ERROR - 2013-02-07 00:11:26 --> Severity: Notice  --> Undefined index: en C:\xampp\htdocs\adminmicanal\system\cms\modules\modules\models\module_m.php 143
+ERROR - 2013-02-07 00:11:26 --> Severity: Notice  --> Undefined index: en C:\xampp\htdocs\adminmicanal\system\cms\modules\modules\models\module_m.php 144
+ERROR - 2013-02-07 00:11:26 --> Severity: Notice  --> Undefined index: en C:\xampp\htdocs\adminmicanal\system\cms\modules\modules\models\module_m.php 143
+ERROR - 2013-02-07 00:11:26 --> Severity: Notice  --> Undefined index: en C:\xampp\htdocs\adminmicanal\system\cms\modules\modules\models\module_m.php 144
+ERROR - 2013-02-07 00:11:26 --> Severity: Notice  --> Undefined index: en C:\xampp\htdocs\adminmicanal\system\cms\modules\modules\models\module_m.php 143
+ERROR - 2013-02-07 00:11:26 --> Severity: Notice  --> Undefined index: en C:\xampp\htdocs\adminmicanal\system\cms\modules\modules\models\module_m.php 144
+ERROR - 2013-02-07 00:11:26 --> Severity: Notice  --> Undefined index: en C:\xampp\htdocs\adminmicanal\system\cms\modules\modules\models\module_m.php 70
+ERROR - 2013-02-07 00:11:26 --> Severity: Notice  --> Undefined index: en C:\xampp\htdocs\adminmicanal\system\cms\modules\modules\models\module_m.php 71
+ERROR - 2013-02-07 00:12:17 --> Severity: Notice  --> Undefined index: en C:\xampp\htdocs\adminmicanal\system\cms\modules\modules\models\module_m.php 143
+ERROR - 2013-02-07 00:12:17 --> Severity: Notice  --> Undefined index: en C:\xampp\htdocs\adminmicanal\system\cms\modules\modules\models\module_m.php 144
+ERROR - 2013-02-07 00:12:17 --> Severity: Notice  --> Undefined index: en C:\xampp\htdocs\adminmicanal\system\cms\modules\modules\models\module_m.php 143
+ERROR - 2013-02-07 00:12:17 --> Severity: Notice  --> Undefined index: en C:\xampp\htdocs\adminmicanal\system\cms\modules\modules\models\module_m.php 144
+ERROR - 2013-02-07 00:12:17 --> Severity: Notice  --> Undefined index: en C:\xampp\htdocs\adminmicanal\system\cms\modules\modules\models\module_m.php 143
+ERROR - 2013-02-07 00:12:17 --> Severity: Notice  --> Undefined index: en C:\xampp\htdocs\adminmicanal\system\cms\modules\modules\models\module_m.php 144
+ERROR - 2013-02-07 00:12:17 --> Severity: Notice  --> Undefined index: en C:\xampp\htdocs\adminmicanal\system\cms\modules\modules\models\module_m.php 70
+ERROR - 2013-02-07 00:12:17 --> Severity: Notice  --> Undefined index: en C:\xampp\htdocs\adminmicanal\system\cms\modules\modules\models\module_m.php 71
+ERROR - 2013-02-07 00:12:25 --> Severity: Notice  --> Undefined index: en C:\xampp\htdocs\adminmicanal\system\cms\modules\modules\models\module_m.php 143
+ERROR - 2013-02-07 00:12:25 --> Severity: Notice  --> Undefined index: en C:\xampp\htdocs\adminmicanal\system\cms\modules\modules\models\module_m.php 144
+ERROR - 2013-02-07 00:12:25 --> Severity: Notice  --> Undefined index: en C:\xampp\htdocs\adminmicanal\system\cms\modules\modules\models\module_m.php 143
+ERROR - 2013-02-07 00:12:25 --> Severity: Notice  --> Undefined index: en C:\xampp\htdocs\adminmicanal\system\cms\modules\modules\models\module_m.php 144
+ERROR - 2013-02-07 00:12:25 --> Severity: Notice  --> Undefined index: en C:\xampp\htdocs\adminmicanal\system\cms\modules\modules\models\module_m.php 143
+ERROR - 2013-02-07 00:12:25 --> Severity: Notice  --> Undefined index: en C:\xampp\htdocs\adminmicanal\system\cms\modules\modules\models\module_m.php 144
+ERROR - 2013-02-07 00:12:26 --> Severity: Notice  --> Undefined index: en C:\xampp\htdocs\adminmicanal\system\cms\modules\modules\models\module_m.php 70
+ERROR - 2013-02-07 00:12:26 --> Severity: Notice  --> Undefined index: en C:\xampp\htdocs\adminmicanal\system\cms\modules\modules\models\module_m.php 71
+ERROR - 2013-02-07 00:52:14 --> Severity: Notice  --> Undefined index: en C:\xampp\htdocs\adminmicanal\system\cms\modules\modules\models\module_m.php 143
+ERROR - 2013-02-07 00:52:14 --> Severity: Notice  --> Undefined index: en C:\xampp\htdocs\adminmicanal\system\cms\modules\modules\models\module_m.php 144
+ERROR - 2013-02-07 00:52:14 --> Severity: Notice  --> Undefined index: en C:\xampp\htdocs\adminmicanal\system\cms\modules\modules\models\module_m.php 143
+ERROR - 2013-02-07 00:52:14 --> Severity: Notice  --> Undefined index: en C:\xampp\htdocs\adminmicanal\system\cms\modules\modules\models\module_m.php 144
+ERROR - 2013-02-07 00:52:14 --> Severity: Notice  --> Undefined index: en C:\xampp\htdocs\adminmicanal\system\cms\modules\modules\models\module_m.php 143
+ERROR - 2013-02-07 00:52:14 --> Severity: Notice  --> Undefined index: en C:\xampp\htdocs\adminmicanal\system\cms\modules\modules\models\module_m.php 144
+ERROR - 2013-02-07 00:52:14 --> Severity: Notice  --> Undefined index: en C:\xampp\htdocs\adminmicanal\system\cms\modules\modules\models\module_m.php 70
+ERROR - 2013-02-07 00:52:14 --> Severity: Notice  --> Undefined index: en C:\xampp\htdocs\adminmicanal\system\cms\modules\modules\models\module_m.php 71

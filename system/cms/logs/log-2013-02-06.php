@@ -63,3 +63,7 @@ ERROR - 2013-02-06 21:44:05 --> Unable to connect to the database
 ERROR - 2013-02-06 21:44:08 --> Severity: Warning  --> mysql_connect(): Access denied for user 'root'@'localhost' (using password: YES) C:\xampp\htdocs\adminmicanal\system\codeigniter\database\drivers\mysql\mysql_driver.php 84
 ERROR - 2013-02-06 21:44:08 --> Unable to connect to the database
 ERROR - 2013-02-06 21:44:57 --> Severity: Notice  --> unserialize(): Error at offset 77 of 39760 bytes C:\xampp\htdocs\adminmicanal\system\cms\libraries\Simplepie.php 230
+ERROR - 2013-02-06 22:15:33 --> Page Missing: system/cms/themes/pyrocms/css/img/bkg_mc.png
+ERROR - 2013-02-06 22:17:53 --> Page Missing: load.php
+ERROR - 2013-02-06 23:04:33 --> Page Missing: load.php
+ERROR - 2013-02-06 23:34:31 --> Page Missing: load.php
