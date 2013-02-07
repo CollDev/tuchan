@@ -1,5 +1,5 @@
 <section class="title">
-    <h4>
+    <h4 class="america_tv">
         <?php if ($canal) : ?>
             <?php echo $canal->nombre ?> | <?php echo $canal->descripcion ?>
         <?php endif; ?>

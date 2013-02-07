@@ -19,13 +19,14 @@
 
 <div class="subbar">
 	<div class="wrapper">
-		<h2><?php echo $module_details['name'] ? anchor('admin/'.$module_details['slug'], $module_details['name']) : lang('global:dashboard'); ?></h2>
+
+		<h2 class="channel_item"><?php echo $module_details['name'] ? anchor('admin/'.$module_details['slug'], $module_details['name']) : lang('global:dashboard'); ?>
 	
-		<small>
+		<!--<small>-->
 			<?php if ( $this->uri->segment(2) ) { echo '&nbsp; | &nbsp;'; } ?>
 			<?php echo $module_details['description'] ? $module_details['description'] : ''; ?>
-		</small>
-
+<!--		</small>-->
+		</h2>
 		<?php file_partial('shortcuts'); ?>
 
 	</div>

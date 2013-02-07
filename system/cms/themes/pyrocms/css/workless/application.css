@@ -96,20 +96,22 @@
 	right: 0;
 	left: 0;
 	height: 30px;
-	background: #f7f7f7;
-  	background-repeat: repeat-x;
-  	background-image: -khtml-gradient(linear, left top, left bottom, from(#f7f7f7), to(#f3f3f3));
+/*	background: #f7f7f7;*/
+	background: #09617c !important;
+/*  	background-repeat: repeat-x;*/
+/*  	background-image: -khtml-gradient(linear, left top, left bottom, from(#f7f7f7), to(#f3f3f3));
   	background-image: -moz-linear-gradient(#f7f7f7, #f3f3f3);
   	background-image: -ms-linear-gradient(#f7f7f7, #f3f3f3);
   	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f7f7f7), color-stop(100%, #f3f3f3));
   	background-image: -webkit-linear-gradient(#f7f7f7, #f3f3f3);
   	background-image: -o-linear-gradient(#f7f7f7, #f3f3f3);
-  	background-image: linear-gradient(#f7f7f7, #f3f3f3);
-  	border: 1px solid #ffffff;
-  	border-bottom: 1px solid #eeeeee;
-  	padding: 15px 15px 13px 0;
+  	background-image: linear-gradient(#f7f7f7, #f3f3f3);*/
+  	border: 1px solid #09617c;
+/*  	border: 1px solid #ffffff;*/
+/*  	border-bottom: 1px solid #eeeeee;*/
+  	padding: /*15px*/ 0px 15px 13px 0;
   	margin-top: 15px;
-  	border-top-right-radius: 5px;
+/*  	border-top-right-radius: 5px;
   	-moz-border-radius-topright: 5px;
   	-webkit-border-top-right-radius: 5px;
   	border-top-left-radius: 5px;
@@ -117,7 +119,7 @@
   	-webkit-border-top-left-radius: 5px;
   	box-shadow: 0px 0px 1px #aaaaaa;
   	-moz-box-shadow: 0px 0px 1px #aaaaaa;
-  	-webkit-box-shadow: 0px 0px 1px #aaaaaa;
+  	-webkit-box-shadow: 0px 0px 1px #aaaaaa;*/
 }
 
 #content-body {
@@ -127,9 +129,14 @@
 
 .subbar .wrapper {position: relative;}
 .subbar h2, .subbar h2 a {
-  	color: #555555;
+/*  	color: #555555;
   	text-shadow: 1px 1px 0 #ffffff;
 	margin: 0 0 0 5px;
+	padding: 0;
+	float: left;
+	font-size: 20px;*/
+	color: #fff;
+	margin: 2px 0 0 5px;
 	padding: 0;
 	float: left;
 	font-size: 20px;
@@ -348,7 +355,8 @@ section.title {
   	width: 100%;
 	min-height: 25px;
 /*  	background: #f7f7f7;*/
-  	background:#09617c !important;
+/*  	background:#09617c !important;*/
+  	background:#000 !important;
   	background-repeat: repeat-x;
 /*  	background-image: -khtml-gradient(linear, left top, left bottom, from(#f7f7f7), to(#f3f3f3));
   	background-image: -moz-linear-gradient(#f7f7f7, #f3f3f3);
@@ -358,6 +366,7 @@ section.title {
   	background-image: -o-linear-gradient(#f7f7f7, #f3f3f3);
   	background-image: linear-gradient(#f7f7f7, #f3f3f3);*/
 /*  	border: 1px solid #ffffff;*/
+  	border: 1px solid #000;
 /*  	border-bottom: 1px solid #eeeeee;*/
   	padding: 0 15px 0 15px;
   	margin-top: 15px;
@@ -634,3 +643,16 @@ width:150px;
 min-height:40px;
 line-height: 60px;
 }
+
+/*icons items*/
+.channel_item{
+	padding-left: 48px !important;
+	background: url(../../img/channel_icon.fw.png) no-repeat 0px -2px;
+	height: 42px;
+	}
+	
+.america_tv{
+	padding-left:40px !important;
+	background:url(../../img/america.jpg) no-repeat 0px 5px;
+	}
+	

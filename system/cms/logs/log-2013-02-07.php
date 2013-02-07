@@ -45,3 +45,32 @@ ERROR - 2013-02-07 01:14:03 --> Severity: Notice  --> Undefined variable: opc_ca
 ERROR - 2013-02-07 01:59:55 --> Page Missing: canales/videos/carga_unitaria
 ERROR - 2013-02-07 01:59:58 --> Page Missing: canales/videos/carga_unitaria
 ERROR - 2013-02-07 02:03:33 --> Page Missing: canales/videos/carga_unitaria
+ERROR - 2013-02-07 02:36:08 --> Severity: Notice  --> Undefined variable: canal C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\videos\views\admin\carga_unitaria.php 3
+ERROR - 2013-02-07 02:36:08 --> Severity: Notice  --> Trying to get property of non-object C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\videos\views\admin\carga_unitaria.php 3
+ERROR - 2013-02-07 02:36:12 --> Severity: Notice  --> Undefined variable: canal C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\videos\views\admin\carga_unitaria.php 3
+ERROR - 2013-02-07 02:36:12 --> Severity: Notice  --> Trying to get property of non-object C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\videos\views\admin\carga_unitaria.php 3
+ERROR - 2013-02-07 03:01:19 --> Severity: Notice  --> Undefined variable: estado C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 77
+ERROR - 2013-02-07 03:02:24 --> Severity: Notice  --> Undefined variable: estado C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\canales\views\admin\videos.php 77
+ERROR - 2013-02-07 03:05:05 --> Severity: Notice  --> Undefined index: en C:\xampp\htdocs\adminmicanal\system\cms\modules\modules\models\module_m.php 143
+ERROR - 2013-02-07 03:05:05 --> Severity: Notice  --> Undefined index: en C:\xampp\htdocs\adminmicanal\system\cms\modules\modules\models\module_m.php 144
+ERROR - 2013-02-07 03:05:05 --> Severity: Notice  --> Undefined index: en C:\xampp\htdocs\adminmicanal\system\cms\modules\modules\models\module_m.php 143
+ERROR - 2013-02-07 03:05:05 --> Severity: Notice  --> Undefined index: en C:\xampp\htdocs\adminmicanal\system\cms\modules\modules\models\module_m.php 144
+ERROR - 2013-02-07 03:05:05 --> Severity: Notice  --> Undefined index: en C:\xampp\htdocs\adminmicanal\system\cms\modules\modules\models\module_m.php 143
+ERROR - 2013-02-07 03:05:05 --> Severity: Notice  --> Undefined index: en C:\xampp\htdocs\adminmicanal\system\cms\modules\modules\models\module_m.php 144
+ERROR - 2013-02-07 03:05:05 --> Severity: Notice  --> Undefined variable: opc_canales C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\videos\details.php 34
+ERROR - 2013-02-07 03:05:05 --> Severity: Notice  --> Undefined index: en C:\xampp\htdocs\adminmicanal\system\cms\modules\modules\models\module_m.php 70
+ERROR - 2013-02-07 03:05:05 --> Severity: Notice  --> Undefined index: en C:\xampp\htdocs\adminmicanal\system\cms\modules\modules\models\module_m.php 71
+ERROR - 2013-02-07 03:05:09 --> Severity: Notice  --> Undefined index: en C:\xampp\htdocs\adminmicanal\system\cms\modules\modules\models\module_m.php 143
+ERROR - 2013-02-07 03:05:09 --> Severity: Notice  --> Undefined index: en C:\xampp\htdocs\adminmicanal\system\cms\modules\modules\models\module_m.php 144
+ERROR - 2013-02-07 03:05:09 --> Severity: Notice  --> Undefined index: en C:\xampp\htdocs\adminmicanal\system\cms\modules\modules\models\module_m.php 143
+ERROR - 2013-02-07 03:05:09 --> Severity: Notice  --> Undefined index: en C:\xampp\htdocs\adminmicanal\system\cms\modules\modules\models\module_m.php 144
+ERROR - 2013-02-07 03:05:09 --> Severity: Notice  --> Undefined index: en C:\xampp\htdocs\adminmicanal\system\cms\modules\modules\models\module_m.php 143
+ERROR - 2013-02-07 03:05:09 --> Severity: Notice  --> Undefined index: en C:\xampp\htdocs\adminmicanal\system\cms\modules\modules\models\module_m.php 144
+ERROR - 2013-02-07 03:05:09 --> Severity: Notice  --> Undefined variable: opc_canales C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\videos\details.php 34
+ERROR - 2013-02-07 03:05:09 --> Severity: Notice  --> Undefined index: en C:\xampp\htdocs\adminmicanal\system\cms\modules\modules\models\module_m.php 70
+ERROR - 2013-02-07 03:05:09 --> Severity: Notice  --> Undefined index: en C:\xampp\htdocs\adminmicanal\system\cms\modules\modules\models\module_m.php 71
+ERROR - 2013-02-07 03:05:18 --> Severity: Notice  --> Undefined variable: opc_canales C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\videos\details.php 34
+ERROR - 2013-02-07 03:05:19 --> Severity: Notice  --> Undefined variable: opc_canales C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\videos\details.php 34
+ERROR - 2013-02-07 03:05:33 --> Severity: Notice  --> Undefined variable: opc_canales C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\videos\details.php 34
+ERROR - 2013-02-07 03:05:35 --> Page Missing: canales/videos/carga_unitaria
+ERROR - 2013-02-07 03:05:38 --> Page Missing: canales/videos/carga_unitaria
