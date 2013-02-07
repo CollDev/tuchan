@@ -29,7 +29,8 @@
                     <th><?php echo lang('videos:etiquetas_tematicas_label'); ?></th>
                     <th><?php echo lang('videos:etiquetas_personajes_label'); ?></th>
                     <th><?php echo lang('videos:fecha_subida_label'); ?></th>
-                    <th><?php echo lang('videos:fecha_publicacion_label'); ?></th>
+                    <th><?php echo lang('videos:fecha_publicacion_inicio_label'); ?></th>
+                    <th><?php echo lang('videos:fecha_publicacion_fin_label'); ?></th>
                     <th><?php echo lang('videos:fecha_transmision_label'); ?></th>
                     <th><?php echo lang('videos:horario_transmision_label'); ?></th>
                     <th><?php echo lang('global:estado'); ?></th>                    
@@ -55,7 +56,8 @@
                         <td class="collapse"><?php echo $video->tematico; ?></td>
                         <td class="collapse"><?php echo $video->personaje; ?></td>
                         <td class="collapse"><?php echo $video->fecha_registro; ?></td>
-                        <td class="collapse"><?php echo $video->fecha_publicacion; ?></td>
+                        <td class="collapse"><?php echo $video->fecha_publicacion_inicio; ?></td>
+                        <td class="collapse"><?php echo $video->fecha_publicacion_fin; ?></td>
                         <td class="collapse"><?php echo $video->fecha_transmision; ?></td>
                         <td class="collapse"><?php echo $video->horario_transmision; ?></td>
                         

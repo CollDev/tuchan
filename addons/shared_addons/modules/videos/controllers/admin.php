@@ -19,7 +19,7 @@ class Admin extends Admin_Controller
          // Obtener nombre del canal
          $canal_id = (int) $canal_id;         
          $canal = $this->canales_m->get($canal_id);
-         
+    
          $this->template
                     ->title($this->module_details['name'])
                     //->append_js('admin/filter.js')
@@ -43,7 +43,7 @@ class Admin extends Admin_Controller
 
             $this->input->is_ajax_request()
                     ? $this->template->build('admin/tables/posts')
-                    : $this->template->build('admin/carga_unitaria');
+                    : $this->template->build('admin/carga_masiva');
      }
  }  
 ?>
