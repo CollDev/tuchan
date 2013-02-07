@@ -44,3 +44,4 @@ ERROR - 2013-02-07 01:13:59 --> Severity: Notice  --> Undefined variable: opc_ca
 ERROR - 2013-02-07 01:14:03 --> Severity: Notice  --> Undefined variable: opc_canales C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\videos\details.php 34
 ERROR - 2013-02-07 01:59:55 --> Page Missing: canales/videos/carga_unitaria
 ERROR - 2013-02-07 01:59:58 --> Page Missing: canales/videos/carga_unitaria
+ERROR - 2013-02-07 02:03:33 --> Page Missing: canales/videos/carga_unitaria
