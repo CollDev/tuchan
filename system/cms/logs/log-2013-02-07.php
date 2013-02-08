@@ -82,3 +82,12 @@ ERROR - 2013-02-07 17:10:26 --> Severity: Notice  --> Trying to get property of 
 ERROR - 2013-02-07 18:06:49 --> Severity: Notice  --> Undefined variable: opc_canales C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\videos\details.php 34
 ERROR - 2013-02-07 18:06:50 --> Severity: Notice  --> Undefined variable: opc_canales C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\videos\details.php 34
 ERROR - 2013-02-07 18:06:53 --> Severity: Notice  --> Undefined variable: opc_canales C:\xampp\htdocs\adminmicanal\addons\shared_addons\modules\videos\details.php 34
+ERROR - 2013-02-07 18:21:03 --> Severity: Warning  --> mysql_connect(): Access denied for user 'root'@'localhost' (using password: YES) C:\xampp\htdocs\adminmicanal\system\codeigniter\database\drivers\mysql\mysql_driver.php 84
+ERROR - 2013-02-07 18:21:03 --> Unable to connect to the database
+ERROR - 2013-02-07 19:32:29 --> Severity: Warning  --> mysql_connect(): Access denied for user 'root'@'localhost' (using password: YES) C:\xampp\htdocs\adminmicanal\system\codeigniter\database\drivers\mysql\mysql_driver.php 84
+ERROR - 2013-02-07 19:32:29 --> Unable to connect to the database
+ERROR - 2013-02-07 22:44:12 --> Severity: Warning  --> mysql_connect(): Access denied for user 'root'@'localhost' (using password: YES) C:\xampp\htdocs\adminmicanal\system\codeigniter\database\drivers\mysql\mysql_driver.php 84
+ERROR - 2013-02-07 22:44:12 --> Unable to connect to the database
+ERROR - 2013-02-07 22:44:15 --> Severity: Warning  --> mysql_connect(): Access denied for user 'root'@'localhost' (using password: YES) C:\xampp\htdocs\adminmicanal\system\codeigniter\database\drivers\mysql\mysql_driver.php 84
+ERROR - 2013-02-07 22:44:15 --> Unable to connect to the database
+ERROR - 2013-02-07 22:49:09 --> Severity: Notice  --> unserialize(): Error at offset 77 of 39677 bytes C:\xampp\htdocs\adminmicanal\system\cms\libraries\Simplepie.php 230

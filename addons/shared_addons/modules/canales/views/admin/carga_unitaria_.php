@@ -4,7 +4,22 @@
 
 <section class="item">
 <!--FORM CARGA UNITARIA-->
-
+<script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
+<!--<script src="http://textextjs.com/js/jquery-1.8.2.js" type="text/javascript"></script>-->
+<script src="http://textextjs.com/js/doc.js" type="text/javascript"></script>
+<script src="http://bundlejs.com/alexgorbatchev/products/textext/1.3.1?compress=true&bundles=core,ajax,arrow,autocomplete,filter,focus,prompt,suggestions,tags" type="text/javascript"></script>
+<script type="text/javascript">
+    $('#textarea').textext({
+        plugins : 'tags prompt focus autocomplete ajax arrow',
+        tagsItems : [ 'Basic', 'JavaScript', 'PHP', 'Scala' ],
+        prompt : 'Añadir Mas...',
+        ajax : {
+            url : 'data.json',
+            dataType : 'json',
+            cacheResults : true
+        }
+    });
+</script>
 <form action="admin/videos" id="frm" name="frm" class="frm" enctype="multipart/form-data">
 <div class="left_arm">
 <div>
@@ -30,7 +45,10 @@
 	<option>item 01</option>
 </select>
 <label>Etiquetas Tematicas</label>
-<input name="" type="text" />
+ahaajaajaj
+<textarea id="textarea" class="example" rows="1" style="width: 400px;">
+</textarea>	
+<!--<input name="" type="text" />-->
 <label>Etiquetas Personajes</label>
 <input name="" type="text" />
 <label>Tipo</label>
