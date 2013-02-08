@@ -75,7 +75,12 @@
 						$class .= $count <= 1 ? "top-link no-submenu" : "";
 						                                                                                                
 						if (array_key_exists($module['slug'], $this->permissions) OR $this->current_user->group == 'admin')
-						{                                                         
+						{    
+                                                    // El módulo videos no debe mostrarse en el menu
+                                                    if ($module['name'] == 'Videos') {
+                                                        break;
+                                                    }
+                                                    
                                                     // Verifica si es administrador de canales
                                                     if ($this->session->userdata['group'] && $this->session->userdata['group'] != "") {
 

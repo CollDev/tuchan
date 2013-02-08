@@ -11,10 +11,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
  * @author		PyroCMS Dev Team
  * @package		PyroCMS\Core\Modules\Settings\Models
  */
-class Videos_m extends MY_Model 
+class Video_tags_m extends MY_Model 
 {
 
-    protected $_table = 'default_cms_videos';
+    protected $_table = 'default_cms_video_tags';
 
     /**
      * Get
@@ -49,7 +49,7 @@ class Videos_m extends MY_Model
      * @param	mixed	$where
      * @return	object
      */
-    public function get_many_by($where = array()) 
+    /*public function get_many_by($where = array()) 
     {
         if (!is_array($where)) {
             $where = array('user_id' => $where);
@@ -62,72 +62,11 @@ class Videos_m extends MY_Model
 
         return $result;
     }
+    */
+    
     
     /**
-     * Obtiene los videos que pertenecen al canal seleccionado
-     * @param array $where
-     * @return object
-     */
-    public function get_by_canal($where = array())
-    {
-        if (!is_array($where)) {
-            $where = array('canales_id' => $where);
-        }
-        
-        return $this->_obtener_query_videos($where['canales_id']);
-        
-    }
-    
-    /**
-     * Query que retorna lista de videos
-     * @param int $canal_id
-     * @return array obj
-     */
-    private function _obtener_query_videos($canal_id)
-    {        
-        $query = "SELECT v.id, v.titulo, v.fuente, v.fecha_registro, v.fecha_publicacion_inicio, fecha_publicacion_fin,
-                    v.fecha_transmision, v.horario_transmision_inicio, v.horario_transmision_fin, v.estado,                            
-                    c.nombre as canal, c.nombre as fuente, cat.nombre as categoria, tv.nombre as tipo_video, 
-                    i.imagen, ";
-
-        // tags tematicos
-        $query .= "(SELECT group_concat(t.nombre)
-                        FROM (`". $this->_table . "` v) 
-                            JOIN `default_cms_video_tags` vt ON `vt`.`videos_id` = `v`.`id` 
-                            JOIN `default_cms_tags` t ON `t`.`id` = `vt`.`tags_id` 
-                            JOIN  default_cms_tipo_tags tt ON tt.id = t.tipo_tags_id
-                        WHERE tt.id = 1
-                   ) as tematico, ";
-
-        // tags personajes
-        $query .= "(SELECT group_concat(t.nombre)
-                        FROM (`". $this->_table . "` v) 
-                            JOIN `default_cms_video_tags` vt ON `vt`.`videos_id` = `v`.`id` 
-                            JOIN `default_cms_tags` t ON `t`.`id` = `vt`.`tags_id` 
-                            JOIN  default_cms_tipo_tags tt ON tt.id = t.tipo_tags_id
-                        WHERE tt.id = 2
-                    ) as personaje, ";
- 
-        // agrupar tag
-	$query .= "group_concat(t.nombre) as tag ";
-        
-        $query .= "FROM (`". $this->_table . "` v) 
-                    JOIN `default_cms_canales` c ON `c`.`id` = `v`.`canales_id` AND c.id = v.canales_id 
-                    JOIN `default_cms_categorias` cat ON `cat`.`id` = `v`.`categorias_id` 
-                    JOIN `default_cms_tipo_videos` tv ON `tv`.`id` = `v`.`tipo_videos_id` 
-                    JOIN `default_cms_video_tags` vt ON `vt`.`videos_id` = `v`.`id` 
-                    JOIN `default_cms_tags` t ON `t`.`id` = `vt`.`tags_id` 
-                    JOIN  default_cms_tipo_tags tt ON tt.id = t.tipo_tags_id
-                    JOIN  default_cms_imagenes i ON i.videos_id = v.id
-                  WHERE `canales_id` = " . (int) $canal_id;
-        
-        $result = $this->db->query($query)->result();
-
-        return $result;
-    }
-    
-    /**
-     * Inserta un nuevo video en la base de datos
+     * Inserta un nuevo tag en la base de datos
      * 
      * @param array $input La data a insertar
      * @return string

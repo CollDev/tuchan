@@ -7,93 +7,243 @@
 </section>
 
 <section class="item">
+    
     <!--FORM CARGA UNITARIA-->
-
-    <form action="admin/videos" id="frm" name="frm" class="frm" enctype="multipart/form-data">
+    <?php 
+    // Canales_id       
+    $hidden = array('canal_id' => $canal->id);
+        
+    $attributes = array('class' => 'frm', 'id' => 'frm', 'name' => 'frm', 
+                        'enctype' => 'multipart/form-data');
+    echo form_open('admin/videos/carga_unitaria', $attributes, $hidden); ?>
+    
         <div class="left_arm">
-            <label>Título</label>
-            <input name="titulo" type="text" />
-            <label>Video</label>
-            <input name="video" type="file" />
-            <label>Descripción</label>
-            <textarea class="ckeditor" name="editor1" id="editor1"></textarea>
-            <label>Fragmento</label>
-            <select class="fragments" name="">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-            </select>
-            <label>Categoría</label>
-            <select name="categoria">
-                <option value="1">Categoría 01</option>
-            </select>
-            <label>Etiquetas Temáticas</label>
-            <input name="tematicas" type="text" />
-            <label>Etiquetas Personajes</label>
-            <input name="personajes" type="text" />
-            <label>Tipo</label>
-            <select name="tipo">
-                <option value="1">Tipo 01</option>
-            </select>
+        
+            <!-- titulo -->
+            <label for="titulo">Título <span class="required">*</span></label>
+            <?php
+            $titulo = array(
+                'name'        => 'titulo',
+                'id'          => 'titulo',
+                'value'       => set_value('titulo'),
+                'maxlength'   => '100',
+            );
+            echo form_input($titulo);?>
+                                                
+            <!-- video -->
+            <label for="video">Video <span class="required">*</span></label>
+            <?php  $video = array('name'   => 'video');
+            echo form_upload($video);?>
+
+            <!-- descripcion -->
+            <label for="descripcion">Descripción <span class="required">*</span></label>
+            <?php
+            $descripcion = array(
+                'class' => 'ckeditor',
+                'name'  => 'editor1',
+                'id'    => 'editor1',
+                'value' => set_value('editor1'),
+            );
+            echo form_textarea($descripcion);?>            
+
+            <!-- fragmento -->
+            <br/>
+            <label for="fragmento">Fragmento</label>
+            <?php echo form_error('fragmento'); ?><br />
+            <?php
+            $fragmento = array(
+                  '1' => '1',
+                  '2' => '2',
+                  '3' => '3',
+                  '4' => '4',
+            );
+            echo form_dropdown('fragmento', $fragmento);?>
+            
+            <!-- categoria -->
+            <br/><br/>
+            <label for="categoria">Categoría</label>
+            <?php echo form_error('categoria'); ?><br />
+            <?php
+            $categoria = array(
+                  '1' => 'Categoria 1'
+            );
+            echo form_dropdown('categoria', $categoria);?>
+            
+            <!-- tags tematicos -->
+            <br/></br>
+            <label for="tematicas">Etiquetas Temáticas <span class="required">*</span></label>
+            <?php
+            $tematicas = array(
+                'name'        => 'tematicas',
+                'id'          => 'tematicas',
+                'value'       => set_value('tematicas'),
+                'maxlength'   => '250',
+            );
+            echo form_input($tematicas);?>
+           
+            <!-- tags personajes -->
+            <br/></br>
+            <label for="personajes">Etiquetas Personajes <span class="required">*</span></label>
+            <?php
+            $personajes = array(
+                'name'        => 'personajes',
+                'id'          => 'personajes',
+                'value'       => set_value('personajes'),
+                'maxlength'   => '250',
+            );
+            echo form_input($personajes);?>
+            
+            <!-- tipo -->
+            <br/></br>
+            <label for="tipo">Tipo</label>
+            <?php echo form_error('tipo'); ?><br/>
+            <?php
+            $tipo = array(
+                  '1' => 'Tipo 1'
+            );
+            echo form_dropdown('tipo', $tipo);?>            
         </div>
+    
         <div class="right_arm">
-            <label>Programa</label>
-            <select name="programa">
-                <option value="1">Programa 01</option>
-            </select>
-            <label>Colección</label>
-            <select name="coleccion">
-                <option value="1">Colección 1</option>
-            </select>
+            
+            <!-- programa -->
+            <label for="programa">Programa</label>
+            <?php echo form_error('programa'); ?><br/>
+            <?php
+            $programa= array(
+                  '1' => 'Programa 1'
+            );
+            echo form_dropdown('programa', $programa);?>
+                        
+            <!-- coleccion -->
+            <br/><br/>
+            <label for="coleccion">Colección</label>
+            <?php echo form_error('coleccion'); ?><br/>
+            <?php
+            $coleccion= array(
+                  '1' => 'Colección 1'
+            );
+            echo form_dropdown('coleccion', $coleccion);?>
+                  
+            <!-- boton añadir -->
             <div class="i_plus">
-                <input class="h_text" name="" type="text" />
-                <a href="#" class="plus_item btn blue" type="button">+ Añadir</a>
+                <?php
+                echo form_input(array('class' => 'h_text'));                
+                $attr = array('class' => 'plus_item btn blue', 'type' => 'button');
+                echo anchor('#', '+ Añadir', $attr)
+                ?>                
             </div>
 
-            <label>Lista de Reproducción</label>
-            <select name="lista_rep">
-                <option value="1">Lista 01</option>
-            </select>
+            <!-- lista de reproducción -->
+            <br/>
+            <label for="lista_rep">Lista de Reproducción</label>
+            <?php echo form_error('lista_rep'); ?><br/>
+            <?php
+            $lista_rep = array(
+                  '1' => 'Lista 1'
+            );
+            echo form_dropdown('lista_rep', $lista_rep);?>
+            
+            <!-- botón añadir -->
             <div class="i_plus">
-                <input class="h_text" name="" type="text" />
-                <a href="#" class="plus_item btn blue" type="button">+ Añadir</a>
+                <?php
+                echo form_input(array('class' => 'h_text'));
+                $attr = array('class' => 'plus_item btn blue', 'type' => 'button');
+                echo anchor('#', '+ Añadir', $attr)
+                ?>
             </div>
 
-            <label>Fuente</label>
-            <select name="fuente">
-                <option value="1">Fuente 01</option>
-            </select>
-
-            <label>Fecha de Publicación</label>
+            <!-- fuente -->
+            <br/>
+            <label for="fuente">Fuente <span class="required">*</span></label>
+            <?php
+            $fuente = array(
+                  '1' => 'Fuente 1'
+            );
+            echo form_dropdown('fuente', $fuente);?>
+                        
+            <!-- fecha de publicación -->
+            <br/><br/>
+            <label for="fecha_publicacion">Fecha de Publicación</label>
             Inicio
-            <input type="text" class="selectedDateTime" />
+            <?php 
+            $fec_pub_ini = array(
+                'name'  => 'fec_pub_ini',
+                'id'    => 'fec_pub_ini',
+                'value' => set_value('fec_pub_ini'),
+                'class' => 'selectedDateTime'
+            );
+            echo form_input($fec_pub_ini); 
+            ?>
+            
             Fin
-            <input type="text" class="selectedDateTime" />
+            <?php 
+            $fec_pub_fin = array(
+                'name'  => 'fec_pub_fin',
+                'id'    => 'fec_pub_fin',
+                'value' => set_value('fec_pub_fin'),
+                'class' => 'selectedDateTime'
+            );
+            echo form_input($fec_pub_fin); ?>
 
+            <!-- fecha de transmisión -->
+            <label for="fec_trans">Fecha de Transmisión</label>
+            <?php 
+            $fec_trans = array(
+                'name'  => 'fec_trans',
+                'id'    => 'fec_trans',
+                'value' => set_value('fec_trans'),
+                'class' => 'selectedDate'
+            );
+            echo form_input($fec_trans); ?>
 
-            <label>Fecha de Transmisión</label>
-            <input type="text" class="selectedDate" />
-
-            <label>Horario de Transmisión</label>
+            <!-- horario de tranmisión -->
+            <label for="horario_transmision">Horario de Transmisión</label>
             Incio
-            <input type="text" class="selectedHour" />
+            <?php 
+            $hora_trans_ini = array(
+                'name'  => 'hora_trans_ini',
+                'id'    => 'hora_trans_ini',
+                'value' => set_value('hora_trans_ini'),
+                'class' => 'selectedHour'
+            );
+            echo form_input($hora_trans_ini); 
+            ?>
+            
             Fin
-            <input type="text" class="selectedHour" />
+            <?php 
+            $hora_trans_fin = array(
+                'name'  => 'hora_trans_fin',
+                'id'    => 'hora_trans_fin',
+                'value' => set_value('hora_trans_fin'),
+                'class' => 'selectedHour'
+            );
+            echo form_input($hora_trans_fin); 
+            ?>
 
+            <!-- ubicacion -->
             <label>Ubicación</label>
             <!--<div id="map_canvas" style="width:100%;height:400px;border:solid black 1px;"></div>
             <input type="text" value="37.7699298, -122.4469157" name="txt_latlng" id="txt_latlng" size="89%" disabled="disabled">-->
-
-            <input name="ubicacion" type="text" />
+            <?php 
+            $ubicacion = array(
+                'name'  => 'ubicacion',
+                'id'    => 'ubicacion',
+                'value' => set_value('ubicacion'),
+            );
+            echo form_input($ubicacion); 
+            ?>
         </div>
-
-        <div class="main_opt">
-
-            <a href="javascript:document.frm.submit();" class="btn orange" type="button" >Guardar</a><a href="#" class="btn orange" type="button">Cancelar</a>
+    
+        <div class="main_opt">            
+            <a href="javascript:document.frm.submit();" class="btn orange" type="button">Guardar</a>
+            &nbsp;
+            <?php 
+            $attr = array('class' => 'btn orange', 'type' => 'button');
+            echo anchor("#", 'Cancelar', $attr) 
+            ?>
         </div>
         <script type="text/javascript" >
-
 
             //SETTING CONFIG SPANISH
             jQuery(function($){
@@ -101,7 +251,7 @@
                     closeText: 'Cerrar',
                     prevText: '&#x3c;Ant',
                     nextText: 'Sig&#x3e;',
-                    currentText: 'Ahora mismo',
+                    currentText: 'Hoy',
                     timeText: 'Hora',
                     hourText: 'Hrs.',
                     minuteText: 'Min.',
@@ -114,7 +264,7 @@
                     dayNamesShort: ['Dom','Lun','Mar','Mi&eacute;','Juv','Vie','S&aacute;b'],
                     dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','S&aacute;'],
                     weekHeader: 'Sm',
-                    dateFormat: 'dd/mm/yy',
+                    dateFormat: 'dd-mm-yy',
                     firstDay: 1,
                     isRTL: false,
                     showMonthAfterYear: false,
@@ -129,7 +279,7 @@
                     prevText: '&#x3c;Ant',
                     nextText: 'Sig&#x3e;',
                     timeOnlyTitle: 'Elige la hora',
-                    currentText: 'Ahora mismo',
+                    currentText: 'Hoy',
                     timeText: 'Hora',
                     hourText: 'Hrs.',
                     minuteText: 'Min.',
@@ -142,11 +292,7 @@
                 $('.selectedDateTime').datetimepicker($.datepicker.regional['es']); 
                 $('.selectedDate' ).datepicker();
                 $('.selectedHour').timepicker($.datepicker.regional['es']);
-
-
             });
-
-
         </script>
-    </form>
+    <?php echo form_close() ?>
 </section>
