@@ -32,7 +32,8 @@
                     <th><?php echo lang('videos:fecha_publicacion_inicio_label'); ?></th>
                     <th><?php echo lang('videos:fecha_publicacion_fin_label'); ?></th>
                     <th><?php echo lang('videos:fecha_transmision_label'); ?></th>
-                    <th><?php echo lang('videos:horario_transmision_label'); ?></th>
+                    <th><?php echo lang('videos:horario_transmision_inicio_label'); ?></th>
+                    <th><?php echo lang('videos:horario_transmision_fin_label'); ?></th>
                     <th><?php echo lang('global:estado'); ?></th>                    
                     <th width="180"></th>
                 </tr>
@@ -59,7 +60,8 @@
                         <td class="collapse"><?php echo $video->fecha_publicacion_inicio; ?></td>
                         <td class="collapse"><?php echo $video->fecha_publicacion_fin; ?></td>
                         <td class="collapse"><?php echo $video->fecha_transmision; ?></td>
-                        <td class="collapse"><?php echo $video->horario_transmision; ?></td>
+                        <td class="collapse"><?php echo $video->horario_transmision_inicio; ?></td>
+                        <td class="collapse"><?php echo $video->horario_transmision_fin; ?></td>
                         
                         <?php 
                         switch ($video->estado) :

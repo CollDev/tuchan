@@ -20,7 +20,8 @@ $lang['videos:fecha_subida_label'] = 'Fecha subida';
 $lang['videos:fecha_publicacion_inicio_label'] = 'Fecha publicación inicio';
 $lang['videos:fecha_publicacion_fin_label'] = 'Fecha publicación fin';
 $lang['videos:fecha_transmision_label'] = 'Fecha transmisión';
-$lang['videos:horario_transmision_label'] = 'Horario transmisión';
+$lang['videos:horario_transmision_inicio_label'] = 'Horario trans. inicio';
+$lang['videos:horario_transmision_fin_label'] = 'Horario trans. fin';
 $lang['videos:ubicacion_label'] = 'Ubicación';
 $lang['videos:tamanio_label'] = 'Tamaño';
 
