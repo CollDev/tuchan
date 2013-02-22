@@ -1,5 +1,5 @@
 <?php
-$mysqli = new mysqli('10.203.31.139', 'micanalcmsdev', 'joh2Yeyeimaeb4', 'micanacmsdevdb');
+$mysqli = new mysqli('10.203.31.139', 'micanalcmsdev', 'joh2Yeyeimaeb4', 'micanalcmsdevdb');
  
 if (mysqli_connect_error()) {
     die('Connect Error (' . mysqli_connect_errno() . ') '
