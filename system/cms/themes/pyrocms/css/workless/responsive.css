@@ -1,0 +1,689 @@
+/*
+ * ==================================
+ *     Workless 2.0 ❖ by @iKreativ
+ * ==================================
+ *
+ * Workless is a mixup of HTML5 Boilerplate and Twitters Bootstrap with some added extras!
+ *
+ * Credits:
+ * - HTML5 Boilerplate: Nicolas Gallagher, Jonathan Neal, Kroc Camen, and the H5BP dev team.
+ * - Twitter Bootstrap: @twitter, @mdo and @fat.
+ */
+
+/* ----------------------------------
+ *   Responsivness
+ * ----------------------------------
+ * @media queries for responsive design.
+ * These override the primary('mobile first') styles.
+ *
+ * ! Ensure your main styling comes before this !
+ *
+ * ---------------------------------- */
+
+
+
+/*FRONT CODE*/
+/** SEARCH **/
+
+			.bajada2{
+				position:absolute;
+				z-index:9999;
+				overflow:hidden;
+/*				width: 100%; */
+				width:40px;
+				height: 100% !important;
+/*				top:50px; */
+				min-width:30px !important;
+				}
+
+
+			
+			.boxgrid{ 
+				width: 100%; 
+				height: 100%; 
+				margin:0px; 
+				float:left; 
+				overflow: hidden; 
+				position: relative;
+				min-width:40px !important;
+				/*display:none;temporal*/
+			}
+				.boxgrid img{ 
+/*					position: absolute; */
+					top: 0; 
+					left: 0; 
+					border: 0; 
+				}
+				.boxgrid p{ 
+					padding: 0 10px; 
+					color:#fff; 
+					font-weight:bold; 
+					font-size:0.938em;
+					display:block; 
+				}
+				
+			.boxcaption{ 
+				float: left; 
+				position: absolute; 
+				background: #000; 
+				height: 100% !important;
+				width: 100%; 
+				opacity: .8; 
+				/* For IE 5-7 */
+				filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+				/* For IE 8 */
+				-MS-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+				overflow:hidden;
+				min-width:35px !important;
+ 			}
+/* 				.captionfull .boxcaption {
+ 					top: 100%;
+ 					left: 0;
+ 				}
+ 				.caption .boxcaption {
+ 					top: 100%;
+ 					left: 0;
+ 				}*/
+
+				
+				.view_mc{
+					color:#FFF !important;
+
+				}
+				
+
+
+	
+	.hide{ display:none !important;}
+	.linker,.linker2{display:block; min-height:20px; min-width:20px; margin:5px; color:#F90 !important; background:url(../../img/backend_code/icon_search.png) no-repeat;text-indent: 100%; overflow: hidden; white-space: nowrap; !important;}
+	
+	.content_back{ }
+	.search-box{
+	position:absolute; 
+	float:left;
+	left:40px; 
+	top: 10px;
+	display:none;
+/*	margin-left:5px; */
+/*	width:100px;*/
+	height:99%;
+
+	}
+	
+	
+.frm-input{
+	padding-top:30px;
+	} 
+	
+
+
+.input-wrapper  {
+width: 212px;
+height: 24px;
+padding: 3px 0 4px 14px;
+/*background: url(../../img/backend_code/bg-search-bar_.png) no-repeat 0 0px;*/
+}
+
+.input-wrapper:hover{
+/*background: url(../../img/backend_code/bg-search-bar_.png) no-repeat 0 -32px;*/
+}
+	
+	
+.input-wrapper input#q {
+/*background: transparent;*/
+/*border: none;*/
+font-size: 13px;
+/*width: 182px;*/
+/*height: 100%;*/
+color: #ccc;
+/*padding:0px;*/
+padding-left:5px;
+}
+	
+a#s {
+/*width: 150px;
+height: 40px;*/
+width: 70px;
+height: 20px;
+display:block;
+/*background:url(../../img/backend_code/buttons_03.png);*/
+text-decoration:none;
+color:#FFF !important;
+padding-left: 36px;/*new*/
+margin-left: 15px;/*new*/
+}
+
+span.st {
+/*	padding-left:12px;
+	padding-top:12px;*/
+	display:block;
+	color:#FFF!important;
+}
+
+.plus_view{
+	width:30px;
+	height:30px;
+	float:right;
+	display:block;
+	background:url(../../img/backend_code/plus_view.png) no-repeat;
+	display:none;
+	position:absolute;
+	left:90%;
+	top:50%;
+	}
+
+/***************/
+
+@media only screen and (min-width: 281px) {
+
+	#logo {
+		display: none;
+	}
+
+	.topbar {
+		height: 100px;
+	}
+
+	.topbar ul li a {
+  		padding: 15px 5px 15px 5px;
+	}
+
+	.subbar {
+		margin-top: 70px;
+	}
+
+	.sections_bar {
+		margin-top: 55px;
+	}
+
+	#content-body {
+		top: 30px;
+	}
+
+}
+
+@media only screen and (min-width: 481px) {
+
+	.wrapper {
+		width: 480px;
+		margin: 0 auto;
+	}
+
+	#container {
+		width: 480px;
+		height: 100%;
+		min-height: 100%;
+		margin: 0 auto;
+		padding: 0;
+	}
+
+	section.title, section.item {width: 450px;}
+
+	#logo {
+		display: none;
+	}
+
+	.topbar {
+		height: 100px;
+	}
+	.topbar ul {
+		margin-left: -15px;
+		padding-left: 0px!important;
+	}
+
+	.topbar ul li a {
+  		padding: 15px 5px 15px 5px;
+	}
+
+	.subbar {
+		margin-top: 70px;
+	}
+	.subbar h2, .subbar h2 a {
+		padding: 0;
+	}
+	.sections_bar {
+		margin-top: 55px;
+	}
+
+	#content-body {
+		top: 30px;
+	}
+
+	#analyticsWrapper, #analytics {
+		width: 432px;
+	}
+
+	section#content {
+		width: 450px;
+		padding: 0;
+		margin: 150px 0 150px 0;
+		float: left;
+	}
+
+	.one_full {
+		width: 450px;
+		margin: 0;
+		float: left;
+	}
+
+	.one_half {
+		width: 450px;
+		float: left;
+	}
+
+	td.one_half {
+		width: 430px;
+	}
+
+	/*.one_third {
+		width: 450px;
+		float: left;
+	}
+
+	.two_third {
+		width: 450px;
+		float: left;
+	}*/
+
+	.one_quarter {
+		width: 100px;
+		float: left;
+		margin-right: 15px;
+	}
+
+	.three_quarter {
+		width: 310px;
+		float: left;
+	}
+
+	#quick_links ul li {
+		width: 75px;
+		float: left;
+		margin: 3px 15px 0 15px;
+	}
+
+	footer p {
+		padding: 0;
+	}
+
+	#shortcuts {
+		right: 0;
+	}
+
+	.alert {
+		width: 450px;
+	}
+
+	.form_inputs fieldset > ul > li > label,
+	.form_inputs fieldset > ul > div > li > label,
+	.form_inputs > ul > div > li > label,
+	.form_inputs > ul > li > label,
+	.form_inputs fieldset > ul > li .label,
+	.form_inputs > ul > li .label {
+		width: 27%!important;
+		float: left;
+	}
+
+	.form_inputs label small {
+		margin-left: 0;
+		margin-bottom: 0;
+	}
+
+	.form_inputs fieldset {
+		width: auto;
+	}
+
+	table {
+		width: 100%;
+		margin: 0;
+		font-size: 13px;
+	}
+
+}
+
+@media only screen and (min-width: 768px) {
+
+	.topbar, .subbar, .sections_bar {position: fixed;}
+
+	.wrapper {
+		width: 750px;
+		margin: 0 auto;
+	}
+
+	#container {
+		width: 750px;
+		height: 100%;
+		min-height: 100%;
+		margin: 0 auto;
+		padding: 0;
+	}
+
+	section.title, section.item {width: 720px;}
+
+	#logo {
+		display: inherit;
+	}
+
+	.topbar {
+		height: 50px;
+	}
+
+	.topbar ul li a {
+  		padding: 15px 5px 15px 5px;
+	}
+
+	.subbar {
+		margin-top: 25px;
+	}
+	.subbar small {
+		display: block;
+	}
+
+	.sections_bar {
+		margin-top: 9px;
+	}
+
+	#content-body {
+		top: 0px;
+	}
+
+	#analyticsWrapper, #analytics {
+		width: 702px;
+	}
+
+	section#content {
+		width: 750px;
+		padding: 0;
+		margin: 150px 0 150px 0;
+		float: left;
+	}
+
+	.one_full {
+		width: 750px;
+		margin: 0;
+		float: left;
+	}
+
+	.one_half {
+		width: 365px;
+		margin-right: 15px;
+		float: left;
+	}
+
+	td.one_half {
+		width: 325px;
+	}
+
+	.one_half section.title, .one_half section.item {width: 335px;}
+
+	/*.one_third {
+		width: 250px;
+		margin-right: 15px;
+		float: left;
+	}
+	.one_third section.title, .one_third section.item {width: 220px;}
+
+	.two_third {
+		width: 500px;
+		margin-right: 15px;
+		float: left;
+	}
+	.two_third section.title, .two_third section.item {width: 470px;}
+	*/
+
+	.one_quarter {
+		width: 200px;
+		margin-right: 15px;
+		float: left;
+	}
+
+	.three_quarter {
+		width: 500px;
+		float: left;
+	}
+
+	#quick_links ul li {
+		width: 75px;
+		float: left;
+		margin: 3px 5px 0 5px;
+	}
+
+	footer p {
+		float: left;
+		padding: 10px 0 0 0;
+		width: 60%;
+	}
+
+	ul#lang {
+		float: right;
+		margin-right: 0;
+	}
+
+	.move-handle {display: block;}
+	fieldset {padding: 25px; margin: 5px 0 15px 0;}
+	.form_inputs .input > input {min-width: 210px!important;}
+	table th.collapse, table td.collapse {display: table-cell;}
+	table .actions a {
+		display: inline;
+		margin-bottom: 0;
+	}
+	.subbar h2, .subbar h2 a {font-size: 28px;}
+
+	.alert {
+		width: 720px;
+	}
+
+}
+
+@media only screen and (min-width: 1025px) {
+
+	.wrapper {
+		width: 1024px;
+		margin: 0 auto;
+	}
+
+	#container {
+		width: 1024px;
+		height: 100%;
+		min-height: 100%;
+		margin: 0 auto;
+		padding: 0;
+	}
+
+	section.title, section.item {width: 994px;}
+
+	.topbar {
+		height: 50px;
+		text-align: center;
+	}
+
+	.topbar ul li {
+  		min-width: 70px;
+	}
+
+	.subbar {
+		top: 25px;
+	}
+
+	.sections_bar {
+		top: 95px;
+	}
+
+	#content-body {
+		top: 0px;
+	}
+
+	#analyticsWrapper, #analytics {
+		width: 976px;
+	}
+
+	section#content {
+		width: 1024px;
+		padding: 0;
+		margin: 150px 0 150px 0;
+		float: left;
+	}
+
+	.one_full {
+		width: 1000px;
+		margin: 0;
+		float: left;
+	}
+
+	.one_half {
+		width: 500px;
+		margin-right: 10px;
+		float: left;
+	}
+
+	td.one_half {
+		width: 465px;
+	}
+
+	.one_half section.title, .one_half section.item {width: 470px;}
+
+	/*.one_third {
+		width: 350px;
+		margin-right: 15px;
+		float: left;
+	}
+
+	.two_third {
+		width: 786px;
+		margin-right: 15px;
+		float: left;
+	}*/
+
+	.one_quarter {
+		width: 230px;
+		margin-right: 15px;
+		float: left;
+	}
+
+	.three_quarter {
+		width: 730px;
+		float: left;
+	}
+
+	#quick_links ul li {
+		width: 75px;
+		float: left;
+		margin: 3px 18px 0 18px;
+	}
+
+	footer p {
+		padding: 0px;
+		margin: 0px;
+		line-height: 60px;
+		width: 65%;
+		vertical-align: middle;
+	}
+
+	.alert {
+		width: 995px;
+	}
+
+}
+
+@media only screen and (min-width: 1281px) {
+
+	.wrapper {
+		width: 1280px;
+		margin: 0 auto;
+	}
+
+	#container {
+		width: 1280px;
+		height: 100%;
+		min-height: 100%;
+		margin: 0 auto;
+		padding: 0;
+	}
+
+	section.title, section.item {width: 1250px;}
+
+	.topbar {
+		height: 50px;
+		text-align: center;
+	}
+
+	.topbar ul li {
+  		min-width: 80px;
+	}
+
+	.subbar {
+		top: 25px;
+	}
+
+	.sections_bar {
+		top: 95px;
+	}
+
+	#content-body {
+		top: 0px;
+	}
+
+	#analyticsWrapper, #analytics {
+		width: 1232px;
+	}
+
+	section#content {
+		width: 1280px;
+		padding: 0;
+		margin: 170px 0 150px 0;
+		float: left;
+	}
+
+	.one_full {
+		width: 1280px;
+		margin: 0;
+		float: left;
+	}
+	.one_full section.title, .one_full section.item {width: 1250px;}
+
+	.one_half {
+		width: 625px;
+		margin-right: 10px;
+		float: left;
+	}
+
+	td.one_half {
+		width: 595px;
+	}
+
+	.one_half section.title, .one_half section.item {width: 595px;}
+
+	/*.one_third {
+		width: 350px;
+		margin-right: 15px;
+		float: left;
+	}
+
+	.two_third {
+		width: 786px;
+		margin-right: 15px;
+		float: left;
+	}*/
+
+	.one_quarter {
+		width: 230px;
+		margin-right: 15px;
+		float: left;
+	}
+
+	.three_quarter {
+		width: 975px;
+		float: left;
+	}
+
+	#quick_links ul li {
+		width: 75px;
+		float: left;
+		margin: 3px 35px 0 35px;
+	}
+
+	.alert {
+		width: 1250px;
+	}
+
+}
