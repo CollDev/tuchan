@@ -449,7 +449,7 @@ CREATE TABLE `default_cms_imagenes` (
   KEY `fk_default_cms_imagenes_default_cms_grupo_maestros1_idx` (`grupo_maestros_id`),
   KEY `fk_default_cms_imagenes_default_cms_tipo_imagen1_idx` (`tipo_imagen_id`),
   KEY `fk_default_cms_imagenes_default_cms_canales1_idx` (`canales_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=96 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=110 DEFAULT CHARSET=utf8;
 
 /*Data for the table `default_cms_imagenes` */
 
