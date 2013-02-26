@@ -81,39 +81,40 @@ class EnvioVideos{
 $conexion = new Conexion();	
 
 
-$returconsulta=$conexion->setConsulta("SELECT id,titulo,descripcion,estado_liquid,codigo FROM default_cms_videos where estado_liquid=0");
+while(true){
 
-if ($returconsulta) {
-	while ($row = $returconsulta->fetch_object()) {
+	$returconsulta=$conexion->setConsulta("SELECT id,titulo,descripcion,estado_liquid,codigo FROM default_cms_videos where estado_liquid=0");
 
-		if($_SERVER["DOCUMENT_ROOT"]=="/"){
-			$arrdatos['ubi']="/home/idigital3/sites/adminmicanal/";
+	if ($returconsulta) {
+		while ($row = $returconsulta->fetch_object()) {
+
+			if($_SERVER["DOCUMENT_ROOT"]=="/"){
+				$arrdatos['ubi']="/home/idigital3/sites/adminmicanal/";
+			}
+
+			$arrdatos['ubi']=$_SERVER["DOCUMENT_ROOT"]."/";
+			echo "path: ".$arrdatos['ubi'];
+
+			//$arrdatos['ubi']=$_SERVER["DOCUMENT_ROOT"]."/videos/";
+
+		    $arrdatos['id']  = $row->id;
+		    $arrdatos['fecha']  = date('Y-m-d H:i:s');
+			$arrdatos['title']  = $row->titulo;
+			$arrdatos['legend'] = $row->descripcion;
+			$arrdatos['codigo'] = $row->codigo;
+			$arrdatos['estado_liquid'] = $row->estado_liquid;
+
+			print_r($arrdatos);
+
+
+			$enviovideos= new EnvioVideos();	
+
+			$enviovideos->EnvioVideosNuevos($arrdatos);
+
 		}
+	 }
 
-		$arrdatos['ubi']=$_SERVER["DOCUMENT_ROOT"]."/";
-		echo "path: ".$arrdatos['ubi'];
-
-		//$arrdatos['ubi']=$_SERVER["DOCUMENT_ROOT"]."/videos/";
-
-	    $arrdatos['id']  = $row->id;
-	    $arrdatos['fecha']  = date('Y-m-d H:i:s');
-		$arrdatos['title']  = $row->titulo;
-		$arrdatos['legend'] = $row->descripcion;
-		$arrdatos['codigo'] = $row->codigo;
-		$arrdatos['estado_liquid'] = $row->estado_liquid;
-
-		print_r($arrdatos);
-
-
-		$enviovideos= new EnvioVideos();	
-
-		$enviovideos->EnvioVideosNuevos($arrdatos);
-
-	}
- }
-
-
-goto subida;
-
+	sleep(20);
+}
 
 ?>
