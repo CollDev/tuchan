@@ -113,7 +113,11 @@ if ($returconsulta) {
 	}
  }
 
+<<<<<<< HEAD
 //goto subida;
+=======
+goto subida;	
+>>>>>>> d049cff970846db8b0c7aeb6c7bb0bcc02b2ede6
 
 
 
