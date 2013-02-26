@@ -41,7 +41,7 @@ class Liquid{
 
     $post = "<Media><published>true</published><publishDate>".$date."</publishDate></Media>";
     $url = $this->apiUrl . "/medias/".$mediaId."?key=".$this->apiKey; 
-    //echo $url."<br>";
+    echo $url."<br>";
     return $this->postXML($url, $post);
   }
 
@@ -58,7 +58,7 @@ class Liquid{
       $tags . 
     "</Media>"; 
     $url = $this->apiUrl . "/medias/".$mediaId."?key=".$this->apiKey; 
-    //echo $url."<br>";
+    echo $url."<br>";
     return $this->postXML($url, $post); 
    }
 
@@ -88,7 +88,7 @@ class Liquid{
         );
 
         //echo "<br>";
-  //print_r($post);
+  print_r($post);
        // echo "<br>";
 
         curl_setopt($ch,CURLOPT_POSTFIELDS, $post);
@@ -101,13 +101,13 @@ class Liquid{
         $mediaxml = new SimpleXMLElement($response);
 
         $jsonmedia=json_encode($media);
-       // echo json_encode($media);
+        echo json_encode($media);
 
         $mediaarr=json_decode(json_encode($mediaxml),true);
 
         $media=$mediaarr["media"]["@attributes"]["id"];
 
-       // echo "<br>media: ".$media."<br>";
+        echo "<br>media: ".$media."<br>";
 
         if($media!=""){
 
@@ -127,7 +127,7 @@ class Liquid{
           return $ret;
 
         }               
-        //echo "status: ".$mediaarr["status"];     
+        echo "status: ".$mediaarr["status"];     
   }
 
   function obtenerDatosMedia($mediaId){

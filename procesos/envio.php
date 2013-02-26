@@ -80,7 +80,7 @@ class EnvioVideos{
 
 $conexion = new Conexion();	
 
-subida:
+//subida:
 
 $returconsulta=$conexion->setConsulta("SELECT id,titulo,descripcion,estado_liquid,codigo FROM default_cms_videos where estado_liquid=0");
 
@@ -113,7 +113,7 @@ if ($returconsulta) {
 	}
  }
 
-goto subida;
+//goto subida;
 
 
 
