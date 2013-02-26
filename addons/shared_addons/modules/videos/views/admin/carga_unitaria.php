@@ -304,7 +304,8 @@
         }
         
         function validarFragmento(){
-            /*var values = {};
+            
+            var values = {};
             $.each($('#frm').serializeArray(), function(i, field) {
                 values[field.name] = field.value;
             });
@@ -315,14 +316,30 @@
             $.ajax({
                 type: "POST",
                 url: post_url,
-                //dataType: 'json',
+                dataType: 'json',
                 data:serializedData,
                 success: function(returnValue) //we're calling the response json array 'cities'
                 {
-                    //showMessage('exit', '<?php //echo lang('videos:edit_video_success') ?>', 1000,'');
+                    /*$.each(returnValue, function(index, value) {
+                        console.log(index);
+                        console.log(value);
+                    });*/
+                    if(returnValue.errorValue == 1){
+                        $("#existe_fragmento").val("1");
+                    }else{
+                        $("#existe_fragmento").val("0");
+                    }
+                        
                 } //end success
-            }); //end AJAX */            
-            return true;
+            }); //end AJAX  
+            var respuesta = $("#existe_fragmento").val();
+            if(respuesta == 1){
+                return false;
+            }else{
+                return true;
+            }
+            console.log(respuesta);
+            return false;
         }
         /*
          * 
@@ -371,7 +388,7 @@
                                         if(values['tipo'] > 0){
                                             //validamos la fuente del video
                                             if(values['fuente']>0){
-                                                if(validarFragmento()){
+                                                if(true/*validarFragmento()*/){
                                                     <?php if($objBeanForm->video_id > 0){ ?>
                                                         var serializedData = $('#frm').serialize();
                                                         //var post_url = "/admin/videos/save_maestro/"+values['txt_'+type_video]+"/"+values['canal_id']+"/"+values['categoria']+"/"+type_video;
@@ -471,8 +488,11 @@
                                     
                                     if(type_video == 'programa'){
                                         generate_collection();
+                                    }else{
+                                        if(type_video == 'coleccion'){
+                                            generate_list();
+                                        }
                                     }
-                                    
                                 }else{
                                      showMessage('error', '<?php echo lang('videos:exist_name') ?>', 2000,'');
                                 }
@@ -818,9 +838,9 @@
                 $('select[name="lista"]').prepend(opt);                
                 $('select[name="lista"]').trigger("liszt:updated");
                 //limpiamos y generamos la nueva lista de reproducción relacionadas al canal directamente
-                if(values['programa'] == 0){
+                //if(values['programa'] == 0){
                     generate_list();
-                }
+                //}
             } //end success
         }); //end AJAX
     }
@@ -874,6 +894,7 @@
     <input type="hidden" name="canal_id" id="canal_id" value="<?php echo $canal->id; ?>" />
     <input type="hidden" name="tipo_maestro" id="tipo_maestro" value="" />
     <input type="hidden" name="video_id" id="video_id" value="<?php echo $objBeanForm->video_id ?>" />
+    <input type="hidden" name="existe_fragmento" id="existe_fragmento" value="0" />
     <?php if($objBeanForm->video_id > 0){ ?>
         <input type="hidden" name="video" id="video" value="<?php echo $objBeanForm->video_id.'.mp4' ?>" />
     <?php } ?>

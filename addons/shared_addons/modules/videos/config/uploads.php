@@ -10,6 +10,7 @@ $config['videos:imagenes'] = UPLOAD_IMAGENES_VIDEOS;
 $config['videos:videos']   = UPLOAD_VIDEOS;
 
 $config['videos:formatos'] = 'mp4|mpg|flv|avi|wmv';
+$config['videos:extension'] = 'vid';
 
 //identificadores para los tipos de maestros
 $config['videos:programa'] = '3';

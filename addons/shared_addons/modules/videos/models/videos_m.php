@@ -87,7 +87,7 @@ class Videos_m extends MY_Model
      */
     private function _obtener_query_videos($canal_id)
     {           
-            $query = "SELECT v.id, v.canales_id, v.titulo, v.fuente, v.fecha_registro, v.fecha_publicacion_inicio, v.fecha_publicacion_fin,
+            $query = "SELECT v.id, v.canales_id, v.titulo, v.fecha_registro, v.fecha_publicacion_inicio, v.fecha_publicacion_fin,
             v.fecha_transmision, v.horario_transmision_inicio, v.horario_transmision_fin, v.estado,                            
             c.nombre as canal, c.nombre as fuente, cat.nombre as categoria, tv.nombre as tipo_video, 
             i.imagen, ";
@@ -145,7 +145,7 @@ class Videos_m extends MY_Model
                 'categorias_id' => $input['categorias_id'],
                 'usuarios_id' => $input['usuarios_id'],
                 'tipo_videos_id' => $input['tipo_videos_id'],
-                'fuente' => $input['fuente'],
+                //'fuente' => $input['fuente'],
                 'fecha_publicacion_inicio' => date("Y-m-d H:i:s", strtotime($input['fecha_publicacion_inicio'])),
                 'fecha_publicacion_fin' => date("Y-m-d H:i:s", strtotime($input['fecha_publicacion_fin'])),
                 'fecha_transmision' => date("Y-m-d H:i:s", strtotime($input['fecha_transmision'])),
@@ -224,7 +224,7 @@ class Videos_m extends MY_Model
                     'categorias_id' => $objBeanVideo->categorias_id,
                     'usuarios_id' => $objBeanVideo->usuarios_id,
                     'canales_id' => $objBeanVideo->canales_id,
-                    'fuente' => $objBeanVideo->fuente,
+                    //'fuente' => $objBeanVideo->fuente,
                     'titulo' => $objBeanVideo->titulo,
                     'alias' => $objBeanVideo->alias,
                     'descripcion' => $objBeanVideo->descripcion,
@@ -252,7 +252,7 @@ class Videos_m extends MY_Model
             'categorias_id' => $objBeanVideo->categorias_id,
             'usuarios_id' => $objBeanVideo->usuarios_id,
             'canales_id' => $objBeanVideo->canales_id,
-            'fuente' => $objBeanVideo->fuente,
+            //'fuente' => $objBeanVideo->fuente,
             'titulo' => $objBeanVideo->titulo,
             'alias' => $objBeanVideo->alias,
             'descripcion' => $objBeanVideo->descripcion,
@@ -266,6 +266,28 @@ class Videos_m extends MY_Model
             'fecha_actualizacion' => $objBeanVideo->fecha_actualizacion,
             'usuario_actualizacion' => $objBeanVideo->usuario_actualizacion
             ));        
+    }
+    
+    public function existVideo($title, $canal_id,$video_id, $video_update = 0, $type = 0){
+        $returnValue = false;
+        if($video_id > 0){
+            if($video_update > 0){
+                $query="SELECT * FROM ".$this->_table." WHERE id = '".$video_id."' AND id NOT IN (".$video_update.") AND upper(titulo) like '".  strtoupper($title)."' AND canales_id =".$canal_id;
+                error_log("1111".$query);
+            }else{
+                $query="SELECT * FROM ".$this->_table." WHERE upper(titulo) like '".  strtoupper($title)."' AND canales_id =".$canal_id;
+                //$query="SELECT * FROM ".$this->_table." WHERE id NOT IN (".$video_id.") AND upper(titulo) like '".  strtoupper($title)."' AND canales_id =".$canal_id;
+                error_log("2222".$query);
+            }
+        }else{
+            $query="SELECT * FROM ".$this->_table." WHERE id NOT IN (".$video_id.") AND upper(titulo) like '".  strtoupper($title)."' AND canales_id =".$canal_id;
+            error_log("3333".$query);
+        }
+        $result = $this->db->query($query)->result();
+        if(count($result)>0){
+            $returnValue = true;
+        }
+        return $returnValue;        
     }
 }
 

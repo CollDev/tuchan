@@ -109,6 +109,12 @@ class Tags_m extends MY_Model {
         $result = $this->db->query($query)->result();
         return $result;         
     }
+    
+    public function getTagsByType($term,$type){
+        $query="SELECT nombre as value FROM ".$this->_table." WHERE tipo_tags_id = '".$type."' AND upper(nombre) LIKE '%".$term."%'";
+        $result = $this->db->query($query)->result();
+        return $result;         
+    }
 
 
 }
