@@ -1,4 +1,6 @@
 <?php 
+echo 'post_max_size = ' . ini_get('post_max_size') . "\n";
+echo 'post_max_size+1 = ' . (ini_get('post_max_size')+1) . "\n"
 
 include_once 'ffmpeg.php';
 include_once 'liquid.php';
@@ -77,6 +79,7 @@ class EnvioVideos{
 
 }
 
+/*
 
 $conexion = new Conexion();	
 
@@ -116,5 +119,6 @@ while(true){
 
 	sleep(20);
 }
+*/
 
 ?>

@@ -27,8 +27,8 @@ class  Mantenimiento{
 				//print_r($retorno);
 
 				//echo "published: ".$retorno["published"]."<br>";
-					echo $retorno['files']['file'][0]['videoInfo']['duration'];
-					print_r($retorno['files']);
+
+$retorno['files']['file'][0]['videoInfo']['duration'];
 
 				if($retorno["published"]=="false"){
 					///echo "entro aki";
@@ -66,7 +66,9 @@ class  Mantenimiento{
 
 
 	//while (true) {
-		$mantenimiento->publicarPendientes();	
+		
+		$mantenimiento->$retorno['files']['file'][0]['videoInfo']['duration'];
+		();	
 
 		//sleep(30);}
 	
