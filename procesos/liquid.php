@@ -132,14 +132,14 @@ class Liquid{
 
   function obtenerDatosMedia($mediaId){
 
-    $url = $this->apiUrl . "/medias/".$mediaId."?key=".$this->apiKey."&filter=id;published;status";     
+    $url = $this->apiUrl . "/medias/".$mediaId."?key=".$this->apiKey."&filter=id;published;status;numberOfViews;files";     
     echo $url."<br>";
     $response = $this->getXml($url);    
     $mediaxml = new SimpleXMLElement($response);
     $jsonmedia=json_encode($media); 
     $mediaarr=json_decode(json_encode($mediaxml),true);
     
-    //print_r($mediaarr);
+    print_r($mediaarr);
 
     return $mediaarr;
   }
