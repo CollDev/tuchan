@@ -1,6 +1,8 @@
 <?php 
 echo 'post_max_size = ' . ini_get('post_max_size') . "\n";
-echo 'post_max_size+1 = ' . (ini_get('post_max_size')+1) . "\n"
+
+echo 'upload_max_filesize = ' . ini_get('upload_max_filesize') . "\n";
+
 
 /*
 include_once 'ffmpeg.php';
