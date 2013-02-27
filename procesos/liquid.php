@@ -136,7 +136,7 @@ class Liquid{
     echo $url."<br>";
     $response = $this->getXml($url);    
     $mediaxml = new SimpleXMLElement($response);
-    $jsonmedia=json_encode($media); 
+    //$jsonmedia=json_encode($media); 
     $mediaarr=json_decode(json_encode($mediaxml),true);
     
     //print_r($mediaarr);
@@ -149,7 +149,7 @@ class Liquid{
     $url = $this->apiUrl . "/medias/".$mediaId."?key=".$this->apiKey."&filter=id;thumbs";     
     $response = $this->getXml($url);    
     $mediaxml = new SimpleXMLElement($response);
-    $jsonmedia=json_encode($media); 
+    //$jsonmedia=json_encode($media); 
     $mediaarr=json_decode(json_encode($mediaxml),true);
     return $mediaarr;
   }
