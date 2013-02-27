@@ -3,6 +3,8 @@ echo 'post_max_size = ' . ini_get('post_max_size') . "\n";
 
 echo 'upload_max_filesize = ' . ini_get('upload_max_filesize') . "\n";
 
+echo 'max_execution_time = ' . ini_get('max_execution_time') . "\n";
+
 
 /*
 include_once 'ffmpeg.php';
