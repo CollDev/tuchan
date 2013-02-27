@@ -139,7 +139,7 @@ class Liquid{
     $jsonmedia=json_encode($media); 
     $mediaarr=json_decode(json_encode($mediaxml),true);
     
-    print_r($mediaarr);
+    //print_r($mediaarr);
 
     return $mediaarr;
   }

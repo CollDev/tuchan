@@ -46,6 +46,8 @@ class  Mantenimiento{
 						$conexion->updateEstadoVideosLiquid($row->id,5);
 					}
 
+					echo $retornopublished['files']['file'][0]['videoInfo']['duration'];
+
 				}	
 				
 
