@@ -31,11 +31,12 @@ class  Mantenimiento{
 
 				$retorno = $this->liquid->obtenerDatosMedia($arrdatos['codigo']);
 
-				print_r($retorno);
+				echo $retorno['files']['file'][0]['videoInfo']['duration'];
+				//print_r($retorno);
 /*
 				//echo "published: ".$retorno["published"]."<br>";
 
-//$retorno['files']['file'][0]['videoInfo']['duration'];
+				
 
 				if($retorno["published"]=="false"){
 					///echo "entro aki";
