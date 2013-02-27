@@ -96,7 +96,9 @@ $conexion = new Conexion();
 while(true){
 
 	$returconsulta=$conexion->setConsulta("SELECT id,titulo,descripcion,estado_liquid,codigo FROM default_cms_videos where estado_liquid=0 limit 1");
+	echo $returconsulta;
 
+	/*
 	if ($returconsulta) {
 		while ($row = $returconsulta->fetch_object()) {
 
@@ -125,7 +127,8 @@ while(true){
 
 		}
 	 }
-
+	 */
+	 exit();
 	sleep(20);
 }
 
