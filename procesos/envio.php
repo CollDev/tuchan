@@ -1,12 +1,6 @@
 <?php 
-echo 'post_max_size = ' . ini_get('post_max_size') . "\n";
-
-echo 'upload_max_filesize = ' . ini_get('upload_max_filesize') . "\n";
-
-echo 'max_execution_time = ' . ini_get('max_execution_time') . "\n";
 
 
-/*
 include_once 'ffmpeg.php';
 include_once 'liquid.php';
 include_once 'util/conn_mysql.php';
@@ -32,9 +26,10 @@ class EnvioVideos{
 			$liquid = new Liquid();
 			$retliquid = $liquid->uploadVideoLiquid($id_video,$ubi);
 
-		//print_r($retliquid);
+		print_r($retliquid);
 		//exit();	
 
+/*
 			if($retliquid["ret"]=="true"){
 
 				echo $retliquid["med"]."<br>";
@@ -58,6 +53,8 @@ class EnvioVideos{
 					$conexion->updateEstadoVideosLiquid($id_video,5);
 				}
 			}
+
+			*/
 		}
 	}
 
@@ -83,8 +80,15 @@ class EnvioVideos{
 	}
 
 }
-*/
-/*
+
+echo 'post_max_size = ' . ini_get('post_max_size') . "\n";
+
+echo 'upload_max_filesize = ' . ini_get('upload_max_filesize') . "\n";
+
+echo 'max_execution_time = ' . ini_get('max_execution_time') . "\n";
+
+
+
 
 $conexion = new Conexion();	
 
