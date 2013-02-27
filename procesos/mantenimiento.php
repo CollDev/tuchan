@@ -27,7 +27,8 @@ class  Mantenimiento{
 				//print_r($retorno);
 
 				//echo "published: ".$retorno["published"]."<br>";
-
+					echo $retorno['files']['file'][0]['videoInfo']['duration'];
+					print_r($retorno['files']);
 
 				if($retorno["published"]=="false"){
 					///echo "entro aki";
@@ -46,7 +47,6 @@ class  Mantenimiento{
 						$conexion->updateEstadoVideosLiquid($row->id,5);
 					}
 
-					echo $retornopublished['files']['file'][0]['videoInfo']['duration'];
 
 				}	
 				
