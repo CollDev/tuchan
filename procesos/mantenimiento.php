@@ -4,12 +4,19 @@ include_once 'util/conn_mysql.php';
 
 class  Mantenimiento{
 
+	var  $liquid="";
+	var  $conexionmysql="";
+
+	function __construct() {
+		$this->liquid = new  Liquid();
+		$this->conexionmysql = new Conexion();       
+   	}
+
+
 	function publicarPendientes(){
 
-		$conexion = new Conexion();
-		$liquid = new  Liquid();
 
-		$returconsulta=$conexion->setConsulta("SELECT id,titulo,descripcion,codigo FROM default_cms_videos where estado_liquid in (4,5)");
+		$returconsulta=$this->conexionmysql->setConsulta("SELECT id,titulo,descripcion,codigo FROM default_cms_videos where estado_liquid in (4,5)");
 
 		if ($returconsulta) {
 			while ($row = $returconsulta->fetch_object()) {
@@ -17,39 +24,41 @@ class  Mantenimiento{
 			    $arrdatos['id']  = $row->id;
 			    $arrdatos['fecha']  = date('Y-m-d H:i:s');
 				$arrdatos['title']  = $row->titulo;
-				$arrdatos['legend'] = $row->descripcion;
+				$arrdatos['legend'] = strip_tags($row->descripcion);
 				$arrdatos['codigo'] = $row->codigo;
 
 				//print_r($arrdatos);
 
-				$retorno = $liquid->obtenerDatosMedia($arrdatos['codigo']);
+				$retorno = $this->liquid->obtenerDatosMedia($arrdatos['codigo']);
 
-				//print_r($retorno);
-
+				print_r($retorno);
+/*
 				//echo "published: ".$retorno["published"]."<br>";
 
-$retorno['files']['file'][0]['videoInfo']['duration'];
+//$retorno['files']['file'][0]['videoInfo']['duration'];
 
 				if($retorno["published"]=="false"){
 					///echo "entro aki";
-					$liquid -> updatePublishedMediaNode($arrdatos['codigo'],$arrdatos);
+					$this->liquid -> updatePublishedMediaNode($arrdatos['codigo'],$arrdatos);
 					//echo "paso aki";
-					$retornopublished = $liquid -> obtenerDatosMedia($arrdatos['codigo']);
+					$retornopublished = $this->liquid -> obtenerDatosMedia($arrdatos['codigo']);
 					//echo "mostrando : ";		
 					//print_r($retornopublished);
 
 					if($retornopublished["published"]=="true"){
 					//echo "entro en 6";
-						$conexion->updateEstadoVideosLiquid($row->id,6);
+						$this->conexionmysql->updateEstadoVideosLiquid($row->id,6);
 					//echo "FIN";	
 					}else{
 						//echo "entro en 5";		
-						$conexion->updateEstadoVideosLiquid($row->id,5);
+						$this->conexionmysql->updateEstadoVideosLiquid($row->id,5);
 					}
+				}
+				else{
 
-
-				}	
-				
+					$this->conexionmysql->updateEstadoVideosLiquid($row->id,6);
+				}
+				*/
 
 			}
 		 }		
@@ -63,13 +72,10 @@ $retorno['files']['file'][0]['videoInfo']['duration'];
 }
 
 	$mantenimiento = new Mantenimiento();
+	$mantenimiento->publicarPendientes();
 
-
-	//while (true) {
-		
-		$mantenimiento->$retorno['files']['file'][0]['videoInfo']['duration'];
-		();	
-
+		//while (true) {	
+		//$mantenimiento->$retorno['files']['file'][0]['videoInfo']['duration'];
 		//sleep(30);}
 	
 
