@@ -31,7 +31,8 @@ class  Mantenimiento{
 
 				$retorno = $this->liquid->obtenerDatosMedia($arrdatos['codigo']);
 
-				echo $retorno['files']['file'][0]['videoInfo']['duration'];
+				$duracion =($retorno['files']['file'][0]['videoInfo']['duration'])/(60*100);
+				echo $duracion;
 				//print_r($retorno);
 /*
 				//echo "published: ".$retorno["published"]."<br>";
