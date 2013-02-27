@@ -62,6 +62,12 @@ class  Mantenimiento{
 
 	$mantenimiento = new Mantenimiento();
 
-	$mantenimiento->publicarPendientes();
+
+	while (true) {
+		$mantenimiento->publicarPendientes();	
+
+		sleep(30);
+	}
+	
 
 ?>
