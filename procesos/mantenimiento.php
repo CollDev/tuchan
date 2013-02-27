@@ -35,7 +35,12 @@ class  Mantenimiento{
 				if(count($retorno)!=0){
 					$duracion =($retorno['files']['file'][0]['videoInfo']['duration'])/(60*100);
 					$reproducciones=$retorno['numberOfViews'];
+
+					$query="UPDATE default_cms_videos SET reproducciones=".$reproducciones.", duracion=".$duracion." WHERE id=".$row->id;
+					$this->conexionmysql->setConsulta($query);
 				}
+
+
 
 				
 /*
