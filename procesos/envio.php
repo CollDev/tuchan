@@ -101,7 +101,7 @@ while(true){
 	$returconsulta=$conexion->setConsulta($query);
 	
 
-	/*
+	
 	if ($returconsulta) {
 		while ($row = $returconsulta->fetch_object()) {
 
@@ -130,8 +130,8 @@ while(true){
 
 		}
 	 }
-	 */
-	 exit();	
+	 
+	 
 	sleep(20);
 }
 
