@@ -64,7 +64,7 @@ class Mantenimiento {
                     }
                 } else {
 
-                    //$this->conexionmysql->updateEstadoVideosLiquid($row->id, 6);
+                    $this->conexionmysql->updateEstadoVideosLiquid($row->id, 6);
                 }
 
                 // end public videos

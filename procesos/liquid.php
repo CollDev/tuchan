@@ -53,8 +53,8 @@ class Liquid{
     $tags = ''; 
     $date = date("Y-m-d\TH:i:sP", strtotime($arrdatos['fecha'])); 
     $post = "<Media><published>true</published>" . 
-    "<description>".$arrdatos['legend']."</description><highlighted>false</highlighted>" . 
-    "<publishDate>$date</publishDate><title>".$arrdatos['title']."</title>" . 
+    "<description>descripcion</description><highlighted>false</highlighted>" . 
+    "<publishDate>".$date."</publishDate><title>titulo</title>" . 
     "<channelId>2</channelId>" . 
       $tags . 
     "</Media>"; 
