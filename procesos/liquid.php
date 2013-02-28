@@ -47,14 +47,32 @@ class Liquid{
 
   function updatePublishedMediaNode($mediaId, $datos){ 
 
+
+    $mediaId=trim($mediaId);
+
+    $tags = ''; 
+    $date = date("Y-m-d\TH:i:sP", strtotime($arrdatos['fecha'])); 
+    $post = "<Media><published>true</published>" . 
+    "<description>".$arrdatos['legend']."</description><highlighted>false</highlighted>" . 
+    "<publishDate>$date</publishDate><title>".$arrdatos['title']."</title>" . 
+    "<channelId>2</channelId>" . 
+      $tags . 
+    "</Media>"; 
+    $url = $this->apiUrl . "/medias/".$mediaId."?key=".$this->apiKey; 
+    //echo $url."<br>";
+    return $this->postXML($url, $post); 
+   }
+
+
+  function updateTitleMediaNode($mediaId, $datos){ 
+
     $mediaId=trim($mediaId);
 
     $tags = ''; 
     $date = date("Y-m-d\TH:i:sP", strtotime($datos->fecha)); 
-    $post = "<Media><published>true</published>" . 
-    "<description>{$datos->legend}</description><highlighted>false</highlighted>" . 
-    "<publishDate>$date</publishDate><title>{$datos->title}</title>" . 
-    "<channelId>2</channelId>" . 
+    $post = "<Media>" . 
+    "<description>{$datos->legend}</description>" . 
+    "<title>{$datos->title}</title>" . 
       $tags . 
     "</Media>"; 
     $url = $this->apiUrl . "/medias/".$mediaId."?key=".$this->apiKey; 
