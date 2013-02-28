@@ -49,5 +49,57 @@ class Conexion{
         $this->connection;
     }
 
+
+public function saveImage(&$objBeanImage){
+        $sql ="INSERT INTO pyro_admin.default_cms_imagenes
+            (id,
+             canales_id,
+             grupo_maestros_id,
+             videos_id,
+             imagen,
+             tipo_imagen_id,
+             estado,
+             fecha_registro,
+             usuario_registro,
+             fecha_actualizacion,
+             usuario_actualizacion,
+             estado_migracion,
+             fecha_migracion,
+             fecha_migracion_actualizacion,
+             imagen_padre,
+             procedencia)
+VALUES ('".$objBeanImage->id."',
+        '".$objBeanImage->canales_id."',
+        '".$objBeanImage->grupo_maestros_id."',
+        '".$objBeanImage->videos_id."',
+        '".$objBeanImage->imagen."',
+        '".$objBeanImage->tipo_imagen_id."',
+        '".$objBeanImage->estado."',
+        '".$objBeanImage->fecha_registro."',
+        '".$objBeanImage->usuario_registro."',
+        '".$objBeanImage->fecha_actualizacion."',
+        '".$objBeanImage->usuario_actualizacion."',
+        '".$objBeanImage->estado_migracion."',
+        '".$objBeanImage->fecha_migracion."',
+        '".$objBeanImage->fecha_migracion_actualizacion."',
+        '".$objBeanImage->imagen_padre."',
+        '".$objBeanImage->procedencia."')";
+        $result = $this->connection->query($sql);
+        $objBeanImage->id = $this->connection->insert_id;
+        return $objBeanImage;
+    }
+    
+    public function getTypeImage($width){
+        $returnValue = 0;
+        if($width>0){
+            $sql ="SELECT * FROM default_cms_tipo_imagen WHERE ancho = '".$width."'";
+            //var_dump($sql);
+            $result = $this->connection->query($sql);
+             while ($row = $result->fetch_object()) {
+                 $returnValue = $row->id;
+             }
+        }
+        return $returnValue;
+    }
 }
 ?>
