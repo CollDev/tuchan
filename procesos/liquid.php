@@ -106,7 +106,7 @@ class Liquid{
         );
 
         //echo "<br>";
-  print_r($post);
+        //print_r($post);
        // echo "<br>";
 
         curl_setopt($ch,CURLOPT_POSTFIELDS, $post);
@@ -122,7 +122,7 @@ class Liquid{
         $jsonmedia=json_encode($media);
         echo json_encode($media);
         */
-        
+
         $mediaarr=json_decode(json_encode($mediaxml),true);
 
         $media=$mediaarr["media"]["@attributes"]["id"];
