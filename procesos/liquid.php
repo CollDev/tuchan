@@ -118,9 +118,11 @@ class Liquid{
 
         $mediaxml = new SimpleXMLElement($response);
 
+        /*
         $jsonmedia=json_encode($media);
         echo json_encode($media);
-
+        */
+        
         $mediaarr=json_decode(json_encode($mediaxml),true);
 
         $media=$mediaarr["media"]["@attributes"]["id"];
