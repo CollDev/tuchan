@@ -73,11 +73,7 @@ class Mantenimiento {
         }
     }
 
-    function vd($var) {
-        echo "<pre>";
-        print_r($var);
-        echo "</pre>";
-    }
+
 
     function obtenerImagenes() {
         //retorna array de objetos 
@@ -85,15 +81,16 @@ class Mantenimiento {
         $returconsulta = $this->conexionmysql->setConsulta("SELECT DISTINCT v.id, v.codigo, i.`procedencia` 
 			FROM default_cms_videos v
 			LEFT JOIN default_cms_imagenes i ON i.`videos_id` = v.`id`
-			WHERE v.codigo != '' AND (i.procedencia IS NULL OR i.`procedencia` = 0);");
+			WHERE v.codigo != '' AND (i.procedencia IS NULL OR i.`procedencia` = 0)");
         //iterar las video
-        if (count($returconsulta) > 0) {
+
+        if ($returconsulta) {
             foreach ($returconsulta as $index => $arrayVideo) {
                 if (strlen(trim($arrayVideo['codigo'])) > 0) {
                     $arrayVideoLiquid = $this->liquid->obtenerImagenesMedia($arrayVideo['codigo']);
                     if (is_array($arrayVideoLiquid)) {
                         if (isset($arrayVideoLiquid['thumbs'])) {
-                            //$this->vd($arrayVideoLiquid['thumbs']);
+                            
                             $this->saveImage($arrayVideoLiquid['thumbs'], $arrayVideo);
                         }
                     }
@@ -103,7 +100,7 @@ class Mantenimiento {
     }
 
     function saveImage($arrayThumbs, $arrayVideo) {
-        require_once '../addons/shared_addons/modules/videos/config/uploads.php';
+        //require_once '../addons/shared_addons/modules/videos/config/uploads.php';
         if (count($arrayThumbs) > 0) {
             $imagen_padre= NULL;
             foreach ($arrayThumbs as $index => $arrayImage) {

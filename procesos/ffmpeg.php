@@ -24,7 +24,7 @@ class Ffmpeg{
 			$conexion->updateEstadoVideosLiquid($id_video,1);
 
 			if(!is_readable($video_out)){
-				exec("ffmpeg -i ".$video_in." ".$video_out);
+				exec("ffmpeg -i ".$video_in." ".$video_out." -loglevel quiet");
 			}
 			
 			if (is_readable($video_out)){
