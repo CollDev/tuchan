@@ -34,7 +34,7 @@ class Conexion{
     public function updateEstadoVideosLiquid($id,$valor){
        $mysqli = $this->connection;
        echo    "update default_cms_videos set estado_liquid=".$valor." where id=".$id."<br>";
-       $mysqli->query("update default_cms_videos set estado_liquid=".$valor." where id=".$id); 
+       $result = $mysqli->query("update default_cms_videos set estado_liquid=".$valor." where id=".$id); 
        return $result;
     }
 
