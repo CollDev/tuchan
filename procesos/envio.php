@@ -96,8 +96,8 @@ $conexion = new Conexion();
 while(true){
 
 
-	echo $query="SELECT id,titulo,descripcion,estado_liquid,codigo FROM default_cms_videos where estado_liquid=0 limit 1";
-	echo $$query."<br>";
+	$query="SELECT id,titulo,descripcion,estado_liquid,codigo FROM default_cms_videos where estado_liquid=0 limit 1";
+	//echo $query."<br>";
 	$returconsulta=$conexion->setConsulta($query);
 	
 
