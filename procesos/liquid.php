@@ -51,7 +51,7 @@ class Liquid{
     $mediaId=trim($mediaId);
 
     $tags = ''; 
-    $date = date("Y-m-d\TH:i:sP", strtotime($arrdatos['fecha'])); 
+    $date = date("Y-m-d\TH:i:sP", strtotime($datos['fecha'])); 
     $post = "<Media><published>true</published>" . 
     "<description>descripcion</description><highlighted>false</highlighted>" . 
     "<publishDate>".$date."</publishDate><title>titulo</title>" . 
