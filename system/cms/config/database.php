@@ -33,10 +33,17 @@
 
 // Development
 $db[PYRO_DEVELOPMENT] = array(
+<<<<<<< HEAD
 	'hostname'		=> 	'localhost',
 	'username'		=> 	'root',
 	'password'		=> 	'',
 	'database'		=> 	'pyro_admin',
+=======
+	'hostname'		=> 	'192.168.1.34', //'10.203.31.139'
+	'username'		=> 	'root',//'micanalcmsdev',
+	'password'		=> 	'123',//'joh2Yeyeimaeb4',
+	'database'		=> 	'pyro_admin',//micanalcmsdevdb',
+>>>>>>> 1201ee8a8121b87db20ea4af381bef22058262ef
 	'dbdriver' 		=> 	'mysql',
 	'dbprefix' 		=>	'',
 	'active_r' 		=>	TRUE,

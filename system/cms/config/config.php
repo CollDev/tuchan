@@ -302,7 +302,11 @@ $config['global_xss_filtering'] = FALSE;
 | 'csrf_expire' = The number in seconds the token should expire.
 | 'csrf_exclude_uris' = Array of URIs which ignore CSRF checks
 */
+<<<<<<< HEAD
 $config['csrf_protection'] 		= (bool) preg_match('@\/admin(\/.+)?$@', $_SERVER['REQUEST_URI']); // only turn it on for admin panel
+=======
+$config['csrf_protection'] 		= false;//(bool) preg_match('@\/admin(\/.+)?$@', $_SERVER['REQUEST_URI']); // only turn it on for admin panel
+>>>>>>> 1201ee8a8121b87db20ea4af381bef22058262ef
 $config['csrf_token_name'] 		= 'csrf_hash_name';
 $config['csrf_cookie_name'] 	= 'csrf_cookie_name';
 $config['csrf_expire'] 			= 7200;

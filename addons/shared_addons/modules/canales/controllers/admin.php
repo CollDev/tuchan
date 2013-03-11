@@ -30,6 +30,13 @@ class Admin extends Admin_Controller
 		$this->load->library('form_validation');*/
 		$this->lang->load('canales');
 		$this->lang->load('videos/videos');
+<<<<<<< HEAD
+=======
+                $this->load->model('videos/grupo_detalle_m');
+                $this->load->model('videos/grupo_maestro_m');
+                $this->load->model('videos/tipo_maestro_m');
+                $this->config->load('videos/uploads');
+>>>>>>> 1201ee8a8121b87db20ea4af381bef22058262ef
 	}
 
 	/**
@@ -39,6 +46,7 @@ class Admin extends Admin_Controller
 	 */
 	public function index()
 	{
+<<<<<<< HEAD
             //set the base/default where clause
             //$base_where = array('status' => '1');
             $base_where = array();
@@ -68,6 +76,44 @@ class Admin extends Admin_Controller
             $this->input->is_ajax_request()
                     ? $this->template->build('admin/tables/posts')
                     : $this->template->build('admin/index');
+=======
+            //echo "here!!---->".($this->session->userdata['group']);die();
+            if ($this->session->userdata['group'] != 'administrador-canales' || $this->session->userdata['group'] == 'admin') {
+                
+                //set the base/default where clause
+                //$base_where = array('status' => '1');
+                $base_where = array();
+
+                //add post values to base_where if f_module is posted
+                //if ($this->input->post('f_category')) 	$base_where['category'] = $this->input->post('f_category');
+                //if ($this->input->post('f_status')) 	$base_where['status'] 	= $this->input->post('f_status');
+                //if ($this->input->post('f_keywords')) 	$base_where['keywords'] = $this->input->post('f_keywords');
+
+                // Create pagination links
+                $total_rows = $this->canales_m->count_by($base_where);
+                $pagination = create_pagination('admin/canales/index', $total_rows);
+
+                // Using this data, get the relevant results
+                $canales = $this->canales_m->limit($pagination['limit'])->get_many_by($base_where);
+
+                //do we need to unset the layout because the request is ajax?
+                //$this->input->is_ajax_request() and $this->template->set_layout(FALSE);
+
+                $this->template
+                        ->title($this->module_details['name'])
+                        //->append_js('admin/filter.js')
+                        //->set_partial('filters', 'admin/partials/filters')
+                        ->set('pagination', $pagination)
+                        ->set('canales', $canales);
+
+                $this->input->is_ajax_request()
+                        ? $this->template->build('admin/tables/posts')
+                        : $this->template->build('admin/index');
+            }else{   
+           
+            redirect('admin#');
+            }
+>>>>>>> 1201ee8a8121b87db20ea4af381bef22058262ef
 	}
         
         /**
@@ -76,15 +122,28 @@ class Admin extends Admin_Controller
         */
         public function videos($canal_id)
         {
+<<<<<<< HEAD
             // Configuracion de imagenes de videos (upload)
             $this->config->load('videos/uploads');
             
+=======
+>>>>>>> 1201ee8a8121b87db20ea4af381bef22058262ef
             // Obtiene datos del canal
             $canal = $this->canales_m->get($canal_id);            
   
             // Obtiene la lista de videos según canal seleccionado
             $lista_videos = $this->videos_m->get_by_canal($canal_id);
+<<<<<<< HEAD
                      
+=======
+            if(count($lista_videos)>0){
+                foreach($lista_videos as $index=>$objVideo){
+                    $objVideo->maestro = $this->_getTipoMaestro($objVideo->id);
+                    $objVideo->programa = $this->_getNamePrograma($objVideo->id);
+                    $lista_videos[$index] = $objVideo;
+                }
+            }                     
+>>>>>>> 1201ee8a8121b87db20ea4af381bef22058262ef
             $this->template
                     ->title($this->module_details['name'])
                     ->set('lista_videos', $lista_videos)
@@ -93,6 +152,59 @@ class Admin extends Admin_Controller
             $this->input->is_ajax_request()
                     ? $this->template->build('admin/index')
                     : $this->template->build('admin/videos');
+<<<<<<< HEAD
+=======
+        }
+        
+        public function _getNamePrograma($video_id){
+            $returnValue = '';
+            $objGrupoDetalle = $this->grupo_detalle_m->get_by(array("video_id"=>$video_id));
+            if(count($objGrupoDetalle)>0){
+                $objPadreDetalleMaestro = $this->getParentTop($objGrupoDetalle->grupo_maestro_padre);
+                if($objPadreDetalleMaestro != NULL){
+                    $returnValue = $objPadreDetalleMaestro->nombre;
+                }
+                /*$this->vd($objGrupoDetalle);
+                $objCollection = $this->grupo_detalle_m->get_by(array("grupo_maestro_id"=>$objGrupoDetalle->grupo_maestro_padre));
+                if(count($objCollection)>0){
+                    $objProgramaDetalle = $this->grupo_detalle_m->get_by(array("grupo_maestro_id"=>$objCollection->grupo_maestro_padre));
+                    $objPrograma = $this->grupo_maestro_m->get($objProgramaDetalle->grupo_maestro_padre);
+                    $returnValue = $objPrograma->nombre;
+                }*/
+            }
+            return $returnValue;
+        }
+        
+        public function getParentTop($grupo_maestro_padre){
+            $objMaestro = $this->grupo_maestro_m->get($grupo_maestro_padre);
+            if(count($objMaestro)>0){
+                if($objMaestro->tipo_grupo_maestro_id == $this->config->item('videos:programa')){
+                    return $objMaestro;
+                }else{
+                    $objMaestroDetalle = $this->grupo_detalle_m->get_by(array("grupo_maestro_id"=>$objMaestro->id));
+                    return $this->getParentTop($objMaestroDetalle->grupo_maestro_padre);
+                }
+            }else{
+                return NULL;
+            }
+        }
+        
+        public function _getTipoMaestro($video_id){
+            $returnValue = '';
+            $objGrupoDetalle = $this->grupo_detalle_m->get_by(array("video_id"=>$video_id));
+            if(count($objGrupoDetalle)>0){
+                $objMaestro= $this->grupo_maestro_m->get($objGrupoDetalle->grupo_maestro_padre);
+                $objTipoMaestro = $this->tipo_maestro_m->get($objMaestro->tipo_grupo_maestro_id);
+                $returnValue = $objTipoMaestro->nombre;
+            }
+            return $returnValue;
+        }
+        
+        public function vd($var){
+            echo "<pre>";
+            print_r($var);
+            echo "</pre>";
+>>>>>>> 1201ee8a8121b87db20ea4af381bef22058262ef
         }        
 
 	/**

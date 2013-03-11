@@ -30,6 +30,12 @@ class Videos extends Admin_Controller
 		$this->load->library('form_validation');*/
 		$this->lang->load('canales');
 		$this->lang->load('videos/videos');
+<<<<<<< HEAD
+=======
+                $this->load->model('videos/grupo_detalle_m');
+                $this->load->model('videos/grupo_maestro_m');
+                $this->load->model('videos/tipo_maestro_m');                
+>>>>>>> 1201ee8a8121b87db20ea4af381bef22058262ef
 	}
 
 	/**
@@ -84,7 +90,17 @@ class Videos extends Admin_Controller
   
             // Obtiene la lista de videos según canal seleccionado
             $lista_videos = $this->videos_m->get_by_canal($canal_id);
+<<<<<<< HEAD
                      
+=======
+            if(count($lista_videos)>0){
+                foreach($lista_videos as $index=>$objVideo){
+                    $objVideo->maestro = $this->_getTipoMaestro($objVideo->id);
+                    $lista_videos[$index] = $objVideo;
+                }
+            }   
+            
+>>>>>>> 1201ee8a8121b87db20ea4af381bef22058262ef
             $this->template
                     ->title($this->module_details['name'])
                     ->set('lista_videos', $lista_videos)
@@ -94,6 +110,26 @@ class Videos extends Admin_Controller
                     ? $this->template->build('admin/index')
                     : $this->template->build('admin/videos');
         }
+<<<<<<< HEAD
+=======
+        
+        public function _getTipoMaestro($video_id){
+            $returnValue = '';
+            $objGrupoDetalle = $this->grupo_detalle_m->get_by(array("video_id"=>$video_id));
+            if(count($objGrupoDetalle)>0){
+                $objMaestro= $this->grupo_maestro_m->get($objGrupoDetalle->grupo_maestro_padre);
+                $objTipoMaestro = $this->tipo_maestro_m->get($objMaestro->tipo_grupo_maestro_id);
+                $returnValue = $objTipoMaestro->nombre;
+            }
+            return $returnValue;
+        }
+        
+        public function vd($var){
+            echo "<pre>";
+            print_r($var);
+            echo "</pre>";
+        }
+>>>>>>> 1201ee8a8121b87db20ea4af381bef22058262ef
                 
 	/**
 	 * Edit an existing settings item

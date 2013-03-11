@@ -45,6 +45,7 @@
                     </td>
                 </tr>
             </tfoot>
+<<<<<<< HEAD
             <tbody>
                 <?php foreach ($lista_videos as $video) : ?>
                     <tr>
@@ -53,6 +54,16 @@
                         <td class="collapse"><?php echo $video->titulo; ?></td>
                         <td class="collapse"><?php echo $video->categoria; ?></td>
                         <td class="collapse"><?php echo 'programa'; ?></td>
+=======
+            <tbody>                
+                <?php foreach ($lista_videos as $video) : ?>
+                    <tr>
+                        <td><?php echo form_checkbox('action_to[]', $video->id); ?></td>
+                        <td class="collapse"><img style="width: 100px;" src="<?php echo $this->config->item('protocolo:http').$this->config->item('server:elemento') .'/'. $video->imagen ?>" border="0"></img></td>
+                        <td class="collapse"><?php echo $video->titulo; ?></td>
+                        <td class="collapse"><?php echo $video->categoria; ?></td>
+                        <td class="collapse"><?php echo $video->programa; ?></td>
+>>>>>>> 1201ee8a8121b87db20ea4af381bef22058262ef
                         <td class="collapse"><?php echo $video->fuente; ?></td>
                         <td class="collapse"><?php echo $video->tematico; ?></td>
                         <td class="collapse"><?php echo $video->personaje; ?></td>
@@ -87,7 +98,12 @@
                             <?php else: ?>
                                 <?php //echo anchor('blog/' . date('Y/m', '2013') . '/29'. $video->nombre, lang('global:view'), 'class="btn green" target="_blank"');?>
                             <?php endif; ?>
+<<<<<<< HEAD
                             <?php echo anchor('admin/videos/edit/' . $video->id, lang('global:edit'), 'class="btn orange edit"'); ?>
+=======
+                            <?php //echo anchor('admin/videos/edit/' . $video->id, lang('global:edit'), 'class="btn orange edit"'); ?>
+                            <?php echo anchor('/admin/videos/carga_unitaria/'.$canal->id.'/' . $video->id.'/', lang('global:edit'), 'class="btn orange edit"'); ?>
+>>>>>>> 1201ee8a8121b87db20ea4af381bef22058262ef
                             <?php echo anchor('admin/videos/delete/' . $video->id, lang('global:delete'), array('class' => 'confirm btn red delete')); ?>
                         </td>
                     </tr>

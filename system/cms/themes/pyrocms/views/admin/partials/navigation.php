@@ -76,6 +76,10 @@
 						                                                                                                
 						if (array_key_exists($module['slug'], $this->permissions) OR $this->current_user->group == 'admin')
 						{    
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1201ee8a8121b87db20ea4af381bef22058262ef
                                                     // El módulo videos no debe mostrarse en el menu
                                                     if ($module['name'] == 'Videos') {
                                                         break;
@@ -84,7 +88,11 @@
                                                     // Verifica si es administrador de canales
                                                     if ($this->session->userdata['group'] && $this->session->userdata['group'] != "") {
 
+<<<<<<< HEAD
                                                         if ($module['name'] == lang('cp_nav_canales') && $this->session->userdata['group'] == 'administrador-canales') {                                                            
+=======
+                                                        if ($module['name'] == lang('cp_nav_canales') && $this->session->userdata['group'] == 'administrador-canales') {
+>>>>>>> 1201ee8a8121b87db20ea4af381bef22058262ef
                                                             echo '<li>' . anchor('admin#', $module['name'], array('class'=> 'menu'));
                                                             
                                                             // Sub menú canales
