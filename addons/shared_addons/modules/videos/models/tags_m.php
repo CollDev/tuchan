@@ -115,6 +115,13 @@ class Tags_m extends MY_Model {
         $result = $this->db->query($query)->result();
         return $result;         
     }
+    
+    public function getTagsByIdTagsByType($arrayIdTags, $type_tag){
+        $tag_id = implode(",", $arrayIdTags);
+        $query="SELECT * FROM ".$this->_table." WHERE tipo_tags_id = '".$type_tag."' AND id IN (".$tag_id.")";
+        $result = $this->db->query($query)->result();
+        return $result;         
+    }
 
 
 }

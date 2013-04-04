@@ -29,6 +29,7 @@ $lang['videos:inicio'] = 'Inicio';
 $lang['videos:fin'] = 'Fin';
 $lang['videos:horaio_transmision'] = 'Horario de transmisión';
 $lang['videos:avatar'] = 'Imagen';
+$lang['videos:require_images']        = 'Es necesario subir una imagen';
 
 // estados
 $lang['videos:0_estado'] =  'Codificando';
@@ -95,4 +96,7 @@ $lang['videos:require_source']          = 'Seleccione la fuente del video.';
 $lang['videos:require_description']          = 'Ingrese la descripción del video.';
 $lang['videos:fragment_exist']          = 'Ya existe un video con estos datos.';
 
+//maestros
+$lang['maestros:organizar_videos'] = 'Organizar videos';
+$lang['maestros:maestro_existe']          = 'El nombre maestro ya existe.';
 /* End of file videos_lang.php */

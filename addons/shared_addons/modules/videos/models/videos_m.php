@@ -129,6 +129,49 @@ class Videos_m extends MY_Model
         return $result;
     }
     
+    public function countVideo($canal_id){
+            $query = "SELECT v.id, v.canales_id, v.titulo, v.fecha_registro, v.fecha_publicacion_inicio, v.fecha_publicacion_fin,
+            v.fecha_transmision, v.horario_transmision_inicio, v.horario_transmision_fin, v.estado,                            
+            c.nombre as canal, c.nombre as fuente, cat.nombre as categoria, tv.nombre as tipo_video, 
+            i.imagen, ";
+                    
+            // Tags tematicos
+            $query .= "(SELECT group_concat(t.nombre)
+                            FROM (`". $this->_table . "` vi) 
+                                LEFT JOIN `default_cms_video_tags` vt ON `vt`.`videos_id` = `vi`.`id` 
+                                LEFT JOIN `default_cms_tags` t ON `t`.`id` = `vt`.`tags_id` 
+                                LEFT JOIN  default_cms_tipo_tags tt ON tt.id = t.tipo_tags_id                            
+                            WHERE tt.id = '" . TAG_TEMATICO ."' AND vi.id = v.id
+                       ) as tematico, ";
+
+            // Tags personajes
+            $query .= "(SELECT group_concat(t.nombre)
+                            FROM (`". $this->_table . "` vi) 
+                                LEFT JOIN `default_cms_video_tags` vt ON `vt`.`videos_id` = `vi`.`id` 
+                                LEFT JOIN `default_cms_tags` t ON `t`.`id` = `vt`.`tags_id` 
+                                LEFT JOIN  default_cms_tipo_tags tt ON tt.id = t.tipo_tags_id
+                            WHERE tt.id = '" . TAG_PERSONAJE ."' AND vi.id = v.id
+                        ) as personaje, ";
+
+            // Agrupar tag
+            $query .= "GROUP_CONCAT(t.nombre) as tag ";
+
+            $query .= "FROM (`". $this->_table . "` v) 
+                        LEFT JOIN `default_cms_canales` c ON `c`.`id` = `v`.`canales_id` AND c.id = v.canales_id 
+                        LEFT JOIN `default_cms_categorias` cat ON `cat`.`id` = `v`.`categorias_id` 
+                        LEFT JOIN `default_cms_tipo_videos` tv ON `tv`.`id` = `v`.`tipo_videos_id` 
+                        LEFT JOIN `default_cms_video_tags` vt ON `vt`.`videos_id` = `v`.`id` 
+                        LEFT JOIN `default_cms_tags` t ON `t`.`id` = `vt`.`tags_id` 
+                        LEFT JOIN  default_cms_tipo_tags tt ON tt.id = t.tipo_tags_id
+                        LEFT JOIN  default_cms_imagenes i ON i.videos_id = v.id
+                      WHERE v.`canales_id` = " . (int) $canal_id . " 
+                      GROUP BY v.id";
+            
+        $result = $this->db->query($query)->count_by();
+
+        return $result;        
+    }
+    
     /**
      * Inserta un nuevo video en la base de datos
      * 
@@ -243,6 +286,8 @@ class Videos_m extends MY_Model
                     'estado_migracion_sphinx_tit' => $objBeanVideo->estado_migracion_sphinx_tit,
                     'estado_migracion_sphinx_des' => $objBeanVideo->estado_migracion_sphinx_des
         ));
+        $objBeanVideo->alias = $objBeanVideo->alias.'-'.$objBeanVideo->id;
+        parent::update($objBeanVideo->id, array('alias'=>$objBeanVideo->alias));
         return $objBeanVideo;
     }
     
@@ -273,15 +318,15 @@ class Videos_m extends MY_Model
         if($video_id > 0){
             if($video_update > 0){
                 $query="SELECT * FROM ".$this->_table." WHERE id = '".$video_id."' AND id NOT IN (".$video_update.") AND upper(titulo) like '".  strtoupper($title)."' AND canales_id =".$canal_id;
-                error_log("1111".$query);
+                //error_log("1111".$query);
             }else{
-                $query="SELECT * FROM ".$this->_table." WHERE upper(titulo) like '".  strtoupper($title)."' AND canales_id =".$canal_id;
+                $query="SELECT * FROM ".$this->_table." WHERE id= '".$video_id."' AND upper(titulo) like '".  strtoupper($title)."' AND canales_id =".$canal_id;
                 //$query="SELECT * FROM ".$this->_table." WHERE id NOT IN (".$video_id.") AND upper(titulo) like '".  strtoupper($title)."' AND canales_id =".$canal_id;
-                error_log("2222".$query);
+                //error_log("2222".$query);
             }
         }else{
-            $query="SELECT * FROM ".$this->_table." WHERE id NOT IN (".$video_id.") AND upper(titulo) like '".  strtoupper($title)."' AND canales_id =".$canal_id;
-            error_log("3333".$query);
+            $query="SELECT * FROM ".$this->_table." WHERE upper(titulo) like '".  strtoupper($title)."' AND canales_id =".$canal_id;
+            //error_log("3333".$query);
         }
         $result = $this->db->query($query)->result();
         if(count($result)>0){

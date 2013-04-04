@@ -1,56 +1,65 @@
 <section class="title">
     <h4><?php echo $module_details['name']; ?></h4>
 </section>
-
+<section class="menu"><?php echo anchor('/admin/canales/canal/', lang('canales:new')) ?></section>
 <section class="item">
-
-    <?php if ($canales) : ?>
+    <?php template_partial('filters'); ?>
+        <div id="filter-stage">
+            <?php template_partial('canales'); ?>
+       </div>
+    <script type="text/javascript">
+        function dispatch(canal_id){
+            var post_url = "/admin/canales/dispatch/"+canal_id;
+            $.ajax({
+                type: "POST",
+                url: post_url,
+                dataType: 'json',
+                //data:imagen_id,
+                success: function(returnRespuesta) //we're calling the response json array 'cities'
+                {
+                    if(returnRespuesta.value == '0'){
+                     showMessage('error', 'El canal ya tiene una portada', 2000,'');
+                    }else{
+                        showMessage('exit', 'Secrearon las portadas en forma satisfactoria', 2000,'');
+                    }
+                } //end success
+            }); //end AJAX             
+        }
         
-        <?php echo form_open('admin/canales/action'); ?>
-        <table border="0" class="table-list">
-            <thead>
-                <tr>
-                    <th width="20"><?php echo form_checkbox(array('name' => 'action_to_all', 'class' => 'check-all')); ?></th>
-                    <th><?php echo lang('canales:nombre_label'); ?></th>
-                    <th class="collapse"><?php echo lang('canales:descripcion_label'); ?></th>
-                    <th class="collapse"><?php echo lang('canales:estado_label'); ?></th>
-                    <th width="180"></th>
-                </tr>
-            </thead>
-            <tfoot>
-                <tr>
-                    <td colspan="7">
-                        <div class="inner"><?php $this->load->view('admin/partials/pagination'); ?></div>
-                    </td>
-                </tr>
-            </tfoot>
-            <tbody>
-                <?php foreach ($canales as $post) : ?>
-                    <tr>
-                        <td><?php echo form_checkbox('action_to[]', $post->id); ?></td>
-                        <td class="collapse"><?php echo $post->nombre; ?></td>
-                        <td class="collapse"><?php echo $post->descripcion; ?></td>					
-                        <td><?php echo lang('canales:' . $post->estado . '_label'); ?></td>
-                        <td>
-
-                            <?php if ($post->estado == '1') : ?>
-                                <?php //echo anchor('blog/' . date('Y/m', '2013') . '/29'. $post->nombre, lang('global:view'), 'class="btn green" target="_blank"');?>
-                            <?php else: ?>
-                                <?php echo anchor('', lang('global:preview'), 'class="btn green" target="_blank"');?>
-                            <?php endif; ?>
-                            <?php echo anchor('admin/canales/edit/' . $post->id, lang('global:edit'), 'class="btn orange edit"'); ?>
-                            <?php echo anchor('admin/canales/delete/' . $post->id, lang('global:delete'), array('class' => 'confirm btn red delete')); ?>
-                        </td>
-                    </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
-        <div class="table_action_buttons">            
-            <?php $this->load->view('admin/partials/buttons', array('buttons' => array('delete', 'publish'))); ?>            
-	</div>
-    <?php else: ?>
-        <div class="no_data"><?php echo lang('canales:no_data'); ?></div>
-    <?php endif; ?>
-    <?php echo form_close(); ?>        
+        function showMessage(type, message, duration, pathurl) {
+            if (type == 'error') {
+                jError(
+                        message,
+                        {
+                            autoHide: true, // added in v2.0
+                            TimeShown: duration,
+                            HorizontalPosition: 'center',
+                            VerticalPosition: 'top',
+                            onCompleted: function() { // added in v2.0
+                                //alert('jNofity is completed !');
+                            }
+                        }
+                );
+            } else {
+                if (type == 'exit') {
+                    jSuccess(
+                            message,
+                            {
+                                autoHide: true, // added in v2.0
+                                TimeShown: duration,
+                                HorizontalPosition: 'center',
+                                VerticalPosition: 'top',
+                                onCompleted: function() { // added in v2.0
+                                    if(pathurl.length > 0){
+                                        $(location).attr('href','<?php echo BASE_URL;?>'+pathurl);
+                                        //window.location('<?php echo BASE_URL;?>'+pathurl);
+                                    }
+                                }
+                            }
+                    );
+                }
+            }
+        }        
+    </script> 
 </section>
 

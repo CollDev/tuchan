@@ -87,6 +87,11 @@ class Video_tags_m extends MY_Model {
         }
         return $returnValue;        
     }
+    
+    public function deleteRelationTagVideo($video_id, $tag_id){
+        $sql ='DELETE FROM '.$this->_table.' WHERE tags_id = '.$tag_id.' AND videos_id ='.$video_id;
+        $this->db->query($sql);
+    }
 
 
 }

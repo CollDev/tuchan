@@ -8,10 +8,19 @@ if(isset($_GET['progress_key'])) {
 	die;
 }
 //
+$pageURL = (@$_SERVER["HTTPS"] == "on") ? "https://" : "http://";
+if ($_SERVER["SERVER_PORT"] != "80")
+{
+    $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"];
+} 
+else 
+{
+    $pageURL .= $_SERVER["SERVER_NAME"];
+}
 
 ?>
 
-<script src="http://local.adminmicanal.com/system/cms/themes/pyrocms/js/jquery/jquery.js" type="text/javascript"></script>
+<script src="<?php echo $pageURL; ?>/system/cms/themes/pyrocms/js/jquery/jquery.js" type="text/javascript"></script>
 <style type="text/css">
 /*iframe*/
 #upload_frame {

@@ -122,7 +122,40 @@ class Canales_m extends MY_Model {
         }
         $resultValue = $this->db->get()->result();
         return $resultValue;
-    }    
+    }
+    
+    public function save($objBeanCanal){
+        $objBeanCanal->id = parent::insert(array(
+                'tipo_canales_id' => $objBeanCanal->tipo_canales_id,
+                'alias'  => $objBeanCanal->alias,
+                'nombre' => $objBeanCanal->nombre,
+                'descripcion' => $objBeanCanal->descripcion,
+                'apikey' => $objBeanCanal->apikey,
+                'playerkey' => $objBeanCanal->playerkey,
+                'id_mongo' => $objBeanCanal->id_mongo,
+                'cantidad_suscriptores' => $objBeanCanal->cantidad_suscriptores,
+                'estado' => $objBeanCanal->estado,
+                'fecha_registro' => $objBeanCanal->fecha_registro,
+                'usuario_registro' => $objBeanCanal->usuario_registro,
+                'fecha_actualizacion' => $objBeanCanal->fecha_actualizacion,
+                'usuario_actualizacion' => $objBeanCanal->usuario_actualizacion,
+                'estado_migracion' => $objBeanCanal->estado_migracion,
+                'fecha_migracion' => $objBeanCanal->fecha_migracion,
+                'fecha_migracion_actualizacion' => $objBeanCanal->fecha_migracion_actualizacion
+        ));
+        return $objBeanCanal;           
+    }
+  
+    public function actualizar($objBeanCanal){
+        parent::update($objBeanCanal->id, array("tipo_canales_id"=>$objBeanCanal->tipo_canales_id,
+            "alias"=>$objBeanCanal->alias,
+            "nombre"=>$objBeanCanal->nombre,
+            "descripcion"=>$objBeanCanal->descripcion,
+            "apikey"=>$objBeanCanal->apikey,
+            "playerkey"=>$objBeanCanal->playerkey,
+            "fecha_actualizacion"=>$objBeanCanal->fecha_actualizacion,
+            "usuario_actualizacion"=>$objBeanCanal->usuario_actualizacion));
+    }
 
 }
 
