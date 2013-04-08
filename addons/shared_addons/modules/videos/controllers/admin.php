@@ -17,6 +17,10 @@ class Admin extends Admin_Controller {
         $this->load->helper('form');
         $this->load->helper('url');
         $this->load->model('canales/canales_m');
+        $this->load->model('canales/portada_m');
+        $this->load->model('canales/secciones_m');
+        $this->load->model('canales/detalle_secciones_m');
+        $this->load->model('canales/tipo_secciones_m');
         $this->load->model('categoria_m');
         $this->load->model('tipo_video_m');
         $this->load->model('tipo_imagen_m');
@@ -1440,15 +1444,19 @@ class Admin extends Admin_Controller {
             $arrayImagenes = $arrayImagenesSubir;
         }
         if (strlen(trim($imagen_original)) == 0) {
-            $nombre_imagen_original = $imagen_original;
-        } else {
             $nombre_imagen_original = $this->input->post('fileName');
+            //eliminamos la imagen original
+            if (file_exists(UPLOAD_IMAGENES_VIDEOS . $nombre_imagen_original)) {
+                unlink(UPLOAD_IMAGENES_VIDEOS . $nombre_imagen_original);
+            }
+        } else {
+            $nombre_imagen_original = $imagen_original;
+            //eliminamos la imagen original
+            if (file_exists($nombre_imagen_original)) {
+                unlink($nombre_imagen_original);
+            }
         }
         //error_log(print_r($arrayImagenes, true));die();
-        //eliminamos la imagen original
-        if (file_exists(UPLOAD_IMAGENES_VIDEOS . $nombre_imagen_original)) {
-            unlink(UPLOAD_IMAGENES_VIDEOS . $nombre_imagen_original);
-        }
         $parent_id = NULL; //$this->_saveParentImage($canal_id, $video_id,$this->input->post('fileName'));
         if (count($arrayImagenes) > 0) {
             foreach ($arrayImagenes as $index => $nameImage) {
@@ -1463,7 +1471,11 @@ class Admin extends Admin_Controller {
                     $objBeanImage->videos_id = NULL;
                     $objBeanImage->imagen = $nameImage;
                     $objBeanImage->tipo_imagen_id = $this->_getTypeImage($img_path);
-                    $objBeanImage->estado = $this->config->item('imagen:borrador');
+                    if (count($arrayImagenesSubir) == 0) {
+                        $objBeanImage->estado = $this->config->item('imagen:borrador');
+                    } else {
+                        $objBeanImage->estado = $this->config->item('imagen:publicado');
+                    }
                     $objBeanImage->fecha_registro = date("Y-m-d H:i:s");
                     $objBeanImage->usuario_registro = $user_id;
                     $objBeanImage->fecha_actualizacion = date("Y-m-d H:i:s");
@@ -1501,6 +1513,269 @@ class Admin extends Admin_Controller {
             echo json_encode(array('respuesta' => $returnValue, 'maestro_id' => $maestro_id, 'imagen_id' => $imagen_id_small, 'url' => $this->config->item('protocolo:http') . $nameImage_small, 'imagenes' => $arrayImagenes));
         }
         //}
+    }
+
+    /**
+     * 
+     * @param type $tipo
+     * @param type $id
+     * @param type $arrayImagenSaved
+     */
+    public function generarPortadaCanal($objCanal, $objetoMaestro = NULL, $tipo_portada = 5) {
+        $user_id = (int) $this->session->userdata('user_id');
+        //creamos el objeto
+        $objBeanPortada = new stdClass();
+        $objBeanPortada->id = NULL;
+        $objBeanPortada->canales_id = $objCanal->id;
+        if ($objetoMaestro == NULL) {
+            $objBeanPortada->nombre = 'Portada ' . $objCanal->nombre; ///PORTADA + nombre del canal
+            $objBeanPortada->descripcion = $objCanal->descripcion; //jala del canal
+            $objBeanPortada->origen_id = $objCanal->id;
+        } else {
+            $objBeanPortada->nombre = 'Portada ' . $objetoMaestro->nombre; ///PORTADA + nombre del canal
+            $objBeanPortada->descripcion = $objetoMaestro->descripcion; //jala del canal            
+            $objBeanPortada->origen_id = $objetoMaestro->id;
+        }
+        $objBeanPortada->tipo_portadas_id = $tipo_portada; //$this->config->item('portada:canal');
+        $objBeanPortada->estado = '0';
+        $objBeanPortada->fecha_registro = date("Y-m-d H:i:s");
+        $objBeanPortada->usuario_registro = $user_id;
+        $objBeanPortada->fecha_actualizacion = date("Y-m-d H:i:s");
+        $objBeanPortada->usuario_actualizacion = $user_id;
+        $objBeanPortada->id_mongo = '0';
+        $objBeanPortadaSaved = $this->portada_m->save($objBeanPortada);
+
+        if ($objetoMaestro == NULL) {
+            $arraySecciones = $this->tipo_secciones_m->get_many_by(array());
+        } else {
+            $arraySecciones = $this->tipo_secciones_m->get_many_by(array());
+            foreach ($arraySecciones as $puntero => $oS) {
+                if ($oS->id == $this->config->item('seccion:programa')) {
+                    unset($arraySecciones[$puntero]);
+                }
+            }
+        }
+        $pos = 0;
+        //iteramos para crear portadas por cada seccion
+        foreach ($arraySecciones as $ind => $objTipoSeccion) {
+            if ($objTipoSeccion->id < intval($this->config->item('seccion:perzonalizado'))) {//no se creara secciones personalizadas
+                if ($objTipoSeccion->id != intval($this->config->item('seccion:coleccion'))) {//solo secciones que sean difernetes a colecciones
+                    $objBeanSeccion = new stdClass();
+                    $objBeanSeccion->id = NULL;
+                    $objBeanSeccion->nombre = ucwords($objTipoSeccion->nombre); // Destacado + nombre del canal
+                    if ($objTipoSeccion->id == $this->config->item('seccion:destacado')) {
+                        $objBeanSeccion->templates_id = '1';
+                    } else {
+                        if ($objTipoSeccion->id == $this->config->item('seccion:programa')) {
+                            $objBeanSeccion->templates_id = '6';
+                        } else {
+                            if ($objTipoSeccion->id == $this->config->item('seccion:video')) {
+                                $objBeanSeccion->templates_id = '5';
+                            } else {
+                                $objBeanSeccion->templates_id = '3';
+                            }
+                        }
+                    }
+                    $objBeanSeccion->descripcion = '';
+                    $objBeanSeccion->tipo = '0';
+                    $objBeanSeccion->portadas_id = $objBeanPortadaSaved->id;
+                    $objBeanSeccion->tipo_secciones_id = $objTipoSeccion->id;
+                    $objBeanSeccion->peso = $pos;
+                    $objBeanSeccion->id_mongo = '0';
+                    $objBeanSeccion->estado = '0';
+                    $objBeanSeccion->fecha_registro = date("Y-m-d H:i:s");
+                    $objBeanSeccion->usuario_registro = $user_id;
+                    $objBeanSeccion->fecha_actualizacion = date("Y-m-d H:i:s");
+                    $objBeanSeccion->usuario_actualizacion = $user_id;
+                    $objBeanSeccion->estado_migracion = '0';
+                    $objBeanSeccion->fecha_migracion = '0000-00-00 00:00:00';
+                    $objBeanSeccion->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
+                    $objBeanSeccionSaved = $this->secciones_m->save($objBeanSeccion);
+
+                    /* registramos el detalle de la session, listo todos los programas del canal
+                     * obtener la imagen de portada del canal
+                     */
+                    if ($objTipoSeccion->id == intval($this->config->item('seccion:destacado'))) {//seccion destacado
+                        if ($objetoMaestro == NULL) {
+                            $objImagen = $this->imagen_m->get_by(array("canales_id" => $objCanal->id, "estado" => "1", "tipo_imagen_id" => $this->config->item('imagen:extralarge')));
+                        } else {
+                            $objImagen = $this->imagen_m->get_by(array("grupo_maestros_id" => $objetoMaestro->id, "estado" => "1", "tipo_imagen_id" => $this->config->item('imagen:extralarge')));
+                        }
+                        if (count($objImagen) > 0) {
+                            $objBeanDetalleSecciones = new stdClass();
+                            $objBeanDetalleSecciones->id = NULL;
+                            $objBeanDetalleSecciones->secciones_id = $objBeanSeccionSaved->id;
+                            $objBeanDetalleSecciones->reglas_id = NULL;
+                            $objBeanDetalleSecciones->videos_id = NULL;
+                            $objBeanDetalleSecciones->grupo_maestros_id = NULL;
+                            $objBeanDetalleSecciones->categorias_id = NULL;
+                            $objBeanDetalleSecciones->tags_id = NULL;
+                            $objBeanDetalleSecciones->imagenes_id = $objImagen->id;
+                            $objBeanDetalleSecciones->peso = 1;
+                            $objBeanDetalleSecciones->descripcion_item = NULL;
+                            //$objBeanDetalleSecciones->templates_id = '0';
+                            $objBeanDetalleSecciones->estado = 1;
+                            $objBeanDetalleSecciones->fecha_registro = date("Y-m-d H:i:s");
+                            $objBeanDetalleSecciones->usuario_registro = $user_id;
+                            $objBeanDetalleSecciones->estado_migracion = '0';
+                            $objBeanDetalleSecciones->fecha_migracion = '0000-00-00 00:00:00';
+                            $objBeanDetalleSecciones->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
+                            $objBeanDetalleSeccionesSaved = $this->detalle_secciones_m->save($objBeanDetalleSecciones);
+                            $this->secciones_m->update($objBeanSeccionSaved->id, array("estado" => "1"));
+                            //$this->portada_m->update($objBeanPortadaSaved->id, array("estado" => "1"));
+                        }
+                    } else { //seccion programas
+                        $objColeccionGrupoMaestro = $this->obtenerMaestrosParaSecciones($objTipoSeccion->id, $objCanal->id, $objetoMaestro); //$this->grupo_maestro_m->get_many_by(array("tipo_grupo_maestro_id" => "3", "canales_id" => $objCanal->id));
+                        if (count($objColeccionGrupoMaestro) > 0) {
+                            foreach ($objColeccionGrupoMaestro as $index => $objGrupoMaestro) {
+                                if ($this->_obtenerImagenPorMaestro($objGrupoMaestro->id, $this->config->item('imagen:small'), $objTipoSeccion->id, $objCanal->id) > 0) {
+                                    $objBeanDetalleSecciones = new stdClass();
+                                    $objBeanDetalleSecciones->id = NULL;
+                                    $objBeanDetalleSecciones->secciones_id = $objBeanSeccionSaved->id;
+                                    $objBeanDetalleSecciones->reglas_id = NULL;
+                                    if ($objTipoSeccion->id == $this->config->item('seccion:video')) {
+                                        $objBeanDetalleSecciones->videos_id = $objGrupoMaestro->id;
+                                        $objBeanDetalleSecciones->grupo_maestros_id = NULL;
+                                    } else {
+                                        $objBeanDetalleSecciones->videos_id = NULL;
+                                        $objBeanDetalleSecciones->grupo_maestros_id = $objGrupoMaestro->id;
+                                    }
+                                    $objBeanDetalleSecciones->categorias_id = NULL;
+                                    $objBeanDetalleSecciones->tags_id = NULL;
+                                    $objBeanDetalleSecciones->imagenes_id = $this->_obtenerImagenPorMaestro($objGrupoMaestro->id, $this->config->item('imagen:small'), $objTipoSeccion->id, $objCanal->id); //
+                                    $objBeanDetalleSecciones->peso = $index + 2;
+                                    $objBeanDetalleSecciones->descripcion_item = NULL;
+                                    //$objBeanDetalleSecciones->templates_id = '5';
+                                    $objBeanDetalleSecciones->estado = 1;
+                                    $objBeanDetalleSecciones->fecha_registro = date("Y-m-d H:i:s");
+                                    $objBeanDetalleSecciones->usuario_registro = $user_id;
+                                    $objBeanDetalleSecciones->estado_migracion = '0';
+                                    $objBeanDetalleSecciones->fecha_migracion = '0000-00-00 00:00:00';
+                                    $objBeanDetalleSecciones->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
+                                    $objBeanDetalleSeccionesSaved = $this->detalle_secciones_m->save($objBeanDetalleSecciones);
+                                    $this->portada_m->update($objBeanPortadaSaved->id, array("estado" => "1"));
+                                    $this->secciones_m->update($objBeanSeccionSaved->id, array("estado" => "1"));
+                                }
+                            }
+                            //$this->portada_m->update($objBeanPortadaSaved->id, array("estado" => "1"));
+                        }
+                    }
+                } else {//seccion para colecciones
+                    $cont_coleccion = $pos;
+                    $objColeccionGrupoMaestro = $this->obtenerMaestrosParaSecciones($objTipoSeccion->id, $objCanal->id, $objetoMaestro); //$this->grupo_maestro_m->get_many_by(array("tipo_grupo_maestro_id" => "3", "canales_id" => $objCanal->id));                    
+                    if (count($objColeccionGrupoMaestro) > 0) {
+                        foreach ($objColeccionGrupoMaestro as $indi => $objMaestroColeccion) {//creamos secciones por cada coleccion que se encuentre
+                            $objBeanSeccion = new stdClass();
+                            $objBeanSeccion->id = NULL;
+                            $objBeanSeccion->nombre = ucwords($objMaestroColeccion->nombre); //ucwords($objTipoSeccion->nombre); // Destacado + nombre del canal
+                            $objBeanSeccion->templates_id = '4';
+                            $objBeanSeccion->descripcion = '';
+                            $objBeanSeccion->tipo = '0';
+                            $objBeanSeccion->portadas_id = $objBeanPortadaSaved->id;
+                            $objBeanSeccion->tipo_secciones_id = $objTipoSeccion->id;
+                            $objBeanSeccion->peso = $cont_coleccion;
+                            $objBeanSeccion->id_mongo = '0';
+                            $objBeanSeccion->estado = '0';
+                            $objBeanSeccion->fecha_registro = date("Y-m-d H:i:s");
+                            $objBeanSeccion->usuario_registro = $user_id;
+                            $objBeanSeccion->fecha_actualizacion = date("Y-m-d H:i:s");
+                            $objBeanSeccion->usuario_actualizacion = $user_id;
+                            $objBeanSeccion->estado_migracion = '0';
+                            $objBeanSeccion->fecha_migracion = '0000-00-00 00:00:00';
+                            $objBeanSeccion->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
+                            $objBeanSeccionSaved = $this->secciones_m->save($objBeanSeccion);
+
+                            //$objListaGrupoMaestro = $this->obtenerMaestrosParaSecciones($objTipoSeccion->id, $objCanal->id, $objetoMaestro);
+                            $objListaGrupoMaestro = array();
+                            $lista = $this->grupo_detalle_m->get_many_by(array("grupo_maestro_padre" => $objMaestroColeccion->id));
+                            if (count($lista) > 0) {
+                                foreach ($lista as $pun => $objGrupoDetalle) {
+                                    if ($objGrupoDetalle->grupo_maestro_id != NULL) {
+                                        $objLista = $this->grupo_maestro_m->get($objGrupoDetalle->grupo_maestro_id);
+                                        if ($objLista->tipo_grupo_maestro_id == $this->config->item('videos:lista')) {
+                                            array_push($objListaGrupoMaestro, $objLista);
+                                        }
+                                    }
+                                }
+                            }
+                            if (count($objListaGrupoMaestro) > 0) {
+                                $exite_item = false;
+                                foreach ($objListaGrupoMaestro as $index => $objGrupoMaestroLista) {
+                                    if ($this->_obtenerImagenPorMaestro($objGrupoMaestroLista->id, $this->config->item('imagen:small'), $objTipoSeccion->id, $objCanal->id) > 0) {
+                                        $objBeanDetalleSecciones = new stdClass();
+                                        $objBeanDetalleSecciones->id = NULL;
+                                        $objBeanDetalleSecciones->secciones_id = $objBeanSeccionSaved->id;
+                                        $objBeanDetalleSecciones->reglas_id = NULL;
+                                        $objBeanDetalleSecciones->videos_id = NULL;
+                                        $objBeanDetalleSecciones->grupo_maestros_id = $objGrupoMaestroLista->id;
+                                        $objBeanDetalleSecciones->categorias_id = NULL;
+                                        $objBeanDetalleSecciones->tags_id = NULL;
+                                        $objBeanDetalleSecciones->imagenes_id = $this->_obtenerImagenPorMaestro($objGrupoMaestroLista->id, $this->config->item('imagen:small'), $objTipoSeccion->id, $objCanal->id); //
+                                        $objBeanDetalleSecciones->peso = $index + 2;
+                                        $objBeanDetalleSecciones->descripcion_item = NULL;
+                                        //$objBeanDetalleSecciones->templates_id = '5';
+                                        $objBeanDetalleSecciones->estado = 1;
+                                        $objBeanDetalleSecciones->fecha_registro = date("Y-m-d H:i:s");
+                                        $objBeanDetalleSecciones->usuario_registro = $user_id;
+                                        $objBeanDetalleSecciones->estado_migracion = '0';
+                                        $objBeanDetalleSecciones->fecha_migracion = '0000-00-00 00:00:00';
+                                        $objBeanDetalleSecciones->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
+                                        $objBeanDetalleSeccionesSaved = $this->detalle_secciones_m->save($objBeanDetalleSecciones);
+                                        $this->portada_m->update($objBeanPortadaSaved->id, array("estado" => "1"));
+                                        $this->secciones_m->update($objBeanSeccionSaved->id, array("estado" => "1"));
+                                        $exite_item = true;
+                                    }
+                                }
+                                //registramos la coleccion como item de la seccion coleccion
+                                if ($exite_item) {
+                                    $objBeanDetalleSecciones = new stdClass();
+                                    $objBeanDetalleSecciones->id = NULL;
+                                    $objBeanDetalleSecciones->secciones_id = $objBeanSeccionSaved->id;
+                                    $objBeanDetalleSecciones->reglas_id = NULL;
+                                    $objBeanDetalleSecciones->videos_id = NULL;
+                                    $objBeanDetalleSecciones->grupo_maestros_id = $objMaestroColeccion->id;
+                                    $objBeanDetalleSecciones->categorias_id = NULL;
+                                    $objBeanDetalleSecciones->tags_id = NULL;
+                                    $objBeanDetalleSecciones->imagenes_id = $this->_obtenerImagenPorMaestro($objMaestroColeccion->id, $this->config->item('imagen:large'), $objTipoSeccion->id, $objCanal->id); //
+                                    $objBeanDetalleSecciones->peso = 0;
+                                    $objBeanDetalleSecciones->descripcion_item = NULL;
+                                    //$objBeanDetalleSecciones->templates_id = '5';
+                                    $objBeanDetalleSecciones->estado = 1;
+                                    $objBeanDetalleSecciones->fecha_registro = date("Y-m-d H:i:s");
+                                    $objBeanDetalleSecciones->usuario_registro = $user_id;
+                                    $objBeanDetalleSecciones->estado_migracion = '0';
+                                    $objBeanDetalleSecciones->fecha_migracion = '0000-00-00 00:00:00';
+                                    $objBeanDetalleSecciones->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
+                                    $objBeanDetalleSeccionesSaved = $this->detalle_secciones_m->save($objBeanDetalleSecciones);
+                                }
+                            }
+                            $cont_coleccion++;
+                        }
+                    } else {//registrar una seccion vacia
+                        $objBeanSeccion = new stdClass();
+                        $objBeanSeccion->id = NULL;
+                        $objBeanSeccion->nombre = ucwords($objTipoSeccion->nombre); // Destacado + nombre del canal
+                        $objBeanSeccion->templates_id = '4';
+                        $objBeanSeccion->descripcion = '';
+                        $objBeanSeccion->tipo = '0';
+                        $objBeanSeccion->portadas_id = $objBeanPortadaSaved->id;
+                        $objBeanSeccion->tipo_secciones_id = $objTipoSeccion->id;
+                        $objBeanSeccion->peso = $pos;
+                        $objBeanSeccion->id_mongo = '0';
+                        $objBeanSeccion->estado = '0';
+                        $objBeanSeccion->fecha_registro = date("Y-m-d H:i:s");
+                        $objBeanSeccion->usuario_registro = $user_id;
+                        $objBeanSeccion->fecha_actualizacion = date("Y-m-d H:i:s");
+                        $objBeanSeccion->usuario_actualizacion = $user_id;
+                        $objBeanSeccion->estado_migracion = '0';
+                        $objBeanSeccion->fecha_migracion = '0000-00-00 00:00:00';
+                        $objBeanSeccion->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
+                        $objBeanSeccionSaved = $this->secciones_m->save($objBeanSeccion);
+                    }
+                }
+            }//FIN del filtro de secciones personalizados
+            $pos++;
+        }// FIN de la iteracion por SECCIONES
     }
 
     public function _getTypeImage($img_path) {
@@ -1853,7 +2128,7 @@ class Admin extends Admin_Controller {
         return $returnValue;
     }
 
-    public function grupo_maestro($canal_id = 0, $maestro_id) {
+    public function grupo_maestro($canal_id = 0, $maestro_id = 0) {
         $objCanal = $this->canales_m->get($canal_id);
         if ($maestro_id > 0) {
             $objMaestro = $this->grupo_maestro_m->get($maestro_id);
@@ -1897,6 +2172,10 @@ class Admin extends Admin_Controller {
                 ->append_css('jquery/jquery.tagsinput.css')
                 ->append_js('module::jquery.ddslick.min.js')
                 ->append_js('AjaxUpload.2.0.min.js')
+                ->append_js('module::jquery.alerts.js')
+                ->append_css('module::jquery.alerts.css')
+                ->append_js('module::smartpaginator.js')
+                ->append_css('module::smartpaginator.css')
                 ->set('tipo_maestros', $tipo_maestros)
                 ->set('items', $items)
                 ->set_partial('contenidos', 'admin/tables/contenidos')
@@ -2006,6 +2285,8 @@ class Admin extends Admin_Controller {
     public function guardar_maestro() {
         if ($this->input->is_ajax_request()) {
             $returnValue = 0;
+            $maestro_id = 0;
+            $canal_id = $this->input->post('canal_id');
             $user_id = (int) $this->session->userdata('user_id');
             if ($this->input->post('maestro_id') > 0) {//editare un  maestro
                 if ($this->existeNombreMaestro($this->input->post('titulo'), $this->input->post('canal_id'), $this->input->post('maestro_id'))) {
@@ -2051,22 +2332,24 @@ class Admin extends Admin_Controller {
                     $objBeanMaestro->fecha_migracion = '0000-00-00 00:00:00';
                     $objBeanMaestro->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
                     $objBeanMaestro->comentarios = '';
-                    $this->vd($objBeanMaestro);
-                    die();
+                    /* $this->vd($objBeanMaestro);
+                      die(); */
                     $objBeanMaestroSaved = $this->grupo_maestro_m->save_maestro($objBeanMaestro);
                     //registramos el detalle maestro
                     $this->registrarDetalleMaestro($objBeanMaestroSaved, $this->input->post());
                     //movemos las imagenes y lo subimos a elemento
-                    $direccion_imagen = UPLOAD_IMAGENES_VIDEOS . '../temp/' . $this->input->post('imagen_maestro');
+                    $direccion_imagen = FCPATH . 'uploads/temp/' . $this->input->post('imagen_maestro');
+
                     if (file_exists($direccion_imagen)) {
                         // Verificamos la extensión del archivo independiente del tipo mime
                         $extension = explode('.', $this->input->post('imagen_maestro'));
                         $num = count($extension) - 1;
                         $directorio = '';
                         // Creamos el nombre del archivo dependiendo la opción
-                        $imgFile = time() . '.' . $extension[$num];
+                        $imgFile = $this->input->post('imagen_maestro');
                         // Tamaño de la imagen
                         $imageSize = getimagesize($direccion_imagen);
+
                         $arrayTipoImagen = $this->tipo_imagen_m->listType();
                         $width = $imageSize[0];
                         $height = $imageSize[1];
@@ -2074,15 +2357,22 @@ class Admin extends Admin_Controller {
                             $arrayImagenes = array();
                             foreach ($arrayTipoImagen as $index => $objTipoImagen) {
                                 if ($width >= $objTipoImagen->ancho && $height >= $objTipoImagen->alto) {
-                                    $this->imagenes_lib->loadImage(UPLOAD_IMAGENES_VIDEOS . $directorio . $imgFile);
+                                    $this->imagenes_lib->loadImage(UPLOAD_IMAGENES_VIDEOS . '../temp/' . $imgFile);
                                     $this->imagenes_lib->crop($objTipoImagen->ancho, $objTipoImagen->alto, 'center');
                                     $this->imagenes_lib->save(UPLOAD_IMAGENES_VIDEOS . $directorio . preg_replace("/\\.[^.\\s]{3,4}$/", "", $imgFile) . '_' . $objTipoImagen->ancho . 'x' . $objTipoImagen->alto . '.' . $extension[$num]);
                                     array_push($arrayImagenes, preg_replace("/\\.[^.\\s]{3,4}$/", "", $imgFile) . '_' . $objTipoImagen->ancho . 'x' . $objTipoImagen->alto . '.' . $extension[$num]);
                                 }
                             }
 
-                            $this->registrar_imagenes_maestro($objBeanMaestroSaved->id, $arrayImagenes, '../temp/' . $this->input->post('imagen_maestro'));
-                            $this->guardarTagsMaestro($objBeanMaestroSaved, $this->input->post());
+                            $this->registrar_imagenes_maestro($objBeanMaestroSaved->id, $arrayImagenes, FCPATH . 'uploads/temp/' . $this->input->post('imagen_maestro'));
+                            $post = $this->input->post();
+                            $post['maestro_id'] = $objBeanMaestroSaved->id;
+                            $this->guardarTagsMaestro($objBeanMaestroSaved, $post);
+                            $objCanal = $this->canales_m->get($this->input->post('canal_id'));
+                            if ($this->input->post('tipo') == $this->config->item('videos:programa')) {
+                                $this->generarPortadaCanal($objCanal, $objBeanMaestroSaved, $this->config->item('portada:programa'));
+                            }
+                            $maestro_id = $objBeanMaestroSaved->id;
                         }
                         $returnValue = 0;
                     } else {
@@ -2090,7 +2380,7 @@ class Admin extends Admin_Controller {
                     }
                 }
             }
-            echo json_encode(array("value" => $returnValue));
+            echo json_encode(array("value" => $returnValue, "maestro_id" => $maestro_id, "canal_id" => $canal_id));
         }
     }
 
@@ -2288,6 +2578,8 @@ class Admin extends Admin_Controller {
             $user_id = (int) $this->session->userdata('user_id');
             $arrayTagTematicas = explode(",", $post['tematicas']);
             $arraytagPersonajes = explode(",", $post['personajes']);
+            //error_log(print_r($arrayTagTematicas,true));
+            //error_log(print_r($arraytagPersonajes,true));die();
             if (count($arrayTagTematicas) > 0) {
                 foreach ($arrayTagTematicas as $index => $tematica) {
                     $tag_id = 0;
@@ -2510,6 +2802,132 @@ class Admin extends Admin_Controller {
 
     public function log($var) {
         error_log(print_r($var, true));
+    }
+
+    public function obtenerMaestrosParaSecciones($session_tipo_id, $canal_id, $objMaestro = NULL) {
+        $returnValue = array();
+        if ($session_tipo_id < intval($this->config->item('seccion:visto'))) { //solo videos, listas, colecciones, programas
+            if ($objMaestro == NULL) {
+                if ($session_tipo_id == intval($this->config->item('seccion:programa'))) {//programa
+                    $returnValue = $this->grupo_maestro_m->get_many_by(array("tipo_grupo_maestro_id" => $this->config->item('videos:programa'), "canales_id" => $canal_id));
+                } else {
+                    if ($session_tipo_id == intval($this->config->item('seccion:video'))) {//video
+                        $returnValue = $this->obtenerVideosCanal($canal_id);
+                    } else {//coleccion y lista del canal
+                        if ($session_tipo_id == intval($this->config->item('seccion:coleccion'))) {
+                            $tipo_grupo_maestro = $this->config->item('videos:coleccion');
+                        } else {
+                            if ($session_tipo_id == intval($this->config->item('seccion:lista'))) {
+                                $tipo_grupo_maestro = $this->config->item('videos:lista');
+                            }
+                        }
+                        $returnValue = $this->_getListMasterChannel($this->grupo_maestro_m->getCollectionDropDown(array('tipo_grupo_maestro_id' => $tipo_grupo_maestro, 'canales_id' => $canal_id), 'nombre'));
+                        unset($returnValue[0]);
+                    }
+                }
+            } else {
+                if ($session_tipo_id == intval($this->config->item('seccion:video'))) {
+                    $returnValue = $this->obtenerVideosPrograma($objMaestro->id);
+                } else {
+                    if ($session_tipo_id == intval($this->config->item('seccion:coleccion'))) {
+                        $tipo_grupo_maestro = $this->config->item('videos:coleccion');
+                    } else {
+                        if ($session_tipo_id == intval($this->config->item('seccion:lista'))) {
+                            $tipo_grupo_maestro = $this->config->item('videos:lista');
+                        }
+                    }
+                    $returnValue = $this->_obtenerMaestrosPrograma($tipo_grupo_maestro, $objMaestro->id);
+//                    if($objMaestro != NULL){
+//                        error_log('--->'.print_r($returnValue, true));
+//                    }                    
+                }
+            }
+        }
+        return $returnValue;
+    }
+
+    public function obtenerVideosCanal($canal_id) {
+        $returnValue = array();
+        $lista_video = $this->videos_m->get_many_by(array("canales_id" => $canal_id));
+        if (count($lista_video) > 0) {
+            foreach ($lista_video as $index => $objVideo) {
+                if ($this->tieneMaestro($objVideo->id)) {
+                    unset($lista_video[$index]);
+                }
+            }
+            $returnValue = $lista_video;
+        }
+        return $returnValue;
+    }
+
+    public function _obtenerImagenPorMaestro($maestro_id, $image_type, $seccion, $canal_id) {
+        $returnValue = 0;
+        if ($seccion == $this->config->item('seccion:video')) {
+            $objImagen = $this->imagen_m->get_by(array("canales_id" => $canal_id, "tipo_imagen_id" => $image_type));
+        } else {
+            $objImagen = $this->imagen_m->get_by(array("grupo_maestros_id" => $maestro_id, "tipo_imagen_id" => $image_type));
+        }
+        if (count($objImagen) > 0) {
+            $returnValue = $objImagen->id;
+        }
+        return $returnValue;
+    }
+
+    public function _obtenerMaestrosPrograma($tipo_grupo_maestro, $maestro_programa_id) {
+        $returnValue = array();
+        $coleccionMaestroDetalle = $this->grupo_detalle_m->get_many_by(array("grupo_maestro_padre" => $maestro_programa_id));
+        if (count($coleccionMaestroDetalle) > 0) {
+            foreach ($coleccionMaestroDetalle as $index => $objDetalle) {
+                if ($objDetalle->grupo_maestro_id != NULL) {
+                    $objMaestro = $this->grupo_maestro_m->get($objDetalle->grupo_maestro_id);
+                    if (count($objMaestro) > 0) {
+                        if ($objMaestro->tipo_grupo_maestro_id == $tipo_grupo_maestro) {
+                            array_push($returnValue, $objMaestro);
+                        }
+                    }
+                }
+            }
+        }
+        return $returnValue;
+    }
+
+    public function obtenerVideosPrograma($programa_id) {
+        $returnValue = array();
+        $coleccionMaestroDetalle = $this->grupo_detalle_m->get_many_by(array("grupo_maestro_padre" => $programa_id, "tipo_grupo_maestros_id" => $this->config->item('videos:programa')));
+        if (count($coleccionMaestroDetalle) > 0) {
+            foreach ($coleccionMaestroDetalle as $index => $objMaestro) {
+                if ($objMaestro->grupo_maestro_id == NULL && $objMaestro->video_id != NULL) {
+                    array_push($returnValue, $objMaestro);
+                }
+            }
+        }
+        return $returnValue;
+    }
+
+    public function listar_para_programa() {
+        if ($this->input->is_ajax_request()) {
+            error_log(print_r($this->input->post(),true));
+        }
+    }
+    
+    public function listar_para_lista(){
+        if ($this->input->is_ajax_request()) {
+            $objMaestro = $this->grupo_maestro_m->get($this->input->post('maestro_id'));
+            if($objMaestro->tipo_grupo_maestro_id == $this->config->item('videos:lista')){
+                $grupo_detalles = $this->grupo_detalle_m->get_many_by(array("grupo_maestro_padre"=>$objMaestro->id, "tipo_grupo_maestros_id"=>$this->config->item('videos:lista')));
+                if(count($grupo_detalles)>0){
+                    $arrayVideo = array();
+                    foreach($grupo_detalles as $puntero=>$objGrupoDetalle){
+                        if($objGrupoDetalle->video_id != NULL){
+                            $objVideo = $this->videos_m->get($objGrupoDetalle->video_id);
+                            array_push($arrayVideo, $objVideo);
+                        }
+                    }
+                    
+                }
+                //agregar video sueltos
+            }
+        }
     }
 
 }

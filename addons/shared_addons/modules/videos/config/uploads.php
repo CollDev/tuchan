@@ -78,6 +78,7 @@ $config['portada:categoria'] = '2';
 $config['portada:principal'] = '1';
 
 $config['template:destacado'] = '1';
+$config['template:destacado_canal'] = '7';
 
 //grupos
 $config['grupo:administrador-canales'] = '4';

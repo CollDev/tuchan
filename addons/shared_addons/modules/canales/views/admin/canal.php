@@ -261,7 +261,7 @@
                                                                     showMessage('error', '<?php echo lang('canales:exist_canal') ?>', 2000, '');//no se encontro el logotipo en el servidor 
                                                                 } else {
                                                                     var url = "admin/canales";
-                                                                    //showMessage('exit', '<?php echo lang('canales:success_saved') ?>', 2000, '');//no se encontro el logotipo en el servidor 
+                                                                    //showMessage('exit', '<?php //echo lang('canales:success_saved') ?>', 2000, '');//no se encontro el logotipo en el servidor 
                                                                     $(location).attr('href', '<?php echo BASE_URL; ?>' + url);
                                                                 }
                                                             }

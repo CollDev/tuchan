@@ -104,9 +104,14 @@ class Mantenimiento {
         if (count($arrayThumbs) > 0) {
             $imagen_padre= NULL;
             foreach ($arrayThumbs as $index => $arrayImage) {
+                
+                // print_r($arrayImage);
+                
                 if (is_array($arrayImage)) {
                     if (count($arrayImage) > 0) {
                         if (isset($arrayImage['url'])) {
+                            //echo "primer";
+                            
                             $objBeanImage = new stdClass();
                             $objBeanImage->id = NULL;
                             $objBeanImage->canales_id = 'NULL';
@@ -132,6 +137,7 @@ class Mantenimiento {
                               $this->vd($objBeanImageSaved);
                               } */
                         } else {
+                            ///echo "segundo";
                             foreach ($arrayImage as $indice => $itemImage) {
                                 if (is_array($itemImage)) {
                                     $tipo_imagen = $this->conexionmysql->getTypeImage($itemImage['width']);

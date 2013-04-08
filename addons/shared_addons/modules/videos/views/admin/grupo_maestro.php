@@ -83,12 +83,14 @@
         <div class="input"><?php echo form_input('personajes', $objMaestro->personajes, 'id="personajes"') ?></div>        
     </div>
     <div class="main_opt">
-        <fieldset>
-            <legend>Contenido</legend>
-            <div id="filter-stage">
-                <?php template_partial('contenidos'); ?>
-            </div>            
-        </fieldset>
+        <?php if ($objMaestro->id > 0): ?>
+            <fieldset>
+                <legend>Contenido</legend>
+                <div id="filter-stage">
+                    <?php template_partial('contenidos'); ?>
+                </div>            
+            </fieldset>
+        <?php endif; ?>
         <br /><br />
         <input type="button" onclick="guardarMaestro();
                 return false;" class="btn orange" name="btnGuardar" id="btnGuardar" value="<?php echo lang('buttons.save') ?>" />
@@ -262,25 +264,49 @@
                             if (values['personajes'].length > 0) {
                                 if (nombre_imagen.length > 0) {
                                     if (values['categoria'].length > 0) {
-                                        var serializedData = $('#formMaestro').serialize();
-                                        //var post_url = "/admin/videos/save_maestro/"+values['txt_'+type_video]+"/"+values['canal_id']+"/"+values['categoria']+"/"+type_video;
-                                        var post_url = "/admin/videos/guardar_maestro/";
-                                        $.ajax({
-                                            type: "POST",
-                                            url: post_url,
-                                            dataType: 'json',
-                                            data: serializedData,
-                                            success: function(respuesta)
-                                            {
-                                                //console.log(returnValue.value);
-                                                if (respuesta.value == 0) {
-                                                    showMessage('exit', '<?php echo lang('videos:edit_video_success') ?>', 1000, '');
-                                                } else {
-                                                    showMessage('error', '<?php echo lang('maestros:maestro_existe') ?>', 2000, '');
+                                        if (values['tipo'] == '1') {
+                                            var tipo = 'Lista de reproducción';
+                                        } else {
+                                            if (values['tipo'] == '2') {
+                                                var tipo = 'Colección';
+                                            } else {
+                                                var tipo = 'Programa';
+                                            }
+                                        }
+<?php if ($objMaestro->id == 0): ?>
+                                            jConfirm("Seguro que desea crear un maestro de tipo: " + tipo, "Crear Maestro", function(r) {
+                                                if (r) {
+<?php endif; ?>
+                                                var serializedData = $('#formMaestro').serialize();
+<?php if ($objMaestro->id == 0): ?>
+                                                    loading('#loading');
+<?php endif; ?>
+                                                //var post_url = "/admin/videos/save_maestro/"+values['txt_'+type_video]+"/"+values['canal_id']+"/"+values['categoria']+"/"+type_video;
+                                                var post_url = "/admin/videos/guardar_maestro/";
+                                                $.ajax({
+                                                    type: "POST",
+                                                    url: post_url,
+                                                    dataType: 'json',
+                                                    data: serializedData,
+                                                    success: function(respuesta)
+                                                    {
+                                                        if (respuesta.value == 0) {
+<?php if ($objMaestro->id == 0): ?>
+                                                                var url = 'admin/videos/grupo_maestro/' + respuesta.canal_id + "/" + respuesta.maestro_id;
+                                                                $(location).attr('href', '<?php echo BASE_URL; ?>' + url);
+<?php else: ?>
+                                                                showMessage('exit', '<?php echo lang('videos:edit_video_success') ?>', 2000, '');
+<?php endif; ?>
+                                                        } else {
+                                                            showMessage('error', '<?php echo lang('maestros:maestro_existe') ?>', 2000, '');
+                                                        }
+                                                    } //end success
+                                                }); //end AJAX
+<?php if ($objMaestro->id == 0): ?>
                                                 }
-                                            } //end success
-                                        }); //end AJAX
-                                    }else{
+                                            });
+<?php endif; ?>
+                                    } else {
                                         showMessage('error', '<?php echo lang('videos:require_category') ?>', 2000, '');
                                     }
                                 } else {
@@ -384,5 +410,101 @@
                         } //end success
                     }); //end AJAX                  
                 }
+            }
+
+            function loading(id) {
+                var winH = $(window).height();
+                var winW = $(window).width();
+
+                var dialog = $(id);
+                //console.log(dialog);
+                var maxheight = dialog.css("max-height");
+                var maxwidth = dialog.css("max-width");
+
+                var dialogheight = dialog.height();
+                var dialogwidth = dialog.width();
+
+                if (maxheight != "none") {
+                    dialogheight = Number(maxheight.replace("px", ""));
+                }
+                if (maxwidth != "none") {
+                    dialogwidth = Number(maxwidth.replace("px", ""));
+                }
+
+                dialog.css('top', winH / 2 - dialogheight / 2);
+                dialog.css('left', winW / 2 - dialogwidth / 2);
+                dialog.css('display', 'block');
+                $("#imgLoading").css('z-index', 400);
+                dialog.css('z-index', '399');
+                $("#loadingModal").css('position', 'absolute');
+                $("#loadingModal").css('height', $(document).height());
+                $("#loadingModal").css('width', winW);
+                $("#loadingModal").css('z-index', '388');
+            }
+            
+            function listar_para_lista(){
+                var serializedData = $('#frmBuscar').serialize();
+                var post_url = "/admin/videos/listar_para_lista/";
+                $.ajax({
+                    type: "POST",
+                    url: post_url,
+                    dataType: 'html',
+                    data: serializedData,
+                    success: function(respuesta)
+                    {
+                        $("#divResultado").html(respuesta);
+                        $('#black').smartpaginator({
+                            totalrecords: $("#total").val(),
+                            recordsperpage: 7,
+                            theme: 'black',
+                            onchange: function(newPage) {
+                                //$('#r').html('Page # ' + newPage);
+                                paginarItems(newPage);
+                            }
+                        });
+                    } //end success
+                }); //end AJAX                 
+            }
+            function listar_para_programa() {
+                var serializedData = $('#frmBuscar').serialize();
+                var post_url = "/admin/videos/listar_para_programa/";
+                $.ajax({
+                    type: "POST",
+                    url: post_url,
+                    dataType: 'html',
+                    data: serializedData,
+                    success: function(respuesta)
+                    {
+                        $("#divResultado").html(respuesta);
+                        $('#black').smartpaginator({
+                            totalrecords: $("#total").val(),
+                            recordsperpage: 7,
+                            theme: 'black',
+                            onchange: function(newPage) {
+                                //$('#r').html('Page # ' + newPage);
+                                paginarItems(newPage);
+                            }
+                        });
+                    } //end success
+                }); //end AJAX 
+            }
+            /**
+             * método para imprimir html de acuerdo al numero de pagina enviado como parametro
+             * @param int newPage
+             * @returns html         
+             * */
+            function paginarItems(newPage) {
+                var serializedData = $('#frmBuscar').serialize();
+                var post_url = "/admin/canales/obtener_lista_paginado/" + newPage;
+                $.ajax({
+                    type: "POST",
+                    url: post_url,
+                    dataType: 'html',
+                    data: serializedData,
+                    success: function(respuesta)
+                    {
+                        $("#resultado").html(respuesta);
+                    } //end success
+                }); //end AJAX         
             }
 </script>

@@ -21,6 +21,7 @@ class EnvioVideos{
 		$retffmpeg=$ffmpeg->convertVideotoMp4($id_video,$ubi);
 		//echo "convirtio";	
 
+                    $ubi="/home/idigital3/sites/adminmicanal/";
 		
 		if($retffmpeg==true){
 			$liquid = new Liquid();

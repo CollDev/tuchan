@@ -3,10 +3,10 @@
 class Conexion{
 
     public $connection;
-    public $host = '192.168.1.34';
+    public $host = 'localhost';
     public $user = 'root';
     public $pass = '123';
-    public $db = 'pyro_admin';
+    public $db = 'pyro_admin2';
 
     /* public $connection;
         public $host = 'localhost';
@@ -51,7 +51,7 @@ class Conexion{
 
 
 public function saveImage(&$objBeanImage){
-        $sql ="INSERT INTO pyro_admin.default_cms_imagenes
+        $sql ="INSERT INTO default_cms_imagenes
             (id,
              canales_id,
              grupo_maestros_id,
@@ -84,6 +84,9 @@ VALUES ('".$objBeanImage->id."',
         '".$objBeanImage->fecha_migracion_actualizacion."',
         '".$objBeanImage->imagen_padre."',
         '".$objBeanImage->procedencia."')";
+        
+        echo $sql;
+        
         $result = $this->connection->query($sql);
         $objBeanImage->id = $this->connection->insert_id;
         return $objBeanImage;
@@ -92,7 +95,7 @@ VALUES ('".$objBeanImage->id."',
     public function getTypeImage($width){
         $returnValue = 0;
         if($width>0){
-            $sql ="SELECT * FROM default_cms_tipo_imagen WHERE ancho = '".$width."'";
+            $sql ="SELECT * FROM default_cms_tipo_imagen WHERE ancho = '".$width."' and id<6";
             //var_dump($sql);
             $result = $this->connection->query($sql);
              while ($row = $result->fetch_object()) {

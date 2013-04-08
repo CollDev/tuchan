@@ -23,7 +23,6 @@ class Admin extends Admin_Controller {
      */
     public function __construct() {
         parent::__construct();
-
         $this->load->model('canales_m');
         $this->load->model('tipo_canales_m');
         $this->load->model('tipo_portada_m');
@@ -1712,9 +1711,6 @@ class Admin extends Admin_Controller {
         //imagen de la seccion destacado
         if ($objSeccion->tipo_secciones_id == $this->config->item('seccion:destacado')) {
             $objCanal = $this->canales_m->get($canal_id);
-//            if ($objCanal->tipo_canales_id == $this->config->item('canal:mi_canal')) {
-//                //listamos todas las secciones 
-//            } else {
             $objDetalleSeccion = $this->detalle_secciones_m->get_by(array("secciones_id" => $seccion_id));
             $url_imagen_portada = '';
             if (count($objDetalleSeccion) > 0) {
@@ -1767,7 +1763,7 @@ class Admin extends Admin_Controller {
                     ->set('ultimo', $ultimo)
                     ->set('primer', $primero)
                     ->set('title', $title);
-            $this->template->build('admin/seccion');
+            $this->input->is_ajax_request() ? $this->template->build('admin/tables/secciones') :$this->template->build('admin/seccion');
         }
     }
 
@@ -1787,6 +1783,7 @@ class Admin extends Admin_Controller {
      */
     public function agregarValores(&$arrayDetalleSeccion) {
         if (count($arrayDetalleSeccion) > 0) {
+            
             foreach ($arrayDetalleSeccion as $index => $objDetalleSeccion) {
                 $objImagen = $this->imagen_m->get($objDetalleSeccion->imagenes_id);
                 if ($objImagen->procedencia == '0') {
@@ -1795,15 +1792,17 @@ class Admin extends Admin_Controller {
                     $objDetalleSeccion->imagen = $objImagen->imagen;
                 }
                 //nombre del Item
+                    $objDetalleSeccion->nombre = '';
+                    $objDetalleSeccion->tipo = '';                
                 if ($objDetalleSeccion->grupo_maestros_id != NULL) {
                     $objMaestro = $this->grupo_maestro_m->get($objDetalleSeccion->grupo_maestros_id);
-                    $objTipoMaestro = $this->tipo_maestro_m->get($objMaestro->tipo_grupo_maestro_id);
-                    $objDetalleSeccion->tipo = $objTipoMaestro->nombre;
-                    $objDetalleSeccion->nombre = $objMaestro->nombre;
-                } else {
-                    $objDetalleSeccion->nombre = '';
-                    $objDetalleSeccion->tipo = '';
-                }
+                    if(count($objMaestro)>0){
+                        $objTipoMaestro = $this->tipo_maestro_m->get($objMaestro->tipo_grupo_maestro_id);
+                        $objDetalleSeccion->tipo = $objTipoMaestro->nombre;
+                        $objDetalleSeccion->nombre = $objMaestro->nombre;                        
+                    }
+
+                } 
                 $arrayDetalleSeccion[$index] = $objDetalleSeccion;
             }
         }
@@ -1958,7 +1957,7 @@ class Admin extends Admin_Controller {
                 if (isset($arrayUrl[4])) {
                     $objSeccion = $this->secciones_m->get($arrayUrl[4]);
                     $objCanal = $this->canales_m->get($arrayUrl[3]);
-                    if ($objSeccion->tipo_secciones_id > $this->config->item('seccion:destacado') || $objCanal->tipo_canales_id == $this->config->item('canal:mi_canal')) {
+                    if ($objSeccion->tipo_secciones_id >= $this->config->item('seccion:destacado') || $objCanal->tipo_canales_id == $this->config->item('canal:mi_canal')) {
                         $html.='<span class="view_mc">BUSQUEDA</span>                          	  
                          <div class="frm-input">
                             <form name="frmBuscar" id="frmBuscar" action="" method="POST">
@@ -1978,6 +1977,45 @@ class Admin extends Admin_Controller {
                     </div>';
                     }
                 }
+            } else {
+                if ($arrayUrl[0] == 'admin' && $arrayUrl[1] == 'videos' && $arrayUrl[2] == 'grupo_maestro') {
+                    if (isset($arrayUrl[3]) && isset($arrayUrl[4])) {
+                        $canal_id = $arrayUrl[3];
+                        $maestro_id = $arrayUrl[4];
+                        $objMaestro = $this->grupo_maestro_m->get($maestro_id);
+                        if ($objMaestro->tipo_grupo_maestro_id == $this->config->item('videos:programa')) {
+                            $funcion = 'listar_para_programa()';
+                        } else {
+                            if ($objMaestro->tipo_grupo_maestro_id == $this->config->item('videos:coleccion')) {
+                                $funcion = 'listar_para_coleccion()';
+                            } else {
+                                if ($objMaestro->tipo_grupo_maestro_id == $this->config->item('videos:lista')) {
+                                    $funcion = 'listar_para_lista()';
+                                }
+                            }
+                        }
+                        $objCanal = $this->canales_m->get($canal_id);
+                        //if ($objCanal->tipo_canales_id == $this->config->item('canal:mi_canal')) {
+                            $html.='<span class="view_mc">BUSQUEDA</span>                          	  
+                         <div class="frm-input">
+                            <form name="frmBuscar" id="frmBuscar" action="" method="POST">
+                               <div style="float:left;">
+                                   <input style="width:300px;" id="txtBuscar" name="txtBuscar" type="text" placeholder="Buscar">   
+                               </div>
+                               <div style="float:right; padding-top:5px;">
+                                    <a href="#" onclick="' . $funcion . ';return false;" id="s" name="s" class="btn blue">
+                                        <span class="st">Buscar</span>
+                                    </a>
+                               </div>
+                               <div style="clear:both;"></div>
+                               <div id="divResultado" style="background-color:#ffffff; -moz-opacity: 1 !important; opacity: 1 1 !important;"></div>
+                               <input type="hidden" id="canal_id" name="canal_id" value="' . $canal_id . '" />
+                               <input type="hidden" id="maestro_id" name="maestro_id" value="' . $maestro_id . '" />
+                            </form>
+                    </div>';
+                        //}
+                    }
+                }
             }
             echo $html;
         }
@@ -1992,6 +2030,7 @@ class Admin extends Admin_Controller {
             $objSeccion = $this->secciones_m->get($this->input->post('seccion_id'));
             $objPortada = $this->portada_m->get($objSeccion->portadas_id);
             $htmlContenido = '';
+            
             if ($objPortada->tipo_portadas_id == $this->config->item('portada:canal')) {
                 if ($objSeccion->tipo_secciones_id == $this->config->item('seccion:programa') || $objSeccion->tipo_secciones_id == $this->config->item('seccion:coleccion') || $objSeccion->tipo_secciones_id == $this->config->item('seccion:lista')) {
                     $objColeccionGrupoMaestro = $this->obtenerMaestrosParaSecciones($objSeccion->tipo_secciones_id, $this->input->post('canal_id'));
@@ -2061,7 +2100,7 @@ class Admin extends Admin_Controller {
                     } else {
                         //busqueda general cuando se lista x el canal, solo se excluirán los de tipo coleccion
                         $keyword = $this->input->post('txtBuscar');
-                        $base_where = array();
+                        $base_where = array("canales_id"=>$this->input->post('canal_id'));
                         $cantidad_mostrar = 7;
                         $current_page = 0;
                         if (strlen(trim($keyword)) > 0) {
@@ -2070,6 +2109,7 @@ class Admin extends Admin_Controller {
                             $htmlContenido = $this->listaHtml($items);
                             $htmlContenido.='<input type="hidden" id="total" name="total" value="' . $total_rows . '" />';
                             $htmlContenido.='<input type="hidden" id="text_search" name="text_search" value="' . $keyword . '" />';
+                            $htmlContenido.='<input type="hidden" id="tipo_portada" name="tipo_portada" value="' . $objPortada->tipo_portadas_id . '" />';
                         } else {
                             $total_rows = $this->grupo_maestro_m->count_by($base_where);
                             $items = $this->grupo_maestro_m->limit(array($cantidad_mostrar, $current_page))->get_many_by($base_where);
@@ -2077,13 +2117,12 @@ class Admin extends Admin_Controller {
                             //$total = ceil($total_rows/$cantidad_mostrar);
                             $htmlContenido.='<input type="hidden" id="total" name="total" value="' . $total_rows . '" />';
                             $htmlContenido.='<input type="hidden" id="text_search" name="text_search" value="' . $keyword . '" />';
+                            $htmlContenido.='<input type="hidden" id="tipo_portada" name="tipo_portada" value="' . $objPortada->tipo_portadas_id . '" />';
                         }
                     }
                 }
             } else {
                 $objMaestro = $this->grupo_maestro_m->get($objPortada->origen_id);
-                //error_log(print_r($objMaestro,true));
-                //$objColeccionGrupoMaestro = $this->obtenerMaestrosParaSecciones($objSeccion->tipo_secciones_id, $this->input->post('canal_id'),$objMaestro);
                 if ($objSeccion->tipo_secciones_id == $this->config->item('seccion:coleccion') || $objSeccion->tipo_secciones_id == $this->config->item('seccion:lista')) {
                     $objColeccionGrupoMaestro = $this->obtenerMaestrosParaSecciones($objSeccion->tipo_secciones_id, $this->input->post('canal_id'), $objMaestro);
                     if (count($objColeccionGrupoMaestro)) {
@@ -2121,7 +2160,11 @@ class Admin extends Admin_Controller {
                 } else {
                     //busqueda general cuando se lista x el canal, solo se excluirán los de tipo coleccion
                     $keyword = $this->input->post('txtBuscar');
-                    $base_where = array();
+                    if($objPortada->tipo_portadas_id == $this->config->item('portada:principal')){
+                        $base_where = array();
+                    }else{
+                        $base_where = array("canales_id"=>$this->input->post('canal_id'));
+                    }
                     $cantidad_mostrar = 7;
                     $current_page = 0;
                     if (strlen(trim($keyword)) > 0) {
@@ -2130,6 +2173,7 @@ class Admin extends Admin_Controller {
                         $htmlContenido = $this->listaHtml($items);
                         $htmlContenido.='<input type="hidden" id="total" name="total" value="' . $total_rows . '" />';
                         $htmlContenido.='<input type="hidden" id="text_search" name="text_search" value="' . $keyword . '" />';
+                        $htmlContenido.='<input type="hidden" id="tipo_portada" name="tipo_portada" value="' . $objPortada->tipo_portadas_id . '" />';
                     } else {
                         $total_rows = $this->grupo_maestro_m->count_by($base_where);
                         $items = $this->grupo_maestro_m->limit(array($cantidad_mostrar, $current_page))->get_many_by($base_where);
@@ -2137,6 +2181,7 @@ class Admin extends Admin_Controller {
                         //$total = ceil($total_rows/$cantidad_mostrar);
                         $htmlContenido.='<input type="hidden" id="total" name="total" value="' . $total_rows . '" />';
                         $htmlContenido.='<input type="hidden" id="text_search" name="text_search" value="' . $keyword . '" />';
+                        $htmlContenido.='<input type="hidden" id="tipo_portada" name="tipo_portada" value="' . $objPortada->tipo_portadas_id . '" />';
                     }
                 }
             }
@@ -2157,6 +2202,10 @@ class Admin extends Admin_Controller {
             $html.='<div id="black" style="margin: auto;"></div>';
             echo $html;
         }
+    }
+    
+    private function buscar_maestro_video($keyword){
+        
     }
 
     /**
@@ -2205,7 +2254,11 @@ class Admin extends Admin_Controller {
      */
     public function obtener_lista_paginado($pagina) {
         $keyword = $this->input->post('text_search');
-        $base_where = array();
+        if($this->input->post('tipo_portada') == $this->config->item('portada:principal')){
+            $base_where = array();
+        }else{
+            $base_where = array("canales_id"=>$this->input->post('canal_id'));
+        }
         $cantidad_mostrar = 7;
         $current_page = ($cantidad_mostrar * $pagina) - $cantidad_mostrar;
         $htmlContenido = '';
@@ -2215,6 +2268,7 @@ class Admin extends Admin_Controller {
             $htmlContenido.= $this->listaHtml($items, $current_page);
             $htmlContenido.='<input type="hidden" id="total" name="total" value="' . $total_rows . '" />';
             $htmlContenido.='<input type="hidden" id="text_search" name="text_search" value="' . $keyword . '" />';
+            $htmlContenido.='<input type="hidden" id="tipo_portada" name="tipo_portada" value="' . $this->input->post('tipo_portada') . '" />';
         } else {
             $total_rows = $this->grupo_maestro_m->count_by($base_where);
             $items = $this->grupo_maestro_m->limit(array($cantidad_mostrar, $current_page))->get_many_by($base_where);
@@ -2222,6 +2276,7 @@ class Admin extends Admin_Controller {
             //$total = ceil($total_rows/$cantidad_mostrar);
             $htmlContenido.='<input type="hidden" id="total" name="total" value="' . $total_rows . '" />';
             $htmlContenido.='<input type="hidden" id="text_search" name="text_search" value="' . $keyword . '" />';
+            $htmlContenido.='<input type="hidden" id="tipo_portada" name="tipo_portada" value="' . $this->input->post('tipo_portada') . '" />';
         }
         echo $htmlContenido;
     }
@@ -2501,8 +2556,54 @@ class Admin extends Admin_Controller {
             $user_id = (int) $this->session->userdata('user_id');
             $returnValue = 0;
             $detalle_seccion_id = 0;
-            $objMaestro = $this->grupo_maestro_m->get($this->input->post('maestro_id'));
-            if ($objMaestro->tipo_grupo_maestro_id == $this->config->item('videos:coleccion')) {
+            //$objMaestro = $this->grupo_maestro_m->get($this->input->post('maestro_id'));
+            $objSeccion = $this->secciones_m->get($this->input->post('seccion_id'));
+            //$objPortada = $this->portada_m->get($objSeccion->portadas_id);
+            switch($objSeccion->templates_id){
+                case $this->config->item('template:destacado'):
+                case $this->config->item('template:destacado_canal'):
+                     if ($this->existeRegistro($this->input->post('maestro_id'), $this->input->post('seccion_id'), 0)) {
+                         $objDetalleSeccion = $this->detalle_secciones_m->get_by(array("secciones_id" => $this->input->post('seccion_id'), "grupo_maestros_id" => $this->input->post('maestro_id')));
+                         if (count($objDetalleSeccion) > 0) {
+                            $objImagen = $this->imagen_m->get_by(array("grupo_maestros_id" => $this->input->post('maestro_id'), "tipo_imagen_id" => $this->config->item('imagen:extralarge')));
+                            if (count($objImagen) > 0) {
+                               $this->detalle_secciones_m->update($objDetalleSeccion->id, array("estado" => "1", "imagenes_id" => $objImagen->id)); 
+                            }else{
+                                $this->detalle_secciones_m->update($objDetalleSeccion->id, array("estado" => "1"));
+                            }                             
+                         }else{
+                             $returnValue = 1;//no hay items que agregar
+                         }
+                     }else{ //registrar nuevo item en la tabla detalle secciones
+                         $objImagen = $this->imagen_m->get_by(array("grupo_maestros_id" => $this->input->post('maestro_id'), "tipo_imagen_id" => $this->config->item('imagen:extralarge')));
+                         if (count($objImagen) > 0) {
+                            $objBeanDetalleSecciones = new stdClass();
+                            $objBeanDetalleSecciones->id = NULL;
+                            $objBeanDetalleSecciones->secciones_id = $this->input->post('seccion_id');
+                            $objBeanDetalleSecciones->reglas_id = NULL;
+                            $objBeanDetalleSecciones->videos_id = NULL;
+                            $objBeanDetalleSecciones->grupo_maestros_id = $this->input->post('maestro_id');
+                            $objBeanDetalleSecciones->categorias_id = NULL;
+                            $objBeanDetalleSecciones->tags_id = NULL;
+                            $objBeanDetalleSecciones->imagenes_id = $objImagen->id;
+                            $objBeanDetalleSecciones->peso = $this->obtenerPeso($this->input->post('seccion_id'));
+                            $objBeanDetalleSecciones->descripcion_item = '';
+                            //$objBeanDetalleSecciones->templates_id = $this->config->item('template:programa');
+                            $objBeanDetalleSecciones->estado = 1;
+                            $objBeanDetalleSecciones->fecha_registro = date("Y-m-d H:i:s");
+                            $objBeanDetalleSecciones->usuario_registro = $user_id;
+                            $objBeanDetalleSecciones->estado_migracion = '0';
+                            $objBeanDetalleSecciones->fecha_migracion = '0000-00-00 00:00:00';
+                            $objBeanDetalleSecciones->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
+                            $objBeanDetalleSeccionesSaved = $this->detalle_secciones_m->save($objBeanDetalleSecciones);
+                            $detalle_seccion_id = $objBeanDetalleSeccionesSaved->id;                             
+                         }else{
+                            $returnValue = 5; // no tiene imagen extralarge
+                        }
+                     }
+                    break;
+            }
+            /*if ($objMaestro->tipo_grupo_maestro_id == $this->config->item('videos:coleccion')) {
                 $returnValue = 8;
             } else {
                 $objSeccion = $this->secciones_m->get($this->input->post('seccion_id'));
@@ -2510,18 +2611,18 @@ class Admin extends Admin_Controller {
                 if ($this->existeRegistro($this->input->post('maestro_id'), $this->input->post('seccion_id'), 0)) {
                     $objDetalleSeccion = $this->detalle_secciones_m->get_by(array("secciones_id" => $this->input->post('seccion_id'), "grupo_maestros_id" => $this->input->post('maestro_id')));
                     if (count($objDetalleSeccion) > 0) {
-                        if ($objPortada->tipo_portadas_id == $this->config->item('portada:principal')) {
+                        if ($objPortada->tipo_portadas_id == $this->config->item('portada:principal')) { //home de micanal
                             $objImagen = $this->imagen_m->get_by(array("grupo_maestros_id" => $this->input->post('maestro_id'), "tipo_imagen_id" => $this->config->item('imagen:extralarge')));
                         } else {
-                            if ($objSeccion->templates_id == $this->config->item('template:destacado')) {
+                            if ($objSeccion->templates_id == $this->config->item('template:destacado') || $objSeccion->templates_id == $this->config->item('template:destacado_canal')) {
                                 $objImagen = $this->imagen_m->get_by(array("grupo_maestros_id" => $this->input->post('maestro_id'), "tipo_imagen_id" => $this->config->item('imagen:extralarge')));
                             } else {
                                 $objImagen = $this->imagen_m->get_by(array("grupo_maestros_id" => $this->input->post('maestro_id'), "tipo_imagen_id" => $this->config->item('imagen:small')));
                             }
                         }
                         if (count($objImagen) > 0) {
-                            $this->detalle_secciones_m->update($objDetalleSeccion->id, array("estado" => "1", "imagenes_id"=>$objImagen->id));
-                        }else{
+                            $this->detalle_secciones_m->update($objDetalleSeccion->id, array("estado" => "1", "imagenes_id" => $objImagen->id));
+                        } else {
                             $this->detalle_secciones_m->update($objDetalleSeccion->id, array("estado" => "1"));
                         }
                     } else {//no hay items que agregar 
@@ -2531,7 +2632,7 @@ class Admin extends Admin_Controller {
                     if ($objPortada->tipo_portadas_id == $this->config->item('portada:principal')) {
                         $objImagen = $this->imagen_m->get_by(array("grupo_maestros_id" => $this->input->post('maestro_id'), "tipo_imagen_id" => $this->config->item('imagen:extralarge')));
                     } else {
-                        if ($objSeccion->templates_id == $this->config->item('template:destacado')) {
+                        if ($objSeccion->templates_id == $this->config->item('template:destacado') || $objSeccion->templates_id == $this->config->item('template:destacado_canal')) {
                             $objImagen = $this->imagen_m->get_by(array("grupo_maestros_id" => $this->input->post('maestro_id'), "tipo_imagen_id" => $this->config->item('imagen:extralarge')));
                         } else {
                             $objImagen = $this->imagen_m->get_by(array("grupo_maestros_id" => $this->input->post('maestro_id'), "tipo_imagen_id" => $this->config->item('imagen:small')));
@@ -2559,14 +2660,14 @@ class Admin extends Admin_Controller {
                         $objBeanDetalleSeccionesSaved = $this->detalle_secciones_m->save($objBeanDetalleSecciones);
                         $detalle_seccion_id = $objBeanDetalleSeccionesSaved->id;
                     } else {
-                        if ($objSeccion->templates_id == $this->config->item('template:destacado')) {
+                        if ($objSeccion->templates_id == $this->config->item('template:destacado') || $objSeccion->templates_id == $this->config->item('template:destacado_canal')) {
                             $returnValue = 5;
                         } else {
                             $returnValue = 2; // no tiene imagen de tipo small
                         }
                     }
                 }
-            }
+            }*/
             echo json_encode(array("error" => $returnValue, "detalle_seccion_id" => $detalle_seccion_id));
         }
     }

@@ -38,7 +38,10 @@
         echo form_input($descripcion);
         ?>
         <?php
-        if ($objSeccion->tipo_secciones_id == $this->config->item('seccion:destacado')) {
+            echo '<div id="filter-stage">';
+            template_partial('secciones');
+            echo '</div>';        
+        /*if ($objSeccion->tipo_secciones_id == $this->config->item('seccion:destacado')) {
             if ($tipo_canal == $this->config->item('canal:mi_canal')) {
                 echo '<div id="filter-stage">';
                 template_partial('secciones');
@@ -50,7 +53,7 @@
             echo '<div id="filter-stage">';
             template_partial('secciones');
             echo '</div>';
-        }
+        }*/
         ?>
         <input type="hidden" name="canal_id" id="canal_id" value="<?php echo $canal_id; ?>" />
         <input type="hidden" name="portada_id" id="portada_id" value="<?php echo $objSeccion->portadas_id; ?>" />

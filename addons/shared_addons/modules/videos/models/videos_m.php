@@ -17,53 +17,6 @@ class Videos_m extends MY_Model
 {
 
     protected $_table = 'default_cms_videos';
-
-    /**
-     * Get
-     *
-     * Gets a setting based on the $where param.  $where can be either a string
-     * containing a slug name or an array of WHERE options.
-     *
-     * @access	public
-     * @param	mixed	$where
-     * @return	object
-     */
-    public function get($where) 
-    {
-        if (!is_array($where)) {
-            $where = array('id' => $where);
-        }
-
-        return $this->db
-                        ->select('*', 'FALSE')
-                        ->where($where)
-                        ->get($this->_table)
-                        ->row();
-    }
-
-    /**
-     * Get Many By
-     *
-     * Gets all settings based on the $where param.  $where can be either a string
-     * containing a module name or an array of WHERE options.
-     *
-     * @access	public
-     * @param	mixed	$where
-     * @return	object
-     */
-    public function get_many_by($where = array()) 
-    {
-        if (!is_array($where)) {
-            $where = array('user_id' => $where);
-        }
-
-        $this->db->select("*");
-        $this->db->from($this->_table);
-        $this->db->where($where);
-        $result = $this->db->get()->result();
-
-        return $result;
-    }
     
     /**
      * Obtiene los videos que pertenecen al canal seleccionado
