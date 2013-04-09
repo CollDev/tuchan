@@ -32,8 +32,9 @@ class Admin extends Admin_Controller
 				->set('messages', array('notice' => lang('cp_delete_installer_message')));
 		}
                 
-		$this->template->build('admin/dashboard');		
-                //redirect('admin/canales');
+		//$this->template->build('admin/dashboard');		
+                $redirect = $this->_check_group();
+                redirect($redirect ? $redirect : 'admin/canales');
 	}
 
 	/**
@@ -88,6 +89,7 @@ class Admin extends Admin_Controller
                     $redirect = 'admin/canales';
                     break;
 
+                case 3:
                 case 4: // Administrador canales
                     $redirect = 'admin/canales/videos/1';
                     break;
