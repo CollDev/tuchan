@@ -115,7 +115,7 @@
         <a href="<?php echo current_url() . '#'; ?>"><?php echo lang('global:profile'); ?></a>
         <ul>
             <li><?php if ($this->settings->enable_profiles) echo anchor('edit-profile', lang('cp_edit_profile_label')) ?></li>
-            <li><?php echo anchor('', lang('cp_view_frontend'), 'target="_blank"'); ?></li>
+            <li><?php echo anchor('http://dev.micanal.pe', lang('cp_view_frontend'), 'target="_blank"'); ?></li>
             <li><?php echo anchor('admin/logout', lang('cp_logout_label')); ?></li>
 
     <?php if ($module_details['slug']): ?>

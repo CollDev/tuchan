@@ -91,3 +91,6 @@ ERROR - 2013-04-09 18:13:36 --> Severity: Notice  --> Undefined variable: redire
 ERROR - 2013-04-09 18:14:40 --> Severity: Notice  --> Undefined variable: redirect /home/idigital/Escritorio/adminmicanal/system/cms/controllers/admin.php 95
 ERROR - 2013-04-09 18:15:21 --> Severity: Notice  --> Undefined variable: redirect /home/idigital/Escritorio/adminmicanal/system/cms/controllers/admin.php 95
 ERROR - 2013-04-09 18:16:34 --> Severity: Notice  --> Undefined variable: redirect /home/idigital/Escritorio/adminmicanal/system/cms/controllers/admin.php 95
+ERROR - 2013-04-09 20:37:15 --> Severity: Notice  --> unserialize(): Error at offset 40858 of 43766 bytes /home/idigital/Escritorio/adminmicanal/system/cms/libraries/Simplepie.php 230
+ERROR - 2013-04-09 20:49:54 --> Severity: Warning  --> call_user_func_array() expects parameter 1 to be a valid callback, class 'Admin' does not have a method 'index' /home/idigital/Escritorio/adminmicanal/system/codeigniter/core/CodeIgniter.php 361
+ERROR - 2013-04-09 20:54:11 --> Severity: Notice  --> Undefined variable: redirect /home/idigital/Escritorio/adminmicanal/system/cms/controllers/admin.php 96
