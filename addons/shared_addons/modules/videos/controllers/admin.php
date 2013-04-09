@@ -2209,14 +2209,14 @@ class Admin extends Admin_Controller {
         $returValue = array();
         if ($maestro_id > 0) {
 
-            $lista_detalle = $this->grupo_detalle_m->get_many_by(array("grupo_maestro_padre" => $maestro_id, "estado"=>"1"));
+            $lista_detalle = $this->grupo_detalle_m->get_many_by(array("grupo_maestro_padre" => $maestro_id, "estado" => "1"));
             if (count($lista_detalle) > 0) {
                 $arrayId = array();
                 $arrayIdVideo = array();
                 foreach ($lista_detalle as $puntero => $objDetalle) {
                     if ($objDetalle->grupo_maestro_id != NULL) {
                         //array_push($arrayId, $objDetalle->grupo_maestro_id);
-                        $arrayId[$objDetalle->id]=$objDetalle->grupo_maestro_id;
+                        $arrayId[$objDetalle->id] = $objDetalle->grupo_maestro_id;
                     } else {
                         //array_push($arrayIdVideo, $objDetalle->video_id);
                         $arrayIdVideo[$objDetalle->id] = $objDetalle->video_id;
@@ -2265,7 +2265,7 @@ class Admin extends Admin_Controller {
         $objImagen = $this->imagen_m->get_by(array("grupo_maestros_id" => $maestro_id, "tipo_imagen_id" => $tipo, "estado" => "1"));
         if (count($objImagen) > 0) {
             if ($objImagen->procedencia == '0') {
-                $imagen = $this->config->item('protocolo:http') . $this->config->item('server:elemento') . $objImagen->imagen;
+                $imagen = $this->config->item('protocolo:http') . $this->config->item('server:elemento') . '/'.$objImagen->imagen;
             } else {
                 $imagen = $objImagen->imagen;
             }
@@ -2540,13 +2540,13 @@ class Admin extends Admin_Controller {
     private function lista_programa($canal_id = NULL, $programa_id) {
         $returnValue = array();
         $detalles = $this->grupo_detalle_m->get_many_by(array("grupo_maestro_padre" => $programa_id));
-        
+
         if (count($detalles) > 0) {
             foreach ($detalles as $puntero => $objDetalle) {
                 if ($canal_id == NULL) {
-                    $objMaestro = $this->grupo_maestro_m->get_by(array("id"=>$objDetalle->grupo_maestro_id,"tipo_grupo_maestro_id" => $this->config->item('videos:lista')));
+                    $objMaestro = $this->grupo_maestro_m->get_by(array("id" => $objDetalle->grupo_maestro_id, "tipo_grupo_maestro_id" => $this->config->item('videos:lista')));
                 } else {
-                    $objMaestro = $this->grupo_maestro_m->get_by(array("id"=>$objDetalle->grupo_maestro_id,"canales_id" => $canal_id, "tipo_grupo_maestro_id" => $this->config->item('videos:lista')));
+                    $objMaestro = $this->grupo_maestro_m->get_by(array("id" => $objDetalle->grupo_maestro_id, "canales_id" => $canal_id, "tipo_grupo_maestro_id" => $this->config->item('videos:lista')));
                 }
                 if (count($objMaestro) > 0) {
                     $objMaestro->es_maestro = 1;
@@ -3086,9 +3086,9 @@ class Admin extends Admin_Controller {
             $returnValue = 0;
             $detalle_seccion_id = 0;
             if ($this->maestroAgregado($maestro_id, $parent_maestro, 0)) {
-                $objDetalleMaestro = $this->grupo_detalle_m->get_by(array("grupo_maestro_padre"=>$parent_maestro, "grupo_maestro_id"=>$maestro_id));
+                $objDetalleMaestro = $this->grupo_detalle_m->get_by(array("grupo_maestro_padre" => $parent_maestro, "grupo_maestro_id" => $maestro_id));
                 $this->grupo_detalle_m->update($objDetalleMaestro->id, array("estado" => "1"));
-            }else{
+            } else {
                 $objMaestro = $this->grupo_maestro_m->get($parent_maestro);
                 $objBeanDetalleMaestro = new stdClass();
                 $objBeanDetalleMaestro->id = NULL;
@@ -3108,7 +3108,25 @@ class Admin extends Admin_Controller {
                 $objBeanDetalleMaestroSaved = $this->grupo_detalle_m->saveMaestroDetalle($objBeanDetalleMaestro);
                 $detalle_seccion_id = $objBeanDetalleMaestroSaved->id;
             }
-            echo json_encode(array("error"=>$returnValue, "detalle_id"=>$detalle_seccion_id));
+            //echo json_encode(array("error" => $returnValue, "detalle_id" => $detalle_seccion_id));
+            //lista tipo de maestros
+            $items = $this->itemsMaestros($parent_maestro);
+            $html='<input type="hidden" name="maestro_agregado" id="maestro_agregado" value="'.$maestro_id.'" />';
+            if(count($items)>0){
+                foreach($items as $puntero=>$objItem){
+                    $html.='<tr>';
+                        $html.='<td>'.($puntero+1).'</td>';
+                        $html.='<td><img style="width:120px; height: 70px;" src="'.$objItem->imagen.'" /></td>';
+                        $html.='<td>'.$objItem->nombre.'</td>';
+                        $html.='<td>'.$objItem->tipo.'</td>';
+                        $html.='<td>'.$objItem->fecha_registro.'</td>';
+                        $html.='<td>'.$objItem->estado.'</td>';
+                        $html.='<td><a href="#" onclick="quitarGrupoMaestro('.$objItem->grupo_detalle_id.','.$parent_maestro.');return false;" class="btn red">Quitar</a></td>';
+                        $html.='<td>'.$objItem->grupo_detalle_id.'</td>';
+                    $html.='</tr> ';                   
+                }
+            }
+            echo $html;
         }
     }
 
@@ -3138,7 +3156,7 @@ class Admin extends Admin_Controller {
 
     private function maestroAgregado($maestro_id, $parent_maestro, $estado = 1) {
         $returnValue = false;
-        $listaDetalleSeccion = $this->grupo_detalle_m->get_many_by(array("grupo_maestro_padre" => $parent_maestro, "grupo_maestro_id" => $maestro_id, "estado"=>$estado));
+        $listaDetalleSeccion = $this->grupo_detalle_m->get_many_by(array("grupo_maestro_padre" => $parent_maestro, "grupo_maestro_id" => $maestro_id, "estado" => $estado));
         if (count($listaDetalleSeccion) > 0) {
             $returnValue = true;
         }
@@ -3153,11 +3171,29 @@ class Admin extends Admin_Controller {
         }
         return $returnValue;
     }
-    
-    public function quitar_grupo_maestro(){
+
+    public function quitar_grupo_maestro() {
         if ($this->input->is_ajax_request()) {
-            $this->grupo_detalle_m->update($this->input->post('grupo_detalle_id'), array("estado"=>"0"));
-            echo json_encode(array("value"=>"1"));
+            $this->grupo_detalle_m->update($this->input->post('grupo_detalle_id'), array("estado" => "0"));
+            //echo json_encode(array("value" => "1"));
+          //lista tipo de maestros
+            $items = $this->itemsMaestros($this->input->post('parent_maestro'));
+            $html='';
+            if(count($items)>0){
+                foreach($items as $puntero=>$objItem){
+                    $html.='<tr>';
+                        $html.='<td>'.($puntero+1).'</td>';
+                        $html.='<td><img style="width:120px; height: 70px;" src="'.$objItem->imagen.'" /></td>';
+                        $html.='<td>'.$objItem->nombre.'</td>';
+                        $html.='<td>'.$objItem->tipo.'</td>';
+                        $html.='<td>'.$objItem->fecha_registro.'</td>';
+                        $html.='<td>'.$objItem->estado.'</td>';
+                        $html.='<td><a href="#" onclick="quitarGrupoMaestro('.$objItem->grupo_detalle_id.','.$this->input->post('parent_maestro').');return false;" class="btn red">Quitar</a></td>';
+                        $html.='<td>'.$objItem->grupo_detalle_id.'</td>';
+                    $html.='</tr> ';                   
+                }
+            }
+            echo $html;            
         }
     }
 

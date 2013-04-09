@@ -105,7 +105,7 @@
         </div>
         <?php if ($objMaestro->id > 0): ?>
             <div id="tabs-2">
-                imagenes
+                Tab en desarrollo
             </div>
             <div id="tabs-3">
                 <div class="main_opt"  style="width: 100%;">
@@ -551,58 +551,50 @@
                             $.ajax({
                                 type: "POST",
                                 url: post_url,
-                                dataType: 'json',
+                                dataType: 'html',
                                 data: 'maestro_id=' + maestro_id + '&parent_maestro=' + parent_maestro,
                                 success: function(respuesta)
                                 {
-                                    if (respuesta.error > 0) {
-                                        switch (respuesta.error) {
-                                            case 1 :
-                                                showMessage('error', '<?php echo lang('seccion:not_found_item'); ?>', 2000, '');
-                                                break;
-                                            case 2:
-                                                showMessage('error', '<?php echo lang('seccion:not_found_small_image'); ?>', 2000, '');
-                                                break;
-                                            case 3:
-                                                showMessage('error', '<?php echo lang('video:video_codificando'); ?>', 2000, '');
-                                                break;
-                                            case 4:
-                                                showMessage('error', '<?php echo lang('video:coleccion_tiene_registro'); ?>', 2000, '');
-                                                break;
-                                            case 5:
-                                                showMessage('error', '<?php echo lang('video:coleccion_no_imagen_large'); ?>', 2000, '');
-                                                break;
-                                            case 6:
-                                                showMessage('error', '<?php echo lang('video:coleccion_sin_lista'); ?>', 2000, '');
-                                                break;
-                                            case 7:
-                                                showMessage('error', '<?php echo lang('video:listas_sin_imagenes'); ?>', 2000, '');
-                                                break;
-                                            case 8:
-                                                showMessage('error', '<?php echo lang('video:no_coleccion'); ?>', 2000, '');
-                                                break;
-                                        }
-                                    } else {
-                                        $("#div_" + maestro_id).empty();
-                                        var htmlAgregado = '<a href="#" id="agregado" name="agregado" class="btn silver" onclick="return false;">Agregado</a>';
-                                        $("#div_" + maestro_id).html(htmlAgregado);
-                                    }
+                                    $("#divContenido").html(respuesta);
+                                    var maestro_agregado = $("#maestro_agregado").val();
+                                    $("#div_" + maestro_agregado).empty();
+                                    var htmlAgregado = '<a href="#" id="agregado" name="agregado" class="btn silver" onclick="return false;">Agregado</a>';
+                                    $("#div_" + maestro_agregado).html(htmlAgregado);
+                                    
                                 } //end success
                             }); //end AJAX              
                         }
 
-                        function quitarGrupoMaestro(grupo_detalle_id) {
+                        function quitarGrupoMaestro(grupo_detalle_id, parent_maestro) {
                             //var serializedData = $('#frmBuscar').serialize();
                             var post_url = "/admin/videos/quitar_grupo_maestro/";
                             $.ajax({
                                 type: "POST",
                                 url: post_url,
                                 dataType: 'html',
-                                data: 'grupo_detalle_id=' + grupo_detalle_id,
+                                data: 'grupo_detalle_id=' + grupo_detalle_id+'&parent_maestro='+parent_maestro,
                                 success: function(respuesta)
                                 {
-                                    location.reload();
+                                    //location.reload();
+                                    $("#divContenido").html(respuesta);
                                 } //end success
                             }); //end AJAX              
+                        }
+                        
+                        function agregarVideoAMaestro(video_id, maestro_id){
+                            var post_url = "/admin/videos/agregarVideoAMaestro/" + video_id + '/' + maestro_id;
+                            $.ajax({
+                                type: "POST",
+                                url: post_url,
+                                dataType: 'json',
+                                data: 'maestro_id=' + maestro_id + '&parent_maestro=' + parent_maestro,
+                                success: function(respuesta)
+                                {
+                                    $("#div_" + maestro_id).empty();
+                                    var htmlAgregado = '<a href="#" id="agregado" name="agregado" class="btn silver" onclick="return false;">Agregado</a>';
+                                    $("#div_" + maestro_id).html(htmlAgregado);
+                                    
+                                } //end success
+                            }); //end AJAX                          
                         }
 </script>

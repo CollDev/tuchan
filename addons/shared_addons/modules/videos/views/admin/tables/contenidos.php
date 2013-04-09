@@ -11,7 +11,7 @@
             <th>ID</th>
         </tr>
     </thead>
-    <tbody>
+    <tbody id="divContenido">
         <?php
         if (count($items) > 0):
             foreach ($items as $puntero => $objItem):
@@ -23,7 +23,7 @@
             <td><?php echo $objItem->tipo; ?></td>
             <td><?php echo $objItem->fecha_registro; ?></td>
             <td><?php echo $objItem->estado; ?></td>
-            <td><a href="#" onclick="quitarGrupoMaestro(<?php echo $objItem->grupo_detalle_id; ?>);return false;" class="btn red">Quitar</a></td>
+            <td><a href="#" onclick="quitarGrupoMaestro(<?php echo $objItem->grupo_detalle_id; ?>, <?php echo $objMaestro->id; ?>);return false;" class="btn red">Quitar</a></td>
             <td><?php echo $objItem->grupo_detalle_id; ?></td>
         </tr>
                 <?php
