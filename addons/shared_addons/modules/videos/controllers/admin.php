@@ -1958,6 +1958,8 @@ class Admin extends Admin_Controller {
                 ->title($this->module_details['name'])
                 ->append_js('admin/filter.js')
                 ->set_partial('filters', 'admin/partials/filters')
+                ->append_js('module::jquery.alerts.js')
+                ->append_css('module::jquery.alerts.css')                
                 ->set('pagination', $pagination)
                 ->set_partial('maestros', 'admin/tables/maestros')
                 ->set('canal_id', $canal_id)
@@ -1980,9 +1982,14 @@ class Admin extends Admin_Controller {
                     $imagen = UPLOAD_IMAGENES_VIDEOS . 'no_video.jpg';
                 }
                 $objCategoria = $this->categoria_m->get($objPrograma->categorias_id);
+                $objPrograma->estado_id = $objPrograma->estado;
                 $estado = 'Borrador';
                 if ($objPrograma->estado == '1') {
                     $estado = 'Publicado';
+                }else{
+                    if($objPrograma->estado == '2'){
+                        $estado = 'Eliminado';
+                    }
                 }
                 $objPrograma->imagen = $imagen;
                 $objPrograma->tipo = 'Programa';
@@ -2022,9 +2029,14 @@ class Admin extends Admin_Controller {
                         } else {
                             $categoria = 'Sin categoría';
                         }
+                        $objMaestro->estado_id = $objMaestro->estado;
                         $estado = 'Borrador';
                         if ($objMaestro->estado == '1') {
                             $estado = 'Publicado';
+                        }else{
+                            if($objMaestro->estado == '2'){
+                                $estado = 'Eliminado';
+                            }
                         }
                         $objMaestro->imagen = $imagen;
                         $objMaestro->tipo = 'Colección';
@@ -2064,9 +2076,14 @@ class Admin extends Admin_Controller {
                         } else {
                             $categoria = 'Sin categoría';
                         }
+                        $objMaestro->estado_id = $objMaestro->estado;
                         $estado = 'Borrador';
                         if ($objMaestro->estado == '1') {
                             $estado = 'Publicado';
+                        }else{
+                            if ($objMaestro->estado == '2') {
+                                $estado = 'Eliminado';
+                            }
                         }
                         $objMaestro->imagen = $imagen;
                         $objMaestro->tipo = 'Lista';
@@ -2104,9 +2121,14 @@ class Admin extends Admin_Controller {
                     } else {
                         $categoria = 'Sin categoría';
                     }
+                    $objVideo->estado_id = $objVideo->estado;
                     $estado = 'Borrador';
                     if ($objVideo->estado == '1') {
                         $estado = 'Publicado';
+                    }else{
+                        if ($objVideo->estado == '2') {
+                            $estado = 'Eliminado';
+                        }
                     }
                     $objVideo->imagen = $imagen;
                     $objVideo->tipo = 'Video';
@@ -3366,6 +3388,27 @@ class Admin extends Admin_Controller {
             }
             echo $html;
         }
+    }
+    
+    public function eliminar_maestro($maestro_id){
+        if ($this->input->is_ajax_request()) {
+            $this->grupo_maestro_m->update($maestro_id, array("estado"=>$this->config->item('estado:eliminado')));
+            echo json_encode(array("value"=>"1"));
+        }
+    }
+    
+    public function restablecer_maestro($maestro_id){
+        if ($this->input->is_ajax_request()) {
+            $this->grupo_maestro_m->update($maestro_id, array("estado"=>$this->config->item('estado:borrador')));
+            echo json_encode(array("value"=>"1"));
+        }        
+    }
+    
+    public function publicar_maestro($maestro_id){
+        if ($this->input->is_ajax_request()) {
+            $this->grupo_maestro_m->update($maestro_id, array("estado"=>$this->config->item('estado:publicado')));
+            echo json_encode(array("value"=>"1"));
+        }        
     }
 
 }

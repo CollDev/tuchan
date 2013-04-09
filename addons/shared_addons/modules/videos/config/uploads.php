@@ -17,6 +17,11 @@ $config['videos:programa'] = '3';
 $config['videos:coleccion'] = '2';
 $config['videos:lista'] = '1';
 
+//estados de los grupo maestros
+$config['estado:borrador'] = '0';
+$config['estado:publicado'] = '1';
+$config['estado:eliminado'] = '2';
+
 //estados de los videos en el flujo de upload
 $config['status:codificando'] = '0';
 $config['liquid:nuevo'] = '0';
