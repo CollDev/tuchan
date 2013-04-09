@@ -23,8 +23,8 @@
             <td><?php echo $objItem->tipo; ?></td>
             <td><?php echo $objItem->fecha_registro; ?></td>
             <td><?php echo $objItem->estado; ?></td>
-            <td></td>
-            <td><?php echo $objItem->id; ?></td>
+            <td><a href="#" onclick="quitarGrupoMaestro(<?php echo $objItem->grupo_detalle_id; ?>);return false;" class="btn red">Quitar</a></td>
+            <td><?php echo $objItem->grupo_detalle_id; ?></td>
         </tr>
                 <?php
             endforeach;
@@ -32,7 +32,7 @@
 
 <?php else: ?>
             <tr>
-                <td colspan="8">NO hay items</td>
+                <td colspan="8">No hay items</td>
             </tr>
 <?php endif; ?>
     </tbody>

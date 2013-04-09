@@ -384,7 +384,17 @@
                     data: serializedData,
                     success: function(respuesta)
                     {
-                        $("#divPrograma").html(respuesta);
+                        //$("#divPrograma").html(respuesta);
+                        $("#divResultado").html(respuesta);
+                        $('#black').smartpaginator({
+                            totalrecords: $("#total").val(),
+                            recordsperpage: 3,
+                            theme: 'black',
+                            onchange: function(newPage) {
+                                //$('#r').html('Page # ' + newPage);
+                                paginarItems(newPage);
+                            }
+                        });
                     } //end success
                 }); //end AJAX           
             }
@@ -441,8 +451,8 @@
                 $("#loadingModal").css('width', winW);
                 $("#loadingModal").css('z-index', '388');
             }
-            
-            function listar_para_lista(){
+
+            function listar_para_lista() {
                 var serializedData = $('#frmBuscar').serialize();
                 var post_url = "/admin/videos/listar_para_lista/";
                 $.ajax({
@@ -465,9 +475,9 @@
                     } //end success
                 }); //end AJAX                 
             }
-            function listar_para_programa() {
+            function listar_para_programa(numero_pagina) {
                 var serializedData = $('#frmBuscar').serialize();
-                var post_url = "/admin/videos/listar_para_programa/";
+                var post_url = "/admin/videos/listar_para_programa/" + numero_pagina;
                 $.ajax({
                     type: "POST",
                     url: post_url,
@@ -478,7 +488,7 @@
                         $("#divResultado").html(respuesta);
                         $('#black').smartpaginator({
                             totalrecords: $("#total").val(),
-                            recordsperpage: 7,
+                            recordsperpage: $("#cantidad_mostrar").val(),
                             theme: 'black',
                             onchange: function(newPage) {
                                 //$('#r').html('Page # ' + newPage);
@@ -495,7 +505,7 @@
              * */
             function paginarItems(newPage) {
                 var serializedData = $('#frmBuscar').serialize();
-                var post_url = "/admin/canales/obtener_lista_paginado/" + newPage;
+                var post_url = "/admin/videos/listar_para_programa/" + newPage + "/1";
                 $.ajax({
                     type: "POST",
                     url: post_url,
@@ -506,5 +516,65 @@
                         $("#resultado").html(respuesta);
                     } //end success
                 }); //end AJAX         
+            }
+
+            function agregarMaestroAMaestro(maestro_id, parent_maestro) {
+                var post_url = "/admin/videos/agregarMaestroAMaestro/" + maestro_id + '/' + parent_maestro;
+                $.ajax({
+                    type: "POST",
+                    url: post_url,
+                    dataType: 'json',
+                    data: 'maestro_id=' + maestro_id + '&parent_maestro=' + parent_maestro,
+                    success: function(respuesta)
+                    {
+                        if (respuesta.error > 0) {
+                            switch (respuesta.error) {
+                                case 1 :
+                                    showMessage('error', '<?php echo lang('seccion:not_found_item'); ?>', 2000, '');
+                                    break;
+                                case 2:
+                                    showMessage('error', '<?php echo lang('seccion:not_found_small_image'); ?>', 2000, '');
+                                    break;
+                                case 3:
+                                    showMessage('error', '<?php echo lang('video:video_codificando'); ?>', 2000, '');
+                                    break;
+                                case 4:
+                                    showMessage('error', '<?php echo lang('video:coleccion_tiene_registro'); ?>', 2000, '');
+                                    break;
+                                case 5:
+                                    showMessage('error', '<?php echo lang('video:coleccion_no_imagen_large'); ?>', 2000, '');
+                                    break;
+                                case 6:
+                                    showMessage('error', '<?php echo lang('video:coleccion_sin_lista'); ?>', 2000, '');
+                                    break;
+                                case 7:
+                                    showMessage('error', '<?php echo lang('video:listas_sin_imagenes'); ?>', 2000, '');
+                                    break;
+                                case 8:
+                                    showMessage('error', '<?php echo lang('video:no_coleccion'); ?>', 2000, '');
+                                    break;
+                            }
+                        } else {
+                            $("#div_" + maestro_id).empty();
+                            var htmlAgregado = '<a href="#" id="agregado" name="agregado" class="btn silver" onclick="return false;">Agregado</a>';
+                            $("#div_" + maestro_id).html(htmlAgregado);
+                        }
+                    } //end success
+                }); //end AJAX              
+            }
+
+            function quitarGrupoMaestro(grupo_detalle_id) {
+                //var serializedData = $('#frmBuscar').serialize();
+                var post_url = "/admin/videos/quitar_grupo_maestro/";
+                $.ajax({
+                    type: "POST",
+                    url: post_url,
+                    dataType: 'html',
+                    data: 'grupo_detalle_id=' + grupo_detalle_id,
+                    success: function(respuesta)
+                    {
+                         location.reload();
+                    } //end success
+                }); //end AJAX              
             }
 </script>
