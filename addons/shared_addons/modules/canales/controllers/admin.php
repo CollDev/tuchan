@@ -1984,7 +1984,7 @@ class Admin extends Admin_Controller {
                         $maestro_id = $arrayUrl[4];
                         $objMaestro = $this->grupo_maestro_m->get($maestro_id);
                         if ($objMaestro->tipo_grupo_maestro_id == $this->config->item('videos:programa')) {
-                            $funcion = 'listar_para_programa()';
+                            $funcion = 'listar_para_programa(1)';
                         } else {
                             if ($objMaestro->tipo_grupo_maestro_id == $this->config->item('videos:coleccion')) {
                                 $funcion = 'listar_para_coleccion()';
