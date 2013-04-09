@@ -480,9 +480,9 @@
                             $("#loadingModal").css('z-index', '388');
                         }
 
-                        function listar_para_lista() {
+                        function listar_para_lista(numero_pagina) {
                             var serializedData = $('#frmBuscar').serialize();
-                            var post_url = "/admin/videos/listar_para_lista/";
+                            var post_url = "/admin/videos/listar_para_lista/" + numero_pagina;
                             $.ajax({
                                 type: "POST",
                                 url: post_url,
@@ -493,15 +493,15 @@
                                     $("#divResultado").html(respuesta);
                                     $('#black').smartpaginator({
                                         totalrecords: $("#total").val(),
-                                        recordsperpage: 7,
+                                        recordsperpage: $("#cantidad_mostrar").val(),
                                         theme: 'black',
                                         onchange: function(newPage) {
                                             //$('#r').html('Page # ' + newPage);
-                                            paginarItems(newPage);
+                                            paginarLista(newPage);
                                         }
                                     });
                                 } //end success
-                            }); //end AJAX                 
+                            }); //end AJAX              
                         }
                         function listar_para_programa(numero_pagina) {
                             var serializedData = $('#frmBuscar').serialize();
@@ -545,6 +545,65 @@
                                 } //end success
                             }); //end AJAX         
                         }
+                        
+                        /**
+                         * método para imprimir html de acuerdo al numero de pagina enviado como parametro
+                         * @param int newPage
+                         * @returns html         
+                         * */
+                        function paginarColeccion(newPage) {
+                            var serializedData = $('#frmBuscar').serialize();
+                            var post_url = "/admin/videos/listar_para_coleccion/" + newPage + "/1";
+                            $.ajax({
+                                type: "POST",
+                                url: post_url,
+                                dataType: 'html',
+                                data: serializedData,
+                                success: function(respuesta)
+                                {
+                                    $("#resultado").html(respuesta);
+                                } //end success
+                            }); //end AJAX         
+                        }
+                        
+                        function paginarLista(newPage){
+                            var serializedData = $('#frmBuscar').serialize();
+                            var post_url = "/admin/videos/listar_para_lista/" + newPage + "/1";
+                            $.ajax({
+                                type: "POST",
+                                url: post_url,
+                                dataType: 'html',
+                                data: serializedData,
+                                success: function(respuesta)
+                                {
+                                    $("#resultado").html(respuesta);
+                                } //end success
+                            }); //end AJAX                        
+                        }
+                        
+                        function listar_para_coleccion(numero_pagina){
+                            var serializedData = $('#frmBuscar').serialize();
+                            var post_url = "/admin/videos/listar_para_coleccion/" + numero_pagina;
+                            $.ajax({
+                                type: "POST",
+                                url: post_url,
+                                dataType: 'html',
+                                data: serializedData,
+                                success: function(respuesta)
+                                {
+                                    $("#divResultado").html(respuesta);
+                                    $('#black').smartpaginator({
+                                        totalrecords: $("#total").val(),
+                                        recordsperpage: $("#cantidad_mostrar").val(),
+                                        theme: 'black',
+                                        onchange: function(newPage) {
+                                            //$('#r').html('Page # ' + newPage);
+                                            paginarColeccion(newPage);
+                                        }
+                                    });
+                                } //end success
+                            }); //end AJAX                         
+                        }
 
                         function agregarMaestroAMaestro(maestro_id, parent_maestro) {
                             var post_url = "/admin/videos/agregarMaestroAMaestro/" + maestro_id + '/' + parent_maestro;
@@ -582,17 +641,18 @@
                         }
                         
                         function agregarVideoAMaestro(video_id, maestro_id){
-                            var post_url = "/admin/videos/agregarVideoAMaestro/" + video_id + '/' + maestro_id;
+                            var post_url = "/admin/videos/agregarVideoAMaestro/";
                             $.ajax({
                                 type: "POST",
                                 url: post_url,
-                                dataType: 'json',
-                                data: 'maestro_id=' + maestro_id + '&parent_maestro=' + parent_maestro,
+                                dataType: 'html',
+                                data: 'video_id=' + video_id + '&maestro_id=' + maestro_id,
                                 success: function(respuesta)
                                 {
-                                    $("#div_" + maestro_id).empty();
+                                    $("#divContenido").html(respuesta);
+                                    $("#div_" + video_id).empty();
                                     var htmlAgregado = '<a href="#" id="agregado" name="agregado" class="btn silver" onclick="return false;">Agregado</a>';
-                                    $("#div_" + maestro_id).html(htmlAgregado);
+                                    $("#div_" + video_id).html(htmlAgregado);
                                     
                                 } //end success
                             }); //end AJAX                          

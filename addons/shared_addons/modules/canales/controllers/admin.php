@@ -1987,10 +1987,10 @@ class Admin extends Admin_Controller {
                             $funcion = 'listar_para_programa(1)';
                         } else {
                             if ($objMaestro->tipo_grupo_maestro_id == $this->config->item('videos:coleccion')) {
-                                $funcion = 'listar_para_coleccion()';
+                                $funcion = 'listar_para_coleccion(1)';
                             } else {
                                 if ($objMaestro->tipo_grupo_maestro_id == $this->config->item('videos:lista')) {
-                                    $funcion = 'listar_para_lista()';
+                                    $funcion = 'listar_para_lista(1)';
                                 }
                             }
                         }
