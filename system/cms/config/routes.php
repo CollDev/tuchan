@@ -39,7 +39,7 @@
 */
 
 $route['default_controller']                = 'admin';
-$route['404_override']                      = 'admins';
+$route['404_override']                      = 'admin';
 
 $route['admin/help/([a-zA-Z0-9_-]+)']       = 'admin/help/$1';
 $route['admin/([a-zA-Z0-9_-]+)/(:any)']	    = '$1/admin/$2';

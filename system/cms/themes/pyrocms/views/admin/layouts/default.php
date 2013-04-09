@@ -297,18 +297,18 @@
             <p>Copyright &copy; <?php echo date('Y'); ?>  &nbsp; El Comercio  -- &nbsp; 
                 <!--Version--> <?php /* echo CMS_VERSION.' '.CMS_EDITION; */ ?> &nbsp;  &nbsp;<!-- Rendered in {elapsed_time} sec. using {memory_usage}.--></p>
 
-
+            <!--
             <ul id="lang">
-                <form action="<?php echo current_url(); ?>" id="change_language" method="get">
+                <form action="<?php //echo current_url(); ?>" id="change_language" method="get">
                     <select class="chzn" name="lang" onchange="this.form.submit();">
-                        <?php foreach ($this->config->item('supported_languages') as $key => $lang): ?>
-                            <option value="<?php echo $key; ?>" <?php echo CURRENT_LANGUAGE == $key ? 'selected="selected"' : ''; ?>>
-                                <?php echo $lang['name']; ?>
+                        <?php //foreach ($this->config->item('supported_languages') as $key => $lang): ?>
+                            <option value="<?php //echo $key; ?>" <?php //echo CURRENT_LANGUAGE == $key ? 'selected="selected"' : ''; ?>>
+                                <?php //echo $lang['name']; ?>
                             </option>
-                        <?php endforeach; ?>
+                        <?php //endforeach; ?>
                     </select>
                 </form>
-            </ul>
+            </ul>-->
         </div>
     </footer>
 
