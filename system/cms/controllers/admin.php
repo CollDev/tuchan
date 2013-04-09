@@ -31,9 +31,9 @@ class Admin extends Admin_Controller
 			$this->template
 				->set('messages', array('notice' => lang('cp_delete_installer_message')));
 		}
-
-		$this->template
-			->build('admin/dashboard');
+                
+		$this->template->build('admin/dashboard');		
+                //redirect('admin/canales');
 	}
 
 	/**
@@ -57,7 +57,7 @@ class Admin extends Admin_Controller
 
 		// Call validation and set rules
 		$this->load->library('form_validation');
-		$this->form_validation->set_rules($this->validation_rules);
+		$this->form_validation->set_rules($this->validation_rules);                
 
 		// If the validation worked, or the user is already logged in
 		if ($this->form_validation->run() OR $this->ion_auth->logged_in())
@@ -65,15 +65,36 @@ class Admin extends Admin_Controller
 			// if they were trying to go someplace besides the 
 			// dashboard we'll have stored it in the session
 			$redirect = $this->session->userdata('admin_redirect');
-			$this->session->unset_userdata('admin_redirect');
-
-			redirect($redirect ? $redirect : 'admin');
+			$this->session->unset_userdata('admin_redirect');                        
+                                                
+                        $redirect = $this->_check_group();
+			redirect($redirect ? $redirect : 'admin/canales');
 		}
 
 		$this->template
 			->set_layout(FALSE)
 			->build('admin/login');
 	}
+        
+        /**
+         * Verifica a qué grupo pertenece el usuario logueado
+         * @return string
+         */
+        private function _check_group()
+        {
+            switch ($this->session->userdata('group_id')) {
+
+                case 1: // Admin
+                    $redirect = 'admin/canales';
+                    break;
+
+                case 4: // Administrador canales
+                    $redirect = 'admin/canales/videos/1';
+                    break;
+            }
+         
+            return $redirect;
+        }
 
 	/**
 	 * Logout
