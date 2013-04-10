@@ -2327,10 +2327,11 @@ class Admin extends Admin_Controller {
                     $objBeanMaestro->canales_id = $this->input->post('canal_id');
                     $objBeanMaestro->fecha_actualizacion = date("Y-m-d H:i:s");
                     $objBeanMaestro->usuario_actualizacion = $user_id;
+                    $objBeanMaestro->estado_migracion = $this->config->item('migracion:actualizado');
                     $this->grupo_maestro_m->update($objBeanMaestro->id, array("nombre" => $objBeanMaestro->nombre,
                         "descripcion" => $objBeanMaestro->descripcion, "alias" => $objBeanMaestro->alias,
                         "tipo_grupo_maestro_id" => $objBeanMaestro->tipo_grupo_maestro_id, "canales_id" => $objBeanMaestro->canales_id,
-                        "fecha_actualizacion" => $objBeanMaestro->fecha_actualizacion, "usuario_actualizacion" => $objBeanMaestro->usuario_actualizacion));
+                        "fecha_actualizacion" => $objBeanMaestro->fecha_actualizacion, "usuario_actualizacion" => $objBeanMaestro->usuario_actualizacion, "estado_migracion"=>$objBeanMaestro->estado_migracion));
                     $returnValue = 0;
                     $this->guardarTagsMaestro($objBeanMaestro, $this->input->post());
                 }
@@ -3234,7 +3235,7 @@ class Admin extends Admin_Controller {
             $detalle_seccion_id = 0;
             if ($this->maestroAgregado($maestro_id, $parent_maestro, 0)) {
                 $objDetalleMaestro = $this->grupo_detalle_m->get_by(array("grupo_maestro_padre" => $parent_maestro, "grupo_maestro_id" => $maestro_id));
-                $this->grupo_detalle_m->update($objDetalleMaestro->id, array("estado" => "1"));
+                $this->grupo_detalle_m->update($objDetalleMaestro->id, array("estado" => "1","estado_migracion"=>$this->config->item('migracion:actualizado')));
             } else {
                 $objMaestro = $this->grupo_maestro_m->get($parent_maestro);
                 $objBeanDetalleMaestro = new stdClass();
@@ -3282,7 +3283,7 @@ class Admin extends Admin_Controller {
             $user_id = (int) $this->session->userdata('user_id');
             if ($this->videoAgregado($this->input->post('video_id'), $this->input->post('maestro_id'), 0)) {
                 $objDetalleMaestro = $this->grupo_detalle_m->get_by(array("video_id" => $this->input->post('video_id'), "grupo_maestro_padre" => $this->input->post('maestro_id')));
-                $this->grupo_detalle_m->update($objDetalleMaestro->id, array("estado" => "1"));
+                $this->grupo_detalle_m->update($objDetalleMaestro->id, array("estado" => "1","estado_migracion"=>$this->config->item('migracion:actualizado')));
             } else {
                 $objMaestro = $this->grupo_maestro_m->get($this->input->post('maestro_id'));
                 $objBeanDetalleMaestro = new stdClass();
@@ -3367,7 +3368,7 @@ class Admin extends Admin_Controller {
 
     public function quitar_grupo_maestro() {
         if ($this->input->is_ajax_request()) {
-            $this->grupo_detalle_m->update($this->input->post('grupo_detalle_id'), array("estado" => "0"));
+            $this->grupo_detalle_m->update($this->input->post('grupo_detalle_id'), array("estado" => "0","estado_migracion"=>$this->config->item('migracion:actualizado')));
             //echo json_encode(array("value" => "1"));
             //lista tipo de maestros
             $items = $this->itemsMaestros($this->input->post('parent_maestro'));
@@ -3392,21 +3393,21 @@ class Admin extends Admin_Controller {
     
     public function eliminar_maestro($maestro_id){
         if ($this->input->is_ajax_request()) {
-            $this->grupo_maestro_m->update($maestro_id, array("estado"=>$this->config->item('estado:eliminado')));
+            $this->grupo_maestro_m->update($maestro_id, array("estado"=>$this->config->item('estado:eliminado'),"estado_migracion"=>$this->config->item('migracion:actualizado')));
             echo json_encode(array("value"=>"1"));
         }
     }
     
     public function restablecer_maestro($maestro_id){
         if ($this->input->is_ajax_request()) {
-            $this->grupo_maestro_m->update($maestro_id, array("estado"=>$this->config->item('estado:borrador')));
+            $this->grupo_maestro_m->update($maestro_id, array("estado"=>$this->config->item('estado:borrador'),"estado_migracion"=>$this->config->item('migracion:actualizado')));
             echo json_encode(array("value"=>"1"));
         }        
     }
     
     public function publicar_maestro($maestro_id){
         if ($this->input->is_ajax_request()) {
-            $this->grupo_maestro_m->update($maestro_id, array("estado"=>$this->config->item('estado:publicado')));
+            $this->grupo_maestro_m->update($maestro_id, array("estado"=>$this->config->item('estado:publicado'),"estado_migracion"=>$this->config->item('migracion:actualizado')));
             echo json_encode(array("value"=>"1"));
         }        
     }

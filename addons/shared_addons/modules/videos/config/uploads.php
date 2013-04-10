@@ -22,6 +22,10 @@ $config['estado:borrador'] = '0';
 $config['estado:publicado'] = '1';
 $config['estado:eliminado'] = '2';
 
+//estado de migración
+$config['migracion:nuevo'] = '0';
+$config['migracion:actualizado'] = '9';
+
 //estados de los videos en el flujo de upload
 $config['status:codificando'] = '0';
 $config['liquid:nuevo'] = '0';
