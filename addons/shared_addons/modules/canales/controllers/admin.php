@@ -652,7 +652,7 @@ class Admin extends Admin_Controller {
                     }
                 }
                 //actualizamos la imagen de portada en el detalle de secciones
-                $this->actualizarPortadaCanal($canal_id);
+                //$this->actualizarPortadaCanal($canal_id);
                 echo json_encode(array("value" => "0"));
             } else {
                 echo json_encode(array("value" => "4")); //ya existe un canal registrado
@@ -695,7 +695,8 @@ class Admin extends Admin_Controller {
                             $array_images = array($this->config->item('imagen:extralarge') => $this->input->post('imagen_portada'), $this->config->item('imagen:logo') => $this->input->post('imagen_logotipo'), $this->config->item('imagen:iso') => $this->input->post('imagen_isotipo'));
                             $arrayImagenSaved = $this->saveImages($array_images, $objBeanCanalSaved->id);
                             //ejecutamos el proceso de generación de portada
-                            $this->generarPortadaCanal($objBeanCanalSaved, NULL);
+                            //$this->generarPortadaCanal($objBeanCanalSaved, NULL);
+                            $this->generarNuevaPortada($objBeanCanalSaved, NULL, $this->config->item('portada:canal'));
                             //enviamos las imagenes al servidor elemento
                             $this->_enviarImagenesElemento($arrayImagenSaved);
                             //registramos en la tabla de permisos para grupos
@@ -1531,7 +1532,7 @@ class Admin extends Admin_Controller {
                 }
             }
             //actualizamos la imagen de portada en el detalle de secciones
-            $this->actualizarPortadaCanal($canal_id);
+            //$this->actualizarPortadaCanal($canal_id);
             echo json_encode(array("respuesta" => "1"));
         }
     }
@@ -2776,6 +2777,110 @@ class Admin extends Admin_Controller {
             $returnValue = $resultado->peso + 1;
         }
         return $returnValue;
+    }
+
+    private function generarNuevaPortada($objCanal, $objMaestro=NULL, $tipo_portada) {
+        $user_id = (int) $this->session->userdata('user_id');
+        //creamos el registro de portada
+        $objBeanPortada = new stdClass();
+        $objBeanPortada->id = NULL;
+        $objBeanPortada->canales_id = $objCanal->id;
+        if ($tipo_portada == $this->config->item('portada:canal')) {
+            $objBeanPortada->nombre = 'Portada ' . $objCanal->nombre; ///PORTADA + nombre del canal
+            $objBeanPortada->descripcion = $objCanal->descripcion; //jala del canal            
+            $objBeanPortada->origen_id = $objCanal->id;
+        } else {
+            $objBeanPortada->nombre = 'Portada ' . $objMaestro->nombre; ///PORTADA + nombre del canal
+            $objBeanPortada->descripcion = $objMaestro->descripcion; //jala del canal            
+            $objBeanPortada->origen_id = $objMaestro->id;
+        }
+        $objBeanPortada->tipo_portadas_id = $tipo_portada; //$this->config->item('portada:canal');
+        $objBeanPortada->estado = '0';
+        $objBeanPortada->fecha_registro = date("Y-m-d H:i:s");
+        $objBeanPortada->usuario_registro = $user_id;
+        $objBeanPortada->fecha_actualizacion = date("Y-m-d H:i:s");
+        $objBeanPortada->usuario_actualizacion = $user_id;
+        $objBeanPortada->id_mongo = '0';
+        $objBeanPortada->estado_migracion = '0';
+        $objBeanPortada->fecha_migracion = '0000-00-00 00:00:00';
+        $objBeanPortada->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
+        $objBeanPortadaSaved = $this->portada_m->save($objBeanPortada);
+        //listamos los tipos de secciones predefinidas para crearlas
+        $arraySecciones = $this->tipo_secciones_m->get_many_by(array());
+        if ($tipo_portada != $this->config->item('portada:canal')) {
+            if (count($arraySecciones) > 0) {
+                foreach ($arraySecciones as $puntero => $oS) {
+                    if ($oS->id == $this->config->item('seccion:programa')) {
+                        unset($arraySecciones[$puntero]);
+                    }
+                }
+            }
+        }
+        //iteramos los tipos de seccion para generarlas
+        foreach ($arraySecciones as $puntero => $objTipoSeccion) {
+            if ($objTipoSeccion->id < intval($this->config->item('seccion:perzonalizado'))) {//no se creara secciones personalizadas
+                $objBeanSeccion = new stdClass();
+                $objBeanSeccion->id = NULL;
+                $objBeanSeccion->nombre = ucwords($objTipoSeccion->nombre); // nombre de la seccion es el nombre del tipo de la seccion
+                if ($objTipoSeccion->id == $this->config->item('seccion:destacado')) {
+                    $objBeanSeccion->templates_id = '1';
+                } else {
+                    if ($objTipoSeccion->id == $this->config->item('seccion:programa')) {
+                        $objBeanSeccion->templates_id = '6';
+                    } else {
+                        if ($objTipoSeccion->id == $this->config->item('seccion:video')) {
+                            $objBeanSeccion->templates_id = '5';
+                        } else {
+                            $objBeanSeccion->templates_id = '3';
+                        }
+                    }
+                }
+                $objBeanSeccion->descripcion = '';
+                $objBeanSeccion->tipo = '0';
+                $objBeanSeccion->portadas_id = $objBeanPortadaSaved->id;
+                $objBeanSeccion->tipo_secciones_id = $objTipoSeccion->id;
+                $objBeanSeccion->peso = $pos;
+                $objBeanSeccion->id_mongo = '0';
+                $objBeanSeccion->estado = '0';
+                $objBeanSeccion->fecha_registro = date("Y-m-d H:i:s");
+                $objBeanSeccion->usuario_registro = $user_id;
+                $objBeanSeccion->fecha_actualizacion = date("Y-m-d H:i:s");
+                $objBeanSeccion->usuario_actualizacion = $user_id;
+                $objBeanSeccion->estado_migracion = '0';
+                $objBeanSeccion->fecha_migracion = '0000-00-00 00:00:00';
+                $objBeanSeccion->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
+                $objBeanSeccionSaved = $this->secciones_m->save($objBeanSeccion);
+
+                //verificamos que es de portada de tipo programa para que registre su destacado
+                if ($tipo_portada == $this->config->item('portada:programa')) {
+                    //en la sección destacado buscar imagen extralarge para registrar detalle seccion
+                    if ($objTipoSeccion->id == intval($this->config->item('seccion:destacado'))) {//seccion destacado
+                        $objImagen = $this->imagen_m->get_by(array("grupo_maestros_id" => $objMaestro->id, "estado" => "1", "tipo_imagen_id" => $this->config->item('imagen:extralarge')));
+                        if (count($objImagen) > 0) {
+                            $objBeanDetalleSecciones = new stdClass();
+                            $objBeanDetalleSecciones->id = NULL;
+                            $objBeanDetalleSecciones->secciones_id = $objBeanSeccionSaved->id;
+                            $objBeanDetalleSecciones->reglas_id = NULL;
+                            $objBeanDetalleSecciones->videos_id = NULL;
+                            $objBeanDetalleSecciones->grupo_maestros_id = $objMaestro->id;
+                            $objBeanDetalleSecciones->categorias_id = NULL;
+                            $objBeanDetalleSecciones->tags_id = NULL;
+                            $objBeanDetalleSecciones->imagenes_id = $objImagen->id;
+                            $objBeanDetalleSecciones->peso = 1;
+                            $objBeanDetalleSecciones->descripcion_item = NULL;
+                            $objBeanDetalleSecciones->estado = 1;
+                            $objBeanDetalleSecciones->fecha_registro = date("Y-m-d H:i:s");
+                            $objBeanDetalleSecciones->usuario_registro = $user_id;
+                            $objBeanDetalleSecciones->estado_migracion = '0';
+                            $objBeanDetalleSecciones->fecha_migracion = '0000-00-00 00:00:00';
+                            $objBeanDetalleSecciones->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
+                            $objBeanDetalleSeccionesSaved = $this->detalle_secciones_m->save($objBeanDetalleSecciones);
+                            $this->secciones_m->update($objBeanSeccionSaved->id, array("estado" => "1"));
+                        }
+                    }
+                }
+            }
+        }
     }
 
 }

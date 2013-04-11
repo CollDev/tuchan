@@ -17,8 +17,8 @@
                     <th><?php echo lang('videos:categoria_label'); ?></th>
                     <th><?php echo lang('videos:programa_label'); ?></th>
                     <th><?php echo lang('videos:fuente_label'); ?></th>
-                    <th><?php echo lang('videos:etiquetas_tematicas_label'); ?></th>
-                    <th><?php echo lang('videos:etiquetas_personajes_label'); ?></th>
+<!--                    <th><?php //echo lang('videos:etiquetas_tematicas_label'); ?></th>
+                    <th><?php //echo lang('videos:etiquetas_personajes_label'); ?></th>-->
                     <th><?php echo lang('videos:fecha_subida_label'); ?></th>
 <!--                    <th><?php //echo lang('videos:fecha_publicacion_inicio_label'); ?></th>
                     <th><?php //echo lang('videos:fecha_publicacion_fin_label'); ?></th>-->
@@ -51,8 +51,8 @@
                         <td class="collapse"><?php echo $video->nombre_categoria; ?></td>
                         <td class="collapse"><?php echo $video->programa; ?></td>
                         <td class="collapse"><?php echo $video->nombre_canal; ?></td>
-                        <td class="collapse"><?php echo $video->tematico; ?></td>
-                        <td class="collapse"><?php echo $video->personaje; ?></td>
+<!--                        <td class="collapse"><?php //echo $video->tematico; ?></td>
+                        <td class="collapse"><?php //echo $video->personaje; ?></td>-->
                         <td class="collapse"><?php echo $video->fecha_registro; ?></td>
 <!--                        <td class="collapse"><?php //echo $video->fecha_publicacion_inicio; ?></td>
                         <td class="collapse"><?php //echo $video->fecha_publicacion_fin; ?></td>-->
