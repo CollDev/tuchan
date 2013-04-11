@@ -99,4 +99,5 @@ $lang['videos:fragment_exist']          = 'Ya existe un video con estos datos.';
 //maestros
 $lang['maestros:organizar_videos'] = 'Organizar videos';
 $lang['maestros:maestro_existe']          = 'El nombre maestro ya existe.';
+$lang['coleccion:temporada']          = 'Temporada 1';
 /* End of file videos_lang.php */

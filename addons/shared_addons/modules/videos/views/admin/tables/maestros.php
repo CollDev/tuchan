@@ -19,6 +19,7 @@
         width: 100%;
     }
 </style>
+<div class="inner"><?php $this->load->view('admin/partials/pagination'); ?></div><br />
 <table id="table-1" class="table-list">
     <thead>
         <tr>
@@ -49,8 +50,28 @@
                         <td style="width: 10%;"><?php echo $objPrograma->cantidad; ?></td>
                         <td style="width: 10%;"><?php echo $objPrograma->categoria; ?></td>
                         <td style="width: 17%;"><?php echo $objPrograma->fecha_registro; ?></td>
-                        <td style="width: 10%;"><?php echo $objPrograma->estado; ?></td>
-                        <td style="width: 10%;"><button class="btn red" onclick="editar('<?php echo 'admin/videos/grupo_maestro/' . $objPrograma->canales_id . '/' . $objPrograma->id ?>');return false;">Editar</button></td>
+                        <td style="width: 10%;"><div id="programa_<?php echo $objPrograma->id; ?>"><?php echo $objPrograma->estado; ?></div></td>
+                        <?php
+                        switch ($objPrograma->estado_id):
+                            case $this->config->item('estado:borrador'):
+                                $u = 'admin/videos/grupo_maestro/' . $objPrograma->canales_id . '/' . $objPrograma->id;
+                                $link = '<button class="btn orange" onclick="editar(\'' . $u . '\');return false;">Editar</button>';
+                                $link.= '<button class="btn red" onclick="eliminar(' . $objPrograma->id . ', \'programa\');return false;">Eliminar</button>';
+                                $link.= '<button class="btn blue" onclick="publicar(' . $objPrograma->id . ', \'programa\');return false;">Publicar</button>';
+                                break;
+                            case $this->config->item('estado:publicado'):
+                                $u = 'admin/videos/grupo_maestro/' . $objPrograma->canales_id . '/' . $objPrograma->id;
+                                $link = '<button class="btn orange" onclick="editar(\'' . $u . '\');return false;">Editar</button>';
+                                $link.= '<button class="btn red btnEliminar" onclick="eliminar(' . $objPrograma->id . ', \'programa\');return false;">Eliminar</button>';
+                                break;
+                            case $this->config->item('estado:eliminado'):
+                                $u = 'admin/videos/grupo_maestro/' . $objPrograma->canales_id . '/' . $objPrograma->id;
+                                //$link = '<button class="btn blue" onclick="publicar(' . $objPrograma->id . ', \'programa\');return false;">Publicar</button>';
+                                $link = '<button class="btn green" onclick="restablecer(' . $objPrograma->id . ', \'programa\');return false;">Restablecer</button>';
+                                break;
+                        endswitch;
+                        ?>
+                        <td style="width: 10%;"><div id="programa_boton_<?php echo $objPrograma->id; ?>"><?php echo $link; ?></div></td>
                     </tr>                    
                 </table>
             </h3>
@@ -67,8 +88,28 @@
                                     <td><?php echo $objColeccion->cantidad; ?></td>
                                     <td><?php echo $objColeccion->categoria; ?></td>
                                     <td><?php echo $objColeccion->fecha_registro; ?></td>
-                                    <td><?php echo $objColeccion->estado; ?></td>
-                                    <td><button class="btn red" onclick="editar('<?php echo 'admin/videos/grupo_maestro/' . $objColeccion->canales_id . '/' . $objColeccion->id ?>');return false;">Editar</button></td>
+                                    <td><div id="coleccion_<?php echo $objColeccion->id; ?>"><?php echo $objColeccion->estado; ?></div></td>
+                                    <?php
+                                    switch ($objPrograma->estado_id):
+                                        case $this->config->item('estado:borrador'):
+                                            $u = 'admin/videos/grupo_maestro/' . $objColeccion->canales_id . '/' . $objColeccion->id;
+                                            $link = '<button class="btn orange" onclick="editar(\'' . $u . '\');return false;">Editar</button>';
+                                            $link.= '<button class="btn red" onclick="eliminar(' . $objColeccion->id . ', \'coleccion\');return false;">Eliminar</button>';
+                                            $link.= '<button class="btn blue" onclick="publicar(' . $objColeccion->id . ', \'coleccion\');return false;">Publicar</button>';
+                                            break;
+                                        case $this->config->item('estado:publicado'):
+                                            $u = 'admin/videos/grupo_maestro/' . $objColeccion->canales_id . '/' . $objColeccion->id;
+                                            $link = '<button class="btn orange" onclick="editar(\'' . $u . '\');return false;">Editar</button>';
+                                            $link.= '<button class="btn red btnEliminar" onclick="eliminar(' . $objColeccion->id . ', \'coleccion\');return false;">Eliminar</button>';
+                                            break;
+                                        case $this->config->item('estado:eliminado'):
+                                            $u = 'admin/videos/grupo_maestro/' . $objColeccion->canales_id . '/' . $objColeccion->id;
+                                            //$link.= '<button class="btn blue" onclick="publicar(' . $objColeccion->id . ', \'coleccion\');return false;">Publicar</button>';
+                                            $link = '<button class="btn green" onclick="restablecer(' . $objColeccion->id . ', \'coleccion\');return false;">Restablecer</button>';
+                                            break;
+                                    endswitch;
+                                    ?>                                    
+                                    <td><div id="coleccion_boton_<?php echo $objColeccion->id; ?>"><?php echo $link; ?></div></td>
                                 </tr>                                
                             </table>
                         </h3>
@@ -85,8 +126,28 @@
                                                 <td><?php echo $objLista->cantidad; ?></td>
                                                 <td><?php echo $objLista->categoria; ?></td>
                                                 <td><?php echo $objLista->fecha_registro; ?></td>
-                                                <td><?php echo $objLista->estado; ?></td>
-                                                <td><button class="btn red" onclick="editar('<?php echo 'admin/videos/grupo_maestro/' . $objLista->canales_id . '/' . $objLista->id . '/'; ?>');return false;">Editar</button></td>
+                                                <td><div id="lista_<?php echo $objLista->id; ?>"><?php echo $objLista->estado; ?></div></td>
+                                                <?php
+                                                switch ($objLista->estado_id):
+                                                    case $this->config->item('estado:borrador'):
+                                                        $u = 'admin/videos/grupo_maestro/' . $objLista->canales_id . '/' . $objLista->id;
+                                                        $link = '<button class="btn orange" onclick="editar(\'' . $u . '\');return false;">Editar</button>';
+                                                        $link.= '<button class="btn red" onclick="eliminar(' . $objLista->id . ', \'lista\');return false;">Eliminar</button>';
+                                                        $link.= '<button class="btn blue" onclick="publicar(' . $objLista->id . ', \'lista\');return false;">Publicar</button>';
+                                                        break;
+                                                    case $this->config->item('estado:publicado'):
+                                                        $u = 'admin/videos/grupo_maestro/' . $objLista->canales_id . '/' . $objLista->id;
+                                                        $link = '<button class="btn orange" onclick="editar(\'' . $u . '\');return false;">Editar</button>';
+                                                        $link.= '<button class="btn red btnEliminar" onclick="eliminar(' . $objLista->id . ', \'lista\');return false;">Eliminar</button>';
+                                                        break;
+                                                    case $this->config->item('estado:eliminado'):
+                                                        $u = 'admin/videos/grupo_maestro/' . $objLista->canales_id . '/' . $objLista->id;
+                                                        //$link = '<button class="btn blue" onclick="publicar(' . $objLista->id . ', \'lista\');return false;">Publicar</button>';
+                                                        $link = '<button class="btn green" onclick="restablecer(' . $objLista->id . ', \'lista\');return false;">Restablecer</button>';
+                                                        break;
+                                                endswitch;
+                                                ?>                                                
+                                                <td><div id="lista_boton_<?php echo $objLista->id; ?>"><?php echo $link; ?></div></td>
                                             </tr>                                            
                                         </table>
                                     </h3>
@@ -103,22 +164,42 @@
                                                             <td><?php echo $objVideo->cantidad; ?></td>
                                                             <td><?php echo $objVideo->categoria; ?></td>
                                                             <td><?php echo $objVideo->fecha_registro; ?></td>
-                                                            <td><?php echo $objVideo->estado; ?></td>
-                                                            <td><button class="btn red" onclick="editar('<?php echo 'admin/videos/carga_unitaria/' . $objVideo->canales_id . '/' . $objVideo->id; ?>');return false;">Editar</button></td>
+                                                            <td><div id="video_<?php echo $objVideo->id; ?>"><?php echo $objVideo->estado; ?></div></td>
+                                                            <?php
+                                                            switch ($objVideo->estado_id):
+                                                                case $this->config->item('estado:borrador'):
+                                                                    $u = 'admin/videos/carga_unitaria/' . $objVideo->canales_id . '/' . $objVideo->id;
+                                                                    $link = '<button class="btn orange" onclick="editar(\'' . $u . '\');return false;">Editar</button>';
+                                                                    $link.= '<button class="btn red" onclick="eliminar(' . $objVideo->id . ', \'video\');return false;">Eliminar</button>';
+                                                                    $link.= '<button class="btn blue" onclick="publicar(' . $objVideo->id . ', \'video\');return false;">Publicar</button>';
+                                                                    break;
+                                                                case $this->config->item('estado:publicado'):
+                                                                    $u = 'admin/videos/carga_unitaria/' . $objVideo->canales_id . '/' . $objVideo->id;
+                                                                    $link = '<button class="btn orange" onclick="editar(\'' . $u . '\');return false;">Editar</button>';
+                                                                    $link.= '<button class="btn red btnEliminar" onclick="eliminar(' . $objVideo->id . ', \'video\');return false;">Eliminar</button>';
+                                                                    break;
+                                                                case $this->config->item('estado:eliminado'):
+                                                                    $u = 'admin/videos/carga_unitaria/' . $objVideo->canales_id . '/' . $objVideo->id;
+                                                                    //$link.= '<button class="btn blue" onclick="publicar(' . $objColeccion->id . ', \'video\');return false;">Publicar</button>';
+                                                                    $link = '<button class="btn green" onclick="restablecer(' . $objVideo->id . ', \'video\');return false;">Restablecer</button>';
+                                                                    break;
+                                                            endswitch;
+                                                            ?>                                                             
+                                                            <td><div id="video_boton_<?php echo $objVideo->id; ?>"><?php echo $link; ?></div></td>
                                                         </tr>                                                        
                                                     </table>
                                                 </h3>
-                                            <?php endforeach;?>
-                                        <?php endif;?>
+                                            <?php endforeach; ?>
+                                        <?php endif; ?>
                                     </div>
-                                <?php endforeach;?>
-                            <?php endif;?>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
                         </div>
-                    <?php endforeach;?>
-                <?php endif;?>
+                    <?php endforeach; ?>
+                <?php endif; ?>
             </div>
-        <?php endforeach;?>
-    <?php endif;?>
+        <?php endforeach; ?>
+    <?php endif; ?>
 </div>
 <table>
     <tfoot>
@@ -129,29 +210,146 @@
         </tr>
     </tfoot>    
 </table>
-
+<input type="hidden" name="canal" id="canal" value="<?php echo $canal_id; ?>" />
 
 <script type="text/javascript">
     $(document).ready(function() {
         var altura = $(window).height();
         $(".bajada2").css('height', altura);
         $("#programas").accordion({
-        active: false,
-        autoHeight: false,
-        collapsible: true             
+            active: false,
+            autoHeight: false,
+            collapsible: true
         });
         $(".coleccion").accordion({
-        active: false,
-        autoHeight: false,
-        collapsible: true             
+            active: false,
+            autoHeight: false,
+            collapsible: true
         });
         $(".lista").accordion({
-        active: false,
-        autoHeight: false,
-        collapsible: true             
-        });         
+            active: false,
+            autoHeight: false,
+            collapsible: true
+        });
+
+        $('.btn').click(function(e) {
+            e.stopPropagation();
+            //Your Code here(For example a call to your function)
+        });
     });
-    function editar(url){
-        $(location).attr('href',url);
+    function editar(url) {
+        $(location).attr('href', url);
+    }
+    function eliminar(maestro_id, tipo) {
+        jConfirm("Seguro que deseas eliminar este Item?", "Maestros", function(r) {
+            if (r) {
+                if (tipo == 'video') {
+                    var post_url = "/admin/videos/eliminar_video/" + maestro_id;
+                } else {
+                    var post_url = "/admin/videos/eliminar_maestro/" + maestro_id;
+                }
+                $.ajax({
+                    type: "POST",
+                    url: post_url,
+                    dataType: 'json',
+                    //data: indexOrder,
+                    success: function(respuesta)
+                    {
+                        if (respuesta.value == 1) {
+                            //location.reload();
+                            $("#" + tipo + "_" + maestro_id).empty();
+                            $("#" + tipo + "_" + maestro_id).html('Eliminado');
+                            var htmlButton = '';
+                            //htmlButton+='<button class="btn blue" onclick="publicar(' +maestro_id+ ', \''+tipo+'\');return false;">Publicar</button>';
+                            htmlButton = '<button class="btn green" onclick="restablecer(' + maestro_id + ', \'' + tipo + '\');return false;">Restablecer</button>';
+                            $("#" + tipo + "_boton_" + maestro_id).html(htmlButton);
+                            $('.btn').click(function(e) {
+                                e.stopPropagation();
+                                //Your Code here(For example a call to your function)
+                            });
+                        }
+                    } //end success
+                }); //end AJAX   
+            }
+        });
+    }
+    function restablecer(maestro_id, tipo) {
+        jConfirm("Seguro que deseas restablecer este Item?", "Maestros", function(r) {
+            if (r) {
+                if (tipo == 'video') {
+                    var post_url = "/admin/videos/restablecer_video/" + maestro_id;
+                } else {
+                    var post_url = "/admin/videos/restablecer_maestro/" + maestro_id;
+                }
+                $.ajax({
+                    type: "POST",
+                    url: post_url,
+                    dataType: 'json',
+                    //data: indexOrder,
+                    success: function(respuesta)
+                    {
+                        if (respuesta.value == 1) {
+                            //location.reload();
+                            $("#" + tipo + "_" + maestro_id).empty();
+                            $("#" + tipo + "_" + maestro_id).html('Borrador');
+                            var htmlButton = '';
+                            var canal_id = $("#canal").val();
+                            if (tipo == 'video') {
+                                var url = 'admin/videos/carga_unitaria/' + canal_id + '/' + maestro_id;
+                            } else {
+                                var url = 'admin/videos/grupo_maestro/' + canal_id + '/' + maestro_id;
+                            }
+                            htmlButton += '<button class="btn orange" onclick="editar(\'' + url + '\');return false;">Editar</button>';
+                            htmlButton += '<button class="btn red" onclick="eliminar(' + maestro_id + ', \'' + tipo + '\');return false;">Eliminar</button>';
+                            htmlButton += '<button class="btn blue" onclick="publicar(' + maestro_id + ', \'' + tipo + '\');return false;">Publicar</button>';
+                            $("#" + tipo + "_boton_" + maestro_id).html(htmlButton);
+                            $('.btn').click(function(e) {
+                                e.stopPropagation();
+                                //Your Code here(For example a call to your function)
+                            });
+                        }
+                    } //end success
+                }); //end AJAX   
+            }
+        });
+    }
+    function publicar(maestro_id, tipo) {
+        jConfirm("Seguro que deseas publicar este Item?", "Maestros", function(r) {
+            if (r) {
+                if (tipo == 'video') {
+                    var post_url = "/admin/videos/publicar_video/" + maestro_id;
+                } else {
+                    var post_url = "/admin/videos/publicar_maestro/" + maestro_id;
+                }
+                $.ajax({
+                    type: "POST",
+                    url: post_url,
+                    dataType: 'json',
+                    //data: indexOrder,
+                    success: function(respuesta)
+                    {
+                        if (respuesta.value == 1) {
+                            //location.reload();
+                            $("#" + tipo + "_" + maestro_id).empty();
+                            $("#" + tipo + "_" + maestro_id).html('Publicado');
+                            var htmlButton = '';
+                            var canal_id = $("#canal").val();
+                            if (tipo == 'video') {
+                                var url = 'admin/videos/carga_unitaria/' + canal_id + '/' + maestro_id;
+                            } else {
+                                var url = 'admin/videos/grupo_maestro/' + canal_id + '/' + maestro_id;
+                            }
+                            htmlButton += '<button class="btn orange" onclick="editar(\'' + url + '\');return false;">Editar</button>';
+                            htmlButton += '<button class="btn red" onclick="eliminar(' + maestro_id + ', \'' + tipo + '\');return false;">Eliminar</button>';
+                            $("#" + tipo + "_boton_" + maestro_id).html(htmlButton);
+                            $('.btn').click(function(e) {
+                                e.stopPropagation();
+                                //Your Code here(For example a call to your function)
+                            });
+                        }
+                    } //end success
+                }); //end AJAX   
+            }
+        });
     }
 </script>
