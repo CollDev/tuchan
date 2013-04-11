@@ -21,7 +21,7 @@ class Admin extends Admin_Controller
 	 * Show the control panel
 	 */
 	public function index()
-	{
+	{            
 		$this->template
 			->enable_parser(TRUE)
 			->title(lang('global:dashboard'));
@@ -66,10 +66,9 @@ class Admin extends Admin_Controller
 			// if they were trying to go someplace besides the 
 			// dashboard we'll have stored it in the session
 			$redirect = $this->session->userdata('admin_redirect');
-			$this->session->unset_userdata('admin_redirect');                        
-                                                
+			$this->session->unset_userdata('admin_redirect');                                             
                         $redirect = $this->_check_group();
-			redirect($redirect ? $redirect : 'admin/canales');
+                        redirect($redirect);
 		}
 
 		$this->template
@@ -86,12 +85,12 @@ class Admin extends Admin_Controller
             switch ($this->session->userdata('group_id')) {
 
                 case 1: // Admin
+                case 4: // Administrador canales
                     $redirect = 'admin/canales';
                     break;
 
-                case 3:
-                case 4: // Administrador canales
-                    $redirect = 'admin/canales/videos/1';
+                case 3: // Administrador canales
+                    //$redirect = 'admin/canales/videos/1';
                     break;
             }
          
