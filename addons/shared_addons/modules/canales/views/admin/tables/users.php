@@ -1,5 +1,12 @@
     <?php 
     if ($lista_videos) : ?>
+<table>
+    <tr>
+        <td>
+            <div style="clear: both; width: 100%;"><?php $this->load->view('admin/partials/pagination'); ?></div><br /><br />
+        </td>
+    </tr>
+</table>
         <?php echo form_open('canales/videos/action'); ?>
          <table border="0" class="table-list">
             <thead>

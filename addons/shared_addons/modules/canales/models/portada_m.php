@@ -72,7 +72,10 @@ class Portada_m extends MY_Model {
                 'usuario_registro' => $objBeanPortada->usuario_registro,
                 'fecha_actualizacion' => $objBeanPortada->fecha_actualizacion,
                 'usuario_actualizacion' => $objBeanPortada->usuario_actualizacion,
-                'id_mongo' => $objBeanPortada->id_mongo
+                'id_mongo' => $objBeanPortada->id_mongo,
+                'estado_migracion' => $objBeanPortada->estado_migracion,
+                'fecha_migracion' => $objBeanPortada->fecha_migracion,
+                'fecha_migracion_actualizacion' => $objBeanPortada->fecha_migracion_actualizacion
         ));
         return $objBeanPortada;           
     }

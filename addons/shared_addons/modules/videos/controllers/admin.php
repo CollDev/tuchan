@@ -952,11 +952,16 @@ class Admin extends Admin_Controller {
                 $objBeanMaestro->estado_migracion = NULL;
                 $objBeanMaestro->fecha_migracion = '0000-00-00 00:00:00';
                 $objBeanMaestro->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
-                $objBeanMaestro = $this->grupo_maestro_m->save_maestro($objBeanMaestro);
+                $objBeanMaestroSaved = $this->grupo_maestro_m->save_maestro($objBeanMaestroSaved);
                 //guardar en el detalle de maestros en caso de guardarse como hijo
-                $this->_saveMaestroDetalle($this->input->post(), $objBeanMaestro);
+                $this->_saveMaestroDetalle($this->input->post(), $objBeanMaestroSaved);
+                //generar su portada si el maestro es de tipo programa
+                if($objBeanMaestroSaved->tipo_grupo_maestro_id == $this->config->item('videos:programa')){
+                    $objCanal = $this->canales_m->get($this->input->post('canal_id'));
+                    $this->generarNuevaPortada($objCanal, $objBeanMaestroSaved, $this->config->item('portada:programa'));
+                }
                 $returnValue = array();
-                $returnValue[$objBeanMaestro->id] = $objBeanMaestro->nombre;
+                $returnValue[$objBeanMaestroSaved->id] = $objBeanMaestroSaved->nombre;
                 $returnValue['error'] = 0;
             }
             echo(json_encode($returnValue));
@@ -1543,6 +1548,9 @@ class Admin extends Admin_Controller {
         $objBeanPortada->fecha_actualizacion = date("Y-m-d H:i:s");
         $objBeanPortada->usuario_actualizacion = $user_id;
         $objBeanPortada->id_mongo = '0';
+        $objBeanPortada->estado_migracion = '0';
+        $objBeanPortada->fecha_migracion = '0000-00-00 00:00:00';
+        $objBeanPortada->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
         $objBeanPortadaSaved = $this->portada_m->save($objBeanPortada);
 
         if ($objetoMaestro == NULL) {
@@ -1562,7 +1570,7 @@ class Admin extends Admin_Controller {
                 if ($objTipoSeccion->id != intval($this->config->item('seccion:coleccion'))) {//solo secciones que sean difernetes a colecciones
                     $objBeanSeccion = new stdClass();
                     $objBeanSeccion->id = NULL;
-                    $objBeanSeccion->nombre = ucwords($objTipoSeccion->nombre); // Destacado + nombre del canal
+                    $objBeanSeccion->nombre = ucwords($objTipoSeccion->nombre); // nombre de la seccion es el nombre del tipo de la seccion
                     if ($objTipoSeccion->id == $this->config->item('seccion:destacado')) {
                         $objBeanSeccion->templates_id = '1';
                     } else {
@@ -1959,7 +1967,7 @@ class Admin extends Admin_Controller {
                 ->append_js('admin/filter.js')
                 ->set_partial('filters', 'admin/partials/filters')
                 ->append_js('module::jquery.alerts.js')
-                ->append_css('module::jquery.alerts.css')                
+                ->append_css('module::jquery.alerts.css')
                 ->set('pagination', $pagination)
                 ->set_partial('maestros', 'admin/tables/maestros')
                 ->set('canal_id', $canal_id)
@@ -1982,12 +1990,16 @@ class Admin extends Admin_Controller {
                     $imagen = UPLOAD_IMAGENES_VIDEOS . 'no_video.jpg';
                 }
                 $objCategoria = $this->categoria_m->get($objPrograma->categorias_id);
+                if (count($objCategoria) == 0) {
+                    $objCategoria = new stdClass();
+                    $objCategoria->nombre = 'Sin categoría';
+                }
                 $objPrograma->estado_id = $objPrograma->estado;
                 $estado = 'Borrador';
                 if ($objPrograma->estado == '1') {
                     $estado = 'Publicado';
-                }else{
-                    if($objPrograma->estado == '2'){
+                } else {
+                    if ($objPrograma->estado == '2') {
                         $estado = 'Eliminado';
                     }
                 }
@@ -2033,8 +2045,8 @@ class Admin extends Admin_Controller {
                         $estado = 'Borrador';
                         if ($objMaestro->estado == '1') {
                             $estado = 'Publicado';
-                        }else{
-                            if($objMaestro->estado == '2'){
+                        } else {
+                            if ($objMaestro->estado == '2') {
                                 $estado = 'Eliminado';
                             }
                         }
@@ -2080,7 +2092,7 @@ class Admin extends Admin_Controller {
                         $estado = 'Borrador';
                         if ($objMaestro->estado == '1') {
                             $estado = 'Publicado';
-                        }else{
+                        } else {
                             if ($objMaestro->estado == '2') {
                                 $estado = 'Eliminado';
                             }
@@ -2125,7 +2137,7 @@ class Admin extends Admin_Controller {
                     $estado = 'Borrador';
                     if ($objVideo->estado == '1') {
                         $estado = 'Publicado';
-                    }else{
+                    } else {
                         if ($objVideo->estado == '2') {
                             $estado = 'Eliminado';
                         }
@@ -2331,7 +2343,7 @@ class Admin extends Admin_Controller {
                     $this->grupo_maestro_m->update($objBeanMaestro->id, array("nombre" => $objBeanMaestro->nombre,
                         "descripcion" => $objBeanMaestro->descripcion, "alias" => $objBeanMaestro->alias,
                         "tipo_grupo_maestro_id" => $objBeanMaestro->tipo_grupo_maestro_id, "canales_id" => $objBeanMaestro->canales_id,
-                        "fecha_actualizacion" => $objBeanMaestro->fecha_actualizacion, "usuario_actualizacion" => $objBeanMaestro->usuario_actualizacion, "estado_migracion"=>$objBeanMaestro->estado_migracion));
+                        "fecha_actualizacion" => $objBeanMaestro->fecha_actualizacion, "usuario_actualizacion" => $objBeanMaestro->usuario_actualizacion, "estado_migracion" => $objBeanMaestro->estado_migracion));
                     $returnValue = 0;
                     $this->guardarTagsMaestro($objBeanMaestro, $this->input->post());
                 }
@@ -2397,7 +2409,7 @@ class Admin extends Admin_Controller {
                             $this->guardarTagsMaestro($objBeanMaestroSaved, $post);
                             $objCanal = $this->canales_m->get($this->input->post('canal_id'));
                             if ($this->input->post('tipo') == $this->config->item('videos:programa')) {
-                                $this->generarPortadaCanal($objCanal, $objBeanMaestroSaved, $this->config->item('portada:programa'));
+                                $this->generarNuevaPortada($objCanal, $objBeanMaestroSaved, $this->config->item('portada:programa'));
                             }
                             $maestro_id = $objBeanMaestroSaved->id;
                         }
@@ -2408,6 +2420,99 @@ class Admin extends Admin_Controller {
                 }
             }
             echo json_encode(array("value" => $returnValue, "maestro_id" => $maestro_id, "canal_id" => $canal_id));
+        }
+    }
+
+    private function generarNuevaPortada($objCanal, $objMaestro, $tipo_portada) {
+        $user_id = (int) $this->session->userdata('user_id');
+        //creamos el registro de portada
+        $objBeanPortada = new stdClass();
+        $objBeanPortada->id = NULL;
+        $objBeanPortada->canales_id = $objCanal->id;
+        $objBeanPortada->nombre = 'Portada ' . $objMaestro->nombre; ///PORTADA + nombre del canal
+        $objBeanPortada->descripcion = $objMaestro->descripcion; //jala del canal            
+        $objBeanPortada->origen_id = $objMaestro->id;
+        $objBeanPortada->tipo_portadas_id = $tipo_portada; //$this->config->item('portada:canal');
+        $objBeanPortada->estado = '0';
+        $objBeanPortada->fecha_registro = date("Y-m-d H:i:s");
+        $objBeanPortada->usuario_registro = $user_id;
+        $objBeanPortada->fecha_actualizacion = date("Y-m-d H:i:s");
+        $objBeanPortada->usuario_actualizacion = $user_id;
+        $objBeanPortada->id_mongo = '0';
+        $objBeanPortada->estado_migracion = '0';
+        $objBeanPortada->fecha_migracion = '0000-00-00 00:00:00';
+        $objBeanPortada->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
+        $objBeanPortadaSaved = $this->portada_m->save($objBeanPortada);
+        //listamos los tipos de secciones predefinidas para crearlas
+        $arraySecciones = $this->tipo_secciones_m->get_many_by(array());
+        if (count($arraySecciones) > 0) {
+            foreach ($arraySecciones as $puntero => $oS) {
+                if ($oS->id == $this->config->item('seccion:programa')) {
+                    unset($arraySecciones[$puntero]);
+                }
+            }
+        }
+        //iteramos los tipos de seccion para generarlas
+        foreach ($arraySecciones as $puntero => $objTipoSeccion) {
+            if ($objTipoSeccion->id < intval($this->config->item('seccion:perzonalizado'))) {//no se creara secciones personalizadas
+                $objBeanSeccion = new stdClass();
+                $objBeanSeccion->id = NULL;
+                $objBeanSeccion->nombre = ucwords($objTipoSeccion->nombre); // nombre de la seccion es el nombre del tipo de la seccion
+                if ($objTipoSeccion->id == $this->config->item('seccion:destacado')) {
+                    $objBeanSeccion->templates_id = '1';
+                } else {
+                    if ($objTipoSeccion->id == $this->config->item('seccion:programa')) {
+                        $objBeanSeccion->templates_id = '6';
+                    } else {
+                        if ($objTipoSeccion->id == $this->config->item('seccion:video')) {
+                            $objBeanSeccion->templates_id = '5';
+                        } else {
+                            $objBeanSeccion->templates_id = '3';
+                        }
+                    }
+                }
+                $objBeanSeccion->descripcion = '';
+                $objBeanSeccion->tipo = '0';
+                $objBeanSeccion->portadas_id = $objBeanPortadaSaved->id;
+                $objBeanSeccion->tipo_secciones_id = $objTipoSeccion->id;
+                $objBeanSeccion->peso = $pos;
+                $objBeanSeccion->id_mongo = '0';
+                $objBeanSeccion->estado = '0';
+                $objBeanSeccion->fecha_registro = date("Y-m-d H:i:s");
+                $objBeanSeccion->usuario_registro = $user_id;
+                $objBeanSeccion->fecha_actualizacion = date("Y-m-d H:i:s");
+                $objBeanSeccion->usuario_actualizacion = $user_id;
+                $objBeanSeccion->estado_migracion = '0';
+                $objBeanSeccion->fecha_migracion = '0000-00-00 00:00:00';
+                $objBeanSeccion->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
+                $objBeanSeccionSaved = $this->secciones_m->save($objBeanSeccion);
+
+                //en la sección destacado buscar imagen extralarge para registrar detalle seccion
+                if ($objTipoSeccion->id == intval($this->config->item('seccion:destacado'))) {//seccion destacado
+                    $objImagen = $this->imagen_m->get_by(array("grupo_maestros_id" => $objMaestro->id, "estado" => "1", "tipo_imagen_id" => $this->config->item('imagen:extralarge')));
+                    if (count($objImagen) > 0) {
+                        $objBeanDetalleSecciones = new stdClass();
+                        $objBeanDetalleSecciones->id = NULL;
+                        $objBeanDetalleSecciones->secciones_id = $objBeanSeccionSaved->id;
+                        $objBeanDetalleSecciones->reglas_id = NULL;
+                        $objBeanDetalleSecciones->videos_id = NULL;
+                        $objBeanDetalleSecciones->grupo_maestros_id = $objMaestro->id;
+                        $objBeanDetalleSecciones->categorias_id = NULL;
+                        $objBeanDetalleSecciones->tags_id = NULL;
+                        $objBeanDetalleSecciones->imagenes_id = $objImagen->id;
+                        $objBeanDetalleSecciones->peso = 1;
+                        $objBeanDetalleSecciones->descripcion_item = NULL;
+                        $objBeanDetalleSecciones->estado = 1;
+                        $objBeanDetalleSecciones->fecha_registro = date("Y-m-d H:i:s");
+                        $objBeanDetalleSecciones->usuario_registro = $user_id;
+                        $objBeanDetalleSecciones->estado_migracion = '0';
+                        $objBeanDetalleSecciones->fecha_migracion = '0000-00-00 00:00:00';
+                        $objBeanDetalleSecciones->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
+                        $objBeanDetalleSeccionesSaved = $this->detalle_secciones_m->save($objBeanDetalleSecciones);
+                        $this->secciones_m->update($objBeanSeccionSaved->id, array("estado" => "1"));
+                    }
+                }
+            }
         }
     }
 
@@ -2915,8 +3020,8 @@ class Admin extends Admin_Controller {
         }
         return $returnValue;
     }
-    
-    private function videos_lista($lista_id){
+
+    private function videos_lista($lista_id) {
         $returnValue = array();
         $coleccionMaestroDetalle = $this->grupo_detalle_m->get_many_by(array("grupo_maestro_padre" => $lista_id, "tipo_grupo_maestros_id" => $this->config->item('videos:lista')));
         if (count($coleccionMaestroDetalle) > 0) {
@@ -2930,7 +3035,7 @@ class Admin extends Admin_Controller {
                 }
             }
         }
-        return $returnValue;        
+        return $returnValue;
     }
 
     public function _obtenerImagenPorMaestro($maestro_id, $image_type, $seccion, $canal_id) {
@@ -3117,14 +3222,14 @@ class Admin extends Admin_Controller {
                 $array_coleccion = array();
                 //obtenemos lista de videos de la lista de reproduccion
                 $videos_lista = $this->videos_lista($this->input->post('maestro_id'));
-                if(count($videos_lista)>0){
-                    $array_coleccion = array_merge($array_coleccion,$videos_lista);
+                if (count($videos_lista) > 0) {
+                    $array_coleccion = array_merge($array_coleccion, $videos_lista);
                 }
                 //obtenemos los videos del canal 
                 $videos_canal = $this->obtenerVideosCanal($this->input->post('canal_id'));
                 if (count($videos_canal) > 0) {
                     $array_coleccion = array_merge($array_coleccion, $videos_canal);
-                }               
+                }
             }
             $total = count($array_coleccion);
             $cantidad_mostrar = 3;
@@ -3153,9 +3258,9 @@ class Admin extends Admin_Controller {
                 $returnValue.='<input type="hidden" id="cantidad_mostrar" name="cantidad_mostrar" value="' . $cantidad_mostrar . '" />';
                 $returnValue.='<div id="black" style="margin: auto;"></div>';
             }
-            echo $returnValue;            
+            echo $returnValue;
         }
-    }    
+    }
 
     private function obtenerVideosColeccion($coleccion_id) {
         $returnValue = array();
@@ -3235,7 +3340,7 @@ class Admin extends Admin_Controller {
             $detalle_seccion_id = 0;
             if ($this->maestroAgregado($maestro_id, $parent_maestro, 0)) {
                 $objDetalleMaestro = $this->grupo_detalle_m->get_by(array("grupo_maestro_padre" => $parent_maestro, "grupo_maestro_id" => $maestro_id));
-                $this->grupo_detalle_m->update($objDetalleMaestro->id, array("estado" => "1","estado_migracion"=>$this->config->item('migracion:actualizado')));
+                $this->grupo_detalle_m->update($objDetalleMaestro->id, array("estado" => "1", "estado_migracion" => $this->config->item('migracion:actualizado')));
             } else {
                 $objMaestro = $this->grupo_maestro_m->get($parent_maestro);
                 $objBeanDetalleMaestro = new stdClass();
@@ -3283,7 +3388,7 @@ class Admin extends Admin_Controller {
             $user_id = (int) $this->session->userdata('user_id');
             if ($this->videoAgregado($this->input->post('video_id'), $this->input->post('maestro_id'), 0)) {
                 $objDetalleMaestro = $this->grupo_detalle_m->get_by(array("video_id" => $this->input->post('video_id'), "grupo_maestro_padre" => $this->input->post('maestro_id')));
-                $this->grupo_detalle_m->update($objDetalleMaestro->id, array("estado" => "1","estado_migracion"=>$this->config->item('migracion:actualizado')));
+                $this->grupo_detalle_m->update($objDetalleMaestro->id, array("estado" => "1", "estado_migracion" => $this->config->item('migracion:actualizado')));
             } else {
                 $objMaestro = $this->grupo_maestro_m->get($this->input->post('maestro_id'));
                 $objBeanDetalleMaestro = new stdClass();
@@ -3305,7 +3410,7 @@ class Admin extends Admin_Controller {
             }
             //lista tipo de maestros
             $items = $this->itemsMaestros($this->input->post('maestro_id'));
-            $html='';
+            $html = '';
             if (count($items) > 0) {
                 foreach ($items as $puntero => $objItem) {
                     $html.='<tr>';
@@ -3368,7 +3473,7 @@ class Admin extends Admin_Controller {
 
     public function quitar_grupo_maestro() {
         if ($this->input->is_ajax_request()) {
-            $this->grupo_detalle_m->update($this->input->post('grupo_detalle_id'), array("estado" => "0","estado_migracion"=>$this->config->item('migracion:actualizado')));
+            $this->grupo_detalle_m->update($this->input->post('grupo_detalle_id'), array("estado" => "0", "estado_migracion" => $this->config->item('migracion:actualizado')));
             //echo json_encode(array("value" => "1"));
             //lista tipo de maestros
             $items = $this->itemsMaestros($this->input->post('parent_maestro'));
@@ -3390,26 +3495,119 @@ class Admin extends Admin_Controller {
             echo $html;
         }
     }
-    
-    public function eliminar_maestro($maestro_id){
+
+    public function eliminar_maestro($maestro_id) {
         if ($this->input->is_ajax_request()) {
-            $this->grupo_maestro_m->update($maestro_id, array("estado"=>$this->config->item('estado:eliminado'),"estado_migracion"=>$this->config->item('migracion:actualizado')));
-            echo json_encode(array("value"=>"1"));
+            $this->grupo_maestro_m->update($maestro_id, array("estado" => $this->config->item('estado:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+            //eliminamos la portada si es maestro de tipo programa
+            $this->cambiarEstadoPortada($maestro_id, $this->config->item('estado:eliminado'));
+            echo json_encode(array("value" => "1"));
         }
     }
-    
-    public function restablecer_maestro($maestro_id){
+
+    public function restablecer_maestro($maestro_id) {
         if ($this->input->is_ajax_request()) {
-            $this->grupo_maestro_m->update($maestro_id, array("estado"=>$this->config->item('estado:borrador'),"estado_migracion"=>$this->config->item('migracion:actualizado')));
-            echo json_encode(array("value"=>"1"));
-        }        
+            $this->grupo_maestro_m->update($maestro_id, array("estado" => $this->config->item('estado:borrador'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+            //eliminamos la portada si es maestro de tipo programa
+            $this->cambiarEstadoPortada($maestro_id, $this->config->item('estado:borrador'));
+            echo json_encode(array("value" => "1"));
+        }
     }
-    
-    public function publicar_maestro($maestro_id){
+
+    public function publicar_maestro($maestro_id) {
         if ($this->input->is_ajax_request()) {
-            $this->grupo_maestro_m->update($maestro_id, array("estado"=>$this->config->item('estado:publicado'),"estado_migracion"=>$this->config->item('migracion:actualizado')));
-            echo json_encode(array("value"=>"1"));
-        }        
+            $this->grupo_maestro_m->update($maestro_id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+            //eliminamos la portada si es maestro de tipo programa
+            $this->cambiarEstadoPortada($maestro_id, $this->config->item('estado:publicado'));
+            echo json_encode(array("value" => "1"));
+        }
+    }
+
+    public function eliminar_video($video_id) {
+        if ($this->input->is_ajax_request()) {
+            $this->videos_m->update($video_id, array("estado" => $this->config->item('estado:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+            //eliminamos la portada si es maestro de tipo programa
+            $this->cambiarEstadoPortada($video_id, $this->config->item('estado:eliminado'), 0);
+            echo json_encode(array("value" => "1"));
+        }
+    }
+
+    public function restablecer_video($video_id) {
+        if ($this->input->is_ajax_request()) {
+            $this->videos_m->update($video_id, array("estado" => $this->config->item('estado:borrador'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+            //eliminamos la portada si es maestro de tipo programa
+            $this->cambiarEstadoPortada($video_id, $this->config->item('estado:borrador'), 0);
+            echo json_encode(array("value" => "1"));
+        }
+    }
+
+    public function publicar_video($video_id) {
+        if ($this->input->is_ajax_request()) {
+            $this->videos_m->update($video_id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+            //eliminamos la portada si es maestro de tipo programa
+            $this->cambiarEstadoPortada($video_id, $this->config->item('estado:publicado'), 0);
+            echo json_encode(array("value" => "1"));
+        }
+    }
+
+    private function cambiarEstadoPortada($maestro_id, $estado, $es_maestro = 1) {
+        if ($es_maestro == '1') {
+            $objMaestro = $this->grupo_maestro_m->get($maestro_id);
+            //verificamos que sea un programa
+            if ($objMaestro->tipo_grupo_maestro_id == $this->config->item('videos:programa')) {
+                //obtenemos la portada del programa
+                $objPortadaPrograma = $this->portada_m->get_by(array("tipo_portadas_id" => $this->config->item('portada:programa'), "origen_id" => $maestro_id));
+                if (count($objPortadaPrograma) > 0) {
+                    $this->portada_m->update($objPortadaPrograma->id, array("estado" => $estado, "estado_migracion" => $this->config->item('migracion:actualizado')));
+                }
+            }
+        }
+        if ($es_maestro == '1') {
+            //recorrer todos los detalles de las secciones para cambiar de estado en cascada de abajo hacia arriba
+            $detalle_secciones = $this->detalle_secciones_m->get_many_by(array("grupo_maestros_id" => $maestro_id));
+        } else {
+            //recorrer todos los detalles de las secciones para cambiar de estado en cascada de abajo hacia arriba
+            $detalle_secciones = $this->detalle_secciones_m->get_many_by(array("videos_id" => $maestro_id));
+        }
+        if (count($detalle_secciones) > 0) {
+            foreach ($detalle_secciones as $puntero => $objDetalleSeccion) {
+                $this->detalle_secciones_m->update($objDetalleSeccion->id, array("estado" => $estado, "estado_migracion" => $this->config->item('migracion:actualizado')));
+                //verificamos si la sección tiene su detalle en estados no publicados para cambiar su estado
+                $items_de_seccion = $this->detalle_secciones_m->get_many_by(array("secciones_id" => $objDetalleSeccion->id));
+                $existe_publicado = false;
+                if (count($items_de_seccion) > 0) {
+                    foreach ($items_de_seccion as $index => $detalleItem) {
+                        if ($detalleItem->estado == $this->config->item('estado:publicado')) {
+                            $existe_publicado = true;
+                        }
+                    }
+                }
+                if (!$existe_publicado) {
+                    //cambiamos de estado a la seccion a estado Borrador
+                    $this->secciones_m->update($objDetalleSeccion->id, array("estado" => $this->config->item('estado:borrador'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                    //verificamos si la portada de tipo canal tiene las secciones en modo borrador
+                    $objSeccion = $this->secciones_m->get($objDetalleSeccion->id);
+                    if (count($objSeccion) > 0) {
+                        $objPortada = $this->portada_m->get_by(array("id" => $objSeccion->portadas_id));
+                        if (count($objPortada) > 0) {
+                            $detalle_portada = $this->secciones_m->get_many_by(array("portadas_id" => $objPortada->id));
+                            $existe_publicado_seccion = false;
+                            if (count($detalle_portada) > 0) {
+                                foreach ($detalle_portada as $indice => $objSecciones) {
+                                    if ($objSecciones->estado == $this->config->item('estado:publicado')) {
+                                        $existe_publicado_seccion = true;
+                                    }
+                                }
+                            }
+                            //verificamos el resultado de la variable que indica si existe alguna seccion activa
+                            if (!$existe_publicado_seccion) {
+                                $this->portada_m->update($objPortada->id, array("estado" => $this->config->item('estado:borrador'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 
 }
