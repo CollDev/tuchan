@@ -87,6 +87,8 @@ class Admin extends Admin_Controller {
                     ->append_js('module::jquery.ddslick.min.js')
                     ->set_partial('filters', 'admin/partials/filters')
                     ->set_partial('canales', 'admin/tables/canales')
+                    ->append_js('module::jquery.alerts.js')
+                    ->append_css('module::jquery.alerts.css')
                     ->set('pagination', $pagination)
                     ->set('canales', $canales);
             $this->input->is_ajax_request() ? $this->template->build('admin/tables/canales') : $this->template->build('admin/index');
@@ -1658,13 +1660,15 @@ class Admin extends Admin_Controller {
         $tipo_seccion = $this->tipo_secciones_m->getSeccionDropDown();
         $templates = $this->templates_m->getTemplateDropDown();
         //do we need to unset the layout because the request is ajax?
-        $this->input->is_ajax_request() and $this->template->set_layout(FALSE);
+        //$this->input->is_ajax_request() and $this->template->set_layout(FALSE);
         $this->template
                 ->title($this->module_details['name'])
                 ->append_js('admin/filter.js')
-                //->append_js('module::jquery.ddslick.min.js')
+                ->append_js('module::jquery.ddslick.min.js')
                 ->set_partial('filters', 'admin/partials/filters')
                 ->set_partial('portadas', 'admin/tables/portadas')
+                ->append_js('module::jquery.alerts.js')
+                ->append_css('module::jquery.alerts.css')
                 ->set('pagination', $pagination)
                 ->set('title', $title)
                 ->set('tipo', $tipo_portada)
@@ -2779,7 +2783,7 @@ class Admin extends Admin_Controller {
         return $returnValue;
     }
 
-    private function generarNuevaPortada($objCanal, $objMaestro=NULL, $tipo_portada) {
+    private function generarNuevaPortada($objCanal, $objMaestro = NULL, $tipo_portada) {
         $user_id = (int) $this->session->userdata('user_id');
         //creamos el registro de portada
         $objBeanPortada = new stdClass();
@@ -2880,6 +2884,81 @@ class Admin extends Admin_Controller {
                     }
                 }
             }
+        }
+    }
+
+    public function eliminar_canal($canal_id) {
+        if ($this->input->is_ajax_request()) {
+            $this->canales_m->update($canal_id, array("estado" => $this->config->item('estado:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+            //eliminamos la portada del canal
+            $objPortada = $this->portada_m->get_by(array("tipo_portadas_id" => $this->config->item('portada:canal'), "origen_id" => $canal_id));
+            if (count($objPortada) > 0) {
+                $this->portada_m->update($objPortada->id, array("estado" => $this->config->item('estado:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+            }
+            echo json_encode(array("value" => "1"));
+        }
+    }
+
+    public function restablecer_canal($canal_id) {
+        if ($this->input->is_ajax_request()) {
+            $this->canales_m->update($canal_id, array("estado" => $this->config->item('estado:borrador'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+            //eliminamos la portada del canal
+            $objPortada = $this->portada_m->get_by(array("tipo_portadas_id" => $this->config->item('portada:canal'), "origen_id" => $canal_id));
+            if (count($objPortada) > 0) {
+                $this->portada_m->update($objPortada->id, array("estado" => $this->config->item('estado:borrador'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+            }
+            echo json_encode(array("value" => "1"));
+        }
+    }
+
+    public function publicar_canal($canal_id) {
+        if ($this->input->is_ajax_request()) {
+            $this->canales_m->update($canal_id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+            //eliminamos la portada del canal
+            $objPortada = $this->portada_m->get_by(array("tipo_portadas_id" => $this->config->item('portada:canal'), "origen_id" => $canal_id));
+            if (count($objPortada) > 0) {
+                $this->portada_m->update($objPortada->id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+            }
+            echo json_encode(array("value" => "1"));
+        }
+    }
+
+    /**
+     * metodo para llamar al archivo previsualizar_canal.php para la vista previa
+     */
+    public function previsualizar_canal() {
+        $this->template
+                ->set_layout('modal', 'admin')
+                ->build('admin/previsualizar_canal');
+    }
+
+    /**
+     * metodo para llamar al archivo previsualizar_portada.php para la vista previa
+     */
+    public function previsualizar_portada() {
+        $this->template
+                ->set_layout('modal', 'admin')
+                ->build('admin/previsualizar_portada');
+    }
+
+    public function eliminar_portada($portada_id) {
+        if ($this->input->is_ajax_request()) {
+            $this->portada_m->update($portada_id, array("estado" => $this->config->item('estado:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+            echo json_encode(array("value" => "1"));
+        }
+    }
+
+    public function restablecer_portada($portada_id) {
+        if ($this->input->is_ajax_request()) {
+            $this->portada_m->update($portada_id, array("estado" => $this->config->item('estado:borrador'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+            echo json_encode(array("value" => "1"));
+        }
+    }
+
+    public function publicar_portada($portada_id) {
+        if ($this->input->is_ajax_request()) {
+            $this->portada_m->update($portada_id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+            echo json_encode(array("value" => "1"));
         }
     }
 
