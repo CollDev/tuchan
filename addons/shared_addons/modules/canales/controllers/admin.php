@@ -2962,6 +2962,33 @@ class Admin extends Admin_Controller {
         }
     }
 
+    public function previsualizar_seccion() {
+        $this->template
+                ->set_layout('modal', 'admin')
+                ->build('admin/previsualizar_seccion');
+    }
+
+    public function eliminar_seccion($seccion_id) {
+        if ($this->input->is_ajax_request()) {
+            $this->secciones_m->update($seccion_id, array("estado" => $this->config->item('estado:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+            echo json_encode(array("value" => "1"));
+        }
+    }
+
+    public function restablecer_seccion($seccion_id) {
+        if ($this->input->is_ajax_request()) {
+            $this->secciones_m->update($seccion_id, array("estado" => $this->config->item('estado:borrador'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+            echo json_encode(array("value" => "1"));
+        }
+    }
+
+    public function publicar_seccion($seccion_id) {
+        if ($this->input->is_ajax_request()) {
+            $this->secciones_m->update($seccion_id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+            echo json_encode(array("value" => "1"));
+        }
+    }
+
 }
 
 /* End of file admin.php */
