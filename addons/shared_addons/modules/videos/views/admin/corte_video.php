@@ -1,7 +1,7 @@
 <section class="title">
     <h4>
         <?php if ($canal->nombre) : ?>
-            <?php echo $canal->nombre ?> | Carga Unitaria
+            <?php echo $canal->nombre ?> | Corte Video
         <?php endif; ?>
     </h4>
 </section>
@@ -15,7 +15,7 @@
     <div> <?php echo $objBeanForm->message; ?></div>
     <?php } ?>
         
-    <!--FORM CARGA UNITARIA-->
+    <!--FORM CORTE VIDEO        -->
     <?php
     // Canales_id       
     $hidden = array('canal_id' => $canal->id);
@@ -24,6 +24,25 @@
     echo form_open_multipart('admin/videos/carga_unitaria/'.$canal->id, $attributes, $hidden);
     //echo form_open_multipart('file.php', $attributes, $hidden);
     ?>
+    <!-- Editor de videos -->
+    <div id="media-1" class="mediasplitter" data-src="<?php echo $objBeanForm->ruta ?>">
+        <div class="mediasplitter-player"></div>
+        <div class="mediasplitter-controls">
+          <div class="noUiSlider mediasplitter-slider"></div>
+          <div class="mediasplitter-progress"><div class="mediasplitter-progress-indicator"></div></div>
+          <p>
+            <span class="opaque">Comienza:</span> 
+            <input name="ini_corte" id="ini_corte" class="mediasplitter-time-start" value="" type="text" size="5" readonly /> 
+            <input name="dur_total" id="dur_total" class="mediasplitter-time-start" value="" type="hidden" readonly />
+            <span class="opaque">Termina:</span> <input name="fin_corte" id="fin_corte" class="mediasplitter-time-end" value="" size="5" type="
+            text" readonly /> 
+            <span class="opaque">Duración</span> <input name="dur_corte" id="dur_corte" class="mediasplitter-time-dur" value="" size="5" type="
+            text" readonly /> 
+            <span class="mediasplitter-time"><span class="mediasplitter-time-remaming">0.00</span> <span class="opaque">seg.</span> </span>
+          </p>
+        </div>
+        <!--# End video section -->
+    </div>
     <!--APC hidden field-->
         <input type="hidden" name="APC_UPLOAD_PROGRESS" id="progress_key" value="<?php echo $up_id; ?>"/>
     <!---->
@@ -35,7 +54,7 @@
         $titulo = array(
             'name' => 'titulo',
             'id' => 'titulo',
-            'value' => $objBeanForm->titulo,
+            'value' => '',
             'maxlength' => '100',
             'style'=>'width:556px;'
             //'readonly'=>'readonly'
@@ -63,10 +82,10 @@
         
         <?php if($objBeanForm->video_id > 0){ ?>
             <!-- imagen -->
-            <label for="imagen"><?php echo lang('videos:avatar'); ?></label>
+            <!--<label for="imagen"><?php //echo lang('videos:avatar'); ?></label>-->
         <?php
-            $imagen = array('name' => 'addImage', 'id'=>'addImage', 'type'=>'button', 'value' =>'Agrega nuevas imagenes a tu video');
-            echo '<div style="float:left;">'.form_input($imagen).'</div>';
+            $imagen = array('name' => 'addImage', 'id'=>'addImage', 'type'=>'button', 'value' =>'');
+            echo '<div style="float:left;display:none">'.form_input($imagen).'</div>';
             ?>
             <div  class="loaderAjax" id="loaderAjax" style="display: none; float: left;">
                 <img src="uploads/imagenes/loading.gif">
@@ -74,7 +93,7 @@
             <div style="clear: both;"></div>
             <div id="contenedorImage">
                 <?php if(count($objBeanForm->avatar)>0){ ?>
-                <select id="listaImagenes"></select>
+                <!--<select id="listaImagenes"></select>-->
                 <?php } ?>
             </div>
             
@@ -284,6 +303,8 @@
         ?>
     </div>
     <script type="text/javascript" >
+        var dur_video;
+        
         function activeImageVideo(imagen_id){
             var values = {};
             $.each($('#frm').serializeArray(), function(i, field) {
@@ -928,4 +949,18 @@
 <!---->  
     <?php echo form_close() ?>
 </section>
+
+
+<link rel="stylesheet" type="text/css" href="<?php echo base_url("system/cms/themes/pyrocms/css/nouislider.fox.css") ?>">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url("system/cms/themes/pyrocms/css/mediasplitter.css") ?>">
+
+<script src="<?php echo base_url("system/cms/themes/pyrocms/js/lib/jquery.nouislider.min.js") ?>"></script>
+<script src="<?php echo base_url("system/cms/themes/pyrocms/js/lib/flowplayer/flowplayer-3.2.12.min.js") ?>"></script>
+<script src="<?php echo base_url("system/cms/themes/pyrocms/js/lib/splitter.js") ?>"></script>
+<script type="text/javascript">
+  $(function () {
+    new MediaSplitter('#media-1', '<?php echo base_url("system/cms/themes/pyrocms/js/lib/flowplayer/flowplayer-3.2.16.swf") ?>');
+  });
+
+</script>
 
