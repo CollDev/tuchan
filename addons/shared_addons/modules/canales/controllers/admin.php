@@ -59,7 +59,7 @@ class Admin extends Admin_Controller {
      */
     public function index() {
         //echo "here!!---->".($this->session->userdata['group']);die();
-        if ($this->session->userdata['group'] != 'administrador-canales' || $this->session->userdata['group'] == 'admin') {
+        if ($this->session->userdata['group'] == 'administrador-canales' || $this->session->userdata['group'] == 'admin') {
             $base_where = array();
             $keyword = '';
             if ($this->input->post('f_keywords'))
