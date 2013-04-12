@@ -27,9 +27,31 @@
                         <td style="width: 5%;"><?php echo $index + 1; ?></td>
                         <td style="width: 30%;"><?php echo $post->nombre; ?></td>
                         <td style="width: 30%;"><?php echo $post->descripcion; ?></td>
-                        <td style="width: 5%;"><?php echo $post->estado; ?></td>
-                        <td style="width: 30%;">Previsualizar | Editar | Eliminar | <span onclick="agregar_seccion(<?php echo $post->id; ?>);
-                                        return false;" > <?php echo $objCanal->tipo_canales_id == $this->config->item('canal:mi_canal') ? 'Añadir seccion' : ''; ?></span></td>
+                        <td style="width: 5%;"><div id="portada_<?php echo $post->id; ?>"><?php echo lang('global:' . $post->estado . '_estado'); ?></div></td>
+                        <?php
+                        switch ($post->estado):
+                            case $this->config->item('estado:borrador'):
+                                $link = '<a href="/admin/canales/previsualizar_portada/" target ="_blank" class="btn modal-large">' . lang('global:preview') . '</a>';
+                                $link.='<a href="#" class="link_portada btn" onclick="publicar_portada(' . $post->id . ',\'portada\');return false;">Publicar</a>';
+                                $link.='<a href="#" class="link_portada btn">Editar</a>';
+                                $link.='<a href="#" class="link_portada btn" onclick="eliminar_portada(' . $post->id . ',\'portada\');return false;">Eliminar</a>';
+                                $link.='<a href="#" class="link_portada btn" onclick="agregar_seccion(' . $post->id . ');return false;">Añadir sección</a>';
+                                break;
+                            case $this->config->item('estado:publicado'):
+                                $link = '<a href="/admin/canales/previsualizar_portada/" target ="_blank" class="btn modal-large">' . lang('global:preview') . '</a>';
+                                $link.='<a href="#" class="link_portada btn">Editar</a>';
+                                $link.='<a href="#" class="link_portada btn"  onclick="eliminar_portada(' . $post->id . ',\'portada\');return false;">Eliminar</a>';
+                                $link.='<a href="#" class="link_portada btn" onclick="agregar_seccion(' . $post->id . ');return false;">Añadir sección</a>';
+                                break;
+                            case $this->config->item('estado:eliminado'):
+                                $link = '<a href="/admin/canales/previsualizar_portada/" target ="_blank" class="btn modal-large">' . lang('global:preview') . '</a>';
+                                $link.='<a href="#" class="link_portada btn" onclick="restablecer_portada(' . $post->id . ',\'portada\');return false;">Restablecer</a>';
+                                $link.='<a href="#" class="link_portada btn" onclick="agregar_seccion(' . $post->id . ');return false;">Añadir sección</a>';
+                                break;
+                        endswitch;
+                        ?>
+                        <td style="width: 30%;"><div id="portada_boton_<?php echo $post->id; ?>"><?php echo $link; ?></div><!--<span onclick="agregar_seccion(<?php //echo $post->id;      ?>);
+                                        return false;" > <?php //echo $objCanal->tipo_canales_id == $this->config->item('canal:mi_canal') ? 'Añadir seccion' : '';      ?></span>--></td>
                     </tr>
                 </table>
             </h3>
@@ -73,10 +95,112 @@
     <script>
         $(document).ready(function() {
             //$(function() {
-            $("#accordion").accordion();
+            $("#accordion").accordion({
+                active: false,
+                autoHeight: false,
+                collapsible: true
+            });
             var altura = $(document).height();
             $(".bajada2").css('height', '800');
+            $('.link_portada').click(function(e) {
+                e.stopPropagation();
+                //Your Code here(For example a call to your function)
+            });
         });
+        function eliminar_portada(portada_id, tipo) {
+            jConfirm("Seguro que deseas eliminar este Item?", "Portada", function(r) {
+                if (r) {
+                    var post_url = "/admin/canales/eliminar_portada/" + portada_id;
+                    $.ajax({
+                        type: "POST",
+                        url: post_url,
+                        dataType: 'json',
+                        //data: indexOrder,
+                        success: function(respuesta)
+                        {
+                            if (respuesta.value == 1) {
+                                //location.reload();
+                                $("#" + tipo + "_" + portada_id).empty();
+                                $("#" + tipo + "_" + portada_id).html('Eliminado');
+                                var htmlButton = '';
+                                htmlButton += '<a href="#" onclick="restablecer_portada(' + portada_id + ',\'portada\');return false;" class="link_portada btn">Restablecer</a>';
+                                htmlButton += '<a href="/admin/canales/previsualizar_portada/" target ="_blank" class="btn modal-large">Previsualizar</a>';
+                                htmlButton += '<a href="#" class="link_portada btn" onclick="agregar_seccion(' + portada_id + ');return false;">Añadir sección</a>';
+                                $("#" + tipo + "_boton_" + portada_id).html(htmlButton);
+                                $('.link_portada').click(function(e) {
+                                    e.stopPropagation();
+                                    //Your Code here(For example a call to your function)
+                                });
+                            }
+                        } //end success
+                    }); //end AJAX   
+                }
+            });
+        }
+
+        function restablecer_portada(portada_id, tipo) {
+            jConfirm("Seguro que deseas restablecer este Item?", "Portada", function(r) {
+                if (r) {
+                    var post_url = "/admin/canales/restablecer_portada/" + portada_id;
+                    $.ajax({
+                        type: "POST",
+                        url: post_url,
+                        dataType: 'json',
+                        //data: indexOrder,
+                        success: function(respuesta)
+                        {
+                            if (respuesta.value == 1) {
+                                //location.reload();
+                                $("#" + tipo + "_" + portada_id).empty();
+                                $("#" + tipo + "_" + portada_id).html('Borrador');
+                                var htmlButton = '';
+                                htmlButton += '<a href="/admin/canales/previsualizar_portada/" target ="_blank" class="modal-large btn">Previsualizar</a>';
+                                htmlButton += '<a href="#" onclick="publicar_portada(' + portada_id + ', \'portada\');return false;" class="link_portada btn">Publicar</a>';
+                                htmlButton += '<a href="#" class="link_portada btn">Editar</a>';
+                                htmlButton += '<a href="#" class="link_portada btn" onclick="agregar_seccion(' + portada_id + ');return false;">Añadir sección</a>';
+                                $("#" + tipo + "_boton_" + portada_id).html(htmlButton);
+                                $('.link_portada').click(function(e) {
+                                    e.stopPropagation();
+                                    //Your Code here(For example a call to your function)
+                                });
+                            }
+                        } //end success
+                    }); //end AJAX   
+                }
+            });
+        }
+
+        function publicar_portada(portada_id, tipo) {
+            jConfirm("Seguro que deseas publicar este Item?", "Portada", function(r) {
+                if (r) {
+                    var post_url = "/admin/canales/publicar_portada/" + portada_id;
+                    $.ajax({
+                        type: "POST",
+                        url: post_url,
+                        dataType: 'json',
+                        //data: indexOrder,
+                        success: function(respuesta)
+                        {
+                            if (respuesta.value == 1) {
+                                //location.reload();
+                                $("#" + tipo + "_" + portada_id).empty();
+                                $("#" + tipo + "_" + portada_id).html('Publicado');
+                                var htmlButton = '';
+                                htmlButton += '<a href="/admin/canales/previsualizar_portada/" target ="_blank" class="modal-large btn">Previsualizar</a>';
+                                htmlButton += '<a href="#" class="link_portada btn">Editar</a>';
+                                htmlButton += '<a href="#" onclick="eliminar_portada(' + portada_id + ');return false;" class="link_portada btn">Publicar</a>';
+                                htmlButton += '<a href="#" class="link_portada btn" onclick="agregar_seccion(' + portada_id + ');return false;">Añadir sección</a>';
+                                $("#" + tipo + "_boton_" + portada_id).html(htmlButton);
+                                $('.link_portada').click(function(e) {
+                                    e.stopPropagation();
+                                    //Your Code here(For example a call to your function)
+                                });
+                            }
+                        } //end success
+                    }); //end AJAX   
+                }
+            });
+        }
     </script>
 <?php endif; ?>
     

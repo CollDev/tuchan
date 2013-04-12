@@ -93,7 +93,7 @@
                                     {
                                         //$(".validateTips").empty();
                                         if (respuesta.error == 1) {
-                                            //$(".validateTips").html('<?php //echo lang('portada:portada_existe');   ?>');
+                                            //$(".validateTips").html('<?php //echo lang('portada:portada_existe');    ?>');
                                             updateTips('<?php echo lang('portada:portada_existe'); ?>');
                                         } else {
                                             $(this).dialog("close");
@@ -173,6 +173,8 @@
                 $("#portada_id").val(portada_id);
                 $("#seccion-form").dialog("open");
             }
+
+
         </script>
         <div id="dialog-form" title="Agregar nueva Portada"  style="display:none;">
             <p class="validateTips"><?php echo lang('portada:all_form_fiels_are_required'); ?></p>
