@@ -85,8 +85,8 @@
                                 <?php //echo anchor('blog/' . date('Y/m', '2013') . '/29'. $video->nombre, lang('global:view'), 'class="btn green" target="_blank"');?>
                             <?php endif; ?>
                             <?php //echo anchor('admin/videos/edit/' . $video->id, lang('global:edit'), 'class="btn orange edit"'); ?>
-                            <?php echo anchor('/admin/videos/carga_unitaria/'.$canal->id.'/' . $video->id.'/', lang('global:edit'), 'class="btn orange edit"'); ?>
-                            <?php //echo anchor('admin/videos/delete/' . $video->id, lang('global:delete'), array('class' => 'confirm btn red delete')); ?>
+                            <?php echo anchor('/admin/videos/carga_unitaria/'. $canal->id . '/' . $video->id . '/', lang('global:edit'), 'class="btn orange edit"'); ?>
+                            <?php echo anchor('/admin/videos/corte_video/'. $canal->id . '/' . $video->id . '/', lang('global:cortar'), 'class="btn orange edit"'); ?>                            
                         </td>
                     </tr>
                 <?php endforeach; ?>

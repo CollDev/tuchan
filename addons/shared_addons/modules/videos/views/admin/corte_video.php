@@ -40,7 +40,7 @@
             <span class="mediasplitter-time"><span class="mediasplitter-time-remaming">0.00</span> <span class="opaque">seg.</span> </span>
           </p>         
         </div>
-        <input name="dur_total" id="dur_total"  value="" type="text" readonly />
+        <input name="dur_total" id="dur_total"  value="" type="hidden" readonly />
         <!--# End video section -->
     </div>
     <!--APC hidden field-->
