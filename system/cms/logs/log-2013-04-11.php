@@ -46,3 +46,11 @@ ERROR - 2013-04-11 23:08:27 --> Severity: Notice  --> Undefined variable: canal_
 ERROR - 2013-04-11 23:08:27 --> Severity: Notice  --> Undefined variable: canal_id /home/idigital/Escritorio/adminmicanal/addons/shared_addons/modules/canales/controllers/admin.php 119
 ERROR - 2013-04-11 23:08:27 --> Severity: Notice  --> Undefined variable: canal_id /home/idigital/Escritorio/adminmicanal/addons/shared_addons/modules/canales/controllers/admin.php 142
 ERROR - 2013-04-11 23:35:42 --> Severity: Notice  --> session_start(): ps_files_cleanup_dir: opendir(/var/lib/php5) failed: Permission denied (13) /home/idigital/Escritorio/adminmicanal/system/cms/hooks/pick_language.php 30
+ERROR - 2013-04-11 23:54:16 --> Severity: Warning  --> mysql_connect(): Can't connect to MySQL server on '192.168.1.35' (4) /home/idigital/Escritorio/adminmicanal/system/codeigniter/database/drivers/mysql/mysql_driver.php 84
+ERROR - 2013-04-11 23:54:16 --> Unable to connect to the database
+ERROR - 2013-04-11 23:55:27 --> Severity: Warning  --> mysql_connect(): Can't connect to MySQL server on '192.168.1.35' (4) /home/idigital/Escritorio/adminmicanal/system/codeigniter/database/drivers/mysql/mysql_driver.php 84
+ERROR - 2013-04-11 23:55:27 --> Unable to connect to the database
+ERROR - 2013-04-11 23:56:11 --> Severity: Warning  --> mysql_connect(): Can't connect to MySQL server on '192.168.1.35' (4) /home/idigital/Escritorio/adminmicanal/system/codeigniter/database/drivers/mysql/mysql_driver.php 84
+ERROR - 2013-04-11 23:56:11 --> Unable to connect to the database
+ERROR - 2013-04-11 23:56:37 --> Severity: Warning  --> mysql_connect(): Can't connect to MySQL server on '192.168.1.35' (113) /home/idigital/Escritorio/adminmicanal/system/codeigniter/database/drivers/mysql/mysql_driver.php 84
+ERROR - 2013-04-11 23:56:37 --> Unable to connect to the database
