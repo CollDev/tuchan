@@ -237,7 +237,8 @@ class Videos_m extends MY_Model
                     'usuario_registro' => $objBeanVideo->usuario_registro,
                     'estado_migracion' => $objBeanVideo->estado_migracion,
                     'estado_migracion_sphinx_tit' => $objBeanVideo->estado_migracion_sphinx_tit,
-                    'estado_migracion_sphinx_des' => $objBeanVideo->estado_migracion_sphinx_des
+                    'estado_migracion_sphinx_des' => $objBeanVideo->estado_migracion_sphinx_des,
+                    'padre' => $objBeanVideo->padre
         ));
         $objBeanVideo->alias = $objBeanVideo->alias.'-'.$objBeanVideo->id;
         parent::update($objBeanVideo->id, array('alias'=>$objBeanVideo->alias));
@@ -262,7 +263,8 @@ class Videos_m extends MY_Model
             'horario_transmision_fin' => $objBeanVideo->horario_transmision_fin,
             'ubicacion' =>$objBeanVideo->ubicacion,
             'fecha_actualizacion' => $objBeanVideo->fecha_actualizacion,
-            'usuario_actualizacion' => $objBeanVideo->usuario_actualizacion
+            'usuario_actualizacion' => $objBeanVideo->usuario_actualizacion,
+            'padre' => $objBeanVideo->padre
             ));        
     }
     
