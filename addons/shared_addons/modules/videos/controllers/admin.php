@@ -370,7 +370,7 @@ class Admin extends Admin_Controller {
                         //cambiar nombre del video por el ID del registro del video 
                         $this->renameVideo($objBeanVideo, $nameVideo);
 
-                        $this->load->helper('url');
+                        $this->load->helper('url');                       
                         redirect('/admin/canales/videos/' . $canal_id, 'refresh');
                     }
                 } else {
@@ -460,6 +460,7 @@ class Admin extends Admin_Controller {
             $objBeanForm->keywords = '';
             $objBeanForm->error = $error;
             $objBeanForm->message = $message;
+            $objBeanForm->ruta = $objVideo->ruta; /* adicionado */
             $objBeanForm->tiene_imagen = $this->_tieneAvatar($video_id);
             if ($objBeanForm->tiene_imagen) {
                 $objBeanForm->avatar = $this->_getListImagen($video_id);
@@ -611,6 +612,314 @@ class Admin extends Admin_Controller {
 
         $this->input->is_ajax_request() ?
                         $this->template->build('admin/tables/posts') : $this->template->build('admin/carga_unitaria');
+    }
+
+    public function corte_video($canal_id = 0, $video_id = 0) {
+        //$this->vd($this->input->post());die();
+        $error = false;
+        $message = '';
+        if ($this->input->post()) {
+            umask(0);
+            //asign temp name
+            $idUniq = uniqid();
+            $ext = end(explode('.', $_FILES['video']['name']));
+            $arrayExt = explode("|", $this->config->item('videos:formatos'));
+            if (in_array($ext, $arrayExt)) {
+                if ($_FILES["video"]["size"] > 0 && $_FILES["video"]["size"] <= 2147483648) { //10485760=>10MB 2147483648=>2GB
+                    $nameVideo = $idUniq . '.' . $ext;
+                    move_uploaded_file($_FILES["video"]["tmp_name"], UPLOAD_VIDEOS . $nameVideo);
+                    //validamos que el archivo exista en el servidor
+                    $path_video = FCPATH . UPLOAD_VIDEOS . $nameVideo;
+                    if (file_exists($path_video) && strlen(trim($nameVideo)) > 0) {//validamos que exista el archivo
+                        $user_id = (int) $this->session->userdata('user_id');
+                        $objBeanVideo = new stdClass();
+                        $objBeanVideo->id = NULL;
+                        $objBeanVideo->tipo_videos_id = $this->input->post('tipo');
+                        $objBeanVideo->categorias_id = $this->input->post('categoria');
+                        $objBeanVideo->usuarios_id = $user_id;
+                        $objBeanVideo->canales_id = $this->input->post('canal_id');
+                        //$objBeanVideo->fuente = $this->input->post('fuente');
+                        //$objBeanVideo->nid ='';
+                        $objBeanVideo->titulo = $this->input->post('titulo');
+                        $objBeanVideo->alias = url_title(strtolower(convert_accented_characters($this->input->post('titulo'))));
+                        $objBeanVideo->descripcion = $this->input->post('descripcion_updated');
+                        $objBeanVideo->fragmento = $this->input->post('fragmento');
+                        //$objBeanVideo->codigo ='';
+                        //$objBeanVideo->reproducciones ='';
+                        //$objBeanVideo->duracion ='';
+                        $objBeanVideo->fecha_publicacion_inicio = date("H:i:s", strtotime($this->input->post('fec_pub_ini')));
+                        $objBeanVideo->fecha_publicacion_fin = date("H:i:s", strtotime($this->input->post('fec_pub_fin')));
+                        $objBeanVideo->fecha_transmision = date("Y-m-d H:i:s", strtotime($this->input->post('fec_trans')));
+                        $objBeanVideo->horario_transmision_inicio = date("Y-m-d H:i:s", strtotime($this->input->post('hora_trans_ini')));
+                        $objBeanVideo->horario_transmision_fin = date("Y-m-d H:i:s", strtotime($this->input->post('hora_trans_fin')));
+                        $objBeanVideo->ubicacion = $this->input->post('ubicacion');
+                        //$objBeanVideo->id_mongo ='';
+                        $objBeanVideo->estado = $this->config->item('status:codificando');
+                        $objBeanVideo->estado_liquid = $this->config->item('liquid:nuevo');
+                        ;
+                        $objBeanVideo->fecha_registro = date("Y-m-d H:i:s");
+                        $objBeanVideo->usuario_registro = $user_id;
+                        //$objBeanVideo->fecha_actualizacion ='';
+                        //$objBeanVideo->usuario_actualizacion ='';
+                        $objBeanVideo->estado_migracion = 0; //estado para mongoDB
+                        //$objBeanVideo->fecha_migracion ='';
+                        //$objBeanVideo->fecha_migracion_actualizacion ='';
+                        $objBeanVideo->estado_migracion_sphinx_tit = 0; //
+                        //$objBeanVideo->fecha_migracion_sphinx_tit ='';
+                        //$objBeanVideo->fecha_migracion_actualizacion_sphinx_tit ='';
+                        $objBeanVideo->estado_migracion_sphinx_des = 0;
+                        //$objBeanVideo->fecha_migracion_sphinx_des ='';
+                        //$objBeanVideo->fecha_migracion_actualizacion_sphinx_des ='';
+                        $objBeanVideo = $this->videos_m->save_video($objBeanVideo);
+                        //giardamos los tags de tematica y personajes
+                        $this->_saveTagsTematicaPersonajes($objBeanVideo, $this->input->post());
+                        //guardamos en la tabla grupo detalle
+                        $this->_saveVideoMaestroDetalle($objBeanVideo, $this->input->post());
+                        //cambiar nombre del video por el ID del registro del video 
+                        $this->renameVideo($objBeanVideo, $nameVideo);
+
+                        $this->load->helper('url');                       
+                        redirect('/admin/canales/videos/' . $canal_id, 'refresh');
+                    }
+                } else {
+                    $error = true;
+                    $message = lang('videos:size_invalid');
+                }
+            } else {
+                $error = true;
+                $message = lang('videos:format_invalid');
+            }
+        }
+
+        //creamos un objeto vacio que nos servira de recipiente
+        $objBeanForm = new stdClass();
+        if ($video_id > 0) {
+            //agregar metodo para alimentar al objeto para la edicion
+            $lista = 0;
+            $coleccion = 0;
+            $programa = 0;
+            // verificamos el que el video tenga registros en la tabla detalles de maestro
+            //obtenemos el objeto maestro para obtener el ID y tipo
+            $objGrupoDetalle = $this->grupo_detalle_m->get_by(array("video_id" => $video_id));
+            if (count($objGrupoDetalle) > 0) {
+                $lista = $this->getIdMaestro($objGrupoDetalle->grupo_maestro_padre, $this->config->item('videos:lista'));
+                $coleccion = $this->getIdMaestro($objGrupoDetalle->grupo_maestro_padre, $this->config->item('videos:coleccion'));
+                $programa = $this->getIdMaestro($objGrupoDetalle->grupo_maestro_padre, $this->config->item('videos:programa'));
+                //$objMaestro = $this->grupo_maestro_m->get($objGrupoDetalle->grupo_maestro_padre);
+                //$this->vd($objMaestro);
+                /* switch ($objMaestro->tipo_grupo_maestro_id) {
+                  case $this->config->item('videos:lista'):
+                  $lista = $objMaestro->id;
+                  if ($lista > 0) {
+                  $parentGrupoDetalle = $this->grupo_detalle_m->get_by(array("grupo_maestro_id" => $objMaestro->id));
+                  $objParentMaestro = $this->grupo_maestro_m->get($parentGrupoDetalle->grupo_maestro_padre);
+                  if ($objParentMaestro->tipo_grupo_maestro_id == $this->config->item('videos:coleccion')) {
+                  $coleccion = $objParentMaestro->id;
+                  }
+                  }
+                  //obtenemos el programa si existe
+                  if ($coleccion > 0) {
+                  $programaGrupoDetalle = $this->grupo_detalle_m->get_by(array("grupo_maestro_id" => $objParentMaestro->id));
+                  $objProgramaMaestro = $this->grupo_maestro_m->get($programaGrupoDetalle->grupo_maestro_padre);
+                  if ($objProgramaMaestro->tipo_grupo_maestro_id == $this->config->item('videos:programa')) {
+                  $programa = $objProgramaMaestro->id;
+                  }
+                  }
+                  break;
+                  case $this->config->item('videos:coleccion'):
+                  $coleccion = $objMaestro->id;
+                  //obtenemos el programa si existe
+                  if ($coleccion > 0) {
+                  $programaGrupoDetalle = $this->grupo_detalle_m->get_by(array("grupo_maestro_id" => $objMaestro->id));
+                  $objProgramaMaestro = $this->grupo_maestro_m->get($programaGrupoDetalle->grupo_maestro_padre);
+                  if ($objProgramaMaestro->tipo_grupo_maestro_id == $this->config->item('videos:programa')) {
+                  $programa = $objProgramaMaestro->id;
+                  }
+                  }
+                  break;
+                  case $this->config->item('videos:programa'):
+                  $programa = $objMaestro->id;
+                  break;
+                  } */
+            }
+
+            $objVideo = $this->videos_m->get($video_id);
+            $objBeanForm->video_id = $video_id;
+            $objBeanForm->titulo = $objVideo->titulo;
+            $objBeanForm->video = '';
+            $objBeanForm->descripcion = $objVideo->descripcion;
+            $objBeanForm->fragmento = $objVideo->fragmento;
+            $objBeanForm->categoria = $objVideo->categorias_id;
+            $objBeanForm->tematicas = $this->_getTag($video_id, $this->config->item('tag:tematicas'));
+            $objBeanForm->personajes = $this->_getTag($video_id, $this->config->item('tag:personajes'));
+            $objBeanForm->tipo = $objVideo->tipo_videos_id;
+            $objBeanForm->programa = $programa;
+            $objBeanForm->coleccion = $coleccion;
+            $objBeanForm->lista = $lista;
+            //$objBeanForm->fuente = $objVideo->fuente;
+            $objBeanForm->fec_pub_ini = date("d-m-Y H:i:s", strtotime($objVideo->fecha_publicacion_inicio)); //$objVideo->fecha_publicacion_inicio;
+            $objBeanForm->fec_pub_fin = date("d-m-Y H:i:s", strtotime($objVideo->fecha_publicacion_fin)); //$objVideo->fecha_publicacion_fin;
+            $objBeanForm->fec_trans = date("d-m-Y", strtotime($objVideo->fecha_transmision)); //$objVideo->fecha_transmision;
+            $objBeanForm->hora_trans_ini = $objVideo->horario_transmision_inicio;
+            $objBeanForm->hora_trans_fin = $objVideo->horario_transmision_fin;
+            $objBeanForm->ubicacion = $objVideo->ubicacion;
+            $objBeanForm->canal_id = $canal_id;
+            $objBeanForm->tipo_maestro = '';
+            $objBeanForm->keywords = '';
+            $objBeanForm->error = $error;
+            $objBeanForm->message = $message;
+            $objBeanForm->ruta = $objVideo->ruta; /* adicionado */
+            $objBeanForm->tiene_imagen = $this->_tieneAvatar($video_id);
+            if ($objBeanForm->tiene_imagen) {
+                $objBeanForm->avatar = $this->_getListImagen($video_id);
+            } else {
+                $objBeanForm->avatar = array();
+            }
+        } else {
+            if ($this->input->post()) {
+                $objBeanForm->video_id = $video_id;
+                $objBeanForm->titulo = $this->input->post('titulo');
+                $objBeanForm->video = '';
+                $objBeanForm->descripcion = $this->input->post('descripcion');
+                $objBeanForm->fragmento = $this->input->post('fragmento');
+                $objBeanForm->categoria = $this->input->post('categoria');
+                $objBeanForm->tematicas = $this->input->post('tematicas');
+                $objBeanForm->personajes = $this->input->post('personajes');
+                $objBeanForm->tipo = $this->input->post('tipo');
+                $objBeanForm->programa = $this->input->post('programa');
+                $objBeanForm->coleccion = $this->input->post('coleccion');
+                $objBeanForm->lista = $this->input->post('lista');
+                //$objBeanForm->fuente = $this->input->post('fuente');
+                $objBeanForm->fec_pub_ini = $this->input->post('fec_pub_ini');
+                $objBeanForm->fec_pub_fin = $this->input->post('fec_pub_fin');
+                $objBeanForm->fec_trans = $this->input->post('fec_trans');
+                $objBeanForm->hora_trans_ini = $this->input->post('hora_trans_ini');
+                $objBeanForm->hora_trans_fin = $this->input->post('hora_trans_fin');
+                $objBeanForm->ubicacion = $this->input->post('ubicacion');
+                $objBeanForm->canal_id = $canal_id;
+                $objBeanForm->tipo_maestro = '';
+                $objBeanForm->tiene_imagen = false;
+                $objBeanForm->avatar = array();
+                $objBeanForm->error = $error;
+                $objBeanForm->message = $message;
+                $objBeanForm->keywords = '';
+            } else {
+                $objBeanForm->video_id = $video_id;
+                $objBeanForm->titulo = '';
+                $objBeanForm->video = '';
+                $objBeanForm->descripcion = '';
+                $objBeanForm->fragmento = '';
+                $objBeanForm->categoria = '0';
+                $objBeanForm->tematicas = '';
+                $objBeanForm->personajes = '';
+                $objBeanForm->tipo = '1';
+                $objBeanForm->programa = '0';
+                $objBeanForm->coleccion = '0';
+                $objBeanForm->lista = '0';
+                //$objBeanForm->fuente = $canal_id;
+                $objBeanForm->fec_pub_ini = '';
+                $objBeanForm->fec_pub_fin = '';
+                $objBeanForm->fec_trans = '';
+                $objBeanForm->hora_trans_ini = '';
+                $objBeanForm->hora_trans_fin = '';
+                $objBeanForm->ubicacion = '';
+                $objBeanForm->canal_id = $canal_id;
+                $objBeanForm->tipo_maestro = '';
+                $objBeanForm->tiene_imagen = false;
+                $objBeanForm->avatar = array();
+                $objBeanForm->error = $error;
+                $objBeanForm->message = $message;
+                $objBeanForm->keywords = '';
+            }
+        }
+
+        //$this->config->load('videos/uploads');
+        // Obtener nombre del canal según id
+        $canal = $this->canales_m->get($canal_id);
+        $arrayCategory = $this->categoria_m->getCategoryDropDown(array("categorias_id" => "0"), 'nombre');
+        $arrayTipo = $this->tipo_video_m->getTipoDropDown(array(), 'nombre');
+
+        //$arrayTipoMaestro = $this->tipo_maestro_m->getTipoDropDown(array(), 'nombre');
+        //listamos las listas dependientes con datos filtrados
+        if ($video_id > 0) {
+            //$arrayProgramme = $this->grupo_maestro_m->getCollectionDropDown(array('tipo_grupo_maestro_id' => $this->config->item('videos:programa'), 'canales_id' => $canal_id), 'nombre');
+            //$arrayColeccionVideo = $this->getChild($programa, $coleccion, $lista, $this->config->item('videos:coleccion'), true);
+            //$arrayList = $this->getChild($programa, $coleccion, $lista, $this->config->item('videos:lista'),true);
+            $arrayProgramme = $this->grupo_maestro_m->getCollectionDropDown(array('tipo_grupo_maestro_id' => $this->config->item('videos:programa'), 'canales_id' => $canal_id), 'nombre');
+            if ($programa == 0 && $coleccion == 0 && $lista == 0) {
+                $arrayColeccionVideo = $this->grupo_maestro_m->getCollectionDropDown(array('tipo_grupo_maestro_id' => $this->config->item('videos:coleccion'), 'canales_id' => $canal_id), 'nombre');
+                $arrayList = $this->grupo_maestro_m->getCollectionDropDown(array('tipo_grupo_maestro_id' => $this->config->item('videos:lista'), 'canales_id' => $canal_id), 'nombre');
+            } else {
+                if ($programa > 0) {
+                    $arrayColeccionVideo = $this->getChildMaestro($programa, true, $this->config->item('videos:coleccion'));
+                    if (count($arrayColeccionVideo) > 0) {
+                        if ($coleccion > 0) {
+                            $arrayList = $this->getChildMaestro($coleccion, true, $this->config->item('videos:lista'));
+                        } else {
+                            //$arrayList = array(lang('videos:select_list'));
+                            $arrayList = $this->getChildMaestro($programa, true, $this->config->item('videos:lista'));
+                        }
+                    } else {
+                        $arrayColeccionVideo = array(lang('videos:select_list'));
+                        $arrayList = $this->getChildMaestro($programa, true, $this->config->item('videos:lista'));
+                    }
+                } else {
+                    $arrayColeccionVideo = $this->grupo_maestro_m->getCollectionDropDown(array('tipo_grupo_maestro_id' => $this->config->item('videos:coleccion'), 'canales_id' => $canal_id), 'nombre');
+                    $arrayList = $this->grupo_maestro_m->getCollectionDropDown(array('tipo_grupo_maestro_id' => $this->config->item('videos:lista'), 'canales_id' => $canal_id), 'nombre');
+                }
+            }
+        } else {
+            if ($this->input->post()) {
+                $programa = $this->input->post('programa');
+                $coleccion = $this->input->post('coleccion');
+                $lista = $this->input->post('lista');
+                if ($programa == 0 && $coleccion == 0 && $lista == 0) {
+                    $arrayProgramme = $this->grupo_maestro_m->getCollectionDropDown(array('tipo_grupo_maestro_id' => $this->config->item('videos:programa'), 'canales_id' => $canal_id), 'nombre');
+                    $arrayColeccionVideo = $this->grupo_maestro_m->getCollectionDropDown(array('tipo_grupo_maestro_id' => $this->config->item('videos:coleccion'), 'canales_id' => $canal_id), 'nombre');
+                    $arrayList = $this->grupo_maestro_m->getCollectionDropDown(array('tipo_grupo_maestro_id' => $this->config->item('videos:lista'), 'canales_id' => $canal_id), 'nombre');
+                } else {
+                    $arrayProgramme = $this->grupo_maestro_m->getCollectionDropDown(array('tipo_grupo_maestro_id' => $this->config->item('videos:programa'), 'canales_id' => $canal_id), 'nombre');
+                    if ($programa > 0) {
+                        $arrayColeccionVideo = $this->getChildMaestro($programa, true, $this->config->item('videos:coleccion'));
+                        if ($coleccion > 0) {
+                            $arrayList = $this->getChildMaestro($coleccion, true, $this->config->item('videos:lista'));
+                        } else {
+                            $arrayList = array(lang('videos:select_list'));
+                        }
+                    } else {
+                        $arrayColeccionVideo = $this->grupo_maestro_m->getCollectionDropDown(array('tipo_grupo_maestro_id' => $this->config->item('videos:coleccion'), 'canales_id' => $canal_id), 'nombre');
+                        $arrayList = $this->grupo_maestro_m->getCollectionDropDown(array('tipo_grupo_maestro_id' => $this->config->item('videos:lista'), 'canales_id' => $canal_id), 'nombre');
+                    }
+                }
+            } else {
+                $arrayProgramme = $this->grupo_maestro_m->getCollectionDropDown(array('tipo_grupo_maestro_id' => $this->config->item('videos:programa'), 'canales_id' => $canal_id), 'nombre');
+                $arrayColeccionVideo = $this->_getListMasterChannel($this->grupo_maestro_m->getCollectionDropDown(array('tipo_grupo_maestro_id' => $this->config->item('videos:coleccion'), 'canales_id' => $canal_id), 'nombre'));
+                $arrayList = $this->_getListMasterChannel($this->grupo_maestro_m->getCollectionDropDown(array('tipo_grupo_maestro_id' => $this->config->item('videos:lista'), 'canales_id' => $canal_id), 'nombre'));
+            }
+        }
+
+        $arrayFuente = $this->canales_m->getCanalDropDown(array(), 'nombre');
+        $this->template
+                ->title($this->module_details['name'])
+                ->append_js('AjaxUpload.2.0.min.js')
+                //->set_partial('filters', 'admin/partials/filters')
+                ->set('canal', $canal)
+                ->set('categoria', $arrayCategory)
+                ->set('tipo', $arrayTipo)
+                ->set('programa', $arrayProgramme)
+                ->set('coleccion', $arrayColeccionVideo)
+                ->set('lista_rep', $arrayList)
+                ->set('fuente', $arrayFuente)
+                ->set('objBeanForm', $objBeanForm)
+                ->append_metadata($this->load->view('fragments/wysiwyg', array(), TRUE))
+                ->append_js('jquery/jquery.tagsinput.js')
+                ->append_css('jquery/jquery.tagsinput.css')
+                ->append_js('module::jquery.ddslick.min.js')
+                //->append_js('cms/module::blog_form.js')
+                ->set('carga_unitaria', 'carga_unitaria');
+
+        $this->input->is_ajax_request() ?
+                        $this->template->build('admin/tables/posts') : $this->template->build('admin/corte_video');
     }
 
     public function _getListMasterChannel(&$arrayMaestro) {
@@ -1838,6 +2147,99 @@ class Admin extends Admin_Controller {
                 }
                 //guardamos en la tabla grupo detalle
                 $this->_saveVideoMaestroDetalle($objBeanVideo, $this->input->post(), $maestro_detalle_id);
+                echo json_encode(array("value" => '0'));
+            }
+        }
+    }
+    
+    public function postDatos($url, $post) {
+        
+      
+        
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible;)");
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_POST, TRUE);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+        //curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        //curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
+       // curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-Type: text/xml"));
+        $result = curl_exec($ch);
+        curl_close($ch);
+        
+        //echo "resultadoi:". $result;
+        return $result;
+    }
+    
+    public function insertCorteVideo($canal_id, $video_id) {
+//        print_r($this->input->post());
+        
+        if ($this->input->is_ajax_request()) {
+            if ($this->verificarVideo($canal_id, $video_id, $this->input->post())) {
+                echo json_encode(array("value" => '1'));
+            } else {
+                $user_id = (int) $this->session->userdata('user_id');
+                $objBeanVideo = new stdClass();
+                $objBeanVideo->id = $video_id;
+                $objBeanVideo->tipo_videos_id = $this->input->post('tipo');
+                $objBeanVideo->categorias_id = $this->input->post('categoria');
+                $objBeanVideo->usuarios_id = $user_id;
+                $objBeanVideo->canales_id = $this->input->post('canal_id');
+                //$objBeanVideo->fuente = $this->input->post('fuente');
+                $objBeanVideo->titulo = $this->input->post('titulo');
+                $objBeanVideo->alias = url_title(strtolower(convert_accented_characters($this->input->post('titulo')))) . '-' . $video_id;
+                $objBeanVideo->descripcion = $this->input->post('descripcion_updated');
+                $objBeanVideo->fragmento = 0;
+                $objBeanVideo->fecha_publicacion_inicio = date("Y-m-d H:i:s", strtotime($this->input->post('fec_pub_ini')));
+                $objBeanVideo->fecha_publicacion_fin = date("Y-m-d H:i:s", strtotime($this->input->post('fec_pub_fin')));
+                $objBeanVideo->fecha_transmision = date("Y-m-d H:i:s", strtotime($this->input->post('fec_trans')));
+                $objBeanVideo->horario_transmision_inicio = $this->input->post('hora_trans_ini');
+                $objBeanVideo->horario_transmision_fin = $this->input->post('hora_trans_fin');
+                $objBeanVideo->ubicacion = $this->input->post('ubicacion');
+                $objBeanVideo->fecha_actualizacion = date("Y-m-d H:i:s");
+                $objBeanVideo->usuario_actualizacion = $user_id;
+                
+                $objBeanVideo->estado_liquid = 2;
+                $objBeanVideo->fecha_registro = date("Y-m-d H:i:s");
+                $objBeanVideo->usuario_registro = $user_id;
+                $objBeanVideo->estado_migracion = 0;
+                $objBeanVideo->estado_migracion_sphinx_tit = 0;
+                $objBeanVideo->estado_migracion_sphinx_des = 0;
+                
+                $objBeanVideo->estado = 0;
+                $objBeanVideo->padre = $video_id;
+                
+               // print_r($objBeanVideo);
+               
+                $objvideotemp = $this->videos_m->save_video($objBeanVideo);
+//                print_r($objvideotemp);
+                
+                $this->_saveTagsTematicaPersonajes($objBeanVideo, $this->input->post());
+                //obtenemos el ID del maestro detalle del video
+                $objMaestroDetalle = $this->grupo_detalle_m->get_by(array("video_id" => $objBeanVideo->id));
+                $maestro_detalle_id = NULL;
+                if (count($objMaestroDetalle) > 0) {
+                    //foreach ($objMaestroDetalle as $index => $objDetalle) {
+                    $maestro_detalle_id = $objMaestroDetalle->id;
+                    //}
+                }
+                //guardamos en la tabla grupo detalle
+                $this->_saveVideoMaestroDetalle($objBeanVideo, $this->input->post(), $maestro_detalle_id);
+                
+
+                //$urlpost=  base_url("/procesos/cortevideo.php");
+                $urlpost= "http://localhost/adminmicanal/procesos/cortevideo.php";
+                
+                $post = array(
+                    "id_padre" =>$video_id,
+                    "id_hijo" => $objvideotemp->id,
+                    "inicio" => $this->input->post('ini_corte'),
+                    "duracion" => $this->input->post('dur_corte')  
+                );
+                
+                
+                $this->postDatos($urlpost, $post);
+                
                 echo json_encode(array("value" => '0'));
             }
         }

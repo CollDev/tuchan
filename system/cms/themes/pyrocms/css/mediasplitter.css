@@ -1,0 +1,10 @@
+body { font-family: tahoma, arial; font-size: 12px;}
+
+.mediasplitter { width: 450px; background: #EEE; padding: 10px 20px 10px; border-radius: 3px; border: solid 1px #DDD;  } 
+.mediasplitter-player { margin: 1em 0;}
+.mediasplitter-slider.horizontal { width: 100%;  }
+.mediasplitter .opaque { color: #888; }
+.mediasplitter-time { float:right;}
+.mediasplitter p { vertical-align: baseline; line-height: 20px; }
+.mediasplitter-progress {  overflow: hidden; position: relative; top:-6px;}
+.mediasplitter-progress-indicator {height: 6px;  background-color: #1AA7AC; width:0;  }
