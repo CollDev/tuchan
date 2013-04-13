@@ -21,10 +21,12 @@ class Admin extends Admin_Controller {
      * 
      * @return void
      */
-    public function __construct() {
+    public function __construct() 
+    {
         parent::__construct();
         $this->load->model('canales_m');
         $this->load->model('tipo_canales_m');
+        $this->load->model('imagenes_m');
         $this->load->model('tipo_portada_m');
         $this->load->model('tipo_secciones_m');
         $this->load->model('vw_video_m');
@@ -142,6 +144,8 @@ class Admin extends Admin_Controller {
 
         // Obtiene datos del canal
         $canal = $this->canales_m->get($canal_id);
+        $logo_canal = $this->imagenes_m->getLogo(array('canales_id' => $canal_id, 
+            'tipo_imagen_id' => TIPO_IMAGEN_ISO, 'estado' => ESTADO_ACTIVO));
         $programas = $this->grupo_maestro_m->getCollectionDropDown(array("tipo_grupo_maestro_id" => $this->config->item('videos:programa')), 'nombre');
         // Obtiene la lista de videos según canal seleccionado
         /* $lista_videos = $this->videos_m->get_by_canal($canal_id);
@@ -163,6 +167,7 @@ class Admin extends Admin_Controller {
                 ->set_partial('users', 'admin/tables/users')
                 ->set('pagination', $pagination)
                 ->set('canal', $canal)
+                ->set('logo_canal', $logo_canal)
                 ->set('programa', $programas);
         $this->input->is_ajax_request() ? $this->template->build('admin/tables/users') : $this->template->build('admin/videos');
         /* $this->input->is_ajax_request()
