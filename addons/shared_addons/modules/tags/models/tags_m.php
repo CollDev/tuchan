@@ -72,7 +72,6 @@ class Tags_m extends MY_Model
      * @return string
      */
     public function insert($input = array())
-<<<<<<< HEAD
     {
         //print_r($input);
         //echo 'tematicas: ' . $input['tematicas'] . '<br/>';
@@ -103,43 +102,6 @@ class Tags_m extends MY_Model
         }
             
        return $input['title'];
-=======
-    {        
-        $arr_tematicas = explode(',', $input['tematicas']);
-        $arr_personajes = explode(',', $input['personajes']);
-        
-        // Tags tematicas
-        foreach ($arr_tematicas as $indice => $valor) {
-            
-            $valor = trim($valor);
-            $tag_ids[] = parent::insert(array(
-                                'tipo_tags_id' => '1', // Tags tematicos
-                                'nombre' => $valor,
-                                'descripcion' => $valor,
-                                'alias'  => url_title(strtolower(convert_accented_characters($valor))),
-                                'estado' => '1',
-                                'usuario_registro' => (int) $this->session->userdata('user_id'),
-                                'fecha_registro' => date('Y-m-d H:i:s')
-                        ));
-        }
-        
-        // Tags personajes
-        foreach ($arr_personajes as $indice => $personaje) {
-        
-            $personaje = trim($personaje);
-            $tag_ids[] = parent::insert(array(
-                            'tipo_tags_id' => '2', // Tags personajes
-                            'nombre' => $personaje,
-                            'descripcion' => $personaje,
-                            'alias'  => url_title(strtolower(convert_accented_characters($personaje))),
-                            'estado' => '1',
-                            'usuario_registro' => (int) $this->session->userdata('user_id'),
-                            'fecha_registro' => date('Y-m-d H:i:s')
-                    ));
-        }
-            
-       return $tag_ids;
->>>>>>> 1201ee8a8121b87db20ea4af381bef22058262ef
     }
 
 //

@@ -929,3 +929,46 @@ ul#news-feed {
 .pagination span a:hover {
 	background-color: #F3F3F3;
 }
+
+/* CLASES AÑADIDAS */
+
+section.menu{
+background-color: rgb(136, 130, 141);
+width: 100%;
+min-height: 25px;
+padding-top: 10px;
+padding-left: 15px;
+}
+
+
+section.menu a{
+padding-left: 45px;
+color: white;
+display: block;
+float: left;
+min-height: 20px;
+background:url(../images/new_icon.png) no-repeat left center;
+}
+
+
+
+
+.mode_edit, .mode_delete, .mode_preview{
+	display:block;
+	float:left;
+	padding-top: 30px;
+	padding-right: 5px;
+	font-size: 10px;
+}
+
+.mode_edit{
+	background:url(../images/edit_icon.png) no-repeat top center;
+}
+
+.mode_delete{
+	background:url(../images/edit_delete.png) no-repeat top center;
+}
+
+.mode_preview{
+	background:url(../images/edit_view.png) no-repeat top center;
+}
