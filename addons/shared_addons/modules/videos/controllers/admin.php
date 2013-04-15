@@ -370,7 +370,7 @@ class Admin extends Admin_Controller {
                         //cambiar nombre del video por el ID del registro del video 
                         $this->renameVideo($objBeanVideo, $nameVideo);
 
-                        $this->load->helper('url');                       
+                        $this->load->helper('url');
                         redirect('/admin/canales/videos/' . $canal_id, 'refresh');
                     }
                 } else {
@@ -678,7 +678,7 @@ class Admin extends Admin_Controller {
                         //cambiar nombre del video por el ID del registro del video 
                         $this->renameVideo($objBeanVideo, $nameVideo);
 
-                        $this->load->helper('url');                       
+                        $this->load->helper('url');
                         redirect('/admin/canales/videos/' . $canal_id, 'refresh');
                     }
                 } else {
@@ -1268,6 +1268,17 @@ class Admin extends Admin_Controller {
                 if ($objBeanMaestroSaved->tipo_grupo_maestro_id == $this->config->item('videos:programa')) {
                     $objCanal = $this->canales_m->get($this->input->post('canal_id'));
                     $this->generarNuevaPortada($objCanal, $objBeanMaestroSaved, $this->config->item('portada:programa'));
+                } else {
+                    if ($objBeanMaestroSaved->tipo_grupo_maestro_id == $this->config->item('videos:coleccion')) {
+                        //generamos la seccion para la coleccion
+                        if ($this->input->post('programa') > 0) {
+                            //generamos una seccion coleccion para el programa
+                            $this->generarSeccionColeccion($this->input->post('programa'), $objBeanMaestroSaved);
+                        }else{
+                            //generamos  una seccion coleccion para el canal
+                            //$this->generarSeccionColeccionCanal();
+                        }
+                    }
                 }
                 $returnValue = array();
                 $returnValue[$objBeanMaestroSaved->id] = $objBeanMaestroSaved->nombre;
@@ -1275,6 +1286,49 @@ class Admin extends Admin_Controller {
             }
             echo(json_encode($returnValue));
         }
+    }
+
+    public function generarSeccionColeccion($programa_id, $objMaestro) {
+        $objPortada = $this->portada_m->get_by(array("tipo_portadas_id" => $this->config->item('portada:programa'), "origen_id" => $programa_id));
+        if (count($objPortada) > 0) {
+            $user_id = (int) $this->session->userdata('user_id');
+            $objBeanSeccion = new stdClass();
+            $objBeanSeccion->id = NULL;
+            $objBeanSeccion->nombre = $objMaestro->nombre;
+            $objBeanSeccion->descripcion = $objMaestro->descripcion;
+            $objBeanSeccion->tipo = 0;
+            $objBeanSeccion->portadas_id = $objPortada->id;
+            $objBeanSeccion->tipo_secciones_id = $this->config->item('seccion:coleccion');
+            $objBeanSeccion->reglas_id = NULL;
+            $objBeanSeccion->categorias_id = NULL;
+            $objBeanSeccion->tags_id = NULL;
+            $objBeanSeccion->peso = $this->obtenerPesoSeccionPortada($objPortada->id);
+            $objBeanSeccion->id_mongo = NULL;
+            $objBeanSeccion->estado = $this->config->item('estado:borrador');
+            $objBeanSeccion->templates_id = $this->config->item('template:8items');
+            $objBeanSeccion->fecha_registro = date("Y-m-d H:i:s");
+            $objBeanSeccion->usuario_registro = $user_id;
+            $objBeanSeccion->fecha_actualizacion = date("Y-m-d H:i:s");
+            $objBeanSeccion->usuario_actualizacion = $user_id;
+            $objBeanSeccion->estado_migracion = $this->config->item('migracion:nuevo');
+            $objBeanSeccion->fecha_migracion = '0000-00-00 00:00:00';
+            $objBeanSeccion->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
+            $objBeanSeccion->grupo_maestros_id = $objMaestro->id;
+            $objBeanSeccionSaved = $this->secciones_m->save($objBeanSeccion);
+        }
+    }
+
+    private function obtenerPesoSeccionPortada($portada_id) {
+        $peso = 1;
+        $secciones = $this->portada_m->order_by('peso', 'ASC')->get_many_by(array("portadas_id" => $portada_id));
+        if (count($secciones) > 0) {
+            $nuevo_peso = 2;
+            foreach ($secciones as $puntero => $objSeccion) {
+                $this->secciones_m->update($objSeccion->id, array("peso"=>$nuevo_peso, "estado_migracion"=>$this->config->item('migracion:actualizado')));
+                $nuevo_peso++;
+            }
+        }
+        return $peso;
     }
 
     public function existNameMaestro($nombre_maestro, $tipo_grupo_maestro_id, $post) {
@@ -1907,6 +1961,7 @@ class Admin extends Admin_Controller {
                     $objBeanSeccion->estado_migracion = '0';
                     $objBeanSeccion->fecha_migracion = '0000-00-00 00:00:00';
                     $objBeanSeccion->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
+                     $objBeanSeccion->grupo_maestros_id = NULL;
                     $objBeanSeccionSaved = $this->secciones_m->save($objBeanSeccion);
 
                     /* registramos el detalle de la session, listo todos los programas del canal
@@ -2000,6 +2055,7 @@ class Admin extends Admin_Controller {
                             $objBeanSeccion->estado_migracion = '0';
                             $objBeanSeccion->fecha_migracion = '0000-00-00 00:00:00';
                             $objBeanSeccion->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
+                            $objBeanSeccion->grupo_maestros_id = NULL;
                             $objBeanSeccionSaved = $this->secciones_m->save($objBeanSeccion);
 
                             //$objListaGrupoMaestro = $this->obtenerMaestrosParaSecciones($objTipoSeccion->id, $objCanal->id, $objetoMaestro);
@@ -2087,6 +2143,7 @@ class Admin extends Admin_Controller {
                         $objBeanSeccion->estado_migracion = '0';
                         $objBeanSeccion->fecha_migracion = '0000-00-00 00:00:00';
                         $objBeanSeccion->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
+                        $objBeanSeccion->grupo_maestros_id = NULL;
                         $objBeanSeccionSaved = $this->secciones_m->save($objBeanSeccion);
                     }
                 }
@@ -2732,7 +2789,7 @@ class Admin extends Admin_Controller {
         }
     }
 
-    private function generarNuevaPortada($objCanal, $objMaestro=NULL, $tipo_portada) {
+    private function generarNuevaPortada($objCanal, $objMaestro = NULL, $tipo_portada) {
         $user_id = (int) $this->session->userdata('user_id');
         //creamos el registro de portada
         $objBeanPortada = new stdClass();
@@ -2802,6 +2859,7 @@ class Admin extends Admin_Controller {
                 $objBeanSeccion->estado_migracion = '0';
                 $objBeanSeccion->fecha_migracion = '0000-00-00 00:00:00';
                 $objBeanSeccion->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
+                $objBeanSeccion->grupo_maestros_id = NULL;
                 $objBeanSeccionSaved = $this->secciones_m->save($objBeanSeccion);
 
                 //verificamos que es de portada de tipo programa para que registre su destacado

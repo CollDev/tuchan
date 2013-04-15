@@ -42,7 +42,8 @@ class Secciones_m extends MY_Model {
                 'usuario_actualizacion' => $objBeanSeccion->usuario_actualizacion,
                 'estado_migracion' => $objBeanSeccion->estado_migracion,
                 'fecha_migracion' => $objBeanSeccion->fecha_migracion,
-                'fecha_migracion_actualizacion' => $objBeanSeccion->fecha_migracion_actualizacion
+                'fecha_migracion_actualizacion' => $objBeanSeccion->fecha_migracion_actualizacion,
+                'grupo_maestros_id' => $objBeanSeccion->grupo_maestros_id
         ));
         return $objBeanSeccion;           
     }

@@ -851,6 +851,7 @@ class Admin extends Admin_Controller {
                     $objBeanSeccion->estado_migracion = '0';
                     $objBeanSeccion->fecha_migracion = '0000-00-00 00:00:00';
                     $objBeanSeccion->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
+                    $objBeanSeccion->grupo_maestros_id = NULL;
                     $objBeanSeccionSaved = $this->secciones_m->save($objBeanSeccion);
 
                     /* registramos el detalle de la session, listo todos los programas del canal
@@ -944,6 +945,7 @@ class Admin extends Admin_Controller {
                             $objBeanSeccion->estado_migracion = '0';
                             $objBeanSeccion->fecha_migracion = '0000-00-00 00:00:00';
                             $objBeanSeccion->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
+                            $objBeanSeccion->grupo_maestros_id = NULL;
                             $objBeanSeccionSaved = $this->secciones_m->save($objBeanSeccion);
 
                             //$objListaGrupoMaestro = $this->obtenerMaestrosParaSecciones($objTipoSeccion->id, $objCanal->id, $objetoMaestro);
@@ -1031,6 +1033,7 @@ class Admin extends Admin_Controller {
                         $objBeanSeccion->estado_migracion = '0';
                         $objBeanSeccion->fecha_migracion = '0000-00-00 00:00:00';
                         $objBeanSeccion->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
+                        $objBeanSeccion->grupo_maestros_id = NULL;
                         $objBeanSeccionSaved = $this->secciones_m->save($objBeanSeccion);
                     }
                 }
@@ -2799,6 +2802,7 @@ class Admin extends Admin_Controller {
                 $objBeanSeccion->estado_migracion = 0;
                 $objBeanSeccion->fecha_migracion = '0000-00-00 00:00:00';
                 $objBeanSeccion->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
+                $objBeanSeccion->grupo_maestros_id = NULL;
                 $objBeanSeccionSaved = $this->secciones_m->save($objBeanSeccion);
                 $estado = 'Borrador';
                 $acciones = 'Previsualizar | Publicar | Editar | Eliminar';
@@ -2908,6 +2912,7 @@ class Admin extends Admin_Controller {
                 $objBeanSeccion->estado_migracion = '0';
                 $objBeanSeccion->fecha_migracion = '0000-00-00 00:00:00';
                 $objBeanSeccion->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
+                $objBeanSeccion->grupo_maestros_id = NULL;
                 $objBeanSeccionSaved = $this->secciones_m->save($objBeanSeccion);
 
                 //verificamos que es de portada de tipo programa para que registre su destacado
