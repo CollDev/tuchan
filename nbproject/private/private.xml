@@ -2,14 +2,9 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/1">
-        <file>file:/home/idigital/Escritorio/adminmicanal/system/cms/themes/pyrocms/views/admin/login.php</file>
-        <file>file:/home/idigital/Escritorio/adminmicanal/system/cms/themes/pyrocms/css/admin/style.css</file>
-        <file>file:/home/idigital/Escritorio/adminmicanal/addons/shared_addons/modules/canales/controllers/admin.php</file>
-        <file>file:/home/idigital/Escritorio/adminmicanal/addons/shared_addons/modules/canales/views/admin/videos.php</file>
-        <file>file:/home/idigital/Escritorio/adminmicanal/system/cms/themes/pyrocms/views/admin/partials/header.php</file>
-        <file>file:/home/idigital/Escritorio/adminmicanal/addons/shared_addons/modules/canales/models/imagenes_m.php</file>
-        <file>file:/home/idigital/Escritorio/adminmicanal/system/cms/config/constants.php</file>
-        <file>file:/home/idigital/Escritorio/adminmicanal/system/cms/themes/pyrocms/css/workless/application.css</file>
-        <file>file:/home/idigital/Escritorio/adminmicanal/addons/shared_addons/modules/videos/controllers/admin.php</file>
+        <file>file:/var/www/local.adminmicanal.com/index.php</file>
+        <file>file:/var/www/local.adminmicanal.com/addons/shared_addons/modules/canales/controllers/admin.php</file>
+        <file>file:/var/www/local.adminmicanal.com/addons/shared_addons/modules/canales/models/imagenes_m.php</file>
+        <file>file:/var/www/local.adminmicanal.com/system/cms/config/database.php</file>
     </open-files>
 </project-private>
