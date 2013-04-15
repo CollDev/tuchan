@@ -1,7 +1,7 @@
 <noscript>
 	<span>PyroCMS requires that JavaScript be turned on for many of the functions to work correctly. Please turn JavaScript on and reload the page.</span>
 </noscript>
-
+<script src="<?php echo base_url("system/cms/themes/pyrocms/js/fix_channels.js") ?>"></script>
 <div class="topbar" dir=<?php $vars = $this->load->_ci_cached_vars; echo $vars['lang']['direction']; ?>>
 	
 	<div class="wrapper">
@@ -20,7 +20,7 @@
 <div class="subbar">
 	<div class="wrapper">
 
-		<h2 class="channel_item"><?php echo $module_details['name'] ? anchor('admin/'.$module_details['slug'], 'ddd: ' . $module_details['name']) : lang('global:dashboard'); ?>
+		<h2 class="channel_item"><?php echo $module_details['name'] ? anchor('admin/'.$module_details['slug'], $module_details['name']) : lang('global:dashboard'); ?>
 	
 		<!--<small>-->
 			<?php if ( $this->uri->segment(2) ) { echo '&nbsp; | &nbsp;'; } ?>
