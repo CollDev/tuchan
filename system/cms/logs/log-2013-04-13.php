@@ -13,3 +13,4 @@ ERROR - 2013-04-13 00:14:22 --> Severity: Notice  --> Undefined property: stdCla
 ERROR - 2013-04-13 00:20:23 --> Query error: Incorrect integer value: '' for column 'fragmento' at row 1
 ERROR - 2013-04-13 00:20:53 --> Query error: Incorrect integer value: '' for column 'fragmento' at row 1
 ERROR - 2013-04-13 00:22:10 --> Query error: Incorrect integer value: '' for column 'fragmento' at row 1
+ERROR - 2013-04-13 17:03:44 --> Severity: Notice  --> unserialize(): Error at offset 40858 of 47195 bytes /home/user/Escritorio/adminmicanal/system/cms/libraries/Simplepie.php 230
