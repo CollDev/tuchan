@@ -1,4 +1,11 @@
 <?php
+<<<<<<< HEAD
+define('UPLOAD_IMAGENES_VIDEOS', 'uploads/imagenes/');
+define('UPLOAD_VIDEOS', 'uploads/videos/');
+
+$config['videos:imagenes'] = UPLOAD_IMAGENES_VIDEOS;
+$config['videos:videos']   = UPLOAD_VIDEOS;
+=======
 define('UPLOAD_IMAGENES_VIDEOS', './uploads/imagenes/');
 define('UPLOAD_VIDEOS', 'uploads/videos/');
 
@@ -63,6 +70,9 @@ $config['server:elemento'] = 'dev.e.micanal.e3.pe';
 
 //protocolos
 $config['protocolo:http'] = 'http://';
+<<<<<<< HEAD
+>>>>>>> 1201ee8a8121b87db20ea4af381bef22058262ef
+=======
 
 //secciones
 $config['seccion:destacado'] = '1';
@@ -100,3 +110,4 @@ $config['grupo:administrador-canales'] = '4';
 
 //tipo de canal
 $config['canal:mi_canal'] = '5';
+>>>>>>> c85177a8c0c2c3d827e64f8054e62c681aa45ef2

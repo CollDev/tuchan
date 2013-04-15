@@ -144,9 +144,13 @@
                     if (el.getState() == 4) {
                         el.seek(stats[0]);
                         window.clearInterval(chekStatusTimer);
-                        dur_video = $("#dur_corte").val();
+                        
+                       
+                        if (dur_video == "") {
+                            dur_video = $("#dur_corte").val();                            
+                        }
                         $("#dur_total").val(dur_video);
-
+                       
                     }
                 }, 25);
             }

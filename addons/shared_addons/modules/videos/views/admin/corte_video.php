@@ -21,7 +21,7 @@
     $hidden = array('canal_id' => $canal->id);
 
     $attributes = array('class' => 'frm', 'id' => 'frm', 'name' => 'frm');
-    echo form_open_multipart('admin/videos/carga_unitaria/'.$canal->id, $attributes, $hidden);
+    echo form_open_multipart('admin/videos/insertCorteVideo/'.$canal->id, $attributes, $hidden);
     //echo form_open_multipart('file.php', $attributes, $hidden);
     ?>
     <!-- Editor de videos -->
@@ -32,15 +32,15 @@
           <div class="mediasplitter-progress"><div class="mediasplitter-progress-indicator"></div></div>
           <p>
             <span class="opaque">Comienza:</span> 
-            <input name="ini_corte" id="ini_corte" class="mediasplitter-time-start" value="" type="text" size="5" readonly /> 
-            <input name="dur_total" id="dur_total" class="mediasplitter-time-start" value="" type="hidden" readonly />
+            <input name="ini_corte" id="ini_corte" class="mediasplitter-time-start" value="" type="text" size="5" readonly />             
             <span class="opaque">Termina:</span> <input name="fin_corte" id="fin_corte" class="mediasplitter-time-end" value="" size="5" type="
             text" readonly /> 
             <span class="opaque">Duración</span> <input name="dur_corte" id="dur_corte" class="mediasplitter-time-dur" value="" size="5" type="
             text" readonly /> 
             <span class="mediasplitter-time"><span class="mediasplitter-time-remaming">0.00</span> <span class="opaque">seg.</span> </span>
-          </p>
+          </p>         
         </div>
+        <input name="dur_total" id="dur_total"  value="" type="hidden" readonly />
         <!--# End video section -->
     </div>
     <!--APC hidden field-->
@@ -64,13 +64,14 @@
         
         <!-- fragmento -->
         <br/>
-        <label for="fragmento"><?php echo lang('videos:fragmento_label'); ?></label>
+        <!-- <label for="fragmento"><?php echo lang('videos:fragmento_label'); ?></label>
         <?php echo form_error('fragmento'); ?><br />
+        -->
         <?php
             $valores = array(lang("videos:select_fragment"),"1","2","3","4","5","6","7","8","9","10");
         ?>
-        <?php echo form_dropdown('fragmento', $valores,$objBeanForm->fragmento, 'onChange="addTitle()"'); ?>        
-        <br /><br />
+        <?php //echo form_dropdown('fragmento', $valores,$objBeanForm->fragmento, 'onChange="addTitle()"'); ?>        
+       
         <?php if($objBeanForm->video_id == 0){ ?>
             <!-- video -->
             <label for="video"><?php echo lang('videos:video'); ?><span class="required">*</span></label>
@@ -303,7 +304,8 @@
         ?>
     </div>
     <script type="text/javascript" >
-        var dur_video;
+        var dur_video="";
+        //alert(dur_video);
         
         function activeImageVideo(imagen_id){
             var values = {};
@@ -376,6 +378,10 @@
          * @returns {undefined}
          */
         function saveVideo(){
+            
+            if($("#dur_corte").val()==dur_video){
+                showMessage('error', 'La duracion del nuevo video debe ser diferente al original', 2000,'');                
+            }else{
             var values = {};
             $.each($('#frm').serializeArray(), function(i, field) {
                 values[field.name] = field.value;
@@ -395,11 +401,11 @@
             values['personajes'] = $.trim(values['personajes']);
             if(titulo.length > 0){
                 //validamos el input file
-                if(inputfile.length > 0){
+                if(true){
                     //verificamos si el formato del archivo es valido
-                    var arrayFile = inputfile.split('.');
-                    var ext = arrayFile[arrayFile.length -1];
-                    if ( (ext && /^(mp4|mpg|flv|avi|wmv)$/.test(ext))){
+//                    var arrayFile = inputfile.split('.');
+//                    var ext = arrayFile[arrayFile.length -1];
+                    if (true){
                         //validamos el ckeditor
                         var editorText = CKEDITOR.instances.descripcion.getData();
                         editorText = $.trim(editorText);
@@ -421,29 +427,29 @@
                                                 //var repite = $("#existe_fragmento").val();
                                                 //console.log(repite);
                                                 if(true){
-                                                    <?php if($objBeanForm->video_id > 0){ ?>
-                                                        var serializedData = $('#frm').serialize();
-                                                        //var post_url = "/admin/videos/save_maestro/"+values['txt_'+type_video]+"/"+values['canal_id']+"/"+values['categoria']+"/"+type_video;
-                                                        var post_url = "/admin/videos/updateVideo/"+values['canal_id']+"/"+values['video_id'];
-                                                        $.ajax({
-                                                            type: "POST",
-                                                            url: post_url,
-                                                            dataType: 'json',
-                                                            data:serializedData,
-                                                            success: function(returnValue) //we're calling the response json array 'cities'
-                                                            {
-                                                                //console.log(returnValue.value);
-                                                                if(returnValue.value == '0'){
-                                                                    showMessage('exit', '<?php echo lang('videos:edit_video_success') ?>', 1000,'');
-                                                                }else{
-                                                                   showMessage('error', '<?php echo lang('videos:fragment_exist') ?>', 2000,''); 
-                                                                }
-                                                            } //end success
-                                                        }); //end AJAX                                                    
-                                                    <?php }else { ?>                           
-                                                        //$('#frm').submit();
-                                                            existeFragmento();
-                                                    <?php } ?>
+                                                    <?php if ($objBeanForm->video_id > 0) { ?>
+                                                                var serializedData = $('#frm').serialize();
+                                                                //var post_url = "/admin/videos/save_maestro/"+values['txt_'+type_video]+"/"+values['canal_id']+"/"+values['categoria']+"/"+type_video;
+                                                                var post_url = "/admin/videos/insertCorteVideo/"+values['canal_id']+"/"+values['video_id'];
+                                                                $.ajax({
+                                                                    type: "POST",
+                                                                    url: post_url,
+                                                                    dataType: 'json',
+                                                                    data:serializedData,
+                                                                    success: function(returnValue) //we're calling the response json array 'cities'
+                                                                    {
+                                                                        //console.log(returnValue.value);
+                                                                        if(returnValue.value == '0'){
+                                                                            showMessage('exit', '<?php echo lang('videos:edit_video_success') ?>', 1000,'');
+                                                                        }else{
+                                                                           showMessage('error', '<?php echo lang('videos:fragment_exist') ?>', 2000,''); 
+                                                                        }
+                                                                    } //end success
+                                                                }); //end AJAX                                                    
+                                                                    <?php } else { ?>                           
+                                                                        //$('#frm').submit();
+                                                                            existeFragmento();
+                                                                    <?php } ?>
                                                     }else{
                                                         showMessage('error', '<?php echo lang('videos:fragment_exist') ?>', 2000,'');
                                                     }
@@ -475,6 +481,8 @@
                 
             }else{
                 showMessage('error', '<?php echo lang('videos:require_title') ?>', 2000,'');
+            }
+                
             }
         }
         /**

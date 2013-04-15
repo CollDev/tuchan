@@ -1,5 +1,9 @@
 {
   "list1": "List A",
+<<<<<<< HEAD
+  "list2": "List B"
+=======
   "list2": "List B",
+>>>>>>> 1201ee8a8121b87db20ea4af381bef22058262ef
   "list3": "List C"
 }

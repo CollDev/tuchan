@@ -1,5 +1,9 @@
 {
   "collection1": "First Season",
+<<<<<<< HEAD
+  "collection2": "Second Season"
+=======
   "collection2": "Second Season",
+>>>>>>> 1201ee8a8121b87db20ea4af381bef22058262ef
   "collection3": "Third Season"
 }

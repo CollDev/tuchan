@@ -99,6 +99,7 @@ $lang['global:view'] = 'Ver';
 $lang['global:preview'] = 'Previsualización';
 $lang['global:add'] = 'Añadir';
 $lang['global:edit'] = 'Editar';
+$lang['global:cortar'] = 'Cortar';
 $lang['global:empty'] = 'Vaciar';
 $lang['global:delete'] = 'Eliminar';
 $lang['global:remove'] = 'Eliminar';

@@ -17,7 +17,10 @@ $lang['videos:etiquetas_tematicas_label'] = 'Etiquetas temáticas';
 $lang['videos:etiquetas_personajes_label'] = 'Etiquetas personajes';
 $lang['videos:duracion'] = 'Duración';
 $lang['videos:fecha_subida_label'] = 'Fecha subida';
+<<<<<<< HEAD
+=======
 $lang['videos:fecha_publicacion_label'] = 'Fecha publicación';
+>>>>>>> 1201ee8a8121b87db20ea4af381bef22058262ef
 $lang['videos:fecha_publicacion_inicio_label'] = 'Fecha publicación inicio';
 $lang['videos:fecha_publicacion_fin_label'] = 'Fecha publicación fin';
 $lang['videos:fecha_transmision_label'] = 'Fecha transmisión';
@@ -25,11 +28,17 @@ $lang['videos:horario_transmision_inicio_label'] = 'Horario trans. inicio';
 $lang['videos:horario_transmision_fin_label'] = 'Horario trans. fin';
 $lang['videos:ubicacion_label'] = 'Ubicación';
 $lang['videos:tamanio_label'] = 'Tamaño';
+<<<<<<< HEAD
+=======
 $lang['videos:inicio'] = 'Inicio';
 $lang['videos:fin'] = 'Fin';
 $lang['videos:horaio_transmision'] = 'Horario de transmisión';
 $lang['videos:avatar'] = 'Imagen';
+<<<<<<< HEAD
+>>>>>>> 1201ee8a8121b87db20ea4af381bef22058262ef
+=======
 $lang['videos:require_images']        = 'Es necesario subir una imagen';
+>>>>>>> c85177a8c0c2c3d827e64f8054e62c681aa45ef2
 
 // estados
 $lang['videos:0_estado'] =  'Codificando';
@@ -45,6 +54,8 @@ $lang['videos:delete_success']         = 'El video "%s" ha sido eliminado.';
 $lang['videos:mass_delete_success']    = 'Los videos "%s" han sido eliminados.';
 $lang['videos:delete_error']           = 'Los videos no fueron eliminados.';
 
+<<<<<<< HEAD
+=======
 //envios masivos
 $lang['videos:no_items']                  = 'No hay items.';
 $lang['videos:title_bulk_load']           = 'Carga masiva';
@@ -96,8 +107,12 @@ $lang['videos:require_source']          = 'Seleccione la fuente del video.';
 $lang['videos:require_description']          = 'Ingrese la descripción del video.';
 $lang['videos:fragment_exist']          = 'Ya existe un video con estos datos.';
 
+<<<<<<< HEAD
+>>>>>>> 1201ee8a8121b87db20ea4af381bef22058262ef
+=======
 //maestros
 $lang['maestros:organizar_videos'] = 'Organizar videos';
 $lang['maestros:maestro_existe']          = 'El nombre maestro ya existe.';
 $lang['coleccion:temporada']          = 'Temporada 1';
+>>>>>>> c85177a8c0c2c3d827e64f8054e62c681aa45ef2
 /* End of file videos_lang.php */
