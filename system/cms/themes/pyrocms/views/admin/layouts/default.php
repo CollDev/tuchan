@@ -39,15 +39,7 @@
 
     <!--BEGIN FRONTEND CODE-->
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<link rel="stylesheet" media="all" type="text/css" href="http://code.jquery.com/ui/1.10.0/themes/smoothness/jquery-ui.css" />
-=======
-<link rel="stylesheet" media="all" type="text/css" href="<?php echo BASE_URL.APPPATH ?>themes/pyrocms/css/jquery/ui-lightness/jquery-ui.css" />
->>>>>>> 1201ee8a8121b87db20ea4af381bef22058262ef
-=======
     <link rel="stylesheet" media="all" type="text/css" href="<?php echo BASE_URL . APPPATH ?>themes/pyrocms/css/jquery/ui-lightness/jquery-ui.css" />
->>>>>>> c85177a8c0c2c3d827e64f8054e62c681aa45ef2
 
     <style>
         .ui-timepicker-div .ui-widget-header{ margin-bottom: 8px; }
@@ -57,124 +49,13 @@
         .ui-timepicker-div td { font-size: 90%; }
     </style>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<script src="http://ckeditor.com/apps/ckeditor/4.0.1/ckeditor.js"></script><!--<style>.cke{visibility:hidden;}</style>-->
-<link rel="stylesheet" type="text/css" href="http://ckeditor.com/apps/ckeditor/4.0.1/skins/moono/editor.css?t=D08H" />    
-<script src="http://timjames.me/themes/timjames.me/scripts/libs/jquery-ui-timepicker.js"></script>       
-=======
-<!--<script src="<?php //echo BASE_URL.APPPATH ?>themes/pyrocms/js/ckeditor/ckeditor.js"></script>-->
-<!--<link rel="stylesheet" type="text/css" href="<?php //echo BASE_URL.APPPATH ?>themes/pyrocms/js/ckeditor/skins/kama/editor.css?t=D08H" />-->
-<script src="<?php echo BASE_URL.APPPATH ?>themes/pyrocms/js/jquery-ui-timepicker.js"></script>
->>>>>>> 1201ee8a8121b87db20ea4af381bef22058262ef
-=======
 <!--<script src="<?php //echo BASE_URL.APPPATH   ?>themes/pyrocms/js/ckeditor/ckeditor.js"></script>-->
 <!--<link rel="stylesheet" type="text/css" href="<?php //echo BASE_URL.APPPATH   ?>themes/pyrocms/js/ckeditor/skins/kama/editor.css?t=D08H" />-->
     <script src="<?php echo BASE_URL . APPPATH ?>themes/pyrocms/js/jquery-ui-timepicker.js"></script>
->>>>>>> c85177a8c0c2c3d827e64f8054e62c681aa45ef2
 
 
 <!--		<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>-->
 <!--		<script type="text/javascript" src="../../../js/google_dynamic_map.js"></script>-->
-<<<<<<< HEAD
-<script type="text/javascript" >
-<<<<<<< HEAD
-CKEDITOR.replace( 'editor1', {
-	toolbarGroups: [
-		{ name: 'document',	   groups: [ 'mode', 'document' ] },			
- 		{ name: 'clipboard',   groups: [ 'clipboard', 'undo' ] },			
- 		'/',																
- 		{ name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
- 		{ name: 'links' }
-	]
-
-	
-});
-
-=======
-   /* jQuery(function($) {
-        $('textarea[name="descripcion"]').ckeditor({
-                toolbar: [
-                        ['Bold', 'Italic', '-', 'NumberedList', 'BulletedList', '-', 'Link', 'Unlink']
-                  ],
-                width: '99%',
-                height: 100,
-                dialog_backgroundCoverColor: '#000',
-                defaultLanguage: 'en',
-                language: 'es'
-        });
-    });*/
->>>>>>> 1201ee8a8121b87db20ea4af381bef22058262ef
-// GOOGLE MAPS
-/*function initialize() 
-{
-
-	geocoder = new google.maps.Geocoder();
-	var latlng = new google.maps.LatLng(37.7699298, -122.4469157);
-
-	var myOptions = {
-		zoom: 16,
-		center: latlng,
-		panControl: true,
-		zoomControl: true,
-		scaleControl: true,
-		mapTypeId: google.maps.MapTypeId.ROADMAP
-	}
-
-	map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
-	marker = new google.maps.Marker({
-		map: map,
-		draggable:true,	
-		position: latlng
-	});
-	
-
-	google.maps.event.addListener(marker, 'dragend', function() {
-		
-
-		var point = marker.getPosition();
-		map.panTo(point);
-		document.getElementById('txt_latlng').value=point.lat()+", "+point.lng();
-	});
-}
-*/
-
-</script>
-
-<style>
-.frm_content{ font-family:Arial, Helvetica, sans-serif;}
-.left_arm{
-	width:46%;
-	float:left;
-	padding:2%;
-}
-.right_arm{
-	width:46%;
-	float:left;
-	padding:2%;
-}
-.row_arm{
-	width:92%;
-	float:left;
-	padding:2%;
-}
-
-
-label{
-	width:100%;
-	display:block;
-	
-	}
-	
-.h_text{ display:none;}	
-.plus_item{}
-<<<<<<< HEAD
-.main_opt{ width:100%;}
-</style>
-=======
-.main_opt{ width:100%;clear: both;}
-</style>
-=======
     <script type="text/javascript" >
         /* jQuery(function($) {
          $('textarea[name="descripcion"]').ckeditor({
@@ -275,10 +156,8 @@ label{
             -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)"; /*internet explorer 8 - gracias Andres */     
         }
     </style>
->>>>>>> c85177a8c0c2c3d827e64f8054e62c681aa45ef2
     <script type="text/javascript" src="<?php echo BASE_URL . APPPATH . 'themes/pyrocms/js/jNotify/jquery/jNotify.jquery.js' ?>"></script>   
     <link rel="stylesheet" type="text/css" href="<?php echo BASE_URL . APPPATH . 'themes/pyrocms/js/jNotify/jquery/jNotify.jquery.css' ?>" />
->>>>>>> 1201ee8a8121b87db20ea4af381bef22058262ef
 </head>
 
 <body>

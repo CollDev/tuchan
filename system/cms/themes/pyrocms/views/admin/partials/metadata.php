@@ -4,10 +4,7 @@ Asset::js_inline('jQuery.noConflict();');
 Asset::js('jquery/jquery-ui.min.js', 'jquery/jquery-ui.min.js');
 Asset::js('jquery/jquery.colorbox.js');
 Asset::js('jquery/jquery.cooki.js');
-<<<<<<< HEAD
-=======
 Asset::js('jquery/jquery.form.js');
->>>>>>> 1201ee8a8121b87db20ea4af381bef22058262ef
 
 Asset::js(array('codemirror/codemirror.js',
 	'codemirror/mode/css/css.js',
