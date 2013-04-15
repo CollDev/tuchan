@@ -37,6 +37,7 @@ $db[PYRO_DEVELOPMENT] = array(
 	'username'		=> 	'root',//'micanalcmsdev',
 	'password'		=> 	'123',//'joh2Yeyeimaeb4',
 	'database'		=> 	'pyro_admin2',//micanalcmsdevdb',
+        //'database'		=> 	'micanalcmsdevdb',
 	'dbdriver' 		=> 	'mysql',
 	'dbprefix' 		=>	'',
 	'active_r' 		=>	TRUE,
