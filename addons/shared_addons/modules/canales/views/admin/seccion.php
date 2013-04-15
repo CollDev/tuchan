@@ -47,6 +47,619 @@
     </div>
     <?php echo form_close() ?>
     <script type="text/javascript">
+        function buscar_para_micanal(numero_pagina) {
+            var serializedData = $('#frmBuscar').serialize();
+            var post_url = "/admin/canales/buscar_para_micanal/" + numero_pagina;
+            $.ajax({
+                type: "POST",
+                url: post_url,
+                dataType: 'html',
+                data: serializedData,
+                success: function(respuesta)
+                {
+                    $("#divResultado").html(respuesta);
+                    var cantidad_mostrar = $("#cantidad_mostrar").val();
+                    var total = $("#total").val() - 0;
+                    $('#black').smartpaginator({
+                        totalrecords: total,
+                        recordsperpage: cantidad_mostrar,
+                        theme: 'black',
+                        onchange: function(newPage) {
+                            //$('#r').html('Page # ' + newPage);
+                            paginar_portada_programa(newPage, 'buscar_para_micanal');
+                        }
+                    });
+                } //end success
+            }); //end AJAX              
+        }        
+        function buscar_para_destacado_micanal(numero_pagina) {
+            var serializedData = $('#frmBuscar').serialize();
+            var post_url = "/admin/canales/buscar_para_destacado_micanal/" + numero_pagina;
+            $.ajax({
+                type: "POST",
+                url: post_url,
+                dataType: 'html',
+                data: serializedData,
+                success: function(respuesta)
+                {
+                    $("#divResultado").html(respuesta);
+                    var cantidad_mostrar = $("#cantidad_mostrar").val();
+                    var total = $("#total").val() - 0;
+                    $('#black').smartpaginator({
+                        totalrecords: total,
+                        recordsperpage: cantidad_mostrar,
+                        theme: 'black',
+                        onchange: function(newPage) {
+                            //$('#r').html('Page # ' + newPage);
+                            paginar_portada_programa(newPage, 'buscar_para_destacado_micanal');
+                        }
+                    });
+                } //end success
+            }); //end AJAX              
+        }        
+        function buscar_para_losmas_programa(numero_pagina) {
+            var serializedData = $('#frmBuscar').serialize();
+            var post_url = "/admin/canales/buscar_para_losmas_programa/" + numero_pagina;
+            $.ajax({
+                type: "POST",
+                url: post_url,
+                dataType: 'html',
+                data: serializedData,
+                success: function(respuesta)
+                {
+                    $("#divResultado").html(respuesta);
+                    var cantidad_mostrar = $("#cantidad_mostrar").val();
+                    var total = $("#total").val() - 0;
+                    $('#black').smartpaginator({
+                        totalrecords: total,
+                        recordsperpage: cantidad_mostrar,
+                        theme: 'black',
+                        onchange: function(newPage) {
+                            //$('#r').html('Page # ' + newPage);
+                            paginar_portada_programa(newPage, 'buscar_para_losmas_programa');
+                        }
+                    });
+                } //end success
+            }); //end AJAX              
+        }        
+        function buscar_para_video_programa(numero_pagina) {
+            var serializedData = $('#frmBuscar').serialize();
+            var post_url = "/admin/canales/buscar_para_video_programa/" + numero_pagina;
+            $.ajax({
+                type: "POST",
+                url: post_url,
+                dataType: 'html',
+                data: serializedData,
+                success: function(respuesta)
+                {
+                    $("#divResultado").html(respuesta);
+                    var cantidad_mostrar = $("#cantidad_mostrar").val();
+                    var total = $("#total").val() - 0;
+                    $('#black').smartpaginator({
+                        totalrecords: total,
+                        recordsperpage: cantidad_mostrar,
+                        theme: 'black',
+                        onchange: function(newPage) {
+                            //$('#r').html('Page # ' + newPage);
+                            paginar_portada_programa(newPage, 'buscar_para_video_programa');
+                        }
+                    });
+                } //end success
+            }); //end AJAX              
+        }        
+        function buscar_para_lista_programa(numero_pagina) {
+            var serializedData = $('#frmBuscar').serialize();
+            var post_url = "/admin/canales/buscar_para_lista_programa/" + numero_pagina;
+            $.ajax({
+                type: "POST",
+                url: post_url,
+                dataType: 'html',
+                data: serializedData,
+                success: function(respuesta)
+                {
+                    $("#divResultado").html(respuesta);
+                    var cantidad_mostrar = $("#cantidad_mostrar").val();
+                    var total = $("#total").val() - 0;
+                    $('#black').smartpaginator({
+                        totalrecords: total,
+                        recordsperpage: cantidad_mostrar,
+                        theme: 'black',
+                        onchange: function(newPage) {
+                            //$('#r').html('Page # ' + newPage);
+                            paginar_portada_programa(newPage, 'buscar_para_lista_programa');
+                        }
+                    });
+                } //end success
+            }); //end AJAX              
+        }        
+        function buscar_para_coleccion_programa(numero_pagina) {
+            var serializedData = $('#frmBuscar').serialize();
+            var post_url = "/admin/canales/buscar_para_coleccion_programa/" + numero_pagina;
+            $.ajax({
+                type: "POST",
+                url: post_url,
+                dataType: 'html',
+                data: serializedData,
+                success: function(respuesta)
+                {
+                    $("#divResultado").html(respuesta);
+                    var cantidad_mostrar = $("#cantidad_mostrar").val();
+                    var total = $("#total").val() - 0;
+                    $('#black').smartpaginator({
+                        totalrecords: total,
+                        recordsperpage: cantidad_mostrar,
+                        theme: 'black',
+                        onchange: function(newPage) {
+                            //$('#r').html('Page # ' + newPage);
+                            paginar_portada_programa(newPage, 'buscar_para_coleccion_programa');
+                        }
+                    });
+                } //end success
+            }); //end AJAX              
+        }        
+        function buscar_para_destacado_programa(numero_pagina) {
+            var serializedData = $('#frmBuscar').serialize();
+            var post_url = "/admin/canales/buscar_para_destacado_programa/" + numero_pagina;
+            $.ajax({
+                type: "POST",
+                url: post_url,
+                dataType: 'html',
+                data: serializedData,
+                success: function(respuesta)
+                {
+                    $("#divResultado").html(respuesta);
+                    var cantidad_mostrar = $("#cantidad_mostrar").val();
+                    var total = $("#total").val() - 0;
+                    $('#black').smartpaginator({
+                        totalrecords: total,
+                        recordsperpage: cantidad_mostrar,
+                        theme: 'black',
+                        onchange: function(newPage) {
+                            //$('#r').html('Page # ' + newPage);
+                            paginar_portada_programa(newPage, 'buscar_para_destacado_programa');
+                        }
+                    });
+                } //end success
+            }); //end AJAX              
+        }        
+        function buscar_para_losmas(numero_pagina) {
+            var serializedData = $('#frmBuscar').serialize();
+            var post_url = "/admin/canales/buscar_para_losmas/" + numero_pagina;
+            $.ajax({
+                type: "POST",
+                url: post_url,
+                dataType: 'html',
+                data: serializedData,
+                success: function(respuesta)
+                {
+                    $("#divResultado").html(respuesta);
+                    var cantidad_mostrar = $("#cantidad_mostrar").val();
+                    var total = $("#total").val() - 0;
+                    $('#black').smartpaginator({
+                        totalrecords: total,
+                        recordsperpage: cantidad_mostrar,
+                        theme: 'black',
+                        onchange: function(newPage) {
+                            //$('#r').html('Page # ' + newPage);
+                            paginar_losmas(newPage);
+                        }
+                    });
+                } //end success
+            }); //end AJAX              
+        }        
+        function buscar_para_video(numero_pagina) {
+            var serializedData = $('#frmBuscar').serialize();
+            var post_url = "/admin/canales/buscar_para_video/" + numero_pagina;
+            $.ajax({
+                type: "POST",
+                url: post_url,
+                dataType: 'html',
+                data: serializedData,
+                success: function(respuesta)
+                {
+                    $("#divResultado").html(respuesta);
+                    var cantidad_mostrar = $("#cantidad_mostrar").val();
+                    var total = $("#total").val() - 0;
+                    $('#black').smartpaginator({
+                        totalrecords: total,
+                        recordsperpage: cantidad_mostrar,
+                        theme: 'black',
+                        onchange: function(newPage) {
+                            //$('#r').html('Page # ' + newPage);
+                            paginar_video(newPage);
+                        }
+                    });
+                } //end success
+            }); //end AJAX              
+        }        
+        function buscar_para_lista(numero_pagina) {
+            var serializedData = $('#frmBuscar').serialize();
+            var post_url = "/admin/canales/buscar_para_lista/" + numero_pagina;
+            $.ajax({
+                type: "POST",
+                url: post_url,
+                dataType: 'html',
+                data: serializedData,
+                success: function(respuesta)
+                {
+                    $("#divResultado").html(respuesta);
+                    var cantidad_mostrar = $("#cantidad_mostrar").val();
+                    var total = $("#total").val() - 0;
+                    $('#black').smartpaginator({
+                        totalrecords: total,
+                        recordsperpage: cantidad_mostrar,
+                        theme: 'black',
+                        onchange: function(newPage) {
+                            //$('#r').html('Page # ' + newPage);
+                            paginar_lista(newPage);
+                        }
+                    });
+                } //end success
+            }); //end AJAX              
+        }        
+        function buscar_para_coleccion(numero_pagina) {
+            var serializedData = $('#frmBuscar').serialize();
+            var post_url = "/admin/canales/buscar_para_coleccion/" + numero_pagina;
+            $.ajax({
+                type: "POST",
+                url: post_url,
+                dataType: 'html',
+                data: serializedData,
+                success: function(respuesta)
+                {
+                    $("#divResultado").html(respuesta);
+                    var cantidad_mostrar = $("#cantidad_mostrar").val();
+                    var total = $("#total").val() - 0;
+                    $('#black').smartpaginator({
+                        totalrecords: total,
+                        recordsperpage: cantidad_mostrar,
+                        theme: 'black',
+                        onchange: function(newPage) {
+                            //$('#r').html('Page # ' + newPage);
+                            paginar_coleccion(newPage);
+                        }
+                    });
+                } //end success
+            }); //end AJAX              
+        }        
+        function buscar_para_programa(numero_pagina) {
+            var serializedData = $('#frmBuscar').serialize();
+            var post_url = "/admin/canales/buscar_para_programa/" + numero_pagina;
+            $.ajax({
+                type: "POST",
+                url: post_url,
+                dataType: 'html',
+                data: serializedData,
+                success: function(respuesta)
+                {
+                    $("#divResultado").html(respuesta);
+                    var cantidad_mostrar = $("#cantidad_mostrar").val();
+                    var total = $("#total").val() - 0;
+                    $('#black').smartpaginator({
+                        totalrecords: total,
+                        recordsperpage: cantidad_mostrar,
+                        theme: 'black',
+                        onchange: function(newPage) {
+                            //$('#r').html('Page # ' + newPage);
+                            paginar_programa(newPage);
+                        }
+                    });
+                } //end success
+            }); //end AJAX              
+        }        
+        function buscar_para_destacado(numero_pagina) {
+            var serializedData = $('#frmBuscar').serialize();
+            var post_url = "/admin/canales/buscar_para_destacado/" + numero_pagina;
+            $.ajax({
+                type: "POST",
+                url: post_url,
+                dataType: 'html',
+                data: serializedData,
+                success: function(respuesta)
+                {
+                    $("#divResultado").html(respuesta);
+                    var cantidad_mostrar = $("#cantidad_mostrar").val();
+                    var total = $("#total").val() - 0;
+                    $('#black').smartpaginator({
+                        totalrecords: total,
+                        recordsperpage: cantidad_mostrar,
+                        theme: 'black',
+                        onchange: function(newPage) {
+                            //$('#r').html('Page # ' + newPage);
+                            paginar_destacado(newPage);
+                        }
+                    });
+                } //end success
+            }); //end AJAX              
+        }
+        /**
+         * método para imprimir html de acuerdo al numero de pagina enviado como parametro
+         * @param int newPage
+         * @returns html         
+         * */
+        function paginar_portada_programa(newPage, metodo) {
+            var serializedData = $('#frmBuscar').serialize();
+            var post_url = "/admin/canales/"+metodo+"/" + newPage + "/1";
+            $.ajax({
+                type: "POST",
+                url: post_url,
+                dataType: 'html',
+                data: serializedData,
+                success: function(respuesta)
+                {
+                    $("#resultado").html(respuesta);
+                } //end success
+            }); //end AJAX         
+        }
+        /**
+         * método para imprimir html de acuerdo al numero de pagina enviado como parametro
+         * @param int newPage
+         * @returns html         
+         * */
+        function paginar_losmas(newPage) {
+            var serializedData = $('#frmBuscar').serialize();
+            var post_url = "/admin/canales/buscar_para_losmas/" + newPage + "/1";
+            $.ajax({
+                type: "POST",
+                url: post_url,
+                dataType: 'html',
+                data: serializedData,
+                success: function(respuesta)
+                {
+                    $("#resultado").html(respuesta);
+                } //end success
+            }); //end AJAX         
+        }
+        /**
+         * método para imprimir html de acuerdo al numero de pagina enviado como parametro
+         * @param int newPage
+         * @returns html         
+         * */
+        function paginar_video(newPage) {
+            var serializedData = $('#frmBuscar').serialize();
+            var post_url = "/admin/canales/buscar_para_video/" + newPage + "/1";
+            $.ajax({
+                type: "POST",
+                url: post_url,
+                dataType: 'html',
+                data: serializedData,
+                success: function(respuesta)
+                {
+                    $("#resultado").html(respuesta);
+                } //end success
+            }); //end AJAX         
+        }
+        /**
+         * método para imprimir html de acuerdo al numero de pagina enviado como parametro
+         * @param int newPage
+         * @returns html         
+         * */
+        function paginar_lista(newPage) {
+            var serializedData = $('#frmBuscar').serialize();
+            var post_url = "/admin/canales/buscar_para_lista/" + newPage + "/1";
+            $.ajax({
+                type: "POST",
+                url: post_url,
+                dataType: 'html',
+                data: serializedData,
+                success: function(respuesta)
+                {
+                    $("#resultado").html(respuesta);
+                } //end success
+            }); //end AJAX         
+        }
+        /**
+         * método para imprimir html de acuerdo al numero de pagina enviado como parametro
+         * @param int newPage
+         * @returns html         
+         * */
+        function paginar_coleccion(newPage) {
+            var serializedData = $('#frmBuscar').serialize();
+            var post_url = "/admin/canales/buscar_para_coleccion/" + newPage + "/1";
+            $.ajax({
+                type: "POST",
+                url: post_url,
+                dataType: 'html',
+                data: serializedData,
+                success: function(respuesta)
+                {
+                    $("#resultado").html(respuesta);
+                } //end success
+            }); //end AJAX         
+        }
+        /**
+         * método para imprimir html de acuerdo al numero de pagina enviado como parametro
+         * @param int newPage
+         * @returns html         
+         * */
+        function paginar_programa(newPage) {
+            var serializedData = $('#frmBuscar').serialize();
+            var post_url = "/admin/canales/buscar_para_programa/" + newPage + "/1";
+            $.ajax({
+                type: "POST",
+                url: post_url,
+                dataType: 'html',
+                data: serializedData,
+                success: function(respuesta)
+                {
+                    $("#resultado").html(respuesta);
+                } //end success
+            }); //end AJAX         
+        }
+        /**
+         * método para imprimir html de acuerdo al numero de pagina enviado como parametro
+         * @param int newPage
+         * @returns html         
+         * */
+        function paginar_destacado(newPage) {
+            var serializedData = $('#frmBuscar').serialize();
+            var post_url = "/admin/canales/buscar_para_destacado/" + newPage + "/1";
+            $.ajax({
+                type: "POST",
+                url: post_url,
+                dataType: 'html',
+                data: serializedData,
+                success: function(respuesta)
+                {
+                    $("#resultado").html(respuesta);
+                } //end success
+            }); //end AJAX         
+        }
+
+        function agregarMaestroASeccion(canal_id, maestro_id, seccion_id) {
+            var post_url = "/admin/canales/agregarMaestroASeccion/" + maestro_id + '/' + seccion_id;
+            $.ajax({
+                type: "POST",
+                url: post_url,
+                dataType: 'json',
+                data: 'canal_id=' + canal_id,
+                success: function(respuesta)
+                {
+                    if (respuesta.error == 1) {
+                        showMessage('error', '<?php echo lang('seccion:not_found_image_template'); ?>', 2000, '');
+                    } else {
+                        $("#div_" + maestro_id).empty();
+                        var htmlAgregado = '<a href="#" id="agregado" name="agregado" class="btn silver" onclick="return false;">Agregado</a>';
+                        $("#div_" + maestro_id).html(htmlAgregado);
+                        mostrar_lista_detalle_seccion(canal_id, seccion_id);
+                    }
+                } //end success
+            }); //end AJAX             
+        }
+        function agregarVideoASeccion(canal_id, video_id, seccion_id) {
+            var post_url = "/admin/canales/agregarVideoASeccion/" + video_id + '/' + seccion_id;
+            $.ajax({
+                type: "POST",
+                url: post_url,
+                dataType: 'json',
+                data: 'canal_id=' + canal_id,
+                success: function(respuesta)
+                {
+                    if (respuesta.error == 1) {
+                        showMessage('error', '<?php echo lang('seccion:not_found_image_template'); ?>', 2000, '');
+                    } else {
+                        $("#div_" + video_id).empty();
+                        var htmlAgregado = '<a href="#" id="agregado" name="agregado" class="btn silver" onclick="return false;">Agregado</a>';
+                        $("#div_" + video_id).html(htmlAgregado);
+                        mostrar_lista_detalle_seccion(canal_id, seccion_id);
+                    }
+                } //end success
+            }); //end AJAX             
+        }
+        function agregarCanalASeccion(canal_padre, canal_item, seccion_id) {
+            var post_url = "/admin/canales/agregarCanalASeccion/" + canal_item + '/' + seccion_id;
+            $.ajax({
+                type: "POST",
+                url: post_url,
+                dataType: 'json',
+                data: 'canal_id=' + canal_padre,
+                success: function(respuesta)
+                {
+                    if (respuesta.error == 1) {
+                        showMessage('error', '<?php echo lang('seccion:not_found_image_template'); ?>', 2000, '');
+                    } else {
+                        $("#div_" + canal_item).empty();
+                        var htmlAgregado = '<a href="#" id="agregado" name="agregado" class="btn silver" onclick="return false;">Agregado</a>';
+                        $("#div_" + canal_item).html(htmlAgregado);
+                        mostrar_lista_detalle_seccion(canal_padre, seccion_id);
+                    }
+                } //end success
+            }); //end AJAX             
+        }
+
+        function mostrar_lista_detalle_seccion(canal_id, seccion_id) {
+            var post_url = "/admin/canales/mostrar_lista_detalle_seccion/" + canal_id + '/' + seccion_id;
+            $.ajax({
+                type: "POST",
+                url: post_url,
+                dataType: 'html',
+                //data: 'maestro_id=' + maestro_id + '&seccion_id=' + seccion_id,
+                success: function(respuesta)
+                {
+                    $("#table-1").html(respuesta);
+                    $("#table-1").tableDnD({
+                        onDrop: function(table, row) {
+                            //console.log($.tableDnD.serialize());
+                            ordenarLista($.tableDnD.serialize());
+                        }
+                    });
+                } //end success
+            }); //end AJAX          
+            //$("#filter-stage").html('');
+        }
+
+        /**
+         * método para quitar los items de una sección
+         * @param int detalle_seccion_id
+         * @returns json
+         */
+        function quitarDetalleSeccion(detalle_seccion_id, canal_id, seccion_id) {
+            jConfirm("Seguro que deseas quitar este Item?", "Detalle de secciones", function(r) {
+                if (r) {
+                    var post_url = "/admin/canales/quitar_detalle_seccion/" + detalle_seccion_id;
+                    $.ajax({
+                        type: "POST",
+                        url: post_url,
+                        dataType: 'json',
+                        //data: indexOrder,
+                        success: function(respuesta)
+                        {
+                            console.log(respuesta);
+                            if (respuesta.value == '1') {
+                                //location.reload();
+                                mostrar_lista_detalle_seccion(canal_id, seccion_id);
+                            }
+                        } //end success
+                    }); //end AJAX   
+                }
+            });
+
+        }
+
+        /**
+         * ordena la lista de acuerdo a la posicion que se ingresa en la caja de texto
+         * @returns html
+         */
+        function ordenarLista(indexOrder) {
+            var values = {};
+            $.each($('#frmSeccion').serializeArray(), function(i, field) {
+                values[field.name] = field.value;
+            });
+            var post_url = "/admin/canales/reordenar/" + values['seccion_id'];
+            $.ajax({
+                type: "POST",
+                url: post_url,
+                dataType: 'json',
+                data: indexOrder,
+                success: function(respuesta)
+                {
+                    var cont = 0;
+                    var htmlImg = '';
+                    $("#ultimo").val(respuesta.ultimo);
+                    $("#primer").val(respuesta.primer);
+                    var ultimo = $("#ultimo").val();
+                    var primero = $("#primer").val();
+                    $.each(respuesta.orden, function(id, peso) {
+                        if (primero == id) {
+                            //htmlImg = '<img title="Bajar" onclick="bajar(' + id + ',' + (cont + 1) + ', ' + peso + ')" src="./uploads/imagenes/down.png" />';
+                            htmlImg = '<img title="Bajar" id="bajar" src="./uploads/imagenes/down.png" />';
+                        } else {
+                            if (ultimo == id) {
+                                //htmlImg = '<img title="Subir" onclick="subir(' + id + ',' + (cont + 1) + ', ' + peso + ')" src="./uploads/imagenes/up.png" />';
+                                htmlImg = '<img title="Subir" id="subir" src="./uploads/imagenes/up.png" />';
+                            } else {
+                                htmlImg = '<img title="Subir" id="subir" src="./uploads/imagenes/up.png" /><img id="bajar" title="Bajar" src="./uploads/imagenes/down.png" />';
+                            }
+                        }
+                        $("#peso_" + id).val(peso);
+                        $("#img_" + id).empty();
+                        $("#img_" + id).html(htmlImg);
+                        cont++;
+                    });
+                } //end success
+            }); //end AJAX          
+        }
+
         function showMessage(type, message, duration, pathurl) {
             if (type == 'error') {
                 jError(
