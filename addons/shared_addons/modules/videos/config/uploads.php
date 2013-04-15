@@ -87,7 +87,13 @@ $config['portada:categoria'] = '2';
 $config['portada:principal'] = '1';
 
 $config['template:destacado'] = '1';
+$config['template:3items'] = '2';
+$config['template:4items'] = '3';
+$config['template:5items'] = '4';
+$config['template:8items'] = '5';
+$config['template:nitems'] = '6';
 $config['template:destacado_canal'] = '7';
+$config['template:8itemsdescripcion'] = '8';
 
 //grupos
 $config['grupo:administrador-canales'] = '4';

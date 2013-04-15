@@ -28,11 +28,12 @@ class Detalle_secciones_m extends MY_Model {
     public function save($objBeanSeccion){
         $objBeanSeccion->id = parent::insert(array(
                 'secciones_id' => $objBeanSeccion->secciones_id,
-                'reglas_id'  => $objBeanSeccion->reglas_id,
+                //'reglas_id'  => $objBeanSeccion->reglas_id,
                 'videos_id' => $objBeanSeccion->videos_id,
                 'grupo_maestros_id' => $objBeanSeccion->grupo_maestros_id,
-                'categorias_id' => $objBeanSeccion->categorias_id,
-                'tags_id' => $objBeanSeccion->tags_id,
+                'canales_id' => $objBeanSeccion->canales_id,
+                //'categorias_id' => $objBeanSeccion->categorias_id,
+                //'tags_id' => $objBeanSeccion->tags_id,
                 'imagenes_id' => $objBeanSeccion->imagenes_id,
                 'peso' => $objBeanSeccion->peso,
                 'descripcion_item' => $objBeanSeccion->descripcion_item,

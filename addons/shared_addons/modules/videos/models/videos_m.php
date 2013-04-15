@@ -39,6 +39,44 @@ class Videos_m extends MY_Model
      * @return array obj
      */
     private function _obtener_query_videos($canal_id)
+<<<<<<< HEAD
+    {        
+        $query = "SELECT v.id, v.titulo, v.fuente, v.fecha_registro, v.fecha_publicacion_inicio, fecha_publicacion_fin,
+                    v.fecha_transmision, v.horario_transmision_inicio, v.horario_transmision_fin, v.estado,                            
+                    c.nombre as canal, c.nombre as fuente, cat.nombre as categoria, tv.nombre as tipo_video, 
+                    i.imagen, ";
+
+        // tags tematicos
+        $query .= "(SELECT group_concat(t.nombre)
+                        FROM (`". $this->_table . "` v) 
+                            JOIN `default_cms_video_tags` vt ON `vt`.`videos_id` = `v`.`id` 
+                            JOIN `default_cms_tags` t ON `t`.`id` = `vt`.`tags_id` 
+                            JOIN  default_cms_tipo_tags tt ON tt.id = t.tipo_tags_id
+                        WHERE tt.id = 1
+                   ) as tematico, ";
+
+        // tags personajes
+        $query .= "(SELECT group_concat(t.nombre)
+                        FROM (`". $this->_table . "` v) 
+                            JOIN `default_cms_video_tags` vt ON `vt`.`videos_id` = `v`.`id` 
+                            JOIN `default_cms_tags` t ON `t`.`id` = `vt`.`tags_id` 
+                            JOIN  default_cms_tipo_tags tt ON tt.id = t.tipo_tags_id
+                        WHERE tt.id = 2
+                    ) as personaje, ";
+ 
+        // agrupar tag
+	$query .= "group_concat(t.nombre) as tag ";
+        
+        $query .= "FROM (`". $this->_table . "` v) 
+                    JOIN `default_cms_canales` c ON `c`.`id` = `v`.`canales_id` AND c.id = v.canales_id 
+                    JOIN `default_cms_categorias` cat ON `cat`.`id` = `v`.`categorias_id` 
+                    JOIN `default_cms_tipo_videos` tv ON `tv`.`id` = `v`.`tipo_videos_id` 
+                    JOIN `default_cms_video_tags` vt ON `vt`.`videos_id` = `v`.`id` 
+                    JOIN `default_cms_tags` t ON `t`.`id` = `vt`.`tags_id` 
+                    JOIN  default_cms_tipo_tags tt ON tt.id = t.tipo_tags_id
+                    JOIN  default_cms_imagenes i ON i.videos_id = v.id
+                  WHERE `canales_id` = " . (int) $canal_id;
+=======
     {           
             $query = "SELECT v.id, v.canales_id, v.titulo, v.fecha_registro, v.fecha_publicacion_inicio, v.fecha_publicacion_fin,
             v.fecha_transmision, v.horario_transmision_inicio, v.horario_transmision_fin, v.estado,                            
@@ -77,6 +115,7 @@ class Videos_m extends MY_Model
                       WHERE v.`canales_id` = " . (int) $canal_id . " 
                       GROUP BY v.id";
             
+>>>>>>> 7989e03f71800dffb93ff1a5f3979a6c7639896d
         $result = $this->db->query($query)->result();
 
         return $result;
@@ -132,6 +171,15 @@ class Videos_m extends MY_Model
      * @return string
      */
     public function insert($input = array())
+<<<<<<< HEAD
+    {
+            parent::insert(array(
+                    'title' => $input['title'],
+                    'slug'  => url_title(strtolower(convert_accented_characters($input['title'])))
+            ));
+
+            return $input['title'];
+=======
     {        
         $video_id = parent::insert(array(
                 'titulo' => $input['titulo'],
@@ -155,6 +203,7 @@ class Videos_m extends MY_Model
         ));
 
         return $video_id;
+>>>>>>> 7989e03f71800dffb93ff1a5f3979a6c7639896d
     }
 
 //
@@ -237,8 +286,7 @@ class Videos_m extends MY_Model
                     'usuario_registro' => $objBeanVideo->usuario_registro,
                     'estado_migracion' => $objBeanVideo->estado_migracion,
                     'estado_migracion_sphinx_tit' => $objBeanVideo->estado_migracion_sphinx_tit,
-                    'estado_migracion_sphinx_des' => $objBeanVideo->estado_migracion_sphinx_des,
-                    'padre' => $objBeanVideo->padre
+                    'estado_migracion_sphinx_des' => $objBeanVideo->estado_migracion_sphinx_des
         ));
         $objBeanVideo->alias = $objBeanVideo->alias.'-'.$objBeanVideo->id;
         parent::update($objBeanVideo->id, array('alias'=>$objBeanVideo->alias));
@@ -263,8 +311,7 @@ class Videos_m extends MY_Model
             'horario_transmision_fin' => $objBeanVideo->horario_transmision_fin,
             'ubicacion' =>$objBeanVideo->ubicacion,
             'fecha_actualizacion' => $objBeanVideo->fecha_actualizacion,
-            'usuario_actualizacion' => $objBeanVideo->usuario_actualizacion,
-            'padre' => $objBeanVideo->padre
+            'usuario_actualizacion' => $objBeanVideo->usuario_actualizacion
             ));        
     }
     

@@ -45,6 +45,7 @@ $lang['canales:success_saved']           = 'El canal se registro en forma satisf
 $lang['seccion:success_saved']           = 'La seccion se actualizó en forma satisfactoria';
 $lang['seccion:not_found_item']          = 'No se encontró el item seleccionado';
 $lang['seccion:not_found_small_image']          = 'El item seleccionado no tiene una imagen pequeña registrado';
+$lang['seccion:not_found_image_template']          = 'El maestro no tiene el tipo de imagen q requiere el template de la sección';
 
 $lang['video:video_codificando']          = 'El video se encuentra en un estado codificando';
 $lang['video:coleccion_tiene_registro']          = 'Esta sección ya cuenta con una sección';

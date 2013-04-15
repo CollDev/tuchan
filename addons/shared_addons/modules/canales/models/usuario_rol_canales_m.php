@@ -11,10 +11,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
  * @author		PyroCMS Dev Team
  * @package		PyroCMS\Core\Modules\Settings\Models
  */
-class Tags_m extends MY_Model 
+class Usuario_rol_canales_m extends MY_Model 
 {
 
-    protected $_table = 'default_cms_tags';
+    protected $_table = 'default_cms_usuario_rol_canales';
 
     /**
      * Get
@@ -29,7 +29,7 @@ class Tags_m extends MY_Model
     public function get($where) 
     {
         if (!is_array($where)) {
-            $where = array('id' => $where);
+            $where = array('user_id' => $where);
         }
 
         return $this->db
@@ -49,7 +49,7 @@ class Tags_m extends MY_Model
      * @param	mixed	$where
      * @return	object
      */
-    /*public function get_many_by($where = array()) 
+    public function get_many_by($where = array()) 
     {
         if (!is_array($where)) {
             $where = array('user_id' => $where);
@@ -62,46 +62,25 @@ class Tags_m extends MY_Model
 
         return $result;
     }
-    */
-    
     
     /**
-     * Inserta un nuevo tag en la base de datos
-     * 
-     * @param array $input La data a insertar
-     * @return string
+     * Obtiene los canales que pertenecen al usuario logueado
+     * @param array $where
+     * @return object
      */
-    public function insert($input = array())
+    public function get_canales_by_usuario($where = array())
     {
-        //print_r($input);
-        //echo 'tematicas: ' . $input['tematicas'] . '<br/>';
-        //echo 'personajes: ' . $input['personajes'];
-        
-        $arr_tematicas = explode(',', $input['tematicas']);
-        $arr_personajes = explode(',', $input['personajes']);
-        
-        // Tags tematicas OJO VERIFICAR LOS VALORES
-        foreach ($arr_tematicas as $tematicas) {
-            parent::insert(array(
-                    'tipo_tags_id' => '1',
-                    'nombre' => $input['nombre'],
-                    'descripcion' => $input['descripcion'],
-                    'alias'  => url_title(strtolower(convert_accented_characters($input['nombre']))),
-                    'estado' => '1',
-                    'usuario_registro' => (int) $this->session->userdata('user_id'),
-                    'fecha_registro' => date('Y-m-d H:i:s')
-            ));
+        if (!is_array($where)) {
+            $where = array('user_id' => $where);
         }
-        
-        // Tags personajes
-        foreach ($arr_personajes as $personajes) {
-            parent::insert(array(
-                    'title' => $input['title'],
-                    'slug'  => url_title(strtolower(convert_accented_characters($input['title'])))
-            ));
-        }
-            
-       return $input['title'];
+
+        $this->db->select("urc.user_id, urc.group_id, urc.canal_id, c.nombre");
+        $this->db->from($this->_table . ' urc');
+        $this->db->join('default_cms_canales c', 'c.id = urc.canal_id');
+        $this->db->where($where);
+        $result = $this->db->get()->result();
+
+        return $result;
     }
 
 //
@@ -149,17 +128,6 @@ class Tags_m extends MY_Model
 //	{
 //            return parent::update($id, array('status' => '1'));
 //	}
-    
-    /**
-     * Publica video, cambia el estado a 2 y 
-     * actualiza la fecha de publicacion
-     * @param int $id
-     * @return boolean
-     */
-    public function publish($id = 0)
-    {
-        return parent::update($id, array('estado' => '2', 'fecha_publicacion' => date('Y-m-d H:i:s')));
-    }
 }
 
-/* End of file videos_m.php */
+/* End of file usuario_rol_canales_m.php */

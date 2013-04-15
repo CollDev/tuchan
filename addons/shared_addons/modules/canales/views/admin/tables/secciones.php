@@ -46,7 +46,7 @@
                     <td><?php echo $objDetalleSeccion->descripcion_item; ?></td>
                     <td><?php echo $objDetalleSeccion->tipo; ?></td>
                     <td><div style="float: left;"><input class="numeric" type="text" name="peso_<?php echo $objDetalleSeccion->id; ?>" id="peso_<?php echo $objDetalleSeccion->id; ?>" size="2" value="<?php echo $objDetalleSeccion->peso; ?>" /></div><div style="float: left;" id="img_<?php echo $objDetalleSeccion->id; ?>"><?php echo $img; ?></div></td>
-                    <td><a href="#" class="btn red" onclick="quitarDetalleSeccion(<?php echo $objDetalleSeccion->id; ?>);
+                    <td><a href="#" class="btn red" onclick="quitarDetalleSeccion(<?php echo $objDetalleSeccion->id; ?>, <?php echo $canal_id; ?>, <?php echo $objSeccion->id; ?>);
                             return false;">Quitar</a></td>
                     <td><?php echo $objDetalleSeccion->id; ?></td>
                 </tr>
@@ -64,7 +64,7 @@
     <tfoot>
         <tr class="nodrag">
             <td colspan="7">
-                <div class="inner"><?php $this->load->view('admin/partials/pagination'); ?></div>
+                <div class="inner"  id="paginacion_secciones"><?php $this->load->view('admin/partials/pagination'); ?></div>
             </td>
         </tr>
     </tfoot>
@@ -156,32 +156,6 @@
                     }); //end AJAX  
                 }
 
-                /**
-                 * método para quitar los items de una sección
-                 * @param int detalle_seccion_id
-                 * @returns json
-                 */
-                function quitarDetalleSeccion(detalle_seccion_id) {
-                    jConfirm("Seguro que deseas quitar este Item?", "Detalle de secciones", function(r) {
-                        if (r) {
-                            var post_url = "/admin/canales/quitar_detalle_seccion/" + detalle_seccion_id;
-                            $.ajax({
-                                type: "POST",
-                                url: post_url,
-                                dataType: 'json',
-                                //data: indexOrder,
-                                success: function(respuesta)
-                                {
-                                    console.log(respuesta);
-                                    if (respuesta.value == '1') {
-                                        location.reload();
-                                    }
-                                } //end success
-                            }); //end AJAX   
-                        }
-                    });
-
-                }
                 /**
                  * ordena la lista de acuerdo a la posicion que se ingresa en la caja de texto
                  * @returns html
