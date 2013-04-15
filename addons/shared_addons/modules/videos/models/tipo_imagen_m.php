@@ -39,7 +39,7 @@ class Tipo_imagen_m extends MY_Model {
     public function listType(){
         $this->db->select("*");
         $this->db->from($this->_table);
-        $this->db->where("id > 0");
+        $this->db->where("id < 5");
         $resultValue = $this->db->get()->result();
         return $resultValue;
     }

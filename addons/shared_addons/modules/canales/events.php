@@ -24,13 +24,8 @@ class Events_Canales
         
         if ($data->user_id > 0) {         
 
-<<<<<<< HEAD
-            $this->ci->load->model('canales/usuario_rol_canales_m'); 
-            $canales_usuario = $this->ci->usuario_rol_canales_m->get_canales_by_usuario($data->user_id);
-=======
             $this->ci->load->model('canales/usuario_group_canales_m'); 
             $canales_usuario = $this->ci->usuario_group_canales_m->get_canales_by_usuario($data->user_id);
->>>>>>> 1201ee8a8121b87db20ea4af381bef22058262ef
 
             if (count($canales_usuario) > 0) {
              

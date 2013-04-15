@@ -303,6 +303,7 @@
     <?php if($objBeanForm->error){ ?>
     <div> <?php echo $objBeanForm->message; ?></div>
     <?php } ?>
+        
     <!--FORM CARGA UNITARIA-->
     <?php
     // Canales_id       
@@ -572,7 +573,6 @@
         ?>
     </div>
     <script type="text/javascript" >
-        
         function activeImageVideo(imagen_id){
             var values = {};
             $.each($('#frm').serializeArray(), function(i, field) {
@@ -592,8 +592,7 @@
             }); //end AJAX              
         }
         
-        function validarFragmento(){
-            
+        function existeFragmento(){
             var values = {};
             $.each($('#frm').serializeArray(), function(i, field) {
                 values[field.name] = field.value;
@@ -602,34 +601,44 @@
             var serializedData = $('#frm').serialize();
             //var post_url = "/admin/videos/save_maestro/"+values['txt_'+type_video]+"/"+values['canal_id']+"/"+values['categoria']+"/"+type_video;
             var post_url = "/admin/videos/verificarVideo/"+values['canal_id']+"/"+values['video_id'];
-            $.ajax({
+            //var r;
+            $.post(post_url, serializedData, function(data) {
+                //console.log(data.errorValue);
+                if(data.errorValue == '0'){
+                    //showMessage('exit', 'no hay errores!', 2000,'');
+                    $('#frm').submit();
+                }else{
+                    showMessage('error', '<?php echo lang('videos:fragment_exist') ?>', 2000,'');
+                }
+            }, "json");
+            //console.log(f.responseText);
+            //console.log($("#existe_fragmento").val());
+            /*var ff = $.ajax({
                 type: "POST",
                 url: post_url,
                 dataType: 'json',
                 data:serializedData,
                 success: function(returnValue) //we're calling the response json array 'cities'
                 {
-                    /*$.each(returnValue, function(index, value) {
-                        console.log(index);
-                        console.log(value);
-                    });*/
-                    if(returnValue.errorValue == 1){
-                        $("#existe_fragmento").val("1");
+                    //console.log(returnValue.errorValue);
+                    if(returnValue.errorValue == '1'){
+                       $("#existe_fragmento").val("1");
+                       return true;
                     }else{
                         $("#existe_fragmento").val("0");
+                        return false;
                     }
-                        
+                    //return returnValue.errorValue;
+                    //$("#existe_fragmento").delay(2000);
                 } //end success
-            }); //end AJAX  
-            var respuesta = $("#existe_fragmento").val();
-            if(respuesta == 1){
-                return false;
-            }else{
-                return true;
-            }
-            console.log(respuesta);
-            return false;
+            }); */ //end AJAX */
+
         }
+        
+        function sleep(delay) {
+            var start = new Date().getTime();
+            while (new Date().getTime() < start + delay);
+          }        
         /*
          * 
          * @returns {undefined}
@@ -677,7 +686,9 @@
                                         if(values['tipo'] > 0){
                                             //validamos la fuente del video
                                             if(values['fuente']>0){
-                                                if(true/*validarFragmento()*/){
+                                                //var repite = $("#existe_fragmento").val();
+                                                //console.log(repite);
+                                                if(true){
                                                     <?php if($objBeanForm->video_id > 0){ ?>
                                                         var serializedData = $('#frm').serialize();
                                                         //var post_url = "/admin/videos/save_maestro/"+values['txt_'+type_video]+"/"+values['canal_id']+"/"+values['categoria']+"/"+type_video;
@@ -685,15 +696,21 @@
                                                         $.ajax({
                                                             type: "POST",
                                                             url: post_url,
-                                                            //dataType: 'json',
+                                                            dataType: 'json',
                                                             data:serializedData,
                                                             success: function(returnValue) //we're calling the response json array 'cities'
                                                             {
-                                                                showMessage('exit', '<?php echo lang('videos:edit_video_success') ?>', 1000,'');
+                                                                //console.log(returnValue.value);
+                                                                if(returnValue.value == '0'){
+                                                                    showMessage('exit', '<?php echo lang('videos:edit_video_success') ?>', 1000,'');
+                                                                }else{
+                                                                   showMessage('error', '<?php echo lang('videos:fragment_exist') ?>', 2000,''); 
+                                                                }
                                                             } //end success
                                                         }); //end AJAX                                                    
                                                     <?php }else { ?>                           
-                                                        $('#frm').submit();
+                                                        //$('#frm').submit();
+                                                            existeFragmento();
                                                     <?php } ?>
                                                     }else{
                                                         showMessage('error', '<?php echo lang('videos:fragment_exist') ?>', 2000,'');
@@ -1201,3 +1218,4 @@
 >>>>>>> 1201ee8a8121b87db20ea4af381bef22058262ef
     <?php echo form_close() ?>
 </section>
+

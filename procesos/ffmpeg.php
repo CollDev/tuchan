@@ -9,7 +9,7 @@ class Ffmpeg{
 		//	echo $id_video."<br>";
 
 		try {
-
+                    $ubi="/home/idigital3/sites/adminmicanal/";
 		
 			$conexion = new Conexion();
 

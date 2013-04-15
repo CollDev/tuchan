@@ -19,6 +19,8 @@ $lang['global:2_estado'] = 'Eliminado';
 $lang['global:yes'] = 'Si';
 $lang['global:no'] = 'No';
 
+$lang['global:restore'] = 'Restablecer';
+
 $lang['global:title'] = 'Título';
 $lang['name_label'] = 'Nombre';
 $lang['desc_label'] = 'Descripción';
@@ -97,6 +99,7 @@ $lang['global:view'] = 'Ver';
 $lang['global:preview'] = 'Previsualización';
 $lang['global:add'] = 'Añadir';
 $lang['global:edit'] = 'Editar';
+$lang['global:cortar'] = 'Cortar';
 $lang['global:empty'] = 'Vaciar';
 $lang['global:delete'] = 'Eliminar';
 $lang['global:remove'] = 'Eliminar';

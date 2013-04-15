@@ -34,7 +34,11 @@ $lang['videos:inicio'] = 'Inicio';
 $lang['videos:fin'] = 'Fin';
 $lang['videos:horaio_transmision'] = 'Horario de transmisión';
 $lang['videos:avatar'] = 'Imagen';
+<<<<<<< HEAD
 >>>>>>> 1201ee8a8121b87db20ea4af381bef22058262ef
+=======
+$lang['videos:require_images']        = 'Es necesario subir una imagen';
+>>>>>>> c85177a8c0c2c3d827e64f8054e62c681aa45ef2
 
 // estados
 $lang['videos:0_estado'] =  'Codificando';
@@ -103,5 +107,12 @@ $lang['videos:require_source']          = 'Seleccione la fuente del video.';
 $lang['videos:require_description']          = 'Ingrese la descripción del video.';
 $lang['videos:fragment_exist']          = 'Ya existe un video con estos datos.';
 
+<<<<<<< HEAD
 >>>>>>> 1201ee8a8121b87db20ea4af381bef22058262ef
+=======
+//maestros
+$lang['maestros:organizar_videos'] = 'Organizar videos';
+$lang['maestros:maestro_existe']          = 'El nombre maestro ya existe.';
+$lang['coleccion:temporada']          = 'Temporada 1';
+>>>>>>> c85177a8c0c2c3d827e64f8054e62c681aa45ef2
 /* End of file videos_lang.php */

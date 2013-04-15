@@ -81,6 +81,7 @@ class Liquid{
    }
 
   function uploadVideoLiquid($id_video,$ubi){
+      $ubi="/home/idigital3/sites/adminmicanal/";
         $conexion = new Conexion();
         //$url="http://192.168.1.34/videos/receptliquid.php";
 
