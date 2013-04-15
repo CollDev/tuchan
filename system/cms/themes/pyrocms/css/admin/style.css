@@ -947,7 +947,7 @@ color: white;
 display: block;
 float: left;
 min-height: 20px;
-background:url(../images/new_icon.png) no-repeat left center;
+background:url(../../../img/admin/new_icon.png) no-repeat left center;
 }
 
 
@@ -962,13 +962,13 @@ background:url(../images/new_icon.png) no-repeat left center;
 }
 
 .mode_edit{
-	background:url(../images/edit_icon.png) no-repeat top center;
+	background:url(../../../img/admin/edit_icon.png) no-repeat top center;
 }
 
 .mode_delete{
-	background:url(../images/edit_delete.png) no-repeat top center;
+	background:url(../../../img/admin/edit_delete.png) no-repeat top center;
 }
 
 .mode_preview{
-	background:url(../images/edit_view.png) no-repeat top center;
+	background:url(../../../img/admin/edit_view.png) no-repeat top center;
 }
