@@ -2152,99 +2152,6 @@ class Admin extends Admin_Controller {
             }
         }
     }
-    
-    public function postDatos($url, $post) {
-        
-      
-        
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible;)");
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_POST, TRUE);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
-        //curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        //curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
-       // curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-Type: text/xml"));
-        $result = curl_exec($ch);
-        curl_close($ch);
-        
-        //echo "resultadoi:". $result;
-        return $result;
-    }
-    
-    public function insertCorteVideo($canal_id, $video_id) {
-//        print_r($this->input->post());
-        
-        if ($this->input->is_ajax_request()) {
-            if ($this->verificarVideo($canal_id, $video_id, $this->input->post())) {
-                echo json_encode(array("value" => '1'));
-            } else {
-                $user_id = (int) $this->session->userdata('user_id');
-                $objBeanVideo = new stdClass();
-                $objBeanVideo->id = $video_id;
-                $objBeanVideo->tipo_videos_id = $this->input->post('tipo');
-                $objBeanVideo->categorias_id = $this->input->post('categoria');
-                $objBeanVideo->usuarios_id = $user_id;
-                $objBeanVideo->canales_id = $this->input->post('canal_id');
-                //$objBeanVideo->fuente = $this->input->post('fuente');
-                $objBeanVideo->titulo = $this->input->post('titulo');
-                $objBeanVideo->alias = url_title(strtolower(convert_accented_characters($this->input->post('titulo')))) . '-' . $video_id;
-                $objBeanVideo->descripcion = $this->input->post('descripcion_updated');
-                $objBeanVideo->fragmento = 0;
-                $objBeanVideo->fecha_publicacion_inicio = date("Y-m-d H:i:s", strtotime($this->input->post('fec_pub_ini')));
-                $objBeanVideo->fecha_publicacion_fin = date("Y-m-d H:i:s", strtotime($this->input->post('fec_pub_fin')));
-                $objBeanVideo->fecha_transmision = date("Y-m-d H:i:s", strtotime($this->input->post('fec_trans')));
-                $objBeanVideo->horario_transmision_inicio = $this->input->post('hora_trans_ini');
-                $objBeanVideo->horario_transmision_fin = $this->input->post('hora_trans_fin');
-                $objBeanVideo->ubicacion = $this->input->post('ubicacion');
-                $objBeanVideo->fecha_actualizacion = date("Y-m-d H:i:s");
-                $objBeanVideo->usuario_actualizacion = $user_id;
-                
-                $objBeanVideo->estado_liquid = 2;
-                $objBeanVideo->fecha_registro = date("Y-m-d H:i:s");
-                $objBeanVideo->usuario_registro = $user_id;
-                $objBeanVideo->estado_migracion = 0;
-                $objBeanVideo->estado_migracion_sphinx_tit = 0;
-                $objBeanVideo->estado_migracion_sphinx_des = 0;
-                
-                $objBeanVideo->estado = 0;
-                $objBeanVideo->padre = $video_id;
-                
-               // print_r($objBeanVideo);
-               
-                $objvideotemp = $this->videos_m->save_video($objBeanVideo);
-//                print_r($objvideotemp);
-                
-                $this->_saveTagsTematicaPersonajes($objBeanVideo, $this->input->post());
-                //obtenemos el ID del maestro detalle del video
-                $objMaestroDetalle = $this->grupo_detalle_m->get_by(array("video_id" => $objBeanVideo->id));
-                $maestro_detalle_id = NULL;
-                if (count($objMaestroDetalle) > 0) {
-                    //foreach ($objMaestroDetalle as $index => $objDetalle) {
-                    $maestro_detalle_id = $objMaestroDetalle->id;
-                    //}
-                }
-                //guardamos en la tabla grupo detalle
-                $this->_saveVideoMaestroDetalle($objBeanVideo, $this->input->post(), $maestro_detalle_id);
-                
-
-                //$urlpost=  base_url("/procesos/cortevideo.php");
-                $urlpost= "http://localhost/adminmicanal/procesos/cortevideo.php";
-                
-                $post = array(
-                    "id_padre" =>$video_id,
-                    "id_hijo" => $objvideotemp->id,
-                    "inicio" => $this->input->post('ini_corte'),
-                    "duracion" => $this->input->post('dur_corte')  
-                );
-                
-                
-                $this->postDatos($urlpost, $post);
-                
-                echo json_encode(array("value" => '0'));
-            }
-        }
-    }
 
     /**
      * 
@@ -4024,4 +3931,8 @@ class Admin extends Admin_Controller {
         }
     }
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 7989e03f71800dffb93ff1a5f3979a6c7639896d
