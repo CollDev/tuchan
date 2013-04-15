@@ -1652,6 +1652,52 @@ the rest of your CSS declarations! */
  * ----------------------------------
  * Inlined to avoid HTTP connection.
  * ---------------------------------- */
+ 
+ /* CLASES AÑADIDAS */
+
+section.menu{
+background-color: rgb(136, 130, 141);
+width: 100%;
+min-height: 25px;
+padding-top: 10px;
+padding-left: 15px;
+}
+
+
+section.menu a{
+padding-left: 45px;
+color: white;
+display: block;
+float: left;
+min-height: 20px;
+background:url(../../../img/admin/new_icon.png) no-repeat left center;
+}
+
+
+
+
+.mode_edit, .mode_delete, .mode_preview{
+	display:block;
+	float:left;
+	padding-top: 30px;
+	padding-right: 5px;
+	font-size: 10px;
+}
+
+.mode_edit{
+	background:url(../../../img/admin/edit_icon.png) no-repeat top center;
+}
+
+.mode_delete{
+	background:url(../../../img/admin/edit_delete.png) no-repeat top center;
+}
+
+.mode_preview{
+	background:url(../../../img/admin/edit_view.png) no-repeat top center;
+}
+ 
+ 
+ 
 @media print {
   * { background: transparent !important; color: black !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; } /* Black prints faster */
   a, a:visited { text-decoration: underline; }
