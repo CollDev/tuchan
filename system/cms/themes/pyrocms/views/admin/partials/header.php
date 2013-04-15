@@ -20,7 +20,7 @@
 <div class="subbar">
 	<div class="wrapper">
 
-		<h2 class="channel_item"><?php echo $module_details['name'] ? anchor('admin/'.$module_details['slug'], $module_details['name']) : lang('global:dashboard'); ?>
+		<h2 class="channel_item"><?php echo $module_details['name'] ? anchor('admin/'.$module_details['slug'], 'ddd: ' . $module_details['name']) : lang('global:dashboard'); ?>
 	
 		<!--<small>-->
 			<?php if ( $this->uri->segment(2) ) { echo '&nbsp; | &nbsp;'; } ?>
