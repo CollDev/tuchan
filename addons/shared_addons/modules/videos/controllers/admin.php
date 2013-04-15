@@ -1277,7 +1277,7 @@ class Admin extends Admin_Controller {
                             $this->generarSeccionColeccion($this->input->post('programa'), $objBeanMaestroSaved);
                         } else {
                             //generamos  una seccion coleccion para el canal
-                            //$this->generarSeccionColeccionCanal($this->input->post('canal_id'), $objBeanMaestroSaved);
+                            $this->generarSeccionColeccionCanal($this->input->post('canal_id'), $objBeanMaestroSaved);
                         }
                     }
                 }
