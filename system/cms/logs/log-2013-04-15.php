@@ -10,3 +10,5 @@ ERROR - 2013-04-15 23:38:04 --> Unable to select database: micanalcmsdevdb
 ERROR - 2013-04-15 23:39:42 --> Unable to select database: micanalcmsdevdb
 ERROR - 2013-04-15 23:39:44 --> Unable to select database: micanalcmsdevdb
 ERROR - 2013-04-15 23:39:47 --> Unable to select database: micanalcmsdevdb
+ERROR - 2013-04-15 23:59:00 --> Severity: Notice  --> Undefined offset: 0 /var/www/local.adminmicanal.com/addons/shared_addons/modules/canales/views/admin/videos.php 4
+ERROR - 2013-04-15 23:59:00 --> Severity: Notice  --> Trying to get property of non-object /var/www/local.adminmicanal.com/addons/shared_addons/modules/canales/views/admin/videos.php 4
