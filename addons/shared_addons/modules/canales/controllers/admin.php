@@ -25,7 +25,7 @@ class Admin extends Admin_Controller {
         parent::__construct();
         $this->load->model('canales_m');
         $this->load->model('tipo_canales_m');
-        //$this->load->model('imagenes_m');
+        $this->load->model('imagenes_m');
         $this->load->model('tipo_portada_m');
         $this->load->model('tipo_secciones_m');
         $this->load->model('vw_video_m');
