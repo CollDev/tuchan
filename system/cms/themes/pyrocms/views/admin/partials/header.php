@@ -1,7 +1,7 @@
 <noscript>
 	<span>PyroCMS requires that JavaScript be turned on for many of the functions to work correctly. Please turn JavaScript on and reload the page.</span>
 </noscript>
-<script src="<?php echo base_url("system/cms/themes/pyrocms/js/fix_channels.js") ?>"></script>
+
 <div class="topbar" dir=<?php $vars = $this->load->_ci_cached_vars; echo $vars['lang']['direction']; ?>>
 	
 	<div class="wrapper">
