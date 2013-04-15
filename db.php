@@ -9,7 +9,7 @@ if (mysqli_connect_error()) {
 echo 'Success... ' . $mysqli->host_info . "<br />";
 echo 'Retrieving dumpfile' . "<br />";
  
-$sql = file_get_contents('sql/pyro_cms_2013-02-22.sql');
+$sql = file_get_contents('sql/dump.sql');
 if (!$sql){
 	die ('Error opening file');
 }

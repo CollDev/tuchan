@@ -1275,9 +1275,9 @@ class Admin extends Admin_Controller {
                         if ($this->input->post('programa') > 0) {
                             //generamos una seccion coleccion para el programa
                             $this->generarSeccionColeccion($this->input->post('programa'), $objBeanMaestroSaved);
-                        }else{
+                        } else {
                             //generamos  una seccion coleccion para el canal
-                            //$this->generarSeccionColeccionCanal();
+                            //$this->generarSeccionColeccionCanal($this->input->post('canal_id'), $objBeanMaestroSaved);
                         }
                     }
                 }
@@ -1286,6 +1286,36 @@ class Admin extends Admin_Controller {
                 $returnValue['error'] = 0;
             }
             echo(json_encode($returnValue));
+        }
+    }
+
+    private function generarSeccionColeccionCanal($canal_id, $objMaestro) {
+        $objPortada = $this->portada_m->get_by(array("tipo_portadas_id" => $this->config->item('portada:canal'), "origen_id" => $canal_id));
+        if (count($objPortada) > 0) {
+            $user_id = (int) $this->session->userdata('user_id');
+            $objBeanSeccion = new stdClass();
+            $objBeanSeccion->id = NULL;
+            $objBeanSeccion->nombre = $objMaestro->nombre;
+            $objBeanSeccion->descripcion = $objMaestro->descripcion;
+            $objBeanSeccion->tipo = 0;
+            $objBeanSeccion->portadas_id = $objPortada->id;
+            $objBeanSeccion->tipo_secciones_id = $this->config->item('seccion:coleccion');
+            $objBeanSeccion->reglas_id = NULL;
+            $objBeanSeccion->categorias_id = NULL;
+            $objBeanSeccion->tags_id = NULL;
+            $objBeanSeccion->peso = $this->obtenerPesoSeccionPortada($objPortada->id);
+            $objBeanSeccion->id_mongo = NULL;
+            $objBeanSeccion->estado = $this->config->item('estado:borrador');
+            $objBeanSeccion->templates_id = $this->config->item('template:8items');
+            $objBeanSeccion->fecha_registro = date("Y-m-d H:i:s");
+            $objBeanSeccion->usuario_registro = $user_id;
+            $objBeanSeccion->fecha_actualizacion = date("Y-m-d H:i:s");
+            $objBeanSeccion->usuario_actualizacion = $user_id;
+            $objBeanSeccion->estado_migracion = $this->config->item('migracion:nuevo');
+            $objBeanSeccion->fecha_migracion = '0000-00-00 00:00:00';
+            $objBeanSeccion->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
+            $objBeanSeccion->grupo_maestros_id = $objMaestro->id;
+            $objBeanSeccionSaved = $this->secciones_m->save($objBeanSeccion);
         }
     }
 
@@ -1325,7 +1355,7 @@ class Admin extends Admin_Controller {
         if (count($secciones) > 0) {
             $nuevo_peso = 2;
             foreach ($secciones as $puntero => $objSeccion) {
-                $this->secciones_m->update($objSeccion->id, array("peso"=>$nuevo_peso, "estado_migracion"=>$this->config->item('migracion:actualizado')));
+                $this->secciones_m->update($objSeccion->id, array("peso" => $nuevo_peso, "estado_migracion" => $this->config->item('migracion:actualizado')));
                 $nuevo_peso++;
             }
         }
@@ -1962,7 +1992,7 @@ class Admin extends Admin_Controller {
                     $objBeanSeccion->estado_migracion = '0';
                     $objBeanSeccion->fecha_migracion = '0000-00-00 00:00:00';
                     $objBeanSeccion->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
-                     $objBeanSeccion->grupo_maestros_id = NULL;
+                    $objBeanSeccion->grupo_maestros_id = NULL;
                     $objBeanSeccionSaved = $this->secciones_m->save($objBeanSeccion);
 
                     /* registramos el detalle de la session, listo todos los programas del canal
@@ -2209,11 +2239,11 @@ class Admin extends Admin_Controller {
             }
         }
     }
-    
+
     public function postDatos($url, $post) {
-        
-      
-        
+
+
+
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible;)");
         curl_setopt($ch, CURLOPT_URL, $url);
@@ -2221,17 +2251,17 @@ class Admin extends Admin_Controller {
         curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
         //curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         //curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
-       // curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-Type: text/xml"));
+        // curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-Type: text/xml"));
         $result = curl_exec($ch);
         curl_close($ch);
-        
+
         //echo "resultadoi:". $result;
         return $result;
     }
-    
+
     public function insertCorteVideo($canal_id, $video_id) {
 //        print_r($this->input->post());
-        
+
         if ($this->input->is_ajax_request()) {
             if ($this->verificarVideo($canal_id, $video_id, $this->input->post())) {
                 echo json_encode(array("value" => '1'));
@@ -2256,22 +2286,22 @@ class Admin extends Admin_Controller {
                 $objBeanVideo->ubicacion = $this->input->post('ubicacion');
                 $objBeanVideo->fecha_actualizacion = date("Y-m-d H:i:s");
                 $objBeanVideo->usuario_actualizacion = $user_id;
-                
+
                 $objBeanVideo->estado_liquid = 2;
                 $objBeanVideo->fecha_registro = date("Y-m-d H:i:s");
                 $objBeanVideo->usuario_registro = $user_id;
                 $objBeanVideo->estado_migracion = 0;
                 $objBeanVideo->estado_migracion_sphinx_tit = 0;
                 $objBeanVideo->estado_migracion_sphinx_des = 0;
-                
+
                 $objBeanVideo->estado = 0;
                 $objBeanVideo->padre = $video_id;
-                
-               // print_r($objBeanVideo);
-               
+
+                // print_r($objBeanVideo);
+
                 $objvideotemp = $this->videos_m->save_video($objBeanVideo);
 //                print_r($objvideotemp);
-                
+
                 $this->_saveTagsTematicaPersonajes($objBeanVideo, $this->input->post());
                 //obtenemos el ID del maestro detalle del video
                 $objMaestroDetalle = $this->grupo_detalle_m->get_by(array("video_id" => $objBeanVideo->id));
@@ -2283,21 +2313,21 @@ class Admin extends Admin_Controller {
                 }
                 //guardamos en la tabla grupo detalle
                 $this->_saveVideoMaestroDetalle($objBeanVideo, $this->input->post(), $maestro_detalle_id);
-                
+
 
                 //$urlpost=  base_url("/procesos/cortevideo.php");
-                $urlpost= "http://localhost/adminmicanal/procesos/cortevideo.php";
-                
+                $urlpost = "http://localhost/adminmicanal/procesos/cortevideo.php";
+
                 $post = array(
-                    "id_padre" =>$video_id,
+                    "id_padre" => $video_id,
                     "id_hijo" => $objvideotemp->id,
                     "inicio" => $this->input->post('ini_corte'),
-                    "duracion" => $this->input->post('dur_corte')  
+                    "duracion" => $this->input->post('dur_corte')
                 );
-                
-                
+
+
                 $this->postDatos($urlpost, $post);
-                
+
                 echo json_encode(array("value" => '0'));
             }
         }
@@ -4081,5 +4111,6 @@ class Admin extends Admin_Controller {
             }
         }
     }
+
 }
 
