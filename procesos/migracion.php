@@ -14,7 +14,7 @@ define("MYSQLPASS", "joh2Yeyeimaeb4");
 
 class Migracion extends Exception {
 
-    private $archivo = 'sql/data.150313.sql';
+    private $archivo = 'sql/data.150313_2.sql';
 
     public function setQuery($consultamysql) {
         try {
@@ -27,41 +27,28 @@ class Migracion extends Exception {
     }
 
     public function getSql() {
-        echo '===  Inicio del proceso ===';
+        try {
+            echo '===  Inicio del proceso ===';
 
-//        $sql = explode(";", file_get_contents($this->archivo)); //
-//        foreach ($sql as $query) {
-//            try {
-//                echo $query."\n";
-//                $this->setQuery($query);
-//            } catch (Exception $e) {
-//                return $e->getMessage();
-//            }
-//        }
+            $lines = file($this->archivo);
 
-        $lines = file($this->archivo);
-// Loop through each line
-        foreach ($lines as $line) {
-            // Skip it if it's a comment
-            if (substr($line, 0, 2) == '--' || $line == '')
-                continue;
+            foreach ($lines as $line) {
 
-            // Add this line to the current segment
-            $templine .= $line;
-            // If it has a semicolon at the end, it's the end of the query
-            if (substr(trim($line), -1, 1) == ';') {
+                if (substr($line, 0, 2) == '--' || $line == '') {
+                    continue;
+                }
 
-                echo $templine . "\n";
-                // Perform the query
-                mysql_query($templine) or print('Error performing query \'<strong>' . $templine . '\': ' . mysql_error() . '<br /><br />');
-                // Reset temp variable to empty
-                $templine = '';
+                $templine .= $line;
+                if (substr(trim($line), -1, 1) == ';') {
+                    $this->setQuery($templine);
+                    $templine = '';
+                }
             }
+
+            echo '===  Termino el proceso ===';
+        } catch (Exception $exc) {
+            echo $exc->getTraceAsString();
         }
-
-
-
-        echo '===  Termino el proceso ===';
     }
 
     function throw_ex($er) {
