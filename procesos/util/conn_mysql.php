@@ -1,8 +1,8 @@
 ﻿<?php
-define("MYSQLDB", "pyro_admin2");
-define("MYSQLHOST", "localhost");
-define("MYSQLUSER", "root");
-define("MYSQLPASS", "123");
+define("MYSQLDB", "micanalcmsdevdb");
+define("MYSQLHOST", "10.203.31.139");
+define("MYSQLUSER", "micanalcmsdev");
+define("MYSQLPASS", "joh2Yeyeimaeb4");
 
 class Conexion_MySql {
 
@@ -111,23 +111,7 @@ class Conexion_MySql {
         $this->mysql_conexion->close();
     }
 
-    /*
-      public function updateEstadoVideosLiquid($id,$valor){
-      $this->$CONEXION_MYSQL->query("update default_cms_videos set estado_liquid=".$valor." where id=".$id);
-      return $result;
-      }
 
-      public function updateMediaVideosLiquid($id,$valor){
-      $result = $this->$CONEXION_MYSQL->query("update default_cms_videos set codigo='".$valor."' where id =".$id) ;
-      return $result;
-      }
-
-      public function num_rows($query){
-      $mysqli = $this->$CONEXION_MYSQL;
-      $result = $mysqli->query($query);
-      return $result->num_rows;
-      }
-     */
 
     public function SetMysqlToMongo($table, $values) {
 
