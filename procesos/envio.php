@@ -1,140 +1,161 @@
-<?php 
+<?php
+
+include_once 'config.php';
+
+class Envio_Videos {
+
+    var $conexionmysql;
+    var $claseffmpeg;
+    var $claseliquid;
+
+    function __construct() {
+        $this->conexionmysql = new Conexion_MySql();
+        $this->claseffmpeg = new Ffmpeg();
+        $this->claseliquid = new Liquid();
+    }
+
+    function UpdateEstadosVideos($id = "", $estado = "", $estado_liquid = "") {
+        $query = "update default_cms_videos set estado=" . $estado . ",estado_liquid =" . $estado_liquid . " where id=" . $id;
+        echo $query . "\n";
+        $this->conexionmysql->setUpdate($query);
+    }
+
+    function UpdateMediaVideos($id = "", $media = "") {
+        $query = "update default_cms_videos set codigo='" . $media . "' where id=" . $id;
+        echo $query . "\n";
+        $this->conexionmysql->setUpdate($query);
+    }
+
+    function UpdateRutaVideos($id = "", $ruta = "") {
+        $query = "update default_cms_videos set ruta='" . $ruta . "' where id=" . $id;
+        echo $query . "\n";
+        $this->conexionmysql->setUpdate($query);
+    }
+
+    function InsertImagenVideos($datos) {
+
+        $query = "insert default_cms_imagenes(videos_id,imagen,tipo_imagen_id,estado,fecha_registro,imagen_padre,procedencia) values ('" . $datos["videos_id"] . "','" . $datos["imagen"] . "','" . $datos["tipo_imagen_id"] . "',1,now()," . $datos["imagen_padre"] . ",1)";
+        echo $query;
+        return $this->conexionmysql->setQueryInsertReturnId($query);
+    }
+
+    function ConvertirVideos() {
+        $query = "SELECT vi.id FROM default_cms_videos vi WHERE vi.estado_liquid = 0";
 
 
-include_once 'ffmpeg.php';
-include_once 'liquid.php';
-include_once 'util/conn_mysql.php';
+        $resultado = $this->conexionmysql->setQueryRows($query);
+        echo print_r($resultado) . "\n";
 
+        if (count($resultado) > 0) {
+            foreach ($resultado as $value) {
+                $this->UpdateEstadosVideos($value["id"], 0, 1);
+                if ($this->claseffmpeg->convertVideotoMp4($value["id"])) {
+                    $this->UpdateEstadosVideos($value["id"], 0, 2);
+                }
+            }
+        }
+    }
 
-class EnvioVideos{
+    function UploadVideos() {
+        $query = "SELECT vi.id,ca.apikey FROM default_cms_videos vi            
+                INNER JOIN default_cms_canales ca ON  vi.canales_id=ca.id
+                WHERE vi.estado_liquid=2";
 
-	function EnvioVideosNuevos($arrdatos){
+        $resultado = $this->conexionmysql->setQueryRows($query);
+        echo print_r($resultado) . "\n";
+        if (count($resultado) > 0) {
+            foreach ($resultado as $value) {
 
-		$conexion = new Conexion();
-		$ffmpeg= new Ffmpeg();
+                $this->UpdateEstadosVideos($value["id"], 0, 3);
+                $retorno = $this->claseliquid->uploadVideoLiquid($value["id"], $value["apikey"]);
 
-		$id_video=$arrdatos['id'];
-		$ubi=$arrdatos['ubi'];
-		$datos = (object) $arrdatos;
+                if ($retorno != FALSE) {
+                    echo "Retorno 1: " . $retorno;
+                    $this->UpdateEstadosVideos($value["id"], 0, 4);
+                    $this->UpdateMediaVideos($value["id"], $retorno);
+                } else {
+                    echo "Retorno 2: " . $retorno;
+                    $this->UpdateEstadosVideos($value["id"], 0, 2);
+                }
+            }
+        }
+    }
 
+    function PublishVideos() {
+        $query = "SELECT vi.id,vi.titulo,vi.descripcion,vi.codigo,ca.apikey
+                FROM default_cms_videos vi  INNER JOIN default_cms_canales ca ON  vi.canales_id=ca.id
+                WHERE vi.estado_liquid=4";
+        echo $query . "\n";
 
-		$retffmpeg=$ffmpeg->convertVideotoMp4($id_video,$ubi);
-		//echo "convirtio";	
+        $resultado = $this->conexionmysql->setQueryRows($query);
+        echo print_r($resultado) . "\n";
+        if (count($resultado) > 0) {
+            foreach ($resultado as $value) {
+                $retorno = $this->claseliquid->updatePublishedMediaNode($value);
 
-                    $ubi="/home/idigital3/sites/adminmicanal/";
-		
-		if($retffmpeg==true){
-			$liquid = new Liquid();
-			$retliquid = $liquid->uploadVideoLiquid($id_video,$ubi);
+                if ($retorno != FALSE) {
+                    $this->UpdateEstadosVideos($value["id"], 0, 5);
+                } else {
+                    //$this->UpdateEstadosVideos($value["id"], 0, 2);
+                }
+            }
+        }
+    }
 
-		print_r($retliquid);
-		//exit();	
+    function ObtenerImagesUrlVideos() {
+        $query = "SELECT vi.id,vi.codigo,vi.ruta,ca.apikey,(select count(im.id) from default_cms_imagenes im  WHERE im.videos_id=vi.id and im.procedencia=1)as 'imag'
+                    FROM default_cms_videos vi  
+                    INNER  JOIN default_cms_canales ca ON  vi.canales_id=ca.id
+                    WHERE vi.estado_liquid=5";
 
-/*
-			if($retliquid["ret"]=="true"){
+        $resultado = $this->conexionmysql->setQueryRows($query);
 
-				echo $retliquid["med"]."<br>";
-				echo "paso 1";
-				$liquid->updatePublishedMediaNode($retliquid["med"],$datos);
-				
-				echo "paso 2";
-				
-				$returndame = $liquid->obtenerDatosMedia($retliquid["med"]);
+        if (count($resultado) > 0) {
+            foreach ($resultado as $value) {
 
-				echo "paso 3";
-				print_r($returndame);
-				
+                $mediaarr = $this->claseliquid->obtenerDatosMedia($value);
 
-				if($returndame["published"]=="true"){
-					//echo "entro en 6";
-					$conexion->updateEstadoVideosLiquid($id_video,6);
-					//echo "FIN";	
-				}else{
-					//echo "entro en 5";		
-					$conexion->updateEstadoVideosLiquid($id_video,5);
-				}
-			}
+                if (empty($value["ruta"])) {
+                    $urlvideo = $this->claseliquid->getUrlVideoLiquidRawLite($mediaarr);
+                    if (!empty($urlvideo)) {
+                        $this->UpdateRutaVideos($value["id"], $urlvideo);
+                    }
+                }
 
-			*/
-		}
-	}
+                if ($value["imag"] == 0) {
 
-	function RePublishedMedia($arrdatos){
+                    $imagenes = $this->claseliquid->getimagenesLiquid($mediaarr);
 
-		$conexion = new Conexion();
-		$ffmpeg= new Ffmpeg();
+                    if (count($imagenes) > 0) {
+                        print_r($imagenes);
+                        $datos = array();
+                        $datos["videos_id"] = $value["id"];
+                        $datos["imagen_padre"] = "null";
 
-		$id_video=$datos['id'];
-		$datos = (object) $arrdatos;
+                        foreach ($imagenes as $value2) {
+                            $datos["imagen"] = $value2["url"];
+                            $datos["tipo_imagen_id"] = $value2["tipo_imagen_id"];
+                            $datos["imagen_padre"] = $this->InsertImagenVideos($datos);
+                        }
+                    }
+                }
 
-		$liquid->updatePublishedMediaNode($retliquid["med"],$datos);
-
-		$return = $liquid->obtenerDatosMedia($retliquid["med"]);
-
-		if($return["published"]=="true"){
-					$liquid->updateEstadoVideosLiquid($id_video,6);
-					echo "FIN";	
-		}else{
-					$liquid->updateEstadoVideosLiquid($id_video,5);
-		}
-
-	}
+                if ((!empty($value["ruta"]) || !empty($urlvideo)) && ($value["imag"] != 0 || !empty($datos["imagen"]))) {
+                    $this->UpdateEstadosVideos($value["id"], 0, 6);
+                }
+            }
+        }
+    }
 
 }
 
 echo 'post_max_size = ' . ini_get('post_max_size') . "\n";
-
 echo 'upload_max_filesize = ' . ini_get('upload_max_filesize') . "\n";
-
 echo 'max_execution_time = ' . ini_get('max_execution_time') . "\n";
 
-
-
-
-$conexion = new Conexion();	
-
-
-while(true){
-
-
-	$query="SELECT id,titulo,descripcion,estado_liquid,codigo FROM default_cms_videos where estado_liquid=0 limit 1";
-	//echo $query."<br>";
-	$returconsulta=$conexion->setConsulta($query);
-	
-
-	
-	if ($returconsulta) {
-		while ($row = $returconsulta->fetch_object()) {
-
-			if($_SERVER["DOCUMENT_ROOT"]=="/"){
-				$arrdatos['ubi']="/home/idigital3/sites/adminmicanal/";
-			}
-
-			$arrdatos['ubi']=$_SERVER["DOCUMENT_ROOT"]."/";
-			echo "path: ".$arrdatos['ubi'];
-
-			//$arrdatos['ubi']=$_SERVER["DOCUMENT_ROOT"]."/videos/";
-
-		    $arrdatos['id']  = $row->id;
-		    $arrdatos['fecha']  = date('Y-m-d H:i:s');
-			$arrdatos['title']  = $row->titulo;
-			$arrdatos['legend'] = $row->descripcion;
-			$arrdatos['codigo'] = $row->codigo;
-			$arrdatos['estado_liquid'] = $row->estado_liquid;
-
-			print_r($arrdatos);
-
-
-			$enviovideos= new EnvioVideos();	
-
-			$enviovideos->EnvioVideosNuevos($arrdatos);
-
-		}
-	 }
-	 
-	 	
-	sleep(20);
-}
-
-
+$claseEnvioVideos = new Envio_Videos();
+$claseEnvioVideos->ConvertirVideos();
+$claseEnvioVideos->UploadVideos();
+$claseEnvioVideos->PublishVideos();
+$claseEnvioVideos->ObtenerImagesUrlVideos();
 ?>
