@@ -21,3 +21,4 @@
         <?php var_dump(template_partial('users')); ?>
     </div>     
 </section>
+<script src="<?php echo base_url("system/cms/themes/pyrocms/js/fix_channels.js") ?>"></script>
