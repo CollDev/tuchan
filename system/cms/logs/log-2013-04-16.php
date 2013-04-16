@@ -14,3 +14,4 @@ ERROR - 2013-04-16 01:42:09 --> Severity: Notice  --> unserialize(): Error at of
 ERROR - 2013-04-16 22:25:16 --> Page Missing: admin/helloworld
 ERROR - 2013-04-16 22:25:42 --> Page Missing: admin/helloworld
 ERROR - 2013-04-16 22:48:46 --> Severity: Notice  --> session_start(): ps_files_cleanup_dir: opendir(/var/lib/php5) failed: Permission denied (13) /var/www/local.adminmicanal.com/system/cms/hooks/pick_language.php 30
+ERROR - 2013-04-16 23:31:37 --> Severity: Notice  --> unserialize(): Error at offset 40858 of 47195 bytes /var/www/local.adminmicanal.com/system/cms/libraries/Simplepie.php 230

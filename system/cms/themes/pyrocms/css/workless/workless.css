@@ -1685,15 +1685,15 @@ background:url(../../../img/admin/new_icon.png) no-repeat left center;
 }
 
 .mode_edit{
-	background:url(../../../img/admin/edit_icon.png) no-repeat top center;
+	background:url(../../img/edit_icon.png) no-repeat top center;
 }
 
 .mode_delete{
-	background:url(../../../img/admin/edit_delete.png) no-repeat top center;
+	background:url(../../img/delete_icon.png) no-repeat top center;
 }
 
 .mode_preview{
-	background:url(../../../img/admin/edit_view.png) no-repeat top center;
+	background:url(../../img/view_icon.png) no-repeat top center;
 }
  
  
