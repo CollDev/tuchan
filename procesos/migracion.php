@@ -1,5 +1,5 @@
-<?php
-
+﻿<?php
+set_time_limit(450);
 define("MYSQLHOST", "10.203.31.139");
 define("MYSQLDB", "micanacmsdevdb");
 define("MYSQLUSER", "micanalcmsdev");
@@ -41,7 +41,7 @@ class Migracion extends Exception {
                 $templine .= $line;
                 if (substr(trim($line), -1, 1) == ';') {
                     $this->setQuery($templine);
-                    $templine = '';
+                    $templine = ''; 
                 }
             }
 
