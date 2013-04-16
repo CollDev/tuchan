@@ -23,7 +23,13 @@ class Admin_Controller extends MY_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-
+                
+                // Cuando estando logueado se borra manualmente admin/...
+                if (base_url() == current_url()) {
+                    //echo '<br>son iguales : ' . current_url();                    
+                    redirect('admin/canales');
+                }
+                
 		// Load the Language files ready for output
 		$this->lang->load('admin');
 		$this->lang->load('buttons');
