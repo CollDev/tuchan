@@ -41,19 +41,20 @@ class Liquid{
 
     $post = "<Media><published>true</published><publishDate>".$date."</publishDate></Media>";
     $url = $this->apiUrl . "/medias/".$mediaId."?key=".$this->apiKey; 
-    //echo $url."<br>";
+    echo $url."<br>";
     return $this->postXML($url, $post);
   }
 
   function updatePublishedMediaNode($mediaId, $datos){ 
 
+
     $mediaId=trim($mediaId);
 
     $tags = ''; 
-    $date = date("Y-m-d\TH:i:sP", strtotime($datos->fecha)); 
+    $date = date("Y-m-d\TH:i:sP", strtotime($datos['fecha'])); 
     $post = "<Media><published>true</published>" . 
-    "<description>{$datos->legend}</description><highlighted>false</highlighted>" . 
-    "<publishDate>$date</publishDate><title>{$datos->title}</title>" . 
+    "<description>descripcion</description><highlighted>false</highlighted>" . 
+    "<publishDate>".$date."</publishDate><title>titulo</title>" . 
     "<channelId>2</channelId>" . 
       $tags . 
     "</Media>"; 
@@ -62,7 +63,25 @@ class Liquid{
     return $this->postXML($url, $post); 
    }
 
+
+  function updateTitleMediaNode($mediaId, $datos){ 
+
+    $mediaId=trim($mediaId);
+
+    $tags = ''; 
+    $date = date("Y-m-d\TH:i:sP", strtotime($datos->fecha)); 
+    $post = "<Media>" . 
+    "<description>{$datos->legend}</description>" . 
+    "<title>{$datos->title}</title>" . 
+      $tags . 
+    "</Media>"; 
+    $url = $this->apiUrl . "/medias/".$mediaId."?key=".$this->apiKey; 
+    echo $url."<br>";
+    return $this->postXML($url, $post); 
+   }
+
   function uploadVideoLiquid($id_video,$ubi){
+      $ubi="/home/idigital3/sites/adminmicanal/";
         $conexion = new Conexion();
         //$url="http://192.168.1.34/videos/receptliquid.php";
 
@@ -88,7 +107,7 @@ class Liquid{
         );
 
         //echo "<br>";
-  //print_r($post);
+        //print_r($post);
        // echo "<br>";
 
         curl_setopt($ch,CURLOPT_POSTFIELDS, $post);
@@ -100,14 +119,16 @@ class Liquid{
 
         $mediaxml = new SimpleXMLElement($response);
 
+        /*
         $jsonmedia=json_encode($media);
-       // echo json_encode($media);
+        echo json_encode($media);
+        */
 
         $mediaarr=json_decode(json_encode($mediaxml),true);
 
         $media=$mediaarr["media"]["@attributes"]["id"];
 
-       // echo "<br>media: ".$media."<br>";
+        echo "<br>media: ".$media."<br>";
 
         if($media!=""){
 
@@ -127,16 +148,16 @@ class Liquid{
           return $ret;
 
         }               
-        //echo "status: ".$mediaarr["status"];     
+        echo "status: ".$mediaarr["status"];     
   }
 
   function obtenerDatosMedia($mediaId){
 
-    $url = $this->apiUrl . "/medias/".$mediaId."?key=".$this->apiKey."&filter=id;published;status";     
-    //echo $url."<br>";
+    $url = $this->apiUrl . "/medias/".$mediaId."?key=".$this->apiKey."&filter=id;published;status;numberOfViews;files";     
+    echo $url."<br>";
     $response = $this->getXml($url);    
     $mediaxml = new SimpleXMLElement($response);
-    $jsonmedia=json_encode($media); 
+    //$jsonmedia=json_encode($media); 
     $mediaarr=json_decode(json_encode($mediaxml),true);
     
     //print_r($mediaarr);
@@ -149,7 +170,7 @@ class Liquid{
     $url = $this->apiUrl . "/medias/".$mediaId."?key=".$this->apiKey."&filter=id;thumbs";     
     $response = $this->getXml($url);    
     $mediaxml = new SimpleXMLElement($response);
-    $jsonmedia=json_encode($media); 
+    //$jsonmedia=json_encode($media); 
     $mediaarr=json_decode(json_encode($mediaxml),true);
     return $mediaarr;
   }

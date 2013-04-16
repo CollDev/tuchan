@@ -9,7 +9,7 @@ class Ffmpeg{
 		//	echo $id_video."<br>";
 
 		try {
-
+                    $ubi="/home/idigital3/sites/adminmicanal/";
 		
 			$conexion = new Conexion();
 
@@ -23,11 +23,11 @@ class Ffmpeg{
 		
 			$conexion->updateEstadoVideosLiquid($id_video,1);
 
-			//exec("ffmpeg -i ".$video_in." ".$video_out);
-
-			//$conexion->updateEstadoVideosLiquid($id_video,1);
-
-			if (is_readable($video_out)) {
+			if(!is_readable($video_out)){
+				exec("ffmpeg -i ".$video_in." ".$video_out." -loglevel quiet");
+			}
+			
+			if (is_readable($video_out)){
 				$conexion->updateEstadoVideosLiquid($id_video,2);
 			    return true;
 			} else {

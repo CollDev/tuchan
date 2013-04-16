@@ -72,41 +72,36 @@ class Tags_m extends MY_Model
      * @return string
      */
     public function insert($input = array())
-    {        
+    {
+        //print_r($input);
+        //echo 'tematicas: ' . $input['tematicas'] . '<br/>';
+        //echo 'personajes: ' . $input['personajes'];
+        
         $arr_tematicas = explode(',', $input['tematicas']);
         $arr_personajes = explode(',', $input['personajes']);
         
-        // Tags tematicas
-        foreach ($arr_tematicas as $indice => $valor) {
-            
-            $valor = trim($valor);
-            $tag_ids[] = parent::insert(array(
-                                'tipo_tags_id' => '1', // Tags tematicos
-                                'nombre' => $valor,
-                                'descripcion' => $valor,
-                                'alias'  => url_title(strtolower(convert_accented_characters($valor))),
-                                'estado' => '1',
-                                'usuario_registro' => (int) $this->session->userdata('user_id'),
-                                'fecha_registro' => date('Y-m-d H:i:s')
-                        ));
+        // Tags tematicas OJO VERIFICAR LOS VALORES
+        foreach ($arr_tematicas as $tematicas) {
+            parent::insert(array(
+                    'tipo_tags_id' => '1',
+                    'nombre' => $input['nombre'],
+                    'descripcion' => $input['descripcion'],
+                    'alias'  => url_title(strtolower(convert_accented_characters($input['nombre']))),
+                    'estado' => '1',
+                    'usuario_registro' => (int) $this->session->userdata('user_id'),
+                    'fecha_registro' => date('Y-m-d H:i:s')
+            ));
         }
         
         // Tags personajes
-        foreach ($arr_personajes as $indice => $personaje) {
-        
-            $personaje = trim($personaje);
-            $tag_ids[] = parent::insert(array(
-                            'tipo_tags_id' => '2', // Tags personajes
-                            'nombre' => $personaje,
-                            'descripcion' => $personaje,
-                            'alias'  => url_title(strtolower(convert_accented_characters($personaje))),
-                            'estado' => '1',
-                            'usuario_registro' => (int) $this->session->userdata('user_id'),
-                            'fecha_registro' => date('Y-m-d H:i:s')
-                    ));
+        foreach ($arr_personajes as $personajes) {
+            parent::insert(array(
+                    'title' => $input['title'],
+                    'slug'  => url_title(strtolower(convert_accented_characters($input['title'])))
+            ));
         }
             
-       return $tag_ids;
+       return $input['title'];
     }
 
 //

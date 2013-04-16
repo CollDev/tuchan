@@ -16,65 +16,6 @@ class Canales_m extends MY_Model {
     protected $_table = 'default_cms_canales';
 
     /**
-     * Get
-     *
-     * Gets a setting based on the $where param.  $where can be either a string
-     * containing a slug name or an array of WHERE options.
-     *
-     * @access	public
-     * @param	mixed	$where
-     * @return	object
-     */
-    public function get($where) {
-        if (!is_array($where)) {
-            $where = array('id' => $where);
-        }
-
-        return $this->db
-                        ->select('*', 'FALSE')
-                        ->where($where)
-                        ->get($this->_table)
-                        ->row();
-    }
-
-    /**
-     * Get Many By
-     *
-     * Gets all settings based on the $where param.  $where can be either a string
-     * containing a module name or an array of WHERE options.
-     *
-     * @access	public
-     * @param	mixed	$where
-     * @return	object
-     */
-    public function get_many_by($where = array()) {
-        if (!is_array($where)) {
-            $where = array('module' => $where);
-        }
-
-        return $this
-                        //->select('*, IF(`value` = "", `default`, `value`) as `value`', FALSE)
-                        ->select('*', 'FALSE')
-                        ->where($where)
-                        ->order_by('`nombre`', 'ASC')
-                        ->get_all();
-    }
-
-    /**
-     * Update
-     *
-     * Updates a setting for a given $slug.
-     *
-     * @access	public
-     * @param	string	$slug
-     * @param	array	$params
-     * @return	bool
-     */
-    public function update($slug = '', $params = array()) {
-        return $this->db->update($this->_table, $params, array('slug' => $slug));
-    }
-
-    /**
      * Sections
      *
      * Gets all the sections (modules) from the settings table.
@@ -122,7 +63,40 @@ class Canales_m extends MY_Model {
         }
         $resultValue = $this->db->get()->result();
         return $resultValue;
-    }    
+    }
+    
+    public function save($objBeanCanal){
+        $objBeanCanal->id = parent::insert(array(
+                'tipo_canales_id' => $objBeanCanal->tipo_canales_id,
+                'alias'  => $objBeanCanal->alias,
+                'nombre' => $objBeanCanal->nombre,
+                'descripcion' => $objBeanCanal->descripcion,
+                'apikey' => $objBeanCanal->apikey,
+                'playerkey' => $objBeanCanal->playerkey,
+                'id_mongo' => $objBeanCanal->id_mongo,
+                'cantidad_suscriptores' => $objBeanCanal->cantidad_suscriptores,
+                'estado' => $objBeanCanal->estado,
+                'fecha_registro' => $objBeanCanal->fecha_registro,
+                'usuario_registro' => $objBeanCanal->usuario_registro,
+                'fecha_actualizacion' => $objBeanCanal->fecha_actualizacion,
+                'usuario_actualizacion' => $objBeanCanal->usuario_actualizacion,
+                'estado_migracion' => $objBeanCanal->estado_migracion,
+                'fecha_migracion' => $objBeanCanal->fecha_migracion,
+                'fecha_migracion_actualizacion' => $objBeanCanal->fecha_migracion_actualizacion
+        ));
+        return $objBeanCanal;           
+    }
+  
+    public function actualizar($objBeanCanal){
+        parent::update($objBeanCanal->id, array("tipo_canales_id"=>$objBeanCanal->tipo_canales_id,
+            "alias"=>$objBeanCanal->alias,
+            "nombre"=>$objBeanCanal->nombre,
+            "descripcion"=>$objBeanCanal->descripcion,
+            "apikey"=>$objBeanCanal->apikey,
+            "playerkey"=>$objBeanCanal->playerkey,
+            "fecha_actualizacion"=>$objBeanCanal->fecha_actualizacion,
+            "usuario_actualizacion"=>$objBeanCanal->usuario_actualizacion));
+    }
 
 }
 

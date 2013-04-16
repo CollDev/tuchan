@@ -66,25 +66,23 @@ class Video_tags_m extends MY_Model
     
     
     /**
+<<<<<<< HEAD
+     * Inserta un nuevo tag en la base de datos
+=======
      * Inserta un nuevo video tag en la base de datos
+>>>>>>> 1201ee8a8121b87db20ea4af381bef22058262ef
      * 
      * @param array $input La data a insertar
      * @return string
      */
-    public function insert($video_id, $tags = array())
+    public function insert($input = array())
     {
-        foreach ($tags as $indice => $tag_id) {
-                        
             parent::insert(array(
-                'tags_id' => $tags[$indice],
-                'videos_id'  => $video_id,
-                'estado' => '1',
-                'usuario_registro' => (int) $this->session->userdata('user_id'),
-                'fecha_registro' => date('Y-m-d H:i:s')
+                    'title' => $input['title'],
+                    'slug'  => url_title(strtolower(convert_accented_characters($input['title'])))
             ));
-        }
 
-        return TRUE;
+            return $input['title']; 
     }
 
 //

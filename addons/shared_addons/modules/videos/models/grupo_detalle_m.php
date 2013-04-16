@@ -87,5 +87,15 @@ class Grupo_detalle_m extends MY_Model {
             'tipo_grupo_maestros_id' => $objBeanMaestroDetalle->tipo_grupo_maestros_id
             ));        
     }
+    
+    public function existVideo($titulo, $canal_id,$maestro_id, $type){
+        $returnValue = false;
+        $query="SELECT * FROM ".$this->_table." WHERE upper(titulo) like '".  strtoupper($title)."' AND canales_id =".$canal_id;
+        $result = $this->db->query($query)->result();
+        if(count($result)>0){
+            $returnValue = true;
+        }
+        return $returnValue;        
+    }
 
 }

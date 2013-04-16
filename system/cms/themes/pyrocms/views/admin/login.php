@@ -38,7 +38,7 @@
 		<?php $this->load->view('admin/partials/notices') ?>
 		
 		<header id="main">
-			<div id="login-logo"></div>
+			<a href="http://dev.micanal.pe/" target="_blank"><div id="login-logo"></div></a>
 		</header>
 		
 		<?php echo form_open('admin/login'); ?>
@@ -62,10 +62,11 @@
 			</ul>
 		<?php echo form_close(); ?>
 	</div>
-	<center>
-		<ul id="login-footer">
-			<li><a href="http://pyrocms.com/">Powered by PyroCMS</a></li>
-		</ul>
+	<center style="margin-top: 15px">
+            <a href="http://dev.micanal.pe/" target="_blank">Mi Canal 2013</a>
+            <!--<ul id="login-footer">
+		<li><a href="http://dev.micanal.pe/">Mi Canal 2013</a></li>
+            </ul>-->
 	</center>
 </body>
 </html>

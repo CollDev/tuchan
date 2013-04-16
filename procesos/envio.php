@@ -1,5 +1,6 @@
 <?php 
 
+
 include_once 'ffmpeg.php';
 include_once 'liquid.php';
 include_once 'util/conn_mysql.php';
@@ -20,14 +21,16 @@ class EnvioVideos{
 		$retffmpeg=$ffmpeg->convertVideotoMp4($id_video,$ubi);
 		//echo "convirtio";	
 
+                    $ubi="/home/idigital3/sites/adminmicanal/";
 		
 		if($retffmpeg==true){
 			$liquid = new Liquid();
 			$retliquid = $liquid->uploadVideoLiquid($id_video,$ubi);
 
-		//print_r($retliquid);
+		print_r($retliquid);
 		//exit();	
 
+/*
 			if($retliquid["ret"]=="true"){
 
 				echo $retliquid["med"]."<br>";
@@ -51,6 +54,8 @@ class EnvioVideos{
 					$conexion->updateEstadoVideosLiquid($id_video,5);
 				}
 			}
+
+			*/
 		}
 	}
 
@@ -77,43 +82,59 @@ class EnvioVideos{
 
 }
 
+echo 'post_max_size = ' . ini_get('post_max_size') . "\n";
 
-$conexion = new Conexion();
+echo 'upload_max_filesize = ' . ini_get('upload_max_filesize') . "\n";
 
-$returconsulta=$conexion->setConsulta("SELECT id,titulo,descripcion,estado_liquid,codigo FROM default_cms_videos where estado_liquid=0");
+echo 'max_execution_time = ' . ini_get('max_execution_time') . "\n";
 
-if ($returconsulta) {
-	while ($row = $returconsulta->fetch_object()) {
 
-		if($_SERVER["DOCUMENT_ROOT"]=="/"){
-			$arrdatos['ubi']="/home/idigital3/sites/adminmicanal/";
+
+
+$conexion = new Conexion();	
+
+
+while(true){
+
+
+	$query="SELECT id,titulo,descripcion,estado_liquid,codigo FROM default_cms_videos where estado_liquid=0 limit 1";
+	//echo $query."<br>";
+	$returconsulta=$conexion->setConsulta($query);
+	
+
+	
+	if ($returconsulta) {
+		while ($row = $returconsulta->fetch_object()) {
+
+			if($_SERVER["DOCUMENT_ROOT"]=="/"){
+				$arrdatos['ubi']="/home/idigital3/sites/adminmicanal/";
+			}
+
+			$arrdatos['ubi']=$_SERVER["DOCUMENT_ROOT"]."/";
+			echo "path: ".$arrdatos['ubi'];
+
+			//$arrdatos['ubi']=$_SERVER["DOCUMENT_ROOT"]."/videos/";
+
+		    $arrdatos['id']  = $row->id;
+		    $arrdatos['fecha']  = date('Y-m-d H:i:s');
+			$arrdatos['title']  = $row->titulo;
+			$arrdatos['legend'] = $row->descripcion;
+			$arrdatos['codigo'] = $row->codigo;
+			$arrdatos['estado_liquid'] = $row->estado_liquid;
+
+			print_r($arrdatos);
+
+
+			$enviovideos= new EnvioVideos();	
+
+			$enviovideos->EnvioVideosNuevos($arrdatos);
+
 		}
-
-		$arrdatos['ubi']=$_SERVER["DOCUMENT_ROOT"]."/";
-		echo "path: ".$arrdatos['ubi'];
-
-		//$arrdatos['ubi']=$_SERVER["DOCUMENT_ROOT"]."/videos/";
-
-	    $arrdatos['id']  = $row->id;
-	    $arrdatos['fecha']  = date('Y-m-d H:i:s');
-		$arrdatos['title']  = $row->titulo;
-		$arrdatos['legend'] = $row->descripcion;
-		$arrdatos['codigo'] = $row->codigo;
-		$arrdatos['estado_liquid'] = $row->estado_liquid;
-
-		print_r($arrdatos);
-
-
-		$enviovideos= new EnvioVideos();	
-
-		$enviovideos->EnvioVideosNuevos($arrdatos);
-
-	}
- }
-
-
-
-
+	 }
+	 
+	 	
+	sleep(20);
+}
 
 
 ?>

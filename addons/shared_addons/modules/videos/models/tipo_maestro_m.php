@@ -29,7 +29,7 @@ class Tipo_maestro_m extends MY_Model
         $this->db->from($this->_table);
         $this->db->where($where);
         if($order != NULL){
-            $this->db->order_by($order);
+            $this->db->order_by($order, 'DESC');
         }
         $resultValue = $this->db->get()->result();
         return $resultValue;
@@ -43,7 +43,6 @@ class Tipo_maestro_m extends MY_Model
                 $returnValue[$objTipo->id]= $objTipo->nombre;
             }
         }
-        $returnValue[0] = lang('videos:select_programme');
         return $returnValue;
     }
     

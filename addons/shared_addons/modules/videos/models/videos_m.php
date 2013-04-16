@@ -17,53 +17,6 @@ class Videos_m extends MY_Model
 {
 
     protected $_table = 'default_cms_videos';
-
-    /**
-     * Get
-     *
-     * Gets a setting based on the $where param.  $where can be either a string
-     * containing a slug name or an array of WHERE options.
-     *
-     * @access	public
-     * @param	mixed	$where
-     * @return	object
-     */
-    public function get($where) 
-    {
-        if (!is_array($where)) {
-            $where = array('id' => $where);
-        }
-
-        return $this->db
-                        ->select('*', 'FALSE')
-                        ->where($where)
-                        ->get($this->_table)
-                        ->row();
-    }
-
-    /**
-     * Get Many By
-     *
-     * Gets all settings based on the $where param.  $where can be either a string
-     * containing a module name or an array of WHERE options.
-     *
-     * @access	public
-     * @param	mixed	$where
-     * @return	object
-     */
-    public function get_many_by($where = array()) 
-    {
-        if (!is_array($where)) {
-            $where = array('user_id' => $where);
-        }
-
-        $this->db->select("*");
-        $this->db->from($this->_table);
-        $this->db->where($where);
-        $result = $this->db->get()->result();
-
-        return $result;
-    }
     
     /**
      * Obtiene los videos que pertenecen al canal seleccionado
@@ -86,8 +39,89 @@ class Videos_m extends MY_Model
      * @return array obj
      */
     private function _obtener_query_videos($canal_id)
-    {           
-            $query = "SELECT v.id, v.canales_id, v.titulo, v.fuente, v.fecha_registro, v.fecha_publicacion_inicio, v.fecha_publicacion_fin,
+    {        
+        $query = "SELECT v.id, v.titulo, v.fuente, v.fecha_registro, v.fecha_publicacion_inicio, fecha_publicacion_fin,
+                    v.fecha_transmision, v.horario_transmision_inicio, v.horario_transmision_fin, v.estado,                            
+                    c.nombre as canal, c.nombre as fuente, cat.nombre as categoria, tv.nombre as tipo_video, 
+                    i.imagen, ";
+
+        // tags tematicos
+        $query .= "(SELECT group_concat(t.nombre)
+                        FROM (`". $this->_table . "` v) 
+                            JOIN `default_cms_video_tags` vt ON `vt`.`videos_id` = `v`.`id` 
+                            JOIN `default_cms_tags` t ON `t`.`id` = `vt`.`tags_id` 
+                            JOIN  default_cms_tipo_tags tt ON tt.id = t.tipo_tags_id
+                        WHERE tt.id = 1
+                   ) as tematico, ";
+
+        // tags personajes
+        $query .= "(SELECT group_concat(t.nombre)
+                        FROM (`". $this->_table . "` v) 
+                            JOIN `default_cms_video_tags` vt ON `vt`.`videos_id` = `v`.`id` 
+                            JOIN `default_cms_tags` t ON `t`.`id` = `vt`.`tags_id` 
+                            JOIN  default_cms_tipo_tags tt ON tt.id = t.tipo_tags_id
+                        WHERE tt.id = 2
+                    ) as personaje, ";
+ 
+        // agrupar tag
+	$query .= "group_concat(t.nombre) as tag ";
+        
+        $query .= "FROM (`". $this->_table . "` v) 
+                    JOIN `default_cms_canales` c ON `c`.`id` = `v`.`canales_id` AND c.id = v.canales_id 
+                    JOIN `default_cms_categorias` cat ON `cat`.`id` = `v`.`categorias_id` 
+                    JOIN `default_cms_tipo_videos` tv ON `tv`.`id` = `v`.`tipo_videos_id` 
+                    JOIN `default_cms_video_tags` vt ON `vt`.`videos_id` = `v`.`id` 
+                    JOIN `default_cms_tags` t ON `t`.`id` = `vt`.`tags_id` 
+                    JOIN  default_cms_tipo_tags tt ON tt.id = t.tipo_tags_id
+                    JOIN  default_cms_imagenes i ON i.videos_id = v.id
+                  WHERE `canales_id` = " . (int) $canal_id;
+//=======
+//    {           
+//            $query = "SELECT v.id, v.canales_id, v.titulo, v.fecha_registro, v.fecha_publicacion_inicio, v.fecha_publicacion_fin,
+//            v.fecha_transmision, v.horario_transmision_inicio, v.horario_transmision_fin, v.estado,                            
+//            c.nombre as canal, c.nombre as fuente, cat.nombre as categoria, tv.nombre as tipo_video, 
+//            i.imagen, ";
+//                    
+//            // Tags tematicos
+//            $query .= "(SELECT group_concat(t.nombre)
+//                            FROM (`". $this->_table . "` vi) 
+//                                LEFT JOIN `default_cms_video_tags` vt ON `vt`.`videos_id` = `vi`.`id` 
+//                                LEFT JOIN `default_cms_tags` t ON `t`.`id` = `vt`.`tags_id` 
+//                                LEFT JOIN  default_cms_tipo_tags tt ON tt.id = t.tipo_tags_id                            
+//                            WHERE tt.id = '" . TAG_TEMATICO ."' AND vi.id = v.id
+//                       ) as tematico, ";
+//
+//            // Tags personajes
+//            $query .= "(SELECT group_concat(t.nombre)
+//                            FROM (`". $this->_table . "` vi) 
+//                                LEFT JOIN `default_cms_video_tags` vt ON `vt`.`videos_id` = `vi`.`id` 
+//                                LEFT JOIN `default_cms_tags` t ON `t`.`id` = `vt`.`tags_id` 
+//                                LEFT JOIN  default_cms_tipo_tags tt ON tt.id = t.tipo_tags_id
+//                            WHERE tt.id = '" . TAG_PERSONAJE ."' AND vi.id = v.id
+//                        ) as personaje, ";
+//
+//            // Agrupar tag
+//            $query .= "GROUP_CONCAT(t.nombre) as tag ";
+//
+//            $query .= "FROM (`". $this->_table . "` v) 
+//                        LEFT JOIN `default_cms_canales` c ON `c`.`id` = `v`.`canales_id` AND c.id = v.canales_id 
+//                        LEFT JOIN `default_cms_categorias` cat ON `cat`.`id` = `v`.`categorias_id` 
+//                        LEFT JOIN `default_cms_tipo_videos` tv ON `tv`.`id` = `v`.`tipo_videos_id` 
+//                        LEFT JOIN `default_cms_video_tags` vt ON `vt`.`videos_id` = `v`.`id` 
+//                        LEFT JOIN `default_cms_tags` t ON `t`.`id` = `vt`.`tags_id` 
+//                        LEFT JOIN  default_cms_tipo_tags tt ON tt.id = t.tipo_tags_id
+//                        LEFT JOIN  default_cms_imagenes i ON i.videos_id = v.id
+//                      WHERE v.`canales_id` = " . (int) $canal_id . " 
+//                      GROUP BY v.id";
+//            
+//>>>>>>> 7989e03f71800dffb93ff1a5f3979a6c7639896d
+        $result = $this->db->query($query)->result();
+
+        return $result;
+    }
+    
+    public function countVideo($canal_id){
+            $query = "SELECT v.id, v.canales_id, v.titulo, v.fecha_registro, v.fecha_publicacion_inicio, v.fecha_publicacion_fin,
             v.fecha_transmision, v.horario_transmision_inicio, v.horario_transmision_fin, v.estado,                            
             c.nombre as canal, c.nombre as fuente, cat.nombre as categoria, tv.nombre as tipo_video, 
             i.imagen, ";
@@ -124,9 +158,9 @@ class Videos_m extends MY_Model
                       WHERE v.`canales_id` = " . (int) $canal_id . " 
                       GROUP BY v.id";
             
-        $result = $this->db->query($query)->result();
+        $result = $this->db->query($query)->count_by();
 
-        return $result;
+        return $result;        
     }
     
     /**
@@ -136,29 +170,38 @@ class Videos_m extends MY_Model
      * @return string
      */
     public function insert($input = array())
-    {        
-        $video_id = parent::insert(array(
-                'titulo' => $input['titulo'],
-                'alias'  => url_title(strtolower(convert_accented_characters($input['titulo']))),
-                'descripcion' => $input['descripcion'],
-                'fragmento' => $input['fragmento'],
-                'categorias_id' => $input['categorias_id'],
-                'usuarios_id' => $input['usuarios_id'],
-                'tipo_videos_id' => $input['tipo_videos_id'],
-                'fuente' => $input['fuente'],
-                'fecha_publicacion_inicio' => date("Y-m-d H:i:s", strtotime($input['fecha_publicacion_inicio'])),
-                'fecha_publicacion_fin' => date("Y-m-d H:i:s", strtotime($input['fecha_publicacion_fin'])),
-                'fecha_transmision' => date("Y-m-d H:i:s", strtotime($input['fecha_transmision'])),
-                'horario_transmision_inicio' => $input['horario_transmision_inicio'],
-                'horario_transmision_fin' => $input['horario_transmision_fin'],
-                'ubicacion' => $input['ubicacion'],
-                'canales_id' => $input['canales_id'],
-                'estado' => $input['estado'],
-                'fecha_registro' => date('Y-m-d H:i:s'),
-                'usuario_registro' => $input['usuarios_id'],
-        ));
+    {
+            parent::insert(array(
+                    'title' => $input['title'],
+                    'slug'  => url_title(strtolower(convert_accented_characters($input['title'])))
+            ));
 
-        return $video_id;
+            return $input['title'];
+//=======
+//    {        
+//        $video_id = parent::insert(array(
+//                'titulo' => $input['titulo'],
+//                'alias'  => url_title(strtolower(convert_accented_characters($input['titulo']))),
+//                'descripcion' => $input['descripcion'],
+//                'fragmento' => $input['fragmento'],
+//                'categorias_id' => $input['categorias_id'],
+//                'usuarios_id' => $input['usuarios_id'],
+//                'tipo_videos_id' => $input['tipo_videos_id'],
+//                //'fuente' => $input['fuente'],
+//                'fecha_publicacion_inicio' => date("Y-m-d H:i:s", strtotime($input['fecha_publicacion_inicio'])),
+//                'fecha_publicacion_fin' => date("Y-m-d H:i:s", strtotime($input['fecha_publicacion_fin'])),
+//                'fecha_transmision' => date("Y-m-d H:i:s", strtotime($input['fecha_transmision'])),
+//                'horario_transmision_inicio' => $input['horario_transmision_inicio'],
+//                'horario_transmision_fin' => $input['horario_transmision_fin'],
+//                'ubicacion' => $input['ubicacion'],
+//                'canales_id' => $input['canales_id'],
+//                'estado' => $input['estado'],
+//                'fecha_registro' => date('Y-m-d H:i:s'),
+//                'usuario_registro' => $input['usuarios_id'],
+//        ));
+//
+//        return $video_id;
+//>>>>>>> 7989e03f71800dffb93ff1a5f3979a6c7639896d
     }
 
 //
@@ -224,7 +267,7 @@ class Videos_m extends MY_Model
                     'categorias_id' => $objBeanVideo->categorias_id,
                     'usuarios_id' => $objBeanVideo->usuarios_id,
                     'canales_id' => $objBeanVideo->canales_id,
-                    'fuente' => $objBeanVideo->fuente,
+                    //'fuente' => $objBeanVideo->fuente,
                     'titulo' => $objBeanVideo->titulo,
                     'alias' => $objBeanVideo->alias,
                     'descripcion' => $objBeanVideo->descripcion,
@@ -241,8 +284,11 @@ class Videos_m extends MY_Model
                     'usuario_registro' => $objBeanVideo->usuario_registro,
                     'estado_migracion' => $objBeanVideo->estado_migracion,
                     'estado_migracion_sphinx_tit' => $objBeanVideo->estado_migracion_sphinx_tit,
-                    'estado_migracion_sphinx_des' => $objBeanVideo->estado_migracion_sphinx_des
+                    'estado_migracion_sphinx_des' => $objBeanVideo->estado_migracion_sphinx_des,
+                    'padre' => $objBeanVideo->padre
         ));
+        $objBeanVideo->alias = $objBeanVideo->alias.'-'.$objBeanVideo->id;
+        parent::update($objBeanVideo->id, array('alias'=>$objBeanVideo->alias));
         return $objBeanVideo;
     }
     
@@ -252,7 +298,7 @@ class Videos_m extends MY_Model
             'categorias_id' => $objBeanVideo->categorias_id,
             'usuarios_id' => $objBeanVideo->usuarios_id,
             'canales_id' => $objBeanVideo->canales_id,
-            'fuente' => $objBeanVideo->fuente,
+            //'fuente' => $objBeanVideo->fuente,
             'titulo' => $objBeanVideo->titulo,
             'alias' => $objBeanVideo->alias,
             'descripcion' => $objBeanVideo->descripcion,
@@ -264,8 +310,31 @@ class Videos_m extends MY_Model
             'horario_transmision_fin' => $objBeanVideo->horario_transmision_fin,
             'ubicacion' =>$objBeanVideo->ubicacion,
             'fecha_actualizacion' => $objBeanVideo->fecha_actualizacion,
-            'usuario_actualizacion' => $objBeanVideo->usuario_actualizacion
+            'usuario_actualizacion' => $objBeanVideo->usuario_actualizacion,
+            'padre' => $objBeanVideo->padre
             ));        
+    }
+    
+    public function existVideo($title, $canal_id,$video_id, $video_update = 0, $type = 0){
+        $returnValue = false;
+        if($video_id > 0){
+            if($video_update > 0){
+                $query="SELECT * FROM ".$this->_table." WHERE id = '".$video_id."' AND id NOT IN (".$video_update.") AND upper(titulo) like '".  strtoupper($title)."' AND canales_id =".$canal_id;
+                //error_log("1111".$query);
+            }else{
+                $query="SELECT * FROM ".$this->_table." WHERE id= '".$video_id."' AND upper(titulo) like '".  strtoupper($title)."' AND canales_id =".$canal_id;
+                //$query="SELECT * FROM ".$this->_table." WHERE id NOT IN (".$video_id.") AND upper(titulo) like '".  strtoupper($title)."' AND canales_id =".$canal_id;
+                //error_log("2222".$query);
+            }
+        }else{
+            $query="SELECT * FROM ".$this->_table." WHERE upper(titulo) like '".  strtoupper($title)."' AND canales_id =".$canal_id;
+            //error_log("3333".$query);
+        }
+        $result = $this->db->query($query)->result();
+        if(count($result)>0){
+            $returnValue = true;
+        }
+        return $returnValue;        
     }
 }
 

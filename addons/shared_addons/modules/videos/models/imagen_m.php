@@ -75,7 +75,8 @@ class Imagen_m extends MY_Model {
                 'estado_migracion' => $objBeanImage->estado_migracion,
                 'fecha_migracion' => $objBeanImage->fecha_migracion,
                 'fecha_migracion_actualizacion' => $objBeanImage->fecha_migracion_actualizacion,
-                'imagen_padre' => $objBeanImage->imagen_padre
+                'imagen_padre' => $objBeanImage->imagen_padre,
+                'procedencia' => $objBeanImage->procedencia
         ));
         return $objBeanImage;        
     }
@@ -98,9 +99,15 @@ class Imagen_m extends MY_Model {
     }
     
     public function desactivarImagenes($imagen_id,$video_id){
-        $query="UPDATE ".$this->_table." SET estado = '0' WHERE videos_id =".$video_id;
+        $query="UPDATE ".$this->_table." SET estado = '0' WHERE videos_id =".$video_id." AND tipo_imagen_id IN (1,2,3,4)";
         $result = $this->db->query($query);
         return $result;
     }
+    
+    public function desactivarImagenesMaestro($maestro_id){
+        $query="UPDATE ".$this->_table." SET estado = '0' WHERE grupo_maestros_id =".$maestro_id." AND tipo_imagen_id IN (1,2,3,4)";
+        $result = $this->db->query($query);
+        return $result;
+    }    
 
 }

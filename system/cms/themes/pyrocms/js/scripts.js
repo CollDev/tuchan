@@ -493,7 +493,7 @@ jQuery(function($) {
 		    mode: 'text/html',
 		    tabMode: 'indent',
 			height : '500px',
-			width : '500px',
+			width : '500px'
 		});
 	});
 
@@ -502,7 +502,7 @@ jQuery(function($) {
 		    mode: 'css',
 		    tabMode: 'indent',
 			height : '500px',
-			width : '500px',
+			width : '500px'
 		});
 	});
 
@@ -511,7 +511,7 @@ jQuery(function($) {
 		    mode: 'javascript',
 		    tabMode: 'indent',
 			height : '500px',
-			width : '500px',
+			width : '500px'
 		});
 	});
 });

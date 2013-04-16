@@ -108,5 +108,18 @@ define('CMS_EDITION', 'Community');
 */
 
 define('CMS_DATE', '11/01/2012');
+define('TIPO_IMAGEN_ISO', '5');
+define('TIPO_IMAGEN_LOGO', '6');
+define('ESTADO_ACTIVO', '1');
+define("PATH_ELEMENTOS", "http://dev.e.micanal.e3.pe/");
+
+
+/*
+|--------------------------------------------------------------------------
+| Custom constants
+|--------------------------------------------------------------------------
+*/
+
+
 
 /* End of file constants.php */
