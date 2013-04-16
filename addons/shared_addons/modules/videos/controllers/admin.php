@@ -1262,6 +1262,9 @@ class Admin extends Admin_Controller {
                 $objBeanMaestro->estado_migracion = NULL;
                 $objBeanMaestro->fecha_migracion = '0000-00-00 00:00:00';
                 $objBeanMaestro->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
+                $objBeanMaestro->comentarios = '';
+                $objBeanMaestro->fecha_transmision_inicio = date("Y-m-d H:i:s");
+                $objBeanMaestro->fecha_transmision_fin = date("Y-m-d H:i:s");                                    
                 $objBeanMaestroSaved = $this->grupo_maestro_m->save_maestro($objBeanMaestroSaved);
                 //guardar en el detalle de maestros en caso de guardarse como hijo
                 $this->_saveMaestroDetalle($this->input->post(), $objBeanMaestroSaved);
@@ -2682,6 +2685,8 @@ class Admin extends Admin_Controller {
             $objMaestro->personajes = '';
             $objMaestro->tiene_imagen = false;
             $objMaestro->avatar = array();
+            $objMaestro->fecha_transmision_inicio=date("Y-m-d H:i:s");
+            $objMaestro->fecha_transmision_fin=date("Y-m-d H:i:s");
             $tipo_maestros = $this->tipo_maestro_m->getTipoDropDown(array(), 'id');
         }
         //lista tipo de maestros
@@ -2830,10 +2835,13 @@ class Admin extends Admin_Controller {
                     $objBeanMaestro->fecha_actualizacion = date("Y-m-d H:i:s");
                     $objBeanMaestro->usuario_actualizacion = $user_id;
                     $objBeanMaestro->estado_migracion = $this->config->item('migracion:actualizado');
+                    $objBeanMaestro->fecha_transmision_inicio = date("Y-m-d H:i:s", strtotime($this->input->post('fec_pub_ini')));
+                    $objBeanMaestro->fecha_transmision_fin = date("Y-m-d H:i:s", strtotime($this->input->post('fec_pub_fin')));
                     $this->grupo_maestro_m->update($objBeanMaestro->id, array("nombre" => $objBeanMaestro->nombre,
                         "descripcion" => $objBeanMaestro->descripcion, "alias" => $objBeanMaestro->alias,
                         "tipo_grupo_maestro_id" => $objBeanMaestro->tipo_grupo_maestro_id, "canales_id" => $objBeanMaestro->canales_id,
-                        "fecha_actualizacion" => $objBeanMaestro->fecha_actualizacion, "usuario_actualizacion" => $objBeanMaestro->usuario_actualizacion, "estado_migracion" => $objBeanMaestro->estado_migracion));
+                        "fecha_actualizacion" => $objBeanMaestro->fecha_actualizacion, "usuario_actualizacion" => $objBeanMaestro->usuario_actualizacion,
+                        "estado_migracion" => $objBeanMaestro->estado_migracion,"fecha_transmision_inicio"=>$objBeanMaestro->fecha_transmision_inicio,"fecha_transmision_fin"=>$objBeanMaestro->fecha_transmision_fin));
                     $returnValue = 0;
                     $this->guardarTagsMaestro($objBeanMaestro, $this->input->post());
                 }
@@ -2861,6 +2869,8 @@ class Admin extends Admin_Controller {
                     $objBeanMaestro->fecha_migracion = '0000-00-00 00:00:00';
                     $objBeanMaestro->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
                     $objBeanMaestro->comentarios = '';
+                    $objBeanMaestro->fecha_transmision_inicio = date("Y-m-d H:i:s", strtotime($this->input->post('fec_pub_ini')));
+                    $objBeanMaestro->fecha_transmision_fin = date("Y-m-d H:i:s", strtotime($this->input->post('fec_pub_fin')));                    
                     /* $this->vd($objBeanMaestro);
                       die(); */
                     $objBeanMaestroSaved = $this->grupo_maestro_m->save_maestro($objBeanMaestro);
