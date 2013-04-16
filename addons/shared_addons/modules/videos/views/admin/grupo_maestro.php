@@ -412,9 +412,9 @@
                                 data: serializedData,
                                 success: function(respuesta)
                                 {
-                                    //$("#divPrograma").html(respuesta);
-                                    $("#divResultado").html(respuesta);
-                                    $('#black').smartpaginator({
+                                    $("#divPrograma").html(respuesta);
+                                    //$("#divResultado").html(respuesta);
+                                    /*$('#black').smartpaginator({
                                         totalrecords: $("#total").val(),
                                         recordsperpage: 3,
                                         theme: 'black',
@@ -422,7 +422,7 @@
                                             //$('#r').html('Page # ' + newPage);
                                             paginarItems(newPage);
                                         }
-                                    });
+                                    });*/
                                 } //end success
                             }); //end AJAX           
                         }

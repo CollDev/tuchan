@@ -34,18 +34,18 @@
                     <?php
                     switch ($post->estado):
                         case $this->config->item('estado:borrador'):
-                            $link = anchor('/admin/canales/canal/' . $post->id, lang('global:edit'), 'class="btn orange edit"');
-                            $link.= anchor('/admin/canales/previsualizar_canal/', lang('global:preview'), 'target ="_blank" class="btn silver modal-large"');
+                            $link = anchor('/admin/canales/canal/' . $post->id, lang('global:edit'), 'class="mode_edit"');
+                            $link.= anchor('/admin/canales/previsualizar_canal/', lang('global:preview'), 'target ="_blank" class="mode_preview modal-large"');
                             $link.=anchor('#', lang('global:1_estado'), 'class="btn blue edit" onclick="publicar(' . $post->id . ',\'canal\');return false;"');
-                            $link.=anchor('#', lang('global:delete'), 'class="btn red edit" onclick="eliminar(' . $post->id . ',\'canal\');return false;"');
+                            $link.=anchor('#', lang('global:delete'), 'class="mode_delete" onclick="eliminar(' . $post->id . ',\'canal\');return false;"');
                             break;
-                        case $this->config->item('estado:publicado'):
-                            $link = anchor('/admin/canales/canal/' . $post->id, lang('global:edit'), 'class="btn orange edit"');
-                            $link.=anchor('/admin/canales/previsualizar_canal/', lang('global:preview'), 'target ="_blank" class="btn silver modal-large"');
-                            $link.=anchor('#', lang('global:delete'), 'class="btn red edit" onclick="eliminar(' . $post->id . ',\'canal\');return false;"');
+                        case $this->config->item('estado:publicado')://btn orange edit
+                            $link = anchor('/admin/canales/canal/' . $post->id, lang('global:edit'), 'class="mode_edit"');
+                            $link.=anchor('/admin/canales/previsualizar_canal/', lang('global:preview'), 'target ="_blank" class="mode_preview modal-large"');
+                            $link.=anchor('#', lang('global:delete'), 'class="mode_delete" onclick="eliminar(' . $post->id . ',\'canal\');return false;"');
                             break;
                         case $this->config->item('estado:eliminado'):
-                            $link = anchor('/admin/canales/previsualizar_canal/', lang('global:preview'), 'target ="_blank" class="btn silver modal-large"');
+                            $link = anchor('/admin/canales/previsualizar_canal/', lang('global:preview'), 'target ="_blank" class="mode_preview modal-large"');
                             $link.=anchor('#', lang('global:restore'), 'class="btn blue" onclick="restablecer(' . $post->id . ',\'canal\');return false;"');
                             break;
                     endswitch;

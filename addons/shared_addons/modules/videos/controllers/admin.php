@@ -2900,6 +2900,14 @@ class Admin extends Admin_Controller {
                             $objCanal = $this->canales_m->get($this->input->post('canal_id'));
                             if ($this->input->post('tipo') == $this->config->item('videos:programa')) {
                                 $this->generarNuevaPortada($objCanal, $objBeanMaestroSaved, $this->config->item('portada:programa'));
+                            }else{
+                                if ($this->input->post('tipo') == $this->config->item('videos:coleccion')) {
+                                    if($this->input->post('programa')>0){//generamos la seccion coleccion para el programa
+                                        $this->generarSeccionColeccion($this->input->post('programa'), $objBeanMaestroSaved);
+                                    }else{//generamos la seccion coleccion para el canal
+                                        $this->generarSeccionColeccionCanal($this->input->post('canal_id'), $objBeanMaestroSaved);
+                                    }
+                                }
                             }
                             $maestro_id = $objBeanMaestroSaved->id;
                         }

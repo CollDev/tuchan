@@ -47,6 +47,31 @@
     </div>
     <?php echo form_close() ?>
     <script type="text/javascript">
+        function buscar_para_programa_micanal(numero_pagina) {
+            var serializedData = $('#frmBuscar').serialize();
+            var post_url = "/admin/canales/buscar_para_programa_micanal/" + numero_pagina;
+            $.ajax({
+                type: "POST",
+                url: post_url,
+                dataType: 'html',
+                data: serializedData,
+                success: function(respuesta)
+                {
+                    $("#divResultado").html(respuesta);
+                    var cantidad_mostrar = $("#cantidad_mostrar").val();
+                    var total = $("#total").val() - 0;
+                    $('#black').smartpaginator({
+                        totalrecords: total,
+                        recordsperpage: cantidad_mostrar,
+                        theme: 'black',
+                        onchange: function(newPage) {
+                            //$('#r').html('Page # ' + newPage);
+                            paginar_portada_programa(newPage, 'buscar_para_programa_micanal');
+                        }
+                    });
+                } //end success
+            }); //end AJAX              
+        }        
         function buscar_para_micanal(numero_pagina) {
             var serializedData = $('#frmBuscar').serialize();
             var post_url = "/admin/canales/buscar_para_micanal/" + numero_pagina;

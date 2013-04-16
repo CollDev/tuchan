@@ -1,7 +1,11 @@
 <section class="title" style="margin-left: 20px;padding-top:5px"> 
     <?php if ($canal) : ?>    
-        <?php 
-        $logo = PATH_ELEMENTOS . $logo_canal[0]->imagen ?>
+        <?php
+        $logo ='';//aqui poner un logo x defecto
+        if (isset($logo_canal[0])) {
+            $logo = PATH_ELEMENTOS . $logo_canal[0]->imagen;
+        }
+        ?>
         <h4 style = "background: url('<?php echo $logo ?>') no-repeat 0px 5px; padding-left: 40px !important;">  
             <?php echo $canal->nombre ?>
         </h4>
