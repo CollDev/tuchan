@@ -1,8 +1,7 @@
 // JavaScript Document
-
-var bkg=$("section.title").find("h4").attr("background");
+var bkg=$("section.title").find("h4").css("background");
 var nam=$("section.title").find("h4").html();
-//console.log(bkg);
-$(".channel_item").css("background",bkg);
-$(".channel_item").find("a").before("<span>"+nam+"</span>");
+console.log(bkg);
+$("h2.channel_item").css("background",bkg);
+$("h2.channel_item").append(nam);
 
