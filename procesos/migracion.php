@@ -1,7 +1,7 @@
 <?php
 
 define("MYSQLHOST", "10.203.31.139");
-define("MYSQLDB", "micanacmsdevdb");
+define("MYSQLDB", "micanalcmsdevdb");
 define("MYSQLUSER", "micanalcmsdev");
 define("MYSQLPASS", "joh2Yeyeimaeb4");
 
