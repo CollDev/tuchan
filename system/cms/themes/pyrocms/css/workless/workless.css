@@ -1409,6 +1409,52 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
   border: 0;
 }
 
+/*pagination sin ajax*/
+.paginationSinAjax {
+  margin: 18px 0;
+}
+
+.paginationSinAjax ul {
+  float: left;
+  margin: 0;
+  padding: 0;
+  border: 1px solid #ddd;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-grid-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  -moz-grid-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  grid-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.paginationSinAjax ul li {
+  display: inline;
+}
+
+.paginationSinAjax ul li a, .paginationSinAjax ul li span {
+  float: left;
+  padding: 0 14px;
+  line-height: 34px;
+  border-right: 1px solid;
+  border-right-color: #dddddd;
+  text-decoration: none;
+}
+
+.paginationSinAjax ul li a:hover, .paginationSinAjax ul li.active span {
+  background-color: #c7eefe;
+  color: #4C6169;
+}
+
+.paginationSinAjax ul li.disabled a, .paginationSinAjax ul li.disabled a:hover {
+  background-color: none;
+  color: #bfbfbf;
+}
+
+.paginationSinAjax ul li.next a {
+  border: 0;
+}
+
 .topbar {
   height: 50px;
   position: absolute;
