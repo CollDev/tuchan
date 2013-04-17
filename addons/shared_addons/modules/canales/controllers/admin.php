@@ -119,7 +119,7 @@ class Admin extends Admin_Controller {
         } else {
             $total_rows = $this->vw_video_m->count_by($base_where);
         }
-        $pagination = create_pagination('admin/canales/videos/' . $canal_id . '/index/', $total_rows, 10, 6);
+        $pagination = create_pagination('admin/canales/videos/' . $canal_id . '/index/', $total_rows, 10, 6, TRUE, 'paginationSinAjax');
         if (strlen(trim($keyword)) > 0) {
             // Using this data, get the relevant results
             $listVideo = $this->vw_video_m->like('titulo', $keyword)->order_by('fecha_registro', 'DESC')->limit($pagination['limit'])->get_many_by($base_where);

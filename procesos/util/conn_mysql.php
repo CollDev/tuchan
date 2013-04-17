@@ -1,8 +1,8 @@
 ﻿<?php
-define("MYSQLDB", "micanalcmsdevdb");
-define("MYSQLHOST", "10.203.31.139");
-define("MYSQLUSER", "micanalcmsdev");
-define("MYSQLPASS", "joh2Yeyeimaeb4");
+define("MYSQLDB", "pyro_admin2");
+define("MYSQLHOST", "192.168.1.35");
+define("MYSQLUSER", "root");
+define("MYSQLPASS", "123");
 
 class Conexion_MySql {
 

@@ -20,7 +20,7 @@ if (!function_exists('create_pagination'))
 	 * @return array The pagination array. 
 	 * @see Pagination::create_links()
 	 */
-	function create_pagination($uri, $total_rows, $limit = NULL, $uri_segment = 4, $full_tag_wrap = TRUE)
+	function create_pagination($uri, $total_rows, $limit = NULL, $uri_segment = 4, $full_tag_wrap = TRUE, $class='pagination')
 	{
 		$ci = & get_instance();
 		$ci->load->library('pagination');
@@ -38,7 +38,7 @@ if (!function_exists('create_pagination'))
 
 		$config['num_links'] = 8;
 
-		$config['full_tag_open'] = '<div class="pagination"><ul>';
+		$config['full_tag_open'] = '<div class="'.$class.'"><ul>';
 		$config['full_tag_close'] = '</ul></div>';
 
 		$config['first_link'] = '&lt;&lt;';
