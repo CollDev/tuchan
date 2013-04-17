@@ -5,13 +5,6 @@ define("MYSQLDB", "micanalcmsdevdb");
 define("MYSQLUSER", "micanalcmsdev");
 define("MYSQLPASS", "joh2Yeyeimaeb4");
 
-/*
-  host: 10.203.31.139
-  usuario: micanalcmsdev
-  db: micanacmsdevdb
-  password: joh2Yeyeimaeb4
- */
-
 class Migracion extends Exception {
 
     private $archivo = 'sql/data.150313_2.sql';

@@ -21,7 +21,7 @@ class Admin extends Admin_Controller
 	 * Show the control panel
 	 */
 	public function index()
-	{            
+	{          
 		$this->template
 			->enable_parser(TRUE)
 			->title(lang('global:dashboard'));
@@ -34,6 +34,7 @@ class Admin extends Admin_Controller
                 
 		//$this->template->build('admin/dashboard');		
                 $redirect = $this->_check_group();
+                //echo 'hola: ' . $redirect;exit;
                 redirect($redirect ? $redirect : 'admin/canales');
 	}
 
