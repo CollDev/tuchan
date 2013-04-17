@@ -1264,7 +1264,7 @@ class Admin extends Admin_Controller {
                 $objBeanMaestro->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
                 $objBeanMaestro->comentarios = '';
                 $objBeanMaestro->fecha_transmision_inicio = date("Y-m-d H:i:s");
-                $objBeanMaestro->fecha_transmision_fin = date("Y-m-d H:i:s");                                    
+                $objBeanMaestro->fecha_transmision_fin = date("Y-m-d H:i:s");
                 $objBeanMaestroSaved = $this->grupo_maestro_m->save_maestro($objBeanMaestroSaved);
                 //guardar en el detalle de maestros en caso de guardarse como hijo
                 $this->_saveMaestroDetalle($this->input->post(), $objBeanMaestroSaved);
@@ -2318,8 +2318,8 @@ class Admin extends Admin_Controller {
                 $this->_saveVideoMaestroDetalle($objBeanVideo, $this->input->post(), $maestro_detalle_id);
 
 
-                //$urlpost=  base_url("/procesos/cortevideo.php");
-                $urlpost = "http://localhost/adminmicanal/procesos/cortevideo.php";
+                $urlpost = base_url("/procesos/cortevideo.php");
+                //$urlpost = "http://localhost/adminmicanal/procesos/cortevideo.php";
 
                 $post = array(
                     "id_padre" => $video_id,
@@ -2685,14 +2685,17 @@ class Admin extends Admin_Controller {
             $objMaestro->personajes = '';
             $objMaestro->tiene_imagen = false;
             $objMaestro->avatar = array();
-            $objMaestro->fecha_transmision_inicio=date("Y-m-d H:i:s");
-            $objMaestro->fecha_transmision_fin=date("Y-m-d H:i:s");
+            $objMaestro->fecha_transmision_inicio = date("Y-m-d H:i:s");
+            $objMaestro->fecha_transmision_fin = date("Y-m-d H:i:s");
             $tipo_maestros = $this->tipo_maestro_m->getTipoDropDown(array(), 'id');
         }
         //lista tipo de maestros
         $items = $this->itemsMaestros($maestro_id);
         //categorias
         $categorias = $this->categoria_m->getCategoryDropDown(array());
+        //listamos las imagenes
+        $lista_imagenes = $this->listaImagenes($maestro_id);
+
         $this->template
                 ->title($this->module_details['name'])
                 ->set('objCanal', $objCanal)
@@ -2708,9 +2711,124 @@ class Admin extends Admin_Controller {
                 ->set('tipo_maestros', $tipo_maestros)
                 ->set('items', $items)
                 ->set_partial('contenidos', 'admin/tables/contenidos')
+                ->set_partial('imagenes', 'admin/tables/imagenes')
+                ->set('imagenes', $lista_imagenes)
                 ->set('categorias', $categorias)
                 ->set('objMaestro', $objMaestro);
         $this->input->is_ajax_request() ? $this->template->build('admin/tables/contenidos') : $this->template->build('admin/grupo_maestro');
+    }
+
+    private function listaImagenes($maestro_id) {
+        $returnValue = array();
+        $lista_imagenes = $this->imagen_m->get_many_by(array("grupo_maestros_id" => $maestro_id));
+        if (count($lista_imagenes) > 0) {
+            $array_id_imagen = array();
+            foreach ($lista_imagenes as $puntero => $objImagen) {
+                if ($objImagen->imagen_padre == NULL || $objImagen->imagen_padre == '0') {
+                    array_push($array_id_imagen, $objImagen->id);
+                }
+            }
+            //obtenemos solo las imagenes padre
+            $lista_imagenes_padre = $this->imagen_m->where_in('id', $array_id_imagen)->get_many_by(array());
+            if (count($lista_imagenes_padre) > 0) {
+
+                foreach ($lista_imagenes_padre as $index => $objImagenPadre) {
+                    $lista_tipo_imagenes = $this->tipo_imagen_m->listType();
+                    if ($objImagenPadre->procedencia == $this->config->item('procedencia:liquid')) {
+                        $objImagenPadre->imagen = $objImagenPadre->imagen;
+                    } else {
+                        $objImagenPadre->imagen = $this->config->item('protocolo:http') . $this->config->item('server:elemento') . '/' . $objImagenPadre->imagen;
+                    }
+                    switch ($objImagenPadre->tipo_imagen_id) {
+                        case $this->config->item('imagen:small'):
+                            $objImagenPadre->tipo_imagen = 'Small';
+                            $oTipoImagen = $this->tipo_imagen_m->get($objImagenPadre->tipo_imagen_id);
+                            $objImagenPadre->tamanio = $oTipoImagen->ancho . 'x' . $oTipoImagen->alto;
+                            break;
+                        case $this->config->item('imagen:medium'):
+                            $objImagenPadre->tipo_imagen = 'Medium';
+                            $oTipoImagen = $this->tipo_imagen_m->get($objImagenPadre->tipo_imagen_id);
+                            $objImagenPadre->tamanio = $oTipoImagen->ancho . 'x' . $oTipoImagen->alto;
+                            break;
+                        case $this->config->item('imagen:large'):
+                            $objImagenPadre->tipo_imagen = 'Large';
+                            $oTipoImagen = $this->tipo_imagen_m->get($objImagenPadre->tipo_imagen_id);
+                            $objImagenPadre->tamanio = $oTipoImagen->ancho . 'x' . $oTipoImagen->alto;
+                            break;
+                        case $this->config->item('imagen:extralarge'):
+                            $objImagenPadre->tipo_imagen = 'Extralarge';
+                            $oTipoImagen = $this->tipo_imagen_m->get($objImagenPadre->tipo_imagen_id);
+                            $objImagenPadre->tamanio = $oTipoImagen->ancho . 'x' . $oTipoImagen->alto;
+                            break;
+                    }
+                    array_push($returnValue, $objImagenPadre);
+                    //eliminamos el tipo del padre
+                    foreach ($lista_tipo_imagenes as $i => $objTipo) {
+                        if ($objImagenPadre->tipo_imagen_id == $objTipo->id) {
+                            unset($lista_tipo_imagenes[$i]);
+                        }
+                    }
+                    //obtenemos las imagenes restantes del padre
+                    foreach ($lista_tipo_imagenes as $i => $objTipoImagen) {
+                        $oImagen = $this->imagen_m->get_by(array("imagen_padre" => $objImagenPadre->id, "tipo_imagen_id" => $objTipoImagen->id));
+                        if (count($oImagen) > 0) {
+                            if ($oImagen->procedencia == $this->config->item('procedencia:liquid')) {
+                                $oImagen->imagen = $oImagen->imagen;
+                            } else {
+                                $oImagen->imagen = $this->config->item('protocolo:http') . $this->config->item('server:elemento') . '/' . $oImagen->imagen;
+                            }
+                            switch ($oImagen->tipo_imagen_id) {
+                                case $this->config->item('imagen:small'):
+                                    $oImagen->tipo_imagen = 'Small';
+                                    $oTipoImagen = $this->tipo_imagen_m->get($oImagen->tipo_imagen_id);
+                                    $oImagen->tamanio = $oTipoImagen->ancho . 'x' . $oTipoImagen->alto;
+                                    break;
+                                case $this->config->item('imagen:medium'):
+                                    $oImagen->tipo_imagen = 'Medium';
+                                    $oTipoImagen = $this->tipo_imagen_m->get($oImagen->tipo_imagen_id);
+                                    $oImagen->tamanio = $oTipoImagen->ancho . 'x' . $oTipoImagen->alto;
+                                    break;
+                                case $this->config->item('imagen:large'):
+                                    $oImagen->tipo_imagen = 'Large';
+                                    $oTipoImagen = $this->tipo_imagen_m->get($oImagen->tipo_imagen_id);
+                                    $oImagen->tamanio = $oTipoImagen->ancho . 'x' . $oTipoImagen->alto;
+                                    break;
+                                case $this->config->item('imagen:extralarge'):
+                                    $oImagen->tipo_imagen = 'Extralarge';
+                                    $oTipoImagen = $this->tipo_imagen_m->get($oImagen->tipo_imagen_id);
+                                    $oImagen->tamanio = $oTipoImagen->ancho . 'x' . $oTipoImagen->alto;
+                                    break;
+                            }
+                            array_push($returnValue, $oImagen);
+                        } else {
+                            $oImagen = new stdClass();
+                            $oImagen->id = 0;
+                            $oImagen->canales_id = $objImagenPadre->canales_id;
+                            $oImagen->grupo_maestros_id = $objImagenPadre->grupo_maestros_id;
+                            $oImagen->videos_id = $objImagenPadre->videos_id;
+                            $oImagen->imagen = UPLOAD_IMAGENES_VIDEOS . 'no_video.jpg';
+                            $oImagen->tipo_imagen_id = $objTipoImagen->id;
+                            $oImagen->estado = $objImagenPadre->estado;
+                            $oImagen->fecha_registro = $objImagenPadre->fecha_registro;
+                            $oImagen->usuario_registro = $objImagenPadre->usuario_registro;
+                            $oImagen->fecha_actualizacion = $objImagenPadre->fecha_actualizacion;
+                            $oImagen->usuario_actualizacion = $objImagenPadre->usuario_actualizacion;
+                            $oImagen->estado_migracion = $objImagenPadre->estado_migracion;
+                            $oImagen->fecha_migracion = $objImagenPadre->fecha_migracion;
+                            $oImagen->fecha_migracion_actualizacion = $objImagenPadre->fecha_migracion_actualizacion;
+                            $oImagen->imagen_padre = $objImagenPadre->imagen_padre;
+                            $oImagen->procedencia = $objImagenPadre->procedencia;
+                            $oImagen->imagen_anterior = $objImagenPadre->imagen_anterior;
+                            $oImagen->tipo_imagen = $objTipoImagen->nombre;
+                            $oImagen->tamanio = $objTipoImagen->ancho . 'x' . $objTipoImagen->alto;
+                            array_push($returnValue, $oImagen);
+                        }
+                    }
+                    //listamos los tipos de imagenes para maestros
+                }
+            }
+        }
+        return $returnValue;
     }
 
     public function active_imagen_maestro($maestro_id, $imagen_id) {
@@ -2841,7 +2959,7 @@ class Admin extends Admin_Controller {
                         "descripcion" => $objBeanMaestro->descripcion, "alias" => $objBeanMaestro->alias,
                         "tipo_grupo_maestro_id" => $objBeanMaestro->tipo_grupo_maestro_id, "canales_id" => $objBeanMaestro->canales_id,
                         "fecha_actualizacion" => $objBeanMaestro->fecha_actualizacion, "usuario_actualizacion" => $objBeanMaestro->usuario_actualizacion,
-                        "estado_migracion" => $objBeanMaestro->estado_migracion,"fecha_transmision_inicio"=>$objBeanMaestro->fecha_transmision_inicio,"fecha_transmision_fin"=>$objBeanMaestro->fecha_transmision_fin));
+                        "estado_migracion" => $objBeanMaestro->estado_migracion, "fecha_transmision_inicio" => $objBeanMaestro->fecha_transmision_inicio, "fecha_transmision_fin" => $objBeanMaestro->fecha_transmision_fin));
                     $returnValue = 0;
                     $this->guardarTagsMaestro($objBeanMaestro, $this->input->post());
                 }
@@ -2870,7 +2988,7 @@ class Admin extends Admin_Controller {
                     $objBeanMaestro->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
                     $objBeanMaestro->comentarios = '';
                     $objBeanMaestro->fecha_transmision_inicio = date("Y-m-d H:i:s", strtotime($this->input->post('fec_pub_ini')));
-                    $objBeanMaestro->fecha_transmision_fin = date("Y-m-d H:i:s", strtotime($this->input->post('fec_pub_fin')));                    
+                    $objBeanMaestro->fecha_transmision_fin = date("Y-m-d H:i:s", strtotime($this->input->post('fec_pub_fin')));
                     /* $this->vd($objBeanMaestro);
                       die(); */
                     $objBeanMaestroSaved = $this->grupo_maestro_m->save_maestro($objBeanMaestro);
@@ -2910,11 +3028,11 @@ class Admin extends Admin_Controller {
                             $objCanal = $this->canales_m->get($this->input->post('canal_id'));
                             if ($this->input->post('tipo') == $this->config->item('videos:programa')) {
                                 $this->generarNuevaPortada($objCanal, $objBeanMaestroSaved, $this->config->item('portada:programa'));
-                            }else{
+                            } else {
                                 if ($this->input->post('tipo') == $this->config->item('videos:coleccion')) {
-                                    if($this->input->post('programa')>0){//generamos la seccion coleccion para el programa
+                                    if ($this->input->post('programa') > 0) {//generamos la seccion coleccion para el programa
                                         $this->generarSeccionColeccion($this->input->post('programa'), $objBeanMaestroSaved);
-                                    }else{//generamos la seccion coleccion para el canal
+                                    } else {//generamos la seccion coleccion para el canal
                                         $this->generarSeccionColeccionCanal($this->input->post('canal_id'), $objBeanMaestroSaved);
                                     }
                                 }

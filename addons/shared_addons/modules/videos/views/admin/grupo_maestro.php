@@ -128,7 +128,7 @@
         </div>
         <?php if ($objMaestro->id > 0): ?>
             <div id="tabs-2">
-                Tab en desarrollo
+                <?php template_partial('imagenes'); ?>
             </div>
             <div id="tabs-3">
                 <div class="main_opt"  style="width: 100%;">
@@ -156,7 +156,7 @@
 <script type="text/javascript">
                     $(document).ready(function() {
                         $("#tabs").tabs();
-
+                        $(".bajada2").css('height', '800');
 <?php if ($objMaestro->id > 0): ?>
                             //Dropdown plugin data
                             var ddData = <?php echo json_encode($objMaestro->avatar) . ';'; ?>
