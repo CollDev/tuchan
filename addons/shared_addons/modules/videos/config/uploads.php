@@ -53,6 +53,7 @@ $config['imagen:formatos'] = 'jpg|png|jpeg';
 
 //procedencia
 $config['procedencia:liquid'] = '1';
+$config['procedencia:elemento'] = '0';
 
 //tipos de tag
 $config['tag:tematicas'] = '1';

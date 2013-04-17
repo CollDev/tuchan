@@ -69,7 +69,7 @@
                 );
                 echo form_input($fec_pub_fin);
                 ?>                
-                <?php if ($objMaestro->id > 0) { ?>
+                <?php if (false/*$objMaestro->id > 0*/) { ?>
                     <!-- imagen -->
                     <label for="imagen"><?php echo lang('videos:avatar'); ?></label>
                     <?php
@@ -168,7 +168,7 @@
                                 selectText: "Seleccione su imagen principal",
                                 onSelected: function(data) {
                                     //console.log(data['selectedData'].value);
-                                    activeImageMaestro(data['selectedData'].value);
+                                    //activeImageMaestro(data['selectedData'].value);
                                 }
                             });
 <?php endif; ?>

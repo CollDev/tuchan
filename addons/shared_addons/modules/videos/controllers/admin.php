@@ -2707,6 +2707,8 @@ class Admin extends Admin_Controller {
                 ->append_js('module::jquery.alerts.js')
                 ->append_css('module::jquery.alerts.css')
                 ->append_js('module::smartpaginator.js')
+                ->append_css('module::fineuploader-3.4.1.css')
+                ->append_js('module::jquery.fineuploader-3.4.1.min.js')
                 ->append_css('module::smartpaginator.css')
                 ->set('tipo_maestros', $tipo_maestros)
                 ->set('items', $items)
@@ -2718,116 +2720,318 @@ class Admin extends Admin_Controller {
         $this->input->is_ajax_request() ? $this->template->build('admin/tables/contenidos') : $this->template->build('admin/grupo_maestro');
     }
 
+    public function subir_imagen_grupo($maestro_id, $tipo_imagen_id, $imagen_id) {
+        if ($this->input->is_ajax_request()) {
+            $user_id = (int) $this->session->userdata('user_id');
+            $url_imagen = '';
+            $respuesta = 0;
+            $pasaImgSize = FALSE;
+            // Obtenemos los datos del archivo
+            $tamanio = $_FILES['qqfile']['size'];
+            $tipo = $_FILES['qqfile']['type'];
+            $archivo = $_FILES['qqfile']['name'];
+            $fileType = array('image/jpeg', 'image/pjpeg', 'image/png');
+            $directorio = '';
+            // Tamaño de la imagen
+            $imageSize = getimagesize($_FILES['qqfile']['tmp_name']);
+            // Verificamos la extensión del archivo independiente del tipo mime
+            $extension = explode('.', $_FILES['qqfile']['name']);
+            $num = count($extension) - 1;
+            // Creamos el nombre del archivo dependiendo la opción
+            $imgFile = time() . '.' . $extension[$num];
+            // Verificamos el tamaño válido para las fotos
+            $objTipoImagen = $this->tipo_imagen_m->get($tipo_imagen_id);
+            if ($imageSize[0] >= $objTipoImagen->ancho && $imageSize[1] >= $objTipoImagen->alto && ($extension[$num] == 'jpg' || $extension[$num] == 'png')) {
+                $pasaImgSize = TRUE;
+            }
+            // Verificamos el status de las dimensiones de la imagen a publicar mediante nuestro jQuery para fotos
+            if ($pasaImgSize) {
+                // Verificamos Tamaño y extensiones
+                if (in_array($tipo, $fileType) && $tamanio > 0 && $tamanio <= $this->config->item('imagen:maxSize')) {
+                    // Intentamos copiar el archivo
+                    if (is_uploaded_file($_FILES['qqfile']['tmp_name'])) {
+                        umask(0);
+                        // Verificamos si se pudo copiar el archivo a nustra carpeta
+                        if (move_uploaded_file($_FILES['qqfile']['tmp_name'], UPLOAD_IMAGENES_VIDEOS . $directorio . $imgFile)) {
+                            //usamos el crop de imagemagic para crear las 4 imagenes
+                            $this->imagenes_lib->loadImage(UPLOAD_IMAGENES_VIDEOS . $directorio . $imgFile);
+                            $this->imagenes_lib->crop($objTipoImagen->ancho, $objTipoImagen->alto, 'center');
+                            $this->imagenes_lib->save(UPLOAD_IMAGENES_VIDEOS . $directorio . preg_replace("/\\.[^.\\s]{3,4}$/", "", $imgFile) . '_' . $objTipoImagen->ancho . 'x' . $objTipoImagen->alto . '.' . $extension[$num]);
+                            $respuesta = 1;
+                            $mensajeFile = 'done';
+                            //eliminamos la imagen inicial
+                            if (file_exists(UPLOAD_IMAGENES_VIDEOS . $directorio . $imgFile)) {
+                                unlink(UPLOAD_IMAGENES_VIDEOS . $directorio . $imgFile);
+                            }
+                            //obtenemos el nombre de la imagen a enviar a Elemento
+                            $imagen_cortada = preg_replace("/\\.[^.\\s]{3,4}$/", "", $imgFile) . '_' . $objTipoImagen->ancho . 'x' . $objTipoImagen->alto . '.' . $extension[$num];
+                            if (file_exists(UPLOAD_IMAGENES_VIDEOS . $imagen_cortada)) {
+                                if ($imagen_id > 0) {//cambiar imagen
+                                    //enviamos a borrador a la imagen a cambiar
+                                    $this->imagen_m->update($imagen_id,array("estado"=>$this->config->item('estado:borrador'),"estado_migracion"=>$this->config->item('migracion:actualizado')));
+                                    //registramos una nueva imagen
+                                    $objBeanImagen = new stdClass();
+                                    $objBeanImagen->id = NULL;
+                                    $objBeanImagen->canales_id = NULL;
+                                    $objBeanImagen->grupo_maestros_id = $maestro_id;
+                                    $objBeanImagen->videos_id = NULL;
+                                    $objBeanImagen->imagen = $imagen_cortada;
+                                    $objBeanImagen->tipo_imagen_id = $tipo_imagen_id;
+                                    $objBeanImagen->estado = $this->config->item('estado:publicado');
+                                    $objBeanImagen->fecha_registro = date("Y-m-d H:i:d");
+                                    $objBeanImagen->usuario_registro = $user_id;
+                                    $objBeanImagen->fecha_actualizacion = date("Y-m-d H:i:d");
+                                    $objBeanImagen->usuario_actualizacion = $user_id;
+                                    $objBeanImagen->estado_migracion = $this->config->item('migracion:nuevo');
+                                    $objBeanImagen->fecha_migracion = '0000-00-00 00:00:00';
+                                    $objBeanImagen->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
+                                    $objBeanImagen->imagen_padre = 0;
+                                    $objBeanImagen->procedencia = $this->config->item('procedencia:elemento');
+                                    $objBeanImagen->imagen_anterior = NULL;
+                                    $objBeanImagenSaved = $this->imagen_m->saveImage($objBeanImagen);
+                                    $url_imagen = $this->config->item('protocolo:http') . $this->config->item('server:elemento') . '/' . $objBeanImagenSaved->imagen;
+                                    //enviamos al servidor elemento
+                                    $ruta_absoluta_imagen = FCPATH . 'uploads/imagenes/' . $imagen_cortada;
+                                    $path_image_element = $this->elemento_upload($objBeanImagenSaved->id, $ruta_absoluta_imagen);
+                                    $array_path = explode("/", $path_image_element);
+                                    if ($array_path[0] == $this->config->item('server:elemento')) {
+                                        unset($array_path[0]);
+                                    }
+                                    $path_single_element = implode('/', $array_path);
+                                    $this->imagen_m->update($objBeanImagenSaved->id, array("imagen" => $path_single_element, "estado" => $this->config->item('estado:publicado'),"estado_migracion"=>$this->config->item('migracion:actualizado')));
+                                    $url_imagen = $this->config->item('protocolo:http') . $this->config->item('server:elemento') . '/' . $path_single_element;
+                                    //eliminamos la imagen local
+                                    if (file_exists($ruta_absoluta_imagen)) {
+                                        unlink($ruta_absoluta_imagen);
+                                    }
+                                } else {//subir una nueva imagen
+                                    $objBeanImagen = new stdClass();
+                                    $objBeanImagen->id = NULL;
+                                    $objBeanImagen->canales_id = NULL;
+                                    $objBeanImagen->grupo_maestros_id = $maestro_id;
+                                    $objBeanImagen->videos_id = NULL;
+                                    $objBeanImagen->imagen = $imagen_cortada;
+                                    $objBeanImagen->tipo_imagen_id = $tipo_imagen_id;
+                                    $objBeanImagen->estado = $this->config->item('estado:publicado');
+                                    $objBeanImagen->fecha_registro = date("Y-m-d H:i:d");
+                                    $objBeanImagen->usuario_registro = $user_id;
+                                    $objBeanImagen->fecha_actualizacion = date("Y-m-d H:i:d");
+                                    $objBeanImagen->usuario_actualizacion = $user_id;
+                                    $objBeanImagen->estado_migracion = $this->config->item('migracion:nuevo');
+                                    $objBeanImagen->fecha_migracion = '0000-00-00 00:00:00';
+                                    $objBeanImagen->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
+                                    $objBeanImagen->imagen_padre = 0;
+                                    $objBeanImagen->procedencia = $this->config->item('procedencia:elemento');
+                                    $objBeanImagen->imagen_anterior = NULL;
+                                    $objBeanImagenSaved = $this->imagen_m->saveImage($objBeanImagen);
+                                    
+                                    //enviamos al servidor elemento
+                                    $ruta_absoluta_imagen = FCPATH . 'uploads/imagenes/' . $imagen_cortada;
+                                    $path_image_element = $this->elemento_upload($objBeanImagenSaved->id, $ruta_absoluta_imagen);
+                                    $array_path = explode("/", $path_image_element);
+                                    if ($array_path[0] == $this->config->item('server:elemento')) {
+                                        unset($array_path[0]);
+                                    }
+                                    $path_single_element = implode('/', $array_path);
+                                    $this->imagen_m->update($objBeanImagenSaved->id, array("imagen" => $path_single_element, "estado" => $this->config->item('estado:publicado')));
+                                    $url_imagen = $this->config->item('protocolo:http') . $this->config->item('server:elemento') . '/' . $path_single_element;
+                                    //eliminamos la imagen local
+                                    if (file_exists($ruta_absoluta_imagen)) {
+                                        unlink($ruta_absoluta_imagen);
+                                    }
+                                }
+                            }
+                        } else {
+                            // error del lado del servidor
+                            $mensajeFile = 'No se pudo subir el archivo';
+                        }
+                    } else {
+                        // error del lado del servidor
+                        $mensajeFile = 'No se pudo subir el archivo';
+                    }
+                } else {
+                    // Error en el tamaño y tipo de imagen
+                    $mensajeFile = 'Verifique el tamanio y tipo de imagen';
+                }
+            } else {
+                // Error en las dimensiones de la imagen
+                $mensajeFile = 'Verifique las dimensiones de la Imagen';
+            }
+            $salidaJson = array("success" => $respuesta,
+                "url" => $url_imagen,
+                "error" => $mensajeFile,
+                "fileName" => $archivo);
+            echo json_encode($salidaJson);
+        }
+    }
+
     private function listaImagenes($maestro_id) {
         $returnValue = array();
-        $lista_imagenes = $this->imagen_m->get_many_by(array("grupo_maestros_id" => $maestro_id));
-        if (count($lista_imagenes) > 0) {
-            $array_id_imagen = array();
-            foreach ($lista_imagenes as $puntero => $objImagen) {
-                if ($objImagen->imagen_padre == NULL || $objImagen->imagen_padre == '0') {
-                    array_push($array_id_imagen, $objImagen->id);
-                }
-            }
-            //obtenemos solo las imagenes padre
-            $lista_imagenes_padre = $this->imagen_m->where_in('id', $array_id_imagen)->get_many_by(array());
-            if (count($lista_imagenes_padre) > 0) {
-
-                foreach ($lista_imagenes_padre as $index => $objImagenPadre) {
-                    $lista_tipo_imagenes = $this->tipo_imagen_m->listType();
-                    if ($objImagenPadre->procedencia == $this->config->item('procedencia:liquid')) {
-                        $objImagenPadre->imagen = $objImagenPadre->imagen;
+        $tipo_imagenes = $this->tipo_imagen_m->listType();
+        if (count($tipo_imagenes) > 0) {
+            foreach ($tipo_imagenes as $puntero => $objTipoImagen) {
+                $objImagen = $this->imagen_m->get_by(array("grupo_maestros_id" => $maestro_id, "estado" => $this->config->item('estado:publicado'), "tipo_imagen_id" => $objTipoImagen->id));
+                if (count($objImagen) > 0) {
+                    $objImagen->tipo_imagen = $objTipoImagen->nombre;
+                    $objImagen->tamanio = $objTipoImagen->ancho . 'x' . $objTipoImagen->alto;
+                    if ($objImagen->procedencia == $this->config->item('procedencia:liquid')) {
+                        $objImagen->imagen = $objImagen->imagen;
                     } else {
-                        $objImagenPadre->imagen = $this->config->item('protocolo:http') . $this->config->item('server:elemento') . '/' . $objImagenPadre->imagen;
+                        $objImagen->imagen = $this->config->item('protocolo:http') . $this->config->item('server:elemento') . '/' . $objImagen->imagen;
                     }
-                    switch ($objImagenPadre->tipo_imagen_id) {
-                        case $this->config->item('imagen:small'):
-                            $objImagenPadre->tipo_imagen = 'Small';
-                            $oTipoImagen = $this->tipo_imagen_m->get($objImagenPadre->tipo_imagen_id);
-                            $objImagenPadre->tamanio = $oTipoImagen->ancho . 'x' . $oTipoImagen->alto;
-                            break;
-                        case $this->config->item('imagen:medium'):
-                            $objImagenPadre->tipo_imagen = 'Medium';
-                            $oTipoImagen = $this->tipo_imagen_m->get($objImagenPadre->tipo_imagen_id);
-                            $objImagenPadre->tamanio = $oTipoImagen->ancho . 'x' . $oTipoImagen->alto;
-                            break;
-                        case $this->config->item('imagen:large'):
-                            $objImagenPadre->tipo_imagen = 'Large';
-                            $oTipoImagen = $this->tipo_imagen_m->get($objImagenPadre->tipo_imagen_id);
-                            $objImagenPadre->tamanio = $oTipoImagen->ancho . 'x' . $oTipoImagen->alto;
-                            break;
-                        case $this->config->item('imagen:extralarge'):
-                            $objImagenPadre->tipo_imagen = 'Extralarge';
-                            $oTipoImagen = $this->tipo_imagen_m->get($objImagenPadre->tipo_imagen_id);
-                            $objImagenPadre->tamanio = $oTipoImagen->ancho . 'x' . $oTipoImagen->alto;
-                            break;
-                    }
-                    array_push($returnValue, $objImagenPadre);
-                    //eliminamos el tipo del padre
-                    foreach ($lista_tipo_imagenes as $i => $objTipo) {
-                        if ($objImagenPadre->tipo_imagen_id == $objTipo->id) {
-                            unset($lista_tipo_imagenes[$i]);
-                        }
-                    }
-                    //obtenemos las imagenes restantes del padre
-                    foreach ($lista_tipo_imagenes as $i => $objTipoImagen) {
-                        $oImagen = $this->imagen_m->get_by(array("imagen_padre" => $objImagenPadre->id, "tipo_imagen_id" => $objTipoImagen->id));
-                        if (count($oImagen) > 0) {
-                            if ($oImagen->procedencia == $this->config->item('procedencia:liquid')) {
-                                $oImagen->imagen = $oImagen->imagen;
-                            } else {
-                                $oImagen->imagen = $this->config->item('protocolo:http') . $this->config->item('server:elemento') . '/' . $oImagen->imagen;
-                            }
-                            switch ($oImagen->tipo_imagen_id) {
-                                case $this->config->item('imagen:small'):
-                                    $oImagen->tipo_imagen = 'Small';
-                                    $oTipoImagen = $this->tipo_imagen_m->get($oImagen->tipo_imagen_id);
-                                    $oImagen->tamanio = $oTipoImagen->ancho . 'x' . $oTipoImagen->alto;
-                                    break;
-                                case $this->config->item('imagen:medium'):
-                                    $oImagen->tipo_imagen = 'Medium';
-                                    $oTipoImagen = $this->tipo_imagen_m->get($oImagen->tipo_imagen_id);
-                                    $oImagen->tamanio = $oTipoImagen->ancho . 'x' . $oTipoImagen->alto;
-                                    break;
-                                case $this->config->item('imagen:large'):
-                                    $oImagen->tipo_imagen = 'Large';
-                                    $oTipoImagen = $this->tipo_imagen_m->get($oImagen->tipo_imagen_id);
-                                    $oImagen->tamanio = $oTipoImagen->ancho . 'x' . $oTipoImagen->alto;
-                                    break;
-                                case $this->config->item('imagen:extralarge'):
-                                    $oImagen->tipo_imagen = 'Extralarge';
-                                    $oTipoImagen = $this->tipo_imagen_m->get($oImagen->tipo_imagen_id);
-                                    $oImagen->tamanio = $oTipoImagen->ancho . 'x' . $oTipoImagen->alto;
-                                    break;
-                            }
-                            array_push($returnValue, $oImagen);
-                        } else {
-                            $oImagen = new stdClass();
-                            $oImagen->id = 0;
-                            $oImagen->canales_id = $objImagenPadre->canales_id;
-                            $oImagen->grupo_maestros_id = $objImagenPadre->grupo_maestros_id;
-                            $oImagen->videos_id = $objImagenPadre->videos_id;
-                            $oImagen->imagen = UPLOAD_IMAGENES_VIDEOS . 'no_video.jpg';
-                            $oImagen->tipo_imagen_id = $objTipoImagen->id;
-                            $oImagen->estado = $objImagenPadre->estado;
-                            $oImagen->fecha_registro = $objImagenPadre->fecha_registro;
-                            $oImagen->usuario_registro = $objImagenPadre->usuario_registro;
-                            $oImagen->fecha_actualizacion = $objImagenPadre->fecha_actualizacion;
-                            $oImagen->usuario_actualizacion = $objImagenPadre->usuario_actualizacion;
-                            $oImagen->estado_migracion = $objImagenPadre->estado_migracion;
-                            $oImagen->fecha_migracion = $objImagenPadre->fecha_migracion;
-                            $oImagen->fecha_migracion_actualizacion = $objImagenPadre->fecha_migracion_actualizacion;
-                            $oImagen->imagen_padre = $objImagenPadre->imagen_padre;
-                            $oImagen->procedencia = $objImagenPadre->procedencia;
-                            $oImagen->imagen_anterior = $objImagenPadre->imagen_anterior;
-                            $oImagen->tipo_imagen = $objTipoImagen->nombre;
-                            $oImagen->tamanio = $objTipoImagen->ancho . 'x' . $objTipoImagen->alto;
-                            array_push($returnValue, $oImagen);
-                        }
-                    }
-                    //listamos los tipos de imagenes para maestros
+                    $objImagen->existe = 'Si';
+                    $objImagen->accion = '<div style="width:120px;" id="fine-uploader-basic_' . $objImagen->tipo_imagen_id . '_' . $objImagen->id . '" class="btn red"><i class="icon-upload icon-white"></i>' . lang('imagen:cambiar_imagen') . '</div>';
+                    //$objImagenPadre->accion.= '<button style="width:130px;" id="cambiar_imagen_' . $objImagenPadre->id . '">' . lang('imagen:cambiar_imagen') . '</button>';
+                    $objImagen->accion.= '<div class="btn blue" style="width:120px;" id="restaurar_imagen_' . $objImagen->id . '">' . lang('imagen:restaurar_imagen') . '</button>';
+                    $objImagen->progreso = '<div id="messages_' . $objImagen->tipo_imagen_id . '_' . $objImagen->id . '"></div>';
+                    array_push($returnValue, $objImagen);
+                } else {
+                    $oImagen = new stdClass();
+                    $oImagen->id = 0;
+                    $oImagen->canales_id = NULL;
+                    $oImagen->grupo_maestros_id = $maestro_id;
+                    $oImagen->videos_id = NULL;
+                    $oImagen->imagen = UPLOAD_IMAGENES_VIDEOS . 'no_video.jpg';
+                    $oImagen->tipo_imagen_id = $objTipoImagen->id;
+                    $oImagen->estado = $this->config->item('estado:publicado');
+                    $oImagen->existe = 'No';
+                    $oImagen->fecha_registro = '';
+                    $oImagen->imagen_padre = 0;
+                    $oImagen->procedencia = 0;
+                    $oImagen->imagen_anterior = NULL;
+                    $oImagen->tipo_imagen = $objTipoImagen->nombre;
+                    $oImagen->tamanio = $objTipoImagen->ancho . 'x' . $objTipoImagen->alto;
+                    $oImagen->accion = '<div style="width:120px;" id="fine-uploader-basic_' . $oImagen->tipo_imagen_id . '_' . $oImagen->id . '" class="btn red"><i class="icon-upload icon-white"></i>' . lang('imagen:subir_imagen') . '</div>';
+                    //$oImagen->accion.= '<button style="width:130px;" id="cambiar_imagen_' . $oImagen->id . '">' . lang('imagen:subir_imagen') . '</button>';
+                    $oImagen->accion.= '<div class="btn blue" style="width:120px;" id="restaurar_imagen_' . $oImagen->id . '">' . lang('imagen:restaurar_imagen') . '</div>';
+                    $oImagen->progreso = '<div id="messages_' . $oImagen->tipo_imagen_id . '_' . $oImagen->id . '"></div>';
+                    array_push($returnValue, $oImagen);
                 }
             }
         }
+        /* $lista_imagenes = $this->imagen_m->get_many_by(array("grupo_maestros_id" => $maestro_id));
+          if (count($lista_imagenes) > 0) {
+          $array_id_imagen = array();
+          foreach ($lista_imagenes as $puntero => $objImagen) {
+          if ($objImagen->imagen_padre == NULL || $objImagen->imagen_padre == '0') {
+          array_push($array_id_imagen, $objImagen->id);
+          }
+          }
+          //obtenemos solo las imagenes padre
+          $lista_imagenes_padre = $this->imagen_m->where_in('id', $array_id_imagen)->get_many_by(array());
+          if (count($lista_imagenes_padre) > 0) {
+
+          foreach ($lista_imagenes_padre as $index => $objImagenPadre) {
+          $lista_tipo_imagenes = $this->tipo_imagen_m->listType();
+          if ($objImagenPadre->procedencia == $this->config->item('procedencia:liquid')) {
+          $objImagenPadre->imagen = $objImagenPadre->imagen;
+          } else {
+          $objImagenPadre->imagen = $this->config->item('protocolo:http') . $this->config->item('server:elemento') . '/' . $objImagenPadre->imagen;
+          }
+          switch ($objImagenPadre->tipo_imagen_id) {
+          case $this->config->item('imagen:small'):
+          $objImagenPadre->tipo_imagen = 'Small';
+          $oTipoImagen = $this->tipo_imagen_m->get($objImagenPadre->tipo_imagen_id);
+          $objImagenPadre->tamanio = $oTipoImagen->ancho . 'x' . $oTipoImagen->alto;
+          break;
+          case $this->config->item('imagen:medium'):
+          $objImagenPadre->tipo_imagen = 'Medium';
+          $oTipoImagen = $this->tipo_imagen_m->get($objImagenPadre->tipo_imagen_id);
+          $objImagenPadre->tamanio = $oTipoImagen->ancho . 'x' . $oTipoImagen->alto;
+          break;
+          case $this->config->item('imagen:large'):
+          $objImagenPadre->tipo_imagen = 'Large';
+          $oTipoImagen = $this->tipo_imagen_m->get($objImagenPadre->tipo_imagen_id);
+          $objImagenPadre->tamanio = $oTipoImagen->ancho . 'x' . $oTipoImagen->alto;
+          break;
+          case $this->config->item('imagen:extralarge'):
+          $objImagenPadre->tipo_imagen = 'Extralarge';
+          $oTipoImagen = $this->tipo_imagen_m->get($objImagenPadre->tipo_imagen_id);
+          $objImagenPadre->tamanio = $oTipoImagen->ancho . 'x' . $oTipoImagen->alto;
+          break;
+          }
+          $objImagenPadre->existe = 'Si';
+          $objImagenPadre->accion = '<div style="width:120px;" id="fine-uploader-basic_' . $objImagenPadre->tipo_imagen_id . '_' . $objImagenPadre->id . '" class="btn red"><i class="icon-upload icon-white"></i>' . lang('imagen:cambiar_imagen') . '</div>';
+          //$objImagenPadre->accion.= '<button style="width:130px;" id="cambiar_imagen_' . $objImagenPadre->id . '">' . lang('imagen:cambiar_imagen') . '</button>';
+          $objImagenPadre->accion.= '<div class="btn blue" style="width:120px;" id="restaurar_imagen_' . $objImagenPadre->id . '">' . lang('imagen:restaurar_imagen') . '</button>';
+          $objImagenPadre->progreso = '<div id="messages_' . $objImagenPadre->tipo_imagen_id . '_' . $objImagenPadre->id . '"></div>';
+          array_push($returnValue, $objImagenPadre);
+          //eliminamos el tipo del padre
+          foreach ($lista_tipo_imagenes as $i => $objTipo) {
+          if ($objImagenPadre->tipo_imagen_id == $objTipo->id) {
+          unset($lista_tipo_imagenes[$i]);
+          }
+          }
+          //obtenemos las imagenes restantes del padre
+          foreach ($lista_tipo_imagenes as $i => $objTipoImagen) {
+          $oImagen = $this->imagen_m->get_by(array("imagen_padre" => $objImagenPadre->id, "tipo_imagen_id" => $objTipoImagen->id));
+          if (count($oImagen) > 0) {
+          if ($oImagen->procedencia == $this->config->item('procedencia:liquid')) {
+          $oImagen->imagen = $oImagen->imagen;
+          } else {
+          $oImagen->imagen = $this->config->item('protocolo:http') . $this->config->item('server:elemento') . '/' . $oImagen->imagen;
+          }
+          switch ($oImagen->tipo_imagen_id) {
+          case $this->config->item('imagen:small'):
+          $oImagen->tipo_imagen = 'Small';
+          $oTipoImagen = $this->tipo_imagen_m->get($oImagen->tipo_imagen_id);
+          $oImagen->tamanio = $oTipoImagen->ancho . 'x' . $oTipoImagen->alto;
+          break;
+          case $this->config->item('imagen:medium'):
+          $oImagen->tipo_imagen = 'Medium';
+          $oTipoImagen = $this->tipo_imagen_m->get($oImagen->tipo_imagen_id);
+          $oImagen->tamanio = $oTipoImagen->ancho . 'x' . $oTipoImagen->alto;
+          break;
+          case $this->config->item('imagen:large'):
+          $oImagen->tipo_imagen = 'Large';
+          $oTipoImagen = $this->tipo_imagen_m->get($oImagen->tipo_imagen_id);
+          $oImagen->tamanio = $oTipoImagen->ancho . 'x' . $oTipoImagen->alto;
+          break;
+          case $this->config->item('imagen:extralarge'):
+          $oImagen->tipo_imagen = 'Extralarge';
+          $oTipoImagen = $this->tipo_imagen_m->get($oImagen->tipo_imagen_id);
+          $oImagen->tamanio = $oTipoImagen->ancho . 'x' . $oTipoImagen->alto;
+          break;
+          }
+          $oImagen->existe = 'Si';
+          $oImagen->accion = '<div style="width:120px;" id="fine-uploader-basic_' . $oImagen->tipo_imagen_id . '_' . $oImagen->id . '" class="btn red"><i class="icon-upload icon-white"></i>' . lang('imagen:cambiar_imagen') . '</div>';
+          //$oImagen->accion.= '<button style="width:130px;" id="cambiar_imagen_' . $oImagen->id . '">' . lang('imagen:cambiar_imagen') . '</button>';
+          $oImagen->accion.= '<div class="btn blue" style="width:120px;" id="restaurar_imagen_' . $oImagen->id . '">' . lang('imagen:restaurar_imagen') . '</button>';
+          $oImagen->progreso = '<div id="messages_' . $oImagen->tipo_imagen_id . '_' . $oImagen->id . '"></div>';
+          array_push($returnValue, $oImagen);
+          } else {
+          $oImagen = new stdClass();
+          $oImagen->id = 0;
+          $oImagen->canales_id = $objImagenPadre->canales_id;
+          $oImagen->grupo_maestros_id = $objImagenPadre->grupo_maestros_id;
+          $oImagen->videos_id = $objImagenPadre->videos_id;
+          $oImagen->imagen = UPLOAD_IMAGENES_VIDEOS . 'no_video.jpg';
+          $oImagen->tipo_imagen_id = $objTipoImagen->id;
+          $oImagen->estado = $objImagenPadre->estado;
+          $oImagen->existe = 'No';
+          $oImagen->fecha_registro = $objImagenPadre->fecha_registro;
+          $oImagen->usuario_registro = $objImagenPadre->usuario_registro;
+          $oImagen->fecha_actualizacion = $objImagenPadre->fecha_actualizacion;
+          $oImagen->usuario_actualizacion = $objImagenPadre->usuario_actualizacion;
+          $oImagen->estado_migracion = $objImagenPadre->estado_migracion;
+          $oImagen->fecha_migracion = $objImagenPadre->fecha_migracion;
+          $oImagen->fecha_migracion_actualizacion = $objImagenPadre->fecha_migracion_actualizacion;
+          $oImagen->imagen_padre = $objImagenPadre->imagen_padre;
+          $oImagen->procedencia = $objImagenPadre->procedencia;
+          $oImagen->imagen_anterior = $objImagenPadre->imagen_anterior;
+          $oImagen->tipo_imagen = $objTipoImagen->nombre;
+          $oImagen->tamanio = $objTipoImagen->ancho . 'x' . $objTipoImagen->alto;
+          $oImagen->accion = '<div style="width:120px;" id="fine-uploader-basic_' . $oImagen->tipo_imagen_id . '_' . $oImagen->id . '" class="btn red"><i class="icon-upload icon-white"></i>' . lang('imagen:subir_imagen') . '</div>';
+          //$oImagen->accion.= '<button style="width:130px;" id="cambiar_imagen_' . $oImagen->id . '">' . lang('imagen:subir_imagen') . '</button>';
+          $oImagen->accion.= '<div class="btn blue" style="width:120px;" id="restaurar_imagen_' . $oImagen->id . '">' . lang('imagen:restaurar_imagen') . '</div>';
+          $oImagen->progreso = '<div id="messages_' . $oImagen->tipo_imagen_id . '_' . $oImagen->id . '"></div>';
+          array_push($returnValue, $oImagen);
+          }
+          }
+          //listamos los tipos de imagenes para maestros
+          }
+          }
+          } */
         return $returnValue;
     }
 
