@@ -2317,8 +2317,9 @@ class Admin extends Admin_Controller {
                 //guardamos en la tabla grupo detalle
                 $this->_saveVideoMaestroDetalle($objBeanVideo, $this->input->post(), $maestro_detalle_id);
 
+                
 
-                $urlpost = base_url("/procesos/cortevideo.php");
+                /*$urlpost = base_url("/procesos/cortevideo.php");
                 //$urlpost = "http://localhost/adminmicanal/procesos/cortevideo.php";
 
                 $post = array(
@@ -2329,7 +2330,7 @@ class Admin extends Admin_Controller {
                 );
 
 
-                $this->postDatos($urlpost, $post);
+                //$this->postDatos($urlpost, $post);*/
 
                 echo json_encode(array("value" => '0'));
             }
