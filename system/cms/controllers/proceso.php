@@ -13,8 +13,8 @@ class Proceso extends MX_Controller {
         
     }
 
-    public function corteVideo($id_padre = "", $id_hijo = "", $inicio = "", $duracion = "") {
-
+    public function corte_Video($id_padre = "", $id_hijo = "", $inicio = "", $duracion = "") {
+echo 'corte video';exit;
         if (!empty($id_padre) && !empty($id_hijo) && !empty($inicio) && !empty($duracion)) {
             
             $result = ci()->videos_m->getVideosxId($id_padre);

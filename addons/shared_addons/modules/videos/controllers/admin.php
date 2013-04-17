@@ -2264,8 +2264,9 @@ class Admin extends Admin_Controller {
 
     public function insertCorteVideo($canal_id, $video_id) {
 //        print_r($this->input->post());
-
-        if ($this->input->is_ajax_request()) {
+if (true){
+    if (true){
+        /*if ($this->input->is_ajax_request()) {
             if ($this->verificarVideo($canal_id, $video_id, $this->input->post())) {
                 echo json_encode(array("value" => '1'));
             } else {
@@ -2316,7 +2317,15 @@ class Admin extends Admin_Controller {
                 }
                 //guardamos en la tabla grupo detalle
                 $this->_saveVideoMaestroDetalle($objBeanVideo, $this->input->post(), $maestro_detalle_id);
-
+*/
+                
+                $id_hijo = '1'; //$objvideotemp->id;
+                $inicio = $this->input->post('ini_corte');
+                $duracion = $this->input->post('dur_corte');
+                
+                $CI =& get_instance();
+echo 'ci: ' . $CI;exit;
+                Proceso::corte_Video($video_id,$id_hijo,$inicio,$duracion);
                 
 
                 /*$urlpost = base_url("/procesos/cortevideo.php");
