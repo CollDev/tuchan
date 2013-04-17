@@ -69,7 +69,7 @@
 
                             if ($module['name'] == lang('cp_nav_canales') && $this->session->userdata['group'] == 'administrador-canales') {
                                 echo '<li>' . anchor('admin/canales', $module['name'], array('class' => 'menu'));
-
+//print_r($this->session->all_userdata());
                                 // Sub menú canales
                                 if (count($this->session->userdata['canal_usuario']) > 0) {
                                     echo '<ul>';

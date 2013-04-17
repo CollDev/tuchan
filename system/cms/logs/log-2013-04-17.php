@@ -1,5 +1,22 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed'); ?>
 
+<<<<<<< HEAD
+ERROR - 2013-04-17 15:49:52 --> Severity: Notice  --> Undefined index: canal_usuario /var/www/local.adminmicanal.com/system/cms/themes/pyrocms/views/admin/partials/navigation.php 74
+ERROR - 2013-04-17 15:49:53 --> Severity: Notice  --> Undefined index: canal_usuario /var/www/local.adminmicanal.com/system/cms/themes/pyrocms/views/admin/partials/navigation.php 74
+ERROR - 2013-04-17 15:58:03 --> Severity: Notice  --> Undefined index: canal_usuario /var/www/local.adminmicanal.com/system/cms/themes/pyrocms/views/admin/partials/navigation.php 74
+ERROR - 2013-04-17 15:58:08 --> Severity: Notice  --> Undefined index: canal_usuario /var/www/local.adminmicanal.com/system/cms/themes/pyrocms/views/admin/partials/navigation.php 74
+ERROR - 2013-04-17 15:58:30 --> Severity: Notice  --> Undefined property: CI_Session::$all_userdata /var/www/local.adminmicanal.com/system/cms/themes/pyrocms/views/admin/partials/navigation.php 72
+ERROR - 2013-04-17 15:58:30 --> Severity: Notice  --> Undefined index: canal_usuario /var/www/local.adminmicanal.com/system/cms/themes/pyrocms/views/admin/partials/navigation.php 74
+ERROR - 2013-04-17 15:58:35 --> Severity: Notice  --> Undefined property: CI_Session::$all_userdata /var/www/local.adminmicanal.com/system/cms/themes/pyrocms/views/admin/partials/navigation.php 72
+ERROR - 2013-04-17 15:58:35 --> Severity: Notice  --> Undefined index: canal_usuario /var/www/local.adminmicanal.com/system/cms/themes/pyrocms/views/admin/partials/navigation.php 74
+ERROR - 2013-04-17 15:59:05 --> Severity: Notice  --> Undefined index: canal_usuario /var/www/local.adminmicanal.com/system/cms/themes/pyrocms/views/admin/partials/navigation.php 74
+ERROR - 2013-04-17 15:59:07 --> Severity: Notice  --> Undefined index: canal_usuario /var/www/local.adminmicanal.com/system/cms/themes/pyrocms/views/admin/partials/navigation.php 74
+ERROR - 2013-04-17 15:59:51 --> Severity: Notice  --> Undefined index: canal_usuario /var/www/local.adminmicanal.com/system/cms/themes/pyrocms/views/admin/partials/navigation.php 74
+ERROR - 2013-04-17 16:00:51 --> Severity: Notice  --> Undefined index: canal_usuario /var/www/local.adminmicanal.com/system/cms/themes/pyrocms/views/admin/partials/navigation.php 74
+ERROR - 2013-04-17 16:00:53 --> Severity: Notice  --> Undefined index: canal_usuario /var/www/local.adminmicanal.com/system/cms/themes/pyrocms/views/admin/partials/navigation.php 74
+ERROR - 2013-04-17 16:12:46 --> Severity: Notice  --> Undefined index: canal_usuario /var/www/local.adminmicanal.com/system/cms/themes/pyrocms/views/admin/partials/navigation.php 74
+ERROR - 2013-04-17 16:12:48 --> Severity: Notice  --> Undefined index: canal_usuario /var/www/local.adminmicanal.com/system/cms/themes/pyrocms/views/admin/partials/navigation.php 74
+=======
 ERROR - 2013-04-17 00:04:43 --> Severity: Notice  --> Undefined variable: result /home/user/Escritorio/adminmicanal/system/cms/controllers/proceso.php 19
 ERROR - 2013-04-17 00:04:47 --> Severity: Notice  --> Undefined property: CI::$conexionmysql /home/user/Escritorio/adminmicanal/system/cms/libraries/MX/Controller.php 57
 ERROR - 2013-04-17 00:07:20 --> Severity: Notice  --> Undefined variable: result /home/user/Escritorio/adminmicanal/system/cms/controllers/proceso.php 19
@@ -26,3 +43,4 @@ ERROR - 2013-04-17 15:49:34 --> Severity: Notice  --> Undefined property: MX_Con
 ERROR - 2013-04-17 15:49:35 --> Severity: Notice  --> Undefined property: MX_Config::$video_path /home/user/Escritorio/adminmicanal/system/cms/controllers/proceso.php 18
 ERROR - 2013-04-17 15:51:03 --> Severity: Notice  --> Undefined variable: id_video /home/user/Escritorio/adminmicanal/system/cms/controllers/proceso.php 20
 ERROR - 2013-04-17 16:05:20 --> Severity: Notice  --> Undefined variable: result /home/user/Escritorio/adminmicanal/system/cms/controllers/proceso.php 18
+>>>>>>> 30a25512a2479915727d73d7b45df51a0a6ba368
