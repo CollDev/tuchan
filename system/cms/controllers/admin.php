@@ -33,8 +33,7 @@ class Admin extends Admin_Controller
 		}
                 
 		//$this->template->build('admin/dashboard');		
-                $redirect = $this->_check_group();
-                //echo 'hola: ' . $redirect;exit;
+                $redirect = $this->_check_group();                
                 redirect($redirect ? $redirect : 'admin/canales');
 	}
 
