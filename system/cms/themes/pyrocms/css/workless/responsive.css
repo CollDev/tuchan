@@ -601,6 +601,8 @@ span.st {
 	}
 
 	section.title, section.item {width: 1250px;}
+	
+	section.title a{ color:#FFF !important}
 
 	.topbar {
 		height: 50px;
