@@ -51,7 +51,52 @@
         </tr>
     </tfoot>
 </table>
+<div id="divRestaurar"></div>
 <script type="text/javascript">
+    function restaurar_imagen(tipo_imagen, maestro_id) {
+        $("#divRestaurar").dialog("open");
+        //llenar el formulario
+        var post_url = "/admin/videos/formulario_restaurar_imagen/" + maestro_id + "/" + tipo_imagen;
+        $.ajax({
+            type: "POST",
+            url: post_url,
+            dataType: 'html',
+            //data: serializedData,
+            success: function(respuesta)
+            {
+                $("#divRestaurar").html(respuesta);
+            } //end success
+        }); //end AJAX
+
+        $("#divRestaurar").dialog({
+            title: "Restaurar imagen",
+            autoOpen: true,
+            height: 540,
+            width: 540,
+            modal: true
+        });
+    }
+
+    function restaurar_imagen_grupo(imagen_id, tipo_imagen, maestro_id) {
+        //llenar el formulario
+        var post_url = "/admin/videos/restaurar_imagen_grupo/" + imagen_id + "/" + tipo_imagen + "/" + maestro_id;
+        $.ajax({
+            type: "POST",
+            url: post_url,
+            dataType: 'json',
+            //data: serializedData,
+            success: function(respuesta)
+            {
+                $("#divRestaurar").html(respuesta);
+                //pintamos la nueva imagen
+                var url_nueva_imagen = respuesta.url;
+                $('#tipo_'+tipo_imagen).html('<img style="width:120px; height: 70px;" src="' + url_nueva_imagen + '" />');
+                $('#codigo_'+tipo_imagen).html(imagen_id);
+                $("#divRestaurar").dialog("close");
+            } //end success
+        }); //end AJAX    
+    }
+
     $(document).ready(function() {
 <?php
 if (count($imagenes) > 0):

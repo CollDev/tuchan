@@ -2382,11 +2382,11 @@ class Admin extends Admin_Controller {
             $objSeccion = $this->secciones_m->get($objDetalleSeccion->secciones_id);
             $objPortada = $this->portada_m->get($objSeccion->portadas_id);
             if ($objPortada->tipo_portadas_id == $this->config->item('portada:principal') && $objSeccion->tipo_secciones_id == $this->config->item('seccion:programa')) {
-                if($objDetalleSeccion->grupo_maestros_id != NULL){
+                if ($objDetalleSeccion->grupo_maestros_id != NULL) {
                     $objMaestro = $this->grupo_maestro_m->get($objDetalleSeccion->grupo_maestros_id);
-                    if($objMaestro->tipo_grupo_maestro_id == $this->config->item('videos:programa')){
+                    if ($objMaestro->tipo_grupo_maestro_id == $this->config->item('videos:programa')) {
                         $this->detalle_secciones_m->delete_by("secciones_id", $objDetalleSeccion->secciones_id);
-                    }else{
+                    } else {
                         $this->detalle_secciones_m->update($detalle_seccion_id, array("estado" => "0"));
                     }
                 }
@@ -2803,7 +2803,7 @@ class Admin extends Admin_Controller {
                 $objBeanSeccion->descripcion = $this->input->post('descripcion_seccion');
                 $objBeanSeccion->tipo = 0;
                 $objBeanSeccion->portadas_id = $portada_id;
-                $objBeanSeccion->tipo_secciones_id = $this->input->post('tipo_seccion');
+                $objBeanSeccion->tipo_secciones_id = $this->config->item('seccion:perzonalizado');
                 $objBeanSeccion->peso = $this->obtenerPesoSeccion($portada_id);
                 $objBeanSeccion->id_mongo = NULL;
                 $objBeanSeccion->estado = 0;
@@ -2818,7 +2818,8 @@ class Admin extends Admin_Controller {
                 $objBeanSeccion->grupo_maestros_id = NULL;
                 $objBeanSeccionSaved = $this->secciones_m->save($objBeanSeccion);
                 $estado = 'Borrador';
-                $acciones = 'Previsualizar | Publicar | Editar | Eliminar';
+                //$acciones = 'Previsualizar | Publicar | Editar | Eliminar';
+                $acciones = '<a href="/admin/canales/previsualizar_seccion/" target ="_blank" class="modal-large">Previsualizar</a> | <a href="#" onclick="publicar_seccion(' . $objBeanSeccionSaved->id . ', \'seccion\');return false;">Publicar</a> | <a title="Editar" href="admin/canales/seccion/' . $this->input->post('canal_id') . '/' . $objBeanSeccionSaved->id . '">Editar</a> | <a href="#" onclick="eliminar_seccion(' . $objBeanSeccionSaved->id . ', \'seccion\');return false;">Eliminar</a>';
                 if ($objBeanSeccionSaved->estado == 1) {
                     $estado = 'Publicado';
                 }

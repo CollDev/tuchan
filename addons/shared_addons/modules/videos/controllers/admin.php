@@ -2779,7 +2779,7 @@ echo 'ci: ' . $CI;exit;
                             if (file_exists(UPLOAD_IMAGENES_VIDEOS . $imagen_cortada)) {
                                 if ($imagen_id > 0) {//cambiar imagen
                                     //enviamos a borrador a la imagen a cambiar
-                                    $this->imagen_m->update($imagen_id,array("estado"=>$this->config->item('estado:borrador'),"estado_migracion"=>$this->config->item('migracion:actualizado')));
+                                    $this->imagen_m->update($imagen_id, array("estado" => $this->config->item('estado:borrador'), "estado_migracion" => $this->config->item('migracion:actualizado')));
                                     $this->imagen_m->desabilitarImagenes($maestro_id, $tipo_imagen_id);
                                     //registramos una nueva imagen
                                     $objBeanImagen = new stdClass();
@@ -2811,7 +2811,7 @@ echo 'ci: ' . $CI;exit;
                                         unset($array_path[0]);
                                     }
                                     $path_single_element = implode('/', $array_path);
-                                    $this->imagen_m->update($objBeanImagenSaved->id, array("imagen" => $path_single_element, "estado" => $this->config->item('estado:publicado'),"estado_migracion"=>$this->config->item('migracion:actualizado')));
+                                    $this->imagen_m->update($objBeanImagenSaved->id, array("imagen" => $path_single_element, "estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
                                     $url_imagen = $this->config->item('protocolo:http') . $this->config->item('server:elemento') . '/' . $path_single_element;
                                     //eliminamos la imagen local
                                     if (file_exists($ruta_absoluta_imagen)) {
@@ -2896,7 +2896,7 @@ echo 'ci: ' . $CI;exit;
                     }
                     $objImagen->existe = 'Si';
                     $objImagen->accion = '<div style="width:120px;" id="fine-uploader-basic_' . $objImagen->tipo_imagen_id . '_' . $objImagen->id . '" class="btn red"><i class="icon-upload icon-white"></i>' . lang('imagen:cambiar_imagen') . '</div>';
-                    $objImagen->accion.= '<div class="btn blue" style="width:120px;" id="restaurar_imagen_' . $objImagen->id . '">' . lang('imagen:restaurar_imagen') . '</button>';
+                    $objImagen->accion.= '<div class="btn blue" onclick="restaurar_imagen(' . $objTipoImagen->id . ',' . $maestro_id . ');return false;" style="width:120px;" id="restaurar_imagen_' . $objImagen->id . '">' . lang('imagen:restaurar_imagen') . '</button>';
                     $objImagen->progreso = '<div id="messages_' . $objImagen->tipo_imagen_id . '_' . $objImagen->id . '"></div>';
                     array_push($returnValue, $objImagen);
                 } else {
@@ -2917,7 +2917,7 @@ echo 'ci: ' . $CI;exit;
                     $oImagen->tamanio = $objTipoImagen->ancho . 'x' . $objTipoImagen->alto;
                     $oImagen->accion = '<div style="width:120px;" id="fine-uploader-basic_' . $oImagen->tipo_imagen_id . '_' . $oImagen->id . '" class="btn red"><i class="icon-upload icon-white"></i>' . lang('imagen:subir_imagen') . '</div>';
                     //$oImagen->accion.= '<button style="width:130px;" id="cambiar_imagen_' . $oImagen->id . '">' . lang('imagen:subir_imagen') . '</button>';
-                    $oImagen->accion.= '<div class="btn blue" style="width:120px;" id="restaurar_imagen_' . $oImagen->id . '">' . lang('imagen:restaurar_imagen') . '</div>';
+                    $oImagen->accion.= '<div class="btn blue" onclick="restaurar_imagen(' . $objTipoImagen->id . ',' . $maestro_id . ');return false;" style="width:120px;" id="restaurar_imagen_' . $oImagen->id . '">' . lang('imagen:restaurar_imagen') . '</div>';
                     $oImagen->progreso = '<div id="messages_' . $oImagen->tipo_imagen_id . '_' . $oImagen->id . '"></div>';
                     array_push($returnValue, $oImagen);
                 }
@@ -4463,6 +4463,53 @@ echo 'ci: ' . $CI;exit;
                     }
                 }
             }
+        }
+    }
+
+    public function formulario_restaurar_imagen($maestro_id, $tipo_imagen) {
+        if ($this->input->is_ajax_request()) {
+            $html = '<table><tr>';
+            $html.='<th>#</th>';
+            $html.='<th>Imagen</th>';
+            $html.='<th>Acción</th>';
+            $html.='<th>ID</th>';
+            $html.='</tr>';
+            $imagenes_resturar = $this->imagen_m->get_many_by(array("grupo_maestros_id" => $maestro_id, "tipo_imagen_id" => $tipo_imagen, "estado" => $this->config->item('estado:borrador')));
+            if (count($imagenes_resturar) > 0) {
+                foreach ($imagenes_resturar as $puntero => $objImagen) {
+                    if ($objImagen->procedencia == '1') {
+                        $imagen = $objImagen->imagen;
+                    } else {
+                        $imagen = $this->config->item('protocolo:http') . $this->config->item('server:elemento') . '/' . $objImagen->imagen;
+                    }
+                    $html.='<tr>';
+                    $html.='<td>' . ($puntero + 1) . '</td>';
+                    $html.='<td><img style="width:100px; height:70px;" src="' . $imagen . '" /></td>';
+                    $html.='<td><div class="btn blue" onclick="restaurar_imagen_grupo(' . $objImagen->id . ',' . $tipo_imagen . ', ' . $maestro_id . ');return false;">Restaurar</div></td>';
+                    $html.='<td>' . $objImagen->id . '</td>';
+                    $html.='</tr>';
+                }
+            } else {
+                $html.='<tr>';
+                $html.='<td colspan="4">No hay imagenes</td>';
+                $html.='</tr>';
+            }
+            $html.='</table>';
+            echo $html;
+        }
+    }
+
+    public function restaurar_imagen_grupo($imagen_id, $tipo_imagen_id, $maestro_id) {
+        if ($this->input->is_ajax_request()) {
+            $this->imagen_m->desabilitarImagenes($maestro_id, $tipo_imagen_id);
+            $this->imagen_m->update($imagen_id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+            $objImagen = $this->imagen_m->get($imagen_id);
+            if ($objImagen->procedencia == '1') {
+                $imagen = $objImagen->imagen;
+            } else {
+                $imagen = $this->config->item('protocolo:http') . $this->config->item('server:elemento') . '/' . $objImagen->imagen;
+            }
+            echo json_encode(array("url" => $imagen, "imagen_id" => $imagen_id));
         }
     }
 
