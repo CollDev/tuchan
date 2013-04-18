@@ -1622,18 +1622,18 @@ class Admin extends Admin_Controller {
         } else {
             $total_rows = $this->portada_m->count_by($base_where);
         }
-        $pagination = create_pagination('admin/canales/portada/' . $canal_id . '/index', $total_rows, 10, 6);
+        $pagination = create_pagination('admin/canales/portada/' . $canal_id . '/index', $total_rows, 5, 6, TRUE, 'paginationSinAjax');
 
         // Using this data, get the relevant results
         if (strlen(trim($keyword)) > 0) {
-            $coleccionPortada = $this->portada_m->like('nombre', $keyword)->limit($pagination['limit'])->get_many_by($base_where);
+            $coleccionPortada = $this->portada_m->order_by('fecha_registro', 'DESC')->like('nombre', $keyword)->limit($pagination['limit'])->get_many_by($base_where);
         } else {
-            $coleccionPortada = $this->portada_m->limit($pagination['limit'])->get_many_by($base_where);
+            $coleccionPortada = $this->portada_m->order_by('fecha_registro', 'DESC')->limit($pagination['limit'])->get_many_by($base_where);
         }
 
         if (count($coleccionPortada) > 0) {
             foreach ($coleccionPortada as $index => $objPortada) {
-                $objPortada->secciones = $this->secciones_m->get_many_by(array("portadas_id" => $objPortada->id));
+                $objPortada->secciones = $this->secciones_m->order_by('peso', 'ASC')->get_many_by(array("portadas_id" => $objPortada->id));
                 $coleccionPortada[$index] = $objPortada;
             }
         }

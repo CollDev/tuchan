@@ -2468,8 +2468,8 @@ class Admin extends Admin_Controller {
         //$listaSinNivel = $this->listarSinNivel($lista_programas);
         $base_where = array("canales_id" => $canal_id, "tipo_grupo_maestro_id" => $this->config->item('videos:programa'));
         $total_rows = $this->grupo_maestro_m->count_by($base_where);
-        $pagination = create_pagination('admin/videos/maestro/' . $canal_id . '/index', $total_rows, 3, 6);
-        $lista_programas = $this->listaProgramacompleto($this->grupo_maestro_m->limit($pagination['limit'])->get_many_by($base_where));
+        $pagination = create_pagination('admin/videos/maestro/' . $canal_id . '/index', $total_rows, 5, 6, TRUE, 'paginationSinAjax');
+        $lista_programas = $this->listaProgramacompleto($this->grupo_maestro_m->order_by('fecha_registro', 'DESC')->limit($pagination['limit'])->get_many_by($base_where));
         $this->input->is_ajax_request() and $this->template->set_layout(FALSE);
         $this->template
                 ->title($this->module_details['name'])

@@ -7,6 +7,13 @@
     }
 </style>
 <?php if ($portadas) : ?>
+<table>
+    <tr>
+        <td>
+            <div class="inner"><?php $this->load->view('admin/partials/pagination'); ?></div>
+        </td>
+    </tr>
+</table>
     <?php echo form_open(''); ?>
     <table>
         <tr>
