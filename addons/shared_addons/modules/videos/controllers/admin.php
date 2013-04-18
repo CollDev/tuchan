@@ -1354,7 +1354,7 @@ class Admin extends Admin_Controller {
 
     private function obtenerPesoSeccionPortada($portada_id) {
         $peso = 1;
-        $secciones = $this->portada_m->order_by('peso', 'ASC')->get_many_by(array("portadas_id" => $portada_id));
+        $secciones = $this->secciones_m->order_by('peso', 'ASC')->get_many_by(array("portadas_id" => $portada_id));
         if (count($secciones) > 0) {
             $nuevo_peso = 2;
             foreach ($secciones as $puntero => $objSeccion) {

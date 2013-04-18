@@ -18,7 +18,7 @@
     <div id="filter-stage">
         <?php template_partial('portadas'); ?>
     </div>
-    <?php if (/*$objCanal->tipo_canales_id == $this->config->item('canal:mi_canal')*/TREU): ?>
+    <?php if (/*$objCanal->tipo_canales_id == $this->config->item('canal:mi_canal')*/TRUE): ?>
         <script type="text/javascript">
             $(function() {
                 var altura = $(document).height();
