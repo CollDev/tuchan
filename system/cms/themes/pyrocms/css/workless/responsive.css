@@ -460,7 +460,7 @@ span.st {
 	}
 
 	.move-handle {display: block;}
-	fieldset {padding: 25px; margin: 5px 0 15px 0;}
+	fieldset {padding: 0px; margin: 0px 0 0px 0;}
 	.form_inputs .input > input {min-width: 210px!important;}
 	table th.collapse, table td.collapse {display: table-cell;}
 	table .actions a {
