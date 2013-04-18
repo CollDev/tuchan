@@ -108,6 +108,12 @@ class Imagen_m extends MY_Model {
         $query="UPDATE ".$this->_table." SET estado = '0' WHERE grupo_maestros_id =".$maestro_id." AND tipo_imagen_id IN (1,2,3,4)";
         $result = $this->db->query($query);
         return $result;
-    }    
+    }
+    
+    public function desabilitarImagenes($maestro_id, $tipo_imagen_id){
+        $query="UPDATE ".$this->_table." SET estado = '0' WHERE grupo_maestros_id =".$maestro_id." AND tipo_imagen_id IN (".$tipo_imagen_id.")";
+        $result = $this->db->query($query);
+        return $result;        
+    }
 
 }

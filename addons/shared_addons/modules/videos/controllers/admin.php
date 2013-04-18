@@ -2735,6 +2735,7 @@ echo 'ci: ' . $CI;exit;
             $user_id = (int) $this->session->userdata('user_id');
             $url_imagen = '';
             $respuesta = 0;
+            $cod_imagen_nueva = $imagen_id;
             $pasaImgSize = FALSE;
             // Obtenemos los datos del archivo
             $tamanio = $_FILES['qqfile']['size'];
@@ -2779,6 +2780,7 @@ echo 'ci: ' . $CI;exit;
                                 if ($imagen_id > 0) {//cambiar imagen
                                     //enviamos a borrador a la imagen a cambiar
                                     $this->imagen_m->update($imagen_id,array("estado"=>$this->config->item('estado:borrador'),"estado_migracion"=>$this->config->item('migracion:actualizado')));
+                                    $this->imagen_m->desabilitarImagenes($maestro_id, $tipo_imagen_id);
                                     //registramos una nueva imagen
                                     $objBeanImagen = new stdClass();
                                     $objBeanImagen->id = NULL;
@@ -2799,6 +2801,7 @@ echo 'ci: ' . $CI;exit;
                                     $objBeanImagen->procedencia = $this->config->item('procedencia:elemento');
                                     $objBeanImagen->imagen_anterior = NULL;
                                     $objBeanImagenSaved = $this->imagen_m->saveImage($objBeanImagen);
+                                    $cod_imagen_nueva = $objBeanImagen->id;
                                     $url_imagen = $this->config->item('protocolo:http') . $this->config->item('server:elemento') . '/' . $objBeanImagenSaved->imagen;
                                     //enviamos al servidor elemento
                                     $ruta_absoluta_imagen = FCPATH . 'uploads/imagenes/' . $imagen_cortada;
@@ -2814,7 +2817,8 @@ echo 'ci: ' . $CI;exit;
                                     if (file_exists($ruta_absoluta_imagen)) {
                                         unlink($ruta_absoluta_imagen);
                                     }
-                                } else {//subir una nueva imagen
+                                } else {//subir una nueva imagen.
+                                    $this->imagen_m->desabilitarImagenes($maestro_id, $tipo_imagen_id);
                                     $objBeanImagen = new stdClass();
                                     $objBeanImagen->id = NULL;
                                     $objBeanImagen->canales_id = NULL;
@@ -2834,7 +2838,7 @@ echo 'ci: ' . $CI;exit;
                                     $objBeanImagen->procedencia = $this->config->item('procedencia:elemento');
                                     $objBeanImagen->imagen_anterior = NULL;
                                     $objBeanImagenSaved = $this->imagen_m->saveImage($objBeanImagen);
-                                    
+                                    $cod_imagen_nueva = $objBeanImagen->id;
                                     //enviamos al servidor elemento
                                     $ruta_absoluta_imagen = FCPATH . 'uploads/imagenes/' . $imagen_cortada;
                                     $path_image_element = $this->elemento_upload($objBeanImagenSaved->id, $ruta_absoluta_imagen);
@@ -2870,6 +2874,7 @@ echo 'ci: ' . $CI;exit;
             $salidaJson = array("success" => $respuesta,
                 "url" => $url_imagen,
                 "error" => $mensajeFile,
+                "imagen_id" => $cod_imagen_nueva,
                 "fileName" => $archivo);
             echo json_encode($salidaJson);
         }
@@ -2891,7 +2896,6 @@ echo 'ci: ' . $CI;exit;
                     }
                     $objImagen->existe = 'Si';
                     $objImagen->accion = '<div style="width:120px;" id="fine-uploader-basic_' . $objImagen->tipo_imagen_id . '_' . $objImagen->id . '" class="btn red"><i class="icon-upload icon-white"></i>' . lang('imagen:cambiar_imagen') . '</div>';
-                    //$objImagenPadre->accion.= '<button style="width:130px;" id="cambiar_imagen_' . $objImagenPadre->id . '">' . lang('imagen:cambiar_imagen') . '</button>';
                     $objImagen->accion.= '<div class="btn blue" style="width:120px;" id="restaurar_imagen_' . $objImagen->id . '">' . lang('imagen:restaurar_imagen') . '</button>';
                     $objImagen->progreso = '<div id="messages_' . $objImagen->tipo_imagen_id . '_' . $objImagen->id . '"></div>';
                     array_push($returnValue, $objImagen);
