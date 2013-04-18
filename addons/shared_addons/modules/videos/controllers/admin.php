@@ -1459,7 +1459,7 @@ class Admin extends Admin_Controller {
                 $objCollectionMaestro = $this->grupo_maestro_m->getListCollection($arrayIdMaestro);
                 if (count($objCollectionMaestro) > 0) {
                     foreach ($objCollectionMaestro as $indice => $objMaestro) {
-                        if (strtolower(trim($objMaestro->nombre)) == $nombre_maestro) {
+                        if (strtolower(trim($objMaestro->nombre)) == strtolower(trim($nombre_maestro))) {
                             $returnValue = true;
                             break;
                         }
