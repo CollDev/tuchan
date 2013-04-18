@@ -2464,12 +2464,26 @@ class Admin extends Admin_Controller {
     }
 
     public function maestro($canal_id) {
-        //$lista_programas = $this->listaProgramacompleto($this->grupo_maestro_m->get_many_by(array("canales_id" => $canal_id, "tipo_grupo_maestro_id" => $this->config->item('videos:programa'))));
-        //$listaSinNivel = $this->listarSinNivel($lista_programas);
         $base_where = array("canales_id" => $canal_id, "tipo_grupo_maestro_id" => $this->config->item('videos:programa'));
-        $total_rows = $this->grupo_maestro_m->count_by($base_where);
+        error_log(print_r($this->input->post(), true));
+        $keyword = '';
+        if ($this->input->post('f_keywords'))
+            $keyword = $this->input->post('f_keywords');
+        // Create pagination links
+        if (strlen(trim($keyword)) > 0) {
+            $total_rows = $this->grupo_maestro_m->like('nombre', $keyword)->count_by($base_where);
+        } else {
+            $total_rows = $this->grupo_maestro_m->count_by($base_where);
+        }
+        //$total_rows = $this->grupo_maestro_m->count_by($base_where);
         $pagination = create_pagination('admin/videos/maestro/' . $canal_id . '/index', $total_rows, 5, 6, TRUE, 'paginationSinAjax');
-        $lista_programas = $this->listaProgramacompleto($this->grupo_maestro_m->order_by('fecha_registro', 'DESC')->limit($pagination['limit'])->get_many_by($base_where));
+        // Using this data, get the relevant results
+        if (strlen(trim($keyword)) > 0) {
+            $lista_programas = $this->listaProgramacompleto($this->grupo_maestro_m->order_by('fecha_registro', 'DESC')->like('nombre', $keyword)->limit($pagination['limit'])->get_many_by($base_where));
+        } else {
+            $lista_programas = $this->listaProgramacompleto($this->grupo_maestro_m->order_by('fecha_registro', 'DESC')->limit($pagination['limit'])->get_many_by($base_where));
+        }
+        //$lista_programas = $this->listaProgramacompleto($this->grupo_maestro_m->order_by('fecha_registro', 'DESC')->limit($pagination['limit'])->get_many_by($base_where));
         $this->input->is_ajax_request() and $this->template->set_layout(FALSE);
         $this->template
                 ->title($this->module_details['name'])
