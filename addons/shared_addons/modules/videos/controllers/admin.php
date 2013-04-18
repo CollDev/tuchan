@@ -1265,7 +1265,7 @@ class Admin extends Admin_Controller {
                 $objBeanMaestro->comentarios = '';
                 $objBeanMaestro->fecha_transmision_inicio = date("Y-m-d H:i:s");
                 $objBeanMaestro->fecha_transmision_fin = date("Y-m-d H:i:s");
-                $objBeanMaestroSaved = $this->grupo_maestro_m->save_maestro($objBeanMaestroSaved);
+                $objBeanMaestroSaved = $this->grupo_maestro_m->save_maestro($objBeanMaestro);
                 //guardar en el detalle de maestros en caso de guardarse como hijo
                 $this->_saveMaestroDetalle($this->input->post(), $objBeanMaestroSaved);
                 //generar su portada si el maestro es de tipo programa
