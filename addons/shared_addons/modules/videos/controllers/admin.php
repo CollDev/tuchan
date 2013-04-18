@@ -360,6 +360,7 @@ class Admin extends Admin_Controller {
                         //$objBeanVideo->fecha_migracion_sphinx_tit ='';
                         //$objBeanVideo->fecha_migracion_actualizacion_sphinx_tit ='';
                         $objBeanVideo->estado_migracion_sphinx_des = 0;
+                        $objBeanVideo->padre = 0;
                         //$objBeanVideo->fecha_migracion_sphinx_des ='';
                         //$objBeanVideo->fecha_migracion_actualizacion_sphinx_des ='';
                         $objBeanVideo = $this->videos_m->save_video($objBeanVideo);
@@ -668,6 +669,7 @@ class Admin extends Admin_Controller {
                         //$objBeanVideo->fecha_migracion_sphinx_tit ='';
                         //$objBeanVideo->fecha_migracion_actualizacion_sphinx_tit ='';
                         $objBeanVideo->estado_migracion_sphinx_des = 0;
+                        $objBeanVideo->padre = 0;
                         //$objBeanVideo->fecha_migracion_sphinx_des ='';
                         //$objBeanVideo->fecha_migracion_actualizacion_sphinx_des ='';
                         $objBeanVideo = $this->videos_m->save_video($objBeanVideo);
@@ -1835,6 +1837,10 @@ class Admin extends Admin_Controller {
             $arrayImagenes = $this->_getListImagen($video_id, false);
             echo json_encode(array('respuesta' => $returnValue, 'video_id' => $video_id, 'imagen_id' => $imagen_id_small, 'url' => $this->config->item('protocolo:http') . $nameImage_small, 'imagenes' => $arrayImagenes));
         }
+    }
+    
+    public function subir_imagenes_maestro(){
+        
     }
 
     public function registrar_imagenes_maestro($maestro_id, $arrayImagenesSubir = array(), $imagen_original = '') {

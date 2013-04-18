@@ -3,6 +3,26 @@
         background-color: #CCE4E5;
     }
 </style>
+<table>
+    <tr>
+        <td style="text-align: right;">
+            <!-- imagen -->
+            <?php
+            $imagen = array('class' => 'btn blue','name' => 'addImage', 'id' => 'addImage', 'type' => 'button', 'value' => 'Agrega nuevas imagenes a tu programa');
+            echo '<div style="float:right;">' . form_input($imagen) . '</div>';
+            ?>
+            <div  class="loaderAjax" id="loaderAjax" style="display: none; float: left;">
+                <img src="uploads/imagenes/loading.gif">
+            </div>
+            <div style="clear: both;"></div>
+<!--            <div id="contenedorImage">
+                <?php //if (count($objMaestro->avatar) > 0) { ?>
+                    <select id="listaImagenes"></select>
+                <?php //} ?>
+            </div>             -->
+        </td>
+    </tr>
+</table>
 <table class="table-list">
     <thead>
         <tr>
@@ -90,8 +110,8 @@
                 $("#divRestaurar").html(respuesta);
                 //pintamos la nueva imagen
                 var url_nueva_imagen = respuesta.url;
-                $('#tipo_'+tipo_imagen).html('<img style="width:120px; height: 70px;" src="' + url_nueva_imagen + '" />');
-                $('#codigo_'+tipo_imagen).html(imagen_id);
+                $('#tipo_' + tipo_imagen).html('<img style="width:120px; height: 70px;" src="' + url_nueva_imagen + '" />');
+                $('#codigo_' + tipo_imagen).html(imagen_id);
                 $("#divRestaurar").dialog("close");
             } //end success
         }); //end AJAX    
