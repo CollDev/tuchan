@@ -3,7 +3,7 @@
 </section>
 <section class="bar" style="width: 100%;">
     <div style="text-align: right;" >
-        <?php echo anchor('/admin/videos/grupo_maestro/'.$canal_id.'/0', 'Nuevo', 'class="btn blue"') ?>
+        <?php echo anchor('/admin/videos/grupo_maestro/'.$canal_id.'/0', 'Nuevo programa / coleccion', 'class="btn blue"') ?>
     </div>
 </section>
 <section class="item">
