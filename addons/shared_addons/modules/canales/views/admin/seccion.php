@@ -2,8 +2,16 @@
     #sortable { list-style-type: none; margin: 0; padding: 0; width: 450px; }
     #sortable li { margin: 3px 3px 3px 0; padding: 1px; float: left; width: 100px; height: 90px; font-size: 4em; text-align: center; }
 </style>
-<section class="title">
-    <h4><?php echo $title; ?></h4>
+<section class="title" style="margin-left: 20px;padding-top:5px"> 
+    <?php
+    echo anchor('admin/videos/carga_unitaria/' . $canal_id, 'Carga unitaria', array('class' => ''));
+    echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
+    echo anchor('admin/videos/carga_masiva/' . $canal_id, 'Carga masiva', array('class' => ''));
+    echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
+    echo anchor('admin/videos/maestro/' . $canal_id, 'Organizar videos', array('class' => ''));
+    echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
+    echo anchor('admin/canales/portada/' . $canal_id, 'Portadas', array('class' => ''));
+    ?>
 </section>
 <section class="item">
     <?php
@@ -47,6 +55,23 @@
     </div>
     <?php echo form_close() ?>
     <script type="text/javascript">
+        $(document).ready(function() {
+            mostrar_titulo();
+        });
+        function mostrar_titulo() {
+            var vista = 'detalle_seccion';
+            var post_url = "/admin/canales/mostrar_titulo/<?php echo $canal_id; ?>/" + vista;
+            $.ajax({
+                type: "POST",
+                url: post_url,
+                dataType: 'html',
+                //data:imagen_id,
+                success: function(respuesta) //we're calling the response json array 'cities'
+                {
+                    $(".subbar > .wrapper").html(respuesta);
+                } //end success
+            }); //end AJAX              
+        }        
         function buscar_para_programa_micanal(numero_pagina) {
             var serializedData = $('#frmBuscar').serialize();
             var post_url = "/admin/canales/buscar_para_programa_micanal/" + numero_pagina;

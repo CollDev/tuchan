@@ -2465,7 +2465,6 @@ class Admin extends Admin_Controller {
 
     public function maestro($canal_id) {
         $base_where = array("canales_id" => $canal_id, "tipo_grupo_maestro_id" => $this->config->item('videos:programa'));
-        error_log(print_r($this->input->post(), true));
         $keyword = '';
         if ($this->input->post('f_keywords'))
             $keyword = $this->input->post('f_keywords');
