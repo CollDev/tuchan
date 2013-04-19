@@ -950,6 +950,7 @@
         }
     </script>
     <input type="hidden" name="canal_id" id="canal_id" value="<?php echo $canal->id; ?>" />
+    <input type="hidden" name="padre" id="padre" value="<?php echo $objBeanForm->padre; ?>" />
     <input type="hidden" name="tipo_maestro" id="tipo_maestro" value="" />
     <input type="hidden" name="video_id" id="video_id" value="<?php echo $objBeanForm->video_id ?>" />
     <input type="hidden" name="existe_fragmento" id="existe_fragmento" value="0" />

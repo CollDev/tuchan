@@ -473,6 +473,7 @@ class Admin extends Admin_Controller
             $objBeanForm->tipo_maestro = '';
             $objBeanForm->keywords = '';
             $objBeanForm->error = $error;
+            $objBeanForm->padre = 0;
             $objBeanForm->message = $message;
             $objBeanForm->ruta = $objVideo->ruta; /* adicionado */
             $objBeanForm->tiene_imagen = $this->_tieneAvatar($video_id);
@@ -509,6 +510,7 @@ class Admin extends Admin_Controller
                 $objBeanForm->error = $error;
                 $objBeanForm->message = $message;
                 $objBeanForm->keywords = '';
+                $objBeanForm->padre = $this->input->post('padre');
             } else {
                 $objBeanForm->video_id = $video_id;
                 $objBeanForm->titulo = '';
@@ -536,6 +538,7 @@ class Admin extends Admin_Controller
                 $objBeanForm->error = $error;
                 $objBeanForm->message = $message;
                 $objBeanForm->keywords = '';
+                $objBeanForm->padre = 0;
             }
         }
 
@@ -2278,6 +2281,7 @@ class Admin extends Admin_Controller
                 $objBeanVideo->ubicacion = $this->input->post('ubicacion');
                 $objBeanVideo->fecha_actualizacion = date("Y-m-d H:i:s");
                 $objBeanVideo->usuario_actualizacion = $user_id;
+                $objBeanVideo->padre = $this->input->post('padre');
                 $this->videos_m->update_video($objBeanVideo);
 
                 $this->_saveTagsTematicaPersonajes($objBeanVideo, $this->input->post());
