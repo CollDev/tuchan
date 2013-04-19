@@ -108,7 +108,16 @@ class Admin extends Admin_Controller {
             $objUsuarioCanal = $this->usuario_grupo_canales_m->get_by(array("user_id" => $this->current_user->id, "estado" => $this->config->item('estado:publicado')));
             $canal_id = $objUsuarioCanal->canal_id;
         }
-        $base_where = array("canales_id" => $canal_id);
+        if ($this->input->post('f_estado') > 0) {
+            if ($this->input->post('f_estado') == '4') {
+                $estado_cambiado = $this->config->item('video:codificando');
+            } else {
+                $estado_cambiado = $this->input->post('f_estado');
+            }
+            $base_where = array("canales_id" => $canal_id, "estado" => $estado_cambiado);
+        } else {
+            $base_where = array("canales_id" => $canal_id);
+        }
         //$programme_id = 0;
         $keyword = '';
         if ($this->input->post('f_keywords'))
@@ -135,6 +144,7 @@ class Admin extends Admin_Controller {
         $logo_canal = $this->imagenes_m->getLogo(array('canales_id' => $canal_id,
             'tipo_imagen_id' => TIPO_IMAGEN_ISO, 'estado' => ESTADO_ACTIVO));
         $programas = $this->grupo_maestro_m->getCollectionDropDown(array("tipo_grupo_maestro_id" => $this->config->item('videos:programa'), "canales_id" => $canal_id), 'nombre');
+        $estados = array("4" => "Codificando", $this->config->item('video:borrador') => "Borrador", $this->config->item('video:publicado') => "Publicado", $this->config->item('video:eliminado') => "Eliminado");
         // Obtiene la lista de videos según canal seleccionado
         //do we need to unset the layout because the request is ajax?
         $this->input->is_ajax_request() and $this->template->set_layout(FALSE);
@@ -147,6 +157,7 @@ class Admin extends Admin_Controller {
                 ->set_partial('users', 'admin/tables/users')
                 ->set('pagination', $pagination)
                 ->set('canal', $canal)
+                ->set('estados', $estados)
                 ->set('logo_canal', $logo_canal)
                 ->set('programa', $programas);
         $this->input->is_ajax_request() ? $this->template->build('admin/tables/users') : $this->template->build('admin/videos');
@@ -1615,7 +1626,6 @@ class Admin extends Admin_Controller {
     public function portada($canal_id) {
         $objCanal = $this->canales_m->get($canal_id);
         $title = "Portada  del canal " . $objCanal->nombre;
-        error_log($this->input->post('f_estado'));
         //parametros de paginacion
         if ($this->input->post('f_estado') > 0) {
             if ($this->input->post('f_estado') == '3') {
