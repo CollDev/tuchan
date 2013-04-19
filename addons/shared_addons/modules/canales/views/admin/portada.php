@@ -182,6 +182,9 @@
                 $("#portada_id").val(portada_id);
                 $("#seccion-form").dialog("open");
             }
+            function agregar_portada() {
+                $("#dialog-form").dialog("open");
+            }
             
         function mostrar_titulo() {
             var vista = 'portadas';

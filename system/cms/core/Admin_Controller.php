@@ -26,11 +26,26 @@ class Admin_Controller extends MY_Controller {
             parent::__construct();
 
             // Cuando estando logueado y se borra manualmente admin/...
-            if (base_url() == current_url()) {
-                $predeterminado = $this->usuario_group_canales_m->get_canal_default_by_usuario();
-                redirect('admin/canales/videos/' . $predeterminado);
-            }
+            if (isset($this->session->userdata['group'])) {
+             
+                if ($this->session->userdata['group'] == 'administrador-canales') {
+                                        
+                    if (base_url() == current_url()) {
+                        
+                        // Busca el canal por defecto para el usuario logueado
+                        $predeterminado = $this->usuario_group_canales_m->get_canal_default_by_usuario();
+                        $predeterminado = $this->usuario_group_canales_m->get_canal_default_by_usuario();
+                        redirect('admin/canales/videos/' . $predeterminado);
+                    }
+                    
+                } elseif ($this->session->userdata['group'] == 'admin') {
 
+                    if (base_url() == current_url()) {
+                        redirect('admin/canales');
+                    }                        
+                }
+            }             
+                
             // Load the Language files ready for output
             $this->lang->load('admin');
             $this->lang->load('buttons');

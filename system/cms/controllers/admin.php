@@ -32,15 +32,19 @@ class Admin extends Admin_Controller
                             ->set('messages', array('notice' => lang('cp_delete_installer_message')));
             }
 
-            if (isset($this->session->userdata['canales_usuario'])) {
-                // Busca el canal por defecto para el usuario logueado
-                $predeterminado = $this->usuario_group_canales_m->get_canal_default_by_usuario();
-                $redirect = $this->_check_group($predeterminado);
-                redirect($redirect);
-            } else {		
-                $redirect = $this->_check_group();                
-                redirect($redirect ? $redirect : 'admin/canales');
+            if ($this->session->userdata['group'] == 'administrador-canales') {
+                    
+                if (isset($this->session->userdata['canales_usuario'])) {
+                    // Busca el canal por defecto para el usuario logueado
+                    $predeterminado = $this->usuario_group_canales_m->get_canal_default_by_usuario();
+                    $redirect = $this->_check_group($predeterminado);
+                    redirect($redirect);
+                }
+                
+            } elseif ($this->session->userdata['group'] == 'admin') {
+                redirect('admin/canales');
             }
+                        
 	}
 
 	/**
@@ -74,13 +78,18 @@ class Admin extends Admin_Controller
                     $redirect = $this->session->userdata('admin_redirect');
                     $this->session->unset_userdata('admin_redirect');   
 
-                    if (isset($this->session->userdata['canales_usuario'])) {
-                        // Busca el canal por defecto para el usuario logueado
-                        $predeterminado = $this->usuario_group_canales_m->get_canal_default_by_usuario();
-                        $redirect = $this->_check_group($predeterminado);
-                        redirect($redirect);
+                    if ($this->session->userdata['group'] == 'administrador-canales') {
+                    
+                        if (isset($this->session->userdata['canales_usuario'])) {
+                            // Busca el canal por defecto para el usuario logueado
+                            $predeterminado = $this->usuario_group_canales_m->get_canal_default_by_usuario();
+                            $redirect = $this->_check_group($predeterminado);
+                            redirect($redirect);
+                        }
+                        
+                    } elseif ($this->session->userdata['group'] == 'admin') {
+                        redirect('admin/canales');
                     }
-
             }
 
             $this->template
