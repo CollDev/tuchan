@@ -38,11 +38,13 @@ class Admin_Controller extends MY_Controller {
                         redirect('admin/canales/videos/' . $predeterminado);
                     }
                     
-                } elseif ($this->session->userdata['group'] == 'admin') {
+                } elseif ($this->session->userdata['group'] == 'admin' 
+                        || $this->session->userdata['group'] == 'administrador-mi-canal') {
 
                     if (base_url() == current_url()) {
                         redirect('admin/canales');
-                    }                        
+                    }
+                    
                 }
             }             
                 

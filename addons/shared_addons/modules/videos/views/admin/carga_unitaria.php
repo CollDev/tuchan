@@ -9,8 +9,8 @@
     <?php
     echo anchor('admin/videos/carga_unitaria/' . $canal->id, 'Carga unitaria', array('class' => ''));
     echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
-    echo anchor('admin/videos/carga_masiva/' . $canal->id, 'Carga masiva', array('class' => ''));
-    echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
+/*    echo anchor('admin/videos/carga_masiva/' . $canal->id, 'Carga masiva', array('class' => ''));
+    echo '&nbsp;&nbsp;|&nbsp;&nbsp;';*/
     echo anchor('admin/videos/maestro/' . $canal->id, 'Organizar videos', array('class' => ''));
     echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
     echo anchor('admin/canales/portada/' . $canal->id, 'Portadas', array('class' => ''));
@@ -72,6 +72,15 @@
         }
         ?>
 
+        <!-- iFrame del video sólo para los publicados -->
+        <?php if ($objBeanForm->video_id > 0) : ?>
+            <?php if ($objBeanForm->estado == ESTADO_PUBLICADO) : ?>
+                <div class="embed_video">
+                    <textarea class="embed_content" readonly="readonly">[iframe width="560" height="315" src="<?php echo base_url('embed/' . $objBeanForm->video_id) ?>" frameborder="0" allowfullscreen][/iframe]</textarea>
+                </div>
+            <?php endif ?>
+        <?php endif ?>
+        
         <?php if ($objBeanForm->video_id > 0) { ?>
             <!-- imagen -->
             <label for="imagen"><?php echo lang('videos:avatar'); ?></label>
