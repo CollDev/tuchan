@@ -76,9 +76,10 @@
 	padding: 15px 15px 15px 0;
 /*	border-right: 1px solid #383838;*/
 	float: left;
-	min-width:124px;
+	min-width:140px;
 	min-height:50px;
-	background:url(../../img/logo_micanal.png) no-repeat;
+	/*background:url(../../img/logo_micanal.png) no-repeat;*/
+	background:url(../../img/logomicanal.png) no-repeat;
 	text-indent:-9999px;
 }
 

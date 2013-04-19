@@ -514,8 +514,8 @@ body#login #login-box header {
         background-image: url("../../img/logomicanal.png");
 	background-repeat: no-repeat;
 	width: 225px;
-	height: 70px;
-	margin: 10px 0 0 60px;
+	height: 60px;
+	margin: 10px 0 0 100px;
 }
 body#login #login-box ul,
 body#login #login-box li {
