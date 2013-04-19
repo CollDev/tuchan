@@ -17,9 +17,9 @@
     ?>
 </section>
 <?php if ($objCanal->tipo_canales_id == $this->config->item('canal:mi_canal')): ?>
-    <section>
-        <a href="#" id="display-form" title="<?php echo lang('portada:add_portada'); ?>"><?php echo lang('portada:add_portada'); ?></a>
-    </section>
+<!--    <section>
+        <a href="#" id="display-form" title="<?php //echo lang('portada:add_portada'); ?>"><?php //echo lang('portada:add_portada'); ?></a>
+    </section>-->
 <?php endif; ?>
 <section class="item">
     <?php template_partial('filters'); ?>
