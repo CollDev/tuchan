@@ -19,7 +19,15 @@
         width: 100%;
     }
 </style>
-<div class="inner"><?php $this->load->view('admin/partials/pagination'); ?></div><br />
+<table>
+    <tr>
+        <td><div class="inner"><?php $this->load->view('admin/partials/pagination'); ?></div></td>
+        <td>    <div style="text-align: right;" >
+        <?php echo anchor('/admin/videos/grupo_maestro/'.$canal_id.'/0', 'Nuevo programa / coleccion', 'class="btn blue"') ?>
+    </div></td>
+    </tr>
+</table>
+
 <table id="table-1" class="table-list">
     <thead>
         <tr>

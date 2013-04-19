@@ -9,11 +9,11 @@
     echo anchor('admin/canales/portada/' . $canal_id, 'Portadas', array('class' => ''));
     ?>
 </section>
-<section class="bar" style="width: 100%;">
+<!--<section class="bar" style="width: 100%;">
     <div style="text-align: right;" >
-        <?php echo anchor('/admin/videos/grupo_maestro/'.$canal_id.'/0', 'Nuevo programa / coleccion', 'class="btn blue"') ?>
+        <?php //echo anchor('/admin/videos/grupo_maestro/'.$canal_id.'/0', 'Nuevo programa / coleccion', 'class="btn blue"') ?>
     </div>
-</section>
+</section>-->
 <section class="item">
     <?php template_partial('filters'); ?>
     <div id="filter-stage">
