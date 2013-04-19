@@ -84,6 +84,45 @@ class Usuario_group_canales_m extends MY_Model
     }
     
     /**
+     * Obtiene el canal predeterminado del usuario logueado
+     * @param array $where
+     * @return object
+     */
+    public function get_canal_default_by_usuario() 
+    {        
+        $where = array('user_id' => $this->current_user->id, 'estado' => '1', 'predeterminado >' => '0');        
+
+        $query = $this->db->get_where($this->_table, $where);
+        
+        if ($query->num_rows() > 0)     {
+            $row = $query->row();
+            $predeterminado = $row->predeterminado;
+        }
+
+        return $predeterminado;
+    }
+    
+    /**
+     * Obtiene los canales activos que pertenecen al usuario logueado
+     * @param array $where
+     * @return object
+     */
+    public function get_canales_activos_by_usuario($where = array()) 
+    {
+        if (!is_array($where)) {
+            $where = array('user_id' => $where, 'urc.estado' => '1');
+        }
+
+        $this->db->select("urc.user_id, urc.group_id, urc.canal_id, c.nombre, urc.predeterminado,urc.estado");
+        $this->db->from($this->_table . ' urc');
+        $this->db->join('default_cms_canales c', 'c.id = urc.canal_id');
+        $this->db->where($where);
+        $result = $this->db->get()->result();
+
+        return $result;
+    }
+    
+    /**
      * Añade canales usuarios
      * @param array $params
      * @return int

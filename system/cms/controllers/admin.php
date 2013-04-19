@@ -42,51 +42,59 @@ class Admin extends Admin_Controller
 	 */
 	public function login()
 	{
-		// Set the validation rules
-		$this->validation_rules = array(
-			array(
-				'field' => 'email',
-				'label' => lang('email_label'),
-				'rules' => 'required|callback__check_login'
-			),
-			array(
-				'field' => 'password',
-				'label' => lang('password_label'),
-				'rules' => 'required'
-			)
-		);
+            $this->load->model('canales/usuario_group_canales_m');
+            
+            // Set the validation rules
+            $this->validation_rules = array(
+                    array(
+                            'field' => 'email',
+                            'label' => lang('email_label'),
+                            'rules' => 'required|callback__check_login'
+                    ),
+                    array(
+                            'field' => 'password',
+                            'label' => lang('password_label'),
+                            'rules' => 'required'
+                    )
+            );
 
-		// Call validation and set rules
-		$this->load->library('form_validation');
-		$this->form_validation->set_rules($this->validation_rules);                
+            // Call validation and set rules
+            $this->load->library('form_validation');
+            $this->form_validation->set_rules($this->validation_rules);                
 
-		// If the validation worked, or the user is already logged in
-		if ($this->form_validation->run() OR $this->ion_auth->logged_in())
-		{
-			// if they were trying to go someplace besides the 
-			// dashboard we'll have stored it in the session
-			$redirect = $this->session->userdata('admin_redirect');
-			$this->session->unset_userdata('admin_redirect');                                             
-                        $redirect = $this->_check_group();
+            // If the validation worked, or the user is already logged in
+            if ($this->form_validation->run() OR $this->ion_auth->logged_in())
+            {
+                    // if they were trying to go someplace besides the 
+                    // dashboard we'll have stored it in the session
+                    $redirect = $this->session->userdata('admin_redirect');
+                    $this->session->unset_userdata('admin_redirect');   
+
+                    if (isset($this->session->userdata['canales_usuario'])) {
+                        // Busca el canal por defecto para el usuario logueado
+                        $predeterminado = $this->usuario_group_canales_m->get_canal_default_by_usuario();
+                        $redirect = $this->_check_group($predeterminado);
                         redirect($redirect);
-		}
+                    }
 
-		$this->template
-			->set_layout(FALSE)
-			->build('admin/login');
+            }
+
+            $this->template
+                    ->set_layout(FALSE)
+                    ->build('admin/login');
 	}
         
         /**
          * Verifica a qué grupo pertenece el usuario logueado
          * @return string
          */
-        private function _check_group()
+        private function _check_group($default)
         {
             switch ($this->session->userdata('group_id')) {
 
                 case 1: // Admin
                 case 4: // Administrador canales
-                    $redirect = 'admin/canales';
+                    $redirect = 'admin/canales/videos/' . $default;
                     break;
 
                 case 3: // Administrador canales
