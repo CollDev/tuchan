@@ -103,7 +103,11 @@ class Admin extends Admin_Controller {
      * Lista de videos del canal seleccionado
      * @param int $canal_id
      */
-    public function videos($canal_id) {
+    public function videos($canal_id=0) {
+        if($canal_id == 0){
+            $objUsuarioCanal = $this->usuario_grupo_canales_m->get_by(array("user_id"=>$this->current_user->id,"estado"=>$this->config->item('estado:publicado')));
+            $canal_id = $objUsuarioCanal->canal_id;
+        }
         $base_where = array("canales_id" => $canal_id);
         //$programme_id = 0;
         $keyword = '';
