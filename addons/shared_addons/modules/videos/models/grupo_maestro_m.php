@@ -42,7 +42,9 @@ class Grupo_maestro_m extends MY_Model {
         $arrayData = $this->getCollection($where, $order);
         if (count($arrayData) > 0) {
             foreach ($arrayData as $index => $objTipo) {
-                $returnValue[$objTipo->id] = $objTipo->nombre;
+                if($objTipo->estado < $this->config->item('estado:eliminado')){
+                    $returnValue[$objTipo->id] = $objTipo->nombre;
+                }
             }
         }
         

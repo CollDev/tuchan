@@ -90,7 +90,7 @@
                                     <td><?php echo $objColeccion->fecha_registro; ?></td>
                                     <td><div id="coleccion_<?php echo $objColeccion->id; ?>"><?php echo $objColeccion->estado; ?></div></td>
                                     <?php
-                                    switch ($objPrograma->estado_id):
+                                    switch ($objColeccion->estado_id):
                                         case $this->config->item('estado:borrador'):
                                             $u = 'admin/videos/grupo_maestro/' . $objColeccion->canales_id . '/' . $objColeccion->id;
                                             $link = '<button class="btn orange" onclick="editar(\'' . $u . '\');return false;">Editar</button>';
