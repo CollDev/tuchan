@@ -1,4 +1,4 @@
-<section class="title" style="margin-left: 20px;padding-top:5px"> 
+<section class="title"> 
     <?php
     echo anchor('admin/videos/carga_unitaria/' . $canal_id, 'Carga unitaria', array('class' => ''));
     echo '&nbsp;&nbsp;|&nbsp;&nbsp;';

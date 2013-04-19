@@ -68,7 +68,7 @@
 				background: #000; 
 				height: 100% !important;
 				width: 100%; 
-				opacity: .8; 
+				opacity: .5; 
 				/* For IE 5-7 */
 				filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
 				/* For IE 8 */
@@ -602,7 +602,10 @@ span.st {
 
 	section.title, section.item {width: 1250px;}
 	
-	section.title a{ color:#FFF !important}
+	section.title a {
+	color: #FFF !important;
+	font-size: 14px !important;
+	}
 
 	.topbar {
 		height: 50px;

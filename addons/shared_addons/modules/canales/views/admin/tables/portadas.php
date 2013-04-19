@@ -14,7 +14,7 @@
             </td>
             <?php if ($objCanal->tipo_canales_id == $this->config->item('canal:mi_canal')): ?>
                 <td>    <div style="text-align: right;" >
-                        <a href="#" id="display-form" class="blue" onclick="return false;" title="<?php echo lang('portada:add_portada'); ?>"><?php echo lang('portada:add_portada'); ?></a>
+                        <a href="#" onclick="agregar_portada();return false;" class="link_portada btn blue" title="<?php echo lang('portada:add_portada'); ?>"><?php echo lang('portada:add_portada'); ?></a>
                     </div>
                 </td> 
             <?php endif; ?>

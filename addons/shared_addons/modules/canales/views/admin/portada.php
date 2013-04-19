@@ -5,7 +5,7 @@
     .ui-dialog .ui-state-error { padding: .3em; }
     .validateTips { border: 1px solid transparent; padding: 0.3em; }
 </style>
-<section class="title" style="margin-left: 20px;padding-top:5px"> 
+<section class="title"> 
     <?php
     echo anchor('admin/videos/carga_unitaria/' . $canal_id, 'Carga unitaria', array('class' => ''));
     echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
@@ -181,6 +181,9 @@
             function agregar_seccion(portada_id) {
                 $("#portada_id").val(portada_id);
                 $("#seccion-form").dialog("open");
+            }
+            function agregar_portada() {
+                $("#dialog-form").dialog("open");
             }
             
         function mostrar_titulo() {

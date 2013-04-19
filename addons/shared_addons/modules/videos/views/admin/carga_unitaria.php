@@ -1,11 +1,11 @@
 <!--<section class="title">
     <h4>
-        <?php //if ($canal->nombre) : ?>
-            <?php //echo $canal->nombre ?> | Carga Unitaria
-        <?php //endif; ?>
+<?php //if ($canal->nombre) : ?>
+<?php //echo $canal->nombre ?> | Carga Unitaria
+<?php //endif; ?>
     </h4>
 </section>-->
-<section class="title" style="margin-left: 20px;padding-top:5px"> 
+<section class="title"> 
     <?php
     echo anchor('admin/videos/carga_unitaria/' . $canal->id, 'Carga unitaria', array('class' => ''));
     echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
@@ -139,12 +139,6 @@
         <!-- descripcion -->
         <label for="descripcion"><?php echo lang('videos:description'); ?><span class="required">*</span></label>
         <?php echo form_textarea(array('id' => 'descripcion', 'name' => 'descripcion', 'value' => $objBeanForm->descripcion, 'rows' => 5, 'class' => 'wysiwyg-simple')); ?>
-
-        <!-- categoria -->
-        <br/><br/>
-        <label for="categoria"><?php echo lang('videos:categoria_label'); ?></label>
-        <?php echo form_error('categoria'); ?><br />
-        <?php echo form_dropdown('categoria', $categoria, $objBeanForm->categoria); ?>
         <!-- tags tematicos -->
         <br/></br>
         <label for="tematicas"><?php echo lang('videos:etiquetas_tematicas_label'); ?> <span class="required">*</span></label>
@@ -159,11 +153,6 @@
           );
           echo form_input($tematicas); */
         ?>
-
-        <!-- tags personajes -->
-        <br/></br>
-        <label for="personajes"><?php echo lang('videos:etiquetas_personajes_label'); ?><span class="required">*</span></label>
-        <div class="input"><?php echo form_input('personajes', $objBeanForm->personajes, 'id="personajes"') ?></div>
         <?php
         /* $personajes = array(
           'name' => 'personajes',
@@ -175,16 +164,16 @@
           );
           echo form_input($personajes); */
         ?>
-
-        <!-- tipo -->
-        <br/></br>
-        <label for="tipo"><?php echo lang('videos:tipo_label'); ?></label>
-        <?php echo form_error('tipo'); ?><br/>
-        <?php echo form_dropdown('tipo', $tipo, $objBeanForm->tipo); ?>            
     </div>
 
     <div class="right_arm">
 
+        <!-- categoria -->
+        <label for="categoria"><?php echo lang('videos:categoria_label'); ?></label>
+        <?php echo form_error('categoria'); ?><br />
+        <?php echo form_dropdown('categoria', $categoria, $objBeanForm->categoria); ?>
+        
+        <br/><br/>
         <!-- programa -->
         <label for="programa"><?php echo lang('videos:programa_label'); ?></label>
         <?php echo form_error('programa'); ?><br/>
@@ -237,6 +226,20 @@
             ?>
         </div>
 
+        <!-- tipo -->
+<!--        <br /><br />
+        <label for="tipo"><?php //echo lang('videos:tipo_label'); ?></label>
+        <?php //echo form_error('tipo'); ?><br/>
+        <?php //echo form_dropdown('tipo', $tipo, $objBeanForm->tipo); ?> -->
+        <input type="hidden" name="tipo" id="tipo" value="<?php echo $objBeanForm->tipo; ?>" >
+
+
+        <!-- tags personajes -->
+        <br/><br /><br /><br />
+        <label for="personajes"><?php echo lang('videos:etiquetas_personajes_label'); ?><span class="required">*</span></label>
+        <div class="input"><?php echo form_input('personajes', $objBeanForm->personajes, 'id="personajes"') ?></div>        
+
+        
         <!-- fuente -->
         <br/>
         <div style="display: none;">
@@ -247,10 +250,11 @@
         </div>
         <!-- fecha de publicación -->
         <br/><br/>
-        <label for="fecha_publicacion"><?php echo lang('videos:fecha_publicacion_label'); ?></label>
-        <?php echo lang('videos:inicio'); ?>
+<!--        <label for="fecha_publicacion"><?php //echo lang('videos:fecha_publicacion_label');  ?></label>-->
+        <?php //echo lang('videos:inicio'); ?>
         <?php
         $fec_pub_ini = array(
+            'type' => 'hidden',
             'name' => 'fec_pub_ini',
             'id' => 'fec_pub_ini',
             'value' => $objBeanForm->fec_pub_ini,
@@ -259,9 +263,10 @@
         echo form_input($fec_pub_ini);
         ?>
 
-        <?php echo lang('videos:fin'); ?>
+        <?php //echo lang('videos:fin'); ?>
         <?php
         $fec_pub_fin = array(
+            'type' => 'hidden',
             'name' => 'fec_pub_fin',
             'id' => 'fec_pub_fin',
             'value' => $objBeanForm->fec_pub_fin,
@@ -271,11 +276,10 @@
         ?>
 
         <!-- ubicacion -->
-        <label><?php echo lang('videos:ubicacion_label'); ?></label>
-        <!--<div id="map_canvas" style="width:100%;height:400px;border:solid black 1px;"></div>
-        <input type="text" value="37.7699298, -122.4469157" name="txt_latlng" id="txt_latlng" size="89%" disabled="disabled">-->
+<!--        <label><?php //echo lang('videos:ubicacion_label');  ?></label>-->
         <?php
         $ubicacion = array(
+            'type' => 'hidden',
             'name' => 'ubicacion',
             'id' => 'ubicacion',
             'value' => $objBeanForm->ubicacion,
@@ -588,7 +592,7 @@
         }
 
         $(document).ready(function() {
-        mostrar_titulo();
+            mostrar_titulo();
 <?php if ($objBeanForm->video_id > 0) { ?>
                 //Dropdown plugin data
                 var ddData = <?php echo json_encode($objBeanForm->avatar) . ';'; ?>
@@ -942,7 +946,7 @@
     <input type="hidden" name="existe_fragmento" id="existe_fragmento" value="0" />
     <?php if ($objBeanForm->video_id > 0) { ?>
         <input type="hidden" name="video" id="video" value="<?php echo $objBeanForm->video_id . '.mp4' ?>" />
-<?php } ?>
+    <?php } ?>
     <!--<div class="progress_upload" style="display:none;">
           <div class="bar"></div >
           <div class="percent">0%</div >
@@ -954,6 +958,6 @@
     <iframe id="upload_frame" name="upload_frame" frameborder="0" border="0" src="" scrolling="no" scrollbar="no" > </iframe>
     <br />
     <!---->  
-<?php echo form_close() ?>
+    <?php echo form_close() ?>
 </section>
 
