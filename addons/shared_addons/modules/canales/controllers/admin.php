@@ -1866,7 +1866,7 @@ class Admin extends Admin_Controller {
         //actualizamos las nuevas posiciones
         $cont = 0;
         foreach ($array_index as $peso => $detalle_seccion_id) {
-            $this->detalle_secciones_m->update($detalle_seccion_id, array("peso" => $array_original[$cont]));
+            $this->detalle_secciones_m->update($detalle_seccion_id, array("peso" => $array_original[$cont],"estado_migracion"=>$this->config->item('migracion:actualizado')));
             $cont++;
         }
         //obtenemos la lista actualizada para mostrarlas en las cajas de texto
