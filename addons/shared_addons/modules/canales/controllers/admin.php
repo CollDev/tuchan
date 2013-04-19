@@ -139,6 +139,15 @@ class Admin extends Admin_Controller {
         } else {
             $listVideo = $this->vw_video_m->order_by('fecha_registro', 'DESC')->limit($pagination['limit'])->get_many_by($base_where);
         }
+        //corregimos  el listado para maestros y programas
+        if (count($listVideo) > 0) {
+            foreach ($listVideo as $puntero => $oResultVideo) {
+                if (strlen(trim($oResultVideo->programa)) == 0) {
+                    $oResultVideo->programa = $this->_getNamePrograma($oResultVideo->id);
+                    $listVideo[$puntero] = $oResultVideo;
+                }
+            }
+        }
         // Obtiene datos del canal
         $canal = $this->canales_m->get($canal_id);
         $logo_canal = $this->imagenes_m->getLogo(array('canales_id' => $canal_id,
@@ -1866,7 +1875,7 @@ class Admin extends Admin_Controller {
         //actualizamos las nuevas posiciones
         $cont = 0;
         foreach ($array_index as $peso => $detalle_seccion_id) {
-            $this->detalle_secciones_m->update($detalle_seccion_id, array("peso" => $array_original[$cont],"estado_migracion"=>$this->config->item('migracion:actualizado')));
+            $this->detalle_secciones_m->update($detalle_seccion_id, array("peso" => $array_original[$cont], "estado_migracion" => $this->config->item('migracion:actualizado')));
             $cont++;
         }
         //obtenemos la lista actualizada para mostrarlas en las cajas de texto
