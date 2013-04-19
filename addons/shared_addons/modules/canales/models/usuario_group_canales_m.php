@@ -62,19 +62,19 @@ class Usuario_group_canales_m extends MY_Model
 
         return $result;
     }
-    
+
     /**
      * Obtiene los canales que pertenecen al usuario logueado
      * @param array $where
      * @return object
      */
-    public function get_canales_by_usuario($where = array())
+    public function get_canales_by_usuario($where = array()) 
     {
         if (!is_array($where)) {
             $where = array('user_id' => $where);
         }
 
-        $this->db->select("urc.user_id, urc.group_id, urc.canal_id, c.nombre");
+        $this->db->select("urc.user_id, urc.group_id, urc.canal_id, c.nombre, urc.predeterminado,urc.estado");
         $this->db->from($this->_table . ' urc');
         $this->db->join('default_cms_canales c', 'c.id = urc.canal_id');
         $this->db->where($where);
@@ -82,52 +82,96 @@ class Usuario_group_canales_m extends MY_Model
 
         return $result;
     }
+    
+    /**
+     * Obtiene el canal predeterminado del usuario logueado
+     * @param array $where
+     * @return object
+     */
+    public function get_canal_default_by_usuario() 
+    {        
+        $where = array('user_id' => $this->current_user->id, 'estado' => '1', 'predeterminado >' => '0');        
 
-//
-//	/**
-//	 * Update
-//	 *
-//	 * Updates a setting for a given $slug.
-//	 *
-//	 * @access	public
-//	 * @param	string	$slug
-//	 * @param	array	$params
-//	 * @return	bool
-//	 */
-//	public function update($slug = '', $params = array())
-//	{
-//		return $this->db->update($this->_table, $params, array('slug' => $slug));
-//	}
-//
-//	/**
-//	 * Sections
-//	 *
-//	 * Gets all the sections (modules) from the settings table.
-//	 *
-//	 * @access	public
-//	 * @return	array
-//	 */
-//	public function sections()
-//	{
-//		$sections = $this->select('module')
-//			->distinct()
-//			->where('module != ""')
-//			->get_all();
-//
-//		$result = array();
-//
-//		foreach ($sections as $section)
-//		{
-//			$result[] = $section->module;
-//		}
-//
-//		return $result;
-//	}
-//        
-//        public function publish($id = 0)
-//	{
-//            return parent::update($id, array('status' => '1'));
-//	}
+        $query = $this->db->get_where($this->_table, $where);
+        
+        if ($query->num_rows() > 0)     {
+            $row = $query->row();
+            $predeterminado = $row->predeterminado;
+        }
+
+        return $predeterminado;
+    }
+    
+    /**
+     * Obtiene los canales activos que pertenecen al usuario logueado
+     * @param array $where
+     * @return object
+     */
+    public function get_canales_activos_by_usuario($where = array()) 
+    {
+        if (!is_array($where)) {
+            $where = array('user_id' => $where, 'urc.estado' => '1');
+        }
+
+        $this->db->select("urc.user_id, urc.group_id, urc.canal_id, c.nombre, urc.predeterminado,urc.estado");
+        $this->db->from($this->_table . ' urc');
+        $this->db->join('default_cms_canales c', 'c.id = urc.canal_id');
+        $this->db->where($where);
+        $result = $this->db->get()->result();
+
+        return $result;
+    }
+    
+    /**
+     * Añade canales usuarios
+     * @param array $params
+     * @return int
+     */
+    public function insert($params)
+    {                        
+        $query = parent::insert(array(                    
+                    'canal_id' => $params['canal_id'],
+                    'user_id' => $params['user_id'],
+                    'group_id' => $params['group_id'],
+                    'estado' => $params['estado'],                    
+                    'fecha_registro' => $params['fecha_registro'],
+                    'usuario_registro' => $params['usuario_registro'],
+                    'predeterminado' => $params['predeterminado']
+        ));
+
+        return $query;
+    }
+
+    /**
+     * Update canales usuarios
+     * @access	public
+     * @param	string	$canal_id
+     * @param	string	$user_id
+     * @param	array	$params
+     * @return	bool
+     */
+    public function update($canal_id = '', $user_id = '', $params = array()) 
+    {
+        $query = $this->db->update($this->_table, $params, array('canal_id' => $canal_id, 'user_id' => $user_id));
+        return $query;
+    }
+
+    /**
+     * Update canal predeterminado
+     * @param string $user_id
+     * @return boolean
+     */
+    public function update_predeterminado($params = array(), $canal_id = '', $user_id = '') 
+    {
+        // Actualiza todos los predeterminados a 0
+        $this->db->update($this->_table, array('predeterminado' => 0), array('user_id' => $user_id));
+
+        // Actualiza el predeterminado seleccionado
+        $query2 = $this->db->update($this->_table, $params, array('user_id' => $user_id, 'canal_id' => $canal_id));
+
+        return $query2;
+    }
+
 }
 
 /* End of file usuario_rol_canales_m.php */

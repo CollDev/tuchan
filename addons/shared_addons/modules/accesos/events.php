@@ -1,13 +1,13 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 /**
- * Canales Events Class
+ * Accesos Events Class
  * 
  * @package     PyroCMS
- * @subpackage  Canales Module
+ * @subpackage  Accesos Module
  * @category    events
  * @author      Gaby
  */
-class Events_Canales
+class Events_Accesos
 {
     protected $ci;
     
@@ -25,7 +25,7 @@ class Events_Canales
         if ($data->user_id > 0) {         
 
             $this->ci->load->model('canales/usuario_group_canales_m'); 
-            $canales_usuario = $this->ci->usuario_group_canales_m->get_canales_by_usuario($data->user_id);
+            $canales_usuario = $this->ci->usuario_group_canales_m->get_canales_activos_by_usuario($data->user_id);
 
             if (count($canales_usuario) > 0) {
              
@@ -38,7 +38,7 @@ class Events_Canales
                 }
 
                 // Guardar en sesion los id de canales y tipo de usuario
-                $this->ci->session->set_userdata("canal_usuario", $canal_usuario);
+                $this->ci->session->set_userdata("canales_usuario", $canal_usuario);
             }
         }
     }

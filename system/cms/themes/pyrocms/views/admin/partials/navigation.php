@@ -27,13 +27,13 @@
             // They have access to more than one menu item, so create a drop menu
             if ($count > 1) {
                 echo '<li>';
-                $name = lang('cp_nav_' . $menu_item) != '' && lang('cp_nav_' . $menu_item) != NULL ? lang('cp_nav_' . $menu_item) : $menu_item;
-                $current = (($this->module_details && $this->module_details['menu'] == $menu_item) or $menu_item == $this->module);
-                $class = $current ? "top-link current" : "top-link";
-                echo anchor(current_url() . '#', $name, array('class' => $class));
+                    $name = lang('cp_nav_' . $menu_item) != '' && lang('cp_nav_' . $menu_item) != NULL ? lang('cp_nav_' . $menu_item) : $menu_item;
+                    $current = (($this->module_details && $this->module_details['menu'] == $menu_item) or $menu_item == $this->module);
+                    $class = $current ? "top-link current" : "top-link";
+                    echo anchor(current_url() . '#', $name, array('class' => $class));
                 echo '<ul>';
 
-                // User has access to Users module only, no other users item
+            // User has access to Users module only, no other users item
             } elseif ($count == 1 AND $menu_item == 'users') {
                 echo '<li>' . anchor('admin/users', lang('cp_manage_users'), array('class' => $this->module == 'users' ? 'top-link no-submenu  current' : 'top-link no-submenu ')) . '</li>';
             }
@@ -67,13 +67,13 @@
                         // Verifica si es administrador de canales
                         if ($this->session->userdata['group'] && $this->session->userdata['group'] != "") {
 
+                            // Sólo muestra los canales que tiene asignados
                             if ($module['name'] == lang('cp_nav_canales') && $this->session->userdata['group'] == 'administrador-canales') {
-                                echo '<li>' . anchor('admin/canales', $module['name'], array('class' => 'menu'));
-//print_r($this->session->all_userdata());
+                                echo '<li>' . anchor('', $module['name'], array('class' => 'menu'));
                                 // Sub menú canales
-                                if (count($this->session->userdata['canal_usuario']) > 0) {
+                                if (count($this->session->userdata['canales_usuario']) > 0) {
                                     echo '<ul>';
-                                    foreach ($this->session->userdata['canal_usuario'] as $canal_usr) {
+                                    foreach ($this->session->userdata['canales_usuario'] as $canal_usr) {
                                         echo '<li>' . anchor('admin/' . $module['slug'] . '/videos/' . $canal_usr['canal_id'], $canal_usr['canal'], array('class' => $class)) . '</li>';
                                     }
                                     echo '</ul></li>';
