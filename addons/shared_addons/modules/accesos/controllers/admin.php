@@ -22,7 +22,6 @@ class Admin extends Admin_Controller
         $this->load->model('canales/canales_m');        
         $this->load->model('canales/usuario_group_canales_m');        
         $this->lang->load('canales/canales');
-        $this->lang->load('canales/videos');
         $this->lang->load('accesos');        
     }
 
