@@ -69,11 +69,24 @@
 
                             // Sólo muestra los canales que tiene asignados
                             if ($module['name'] == lang('cp_nav_canales') && $this->session->userdata['group'] == 'administrador-canales') {
-                                echo '<li>' . anchor('', $module['name'], array('class' => 'menu'));
+                                echo '<li>' . anchor('admin/canales', $module['name'], array('class' => 'menu'));
                                 // Sub menú canales
                                 if (count($this->session->userdata['canales_usuario']) > 0) {
                                     echo '<ul>';
                                     foreach ($this->session->userdata['canales_usuario'] as $canal_usr) {
+                                        echo '<li>' . anchor('admin/' . $module['slug'] . '/videos/' . $canal_usr['canal_id'], $canal_usr['canal'], array('class' => $class)) . '</li>';
+                                    }
+                                    echo '</ul></li>';
+                                }
+                            } elseif ($module['name'] == lang('cp_nav_canales') && $this->session->userdata['group'] == 'admin') {
+                                
+                                echo '<li>' . anchor('', $module['name'], array('class' => 'menu'));                                
+                                asort($this->session->userdata['canal_usuario']);
+                                
+                                // Sub menú canales
+                                if (count($this->session->userdata['canal_usuario']) > 0) {
+                                    echo '<ul>';
+                                    foreach ($this->session->userdata['canal_usuario'] as $canal_usr) {
                                         echo '<li>' . anchor('admin/' . $module['slug'] . '/videos/' . $canal_usr['canal_id'], $canal_usr['canal'], array('class' => $class)) . '</li>';
                                     }
                                     echo '</ul></li>';
