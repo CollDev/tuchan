@@ -130,7 +130,7 @@ class Admin extends Admin_Controller {
         $canal = $this->canales_m->get($canal_id);
         $logo_canal = $this->imagenes_m->getLogo(array('canales_id' => $canal_id,
             'tipo_imagen_id' => TIPO_IMAGEN_ISO, 'estado' => ESTADO_ACTIVO));
-        $programas = $this->grupo_maestro_m->getCollectionDropDown(array("tipo_grupo_maestro_id" => $this->config->item('videos:programa'),"canales_id"=>$canal_id), 'nombre');
+        $programas = $this->grupo_maestro_m->getCollectionDropDown(array("tipo_grupo_maestro_id" => $this->config->item('videos:programa'), "canales_id" => $canal_id), 'nombre');
         // Obtiene la lista de videos según canal seleccionado
         //do we need to unset the layout because the request is ajax?
         $this->input->is_ajax_request() and $this->template->set_layout(FALSE);
@@ -2390,7 +2390,6 @@ class Admin extends Admin_Controller {
                         $this->detalle_secciones_m->update($detalle_seccion_id, array("estado" => "0"));
                     }
                 }
-                
             } else {
                 $this->detalle_secciones_m->update($detalle_seccion_id, array("estado" => "0"));
             }
@@ -4341,6 +4340,35 @@ class Admin extends Admin_Controller {
                 $returnValue.='<div id="black" style="margin: auto;"></div>';
             }
             echo $returnValue;
+        }
+    }
+
+    public function mostrar_titulo($canal_id, $vista) {
+        if ($this->input->is_ajax_request()) {
+            $vista = str_replace("_", " ", $vista);
+            //no backgrouns : .channel_item
+            $objImagen = $this->imagen_m->get_by(array("canales_id" => $canal_id, "tipo_imagen_id" => $this->config->item('imagen:iso'), "estado" => $this->config->item('estado:publicado')));
+            $objCanal = $this->canales_m->get($canal_id);
+            if (count($objImagen) > 0) {
+                if ($objImagen->procedencia == '0') {
+                    $imagen = $this->config->item('protocolo:http') . $this->config->item('server:elemento') . '/' . $objImagen->imagen;
+                } else {
+                    $imagen = $objImagen->imagen;
+                }
+                $html = '<h2 class="channel_item" background="none" style="padding-left:0px !important;background:none;">';
+                $html.='<div class="logo_canal" style="width:40px;display: block;float:left;margin-right: 15px;">';
+                $html.='<img width="40" height="40" src="' . $imagen . '">';
+                $html.='</div>';
+                $html.='<a href="/admin/canales/videos/' . $canal_id . '" float="left"> ' . ucwords($objCanal->nombre) . ' |  </a>';
+                $html.='<a>' . ucwords($vista) . '</a>';
+                $html.='</h2>';
+            } else {
+                $html = '<h2 class="channel_item" style="padding-left:50px !important;">';
+                $html.='<a href="/admin/canales/videos/' . $canal_id . '" float="left"> ' . ucwords($objCanal->nombre) . ' |  </a>';
+                $html.='<a>' . ucwords($vista) . '</a>';                
+                $html.='</h2>';
+            }
+            echo $html;
         }
     }
 

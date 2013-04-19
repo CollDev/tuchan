@@ -21,6 +21,7 @@
     <?php if (/*$objCanal->tipo_canales_id == $this->config->item('canal:mi_canal')*/TRUE): ?>
         <script type="text/javascript">
             $(function() {
+                mostrar_titulo();
                 var altura = $(document).height();
                 $(".bajada2").css('height', '800');
                 console.log(altura);
@@ -173,6 +174,21 @@
                 $("#portada_id").val(portada_id);
                 $("#seccion-form").dialog("open");
             }
+            
+        function mostrar_titulo() {
+            var vista = 'portadas';
+            var post_url = "/admin/canales/mostrar_titulo/<?php echo $canal_id; ?>/" + vista;
+            $.ajax({
+                type: "POST",
+                url: post_url,
+                dataType: 'html',
+                //data:imagen_id,
+                success: function(respuesta) //we're calling the response json array 'cities'
+                {
+                    $(".subbar > .wrapper").html(respuesta);
+                } //end success
+            }); //end AJAX              
+        }            
 
 
         </script>

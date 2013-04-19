@@ -12,3 +12,19 @@
         <?php template_partial('maestros'); ?>
     </div>
 </section>
+<script type="text/javascript">
+    $(document).ready(function() {
+        var vista = 'organizar_videos';
+        var post_url = "/admin/canales/mostrar_titulo/<?php echo $canal_id; ?>/"+vista;
+        $.ajax({
+            type: "POST",
+            url: post_url,
+            dataType: 'html',
+            //data:imagen_id,
+            success: function(respuesta) //we're calling the response json array 'cities'
+            {
+                $(".subbar > .wrapper").html(respuesta);
+            } //end success
+        }); //end AJAX         
+    });
+</script>
