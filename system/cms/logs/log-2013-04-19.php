@@ -389,3 +389,5 @@ ERROR - 2013-04-19 17:32:55 --> Severity: Notice  --> Undefined index: group /va
 ERROR - 2013-04-19 17:32:55 --> Severity: Notice  --> Undefined index: group /var/www/local.adminmicanal.com/system/cms/core/Admin_Controller.php 40
 ERROR - 2013-04-19 19:23:44 --> Severity: Warning  --> mysql_connect(): Can't connect to MySQL server on '10.203.31.139' (4) /var/www/local.adminmicanal.com/system/codeigniter/database/drivers/mysql/mysql_driver.php 84
 ERROR - 2013-04-19 19:23:44 --> Unable to connect to the database
+ERROR - 2013-04-19 19:57:56 --> Severity: Notice  --> Undefined variable: post_id /var/www/local.adminmicanal.com/addons/shared_addons/modules/canales/views/admin/tables/canales.php 39
+ERROR - 2013-04-19 20:04:34 --> Severity: Notice  --> unserialize(): Error at offset 0 of 43818 bytes /var/www/local.adminmicanal.com/system/cms/libraries/Simplepie.php 230
