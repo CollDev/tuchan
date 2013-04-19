@@ -510,11 +510,12 @@ body#login #login-box header {
 }
 #login-logo {
 	/*background-image: url('../../img/admin/login-logo.png');*/
-        background-image: url("../../img/logo_micanal.png");
+        /*background-image: url("../../img/logo_micanal.png");*/
+        background-image: url("../../img/logomicanal.png");
 	background-repeat: no-repeat;
 	width: 225px;
-	height: 40px;
-	margin: 10px 0 0 100px;
+	height: 70px;
+	margin: 10px 0 0 60px;
 }
 body#login #login-box ul,
 body#login #login-box li {
