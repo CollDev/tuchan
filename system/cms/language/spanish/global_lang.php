@@ -41,6 +41,7 @@ $lang['dialog.no'] = 'No';
 
 $lang['global:select-none'] = '-- Ninguno --';
 $lang['global:select-all'] = '-- Todos --';
+$lang['global:select-all-status'] = '-- Todos los estados--';
 $lang['global:select-any'] = '-- Cualquiera --';
 $lang['global:select-pick'] = '-- Seleccionar --';
 

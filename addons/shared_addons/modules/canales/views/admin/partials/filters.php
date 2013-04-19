@@ -15,6 +15,12 @@
 				<?php echo form_dropdown('f_programa', array(0 => lang('global:select-all')) + $programa); ?>
                                 <?php } ?>
 			</li>
+			<li>
+                                <?php if(isset($estados)){?>
+				<?php //echo lang('user_group_label', 'f_group'); ?>
+				<?php echo form_dropdown('f_estado', array(0 => lang('global:select-all-status')) + $estados); ?>
+                                <?php } ?>
+			</li>
 			
 			<li><?php echo form_input('f_keywords'); ?></li>
 			<li><?php echo anchor(current_url(), lang('buttons.cancel'), 'class="cancel"'); ?></li>

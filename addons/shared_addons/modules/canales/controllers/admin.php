@@ -103,9 +103,9 @@ class Admin extends Admin_Controller {
      * Lista de videos del canal seleccionado
      * @param int $canal_id
      */
-    public function videos($canal_id=0) {
-        if($canal_id == 0){
-            $objUsuarioCanal = $this->usuario_grupo_canales_m->get_by(array("user_id"=>$this->current_user->id,"estado"=>$this->config->item('estado:publicado')));
+    public function videos($canal_id = 0) {
+        if ($canal_id == 0) {
+            $objUsuarioCanal = $this->usuario_grupo_canales_m->get_by(array("user_id" => $this->current_user->id, "estado" => $this->config->item('estado:publicado')));
             $canal_id = $objUsuarioCanal->canal_id;
         }
         $base_where = array("canales_id" => $canal_id);
@@ -1615,8 +1615,18 @@ class Admin extends Admin_Controller {
     public function portada($canal_id) {
         $objCanal = $this->canales_m->get($canal_id);
         $title = "Portada  del canal " . $objCanal->nombre;
+        error_log($this->input->post('f_estado'));
         //parametros de paginacion
-        $base_where = array("canales_id" => $canal_id);
+        if ($this->input->post('f_estado') > 0) {
+            if ($this->input->post('f_estado') == '3') {
+                $estado_cambiado = $this->config->item('estado:borrador');
+            } else {
+                $estado_cambiado = $this->input->post('f_estado');
+            }
+            $base_where = array("canales_id" => $canal_id, "estado" => $estado_cambiado);
+        } else {
+            $base_where = array("canales_id" => $canal_id);
+        }
         $keyword = '';
         if ($this->input->post('f_keywords'))
             $keyword = $this->input->post('f_keywords');
@@ -1644,6 +1654,7 @@ class Admin extends Admin_Controller {
         $tipo_portada = $this->tipo_portada_m->getTipoPortadaDropDown();
         $tipo_seccion = $this->tipo_secciones_m->getSeccionDropDown();
         $templates = $this->templates_m->getTemplateDropDown();
+        $estados = array($this->config->item('estado:publicado') => "Publicado", "3" => "Borrador", $this->config->item('estado:eliminado') => "Eliminado");
         //do we need to unset the layout because the request is ajax?
         $this->input->is_ajax_request() and $this->template->set_layout(FALSE);
         $this->template
@@ -1657,6 +1668,7 @@ class Admin extends Admin_Controller {
                 ->set('pagination', $pagination)
                 ->set('title', $title)
                 ->set('tipo', $tipo_portada)
+                ->set('estados', $estados)
                 ->set('tipo_seccion', $tipo_seccion)
                 ->set('canal_id', $canal_id)
                 ->set('objCanal', $objCanal)
@@ -4369,7 +4381,7 @@ class Admin extends Admin_Controller {
             } else {
                 $html = '<h2 class="channel_item" style="padding-left:50px !important;">';
                 $html.='<a href="/admin/canales/videos/' . $canal_id . '" float="left"> ' . ucwords($objCanal->nombre) . ' |  </a>';
-                $html.='<a>' . ucwords($vista) . '</a>';                
+                $html.='<a>' . ucwords($vista) . '</a>';
                 $html.='</h2>';
             }
             echo $html;
