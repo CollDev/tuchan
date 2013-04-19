@@ -124,10 +124,10 @@ class Admin extends Admin_Controller {
         $keyword = '';
         if ($this->input->post('f_keywords'))
             $keyword = $this->input->post('f_keywords');
+        
         if ($this->input->post('f_programa'))
             $base_where['tercer_padre'] = $this->input->post('f_programa');
-
-
+        
         // Create pagination links
         if (strlen(trim($keyword)) > 0) {
             $total_rows = $this->vw_video_m->like('titulo', $keyword)->count_by($base_where);
