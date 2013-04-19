@@ -68,7 +68,7 @@
 				background: #000; 
 				height: 100% !important;
 				width: 100%; 
-				opacity: .8; 
+				opacity: .5; 
 				/* For IE 5-7 */
 				filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
 				/* For IE 8 */
