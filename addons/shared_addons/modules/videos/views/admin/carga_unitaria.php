@@ -72,6 +72,15 @@
         }
         ?>
 
+        <!-- iFrame del video sólo para los publicados -->
+        <?php if ($objBeanForm->video_id > 0) : ?>
+            <?php if ($objBeanForm->estado == ESTADO_PUBLICADO) : ?>
+                <div class="embed_video">
+                    <textarea class="embed_content" readonly="readonly">[iframe width="560" height="315" src="<?php echo base_url('embed/' . $objBeanForm->video_id) ?>" frameborder="0" allowfullscreen][/iframe]</textarea>
+                </div>
+            <?php endif ?>
+        <?php endif ?>
+        
         <?php if ($objBeanForm->video_id > 0) { ?>
             <!-- imagen -->
             <label for="imagen"><?php echo lang('videos:avatar'); ?></label>

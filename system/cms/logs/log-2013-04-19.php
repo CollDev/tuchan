@@ -396,3 +396,8 @@ ERROR - 2013-04-19 21:33:32 --> Severity: Notice  --> Undefined index: canales_u
 ERROR - 2013-04-19 21:33:33 --> Severity: Notice  --> Undefined index: canales_usuario /var/www/local.adminmicanal.com/system/cms/themes/pyrocms/views/admin/partials/navigation.php 74
 ERROR - 2013-04-19 21:33:34 --> Severity: Notice  --> Undefined index: canales_usuario /var/www/local.adminmicanal.com/system/cms/themes/pyrocms/views/admin/partials/navigation.php 74
 ERROR - 2013-04-19 21:51:48 --> Severity: Notice  --> session_start(): ps_files_cleanup_dir: opendir(/var/lib/php5) failed: Permission denied (13) /var/www/local.adminmicanal.com/system/cms/hooks/pick_language.php 30
+ERROR - 2013-04-19 22:47:55 --> Severity: Notice  --> Undefined property: stdClass::$estado /var/www/local.adminmicanal.com/addons/shared_addons/modules/videos/views/admin/carga_unitaria.php 77
+ERROR - 2013-04-19 22:50:39 --> Severity: Notice  --> Undefined variable: objBeanVideo /var/www/local.adminmicanal.com/addons/shared_addons/modules/videos/views/admin/carga_unitaria.php 77
+ERROR - 2013-04-19 22:50:39 --> Severity: Notice  --> Trying to get property of non-object /var/www/local.adminmicanal.com/addons/shared_addons/modules/videos/views/admin/carga_unitaria.php 77
+ERROR - 2013-04-19 22:52:02 --> Severity: Notice  --> Undefined variable: objBeanVideo /var/www/local.adminmicanal.com/addons/shared_addons/modules/videos/views/admin/carga_unitaria.php 77
+ERROR - 2013-04-19 22:52:02 --> Severity: Notice  --> Trying to get property of non-object /var/www/local.adminmicanal.com/addons/shared_addons/modules/videos/views/admin/carga_unitaria.php 77
