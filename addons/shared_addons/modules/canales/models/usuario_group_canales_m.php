@@ -90,10 +90,10 @@ class Usuario_group_canales_m extends MY_Model
      */
     public function get_canal_default_by_usuario() 
     {        
-        $where = array('user_id' => $this->current_user->id, 'estado' => '1', 'predeterminado >' => '0');        
+        $where = array('user_id' => $this->session->userdata('user_id'), 'estado' => '1', 'predeterminado >' => '0');        
 
         $query = $this->db->get_where($this->_table, $where);
-        
+
         if ($query->num_rows() > 0)     {
             $row = $query->row();
             $predeterminado = $row->predeterminado;

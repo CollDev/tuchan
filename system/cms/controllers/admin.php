@@ -12,9 +12,9 @@ class Admin extends Admin_Controller
 	 */
 	public function __construct()
 	{
-		parent::__construct();
-
-		$this->load->helper('users/user');
+            parent::__construct();
+            $this->load->model('canales/usuario_group_canales_m');
+            $this->load->helper('users/user');
 	}
 
 	/**
@@ -22,28 +22,32 @@ class Admin extends Admin_Controller
 	 */
 	public function index()
 	{          
-		$this->template
-			->enable_parser(TRUE)
-			->title(lang('global:dashboard'));
+            $this->template
+                    ->enable_parser(TRUE)
+                    ->title(lang('global:dashboard'));
 
-		if (is_dir('./installer'))
-		{
-			$this->template
-				->set('messages', array('notice' => lang('cp_delete_installer_message')));
-		}
-                
-		//$this->template->build('admin/dashboard');		
+            if (is_dir('./installer'))
+            {
+                    $this->template
+                            ->set('messages', array('notice' => lang('cp_delete_installer_message')));
+            }
+
+            if (isset($this->session->userdata['canales_usuario'])) {
+                // Busca el canal por defecto para el usuario logueado
+                $predeterminado = $this->usuario_group_canales_m->get_canal_default_by_usuario();
+                $redirect = $this->_check_group($predeterminado);
+                redirect($redirect);
+            } else {		
                 $redirect = $this->_check_group();                
                 redirect($redirect ? $redirect : 'admin/canales');
+            }
 	}
 
 	/**
 	 * Log in
 	 */
 	public function login()
-	{
-            $this->load->model('canales/usuario_group_canales_m');
-            
+	{                        
             // Set the validation rules
             $this->validation_rules = array(
                     array(
