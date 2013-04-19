@@ -1,19 +1,4 @@
 <section class="title" style="margin-left: 20px;padding-top:5px"> 
-    <?php if ($canal) : ?>    
-        <?php
-//        if (isset($logo_canal[0])) {
-//            $logo = PATH_ELEMENTOS . $logo_canal[0]->imagen;
-//        } else {
-//            $logo = '';
-//        }
-        ?>
-<!--        <div class="logo_canal">
-            <img src="<?php echo $logo ?>" />
-        </div>
-        <h4 style = "padding-left: 40px !important;">  
-            <?php //echo $canal->nombre . '&nbsp;|&nbsp;' ?>
-        </h4>-->
-    <?php endif; ?> 
     <?php
     echo anchor('admin/videos/carga_unitaria/' . $canal->id, 'Carga unitaria', array('class' => ''));
     echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
