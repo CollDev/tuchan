@@ -1,5 +1,13 @@
-<section class="title">
-    <h4><?php echo lang('maestros:organizar_videos') ?></h4>
+<section class="title" style="margin-left: 20px;padding-top:5px"> 
+    <?php
+    echo anchor('admin/videos/carga_unitaria/' . $canal_id, 'Carga unitaria', array('class' => ''));
+    echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
+    echo anchor('admin/videos/carga_masiva/' . $canal_id, 'Carga masiva', array('class' => ''));
+    echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
+    echo anchor('admin/videos/maestro/' . $canal_id, 'Organizar videos', array('class' => ''));
+    echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
+    echo anchor('admin/canales/portada/' . $canal_id, 'Portadas', array('class' => ''));
+    ?>
 </section>
 <section class="bar" style="width: 100%;">
     <div style="text-align: right;" >

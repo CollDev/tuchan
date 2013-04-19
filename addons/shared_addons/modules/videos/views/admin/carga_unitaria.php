@@ -1,9 +1,20 @@
-<section class="title">
+<!--<section class="title">
     <h4>
-        <?php if ($canal->nombre) : ?>
-            <?php echo $canal->nombre ?> | Carga Unitaria
-        <?php endif; ?>
+        <?php //if ($canal->nombre) : ?>
+            <?php //echo $canal->nombre ?> | Carga Unitaria
+        <?php //endif; ?>
     </h4>
+</section>-->
+<section class="title" style="margin-left: 20px;padding-top:5px"> 
+    <?php
+    echo anchor('admin/videos/carga_unitaria/' . $canal->id, 'Carga unitaria', array('class' => ''));
+    echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
+    echo anchor('admin/videos/carga_masiva/' . $canal->id, 'Carga masiva', array('class' => ''));
+    echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
+    echo anchor('admin/videos/maestro/' . $canal->id, 'Organizar videos', array('class' => ''));
+    echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
+    echo anchor('admin/canales/portada/' . $canal->id, 'Portadas', array('class' => ''));
+    ?>
 </section>
 
 <section class="item">
