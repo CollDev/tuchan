@@ -42,6 +42,7 @@ class Admin extends Admin_Controller
                 }
                 
             } elseif ($this->session->userdata['group'] == 'admin') {
+                //echo 'mi canal: ' . $this->session->userdata['group'];exit;
                 redirect('admin/canales');
             }
                         
@@ -73,11 +74,6 @@ class Admin extends Admin_Controller
             // If the validation worked, or the user is already logged in
             if ($this->form_validation->run() OR $this->ion_auth->logged_in())
             {
-                    // if they were trying to go someplace besides the 
-                    // dashboard we'll have stored it in the session
-                    $redirect = $this->session->userdata('admin_redirect');
-                    $this->session->unset_userdata('admin_redirect');   
-
                     if ($this->session->userdata['group'] == 'administrador-canales') {
                     
                         if (isset($this->session->userdata['canales_usuario'])) {
@@ -88,6 +84,8 @@ class Admin extends Admin_Controller
                         }
                         
                     } elseif ($this->session->userdata['group'] == 'admin') {
+                        redirect('admin/canales');
+                    } elseif ($this->session->userdata['group'] == 'administrador-mi-canal') {
                         redirect('admin/canales');
                     }
             }
