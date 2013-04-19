@@ -78,6 +78,19 @@
                 <div class="embed_video">
                     <textarea class="embed_content" readonly="readonly">[iframe width="560" height="315" src="<?php echo base_url('embed/' . $objBeanForm->video_id) ?>" frameborder="0" allowfullscreen][/iframe]</textarea>
                 </div>
+                <script>
+					if ($('.embed_content').length==1){
+						 	var embed=$(".embed_content").val();
+							
+							embed=embed.replace("[","<");
+							embed=embed.replace("]","/>");
+							embed=embed.replace("[","<");
+							embed=embed.replace("]","/>");							 
+							$(".embed_content").val(embed);
+					}
+				</script>
+                
+                
             <?php endif ?>
         <?php endif ?>
         
