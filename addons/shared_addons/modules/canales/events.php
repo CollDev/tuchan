@@ -26,7 +26,7 @@ class Events_Canales
 
             $this->ci->load->model('canales/usuario_group_canales_m'); 
             $canales_usuario = $this->ci->usuario_group_canales_m->get_canales_by_usuario($data->user_id);
-print_r($canales_usuario);
+
             if (count($canales_usuario) > 0) {
              
                 // Obtener todos los canales que pertenecen al usuario

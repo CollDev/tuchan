@@ -13,7 +13,7 @@
 		</div>
 	
 		<div class="table_action_buttons">
-			<?php $this->load->view('admin/partials/buttons', array('buttons' => array('activate', 'delete') )); ?>
+                    <?php $this->load->view('admin/partials/buttons', array('buttons' => array('activate', 'delete') )); ?>
 		</div>
 
 	<?php echo form_close(); ?>
