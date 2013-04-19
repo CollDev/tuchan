@@ -2,7 +2,7 @@
     #sortable { list-style-type: none; margin: 0; padding: 0; width: 450px; }
     #sortable li { margin: 3px 3px 3px 0; padding: 1px; float: left; width: 100px; height: 90px; font-size: 4em; text-align: center; }
 </style>
-<section class="title" style="margin-left: 20px;padding-top:5px"> 
+<section class="title"> 
     <?php
     echo anchor('admin/videos/carga_unitaria/' . $canal_id, 'Carga unitaria', array('class' => ''));
     echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
