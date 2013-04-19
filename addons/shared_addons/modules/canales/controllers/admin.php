@@ -833,6 +833,9 @@ class Admin extends Admin_Controller {
         $objBeanPortada->fecha_actualizacion = date("Y-m-d H:i:s");
         $objBeanPortada->usuario_actualizacion = $user_id;
         $objBeanPortada->id_mongo = '0';
+        $objBeanPortada->estado_migracion = 0;
+        $objBeanPortada->fecha_migracion = '0000-00-00 00:00:00';
+        $objBeanPortada->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
         $objBeanPortadaSaved = $this->portada_m->save($objBeanPortada);
 
         if ($objetoMaestro == NULL) {
@@ -2817,6 +2820,9 @@ class Admin extends Admin_Controller {
                 $objBeanPortada->fecha_actualizacion = date("Y-m-d H:i:s");
                 $objBeanPortada->usuario_actualizacion = $user_id;
                 $objBeanPortada->id_mongo = NULL;
+                $objBeanPortada->estado_migracion = 0;
+                $objBeanPortada->fecha_migracion = '0000-00-00 00:00:00';
+                $objBeanPortada->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
                 $objBeanPortadaSaved = $this->portada_m->save($objBeanPortada);
                 $portada_id = $objBeanPortadaSaved->id;
             }

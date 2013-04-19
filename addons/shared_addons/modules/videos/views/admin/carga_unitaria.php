@@ -168,6 +168,12 @@
 
     <div class="right_arm">
 
+        <!-- categoria -->
+        <label for="categoria"><?php echo lang('videos:categoria_label'); ?></label>
+        <?php echo form_error('categoria'); ?><br />
+        <?php echo form_dropdown('categoria', $categoria, $objBeanForm->categoria); ?>
+        
+        <br/><br/>
         <!-- programa -->
         <label for="programa"><?php echo lang('videos:programa_label'); ?></label>
         <?php echo form_error('programa'); ?><br/>
@@ -221,10 +227,11 @@
         </div>
 
         <!-- tipo -->
-        <br/></br>
-        <label for="tipo"><?php echo lang('videos:tipo_label'); ?></label>
-        <?php echo form_error('tipo'); ?><br/>
-        <?php echo form_dropdown('tipo', $tipo, $objBeanForm->tipo); ?> 
+<!--        <br /><br />
+        <label for="tipo"><?php //echo lang('videos:tipo_label'); ?></label>
+        <?php //echo form_error('tipo'); ?><br/>
+        <?php //echo form_dropdown('tipo', $tipo, $objBeanForm->tipo); ?> -->
+        <input type="hidden" name="tipo" id="tipo" value="<?php echo $objBeanForm->tipo; ?>" >
 
 
         <!-- tags personajes -->
@@ -232,11 +239,6 @@
         <label for="personajes"><?php echo lang('videos:etiquetas_personajes_label'); ?><span class="required">*</span></label>
         <div class="input"><?php echo form_input('personajes', $objBeanForm->personajes, 'id="personajes"') ?></div>        
 
-        <!-- categoria -->
-        <br/><br/>
-        <label for="categoria"><?php echo lang('videos:categoria_label'); ?></label>
-        <?php echo form_error('categoria'); ?><br />
-        <?php echo form_dropdown('categoria', $categoria, $objBeanForm->categoria); ?>
         
         <!-- fuente -->
         <br/>
