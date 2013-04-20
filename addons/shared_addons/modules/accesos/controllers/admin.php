@@ -31,7 +31,7 @@ class Admin extends Admin_Controller
      * @return void
      */
     public function index($id = 0) 
-    {       
+    {               
         if ($this->session->userdata['group'] == 'admin') {
             
             // Get the user's data
@@ -121,7 +121,7 @@ class Admin extends Admin_Controller
                     $params['predeterminado'] = $predeterminado;
                     $this->usuario_group_canales_m->update_predeterminado($params, $predeterminado, $id);
                     
-                    echo "<script>alert('Los canales fueron asignados correctamente')</script>";
+                    $this->session->set_flashdata('msg_success', 'La asignación de canales fue realizada con éxito.');
                     redirect('admin/accesos/index/' . $data_usuario->user_id);                    
                 }
             }           
@@ -136,7 +136,7 @@ class Admin extends Admin_Controller
                     ->append_css('module::jquery.alerts.css')
                     ->set('usuario_id', $data_usuario->user_id)
                     ->set('usuario', $usuario)
-                    ->set('canales_asignados', $canales_asignados)                    
+                    ->set('canales_asignados', $canales_asignados)            
                     ->set('canales', $canales);
             
             $this->input->is_ajax_request() ? $this->template->build('admin/tables/accesos') : $this->template->build('admin/index');            

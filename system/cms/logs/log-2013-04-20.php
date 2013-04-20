@@ -14,3 +14,5 @@ ERROR - 2013-04-20 02:09:37 --> Severity: Notice  --> Trying to get property of 
 ERROR - 2013-04-20 02:09:37 --> Severity: Notice  --> Trying to get property of non-object /var/www/local.adminmicanal.com/addons/shared_addons/modules/videos/views/admin/carga_unitaria.php 202
 ERROR - 2013-04-20 02:09:37 --> Severity: Notice  --> Trying to get property of non-object /var/www/local.adminmicanal.com/addons/shared_addons/modules/videos/views/admin/carga_unitaria.php 201
 ERROR - 2013-04-20 02:09:37 --> Severity: Notice  --> Trying to get property of non-object /var/www/local.adminmicanal.com/addons/shared_addons/modules/videos/views/admin/carga_unitaria.php 202
+ERROR - 2013-04-20 17:24:40 --> Severity: Notice  --> Undefined variable: msg_ok /var/www/local.adminmicanal.com/addons/shared_addons/modules/accesos/controllers/admin.php 140
+ERROR - 2013-04-20 17:41:32 --> Severity: Notice  --> Undefined variable: msg_success /var/www/local.adminmicanal.com/addons/shared_addons/modules/accesos/controllers/admin.php 143
