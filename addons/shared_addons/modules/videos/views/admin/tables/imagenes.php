@@ -99,9 +99,9 @@
         });
     }
 
-    function restaurar_imagen_grupo(imagen_id, tipo_imagen, maestro_id) {
+    function restaurar_imagen_grupo(imagen_id, tipo_imagen, maestro_id, tipo_origen) {
         //llenar el formulario
-        var post_url = "/admin/videos/restaurar_imagen_grupo/" + imagen_id + "/" + tipo_imagen + "/" + maestro_id;
+        var post_url = "/admin/videos/restaurar_imagen_grupo/" + imagen_id + "/" + tipo_imagen + "/" + maestro_id+"/"+tipo_origen;
         $.ajax({
             type: "POST",
             url: post_url,
@@ -123,13 +123,20 @@
 <?php
 if (count($imagenes) > 0):
     foreach ($imagenes as $puntero => $objImagen):
+    if($objImagen->tipo == 'video'){
+        $objImagen->grupo_maestros_id = $objImagen->videos_id;
+    }else{
+        if($objImagen->tipo == 'canal'){
+            $objImagen->grupo_maestros_id = $objImagen->canales_id;
+        }
+    }
         ?>
                 $fub = $('#fine-uploader-basic_<?php echo $objImagen->tipo_imagen_id; ?>_<?php echo $objImagen->id; ?>');
                 $messages = $('#messages_<?php echo $objImagen->tipo_imagen_id; ?>_<?php echo $objImagen->id; ?>');
                 var uploader = new qq.FineUploaderBasic({
                     button: $fub[0],
                     request: {
-                        endpoint: 'admin/videos/subir_imagen_grupo/<?php echo $objImagen->grupo_maestros_id; ?>/<?php echo $objImagen->tipo_imagen_id; ?>/<?php echo $objImagen->id; ?>'
+                        endpoint: 'admin/videos/subir_imagen_grupo/<?php echo $objImagen->grupo_maestros_id; ?>/<?php echo $objImagen->tipo_imagen_id; ?>/<?php echo $objImagen->id; ?>/<?php echo $objImagen->tipo; ?>'
                     },
                     validation: {
                         allowedExtensions: ['jpeg', 'jpg', 'gif', 'png'],
