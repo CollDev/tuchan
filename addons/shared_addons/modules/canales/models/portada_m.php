@@ -79,5 +79,12 @@ class Portada_m extends MY_Model {
         ));
         return $objBeanPortada;           
     }
+    
+    public function update($id, $array){
+        
+        parent::update($id, $array);
+        
+        $this->procesos_lib->actualizarPortadas();
+    }    
 
 }

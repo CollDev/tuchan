@@ -73,7 +73,7 @@ define('BASE_URL', $base_url);
 define('BASE_URI', $base_uri);
 define('APPPATH_URI', BASE_URI . APPPATH);
 if (isset($_SERVER['DOCUMENT_ROOT'])) {
-    define('PATH_VIDEOS', $_SERVER['DOCUMENT_ROOT'] . "uploads/videos/");
+    define('PATH_VIDEOS', $_SERVER['DOCUMENT_ROOT'] . "/uploads/videos/");
 }
 // We dont need these variables any more
 unset($base_uri, $base_url);

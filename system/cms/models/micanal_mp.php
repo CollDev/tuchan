@@ -201,8 +201,10 @@ class MiCanal_mp extends CI_Model {
         $this->mongo_db->where($where)->set($set)->update($this->_tabla);
     }
 
-    public function SetItemCollectionDelete($objmongo) {
-        $this->mongo_db->delete($this->_tabla, $objmongo, array());
+    public function SetItemCollectionDelete($id_mongo) {
+        //error_log(print_r($id_mongo,true));
+       return $this->mongo_db->delete_where($this->_tabla,$id_mongo);
+         
     }
 
 }

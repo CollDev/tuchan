@@ -1376,4 +1376,8 @@ class Mongo_db
         return iterator_to_array($result);
     }
     
+    public function delete_where($collection,$where){
+        return $this->db->{$collection}->remove($where);
+        
+    }    
 }

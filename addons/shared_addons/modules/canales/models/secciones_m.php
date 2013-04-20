@@ -47,5 +47,10 @@ class Secciones_m extends MY_Model {
         ));
         return $objBeanSeccion;           
     }
+    
+    public function update($id, $array){
+        parent::update($id, $array);
+        $this->procesos_lib->actualizarSecciones();
+    }    
 
 }

@@ -20,7 +20,7 @@ class Liquid {
             return $result;
         } catch (Exception $exc) {
             return FALSE;
-            echo $exc->getTraceAsString();
+            //echo $exc->getTraceAsString();
         }
     }
 
@@ -46,7 +46,7 @@ class Liquid {
 
         $post = "<Media><published>true</published><publishDate>" . $date . "</publishDate></Media>";
         $url = APIURL . "/medias/" . $mediaId . "?key=" . $apiKey;
-        echo $url . "<br>";
+        //echo $url . "<br>";
         return $this->postXML($url, $post);
     }
 
@@ -87,7 +87,7 @@ class Liquid {
                 $tags .
                 "</Media>";
         $url = APIURL . "/medias/" . $mediaId . "?key=" . $apiKey;
-        echo $url . "<br>";
+        //echo $url . "<br>";
         return $this->postXML($url, $post);
     }
 
@@ -109,7 +109,7 @@ class Liquid {
             curl_setopt($ch, CURLOPT_MAXREDIRS, 7);
             curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
 
-
+            error_log(PATH_VIDEOS);
             $post = array(
                 "file" => "@" . PATH_VIDEOS . $id_video . ".mp4",
                 "token" => $apiKey
@@ -128,10 +128,10 @@ class Liquid {
 
 
             $mediaarr = json_decode(json_encode($mediaxml), true);
-            print_r($mediaarr);
+            //print_r($mediaarr);
 
             $media = $mediaarr["media"]["@attributes"]["id"];
-            echo "media: " . $media . "\n";
+            //echo "media: " . $media . "\n";
             //echo "<br>media: " . $media . "<br>";
 
             if (!empty($media)) {
@@ -150,7 +150,7 @@ class Liquid {
     function obtenerDatosMedia($datos) {
 
         $url = APIURL . "/medias/" . $datos->codigo . "?key=" . $datos->apikey . "&filter=id;thumbs;files;published";
-        echo $url . "<br>";
+        //echo $url . "<br>";
         $response = self::getXml($url);
         $mediaxml = new SimpleXMLElement($response);
 
@@ -195,7 +195,7 @@ class Liquid {
             foreach ($mediaarr["thumbs"] as $value) {
                 if (isset($value["url"])) {
                     $retorno = array_search($value["height"], $arrimg);
-                    echo $retorno . "\n";
+                    //echo $retorno . "\n";
                     if ($retorno != FALSE) {
                         $value["tipo_imagen_id"] = $retorno;
                         $result = $value;
@@ -208,7 +208,7 @@ class Liquid {
                         //echo $retorno."\n";
                         if ($retorno != FALSE) {
                             $value2["tipo_imagen_id"] = $retorno;
-                            print_r($value2);
+                            //print_r($value2);
                             array_push($result, $value2);
                         }
                     }

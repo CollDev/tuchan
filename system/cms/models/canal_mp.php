@@ -126,15 +126,17 @@ class Canal_mp extends CI_Model {
     }
 
     public function setItemCollectionUpdate($set, $where) {
-        $this->mongo_db->where($where)->set($set)->update($this->_tabla);
+        $this->mongo_db->where($where)->set($set)->update($this->_tabla);        
     }
 
     public function setItemCollectionDelete($objmongo) {
-        $this->mongo_db->delete($this->_tabla, $objmongo, array());
+        //$this->mongo_db->delete($this->_tabla, $objmongo, array());
+         $this->mongo_db->delete($this->_tabla)->where($id_mongo);
+        
     }
 
     public function getItemCollection($id_mongo) {
-        return $this->mongo_db->where(array('_id' => $id_mongo))->get($this->_tabla);
+        return $this->mongo_db->delete_where($this->_tabla,$id_mongo);
     }
 
 }

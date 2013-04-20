@@ -75,9 +75,13 @@ class Procesos_lib extends MX_Controller {
     /* Subir Videos - INICIO */
 
     public function procesoVideos() {
+        error_log('iniciando - convertir');
         $this->_convertirVideos();
+        error_log('iniciando - upload');
         $this->_uploadVideos();
+        error_log('iniciando - publicar video');
         $this->_publishVideos();
+        error_log('iniciando - obtiene URL');
         $this->_obtenerImagesUrlVideos();
     }
 
@@ -101,7 +105,8 @@ class Procesos_lib extends MX_Controller {
     private function _uploadVideos() {
 
         $resultado = $this->videos_mp->getVideosMp4();
-        //echo print_r($resultado) . "\n";
+//        error_log('-------------------lista de videos mp4---------------------');
+//        error_log(print_r($resultado, true));
         if (count($resultado) > 0) {
             foreach ($resultado as $value) {
 
@@ -109,7 +114,8 @@ class Procesos_lib extends MX_Controller {
                 $retorno = Liquid::uploadVideoLiquid($value->id, $value->apikey);
 
                 if ($retorno != FALSE) {
-
+//                    error_log('----------------------------------------');
+//                    error_log(print_r($retorno, true));
                     $this->videos_mp->setEstadosVideos($value->id, 0, 4);
                     $this->videos_mp->setMediaVideos($value->id, $retorno);
                 } else {
@@ -201,6 +207,10 @@ class Procesos_lib extends MX_Controller {
         $this->_generarSeccionesMiCanal();
         $this->_generarDetalleSeccionesMiCanal();
     }
+    
+    public function actualizarPortadas(){
+        $this->_generarPortadasMiCanal();
+    }
 
     private function _generarPortadasMiCanal() {
 
@@ -213,9 +223,10 @@ class Procesos_lib extends MX_Controller {
                 if (($value->estado_migracion == 0 or $value->estado_migracion == 9 ) && $value->estado == 1) {
 
                     $array = array();
+                    
                     $array["tipo"] = "portada";
                     $array["nombre"] = ($value->nombre);
-
+                    $array["estado"]="1";
 
 
                     $resquery2 = $this->micanal_mp->queryMysqlTipoPortadas($value->tipo_portadas_id, $value->origen_id);
@@ -280,7 +291,7 @@ class Procesos_lib extends MX_Controller {
                             $this->micanal_mp->updateEstadoMigracionPortadas($value->id);
                         } elseif ($value->estado_migracion == 9) {
                             $id_mongo = new MongoId($value->id_mongo);
-                            $this->micanal_mp->setItemCollectionUpdate(array('_id' => $id_mongo), $objmongo);
+                            $this->micanal_mp->setItemCollectionUpdate(array('_id' => $id_mongo), $objmongo);                            
                             $this->micanal_mp->updateEstadoMigracionPortadasActualizacion($value->id);
                         }
                     }
@@ -291,13 +302,18 @@ class Procesos_lib extends MX_Controller {
                 } elseif ($value->estado == 0 || $value->estado == 2) {
                     //eliminacion item en coleccion micanal                    
                     $id_mongo = new MongoId($value->id_mongo);
-                    $this->micanal_mp->SetItemCollectionDelete(array('_id' => $id_mongo));
+                    $this->micanal_mp->setItemCollectionUpdate(array('_id' => $id_mongo),array("estado"=>"0"));
+                    //$this->micanal_mp->SetItemCollectionDelete(array('_id' => $id_mongo));
                     $this->micanal_mp->updateEstadoMigracionPortadasActualizacion($value->id);
                 }
             }
         }
     }
 
+    public function actualizarSecciones(){
+        $this->_generarSeccionesMiCanal();
+    }
+    
     private function _generarSeccionesMiCanal() {
 
         $array = array();
@@ -387,6 +403,10 @@ class Procesos_lib extends MX_Controller {
                 }
             }
         }
+    }
+    
+    public function actualizarDetalleSecciones(){
+        $this->_generarDetalleSeccionesMiCanal();
     }
 
     private function _generarDetalleSeccionesMiCanal() {
