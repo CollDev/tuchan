@@ -13,13 +13,29 @@
     </div>
 </section>
 
-<!--<script>
-    $("input:checkbox:checked").each(function(){
-	//cada elemento seleccionado	
-        alert('check: ' + $(this).val());
-        $("input:radio").each(function() {            
-            alert('radio: ' + $(this).val());
-        });
-    });
+<script>
+    
+    
+    $("td input:radio").attr("disabled","true");
+    
+    
+    function put_disabled(){
+            $("input:checkbox:checked").each(function(){
+
+               //alert('check: ' + $(this).val());
+               $(this).parent().parent().find("td input:radio").removeAttr("disabled");
+
+           });    
+        
+    }
+
+    
+$("input:checkbox:checked").change(function(){
+                $("td input:radio").attr("disabled","true");
+                put_disabled();
+           });  
+
+    
+    
+    
 </script>
--->
