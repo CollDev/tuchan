@@ -19,6 +19,23 @@
 
 <section class="item">
     <?php
+    if ($objBeanForm->video_id > 0):
+        $title_tab = 'Editar ' . $objBeanForm->titulo;
+    else:
+        $title_tab = 'Registrar nuevo video ';
+        ?>
+    <?php endif; ?> 
+    <div id="tabs">
+        <ul>
+            <li><a href="#tabs-1"><?php echo $title_tab; ?></a></li>
+            <?php if ($objBeanForm->video_id > 0): ?>
+                <li><a href="#tabs-2">Imagenes</a></li>
+            <?php endif; ?>  
+        </ul>
+        <div id="tabs-1"  style="width: 100%;"></div>
+        <div id="tabs-2"  style="width: 100%;"></div>
+    </div>
+    <?php
     //get unique id
     $up_id = uniqid();
     ?>
@@ -186,7 +203,7 @@
           );
           echo form_input($personajes); */
         ?>
-        <?php if (count($objClips) > 0) :?>
+        <?php if (count($objClips) > 0 && $objBeanForm->video_id >0) :?>
             <br /><br />
             <!-- Lista de clips -->
             <label for="descripcion"><?php echo lang('videos:clips_label'); ?></label>

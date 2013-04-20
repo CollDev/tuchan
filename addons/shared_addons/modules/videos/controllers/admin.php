@@ -591,7 +591,6 @@ class Admin extends Admin_Controller {
 
         // Busca los videos hijos (clips)
         $clips = $this->videos_m->get_clips_by_video($video_id);
-        
         $arrayFuente = $this->canales_m->getCanalDropDown(array(), 'nombre');
         $this->template
                 ->title($this->module_details['name'])

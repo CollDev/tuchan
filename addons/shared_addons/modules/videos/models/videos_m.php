@@ -53,7 +53,7 @@ class Videos_m extends MY_Model
         $this->db->join('default_cms_imagenes i', 'i.videos_id = v.id');
         $this->db->join('default_cms_tipo_imagen ti', 'ti.id = i.tipo_imagen_id');
         $this->db->where($where);
-
+        
         $result = $this->db->get()->result();
         return $result;
     }
