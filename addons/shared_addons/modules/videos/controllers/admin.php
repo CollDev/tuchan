@@ -2937,6 +2937,7 @@ class Admin extends Admin_Controller {
                         $objImagen->imagen = $this->config->item('protocolo:http') . $this->config->item('server:elemento') . '/' . $objImagen->imagen;
                     }
                     $objImagen->existe = 'Si';
+                    $objImagen->tipo = $tipo;
                     $objImagen->accion = '<div style="width:120px;" id="fine-uploader-basic_' . $objImagen->tipo_imagen_id . '_' . $objImagen->id . '" class="btn red"><i class="icon-upload icon-white"></i>' . lang('imagen:cambiar_imagen') . '</div>';
                     $objImagen->accion.= '<div class="btn blue" onclick="restaurar_imagen(' . $objTipoImagen->id . ',' . $maestro_id . ');return false;" style="width:120px;" id="restaurar_imagen_' . $objImagen->id . '">' . lang('imagen:restaurar_imagen') . '</button>';
                     $objImagen->progreso = '<div id="messages_' . $objImagen->tipo_imagen_id . '_' . $objImagen->id . '"></div>';
@@ -2945,8 +2946,11 @@ class Admin extends Admin_Controller {
                     $oImagen = new stdClass();
                     $oImagen->id = 0;
                     $oImagen->canales_id = NULL;
-                    $oImagen->grupo_maestros_id = $maestro_id;
+                    $oImagen->grupo_maestros_id = NULL;
                     $oImagen->videos_id = NULL;
+                    if($tipo == 'maestro'){$oImagen->grupo_maestros_id = $maestro_id;}
+                    if($tipo == 'video'){$oImagen->videos_id = $maestro_id;}
+                    if($tipo == 'canal'){$oImagen->canales_id = $maestro_id;}
                     $oImagen->imagen = UPLOAD_IMAGENES_VIDEOS . 'no_video.jpg';
                     $oImagen->tipo_imagen_id = $objTipoImagen->id;
                     $oImagen->estado = $this->config->item('estado:publicado');
@@ -2955,6 +2959,7 @@ class Admin extends Admin_Controller {
                     $oImagen->imagen_padre = 0;
                     $oImagen->procedencia = 0;
                     $oImagen->imagen_anterior = NULL;
+                    $oImagen->tipo = $tipo;
                     $oImagen->tipo_imagen = $objTipoImagen->nombre;
                     $oImagen->tamanio = $objTipoImagen->ancho . 'x' . $objTipoImagen->alto;
                     $oImagen->accion = '<div style="width:120px;" id="fine-uploader-basic_' . $oImagen->tipo_imagen_id . '_' . $oImagen->id . '" class="btn red"><i class="icon-upload icon-white"></i>' . lang('imagen:subir_imagen') . '</div>';
@@ -4516,7 +4521,19 @@ class Admin extends Admin_Controller {
             $html.='<th>Acción</th>';
             $html.='<th>ID</th>';
             $html.='</tr>';
-            $imagenes_resturar = $this->imagen_m->get_many_by(array("grupo_maestros_id" => $maestro_id, "tipo_imagen_id" => $tipo_imagen, "estado" => $this->config->item('estado:borrador')));
+            if($this->input->post('tipo')== 'video'){
+                $imagenes_resturar = $this->imagen_m->get_many_by(array("videos_id" => $maestro_id, "tipo_imagen_id" => $tipo_imagen));
+                if(count($imagenes_resturar)>0){
+                    foreach($imagenes_resturar as $puntero=>$objImg){
+                        if($objImg->estado == $this->config->item('estado:publicado')){
+                            unset($imagenes_resturar['puntero']);
+                        }
+                    }
+                }
+            }else{
+                $imagenes_resturar = $this->imagen_m->get_many_by(array("grupo_maestros_id" => $maestro_id, "tipo_imagen_id" => $tipo_imagen, "estado" => $this->config->item('estado:borrador')));
+            }
+            
             if (count($imagenes_resturar) > 0) {
                 foreach ($imagenes_resturar as $puntero => $objImagen) {
                     if ($objImagen->procedencia == '1') {
@@ -4558,14 +4575,22 @@ class Admin extends Admin_Controller {
     public function verificar_estado_video() {
         if ($this->input->is_ajax_request()) {
             $lista_videos = $this->input->post();
+            $error = 0;
+            $array_video = array();
+            if(is_array($lista_videos)){
             if (count($lista_videos) > 0) {
-                $array_video = array();
                 foreach ($lista_videos as $puntero => $video_id) {
                     $objVideo = $this->videos_m->get($video_id);
                     $array_video[$video_id] = $objVideo->estado;
                 }
+            }else{
+                $error = 1;
             }
-            echo json_encode(array("videos" => $array_video));
+            }else{
+                $error = 1;
+            }
+            
+            echo json_encode(array("error"=>$error,"videos" => $array_video));
         }
     }
 
