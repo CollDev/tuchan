@@ -186,30 +186,32 @@
           );
           echo form_input($personajes); */
         ?>
-        <br /><br />
-        <!-- Lista de clips -->
-        <label for="descripcion"><?php echo lang('videos:clips_label'); ?></label>
-        <br />
-        <table>
-            <tr>
-                <th><?php echo lang('videos:imagen_label'); ?></th>
-                <th><?php echo lang('videos:titulo_label'); ?></th>     
-            </tr>
-            <?php foreach ($objClips as $clip) : ?>
+        <?php if (count($objClips) > 0) :?>
+            <br /><br />
+            <!-- Lista de clips -->
+            <label for="descripcion"><?php echo lang('videos:clips_label'); ?></label>
+            <br />
+            <table>
                 <tr>
-                    <td>
-                        <a href="<?php echo $clip->ruta ?>">
-                            <img src="<?php echo $clip->imagen ?>" alt="<?php echo $clip->titulo ?>" title="<?php echo $clip->titulo ?>" style="width:100px"/>
-                        </a>
-                    </td>
-                    <td>
-                        <a href="<?php echo $clip->ruta ?>">
-                            <?php echo $clip->titulo ?>
-                        </a>
-                        </td>
+                    <th><?php echo lang('videos:imagen_label'); ?></th>
+                    <th><?php echo lang('videos:titulo_label'); ?></th>     
                 </tr>
-            <?php endforeach ?>
-        </table>
+                <?php foreach ($objClips as $clip) : ?>
+                    <tr>
+                        <td>
+                            <a href="<?php echo $clip->ruta ?>">
+                                <img src="<?php echo $clip->imagen ?>" alt="<?php echo $clip->titulo ?>" title="<?php echo $clip->titulo ?>" style="width:100px"/>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="<?php echo $clip->ruta ?>">
+                                <?php echo $clip->titulo ?>
+                            </a>
+                            </td>
+                    </tr>
+                <?php endforeach ?>
+            </table>
+       <?php endif ?>
     </div>
 
     <div class="right_arm">
