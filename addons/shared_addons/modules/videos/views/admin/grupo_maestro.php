@@ -1,16 +1,23 @@
-<section class="title">
+<section class="title"> 
+    <?php
+    echo anchor('admin/videos/carga_unitaria/' . $objCanal->id, 'Carga unitaria', array('class' => ''));
+    echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
+/*    echo anchor('admin/videos/carga_masiva/' . $canal_id, 'Carga masiva', array('class' => ''));
+    echo '&nbsp;&nbsp;|&nbsp;&nbsp;';*/
+    echo anchor('admin/videos/maestro/' . $objCanal->id, 'Organizar videos', array('class' => ''));
+    echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
+    echo anchor('admin/canales/portada/' . $objCanal->id, 'Portadas', array('class' => ''));
+    ?>
+</section>
     <?php
     if ($objMaestro->id > 0):
         $title_tab = 'Editar ' . $objMaestro->nombre;
         ?>
-        <h4><?php echo 'Editar ' . $objMaestro->nombre; ?></h4>
         <?php
     else:
         $title_tab = 'Crear nuevo maestro ';
         ?>
-        <h4><?php echo 'Agregar nuevo programa, colección o Lista' ?></h4>
     <?php endif; ?>
-</section>
 <section class="item">
     <?php
     // Canales_id       
@@ -141,6 +148,7 @@
 </section>
 <script type="text/javascript">
                     $(document).ready(function() {
+                        mostrar_titulo();
                         $("#tabs").tabs();
                         $(".bajada2").css('height', '800');
 <?php if ($objMaestro->id > 0): ?>
@@ -716,5 +724,19 @@
 
                             } //end success
                         }); //end AJAX                          
+                    }
+                    function mostrar_titulo() {
+                        var vista = 'Programa';
+                        var post_url = "/admin/canales/mostrar_titulo/<?php echo $objCanal->id; ?>/" + vista;
+                        $.ajax({
+                            type: "POST",
+                            url: post_url,
+                            dataType: 'html',
+                            //data:imagen_id,
+                            success: function(respuesta) //we're calling the response json array 'cities'
+                            {
+                                $(".subbar > .wrapper").html(respuesta);
+                            } //end success
+                        }); //end AJAX              
                     }
 </script>
