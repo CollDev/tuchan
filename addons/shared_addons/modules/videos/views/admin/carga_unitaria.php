@@ -112,20 +112,20 @@
 
                 <?php if ($objBeanForm->video_id > 0) { ?>
                     <!-- imagen -->
-                    <label for="imagen"><?php echo lang('videos:avatar'); ?></label>
+<!--                    <label for="imagen"><?php //echo lang('videos:avatar'); ?></label>-->
                     <?php
-                    $imagen = array('name' => 'addImage', 'id' => 'addImage', 'type' => 'button', 'value' => 'Agrega nuevas imagenes a tu video');
+                    $imagen = array('name' => 'addImage', 'id' => 'addImage', 'type' => 'hidden', 'value' => 'Agrega nuevas imagenes a tu video');
                     echo '<div style="float:left;">' . form_input($imagen) . '</div>';
                     ?>
-                    <div  class="loaderAjax" id="loaderAjax" style="display: none; float: left;">
+<!--                    <div  class="loaderAjax" id="loaderAjax" style="display: none; float: left;">
                         <img src="uploads/imagenes/loading.gif">
                     </div>
                     <div style="clear: both;"></div>
                     <div id="contenedorImage">
-                        <?php if (count($objBeanForm->avatar) > 0) { ?>
+                        <?php //if (count($objBeanForm->avatar) > 0) { ?>
                             <select id="listaImagenes"></select>
-                        <?php } ?>
-                    </div>
+                        <?php //} ?>
+                    </div>-->
 
                     <?php
                 }
