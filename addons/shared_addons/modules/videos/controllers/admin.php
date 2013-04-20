@@ -473,6 +473,7 @@ class Admin extends Admin_Controller
             $objBeanForm->tipo_maestro = '';
             $objBeanForm->keywords = '';
             $objBeanForm->error = $error;
+            $objBeanForm->padre = 0;
             $objBeanForm->message = $message;
             $objBeanForm->ruta = $objVideo->ruta; /* adicionado */
             $objBeanForm->tiene_imagen = $this->_tieneAvatar($video_id);
@@ -509,6 +510,7 @@ class Admin extends Admin_Controller
                 $objBeanForm->error = $error;
                 $objBeanForm->message = $message;
                 $objBeanForm->keywords = '';
+                $objBeanForm->padre = $this->input->post('padre');
             } else {
                 $objBeanForm->video_id = $video_id;
                 $objBeanForm->titulo = '';
@@ -536,6 +538,7 @@ class Admin extends Admin_Controller
                 $objBeanForm->error = $error;
                 $objBeanForm->message = $message;
                 $objBeanForm->keywords = '';
+                $objBeanForm->padre = 0;
             }
         }
 
@@ -2278,6 +2281,7 @@ class Admin extends Admin_Controller
                 $objBeanVideo->ubicacion = $this->input->post('ubicacion');
                 $objBeanVideo->fecha_actualizacion = date("Y-m-d H:i:s");
                 $objBeanVideo->usuario_actualizacion = $user_id;
+                $objBeanVideo->padre = $this->input->post('padre');
                 $this->videos_m->update_video($objBeanVideo);
 
                 $this->_saveTagsTematicaPersonajes($objBeanVideo, $this->input->post());
@@ -4577,6 +4581,20 @@ class Admin extends Admin_Controller
                 $imagen = $this->config->item('protocolo:http') . $this->config->item('server:elemento') . '/' . $objImagen->imagen;
             }
             echo json_encode(array("url" => $imagen, "imagen_id" => $imagen_id));
+        }
+    }
+    
+    public function verificar_estado_video(){
+        if ($this->input->is_ajax_request()) {
+            $lista_videos = $this->input->post();
+            if(count($lista_videos)>0){
+                $array_video = array();
+                foreach ($lista_videos as $puntero=>$video_id){
+                    $objVideo = $this->videos_m->get($video_id);
+                    $array_video[$video_id] = $objVideo->estado;
+                }
+            }
+            echo json_encode(array("videos"=>$array_video));
         }
     }
 
