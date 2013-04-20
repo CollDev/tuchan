@@ -305,7 +305,8 @@ class Admin extends Admin_Controller {
         }
     }
 
-    public function carga_unitaria($canal_id = 0, $video_id = 0) {
+    public function carga_unitaria($canal_id = 0, $video_id = 0) 
+    {
         $error = false;
         $message = '';
         if ($this->input->post()) {

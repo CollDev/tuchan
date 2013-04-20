@@ -45,9 +45,12 @@ echo $vars['lang']['direction']; ?>>
         </span>
     </div>
 
-    <div class="wrapper">
+    <!-- Logo Mi Canal -->
+    <div class="wrapper">        
         <div id="logo">
-            <?php echo anchor($this->session->userdata('lista_videos_default'), 'logo',  'title="Mi Canal"') ?> 
+            <a href="<?php echo base_url($this->session->userdata('lista_videos_default')) ?>">
+                <img src="<?php echo base_url('system/cms/themes/pyrocms/img/logomicanal.png') ?>" alt="Mi Canal" title="Mi Canal" />
+            </a>
         </div>
 
         <nav>
