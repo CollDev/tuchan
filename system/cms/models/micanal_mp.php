@@ -89,7 +89,7 @@ class MiCanal_mp extends CI_Model {
                         FROM default_cms_secciones se INNER JOIN default_cms_portadas po ON se.portadas_id = po.id
                         WHERE se.estado=1 AND 
                         se.id IN (  SELECT DISTINCT ds.secciones_id FROM default_cms_detalle_secciones  ds WHERE ds.estado_migracion IN (0,9) AND ds.estado=1)  ";
-                echo "query3;" . $query . "\n";
+                //echo "query3;" . $query . "\n";
                 break;
 
 

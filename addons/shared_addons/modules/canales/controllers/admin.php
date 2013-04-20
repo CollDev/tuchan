@@ -50,6 +50,7 @@ class Admin extends Admin_Controller {
         $this->load->model('portada_secciones_m');
         $this->load->model('detalle_secciones_m');
         $this->load->library('imagenes_lib');
+        $this->load->library('procesos_lib');
         $this->config->load('videos/uploads');
     }
 
@@ -60,9 +61,7 @@ class Admin extends Admin_Controller {
      */
     public function index() {
         //echo "here!!---->".($this->session->userdata['group']);die();
-        if ($this->session->userdata['group'] == 'administrador-canales' 
-                || $this->session->userdata['group'] == 'admin'
-                || $this->session->userdata['group'] == 'administrador-mi-canal') {
+        if ($this->session->userdata['group'] == 'administrador-canales' || $this->session->userdata['group'] == 'admin' || $this->session->userdata['group'] == 'administrador-mi-canal') {
             $base_where = array();
             $keyword = '';
             if ($this->input->post('f_keywords'))
@@ -124,10 +123,10 @@ class Admin extends Admin_Controller {
         $keyword = '';
         if ($this->input->post('f_keywords'))
             $keyword = $this->input->post('f_keywords');
-        
+
         if ($this->input->post('f_programa'))
             $base_where['tercer_padre'] = $this->input->post('f_programa');
-        
+
         // Create pagination links
         if (strlen(trim($keyword)) > 0) {
             $total_rows = $this->vw_video_m->like('titulo', $keyword)->count_by($base_where);
@@ -4413,6 +4412,14 @@ class Admin extends Admin_Controller {
             }
             echo $html;
         }
+    }
+
+    public function test() {
+        $r = $this->procesos_lib->procesoVideos();
+        $this->template
+                ->title($this->module_details['name'])
+                ->set('canales', "d");
+       $this->template->build('admin/test');
     }
 
 }

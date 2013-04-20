@@ -1,6 +1,6 @@
 <?php
 
-class Procesos extends MX_Controller {
+class Procesos_lib extends MX_Controller {
 
     public function __construct() {
         //parent::__construct();
@@ -47,7 +47,7 @@ class Procesos extends MX_Controller {
 
             $arrayViews = $this->liquid->obtenernumberOfViews($value->apikey);
             foreach ($arrayViews as $value) {
-                print_r($value);
+                //print_r($value);
                 $this->videos_mp->setReproducciones($value["id"], $value["numberOfViews"]);
             }
         }
@@ -84,7 +84,7 @@ class Procesos extends MX_Controller {
     private function _convertirVideos() {
 
         $resultado = $this->videos_mp->getVideosNuevos();
-        echo print_r($resultado) . "\n";
+        //echo print_r($resultado) . "\n";
 
         if (count($resultado) > 0) {
             foreach ($resultado as $value) {
@@ -101,7 +101,7 @@ class Procesos extends MX_Controller {
     private function _uploadVideos() {
 
         $resultado = $this->videos_mp->getVideosMp4();
-        echo print_r($resultado) . "\n";
+        //echo print_r($resultado) . "\n";
         if (count($resultado) > 0) {
             foreach ($resultado as $value) {
 
@@ -122,11 +122,11 @@ class Procesos extends MX_Controller {
 
     private function _publishVideos() {
         $resultado = $this->videos_mp->getVideosNoPublicados();
-        echo print_r($resultado) . "\n";
+        //echo print_r($resultado) . "\n";
         if (count($resultado) > 0) {
             foreach ($resultado as $value) {
                 $retorno = Liquid::updatePublishedMediaNode($value);
-                var_dump($retorno);
+                //var_dump($retorno);
                 if ($retorno != FALSE) {
                     $this->videos_mp->setEstadosVideos($value->id, 1, 5);
                 }
@@ -155,7 +155,7 @@ class Procesos extends MX_Controller {
                     $imagenes = Liquid::getimagenesLiquid($mediaarr);
 
                     if (count($imagenes) > 0) {
-                        print_r($imagenes);
+                        //print_r($imagenes);
                         $datos = array();
 
                         $datos["videos_id"] = $value->id;
@@ -307,7 +307,7 @@ class Procesos extends MX_Controller {
 
 
 
-        echo count($resquery) . "\n";
+        //echo count($resquery) . "\n";
 
         if (count($resquery) != 0) {
 
@@ -324,7 +324,7 @@ class Procesos extends MX_Controller {
                     $array["alias_pa"] = $value->alias_pa;
                     $array["alias_se"] = $this->urls_amigables($value->nombre);
 
-                    echo $value->tipo_portadas_id . " - " . $value->tipo_secciones_id;
+                    //echo $value->tipo_portadas_id . " - " . $value->tipo_secciones_id;
 
                     if ($value->tipo_portadas_id == 5 and $value->tipo_secciones_id == 1) {
 
@@ -395,7 +395,7 @@ class Procesos extends MX_Controller {
 
 
         foreach ($resquery as $value) {
-            echo "seccion_id" . $value->id . "; mongo:" . $value->id_mongo . "\n";
+            //echo "seccion_id" . $value->id . "; mongo:" . $value->id_mongo . "\n";
             $resquery2 = $this->micanal_mp->queryMysql(4, $value->id);
 
 
@@ -404,7 +404,7 @@ class Procesos extends MX_Controller {
             foreach ($resquery2 as $value2) {
                 $arrtemp = array();
 
-                echo "\n estado" . $value2->estado . "\n";
+                //echo "\n estado" . $value2->estado . "\n";
 
                 if ($value2->estado == 1) {
 
@@ -456,10 +456,10 @@ class Procesos extends MX_Controller {
                 }
 
                 if ($value2->estado_migracion == 0) {
-                    echo "ingresando : " . $value2->id . "\n";
+                    //echo "ingresando : " . $value2->id . "\n";
                     $this->micanal_mp->updateEstadoMigracionDetalleSecciones($value2->id);
                 } elseif ($value2->estado_migracion == 9 || $value2->estado_migracion == 2) {
-                    echo "actualizando : " . $value2->id . "\n";
+                    //echo "actualizando : " . $value2->id . "\n";
                     $this->micanal_mp->updateEstadoMigracionDetalleSeccionesActualizacion($value2->id);
                 }
             }
@@ -653,7 +653,7 @@ class Procesos extends MX_Controller {
                     $set = $objmongo;
                     $this->canal_mp->setItemCollectionUpdate($set, $where);
                     $this->canal_mp->updateEstadoMigracionVideosActualizacion($value->id);
-                    print_r($set);
+                    //print_r($set);
                 }
 
 
@@ -668,7 +668,7 @@ class Procesos extends MX_Controller {
         $videos = $this->videos_mp->getVideosActivos();
 
         foreach ($videos as $value) {
-            print_r($value);
+            //print_r($value);
             $where = array("_id" => new MongoId($value->id_mongo));
 
             if (!empty($value->id)) {
@@ -696,7 +696,7 @@ class Procesos extends MX_Controller {
                     $i++;
                 }
 
-                print_r($arrayrelated);
+                //print_r($arrayrelated);
 
                 $set = array("playlist" => $arrayrelated);
                 $this->canal_mp->SetItemCollectionUpdate($set, $where);
