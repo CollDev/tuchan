@@ -1,10 +1,11 @@
 <noscript>
-	<span>PyroCMS requires that JavaScript be turned on for many of the functions to work correctly. Please turn JavaScript on and reload the page.</span>
+<span>PyroCMS requires that JavaScript be turned on for many of the functions to work correctly. Please turn JavaScript on and reload the page.</span>
 </noscript>
 
-<div class="topbar" dir=<?php $vars = $this->load->_ci_cached_vars; echo $vars['lang']['direction']; ?>>
-	
-<div class="bajada2">
+<div class="topbar" dir=<?php $vars = $this->load->_ci_cached_vars;
+echo $vars['lang']['direction']; ?>>
+
+    <div class="bajada2">
         <span class="boxgrid captionfull">	
             <div class="cover boxcaption">
 
@@ -43,41 +44,38 @@
             </div>
         </span>
     </div>
-    
-    
-    
-    
-    
-    
-    
-    
-	<div class="wrapper">
 
-		<div id="logo">
-			<?php /*echo anchor('', $this->settings->site_name, 'target="_blank"');*/ ?>
-           logo
-		</div>
-	
-		<nav>
-			<?php file_partial('navigation'); ?>
-		</nav>
-	</div>
-	
+    <!-- Logo Mi Canal -->
+    <div class="wrapper">        
+        <div id="logo">
+            <a href="<?php echo base_url($this->session->userdata('lista_videos_default')) ?>">
+                <img src="<?php echo base_url('system/cms/themes/pyrocms/img/logomicanal.png') ?>" alt="Mi Canal" title="Mi Canal" />
+            </a>
+        </div>
+
+        <nav>
+            <?php file_partial('navigation'); ?>
+        </nav>
+    </div>
+
 </div>
 
 <div class="subbar">
-	<div class="wrapper">
+    <div class="wrapper">
 
-		<h2 class="channel_item"><?php echo $module_details['name'] ? anchor('admin/'.$module_details['slug'], $module_details['name']) : lang('global:dashboard'); ?>
-	
-		<!--<small>-->
-			<?php if ( $this->uri->segment(2) ) { echo '&nbsp; | &nbsp;'; } ?>
-			<?php echo $module_details['description'] ? $module_details['description'] : ''; ?>
-<!--		</small>-->
-		</h2>
-		<?php file_partial('shortcuts'); ?>
-
-	</div>
+        <h2 class="channel_item"><?php echo $module_details['name'] ? anchor('admin/' . $module_details['slug'], $module_details['name']) : lang('global:dashboard'); ?>
+            <!--<small>-->
+            <?php if ($this->uri->segment(2)) :
+                echo '&nbsp; | &nbsp;';
+            endif ?>
+            <?php echo $module_details['description'] ? $module_details['description'] : ''; ?>
+             <!-- </small>-->
+        </h2>
+        <?php file_partial('shortcuts'); ?>
+    </div>
 </div>
 
-<?php if ( ! empty($module_details['sections'])) file_partial('sections'); ?>
+<?php
+if (!empty($module_details['sections'])) :
+    file_partial('sections'); 
+endif ?>
