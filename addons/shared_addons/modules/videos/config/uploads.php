@@ -36,6 +36,7 @@ $config['migracion:actualizado'] = '9';
 //estados de los videos en el flujo de upload
 $config['status:codificando'] = '0';
 $config['liquid:nuevo'] = '0';
+$config['liquid:mp4'] = '2';
 
 //estados de las imagenes
 $config['imagen:borrador'] = '0';

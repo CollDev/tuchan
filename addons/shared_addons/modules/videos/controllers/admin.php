@@ -54,6 +54,7 @@ class Admin extends Admin_Controller {
             $path_video_new = FCPATH . 'uploads/videos/' . $objBeanVideo->id . '.' . $this->config->item('videos:extension'); // . $ext;
         } else {
             $path_video_new = FCPATH . 'uploads/videos/' . $objBeanVideo->id . '.' . $this->config->item('extension:mp4'); // . $ext;
+            $this->videos_m->update($objBeanVideo->id, array("estado_liquid"=>$this->config->item('liquid:mp4')));
         }
         rename($path_video_old, $path_video_new);
         return $returnValue;
