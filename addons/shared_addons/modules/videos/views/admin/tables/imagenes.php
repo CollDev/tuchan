@@ -44,7 +44,9 @@
             foreach ($imagenes as $puntero => $objImagen):
                 ?>
                 <tr>
-                    <td style="width: 5%"><?php echo ($puntero + 1) ?></td>
+                    <td style="width: 5%"><?php echo ($puntero + 1) ?>
+                        <?php if($puntero==0) { echo '<input type="hidden" name="tipo_origen" id="tipo_origen" value="'.$objImagen->tipo.'" />';} ?>
+                    </td>
                     <td id="tipo_<?php echo $objImagen->tipo_imagen_id; ?>" style="width: 20%"><img style="width:120px; height: 70px;" src="<?php echo $objImagen->imagen; ?>" /></td>
                     <td style="width: 10%"><?php echo $objImagen->tipo_imagen; ?></td>
                     <td style="width: 10%"><?php echo $objImagen->tamanio; ?></td>
@@ -81,7 +83,7 @@
             type: "POST",
             url: post_url,
             dataType: 'html',
-            //data: serializedData,
+            data: 'tipo_origen='+$("#tipo_origen").val(),
             success: function(respuesta)
             {
                 $("#divRestaurar").html(respuesta);

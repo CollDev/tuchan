@@ -45,16 +45,26 @@
             data: serializedData,
             success: function(respuesta) //we're calling the response json array 'cities'
             {
-                $.each(respuesta.videos, function(index, value) {
-                    if(value == 0){var estado='Codificando';}
-                    if(value == 1){var estado='Borrador';}
-                    if(value == 2){var estado='Publicado';}
-                    if(value == 3){var estado='Eliminado';}
-                    $("#video_"+index).html(estado);
-                });
+                if (respuesta.error == 0) {
+                    $.each(respuesta.videos, function(index, value) {
+                        if (value == 0) {
+                            var estado = 'Codificando';
+                        }
+                        if (value == 1) {
+                            var estado = 'Borrador';
+                        }
+                        if (value == 2) {
+                            var estado = 'Publicado';
+                        }
+                        if (value == 3) {
+                            var estado = 'Eliminado';
+                        }
+                        $("#video_" + index).html(estado);
+                    });
+                }
             } //end success
         }); //end AJAX         
 
     }
 </script>
-<!--<script src="<?php //echo base_url("system/cms/themes/pyrocms/js/fix_channels.js")    ?>"></script>-->
+<!--<script src="<?php //echo base_url("system/cms/themes/pyrocms/js/fix_channels.js")     ?>"></script>-->
