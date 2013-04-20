@@ -4521,12 +4521,13 @@ class Admin extends Admin_Controller {
             $html.='<th>Acción</th>';
             $html.='<th>ID</th>';
             $html.='</tr>';
-            if($this->input->post('tipo')== 'video'){
-                $imagenes_resturar = $this->imagen_m->get_many_by(array("videos_id" => $maestro_id, "tipo_imagen_id" => $tipo_imagen));
+            
+            if($this->input->post('tipo_origen')== 'video'){
+                $imagenes_resturar = $this->imagen_m->get_many_by(array("videos_id" => $maestro_id, "tipo_imagen_id" => $tipo_imagen));//$this->imagen_m->get_many_by(array("videos_id" => $maestro_id, "tipo_imagen_id" => $tipo_imagen, "estado" => "NULL"));
                 if(count($imagenes_resturar)>0){
-                    foreach($imagenes_resturar as $puntero=>$objImg){
+                    foreach($imagenes_resturar as $ind=>$objImg){
                         if($objImg->estado == $this->config->item('estado:publicado')){
-                            unset($imagenes_resturar['puntero']);
+                            unset($imagenes_resturar[$ind]);
                         }
                     }
                 }
