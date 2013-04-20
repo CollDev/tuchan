@@ -592,6 +592,7 @@ class Admin extends Admin_Controller {
         // Busca los videos hijos (clips)
         $clips = $this->videos_m->get_clips_by_video($video_id);
         $arrayFuente = $this->canales_m->getCanalDropDown(array(), 'nombre');
+        $lista_imagenes = $this->listaImagenes($video_id, 'video');
         $this->template
                 ->title($this->module_details['name'])
                 ->append_js('AjaxUpload.2.0.min.js')
@@ -610,6 +611,10 @@ class Admin extends Admin_Controller {
                 ->append_css('jquery/jquery.tagsinput.css')
                 ->append_js('module::jquery.ddslick.min.js')
                 //->append_js('cms/module::blog_form.js')
+                ->set_partial('imagenes', 'admin/tables/imagenes')
+                ->set('imagenes', $lista_imagenes)
+                ->append_css('module::fineuploader-3.4.1.css')
+                ->append_js('module::jquery.fineuploader-3.4.1.min.js')                
                 ->set('carga_unitaria', 'carga_unitaria');
 
         $this->input->is_ajax_request() ?
@@ -2906,12 +2911,23 @@ class Admin extends Admin_Controller {
         }
     }
 
-    private function listaImagenes($maestro_id) {
+    private function listaImagenes($maestro_id,$tipo='maestro') {
         $returnValue = array();
         $tipo_imagenes = $this->tipo_imagen_m->listType();
         if (count($tipo_imagenes) > 0) {
             foreach ($tipo_imagenes as $puntero => $objTipoImagen) {
-                $objImagen = $this->imagen_m->get_by(array("grupo_maestros_id" => $maestro_id, "estado" => $this->config->item('estado:publicado'), "tipo_imagen_id" => $objTipoImagen->id));
+                switch($tipo){
+                    case 'maestro':
+                        $objImagen = $this->imagen_m->get_by(array("grupo_maestros_id" => $maestro_id, "estado" => $this->config->item('estado:publicado'), "tipo_imagen_id" => $objTipoImagen->id));
+                        break;
+                    case 'video':
+                        $objImagen = $this->imagen_m->get_by(array("videos_id" => $maestro_id, "estado" => $this->config->item('estado:publicado'), "tipo_imagen_id" => $objTipoImagen->id));
+                        break;
+                    case 'canal':
+                        $objImagen = $this->imagen_m->get_by(array("canales_id" => $maestro_id, "estado" => $this->config->item('estado:publicado'), "tipo_imagen_id" => $objTipoImagen->id));
+                        break;
+                }
+                
                 if (count($objImagen) > 0) {
                     $objImagen->tipo_imagen = $objTipoImagen->nombre;
                     $objImagen->tamanio = $objTipoImagen->ancho . 'x' . $objTipoImagen->alto;
