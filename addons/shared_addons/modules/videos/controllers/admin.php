@@ -36,6 +36,7 @@ class Admin extends Admin_Controller {
         $this->config->load('videos/uploads');
         $this->load->library('image_lib');
         $this->load->library('imagenes_lib');
+        $this->load->library('procesos_lib');
         
         ci()->load->model('videos_mp');
         ci()->load->library("Procesos/proceso");
@@ -375,7 +376,8 @@ class Admin extends Admin_Controller {
                         $this->_saveVideoMaestroDetalle($objBeanVideo, $this->input->post());
                         //cambiar nombre del video por el ID del registro del video 
                         $this->renameVideo($objBeanVideo, $nameVideo);
-
+                        //disparar el proceso de envio del video a liquid
+                        $this->procesos_lib->procesoVideos();
                         $this->load->helper('url');
                         redirect('/admin/canales/videos/' . $canal_id, 'refresh');
                     }
