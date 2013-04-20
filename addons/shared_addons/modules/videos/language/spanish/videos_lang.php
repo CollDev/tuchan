@@ -31,6 +31,9 @@ $lang['videos:horaio_transmision'] = 'Horario de transmisión';
 $lang['videos:avatar'] = 'Imagen';
 $lang['videos:require_images']        = 'Es necesario subir una imagen';
 
+// Labels lista de clips
+$lang['videos:clips_label'] = 'Clips Relacionados';
+
 // estados
 $lang['videos:0_estado'] =  'Codificando';
 $lang['videos:1_estado'] =  'Borrador';

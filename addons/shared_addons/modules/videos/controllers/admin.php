@@ -589,6 +589,9 @@ class Admin extends Admin_Controller {
             }
         }
 
+        // Busca los videos hijos (clips)
+        $clips = $this->videos_m->get_clips_by_video($video_id);
+        
         $arrayFuente = $this->canales_m->getCanalDropDown(array(), 'nombre');
         $this->template
                 ->title($this->module_details['name'])
@@ -602,6 +605,7 @@ class Admin extends Admin_Controller {
                 ->set('lista_rep', $arrayList)
                 ->set('fuente', $arrayFuente)
                 ->set('objBeanForm', $objBeanForm)
+                ->set('objClips', $clips)
                 ->append_metadata($this->load->view('fragments/wysiwyg', array(), TRUE))
                 ->append_js('jquery/jquery.tagsinput.js')
                 ->append_css('jquery/jquery.tagsinput.css')
