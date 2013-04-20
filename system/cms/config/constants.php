@@ -113,6 +113,7 @@ define('CMS_DATE', '11/01/2012');
 define('TIPO_IMAGEN_ISO', '5');
 define('TIPO_IMAGEN_LOGO', '6');
 define('ESTADO_ACTIVO', '1');
+define('ESTADO_PUBLICADO', '2');
 define("PATH_ELEMENTOS", "http://dev.e.micanal.e3.pe/");
 define('APIURL', 'http://api.liquidplatform.com/2.0');
 define('WEBURL', 'http://webtv.liquidplatform.com/2.0/uploadMedia');

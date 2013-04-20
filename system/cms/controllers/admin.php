@@ -12,9 +12,9 @@ class Admin extends Admin_Controller
 	 */
 	public function __construct()
 	{
-		parent::__construct();
-
-		$this->load->helper('users/user');
+            parent::__construct();
+            $this->load->model('canales/usuario_group_canales_m');
+            $this->load->helper('users/user');
 	}
 
 	/**
@@ -22,71 +22,92 @@ class Admin extends Admin_Controller
 	 */
 	public function index()
 	{          
-		$this->template
-			->enable_parser(TRUE)
-			->title(lang('global:dashboard'));
+            $this->template
+                    ->enable_parser(TRUE)
+                    ->title(lang('global:dashboard'));
 
-		if (is_dir('./installer'))
-		{
-			$this->template
-				->set('messages', array('notice' => lang('cp_delete_installer_message')));
-		}
+            if (is_dir('./installer'))
+            {
+                    $this->template
+                            ->set('messages', array('notice' => lang('cp_delete_installer_message')));
+            }
+
+            if ($this->session->userdata['group'] == 'administrador-canales') {
+                    
+                if (isset($this->session->userdata['canales_usuario'])) {
+                    // Busca el canal por defecto para el usuario logueado
+                    $predeterminado = $this->usuario_group_canales_m->get_canal_default_by_usuario();
+                    $redirect = $this->_check_group($predeterminado);
+                    redirect($redirect);
+                }
                 
-		//$this->template->build('admin/dashboard');		
-                $redirect = $this->_check_group();                
-                redirect($redirect ? $redirect : 'admin/canales');
+            } elseif ($this->session->userdata['group'] == 'admin') {
+                //echo 'mi canal: ' . $this->session->userdata['group'];exit;
+                redirect('admin/canales');
+            }
+                        
 	}
 
 	/**
 	 * Log in
 	 */
 	public function login()
-	{
-		// Set the validation rules
-		$this->validation_rules = array(
-			array(
-				'field' => 'email',
-				'label' => lang('email_label'),
-				'rules' => 'required|callback__check_login'
-			),
-			array(
-				'field' => 'password',
-				'label' => lang('password_label'),
-				'rules' => 'required'
-			)
-		);
+	{                        
+            // Set the validation rules
+            $this->validation_rules = array(
+                    array(
+                            'field' => 'email',
+                            'label' => lang('email_label'),
+                            'rules' => 'required|callback__check_login'
+                    ),
+                    array(
+                            'field' => 'password',
+                            'label' => lang('password_label'),
+                            'rules' => 'required'
+                    )
+            );
 
-		// Call validation and set rules
-		$this->load->library('form_validation');
-		$this->form_validation->set_rules($this->validation_rules);                
+            // Call validation and set rules
+            $this->load->library('form_validation');
+            $this->form_validation->set_rules($this->validation_rules);                
 
-		// If the validation worked, or the user is already logged in
-		if ($this->form_validation->run() OR $this->ion_auth->logged_in())
-		{
-			// if they were trying to go someplace besides the 
-			// dashboard we'll have stored it in the session
-			$redirect = $this->session->userdata('admin_redirect');
-			$this->session->unset_userdata('admin_redirect');                                             
-                        $redirect = $this->_check_group();
-                        redirect($redirect);
-		}
+            // If the validation worked, or the user is already logged in
+            if ($this->form_validation->run() OR $this->ion_auth->logged_in())
+            {
+                    if ($this->session->userdata['group'] == 'administrador-canales') {
+                    
+                        if (isset($this->session->userdata['canales_usuario'])) {
+                            // Busca el canal por defecto para el usuario logueado
+                            $predeterminado = $this->usuario_group_canales_m->get_canal_default_by_usuario();
+                            $redirect = $this->_check_group($predeterminado);
+                            $this->session->set_userdata('lista_videos_default', $redirect);
+                            redirect($redirect);
+                        }
+                        
+                    } elseif ($this->session->userdata['group'] == 'admin' || 
+                            $this->session->userdata['group'] == 'administrador-mi-canal') {
+                        
+                        $this->session->set_userdata('lista_videos_default', 'admin/canales');
+                        redirect('admin/canales');
+                    }
+            }
 
-		$this->template
-			->set_layout(FALSE)
-			->build('admin/login');
+            $this->template
+                    ->set_layout(FALSE)
+                    ->build('admin/login');
 	}
         
         /**
          * Verifica a qué grupo pertenece el usuario logueado
          * @return string
          */
-        private function _check_group()
+        private function _check_group($default)
         {
             switch ($this->session->userdata('group_id')) {
 
                 case 1: // Admin
                 case 4: // Administrador canales
-                    $redirect = 'admin/canales';
+                    $redirect = 'admin/canales/videos/' . $default;
                     break;
 
                 case 3: // Administrador canales

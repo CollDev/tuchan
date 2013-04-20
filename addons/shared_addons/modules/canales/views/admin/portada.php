@@ -5,22 +5,31 @@
     .ui-dialog .ui-state-error { padding: .3em; }
     .validateTips { border: 1px solid transparent; padding: 0.3em; }
 </style>
-<section class="title">
-    <h4><?php echo $title; ?></h4>
+<section class="title"> 
+    <?php
+    echo anchor('admin/videos/carga_unitaria/' . $canal_id, 'Carga unitaria', array('class' => ''));
+    echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
+/*    echo anchor('admin/videos/carga_masiva/' . $canal_id, 'Carga masiva', array('class' => ''));
+    echo '&nbsp;&nbsp;|&nbsp;&nbsp;';*/
+    echo anchor('admin/videos/maestro/' . $canal_id, 'Organizar videos', array('class' => ''));
+    echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
+    echo anchor('admin/canales/portada/' . $canal_id, 'Portadas', array('class' => ''));
+    ?>
 </section>
 <?php if ($objCanal->tipo_canales_id == $this->config->item('canal:mi_canal')): ?>
-    <section>
-        <a href="#" id="display-form" title="<?php echo lang('portada:add_portada'); ?>"><?php echo lang('portada:add_portada'); ?></a>
-    </section>
+<!--    <section>
+        <a href="#" id="display-form" title="<?php //echo lang('portada:add_portada'); ?>"><?php //echo lang('portada:add_portada'); ?></a>
+    </section>-->
 <?php endif; ?>
 <section class="item">
     <?php template_partial('filters'); ?>
     <div id="filter-stage">
         <?php template_partial('portadas'); ?>
     </div>
-    <?php if ($objCanal->tipo_canales_id == $this->config->item('canal:mi_canal')): ?>
+    <?php if (/*$objCanal->tipo_canales_id == $this->config->item('canal:mi_canal')*/TRUE): ?>
         <script type="text/javascript">
             $(function() {
+                mostrar_titulo();
                 var altura = $(document).height();
                 $(".bajada2").css('height', '800');
                 console.log(altura);
@@ -137,7 +146,7 @@
                                     type: "POST",
                                     url: post_url,
                                     dataType: 'json',
-                                    data: serializedData,
+                                    data: serializedData+'&canal_id='+$("#canal_id").val(),
                                     success: function(respuesta)
                                     {
                                         if (respuesta.error == 1) {
@@ -173,6 +182,24 @@
                 $("#portada_id").val(portada_id);
                 $("#seccion-form").dialog("open");
             }
+            function agregar_portada() {
+                $("#dialog-form").dialog("open");
+            }
+            
+        function mostrar_titulo() {
+            var vista = 'portadas';
+            var post_url = "/admin/canales/mostrar_titulo/<?php echo $canal_id; ?>/" + vista;
+            $.ajax({
+                type: "POST",
+                url: post_url,
+                dataType: 'html',
+                //data:imagen_id,
+                success: function(respuesta) //we're calling the response json array 'cities'
+                {
+                    $(".subbar > .wrapper").html(respuesta);
+                } //end success
+            }); //end AJAX              
+        }            
 
 
         </script>
@@ -192,19 +219,20 @@
         </div>
         <div id="seccion-form" title="Agregar nueva Sección" style="display:none;">
             <p class="validateTips"><?php echo lang('portada:all_form_fiels_are_required'); ?></p>
-            <form id="frmNuevoSeccion">
+            <form id="frmNuevoSeccion" name="frmNuevoSeccion">
                 <fieldset>
+                    <input type="hidden" nombre="canal_id" id="canal_id" value="<?php echo $canal_id; ?>" />
                     <label for="name"><?php echo lang('canales:nombre_label'); ?></label>
                     <input type="text" name="nombre_seccion" id="nombre_seccion" class="text ui-widget-content ui-corner-all" style="width:420px;" />
                     <label for="descripcion"><?php echo lang('canales:descripcion_label'); ?></label>
                     <input type="text" name="descripcion_seccion" id="descripcion_seccion" value="" class="text ui-widget-content ui-corner-all" style="width:420px;" />
                     <br />
-                    <label for="tipo_seccion"><?php echo lang('portada:tipo_portada') ?></label>
-                    <?php echo form_dropdown('tipo_seccion', $tipo_seccion, 10); ?>
-                    <br /><br />
+<!--                    <label for="tipo_seccion"><?php //echo lang('portada:tipo_portada') ?></label>
+                    <?php //echo //form_dropdown('tipo_seccion', $tipo_seccion, 10); ?>
+                    <br /><br />-->
                     <label for="templates"><?php echo lang('portada:template') ?></label>
                     <?php echo form_dropdown('template', $templates, 0); ?>
-                    <input type="hidden" nombre="canal_id" id="canal_id" value="<?php echo $canal_id; ?>" />
+                    
                     <input type="hidden" nombre="portada_id" id="portada_id" value="" />
                 </fieldset>
             </form>

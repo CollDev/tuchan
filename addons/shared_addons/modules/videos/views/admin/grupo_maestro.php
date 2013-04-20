@@ -70,21 +70,7 @@
                 echo form_input($fec_pub_fin);
                 ?>                
                 <?php if ($objMaestro->id > 0) { ?>
-                    <!-- imagen -->
-                    <label for="imagen"><?php echo lang('videos:avatar'); ?></label>
-                    <?php
-                    $imagen = array('name' => 'addImage', 'id' => 'addImage', 'type' => 'button', 'value' => 'Agrega nuevas imagenes a tu programa');
-                    echo '<div style="float:left;">' . form_input($imagen) . '</div>';
-                    ?>
-                    <div  class="loaderAjax" id="loaderAjax" style="display: none; float: left;">
-                        <img src="uploads/imagenes/loading.gif">
-                    </div>
-                    <div style="clear: both;"></div>
-                    <div id="contenedorImage">
-                        <?php if (count($objMaestro->avatar) > 0) { ?>
-                            <select id="listaImagenes"></select>
-                        <?php } ?>
-                    </div>
+
 
                 <?php } else { ?>
                     <!-- imagen -->
@@ -168,7 +154,7 @@
                                 selectText: "Seleccione su imagen principal",
                                 onSelected: function(data) {
                                     //console.log(data['selectedData'].value);
-                                    activeImageMaestro(data['selectedData'].value);
+                                    //activeImageMaestro(data['selectedData'].value);
                                 }
                             });
 <?php endif; ?>
@@ -214,7 +200,7 @@
                                         var htmlImg = '<img src="uploads/temp/' + respuesta.fileName + '" title="' + respuesta.fileName + '" style="width:570px;" />';
                                         $("#contenedorImage").html(htmlImg);
 <?php endif; ?>
-                                    console.log(respuesta);
+                                    //console.log(respuesta);
                                 }
                                 else {
                                     alert(respuesta.mensaje);
@@ -281,7 +267,8 @@
                         $.each($('#formMaestro').serializeArray(), function(i, field) {
                             values[field.name] = field.value;
                         });
-                        var post_url = "/admin/videos/registrar_imagenes_maestro/" + values['maestro_id'];
+                        //var post_url = "/admin/videos/registrar_imagenes_maestro/" + values['maestro_id'];
+                        var post_url = "/admin/videos/subir_imagenes_maestro/" + values['maestro_id'];
                         $.ajax({
                             type: "POST",
                             url: post_url,
@@ -291,27 +278,27 @@
                             {
                                 $('#loaderAjax').hide();
                                 //limpiar
-                                $('#listaImagenes').ddslick('destroy');
-                                $("#contenedorImage").empty();
-                                var htmlN = '<select id="listaImagenes">';
-                                $.each(returnRespuesta.imagenes, function(k, v) {
-                                    if (v.estado == '1') {
-                                        htmlN += '<option selected=\"selected\" value=\"' + v.id + '\" data-imagesrc=\"' + v.path + '\" data-description=\" \"></option>';
-                                    } else {
-                                        htmlN += '<option value=\"' + v.id + '\" data-imagesrc=\"' + v.path + '\" data-description=\" \"></option>';
-                                    }
-                                });
-                                htmlN += '</select>';
-                                $("#contenedorImage").html(htmlN);
-                                $('#listaImagenes').ddslick({
-                                    width: 300,
-                                    imagePosition: "center",
-                                    selectText: "Seleccione su imagen principal",
-                                    onSelected: function(data) {
-                                        //console.log(data);
-                                        activeImageMaestro(data['selectedData'].value);
-                                    }
-                                });
+//                                $('#listaImagenes').ddslick('destroy');
+//                                $("#contenedorImage").empty();
+//                                var htmlN = '<select id="listaImagenes">';
+//                                $.each(returnRespuesta.imagenes, function(k, v) {
+//                                    if (v.estado == '1') {
+//                                        htmlN += '<option selected=\"selected\" value=\"' + v.id + '\" data-imagesrc=\"' + v.path + '\" data-description=\" \"></option>';
+//                                    } else {
+//                                        htmlN += '<option value=\"' + v.id + '\" data-imagesrc=\"' + v.path + '\" data-description=\" \"></option>';
+//                                    }
+//                                });
+//                                htmlN += '</select>';
+//                                $("#contenedorImage").html(htmlN);
+//                                $('#listaImagenes').ddslick({
+//                                    width: 300,
+//                                    imagePosition: "center",
+//                                    selectText: "Seleccione su imagen principal",
+//                                    onSelected: function(data) {
+//                                        //console.log(data);
+//                                        activeImageMaestro(data['selectedData'].value);
+//                                    }
+//                                });
 
                             } //end success
                         }); //end AJAX        

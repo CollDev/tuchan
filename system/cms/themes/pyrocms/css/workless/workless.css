@@ -164,7 +164,7 @@ form { margin: 0; }
 form ul { margin: 5px 0 5px 0; padding: 0; }
 form ul li { list-style: none; }
 form .help-inline { font-size: 11px; }
-fieldset { border: 1px solid #eeeeee; margin: 5px 0 15px -5px; padding: 2px 6px 2px 2px; }
+fieldset { border: 1px solid #eeeeee; margin: 0px 0 0px 0px; padding: 0px 0px 0px 0px; }
 
 /* Indicate that 'label' will shift focus to the associated form element */
 label { cursor: pointer; font-size: 12px; font-weight: bold; }
@@ -260,7 +260,7 @@ input[type="password"],
 input[type="file"],
 textarea {
 	background: #f1f1f1;
-	padding: 8px;
+	padding: 5px;
 	border: 1px solid #d9d9d9;
 	border-radius: 5px;
 	-moz-border-radius: 5px;
@@ -1706,7 +1706,6 @@ background-color: rgb(136, 130, 141);
 width: 100%;
 min-height: 25px;
 padding-top: 10px;
-padding-left: 15px;
 }
 
 

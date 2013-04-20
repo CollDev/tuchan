@@ -11,6 +11,7 @@ $config['videos:videos']   = UPLOAD_VIDEOS;
 
 $config['videos:formatos'] = 'mp4|mpg|flv|avi|wmv';
 $config['videos:extension'] = 'vid';
+$config['extension:mp4'] = 'mp4';
 
 //identificadores para los tipos de maestros
 $config['videos:programa'] = '3';
@@ -21,6 +22,12 @@ $config['videos:lista'] = '1';
 $config['estado:borrador'] = '0';
 $config['estado:publicado'] = '1';
 $config['estado:eliminado'] = '2';
+
+//estados de los videos
+$config['video:codificando'] = '0';
+$config['video:borrador'] = '1';
+$config['video:publicado'] = '2';
+$config['video:eliminado'] = '3';
 
 //estado de migración
 $config['migracion:nuevo'] = '0';
@@ -53,6 +60,7 @@ $config['imagen:formatos'] = 'jpg|png|jpeg';
 
 //procedencia
 $config['procedencia:liquid'] = '1';
+$config['procedencia:elemento'] = '0';
 
 //tipos de tag
 $config['tag:tematicas'] = '1';
@@ -100,3 +108,5 @@ $config['grupo:administrador-canales'] = '4';
 
 //tipo de canal
 $config['canal:mi_canal'] = '5';
+//intervalo de tiempo en segundos para verificar el estado de videos
+$config['video:segundos'] = '10000';

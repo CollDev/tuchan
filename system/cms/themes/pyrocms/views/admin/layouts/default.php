@@ -165,45 +165,7 @@
     <div id="loading">
         <p><img id="imgLoading" src="uploads/imagenes/loading.gif" /></p><p> Espere por favor</p>
     </div>
-    <div class="bajada2">
-        <span class="boxgrid captionfull">	
-            <div class="cover boxcaption">
-
-                <div class="toggle-icon-finder">
-                    <a href="#" class="linker">EXPANDER</a>
-                    <a href="#" class="linker2 hide">CONTRAER</a>
-
-                    <a href="#" class="plus_view"></a>	
-                </div>
-                <div class="search-box">
-<!--                <span class="view_mc">BUSQUEDA</span>                          	  
-                         <div class="frm-input">
-                               <div class="input-wrapper">
-                                   <input id="q" name="q" type="text" placeholder="Titulo">   
-                               </div>
-                               <br />
-                               <br />
-                               <div class="input-wrapper">
-                                   <input id="q" name="q" type="text" placeholder="Categoria">
-                               </div>
-                               <br />
-                               <br />
-                               <div class="input-wrapper">
-                                   <input id="q" name="q" type="text"  placeholder="Tipo">
-                               </div>
-                               <br />
-                               <br />
-                               <a href="#" id="s" name="s" class="btn blue">
-                                   <span class="st">Buscar</span>
-                               
-                               </a>
-                    </div>-->
-                </div>   
-
-
-            </div>
-        </span>
-    </div>
+    
 
     <script type="text/javascript">
         $(document).ready(function() {
