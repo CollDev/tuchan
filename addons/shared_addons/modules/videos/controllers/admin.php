@@ -36,6 +36,9 @@ class Admin extends Admin_Controller {
         $this->config->load('videos/uploads');
         $this->load->library('image_lib');
         $this->load->library('imagenes_lib');
+        
+        ci()->load->model('videos_mp');
+        ci()->load->library("Procesos/proceso");
     }
 
     public function index() {
@@ -2243,30 +2246,12 @@ class Admin extends Admin_Controller {
         }
     }
 
-    public function postDatos($url, $post) {
-
-
-
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible;)");
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_POST, TRUE);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
-        //curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        //curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
-        // curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-Type: text/xml"));
-        $result = curl_exec($ch);
-        curl_close($ch);
-
-        //echo "resultadoi:". $result;
-        return $result;
-    }
+  
 
     public function insertCorteVideo($canal_id, $video_id) {
 //        print_r($this->input->post());
-if (true){
-    if (true){
-        /*if ($this->input->is_ajax_request()) {
+
+        if ($this->input->is_ajax_request()) {
             if ($this->verificarVideo($canal_id, $video_id, $this->input->post())) {
                 echo json_encode(array("value" => '1'));
             } else {
@@ -2317,30 +2302,21 @@ if (true){
                 }
                 //guardamos en la tabla grupo detalle
                 $this->_saveVideoMaestroDetalle($objBeanVideo, $this->input->post(), $maestro_detalle_id);
-*/
+            
+                $datos = array();
+                $datos["id_padre"] = $video_id;
+                $datos["id_hijo"] = $objvideotemp->id;
+                $datos["inicio"] =  $this->input->post('ini_corte');
+                $datos["duracion"] = $this->input->post('dur_corte');
+
+                $result = ci()->videos_mp->getVideosxId($video_id);
+                $datos["ruta"] = $result[0]->ruta;
                 
-                $id_hijo = '1'; //$objvideotemp->id;
-                $inicio = $this->input->post('ini_corte');
-                $duracion = $this->input->post('dur_corte');
-                
-                $CI =& get_instance();
-echo 'ci: ' . $CI;exit;
-                Proceso::corte_Video($video_id,$id_hijo,$inicio,$duracion);
-                
+                Proceso::corte_Video($datos);
+                 
+                         
 
-                /*$urlpost = base_url("/procesos/cortevideo.php");
-                //$urlpost = "http://localhost/adminmicanal/procesos/cortevideo.php";
-
-                $post = array(
-                    "id_padre" => $video_id,
-                    "id_hijo" => $objvideotemp->id,
-                    "inicio" => $this->input->post('ini_corte'),
-                    "duracion" => $this->input->post('dur_corte')
-                );
-
-
-                //$this->postDatos($urlpost, $post);*/
-
+             
                 echo json_encode(array("value" => '0'));
             }
         }
