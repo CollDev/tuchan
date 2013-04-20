@@ -4583,6 +4583,20 @@ class Admin extends Admin_Controller
             echo json_encode(array("url" => $imagen, "imagen_id" => $imagen_id));
         }
     }
+    
+    public function verificar_estado_video(){
+        if ($this->input->is_ajax_request()) {
+            $lista_videos = $this->input->post();
+            if(count($lista_videos)>0){
+                $array_video = array();
+                foreach ($lista_videos as $puntero=>$video_id){
+                    $objVideo = $this->videos_m->get($video_id);
+                    $array_video[$video_id] = $objVideo->estado;
+                }
+            }
+            echo json_encode(array("videos"=>$array_video));
+        }
+    }
 
 }
 

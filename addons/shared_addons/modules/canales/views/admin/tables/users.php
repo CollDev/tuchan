@@ -7,7 +7,9 @@
         </td>
     </tr>
 </table>
-        <?php echo form_open('canales/videos/action'); ?>
+        <?php 
+        $attributes = array('class' => 'frm', 'id' => 'formListaVideo', 'name' => 'formListaVideo');
+        echo form_open('canales/videos/action', $attributes); ?>
          <table border="0" class="table-list">
             <thead>
                 <tr>
@@ -47,7 +49,7 @@
                         <?php else: ?>
                             <td class="collapse"><img style="width: 100px;" src="<?php echo BASE_URL.UPLOAD_IMAGENES_VIDEOS.'no_video.jpg';?>" border="0"></img></td>
                         <?php endif; ?>
-                        <td class="collapse"><?php echo $video->titulo; ?></td>
+                            <td class="collapse"><input type="hidden" name="codvideo_<?php echo $video->id ?>" id="codvideo_<?php echo $video->id ?>" value="<?php echo $video->id ?>" /><?php echo $video->titulo; ?></td>
                         <td class="collapse"><?php echo $video->nombre_categoria; ?></td>
                         <td class="collapse"><?php echo $video->programa; ?></td>
 <!--                        <td class="collapse"><?php //echo $video->nombre_canal; ?></td>-->
@@ -75,7 +77,7 @@
                                 $estado = lang('videos:3_estado');
                                 break;
                         endswitch; ?>
-                        <td class="collapse"><?php echo $estado ?></td>
+                        <td class="collapse" id="video_<?php echo $video->id;?>"><?php echo $estado ?></td>
                         
                         <td>
 
