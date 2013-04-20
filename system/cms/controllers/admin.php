@@ -80,12 +80,14 @@ class Admin extends Admin_Controller
                             // Busca el canal por defecto para el usuario logueado
                             $predeterminado = $this->usuario_group_canales_m->get_canal_default_by_usuario();
                             $redirect = $this->_check_group($predeterminado);
+                            $this->session->set_userdata('lista_videos_default', $redirect);
                             redirect($redirect);
                         }
                         
-                    } elseif ($this->session->userdata['group'] == 'admin') {
-                        redirect('admin/canales');
-                    } elseif ($this->session->userdata['group'] == 'administrador-mi-canal') {
+                    } elseif ($this->session->userdata['group'] == 'admin' || 
+                            $this->session->userdata['group'] == 'administrador-mi-canal') {
+                        
+                        $this->session->set_userdata('lista_videos_default', 'admin/canales');
                         redirect('admin/canales');
                     }
             }

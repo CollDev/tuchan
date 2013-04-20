@@ -80,14 +80,16 @@
 	min-height:50px;
 	/*background:url(../../img/logo_micanal.png) no-repeat;*/
 	background:url(../../img/logomicanal.png) no-repeat;
+        cursor: hand; 
+        cursor: pointer;
 	text-indent:-9999px;
 }
-
-
 
 #logo a {
 	font-size: 16px;
 	color: #ffffff;
+        cursor: hand; 
+        cursor: pointer;
 }
 
 .subbar {
