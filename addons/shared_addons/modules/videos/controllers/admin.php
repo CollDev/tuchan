@@ -46,7 +46,11 @@ class Admin extends Admin_Controller {
         $returnValue = true;
         $path_video_old = FCPATH . 'uploads/videos/' . $name_file;
         $ext = pathinfo($path_video_old, PATHINFO_EXTENSION);
-        $path_video_new = FCPATH . 'uploads/videos/' . $objBeanVideo->id . '.' . $this->config->item('videos:extension'); // . $ext;
+        if ($ext != $this->config->item('extension:mp4')) {
+            $path_video_new = FCPATH . 'uploads/videos/' . $objBeanVideo->id . '.' . $this->config->item('videos:extension'); // . $ext;
+        } else {
+            $path_video_new = FCPATH . 'uploads/videos/' . $objBeanVideo->id . '.' . $this->config->item('extension:mp4'); // . $ext;
+        }
         rename($path_video_old, $path_video_new);
         return $returnValue;
     }
