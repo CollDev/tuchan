@@ -31,7 +31,7 @@
             } //end success
         }); //end AJAX  
         //funcion reloj para verificar los estados en la DB
-        var id = setInterval("verificar_estado_video()", 3000);
+        var id = setInterval("verificar_estado_video()", <?php echo $this->config->item('video:segundos') ?>);
         //setTimeout("clearInterval(" + id + ")", 15000);
     });
 
