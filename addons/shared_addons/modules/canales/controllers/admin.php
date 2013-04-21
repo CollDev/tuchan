@@ -4415,7 +4415,7 @@ class Admin extends Admin_Controller {
     }
 
     public function test() {
-        $r = $this->procesos_lib->procesoVideos();
+        $r = $this->procesos_lib->generarMiCanal();
         $this->template
                 ->title($this->module_details['name'])
                 ->set('canales', "d");

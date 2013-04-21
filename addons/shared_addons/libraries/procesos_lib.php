@@ -295,8 +295,6 @@ class Procesos_lib extends MX_Controller {
                             $this->micanal_mp->updateEstadoMigracionPortadasActualizacion($value->id);
                         }
                     }
-
-
                     unset($objmongo);
                     unset($array);
                 } elseif ($value->estado == 0 || $value->estado == 2) {
