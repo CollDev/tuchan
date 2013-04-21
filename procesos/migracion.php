@@ -1,5 +1,5 @@
 ﻿<?php
-set_time_limit(450);
+set_time_limit(1500);
 define("MYSQLHOST", "10.203.31.139");
 define("MYSQLDB", "micanalcmsdevdb");
 define("MYSQLUSER", "micanalcmsdev");
@@ -7,7 +7,7 @@ define("MYSQLPASS", "joh2Yeyeimaeb4");
 
 class Migracion extends Exception {
 
-    private $archivo = 'sql/data.190313.sql';
+    private $archivo = 'sql/data.200413.sql';
 
     public function setQuery($consultamysql) {
         try {
