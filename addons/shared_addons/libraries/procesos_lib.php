@@ -210,15 +210,20 @@ class Procesos_lib extends MX_Controller {
     
     public function actualizarPortadas(){
         $this->_generarPortadasMiCanal();
+        
     }
 
     private function _generarPortadasMiCanal() {
+   
 
         $resquery = $this->micanal_mp->queryMysql(1, "");
 
         if (count($resquery) > 0) {
-
+            
+             
+            
             foreach ($resquery as $value) {
+              error_log($value->estado_migracion."  -  ".$value->estado);
 
                 if (($value->estado_migracion == 0 or $value->estado_migracion == 9 ) && $value->estado == 1) {
 
@@ -291,7 +296,8 @@ class Procesos_lib extends MX_Controller {
                             $this->micanal_mp->updateEstadoMigracionPortadas($value->id);
                         } elseif ($value->estado_migracion == 9) {
                             $id_mongo = new MongoId($value->id_mongo);
-                            $this->micanal_mp->setItemCollectionUpdate(array('_id' => $id_mongo), $objmongo);                            
+                            error_log("entro a actualizar");
+                            $this->micanal_mp->setItemCollectionUpdate($objmongo,array('_id' => $id_mongo));                            
                             $this->micanal_mp->updateEstadoMigracionPortadasActualizacion($value->id);
                         }
                     }
@@ -300,7 +306,7 @@ class Procesos_lib extends MX_Controller {
                 } elseif ($value->estado == 0 || $value->estado == 2) {
                     //eliminacion item en coleccion micanal                    
                     $id_mongo = new MongoId($value->id_mongo);
-                    $this->micanal_mp->setItemCollectionUpdate(array('_id' => $id_mongo),array("estado"=>"0"));
+                    $this->micanal_mp->setItemCollectionUpdate(array("estado"=>"0"),array('_id' => $id_mongo));
                     //$this->micanal_mp->SetItemCollectionDelete(array('_id' => $id_mongo));
                     $this->micanal_mp->updateEstadoMigracionPortadasActualizacion($value->id);
                 }
@@ -318,10 +324,6 @@ class Procesos_lib extends MX_Controller {
 
 
         $resquery = $this->micanal_mp->queryMysql(2, "");
-
-
-
-        //echo count($resquery) . "\n";
 
         if (count($resquery) != 0) {
 
@@ -387,7 +389,7 @@ class Procesos_lib extends MX_Controller {
                         $this->micanal_mp->updateEstadoMigracionPortadas($value->id);
                     } elseif ($value->estado_migracion == 9) {
                         $id_mongo = new MongoId($value->id_mongo);
-                        $this->micanal_mp->SetItemCollectionUpdate(array('_id' => $id_mongo), $objmongo);
+                        $this->micanal_mp->SetItemCollectionUpdate($objmongo,array('_id' => $id_mongo));
                         $this->updateEstadoMigracionPortadasActualizacion($value->id);
                     }
 
@@ -396,7 +398,8 @@ class Procesos_lib extends MX_Controller {
                 } elseif ($value->estado == 2) {
 
                     $id_mongo = new MongoId($value->mongo_se);
-                    $this->conexionmongodb->SetItemCollectionDelete(array('_id' => $id_mongo));
+                    $this->micanal_mp->setItemCollectionUpdate(array("estado"=>"0"),array('_id' => $id_mongo));
+                    //$this->conexionmongodb->SetItemCollectionDelete(array('_id' => $id_mongo));
                     $this->updateEstadoMigracionActualizacion($value->id);
                 }
             }
@@ -534,7 +537,7 @@ class Procesos_lib extends MX_Controller {
                             $this->canal_mp->updateEstadoMigracionCanales($value->id);
                         } elseif ($value->estado_migracion == 9) {
                             $id_mongo = new MongoId($value->id_mongo);
-                            $this->canal_mp->setItemCollectionUpdate(array('_id' => $id_mongo), $objmongo);
+                            $this->canal_mp->setItemCollectionUpdate($objmongo,array('_id' => $id_mongo));
                             $this->canal_mp->updateEstadoMigracionCanalesActualizacion($value->id);
                         }
                     }
@@ -552,7 +555,8 @@ class Procesos_lib extends MX_Controller {
                 } elseif ($value->estado == 0 || $value->estado == 2) {
                     //eliminacion item en coleccion micanal                    
                     $id_mongo = new MongoId($value->id_mongo);
-                    $this->canal_mp->SetItemCollectionDelete(array('_id' => $id_mongo));
+                    $this->canal_mp->setItemCollectionUpdate(array("estado"=>"0"),array('_id' => $id_mongo));
+                    //$this->canal_mp->SetItemCollectionDelete(array('_id' => $id_mongo));
                     $this->canal_mp->updateEstadoMigracionCanalesActualizacion($value->id);
                 }
             }
@@ -596,14 +600,15 @@ class Procesos_lib extends MX_Controller {
                             $this->canal_mp->updateEstadoMigracionGrupoMaestros($value->id);
                         } elseif ($value->estado_migracion == 9) {
                             $id_mongo = new MongoId($value->id_mongo);
-                            $this->canal_mp->setItemCollectionUpdate(array('_id' => $id_mongo), $objmongo);
+                            $this->canal_mp->setItemCollectionUpdate($objmongo,array('_id' => $id_mongo));
                             $this->canal_mp->updateEstadoMigracionGrupoMaestrosActualizacion($value->id);
                         }
                     }
                 } elseif ($value->estado == 0 || $value->estado == 2) {
                     //eliminacion item en coleccion micanal                    
                     $id_mongo = new MongoId($value->id_mongo);
-                    $this->canal_mp->SetItemCollectionDelete(array('_id' => $id_mongo));
+                    //$this->canal_mp->SetItemCollectionDelete(array('_id' => $id_mongo));
+                    $this->canal_mp->setItemCollectionUpdate(array("estado"=>"0"),array('_id' => $id_mongo));
                     $this->canal_mp->updateEstadoMigracionGrupoMaestrosActualizacion($value->id);
                 }
 
@@ -676,8 +681,9 @@ class Procesos_lib extends MX_Controller {
 
 
                 unset($objmongo);
-            } elseif ($value->estado = 3) {
-                
+            } else {
+                $id_mongo = new MongoId($value->id_mongo);
+                $this->canal_mp->setItemCollectionUpdate(array("estado"=>"0"),array('_id' => $id_mongo));
             }
         }
     }
