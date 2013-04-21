@@ -2336,7 +2336,7 @@ class Admin extends Admin_Controller {
                 $datos["ruta"] = $result[0]->ruta;
                 
                 Proceso::corte_Video($datos);
-                 
+                $this->procesos_lib->procesoVideos();
                          
 
          

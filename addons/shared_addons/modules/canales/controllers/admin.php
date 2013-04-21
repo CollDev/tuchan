@@ -3072,7 +3072,7 @@ class Admin extends Admin_Controller {
 
     public function publicar_portada($portada_id) {
         if ($this->input->is_ajax_request()) {
-            $this->portada_m->update($portada_id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:nuevo')));
+            $this->portada_m->update($portada_id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
             echo json_encode(array("value" => "1"));
         }
     }
@@ -4415,7 +4415,7 @@ class Admin extends Admin_Controller {
     }
 
     public function test() {
-        $r = $this->procesos_lib->procesoVideos();
+        $r = $this->procesos_lib->generarMiCanal();
         $this->template
                 ->title($this->module_details['name'])
                 ->set('canales', "d");
