@@ -62,7 +62,17 @@ class Admin extends Admin_Controller {
     public function index() {
         //echo "here!!---->".($this->session->userdata['group']);die();
         if ($this->session->userdata['group'] == 'administrador-canales' || $this->session->userdata['group'] == 'admin' || $this->session->userdata['group'] == 'administrador-mi-canal') {
-            $base_where = array();
+            //$base_where = array();
+            if ($this->input->post('f_estado') > 0) {
+                if ($this->input->post('f_estado') == '3') {
+                    $estado_cambiado = $this->config->item('estado:borrador');
+                } else {
+                    $estado_cambiado = $this->input->post('f_estado');
+                }
+                $base_where = array("estado" => $estado_cambiado);
+            } else {
+                $base_where = array();
+            }
             $keyword = '';
             if ($this->input->post('f_keywords'))
                 $keyword = $this->input->post('f_keywords');
@@ -80,6 +90,9 @@ class Admin extends Admin_Controller {
             } else {
                 $canales = $this->canales_m->limit($pagination['limit'])->get_many_by($base_where);
             }
+
+            $estados = array($this->config->item('estado:publicado') => "Publicado", "3" => "Borrador", $this->config->item('estado:eliminado') => "Eliminado");
+
             //do we need to unset the layout because the request is ajax?
             $this->input->is_ajax_request() and $this->template->set_layout(FALSE);
 
@@ -92,6 +105,7 @@ class Admin extends Admin_Controller {
                     ->append_js('module::jquery.alerts.js')
                     ->append_css('module::jquery.alerts.css')
                     ->set('pagination', $pagination)
+                    ->set('estados', $estados)
                     ->set('canales', $canales);
             $this->input->is_ajax_request() ? $this->template->build('admin/tables/canales') : $this->template->build('admin/index');
         } else {
@@ -4443,7 +4457,7 @@ class Admin extends Admin_Controller {
                 ->set('canales', "d");
         $this->template->build('admin/test');
     }
-    
+
     /**
      * metodo para llamar al archivo vista_previa.php para la vista previa
      */
@@ -4455,7 +4469,7 @@ class Admin extends Admin_Controller {
                 //->append_js('module::flowplayer.min.js')
                 //->append_css('module::skin/minimalist.css')                
                 ->build('admin/visualizar_video');
-    }    
+    }
 
 }
 
