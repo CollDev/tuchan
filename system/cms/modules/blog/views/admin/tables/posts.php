@@ -8,7 +8,7 @@
 				<th class="collapse"><?php echo lang('blog:date_label'); ?></th>
 				<th class="collapse"><?php echo lang('blog:written_by_label'); ?></th>
 				<th><?php echo lang('blog:status_label'); ?></th>
-				<th width="180"></th>
+				<th width="300"></th>
 			</tr>
 		</thead>
 		<tfoot>
