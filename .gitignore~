@@ -11,3 +11,4 @@ $ cat .gitignore
 uploads/**/*
 system/cms/cache/**/* 
 /nbproject/private/
+system/cms/config/database.php
