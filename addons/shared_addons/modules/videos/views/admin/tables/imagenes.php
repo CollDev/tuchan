@@ -93,7 +93,7 @@
         $("#divRestaurar").dialog({
             title: "Restaurar imagen",
             autoOpen: true,
-            height: 540,
+            height: 440,
             width: 540,
             modal: true
         });
