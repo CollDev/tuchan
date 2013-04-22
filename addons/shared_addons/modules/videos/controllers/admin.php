@@ -2457,7 +2457,23 @@ class Admin extends Admin_Controller {
     }
 
     public function maestro($canal_id) {
-        $base_where = array("canales_id" => $canal_id, "tipo_grupo_maestro_id" => $this->config->item('videos:programa'));
+        
+        if ($this->input->post('f_estado') > 0) {
+            if ($this->input->post('f_estado') == '3') {
+                $estado_cambiado = $this->config->item('estado:borrador');
+            } else {
+                $estado_cambiado = $this->input->post('f_estado');
+            }
+            //$base_where = array("canales_id" => $canal_id, "estado" => $estado_cambiado);
+             $base_where = array("canales_id" => $canal_id, "tipo_grupo_maestro_id" => $this->config->item('videos:programa'), "estado" => $estado_cambiado);
+        } else {
+            $base_where = array("canales_id" => $canal_id, "tipo_grupo_maestro_id" => $this->config->item('videos:programa'));
+        }
+        
+        if($this->input->post('f_programa')){
+            $base_where['id']= $this->input->post('f_programa');
+        }
+        
         $keyword = '';
         if ($this->input->post('f_keywords'))
             $keyword = $this->input->post('f_keywords');
@@ -2475,7 +2491,10 @@ class Admin extends Admin_Controller {
         } else {
             $lista_programas = $this->listaProgramacompleto($this->grupo_maestro_m->order_by('fecha_registro', 'DESC')->limit($pagination['limit'])->get_many_by($base_where));
         }
+        
+        $estados = array($this->config->item('estado:publicado') => "Publicado", "3" => "Borrador", $this->config->item('estado:eliminado') => "Eliminado");
         //$lista_programas = $this->listaProgramacompleto($this->grupo_maestro_m->order_by('fecha_registro', 'DESC')->limit($pagination['limit'])->get_many_by($base_where));
+        $programas = $this->grupo_maestro_m->getCollectionDropDown(array("tipo_grupo_maestro_id" => $this->config->item('videos:programa'), "canales_id" => $canal_id), 'nombre');
         $this->input->is_ajax_request() and $this->template->set_layout(FALSE);
         $this->template
                 ->title($this->module_details['name'])
@@ -2484,6 +2503,8 @@ class Admin extends Admin_Controller {
                 ->append_js('module::jquery.alerts.js')
                 ->append_css('module::jquery.alerts.css')
                 ->set('pagination', $pagination)
+                ->set('estados', $estados)
+                ->set('programa', $programas)
                 ->set_partial('maestros', 'admin/tables/maestros')
                 ->set('canal_id', $canal_id)
                 ->set('lista_programas', $lista_programas);
