@@ -1681,7 +1681,7 @@ class Admin extends Admin_Controller {
         } else {
             $total_rows = $this->portada_m->count_by($base_where);
         }
-        $pagination = create_pagination('admin/canales/portada/' . $canal_id . '/index', $total_rows, 5, 6, TRUE, 'paginationSinAjax');
+        $pagination = create_pagination('admin/canales/portada/' . $canal_id . '/index', $total_rows, 5, 6);
 
         // Using this data, get the relevant results
         if (strlen(trim($keyword)) > 0) {

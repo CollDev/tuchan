@@ -2468,7 +2468,7 @@ class Admin extends Admin_Controller {
             $total_rows = $this->grupo_maestro_m->count_by($base_where);
         }
         //$total_rows = $this->grupo_maestro_m->count_by($base_where);
-        $pagination = create_pagination('admin/videos/maestro/' . $canal_id . '/index', $total_rows, 5, 6, TRUE, 'paginationSinAjax');
+        $pagination = create_pagination('admin/videos/maestro/' . $canal_id . '/index', $total_rows, 5, 6);
         // Using this data, get the relevant results
         if (strlen(trim($keyword)) > 0) {
             $lista_programas = $this->listaProgramacompleto($this->grupo_maestro_m->order_by('fecha_registro', 'DESC')->like('nombre', $keyword)->limit($pagination['limit'])->get_many_by($base_where));
