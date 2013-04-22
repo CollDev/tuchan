@@ -169,8 +169,30 @@ class Admin extends Admin_Controller {
                 ->set('canal', $canal)
                 ->set('estados', $estados)
                 ->set('logo_canal', $logo_canal)
+                //->append_css('module::mediasplitter.css')
+                //->append_js('module::flowplayer.min.js')
+                //->append_css('module::skin/minimalist.css')
+                //->append_js('module::lib/flowplayer/flowplayer-3.2.12.min.js')
+                // ->append_js('module::lib/splitter.js')
                 ->set('programa', $programas);
         $this->input->is_ajax_request() ? $this->template->build('admin/tables/users') : $this->template->build('admin/videos');
+    }
+
+    function liquid_player($video_id, $width = 0, $height = 0) {
+        if ($this->input->is_ajax_request()) {
+            $objVideo = $this->videos_m->get($video_id);
+            $objCanal = $this->canales_m->get($objVideo->canales_id);
+            $keyplayer = $objCanal->playerkey;
+            $codigo_video = $objVideo->codigo;
+            $add = "ad_program=[http://ox-d.sambaads.com/v/1.0/av?auid=129933&amp;tid=3]&";
+            $add = "";
+            //APIKEYPLAYER;
+            $autostart = config_item('liquid_autostart');
+            $script = '<script src="http://player.sambatech.com.br/current/samba-player.js?playerWidth=' . $width . '&#038;playerHeight=' . $height . '&#038;ph=' . $keyplayer . '&#038;m=' . $codigo_video . '&#038;' . $add . $autostart . 'amp&#038;skinColor=0x72be44&#038;profileName=sambaPlayer-embed.xml&#038;cb=playerFn"></script>';
+            //$script = 'http://player.sambatech.com.br/current/samba-player.js?playerWidth=' . $width . '&#038;playerHeight=' . $height . '&#038;ph=' . $keyplayer . '&#038;m=' . $codigo_video . '&#038;' . $add . $autostart . 'amp&#038;skinColor=0x72be44&#038;profileName=sambaPlayer-embed.xml&#038;cb=playerFn';
+            $html = $objVideo->ruta;
+            echo $html;
+        }
     }
 
     public function _getTagsByIdVideo($video_id, $type_tag) {
@@ -4419,8 +4441,21 @@ class Admin extends Admin_Controller {
         $this->template
                 ->title($this->module_details['name'])
                 ->set('canales', "d");
-       $this->template->build('admin/test');
+        $this->template->build('admin/test');
     }
+    
+    /**
+     * metodo para llamar al archivo vista_previa.php para la vista previa
+     */
+    public function visualizar_video($video_id) {
+        $objVideo = $this->videos_m->get($video_id);
+        $this->template
+                ->set_layout('modal', 'admin')
+                ->set('ruta', $objVideo->ruta)
+                //->append_js('module::flowplayer.min.js')
+                //->append_css('module::skin/minimalist.css')                
+                ->build('admin/visualizar_video');
+    }    
 
 }
 

@@ -81,8 +81,8 @@
                         
                         <td>
 
-                            <?php if ($video->estado == '1') : ?>                                
-                                <?php echo anchor('', lang('global:preview'), 'class="btn green" target="_blank"');?>
+                            <?php if ($video->estado == 1 || $video->estado == 2) : ?>                                
+                                <?php echo anchor('/admin/canales/visualizar_video/'.$video->id, lang('global:preview'), 'class="btn green modal-large" onclick="return false;"');?>
                             <?php else: ?>
                                 <?php //echo anchor('blog/' . date('Y/m', '2013') . '/29'. $video->nombre, lang('global:view'), 'class="btn green" target="_blank"');?>
                             <?php endif; ?>
