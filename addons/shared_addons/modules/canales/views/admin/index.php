@@ -104,7 +104,7 @@
                                 $("#" + tipo + "_" + canal_id).html('Borrador');
                                 var htmlButton = '';
                                 htmlButton += '<a href="/admin/canales/canal/' + canal_id + '"  class="mode_edit">Editar</a>';
-                                htmlButton += '<a href="/admin/canales/previsualizar_canal/" target ="_blank" class="mode_preview modal-large">Previsualizar</a>';
+                                htmlButton += '<a href="/admin/canales/previsualizar_canal/" target ="_blank" class="mode_preview modal-large">V.Previa</a>';
                                 htmlButton += '<a href="#" onclick="publicar(' + canal_id + ',\'canal\');return false;" class="btn blue">Publicar</a>';
                                 htmlButton += '<a href="#" onclick="eliminar(' + canal_id + ',\'canal\');return false;" class="mode_delete">Eliminar</a>';
                                 $("#" + tipo + "_boton_" + canal_id).html(htmlButton);
@@ -132,7 +132,7 @@
                                 $("#" + tipo + "_" + canal_id).html('Publicado');
                                 var htmlButton = '';
                                 htmlButton += '<a href="/admin/canales/canal/' + canal_id + '"  class="mode_edit">Editar</a>';
-                                htmlButton += '<a href="/admin/canales/previsualizar_canal/" target ="_blank" class="mode_preview modal-large">Previsualizar</a>';
+                                htmlButton += '<a href="/admin/canales/previsualizar_canal/" target ="_blank" class="mode_preview modal-large">V.Previa</a>';
                                 htmlButton += '<a href="#" onclick="eliminar(' + canal_id + ',\'canal\');return false;" class="mode_delete">Eliminar</a>';
                                 $("#" + tipo + "_boton_" + canal_id).html(htmlButton);
                             }
