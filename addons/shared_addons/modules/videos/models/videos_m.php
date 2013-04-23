@@ -65,7 +65,7 @@ class Videos_m extends MY_Model
      */
     private function _obtener_query_videos($canal_id)
     {        
-        $query = "SELECT v.id, v.titulo, v.fuente, v.fecha_registro, v.fecha_publicacion_inicio, fecha_publicacion_fin,
+        $query = "SELECT v.id, v.titulo, v.fecha_registro, v.fecha_publicacion_inicio, fecha_publicacion_fin,
                     v.fecha_transmision, v.horario_transmision_inicio, v.horario_transmision_fin, v.estado,                            
                     c.nombre as canal, c.nombre as fuente, cat.nombre as categoria, tv.nombre as tipo_video, 
                     i.imagen, ";
