@@ -30,7 +30,6 @@
     <?php if ($objBeanForm->error) { ?>
         <div> <?php echo $objBeanForm->message; ?></div>
     <?php } ?>
-
     <!--FORM CARGA UNITARIA-->
     <?php
     // Canales_id       
