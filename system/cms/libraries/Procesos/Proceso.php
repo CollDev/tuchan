@@ -8,9 +8,6 @@ if (!defined('BASEPATH'))
 
 class Proceso {
 
-    public function __construct() {
-        
-    }
 
     public function corte_Video($datos) {
         if (count($datos) > 0) {
