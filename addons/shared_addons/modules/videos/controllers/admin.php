@@ -37,7 +37,7 @@ class Admin extends Admin_Controller {
         $this->load->library('image_lib');
         $this->load->library('imagenes_lib');
         $this->load->library('procesos_lib');
-        
+
         ci()->load->model('videos_mp');
         ci()->load->library("Procesos/proceso");
     }
@@ -54,7 +54,7 @@ class Admin extends Admin_Controller {
             $path_video_new = FCPATH . 'uploads/videos/' . $objBeanVideo->id . '.' . $this->config->item('videos:extension'); // . $ext;
         } else {
             $path_video_new = FCPATH . 'uploads/videos/' . $objBeanVideo->id . '.' . $this->config->item('extension:mp4'); // . $ext;
-            $this->videos_m->update($objBeanVideo->id, array("estado_liquid"=>$this->config->item('liquid:mp4')));
+            $this->videos_m->update($objBeanVideo->id, array("estado_liquid" => $this->config->item('liquid:mp4')));
         }
         rename($path_video_old, $path_video_new);
         return $returnValue;
@@ -2269,8 +2269,6 @@ class Admin extends Admin_Controller {
         }
     }
 
-  
-
     public function insertCorteVideo($canal_id, $video_id) {
 //        print_r($this->input->post());
 
@@ -2325,21 +2323,21 @@ class Admin extends Admin_Controller {
                 }
                 //guardamos en la tabla grupo detalle
                 $this->_saveVideoMaestroDetalle($objBeanVideo, $this->input->post(), $maestro_detalle_id);
-            
+
                 $datos = array();
                 $datos["id_padre"] = $video_id;
                 $datos["id_hijo"] = $objvideotemp->id;
-                $datos["inicio"] =  $this->input->post('ini_corte');
+                $datos["inicio"] = $this->input->post('ini_corte');
                 $datos["duracion"] = $this->input->post('dur_corte');
 
                 $result = ci()->videos_mp->getVideosxId($video_id);
                 $datos["ruta"] = $result[0]->ruta;
-                
+
                 Proceso::corte_Video($datos);
                 $this->procesos_lib->procesoVideos();
-                         
 
-         
+
+
                 echo json_encode(array("value" => '0'));
             }
         }
@@ -2457,7 +2455,7 @@ class Admin extends Admin_Controller {
     }
 
     public function maestro($canal_id) {
-        
+
         if ($this->input->post('f_estado') > 0) {
             if ($this->input->post('f_estado') == '3') {
                 $estado_cambiado = $this->config->item('estado:borrador');
@@ -2465,15 +2463,15 @@ class Admin extends Admin_Controller {
                 $estado_cambiado = $this->input->post('f_estado');
             }
             //$base_where = array("canales_id" => $canal_id, "estado" => $estado_cambiado);
-             $base_where = array("canales_id" => $canal_id, "tipo_grupo_maestro_id" => $this->config->item('videos:programa'), "estado" => $estado_cambiado);
+            $base_where = array("canales_id" => $canal_id, "tipo_grupo_maestro_id" => $this->config->item('videos:programa'), "estado" => $estado_cambiado);
         } else {
             $base_where = array("canales_id" => $canal_id, "tipo_grupo_maestro_id" => $this->config->item('videos:programa'));
         }
-        
-        if($this->input->post('f_programa')){
-            $base_where['id']= $this->input->post('f_programa');
+
+        if ($this->input->post('f_programa')) {
+            $base_where['id'] = $this->input->post('f_programa');
         }
-        
+
         $keyword = '';
         if ($this->input->post('f_keywords'))
             $keyword = $this->input->post('f_keywords');
@@ -2491,7 +2489,7 @@ class Admin extends Admin_Controller {
         } else {
             $lista_programas = $this->listaProgramacompleto($this->grupo_maestro_m->order_by('fecha_registro', 'DESC')->limit($pagination['limit'])->get_many_by($base_where));
         }
-        
+
         $estados = array($this->config->item('estado:publicado') => "Publicado", "3" => "Borrador", $this->config->item('estado:eliminado') => "Eliminado");
         //$lista_programas = $this->listaProgramacompleto($this->grupo_maestro_m->order_by('fecha_registro', 'DESC')->limit($pagination['limit'])->get_many_by($base_where));
         $programas = $this->grupo_maestro_m->getCollectionDropDown(array("tipo_grupo_maestro_id" => $this->config->item('videos:programa'), "canales_id" => $canal_id), 'nombre');
@@ -4607,8 +4605,10 @@ class Admin extends Admin_Controller {
             if (is_array($lista_videos)) {
                 if (count($lista_videos) > 0) {
                     foreach ($lista_videos as $puntero => $video_id) {
-                        $objVideo = $this->videos_m->get($video_id);
-                        $array_video[$video_id] = $objVideo->estado;
+                        if (!is_array($video_id)) {
+                            $objVideo = $this->videos_m->get($video_id);
+                            $array_video[$video_id] = $objVideo->estado;
+                        }
                     }
                 } else {
                     $error = 1;
