@@ -68,7 +68,7 @@ $config['tag:tematicas'] = '1';
 $config['tag:personajes'] = '2';
 
 //servidor elemento
-$config['server:elemento'] = 'dev.e.micanal.e3.pe';
+//$config['server:elemento'] = 'dev.e.micanal.e3.pe';
 
 //protocolos
 $config['protocolo:http'] = 'http://';
