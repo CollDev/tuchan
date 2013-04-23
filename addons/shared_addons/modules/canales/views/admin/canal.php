@@ -1,7 +1,7 @@
 <section class="title"> 
     <?php
     if ($objCanal->id > 0):
-        echo anchor('admin/videos/carga_unitaria/' . $objCanal->id, 'Carga unitaria', array('class' => ''));
+        echo anchor('admin/videos/carga_unitaria/' . $objCanal->id, $this->config->item('submenu:carga_unitaria'), array('class' => ''));
         echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
         /*    echo anchor('admin/videos/carga_masiva/' . $canal_id, 'Carga masiva', array('class' => ''));
           echo '&nbsp;&nbsp;|&nbsp;&nbsp;'; */

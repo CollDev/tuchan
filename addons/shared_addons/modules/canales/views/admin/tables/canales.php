@@ -14,7 +14,7 @@
                 <th><?php echo lang('canales:nombre_label'); ?></th>
                 <th class="collapse"><?php echo lang('canales:descripcion_label'); ?></th>
                 <th class="collapse"><?php echo lang('canales:estado_label'); ?></th>
-                <th width="180"></th>
+                <th width="300"></th>
             </tr>
         </thead>
         <tfoot>

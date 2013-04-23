@@ -172,7 +172,8 @@
                                 var htmlButton = '';
                                 htmlButton += '<a href="/admin/canales/previsualizar_portada/" target ="_blank" class="modal-large btn">Previsualizar</a>';
                                 htmlButton += '<a href="#" onclick="publicar_portada(' + portada_id + ', \'portada\');return false;" class="link_portada btn">Publicar</a>';
-                                htmlButton += '<a href="#" class="link_portada btn">Editar</a>';
+                                htmlButton += '<a href="#" class="link_portada btn" onclick="return false;">Editar</a>';
+                                htmlButton += '<a href="#" class="link_portada btn" onclick="eliminar_portada(' + portada_id + ',\'portada\');return false;">Eliminar</a>';
                                 htmlButton += '<a href="#" class="link_portada btn" onclick="agregar_seccion(' + portada_id + ');return false;">Añadir sección</a>';
                                 $("#" + tipo + "_boton_" + portada_id).html(htmlButton);
                                 $('.link_portada').click(function(e) {
@@ -203,8 +204,8 @@
                                 $("#" + tipo + "_" + portada_id).html('Publicado');
                                 var htmlButton = '';
                                 htmlButton += '<a href="/admin/canales/previsualizar_portada/" target ="_blank" class="modal-large btn">Previsualizar</a>';
-                                htmlButton += '<a href="#" class="link_portada btn">Editar</a>';
-                                htmlButton += '<a href="#" onclick="eliminar_portada(' + portada_id + ');return false;" class="link_portada btn">Publicar</a>';
+                                htmlButton += '<a href="#" onclick="return false;" class="link_portada btn">Editar</a>';
+                                htmlButton += '<a href="#" onclick="eliminar_portada(' + portada_id + ',\'portada\');return false;" class="link_portada btn">Eliminar</a>';
                                 htmlButton += '<a href="#" class="link_portada btn" onclick="agregar_seccion(' + portada_id + ');return false;">Añadir sección</a>';
                                 $("#" + tipo + "_boton_" + portada_id).html(htmlButton);
                                 $('.link_portada').click(function(e) {

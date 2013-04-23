@@ -6,9 +6,10 @@
 <table>
     <tr>
         <td style="text-align: right;">
+            desarrollando el boton de subida de imagenes "NO USAR"----->&nbsp;
             <!-- imagen -->
             <?php
-            $imagen = array('class' => 'btn blue','name' => 'addImage', 'id' => 'addImage', 'type' => 'hidden', 'value' => 'Agrega nuevas imagenes a tu programa');
+            $imagen = array('class' => 'btn blue','name' => 'addImage', 'id' => 'addImage', 'type' => 'button', 'value' => 'Agrega nuevas imagenes');
             echo '<div style="float:right;">' . form_input($imagen) . '</div>';
             ?>
             <div  class="loaderAjax" id="loaderAjax" style="display: none; float: left;">
@@ -93,7 +94,7 @@
         $("#divRestaurar").dialog({
             title: "Restaurar imagen",
             autoOpen: true,
-            height: 540,
+            height: 440,
             width: 540,
             modal: true
         });

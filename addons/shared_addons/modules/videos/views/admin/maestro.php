@@ -1,6 +1,6 @@
 <section class="title"> 
     <?php
-    echo anchor('admin/videos/carga_unitaria/' . $canal_id, 'Carga unitaria', array('class' => ''));
+    echo anchor('admin/videos/carga_unitaria/' . $canal_id, $this->config->item('submenu:carga_unitaria'), array('class' => ''));
     echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
 /*    echo anchor('admin/videos/carga_masiva/' . $canal_id, 'Carga masiva', array('class' => ''));
     echo '&nbsp;&nbsp;|&nbsp;&nbsp;';*/

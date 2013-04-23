@@ -62,7 +62,17 @@ class Admin extends Admin_Controller {
     public function index() {
         //echo "here!!---->".($this->session->userdata['group']);die();
         if ($this->session->userdata['group'] == 'administrador-canales' || $this->session->userdata['group'] == 'admin' || $this->session->userdata['group'] == 'administrador-mi-canal') {
-            $base_where = array();
+            //$base_where = array();
+            if ($this->input->post('f_estado') > 0) {
+                if ($this->input->post('f_estado') == '3') {
+                    $estado_cambiado = $this->config->item('estado:borrador');
+                } else {
+                    $estado_cambiado = $this->input->post('f_estado');
+                }
+                $base_where = array("estado" => $estado_cambiado);
+            } else {
+                $base_where = array();
+            }
             $keyword = '';
             if ($this->input->post('f_keywords'))
                 $keyword = $this->input->post('f_keywords');
@@ -80,6 +90,9 @@ class Admin extends Admin_Controller {
             } else {
                 $canales = $this->canales_m->limit($pagination['limit'])->get_many_by($base_where);
             }
+
+            $estados = array($this->config->item('estado:publicado') => "Publicado", "3" => "Borrador", $this->config->item('estado:eliminado') => "Eliminado");
+
             //do we need to unset the layout because the request is ajax?
             $this->input->is_ajax_request() and $this->template->set_layout(FALSE);
 
@@ -92,6 +105,7 @@ class Admin extends Admin_Controller {
                     ->append_js('module::jquery.alerts.js')
                     ->append_css('module::jquery.alerts.css')
                     ->set('pagination', $pagination)
+                    ->set('estados', $estados)
                     ->set('canales', $canales);
             $this->input->is_ajax_request() ? $this->template->build('admin/tables/canales') : $this->template->build('admin/index');
         } else {
@@ -145,6 +159,14 @@ class Admin extends Admin_Controller {
             foreach ($listVideo as $puntero => $oResultVideo) {
                 if (strlen(trim($oResultVideo->programa)) == 0) {
                     $oResultVideo->programa = $this->_getNamePrograma($oResultVideo->id);
+                    $objImagen = $this->obtenerImagenVideo($oResultVideo->id);
+                    $oResultVideo->procedencia = $objImagen->procedencia;
+                    $oResultVideo->imagen = $objImagen->imagen;
+                    $listVideo[$puntero] = $oResultVideo;
+                } else {
+                    $objImagen = $this->obtenerImagenVideo($oResultVideo->id);
+                    $oResultVideo->procedencia = $objImagen->procedencia;
+                    $oResultVideo->imagen = $objImagen->imagen;
                     $listVideo[$puntero] = $oResultVideo;
                 }
             }
@@ -169,8 +191,40 @@ class Admin extends Admin_Controller {
                 ->set('canal', $canal)
                 ->set('estados', $estados)
                 ->set('logo_canal', $logo_canal)
+                //->append_css('module::mediasplitter.css')
+                //->append_js('module::flowplayer.min.js')
+                //->append_css('module::skin/minimalist.css')
+                //->append_js('module::lib/flowplayer/flowplayer-3.2.12.min.js')
+                // ->append_js('module::lib/splitter.js')
                 ->set('programa', $programas);
         $this->input->is_ajax_request() ? $this->template->build('admin/tables/users') : $this->template->build('admin/videos');
+    }
+
+    private function obtenerImagenVideo($video_id) {
+        $objImagen = $this->imagen_m->get_by(array("estado" => $this->config->item('estado:publicado'), "videos_id" => $video_id));
+        if (count($objImagen) == 0) {
+            $objImagen = new stdClass();
+            $objImagen->procedencia = 2;
+            $objImagen->imagen = '';
+        }
+        return $objImagen;
+    }
+
+    function liquid_player($video_id, $width = 0, $height = 0) {
+        if ($this->input->is_ajax_request()) {
+            $objVideo = $this->videos_m->get($video_id);
+            $objCanal = $this->canales_m->get($objVideo->canales_id);
+            $keyplayer = $objCanal->playerkey;
+            $codigo_video = $objVideo->codigo;
+            $add = "ad_program=[http://ox-d.sambaads.com/v/1.0/av?auid=129933&amp;tid=3]&";
+            $add = "";
+            //APIKEYPLAYER;
+            $autostart = config_item('liquid_autostart');
+            $script = '<script src="http://player.sambatech.com.br/current/samba-player.js?playerWidth=' . $width . '&#038;playerHeight=' . $height . '&#038;ph=' . $keyplayer . '&#038;m=' . $codigo_video . '&#038;' . $add . $autostart . 'amp&#038;skinColor=0x72be44&#038;profileName=sambaPlayer-embed.xml&#038;cb=playerFn"></script>';
+            //$script = 'http://player.sambatech.com.br/current/samba-player.js?playerWidth=' . $width . '&#038;playerHeight=' . $height . '&#038;ph=' . $keyplayer . '&#038;m=' . $codigo_video . '&#038;' . $add . $autostart . 'amp&#038;skinColor=0x72be44&#038;profileName=sambaPlayer-embed.xml&#038;cb=playerFn';
+            $html = $objVideo->ruta;
+            echo $html;
+        }
     }
 
     public function _getTagsByIdVideo($video_id, $type_tag) {
@@ -1659,7 +1713,7 @@ class Admin extends Admin_Controller {
         } else {
             $total_rows = $this->portada_m->count_by($base_where);
         }
-        $pagination = create_pagination('admin/canales/portada/' . $canal_id . '/index', $total_rows, 5, 6, TRUE, 'paginationSinAjax');
+        $pagination = create_pagination('admin/canales/portada/' . $canal_id . '/index', $total_rows, 5, 6);
 
         // Using this data, get the relevant results
         if (strlen(trim($keyword)) > 0) {
@@ -4419,7 +4473,20 @@ class Admin extends Admin_Controller {
         $this->template
                 ->title($this->module_details['name'])
                 ->set('canales', "d");
-       $this->template->build('admin/test');
+        $this->template->build('admin/test');
+    }
+
+    /**
+     * metodo para llamar al archivo vista_previa.php para la vista previa
+     */
+    public function visualizar_video($video_id) {
+        $objVideo = $this->videos_m->get($video_id);
+        $this->template
+                ->set_layout('modal', 'admin')
+                ->set('ruta', $objVideo->ruta)
+                //->append_js('module::flowplayer.min.js')
+                //->append_css('module::skin/minimalist.css')                
+                ->build('admin/visualizar_video');
     }
 
 }
