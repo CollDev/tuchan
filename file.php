@@ -41,9 +41,6 @@ for (var i=0; i < 2; i++)
         if (!$xhr) echo '</textarea>'; 
     } 
     else {
-    /*echo "<pre>"; 
-    print_r($_FILES);
-    echo "</pre>";*/
         $idUniq = uniqid();
         $ext = @end(explode('.', $_FILES['video']['name']));
         $nameVideo = $idUniq . '.' . $ext;

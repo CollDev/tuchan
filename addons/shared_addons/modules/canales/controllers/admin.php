@@ -4472,7 +4472,6 @@ class Admin extends Admin_Controller {
         //$r = $this->procesos_lib->generarMiCanal();
         if ($this->input->post()) {
         } else {
-            //echo '<input type="hidden" id="name_file_upload" name="name_file_upload" value="' . $_FILES["video"]["name"] . '" />';
             $this->template
                     ->title($this->module_details['name'])
                     ->set('canales', "d");

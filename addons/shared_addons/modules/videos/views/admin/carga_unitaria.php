@@ -2,7 +2,7 @@
     .progress_upload{position:relative;width:400px;border:1px solid #ddd;padding:1px;border-radius:3px}
     .bar{background-color:#b4f5b4;width:0%;height:20px;border-radius:3px}
     .percent{position:absolute;display:inline-block;top:3px;left:48%}</style>
-<section class="title"> 
+<section class="title">
     <?php
     echo anchor('admin/videos/carga_unitaria/' . $canal->id, $this->config->item('submenu:carga_unitaria'), array('class' => ''));
     echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
