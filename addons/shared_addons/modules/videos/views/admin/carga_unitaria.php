@@ -1,10 +1,7 @@
-<!--<section class="title">
-    <h4>
-<?php //if ($canal->nombre) : ?>
-<?php //echo $canal->nombre ?> | Carga Unitaria
-<?php //endif; ?>
-    </h4>
-</section>-->
+<style>
+    .progress_upload{position:relative;width:400px;border:1px solid #ddd;padding:1px;border-radius:3px}
+    .bar{background-color:#b4f5b4;width:0%;height:20px;border-radius:3px}
+    .percent{position:absolute;display:inline-block;top:3px;left:48%}</style>
 <section class="title"> 
     <?php
     echo anchor('admin/videos/carga_unitaria/' . $canal->id, $this->config->item('submenu:carga_unitaria'), array('class' => ''));
@@ -39,9 +36,10 @@
     // Canales_id       
     $hidden = array('canal_id' => $canal->id);
 
-    $attributes = array('class' => 'frm', 'id' => 'frm', 'name' => 'frm');
-    echo form_open_multipart('admin/videos/carga_unitaria/' . $canal->id, $attributes, $hidden);
-    //echo form_open_multipart('file.php', $attributes, $hidden);
+    $attributes = array('class' => 'frm', 'id' => 'frm', 'name' => 'frm', "method" => "post");
+    //echo form_open_multipart('admin/videos/carga_unitaria/' . $canal->id, $attributes, $hidden);
+    echo form_open_multipart('file.php', $attributes, $hidden);
+    //echo form_open_multipart('admin/videos/carga_unitaria/', $attributes, $hidden);
     ?>
     <!--APC hidden field-->
     <input type="hidden" name="APC_UPLOAD_PROGRESS" id="progress_key" value="<?php echo $up_id; ?>"/>
@@ -112,7 +110,7 @@
 
                 <?php if ($objBeanForm->video_id > 0) { ?>
                     <!-- imagen -->
-    <!--                    <label for="imagen"><?php //echo lang('videos:avatar');  ?></label>-->
+    <!--                    <label for="imagen"><?php //echo lang('videos:avatar');   ?></label>-->
                     <?php
                     $imagen = array('name' => 'addImage', 'id' => 'addImage', 'type' => 'hidden', 'value' => 'Agrega nuevas imagenes a tu video');
                     echo '<div style="float:left;">' . form_input($imagen) . '</div>';
@@ -292,7 +290,7 @@
 
                 <!-- tipo -->
                 <!--        <br /><br />
-                        <label for="tipo"><?php //echo lang('videos:tipo_label');   ?></label>
+                        <label for="tipo"><?php //echo lang('videos:tipo_label');    ?></label>
                 <?php //echo form_error('tipo'); ?><br/>
                 <?php //echo form_dropdown('tipo', $tipo, $objBeanForm->tipo); ?> -->
                 <input type="hidden" name="tipo" id="tipo" value="<?php echo $objBeanForm->tipo; ?>" >
@@ -314,7 +312,7 @@
                 </div>
                 <!-- fecha de publicación -->
                 <br/><br/>
-        <!--        <label for="fecha_publicacion"><?php //echo lang('videos:fecha_publicacion_label');    ?></label>-->
+        <!--        <label for="fecha_publicacion"><?php //echo lang('videos:fecha_publicacion_label');     ?></label>-->
                 <?php //echo lang('videos:inicio'); ?>
                 <?php
                 $fec_pub_ini = array(
@@ -340,7 +338,7 @@
                 ?>
 
                 <!-- ubicacion -->
-        <!--        <label><?php //echo lang('videos:ubicacion_label');    ?></label>-->
+        <!--        <label><?php //echo lang('videos:ubicacion_label');     ?></label>-->
                 <?php
                 $ubicacion = array(
                     'type' => 'hidden',
@@ -699,19 +697,19 @@
                     });
 
                     //show the progress bar only if a file field was clicked
-                    var show_bar = 0;
-                    $('input[type="file"]').click(function() {
-                        show_bar = 1;
-                    });
-                    //show iframe on form submit
-                    $("#frm").submit(function() {
-                        if (show_bar === 1) {
-                            function set() {
-                                $('#upload_frame').attr('src', 'upload_frame.php?up_id=<?php echo $up_id; ?>');
-                            }
-                            setTimeout(set);
-                        }
-                    });
+                    /*var show_bar = 0;
+                     $('input[type="file"]').click(function() {
+                     show_bar = 1;
+                     });
+                     //show iframe on form submit
+                     $("#frm").submit(function() {
+                     if (show_bar === 1) {
+                     function set() {
+                     $('#upload_frame').attr('src', 'upload_frame.php?up_id=<?php //echo $up_id;  ?>');
+                     }
+                     setTimeout(set);
+                     }
+                     });*/
 
                     $.datepicker.regional['es'] = {
                         closeText: 'Cerrar',
@@ -764,27 +762,28 @@
                     $('.selectedHour').timepicker($.datepicker.regional['es']);
 
 
-                    /*var bar = $('.bar');
-                     var percent = $('.percent');
-                     var status = $('#status');
-                     
-                     $('#frm').ajaxForm({
-                     beforeSend: function() {
-                     status.empty();
-                     var percentVal = '0%';
-                     bar.width(percentVal)
-                     percent.html(percentVal);
-                     },
-                     uploadProgress: function(event, position, total, percentComplete) {
-                     var percentVal = percentComplete + '%';
-                     bar.width(percentVal)
-                     percent.html(percentVal);
-                     },
-                     complete: function(xhr) {
-                     status.html(xhr.responseText);
-                     save_database();
-                     }
-                     });*/
+                    var bar = $('.bar');
+                    var percent = $('.percent');
+                    var status = $('#status');
+
+                    $('#frm').ajaxForm({
+                        beforeSend: function() {
+                            $(".progress_upload").css("display", "block");
+                            status.empty();
+                            var percentVal = '0%';
+                            bar.width(percentVal)
+                            percent.html(percentVal);
+                        },
+                        uploadProgress: function(event, position, total, percentComplete) {
+                            var percentVal = percentComplete + '%';
+                            bar.width(percentVal)
+                            percent.html(percentVal);
+                        },
+                        complete: function(xhr) {
+                            status.html(xhr.responseText);
+                            save_database();
+                        }
+                    });
 
                     // Botón para subir las fotos
 <?php if ($objBeanForm->video_id > 0) { ?>
@@ -900,22 +899,34 @@
                     $.ajax({
                         type: "POST",
                         url: post_url,
-                        //dataType: 'json',
+                        dataType: 'json',
                         data: serializedData,
-                        success: function(returnVideo) //we're calling the response json array 'cities'
+                        success: function(respuesta) //we're calling the response json array 'cities'
                         {
-                            var resultado = false;
-                            $.each(returnVideo, function(id, videoValue) {
-                                if (id == 'error' && videoValue == '0') {
-                                    resultado = true;
-                                }
-                            });
-                            if (resultado) {
-                                var url = "admin/canales/videos/" + values['canal_id'];
-                                showMessage('exit', '<?php echo lang('videos:add_video_success') ?>', 2000, url);
+                            if (respuesta.error == 1) {
+                                showMessage('error', '<?php echo lang('videos:size_invalid') ?>', 2000, '');
                             } else {
-                                showMessage('error', '<?php echo lang('videos:not_found_video') ?>', 2000, '');
+                                if (respuesta.error == 2) {
+                                    showMessage('error', '<?php echo lang('videos:format_invalid') ?>', 2000, '');
+                                } else {
+                                    if (respuesta.error == 0) {
+                                        var url = "admin/canales/videos/" + values['canal_id'];
+                                        showMessage('exit', '<?php echo lang('videos:add_video_success')  ?>', 2000, url);
+                                    }
+                                }
                             }
+                            /*var resultado = false;
+                             $.each(returnVideo, function(id, videoValue) {
+                             if (id == 'error' && videoValue == '0') {
+                             resultado = true;
+                             }
+                             });
+                             if (resultado) {
+                             var url = "admin/canales/videos/" + values['canal_id'];
+                             showMessage('exit', '<?php //echo lang('videos:add_video_success')  ?>', 2000, url);
+                             } else {
+                             showMessage('error', '<?php //echo lang('videos:not_found_video')  ?>', 2000, '');
+                             }*/
                         } //end success
                     }); //end AJAX
 
@@ -1010,19 +1021,19 @@
                 }
             </script>
 
-            <!--<div class="progress_upload" style="display:none;">
-                  <div class="bar"></div >
-                  <div class="percent">0%</div >
-              </div>
-              
-              <div id="status"></div>-->
-            <!--Include the iframe-->
-            <br />
-            <div style="clear: both;">
-                <iframe id="upload_frame" name="upload_frame" frameborder="0" border="0" src="" scrolling="no" scrollbar="no" > </iframe>
+            <div class="progress_upload" style="display: none; clear: both;">
+                <div class="bar"></div >
+                <div class="percent">0%</div >
             </div>
-            
-            <br />
+
+            <div id="status"></div>
+            <!--Include the iframe-->
+            <!--            <br />
+                        <div style="clear: both;">
+                            <iframe id="upload_frame" name="upload_frame" frameborder="0" border="0" src="" scrolling="no" scrollbar="no" > </iframe>
+                        </div>
+                        
+                        <br />-->
             <!---->
         </div>
         <?php if ($objBeanForm->video_id > 0): ?>
