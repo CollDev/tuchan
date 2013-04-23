@@ -394,4 +394,7 @@ $config['modules_locations'] = array(
 	SHARED_ADDONPATH.'modules/' => '../../../addons/shared_addons/modules/'
 );
 
+//servidor elemento
+$config['server:elemento'] = 'dev.e.micanal.e3.pe';
+
 /* End of file config.php */
