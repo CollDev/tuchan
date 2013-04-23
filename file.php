@@ -41,7 +41,7 @@ for (var i=0; i < 2; i++)
         if (!$xhr) echo '</textarea>'; 
     } 
     else {
-        //id unico
+        ////id unico
         $idUniq = uniqid();
         $ext = @end(explode('.', $_FILES['video']['name']));
         $nameVideo = $idUniq . '.' . $ext;

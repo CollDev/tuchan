@@ -24,7 +24,7 @@
     <?php endif; ?> 
 
     <?php
-    //get unique id 
+    ////get unique id 
     $up_id = uniqid();
     ?>
     <?php if ($objBeanForm->error) { ?>
