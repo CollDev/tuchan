@@ -19,7 +19,15 @@
         width: 100%;
     }
 </style>
-<div class="inner"><?php $this->load->view('admin/partials/pagination'); ?></div><br />
+<table>
+    <tr>
+        <td><div class="inner"><?php $this->load->view('admin/partials/pagination'); ?></div></td>
+        <td>    <div style="text-align: right;" >
+        <?php echo anchor('/admin/videos/grupo_maestro/'.$canal_id.'/0', 'Nuevo programa / coleccion', 'class="btn blue"') ?>
+    </div></td>
+    </tr>
+</table>
+
 <table id="table-1" class="table-list">
     <thead>
         <tr>
@@ -90,7 +98,7 @@
                                     <td><?php echo $objColeccion->fecha_registro; ?></td>
                                     <td><div id="coleccion_<?php echo $objColeccion->id; ?>"><?php echo $objColeccion->estado; ?></div></td>
                                     <?php
-                                    switch ($objPrograma->estado_id):
+                                    switch ($objColeccion->estado_id):
                                         case $this->config->item('estado:borrador'):
                                             $u = 'admin/videos/grupo_maestro/' . $objColeccion->canales_id . '/' . $objColeccion->id;
                                             $link = '<button class="btn orange" onclick="editar(\'' . $u . '\');return false;">Editar</button>';

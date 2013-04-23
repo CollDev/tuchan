@@ -7,7 +7,9 @@
         </td>
     </tr>
 </table>
-        <?php echo form_open('canales/videos/action'); ?>
+        <?php 
+        $attributes = array('class' => 'frm', 'id' => 'formListaVideo', 'name' => 'formListaVideo');
+        echo form_open('canales/videos/action', $attributes); ?>
          <table border="0" class="table-list">
             <thead>
                 <tr>
@@ -16,7 +18,7 @@
                     <th><?php echo lang('videos:titulo_label'); ?></th>
                     <th><?php echo lang('videos:categoria_label'); ?></th>
                     <th><?php echo lang('videos:programa_label'); ?></th>
-                    <th><?php echo lang('videos:fuente_label'); ?></th>
+<!--                    <th><?php //echo lang('videos:fuente_label'); ?></th>-->
 <!--                    <th><?php //echo lang('videos:etiquetas_tematicas_label'); ?></th>
                     <th><?php //echo lang('videos:etiquetas_personajes_label'); ?></th>-->
                     <th><?php echo lang('videos:fecha_subida_label'); ?></th>
@@ -26,7 +28,7 @@
 <!--                    <th><?php //echo lang('videos:horario_transmision_inicio_label'); ?></th>
                     <th><?php //echo lang('videos:horario_transmision_fin_label'); ?></th>-->
                     <th><?php echo lang('global:estado'); ?></th>                    
-                    <th width="180"></th>
+                    <th width="180">Acciones</th>
                 </tr>
             </thead>
             <tfoot>
@@ -47,10 +49,10 @@
                         <?php else: ?>
                             <td class="collapse"><img style="width: 100px;" src="<?php echo BASE_URL.UPLOAD_IMAGENES_VIDEOS.'no_video.jpg';?>" border="0"></img></td>
                         <?php endif; ?>
-                        <td class="collapse"><?php echo $video->titulo; ?></td>
+                            <td class="collapse"><input type="hidden" name="codvideo_<?php echo $video->id ?>" id="codvideo_<?php echo $video->id ?>" value="<?php echo $video->id ?>" /><?php echo $video->titulo; ?></td>
                         <td class="collapse"><?php echo $video->nombre_categoria; ?></td>
                         <td class="collapse"><?php echo $video->programa; ?></td>
-                        <td class="collapse"><?php echo $video->nombre_canal; ?></td>
+<!--                        <td class="collapse"><?php //echo $video->nombre_canal; ?></td>-->
 <!--                        <td class="collapse"><?php //echo $video->tematico; ?></td>
                         <td class="collapse"><?php //echo $video->personaje; ?></td>-->
                         <td class="collapse"><?php echo $video->fecha_registro; ?></td>
@@ -75,12 +77,12 @@
                                 $estado = lang('videos:3_estado');
                                 break;
                         endswitch; ?>
-                        <td class="collapse"><?php echo $estado ?></td>
+                        <td class="collapse" id="video_<?php echo $video->id;?>"><?php echo $estado ?></td>
                         
                         <td>
 
-                            <?php if ($video->estado == '1') : ?>                                
-                                <?php echo anchor('', lang('global:preview'), 'class="btn green" target="_blank"');?>
+                            <?php if ($video->estado == 1 || $video->estado == 2) : ?>                                
+                                <?php echo anchor('/admin/canales/visualizar_video/'.$video->id, lang('global:preview'), 'class="btn green modal-large" onclick="return false;"');?>
                             <?php else: ?>
                                 <?php //echo anchor('blog/' . date('Y/m', '2013') . '/29'. $video->nombre, lang('global:view'), 'class="btn green" target="_blank"');?>
                             <?php endif; ?>

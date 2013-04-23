@@ -78,7 +78,7 @@
                                 $("#" + tipo + "_" + canal_id).html('Eliminado');
                                 var htmlButton = '';
                                 htmlButton += '<a href="#" onclick="restablecer(' + canal_id + ',\'canal\');return false;" class="btn green">Restablecer</a>';
-                                htmlButton += '<a href="#" onclick="previsualizar(' + canal_id + ',\'canal\');return false;" class="btn silver">Previsualizar</a>';
+                                htmlButton += '<a href="/admin/canales/previsualizar_canal/" target ="_blank" class="mode_preview modal-large">Previsualizar</a>';
                                 $("#" + tipo + "_boton_" + canal_id).html(htmlButton);
                             }
                         } //end success
@@ -103,10 +103,10 @@
                                 $("#" + tipo + "_" + canal_id).empty();
                                 $("#" + tipo + "_" + canal_id).html('Borrador');
                                 var htmlButton = '';
-                                htmlButton += '<a href="/admin/canales/canal/' + canal_id + '"  class="btn orange">Editar</a>';
-                                htmlButton += '<a href="#" onclick="previsualizar(' + canal_id + ',\'canal\');return false;" class="btn silver">Previsualizar</a>';
+                                htmlButton += '<a href="/admin/canales/canal/' + canal_id + '"  class="mode_edit">Editar</a>';
+                                htmlButton += '<a href="/admin/canales/previsualizar_canal/" target ="_blank" class="mode_preview modal-large">V.Previa</a>';
                                 htmlButton += '<a href="#" onclick="publicar(' + canal_id + ',\'canal\');return false;" class="btn blue">Publicar</a>';
-                                htmlButton += '<a href="#" onclick="eliminar(' + canal_id + ',\'canal\');return false;" class="btn blue">Eliminar</a>';
+                                htmlButton += '<a href="#" onclick="eliminar(' + canal_id + ',\'canal\');return false;" class="mode_delete">Eliminar</a>';
                                 $("#" + tipo + "_boton_" + canal_id).html(htmlButton);
                             }
                         } //end success
@@ -131,9 +131,9 @@
                                 $("#" + tipo + "_" + canal_id).empty();
                                 $("#" + tipo + "_" + canal_id).html('Publicado');
                                 var htmlButton = '';
-                                htmlButton += '<a href="/admin/canales/canal/' + canal_id + '"  class="btn orange">Editar</a>';
-                                htmlButton += '<a href="#" onclick="previsualizar(' + canal_id + ',\'canal\');return false;" class="btn silver">Previsualizar</a>';
-                                htmlButton += '<a href="#" onclick="eliminar(' + canal_id + ',\'canal\');return false;" class="btn blue">Eliminar</a>';
+                                htmlButton += '<a href="/admin/canales/canal/' + canal_id + '"  class="mode_edit">Editar</a>';
+                                htmlButton += '<a href="/admin/canales/previsualizar_canal/" target ="_blank" class="mode_preview modal-large">V.Previa</a>';
+                                htmlButton += '<a href="#" onclick="eliminar(' + canal_id + ',\'canal\');return false;" class="mode_delete">Eliminar</a>';
                                 $("#" + tipo + "_boton_" + canal_id).html(htmlButton);
                             }
                         } //end success

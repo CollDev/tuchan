@@ -53,5 +53,10 @@ class Detalle_secciones_m extends MY_Model {
         $result = $this->db->query($sql)->result();
         return $result;
     }
+    
+    public function update($id, $array){
+        parent::update($id, $array);
+        //$this->procesos_lib->actualizarDetalleSecciones();
+    }
 
 }

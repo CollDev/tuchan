@@ -1,16 +1,23 @@
-<section class="title">
+<section class="title"> 
+    <?php
+    echo anchor('admin/videos/carga_unitaria/' . $objCanal->id, $this->config->item('submenu:carga_unitaria'), array('class' => ''));
+    echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
+/*    echo anchor('admin/videos/carga_masiva/' . $canal_id, 'Carga masiva', array('class' => ''));
+    echo '&nbsp;&nbsp;|&nbsp;&nbsp;';*/
+    echo anchor('admin/videos/maestro/' . $objCanal->id, 'Organizar videos', array('class' => ''));
+    echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
+    echo anchor('admin/canales/portada/' . $objCanal->id, 'Portadas', array('class' => ''));
+    ?>
+</section>
     <?php
     if ($objMaestro->id > 0):
         $title_tab = 'Editar ' . $objMaestro->nombre;
         ?>
-        <h4><?php echo 'Editar ' . $objMaestro->nombre; ?></h4>
         <?php
     else:
         $title_tab = 'Crear nuevo maestro ';
         ?>
-        <h4><?php echo 'Agregar nuevo programa, colección o Lista' ?></h4>
     <?php endif; ?>
-</section>
 <section class="item">
     <?php
     // Canales_id       
@@ -46,23 +53,31 @@
                 <!-- descripcion -->
                 <label for="descripcion"><?php echo lang('videos:description'); ?><span class="required">*</span></label>
                 <?php echo form_textarea(array('id' => 'descripcion', 'name' => 'descripcion', 'value' => $objMaestro->descripcion, 'rows' => 5, 'class' => 'wysiwyg-simple')); ?>        
-
+                <!-- fecha de publicación -->
+                <br/><br/>
+                <label for="fecha_transmision"><?php echo lang('videos:fecha_transmision_label'); ?></label>
+                <?php echo lang('videos:inicio'); ?>
+                <?php
+                $fec_pub_ini = array(
+                    'name' => 'fec_pub_ini',
+                    'id' => 'fec_pub_ini',
+                    'value' => $objMaestro->fecha_transmision_inicio,
+                    'class' => 'selectedDateTime'
+                );
+                echo form_input($fec_pub_ini);
+                ?>
+                <?php echo lang('videos:fin'); ?>
+                <?php
+                $fec_pub_fin = array(
+                    'name' => 'fec_pub_fin',
+                    'id' => 'fec_pub_fin',
+                    'value' => $objMaestro->fecha_transmision_fin,
+                    'class' => 'selectedDateTime'
+                );
+                echo form_input($fec_pub_fin);
+                ?>                
                 <?php if ($objMaestro->id > 0) { ?>
-                    <!-- imagen -->
-                    <label for="imagen"><?php echo lang('videos:avatar'); ?></label>
-                    <?php
-                    $imagen = array('name' => 'addImage', 'id' => 'addImage', 'type' => 'button', 'value' => 'Agrega nuevas imagenes a tu programa');
-                    echo '<div style="float:left;">' . form_input($imagen) . '</div>';
-                    ?>
-                    <div  class="loaderAjax" id="loaderAjax" style="display: none; float: left;">
-                        <img src="uploads/imagenes/loading.gif">
-                    </div>
-                    <div style="clear: both;"></div>
-                    <div id="contenedorImage">
-                        <?php if (count($objMaestro->avatar) > 0) { ?>
-                            <select id="listaImagenes"></select>
-                        <?php } ?>
-                    </div>
+
 
                 <?php } else { ?>
                     <!-- imagen -->
@@ -98,14 +113,15 @@
                 <div class="input"><?php echo form_input('personajes', $objMaestro->personajes, 'id="personajes"') ?></div>        
             </div>
             <div class="main_opt">
-                    <br /><br />
-                    <input type="button" onclick="guardarMaestro();return false;" class="btn orange" name="btnGuardar" id="btnGuardar" value="<?php echo lang('buttons.save') ?>" />                            
+                <br /><br />
+                <input type="button" onclick="guardarMaestro();
+                        return false;" class="btn orange" name="btnGuardar" id="btnGuardar" value="<?php echo lang('buttons.save') ?>" />                            
             </div>
 
         </div>
         <?php if ($objMaestro->id > 0): ?>
             <div id="tabs-2">
-                Tab en desarrollo
+                <?php template_partial('imagenes'); ?>
             </div>
             <div id="tabs-3">
                 <div class="main_opt"  style="width: 100%;">
@@ -131,231 +147,297 @@
     <?php echo form_close() ?>
 </section>
 <script type="text/javascript">
-                        $(document).ready(function() {
-                            $("#tabs").tabs();
-
+                    $(document).ready(function() {
+                        mostrar_titulo();
+                        $("#tabs").tabs();
+                        $(".bajada2").css('height', '800');
 <?php if ($objMaestro->id > 0): ?>
-                                //Dropdown plugin data
-                                var ddData = <?php echo json_encode($objMaestro->avatar) . ';'; ?>
+                            //Dropdown plugin data
+                            var ddData = <?php echo json_encode($objMaestro->avatar) . ';'; ?>
 
-                                $('#listaImagenes').ddslick({
-                                    data: ddData,
-                                    width: 300,
-                                    imagePosition: "center",
-                                    selectText: "Seleccione su imagen principal",
-                                    onSelected: function(data) {
-                                        //console.log(data['selectedData'].value);
-                                        activeImageMaestro(data['selectedData'].value);
-                                    }
-                                });
-<?php endif; ?>
-                            //var ind = $("indiceImage").val();
-                            //$('#listaImagenes').ddslick('select', {index: ind });
-                            // needed so that Keywords can return empty JSON
-                            $.ajaxSetup({
-                                allowEmpty: true
-                            });
-
-                            $('#tematicas').tagsInput({
-                                autocomplete_url: 'admin/videos/tematicas'
-                            });
-
-                            $('#personajes').tagsInput({
-                                autocomplete_url: 'admin/videos/personajes'
-                            });
-
-                            var btn_firma = $('#addImage'), interval;
-                            new AjaxUpload('#addImage', {
-                                action: 'admin/videos/subir_imagen/' + '<?php echo $objMaestro->id; ?>',
-                                onSubmit: function(file, ext) {
-                                    if (!(ext && /^(jpg|png)$/.test(ext))) {
-                                        // extensiones permitidas
-                                        alert('Sólo se permiten Imagenes .jpg o .png');
-                                        // cancela upload
-                                        return false;
-                                    } else {
-                                        $('#loaderAjax').show();
-                                        btn_firma.text('Espere por favor');
-                                        this.disable();
-                                    }
-                                },
-                                onComplete: function(file, response) {
-                                    btn_firma.text('Cambiar Imagen');
-                                    respuesta = $.parseJSON(response);
-                                    if (respuesta.respuesta == 'done') {
-<?php if ($objMaestro->id > 0): ?>
-                                            saveImages(respuesta);
-<?php else: ?>
-                                            $('#loaderAjax').hide();
-                                            $("#imagen_maestro").val(respuesta.fileName);
-                                            var htmlImg = '<img src="uploads/temp/' + respuesta.fileName + '" title="' + respuesta.fileName + '" style="width:570px;" />';
-                                            $("#contenedorImage").html(htmlImg);
-<?php endif; ?>
-                                        console.log(respuesta);
-                                    }
-                                    else {
-                                        alert(respuesta.mensaje);
-                                    }
-
-                                    this.enable();
+                            $('#listaImagenes').ddslick({
+                                data: ddData,
+                                width: 300,
+                                imagePosition: "center",
+                                selectText: "Seleccione su imagen principal",
+                                onSelected: function(data) {
+                                    //console.log(data['selectedData'].value);
+                                    //activeImageMaestro(data['selectedData'].value);
                                 }
                             });
-
+<?php endif; ?>
+                        //var ind = $("indiceImage").val();
+                        //$('#listaImagenes').ddslick('select', {index: ind });
+                        // needed so that Keywords can return empty JSON
+                        $.ajaxSetup({
+                            allowEmpty: true
                         });
 
-                        function saveImages(respuesta) {
-                            var values = {};
-                            $.each($('#formMaestro').serializeArray(), function(i, field) {
-                                values[field.name] = field.value;
-                            });
-                            var post_url = "/admin/videos/registrar_imagenes_maestro/" + values['maestro_id'];
-                            $.ajax({
-                                type: "POST",
-                                url: post_url,
-                                dataType: 'json',
-                                data: respuesta,
-                                success: function(returnRespuesta) //we're calling the response json array 'cities'
-                                {
-                                    $('#loaderAjax').hide();
-                                    //limpiar
-                                    $('#listaImagenes').ddslick('destroy');
-                                    $("#contenedorImage").empty();
-                                    var htmlN = '<select id="listaImagenes">';
-                                    $.each(returnRespuesta.imagenes, function(k, v) {
-                                        if (v.estado == '1') {
-                                            htmlN += '<option selected=\"selected\" value=\"' + v.id + '\" data-imagesrc=\"' + v.path + '\" data-description=\" \"></option>';
-                                        } else {
-                                            htmlN += '<option value=\"' + v.id + '\" data-imagesrc=\"' + v.path + '\" data-description=\" \"></option>';
-                                        }
-                                    });
-                                    htmlN += '</select>';
-                                    $("#contenedorImage").html(htmlN);
-                                    $('#listaImagenes').ddslick({
-                                        width: 300,
-                                        imagePosition: "center",
-                                        selectText: "Seleccione su imagen principal",
-                                        onSelected: function(data) {
-                                            //console.log(data);
-                                            activeImageMaestro(data['selectedData'].value);
-                                        }
-                                    });
+                        $('#tematicas').tagsInput({
+                            autocomplete_url: 'admin/videos/tematicas'
+                        });
 
-                                } //end success
-                            }); //end AJAX        
-                        }
+                        $('#personajes').tagsInput({
+                            autocomplete_url: 'admin/videos/personajes'
+                        });
 
-                        function activeImageMaestro(imagen_id) {
-                            var maestro_id = $("#maestro_id").val();
-                            var post_url = "/admin/videos/active_imagen_maestro/" + maestro_id + "/" + imagen_id;
-                            $.ajax({
-                                type: "POST",
-                                url: post_url,
-                                //dataType: 'json',
-                                //data:imagen_id,
-                                success: function(returnRespuesta) //we're calling the response json array 'cities'
-                                {
-                                    console.log(returnRespuesta);
-                                } //end success
-                            }); //end AJAX              
-                        }
-
-                        function guardarMaestro() {
-                            var values = {};
-                            $.each($('#formMaestro').serializeArray(), function(i, field) {
-                                values[field.name] = field.value;
-                            });
-                            var editorText = CKEDITOR.instances.descripcion.getData();
-                            $('<input>').attr({
-                                type: 'hidden',
-                                id: 'descripcion_updated',
-                                name: 'descripcion_updated',
-                                value: editorText
-                            }).appendTo('#formMaestro');
+                        var btn_firma = $('#addImage'), interval;
+                        new AjaxUpload('#addImage', {
+                            action: 'admin/videos/subir_imagen/' + '<?php echo $objMaestro->id; ?>',
+                            onSubmit: function(file, ext) {
+                                if (!(ext && /^(jpg|png)$/.test(ext))) {
+                                    // extensiones permitidas
+                                    alert('Sólo se permiten Imagenes .jpg o .png');
+                                    // cancela upload
+                                    return false;
+                                } else {
+                                    $('#loaderAjax').show();
+                                    btn_firma.text('Espere por favor');
+                                    this.disable();
+                                }
+                            },
+                            onComplete: function(file, response) {
+                                btn_firma.text('Cambiar Imagen');
+                                respuesta = $.parseJSON(response);
+                                if (respuesta.respuesta == 'done') {
 <?php if ($objMaestro->id > 0): ?>
-                                var nombre_imagen = 'aaa';
+                                        saveImages(respuesta);
 <?php else: ?>
-                                var nombre_imagen = $.trim(values['imagen_maestro']);
+                                        $('#loaderAjax').hide();
+                                        $("#imagen_maestro").val(respuesta.fileName);
+                                        var htmlImg = '<img src="uploads/temp/' + respuesta.fileName + '" title="' + respuesta.fileName + '" style="width:570px;" />';
+                                        $("#contenedorImage").html(htmlImg);
 <?php endif; ?>
-                            var titulo = $.trim($("#titulo").val());
-                            values['tematicas'] = $.trim(values['tematicas']);
-                            values['personajes'] = $.trim(values['personajes']);
-                            if (titulo.length > 0) {
-                                //validamos el ckeditor
-                                var editorText = CKEDITOR.instances.descripcion.getData();
-                                editorText = $.trim(editorText);
-                                var regex = /(<([^>]+)>)/ig;
-                                var editorText2 = editorText.replace(regex, "");
-                                editorText2 = $.trim(editorText2);
-                                editorText2 = editorText2.replace(/(&nbsp;)*/g, "");
-                                if (editorText.length > 0 && editorText2.length > 0) {
-                                    if (values['tematicas'].length > 0) {
-                                        if (values['personajes'].length > 0) {
-                                            if (nombre_imagen.length > 0) {
-                                                if (values['categoria'].length > 0) {
-                                                    if (values['tipo'] == '1') {
-                                                        var tipo = 'Lista de reproducción';
-                                                    } else {
-                                                        if (values['tipo'] == '2') {
-                                                            var tipo = 'Colección';
-                                                        } else {
-                                                            var tipo = 'Programa';
-                                                        }
-                                                    }
-<?php if ($objMaestro->id == 0): ?>
-                                                        jConfirm("Seguro que desea crear un maestro de tipo: " + tipo, "Crear Maestro", function(r) {
-                                                            if (r) {
-<?php endif; ?>
-                                                            var serializedData = $('#formMaestro').serialize();
-<?php if ($objMaestro->id == 0): ?>
-                                                                loading('#loading');
-<?php endif; ?>
-                                                            //var post_url = "/admin/videos/save_maestro/"+values['txt_'+type_video]+"/"+values['canal_id']+"/"+values['categoria']+"/"+type_video;
-                                                            var post_url = "/admin/videos/guardar_maestro/";
-                                                            $.ajax({
-                                                                type: "POST",
-                                                                url: post_url,
-                                                                dataType: 'json',
-                                                                data: serializedData,
-                                                                success: function(respuesta)
-                                                                {
-                                                                    if (respuesta.value == 0) {
-<?php if ($objMaestro->id == 0): ?>
-                                                                            var url = 'admin/videos/grupo_maestro/' + respuesta.canal_id + "/" + respuesta.maestro_id;
-                                                                            $(location).attr('href', '<?php echo BASE_URL; ?>' + url);
+                                    //console.log(respuesta);
+                                }
+                                else {
+                                    alert(respuesta.mensaje);
+                                }
+
+                                this.enable();
+                            }
+                        });
+
+                        $.datepicker.regional['es'] = {
+                            closeText: 'Cerrar',
+                            prevText: '&#x3c;Ant',
+                            nextText: 'Sig&#x3e;',
+                            currentText: 'Hoy',
+                            timeText: 'Hora',
+                            hourText: 'Hrs.',
+                            minuteText: 'Min.',
+                            secondText: 'Seg.',
+                            monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
+                                'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+                            monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun',
+                                'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+                            dayNames: ['Domingo', 'Lunes', 'Martes', 'Mi&eacute;rcoles', 'Jueves', 'Viernes', 'S&aacute;bado'],
+                            dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mi&eacute;', 'Juv', 'Vie', 'S&aacute;b'],
+                            dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'S&aacute;'],
+                            weekHeader: 'Sm',
+                            dateFormat: 'dd-mm-yy',
+                            firstDay: 1,
+                            isRTL: false,
+                            showMonthAfterYear: false,
+                            yearSuffix: ''};
+                        $.datepicker.setDefaults($.datepicker.regional['es']);
+
+
+                        $.timepicker.regional['es'] = {
+                            closeText: 'Cerrar',
+                            prevText: '&#x3c;Ant',
+                            nextText: 'Sig&#x3e;',
+                            timeOnlyTitle: 'Elige la hora',
+                            currentText: 'Hoy',
+                            timeText: 'Hora',
+                            hourText: 'Hrs.',
+                            minuteText: 'Min.',
+                            secondText: 'Seg.'};
+                        $.timepicker.setDefaults($.timepicker.regional['es']);
+
+                        $('.selectedDateTime').datetimepicker($.datepicker.regional['es']);
+                        $('.selectedDate').datepicker({
+                            onSelect: function(textoFecha, objDatepicker) {
+                                //$("#mensaje").html("<p>Has seleccionado: " + textoFecha + "</p>");
+                                var fragmento_id = $("select[name=fragmento]").val();
+                                if (fragmento_id > 0) {
+                                    $("#txt_lista").val(textoFecha);
+                                    $("#txt_lista").css("display", "inline");
+                                }
+                            }
+                        });
+                        $('.selectedHour').timepicker($.datepicker.regional['es']);
+
+                    });
+
+                    function saveImages(respuesta) {
+                        var values = {};
+                        $.each($('#formMaestro').serializeArray(), function(i, field) {
+                            values[field.name] = field.value;
+                        });
+                        //var post_url = "/admin/videos/registrar_imagenes_maestro/" + values['maestro_id'];
+                        var post_url = "/admin/videos/subir_imagenes_maestro/" + values['maestro_id'];
+                        $.ajax({
+                            type: "POST",
+                            url: post_url,
+                            dataType: 'json',
+                            data: respuesta,
+                            success: function(returnRespuesta) //we're calling the response json array 'cities'
+                            {
+                                $('#loaderAjax').hide();
+                                //limpiar
+//                                $('#listaImagenes').ddslick('destroy');
+//                                $("#contenedorImage").empty();
+//                                var htmlN = '<select id="listaImagenes">';
+//                                $.each(returnRespuesta.imagenes, function(k, v) {
+//                                    if (v.estado == '1') {
+//                                        htmlN += '<option selected=\"selected\" value=\"' + v.id + '\" data-imagesrc=\"' + v.path + '\" data-description=\" \"></option>';
+//                                    } else {
+//                                        htmlN += '<option value=\"' + v.id + '\" data-imagesrc=\"' + v.path + '\" data-description=\" \"></option>';
+//                                    }
+//                                });
+//                                htmlN += '</select>';
+//                                $("#contenedorImage").html(htmlN);
+//                                $('#listaImagenes').ddslick({
+//                                    width: 300,
+//                                    imagePosition: "center",
+//                                    selectText: "Seleccione su imagen principal",
+//                                    onSelected: function(data) {
+//                                        //console.log(data);
+//                                        activeImageMaestro(data['selectedData'].value);
+//                                    }
+//                                });
+
+                            } //end success
+                        }); //end AJAX        
+                    }
+
+                    function activeImageMaestro(imagen_id) {
+                        var maestro_id = $("#maestro_id").val();
+                        var post_url = "/admin/videos/active_imagen_maestro/" + maestro_id + "/" + imagen_id;
+                        $.ajax({
+                            type: "POST",
+                            url: post_url,
+                            //dataType: 'json',
+                            //data:imagen_id,
+                            success: function(returnRespuesta) //we're calling the response json array 'cities'
+                            {
+                                console.log(returnRespuesta);
+                            } //end success
+                        }); //end AJAX              
+                    }
+
+                    function guardarMaestro() {
+                        var values = {};
+                        $.each($('#formMaestro').serializeArray(), function(i, field) {
+                            values[field.name] = field.value;
+                        });
+                        var editorText = CKEDITOR.instances.descripcion.getData();
+                        $('<input>').attr({
+                            type: 'hidden',
+                            id: 'descripcion_updated',
+                            name: 'descripcion_updated',
+                            value: editorText
+                        }).appendTo('#formMaestro');
+<?php if ($objMaestro->id > 0): ?>
+                            var nombre_imagen = 'aaa';
 <?php else: ?>
-                                                                            showMessage('exit', '<?php echo lang('videos:edit_video_success') ?>', 2000, '');
+                            var nombre_imagen = $.trim(values['imagen_maestro']);
 <?php endif; ?>
-                                                                    } else {
-                                                                        showMessage('error', '<?php echo lang('maestros:maestro_existe') ?>', 2000, '');
-                                                                    }
-                                                                } //end success
-                                                            }); //end AJAX
-<?php if ($objMaestro->id == 0): ?>
-                                                            }
-                                                        });
-<?php endif; ?>
+                        var titulo = $.trim($("#titulo").val());
+                        values['tematicas'] = $.trim(values['tematicas']);
+                        values['personajes'] = $.trim(values['personajes']);
+                        if (titulo.length > 0) {
+                            //validamos el ckeditor
+                            var editorText = CKEDITOR.instances.descripcion.getData();
+                            editorText = $.trim(editorText);
+                            var regex = /(<([^>]+)>)/ig;
+                            var editorText2 = editorText.replace(regex, "");
+                            editorText2 = $.trim(editorText2);
+                            editorText2 = editorText2.replace(/(&nbsp;)*/g, "");
+                            if (editorText.length > 0 && editorText2.length > 0) {
+                                if (values['tematicas'].length > 0) {
+                                    if (values['personajes'].length > 0) {
+                                        if (nombre_imagen.length > 0) {
+                                            if (values['categoria'].length > 0) {
+                                                if (values['tipo'] == '1') {
+                                                    var tipo = 'Lista de reproducción';
                                                 } else {
-                                                    showMessage('error', '<?php echo lang('videos:require_category') ?>', 2000, '');
+                                                    if (values['tipo'] == '2') {
+                                                        var tipo = 'Colección';
+                                                    } else {
+                                                        var tipo = 'Programa';
+                                                    }
                                                 }
+<?php if ($objMaestro->id == 0): ?>
+                                                    jConfirm("Seguro que desea crear un maestro de tipo: " + tipo, "Crear Maestro", function(r) {
+                                                        if (r) {
+<?php endif; ?>
+                                                        var serializedData = $('#formMaestro').serialize();
+<?php if ($objMaestro->id == 0): ?>
+                                                            loading('#loading');
+<?php endif; ?>
+                                                        //var post_url = "/admin/videos/save_maestro/"+values['txt_'+type_video]+"/"+values['canal_id']+"/"+values['categoria']+"/"+type_video;
+                                                        var post_url = "/admin/videos/guardar_maestro/";
+                                                        $.ajax({
+                                                            type: "POST",
+                                                            url: post_url,
+                                                            dataType: 'json',
+                                                            data: serializedData,
+                                                            success: function(respuesta)
+                                                            {
+                                                                if (respuesta.value == 0) {
+<?php if ($objMaestro->id == 0): ?>
+                                                                        var url = 'admin/videos/grupo_maestro/' + respuesta.canal_id + "/" + respuesta.maestro_id;
+                                                                        $(location).attr('href', '<?php echo BASE_URL; ?>' + url);
+<?php else: ?>
+                                                                        showMessage('exit', '<?php echo lang('videos:edit_video_success') ?>', 2000, '');
+<?php endif; ?>
+                                                                } else {
+                                                                    showMessage('error', '<?php echo lang('maestros:maestro_existe') ?>', 2000, '');
+                                                                }
+                                                            } //end success
+                                                        }); //end AJAX
+<?php if ($objMaestro->id == 0): ?>
+                                                        }
+                                                    });
+<?php endif; ?>
                                             } else {
-                                                showMessage('error', '<?php echo lang('videos:require_images') ?>', 2000, '');
+                                                showMessage('error', '<?php echo lang('videos:require_category') ?>', 2000, '');
                                             }
                                         } else {
-                                            showMessage('error', '<?php echo lang('videos:require_personajes') ?>', 2000, '');
+                                            showMessage('error', '<?php echo lang('videos:require_images') ?>', 2000, '');
                                         }
                                     } else {
-                                        showMessage('error', '<?php echo lang('videos:require_tematicas') ?>', 2000, '');
+                                        showMessage('error', '<?php echo lang('videos:require_personajes') ?>', 2000, '');
                                     }
                                 } else {
-                                    showMessage('error', '<?php echo lang('videos:require_description') ?>', 2000, '');
+                                    showMessage('error', '<?php echo lang('videos:require_tematicas') ?>', 2000, '');
                                 }
                             } else {
-                                showMessage('error', '<?php echo lang('videos:require_title') ?>', 2000, '');
+                                showMessage('error', '<?php echo lang('videos:require_description') ?>', 2000, '');
                             }
+                        } else {
+                            showMessage('error', '<?php echo lang('videos:require_title') ?>', 2000, '');
                         }
-                        function showMessage(type, message, duration, pathurl) {
-                            if (type == 'error') {
-                                jError(
+                    }
+                    function showMessage(type, message, duration, pathurl) {
+                        if (type == 'error') {
+                            jError(
+                                    message,
+                                    {
+                                        autoHide: true, // added in v2.0
+                                        TimeShown: duration,
+                                        HorizontalPosition: 'center',
+                                        VerticalPosition: 'top',
+                                        onCompleted: function() { // added in v2.0
+                                            //alert('jNofity is completed !');
+                                        }
+                                    }
+                            );
+                        } else {
+                            if (type == 'exit') {
+                                jSuccess(
                                         message,
                                         {
                                             autoHide: true, // added in v2.0
@@ -363,48 +445,66 @@
                                             HorizontalPosition: 'center',
                                             VerticalPosition: 'top',
                                             onCompleted: function() { // added in v2.0
-                                                //alert('jNofity is completed !');
+                                                if (pathurl.length > 0) {
+                                                    $(location).attr('href', '<?php echo BASE_URL; ?>' + pathurl);
+                                                    //window.location('<?php echo BASE_URL; ?>'+pathurl);
+                                                }
                                             }
                                         }
                                 );
+                            }
+                        }
+                    }
+                    function generarMaestro() {
+                        var values = {};
+                        $.each($('#formMaestro').serializeArray(), function(i, field) {
+                            values[field.name] = field.value;
+                        });
+                        if ($("#tipo_id").val() != values['tipo']) {
+                            $("#tipo_id").val(values['tipo']);
+                            if ($("#tipo_id").val() == '3') {
+                                $("#divPrograma").empty();
                             } else {
-                                if (type == 'exit') {
-                                    jSuccess(
-                                            message,
-                                            {
-                                                autoHide: true, // added in v2.0
-                                                TimeShown: duration,
-                                                HorizontalPosition: 'center',
-                                                VerticalPosition: 'top',
-                                                onCompleted: function() { // added in v2.0
-                                                    if (pathurl.length > 0) {
-                                                        $(location).attr('href', '<?php echo BASE_URL; ?>' + pathurl);
-                                                        //window.location('<?php echo BASE_URL; ?>'+pathurl);
-                                                    }
-                                                }
-                                            }
-                                    );
-                                }
+                                generar_programa();
                             }
                         }
-                        function generarMaestro() {
-                            var values = {};
-                            $.each($('#formMaestro').serializeArray(), function(i, field) {
-                                values[field.name] = field.value;
-                            });
-                            if ($("#tipo_id").val() != values['tipo']) {
-                                $("#tipo_id").val(values['tipo']);
-                                if ($("#tipo_id").val() == '3') {
-                                    $("#divPrograma").empty();
-                                } else {
-                                    generar_programa();
-                                }
-                            }
-                        }
+                    }
 
-                        function generar_programa() {
+                    function generar_programa() {
+                        var serializedData = $('#formMaestro').serialize();
+                        var post_url = "/admin/videos/generar_programa/";
+                        $.ajax({
+                            type: "POST",
+                            url: post_url,
+                            dataType: 'html',
+                            data: serializedData,
+                            success: function(respuesta)
+                            {
+                                $("#divPrograma").html(respuesta);
+                                //$("#divResultado").html(respuesta);
+                                /*$('#black').smartpaginator({
+                                 totalrecords: $("#total").val(),
+                                 recordsperpage: 3,
+                                 theme: 'black',
+                                 onchange: function(newPage) {
+                                 //$('#r').html('Page # ' + newPage);
+                                 paginarItems(newPage);
+                                 }
+                                 });*/
+                            } //end success
+                        }); //end AJAX           
+                    }
+
+                    function generar_coleccion() {
+                        var values = {};
+                        $.each($('#formMaestro').serializeArray(), function(i, field) {
+                            values[field.name] = field.value;
+                        });
+                        if (values['programa'] == '0') {
+                            $("#divColeccion").empty();
+                        } else {
                             var serializedData = $('#formMaestro').serialize();
-                            var post_url = "/admin/videos/generar_programa/";
+                            var post_url = "/admin/videos/generar_coleccion/";
                             $.ajax({
                                 type: "POST",
                                 url: post_url,
@@ -412,249 +512,231 @@
                                 data: serializedData,
                                 success: function(respuesta)
                                 {
-                                    //$("#divPrograma").html(respuesta);
-                                    $("#divResultado").html(respuesta);
-                                    $('#black').smartpaginator({
-                                        totalrecords: $("#total").val(),
-                                        recordsperpage: 3,
-                                        theme: 'black',
-                                        onchange: function(newPage) {
-                                            //$('#r').html('Page # ' + newPage);
-                                            paginarItems(newPage);
-                                        }
-                                    });
+                                    $("#divColeccion").html(respuesta);
                                 } //end success
-                            }); //end AJAX           
+                            }); //end AJAX                  
+                        }
+                    }
+
+                    function loading(id) {
+                        var winH = $(window).height();
+                        var winW = $(window).width();
+
+                        var dialog = $(id);
+                        //console.log(dialog);
+                        var maxheight = dialog.css("max-height");
+                        var maxwidth = dialog.css("max-width");
+
+                        var dialogheight = dialog.height();
+                        var dialogwidth = dialog.width();
+
+                        if (maxheight != "none") {
+                            dialogheight = Number(maxheight.replace("px", ""));
+                        }
+                        if (maxwidth != "none") {
+                            dialogwidth = Number(maxwidth.replace("px", ""));
                         }
 
-                        function generar_coleccion() {
-                            var values = {};
-                            $.each($('#formMaestro').serializeArray(), function(i, field) {
-                                values[field.name] = field.value;
-                            });
-                            if (values['programa'] == '0') {
-                                $("#divColeccion").empty();
-                            } else {
-                                var serializedData = $('#formMaestro').serialize();
-                                var post_url = "/admin/videos/generar_coleccion/";
-                                $.ajax({
-                                    type: "POST",
-                                    url: post_url,
-                                    dataType: 'html',
-                                    data: serializedData,
-                                    success: function(respuesta)
-                                    {
-                                        $("#divColeccion").html(respuesta);
-                                    } //end success
-                                }); //end AJAX                  
-                            }
-                        }
+                        dialog.css('top', winH / 2 - dialogheight / 2);
+                        dialog.css('left', winW / 2 - dialogwidth / 2);
+                        dialog.css('display', 'block');
+                        $("#imgLoading").css('z-index', 400);
+                        dialog.css('z-index', '399');
+                        $("#loadingModal").css('position', 'absolute');
+                        $("#loadingModal").css('height', $(document).height());
+                        $("#loadingModal").css('width', winW);
+                        $("#loadingModal").css('z-index', '388');
+                    }
 
-                        function loading(id) {
-                            var winH = $(window).height();
-                            var winW = $(window).width();
+                    function listar_para_lista(numero_pagina) {
+                        var serializedData = $('#frmBuscar').serialize();
+                        var post_url = "/admin/videos/listar_para_lista/" + numero_pagina;
+                        $.ajax({
+                            type: "POST",
+                            url: post_url,
+                            dataType: 'html',
+                            data: serializedData,
+                            success: function(respuesta)
+                            {
+                                $("#divResultado").html(respuesta);
+                                $('#black').smartpaginator({
+                                    totalrecords: $("#total").val(),
+                                    recordsperpage: $("#cantidad_mostrar").val(),
+                                    theme: 'black',
+                                    onchange: function(newPage) {
+                                        //$('#r').html('Page # ' + newPage);
+                                        paginarLista(newPage);
+                                    }
+                                });
+                            } //end success
+                        }); //end AJAX              
+                    }
+                    function listar_para_programa(numero_pagina) {
+                        var serializedData = $('#frmBuscar').serialize();
+                        var post_url = "/admin/videos/listar_para_programa/" + numero_pagina;
+                        $.ajax({
+                            type: "POST",
+                            url: post_url,
+                            dataType: 'html',
+                            data: serializedData,
+                            success: function(respuesta)
+                            {
+                                $("#divResultado").html(respuesta);
+                                $('#black').smartpaginator({
+                                    totalrecords: $("#total").val(),
+                                    recordsperpage: $("#cantidad_mostrar").val(),
+                                    theme: 'black',
+                                    onchange: function(newPage) {
+                                        //$('#r').html('Page # ' + newPage);
+                                        paginarItems(newPage);
+                                    }
+                                });
+                            } //end success
+                        }); //end AJAX 
+                    }
+                    /**
+                     * método para imprimir html de acuerdo al numero de pagina enviado como parametro
+                     * @param int newPage
+                     * @returns html         
+                     * */
+                    function paginarItems(newPage) {
+                        var serializedData = $('#frmBuscar').serialize();
+                        var post_url = "/admin/videos/listar_para_programa/" + newPage + "/1";
+                        $.ajax({
+                            type: "POST",
+                            url: post_url,
+                            dataType: 'html',
+                            data: serializedData,
+                            success: function(respuesta)
+                            {
+                                $("#resultado").html(respuesta);
+                            } //end success
+                        }); //end AJAX         
+                    }
 
-                            var dialog = $(id);
-                            //console.log(dialog);
-                            var maxheight = dialog.css("max-height");
-                            var maxwidth = dialog.css("max-width");
+                    /**
+                     * método para imprimir html de acuerdo al numero de pagina enviado como parametro
+                     * @param int newPage
+                     * @returns html         
+                     * */
+                    function paginarColeccion(newPage) {
+                        var serializedData = $('#frmBuscar').serialize();
+                        var post_url = "/admin/videos/listar_para_coleccion/" + newPage + "/1";
+                        $.ajax({
+                            type: "POST",
+                            url: post_url,
+                            dataType: 'html',
+                            data: serializedData,
+                            success: function(respuesta)
+                            {
+                                $("#resultado").html(respuesta);
+                            } //end success
+                        }); //end AJAX         
+                    }
 
-                            var dialogheight = dialog.height();
-                            var dialogwidth = dialog.width();
+                    function paginarLista(newPage) {
+                        var serializedData = $('#frmBuscar').serialize();
+                        var post_url = "/admin/videos/listar_para_lista/" + newPage + "/1";
+                        $.ajax({
+                            type: "POST",
+                            url: post_url,
+                            dataType: 'html',
+                            data: serializedData,
+                            success: function(respuesta)
+                            {
+                                $("#resultado").html(respuesta);
+                            } //end success
+                        }); //end AJAX                        
+                    }
 
-                            if (maxheight != "none") {
-                                dialogheight = Number(maxheight.replace("px", ""));
-                            }
-                            if (maxwidth != "none") {
-                                dialogwidth = Number(maxwidth.replace("px", ""));
-                            }
+                    function listar_para_coleccion(numero_pagina) {
+                        var serializedData = $('#frmBuscar').serialize();
+                        var post_url = "/admin/videos/listar_para_coleccion/" + numero_pagina;
+                        $.ajax({
+                            type: "POST",
+                            url: post_url,
+                            dataType: 'html',
+                            data: serializedData,
+                            success: function(respuesta)
+                            {
+                                $("#divResultado").html(respuesta);
+                                $('#black').smartpaginator({
+                                    totalrecords: $("#total").val(),
+                                    recordsperpage: $("#cantidad_mostrar").val(),
+                                    theme: 'black',
+                                    onchange: function(newPage) {
+                                        //$('#r').html('Page # ' + newPage);
+                                        paginarColeccion(newPage);
+                                    }
+                                });
+                            } //end success
+                        }); //end AJAX                         
+                    }
 
-                            dialog.css('top', winH / 2 - dialogheight / 2);
-                            dialog.css('left', winW / 2 - dialogwidth / 2);
-                            dialog.css('display', 'block');
-                            $("#imgLoading").css('z-index', 400);
-                            dialog.css('z-index', '399');
-                            $("#loadingModal").css('position', 'absolute');
-                            $("#loadingModal").css('height', $(document).height());
-                            $("#loadingModal").css('width', winW);
-                            $("#loadingModal").css('z-index', '388');
-                        }
+                    function agregarMaestroAMaestro(maestro_id, parent_maestro) {
+                        var post_url = "/admin/videos/agregarMaestroAMaestro/" + maestro_id + '/' + parent_maestro;
+                        $.ajax({
+                            type: "POST",
+                            url: post_url,
+                            dataType: 'html',
+                            data: 'maestro_id=' + maestro_id + '&parent_maestro=' + parent_maestro,
+                            success: function(respuesta)
+                            {
+                                $("#divContenido").html(respuesta);
+                                var maestro_agregado = $("#maestro_agregado").val();
+                                $("#div_" + maestro_agregado).empty();
+                                var htmlAgregado = '<a href="#" id="agregado" name="agregado" class="btn silver" onclick="return false;">Agregado</a>';
+                                $("#div_" + maestro_agregado).html(htmlAgregado);
 
-                        function listar_para_lista(numero_pagina) {
-                            var serializedData = $('#frmBuscar').serialize();
-                            var post_url = "/admin/videos/listar_para_lista/" + numero_pagina;
-                            $.ajax({
-                                type: "POST",
-                                url: post_url,
-                                dataType: 'html',
-                                data: serializedData,
-                                success: function(respuesta)
-                                {
-                                    $("#divResultado").html(respuesta);
-                                    $('#black').smartpaginator({
-                                        totalrecords: $("#total").val(),
-                                        recordsperpage: $("#cantidad_mostrar").val(),
-                                        theme: 'black',
-                                        onchange: function(newPage) {
-                                            //$('#r').html('Page # ' + newPage);
-                                            paginarLista(newPage);
-                                        }
-                                    });
-                                } //end success
-                            }); //end AJAX              
-                        }
-                        function listar_para_programa(numero_pagina) {
-                            var serializedData = $('#frmBuscar').serialize();
-                            var post_url = "/admin/videos/listar_para_programa/" + numero_pagina;
-                            $.ajax({
-                                type: "POST",
-                                url: post_url,
-                                dataType: 'html',
-                                data: serializedData,
-                                success: function(respuesta)
-                                {
-                                    $("#divResultado").html(respuesta);
-                                    $('#black').smartpaginator({
-                                        totalrecords: $("#total").val(),
-                                        recordsperpage: $("#cantidad_mostrar").val(),
-                                        theme: 'black',
-                                        onchange: function(newPage) {
-                                            //$('#r').html('Page # ' + newPage);
-                                            paginarItems(newPage);
-                                        }
-                                    });
-                                } //end success
-                            }); //end AJAX 
-                        }
-                        /**
-                         * método para imprimir html de acuerdo al numero de pagina enviado como parametro
-                         * @param int newPage
-                         * @returns html         
-                         * */
-                        function paginarItems(newPage) {
-                            var serializedData = $('#frmBuscar').serialize();
-                            var post_url = "/admin/videos/listar_para_programa/" + newPage + "/1";
-                            $.ajax({
-                                type: "POST",
-                                url: post_url,
-                                dataType: 'html',
-                                data: serializedData,
-                                success: function(respuesta)
-                                {
-                                    $("#resultado").html(respuesta);
-                                } //end success
-                            }); //end AJAX         
-                        }
-                        
-                        /**
-                         * método para imprimir html de acuerdo al numero de pagina enviado como parametro
-                         * @param int newPage
-                         * @returns html         
-                         * */
-                        function paginarColeccion(newPage) {
-                            var serializedData = $('#frmBuscar').serialize();
-                            var post_url = "/admin/videos/listar_para_coleccion/" + newPage + "/1";
-                            $.ajax({
-                                type: "POST",
-                                url: post_url,
-                                dataType: 'html',
-                                data: serializedData,
-                                success: function(respuesta)
-                                {
-                                    $("#resultado").html(respuesta);
-                                } //end success
-                            }); //end AJAX         
-                        }
-                        
-                        function paginarLista(newPage){
-                            var serializedData = $('#frmBuscar').serialize();
-                            var post_url = "/admin/videos/listar_para_lista/" + newPage + "/1";
-                            $.ajax({
-                                type: "POST",
-                                url: post_url,
-                                dataType: 'html',
-                                data: serializedData,
-                                success: function(respuesta)
-                                {
-                                    $("#resultado").html(respuesta);
-                                } //end success
-                            }); //end AJAX                        
-                        }
-                        
-                        function listar_para_coleccion(numero_pagina){
-                            var serializedData = $('#frmBuscar').serialize();
-                            var post_url = "/admin/videos/listar_para_coleccion/" + numero_pagina;
-                            $.ajax({
-                                type: "POST",
-                                url: post_url,
-                                dataType: 'html',
-                                data: serializedData,
-                                success: function(respuesta)
-                                {
-                                    $("#divResultado").html(respuesta);
-                                    $('#black').smartpaginator({
-                                        totalrecords: $("#total").val(),
-                                        recordsperpage: $("#cantidad_mostrar").val(),
-                                        theme: 'black',
-                                        onchange: function(newPage) {
-                                            //$('#r').html('Page # ' + newPage);
-                                            paginarColeccion(newPage);
-                                        }
-                                    });
-                                } //end success
-                            }); //end AJAX                         
-                        }
+                            } //end success
+                        }); //end AJAX              
+                    }
 
-                        function agregarMaestroAMaestro(maestro_id, parent_maestro) {
-                            var post_url = "/admin/videos/agregarMaestroAMaestro/" + maestro_id + '/' + parent_maestro;
-                            $.ajax({
-                                type: "POST",
-                                url: post_url,
-                                dataType: 'html',
-                                data: 'maestro_id=' + maestro_id + '&parent_maestro=' + parent_maestro,
-                                success: function(respuesta)
-                                {
-                                    $("#divContenido").html(respuesta);
-                                    var maestro_agregado = $("#maestro_agregado").val();
-                                    $("#div_" + maestro_agregado).empty();
-                                    var htmlAgregado = '<a href="#" id="agregado" name="agregado" class="btn silver" onclick="return false;">Agregado</a>';
-                                    $("#div_" + maestro_agregado).html(htmlAgregado);
-                                    
-                                } //end success
-                            }); //end AJAX              
-                        }
+                    function quitarGrupoMaestro(grupo_detalle_id, parent_maestro) {
+                        //var serializedData = $('#frmBuscar').serialize();
+                        var post_url = "/admin/videos/quitar_grupo_maestro/";
+                        $.ajax({
+                            type: "POST",
+                            url: post_url,
+                            dataType: 'html',
+                            data: 'grupo_detalle_id=' + grupo_detalle_id + '&parent_maestro=' + parent_maestro,
+                            success: function(respuesta)
+                            {
+                                //location.reload();
+                                $("#divContenido").html(respuesta);
+                            } //end success
+                        }); //end AJAX              
+                    }
 
-                        function quitarGrupoMaestro(grupo_detalle_id, parent_maestro) {
-                            //var serializedData = $('#frmBuscar').serialize();
-                            var post_url = "/admin/videos/quitar_grupo_maestro/";
-                            $.ajax({
-                                type: "POST",
-                                url: post_url,
-                                dataType: 'html',
-                                data: 'grupo_detalle_id=' + grupo_detalle_id+'&parent_maestro='+parent_maestro,
-                                success: function(respuesta)
-                                {
-                                    //location.reload();
-                                    $("#divContenido").html(respuesta);
-                                } //end success
-                            }); //end AJAX              
-                        }
-                        
-                        function agregarVideoAMaestro(video_id, maestro_id){
-                            var post_url = "/admin/videos/agregarVideoAMaestro/";
-                            $.ajax({
-                                type: "POST",
-                                url: post_url,
-                                dataType: 'html',
-                                data: 'video_id=' + video_id + '&maestro_id=' + maestro_id,
-                                success: function(respuesta)
-                                {
-                                    $("#divContenido").html(respuesta);
-                                    $("#div_" + video_id).empty();
-                                    var htmlAgregado = '<a href="#" id="agregado" name="agregado" class="btn silver" onclick="return false;">Agregado</a>';
-                                    $("#div_" + video_id).html(htmlAgregado);
-                                    
-                                } //end success
-                            }); //end AJAX                          
-                        }
+                    function agregarVideoAMaestro(video_id, maestro_id) {
+                        var post_url = "/admin/videos/agregarVideoAMaestro/";
+                        $.ajax({
+                            type: "POST",
+                            url: post_url,
+                            dataType: 'html',
+                            data: 'video_id=' + video_id + '&maestro_id=' + maestro_id,
+                            success: function(respuesta)
+                            {
+                                $("#divContenido").html(respuesta);
+                                $("#div_" + video_id).empty();
+                                var htmlAgregado = '<a href="#" id="agregado" name="agregado" class="btn silver" onclick="return false;">Agregado</a>';
+                                $("#div_" + video_id).html(htmlAgregado);
+
+                            } //end success
+                        }); //end AJAX                          
+                    }
+                    function mostrar_titulo() {
+                        var vista = 'Programa';
+                        var post_url = "/admin/canales/mostrar_titulo/<?php echo $objCanal->id; ?>/" + vista;
+                        $.ajax({
+                            type: "POST",
+                            url: post_url,
+                            dataType: 'html',
+                            //data:imagen_id,
+                            success: function(respuesta) //we're calling the response json array 'cities'
+                            {
+                                $(".subbar > .wrapper").html(respuesta);
+                            } //end success
+                        }); //end AJAX              
+                    }
 </script>

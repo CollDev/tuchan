@@ -164,7 +164,7 @@ form { margin: 0; }
 form ul { margin: 5px 0 5px 0; padding: 0; }
 form ul li { list-style: none; }
 form .help-inline { font-size: 11px; }
-fieldset { border: 1px solid #eeeeee; margin: 5px 0 15px -5px; padding: 2px 6px 2px 2px; }
+fieldset { border: 1px solid #eeeeee; margin: 0px 0 0px 0px; padding: 0px 0px 0px 0px; }
 
 /* Indicate that 'label' will shift focus to the associated form element */
 label { cursor: pointer; font-size: 12px; font-weight: bold; }
@@ -260,7 +260,7 @@ input[type="password"],
 input[type="file"],
 textarea {
 	background: #f1f1f1;
-	padding: 8px;
+	padding: 5px;
 	border: 1px solid #d9d9d9;
 	border-radius: 5px;
 	-moz-border-radius: 5px;
@@ -1409,6 +1409,52 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
   border: 0;
 }
 
+/*pagination sin ajax*/
+.paginationSinAjax {
+  margin: 18px 0;
+}
+
+.paginationSinAjax ul {
+  float: left;
+  margin: 0;
+  padding: 0;
+  border: 1px solid #ddd;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-grid-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  -moz-grid-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  grid-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.paginationSinAjax ul li {
+  display: inline;
+}
+
+.paginationSinAjax ul li a, .paginationSinAjax ul li span {
+  float: left;
+  padding: 0 14px;
+  line-height: 34px;
+  border-right: 1px solid;
+  border-right-color: #dddddd;
+  text-decoration: none;
+}
+
+.paginationSinAjax ul li a:hover, .paginationSinAjax ul li.active span {
+  background-color: #c7eefe;
+  color: #4C6169;
+}
+
+.paginationSinAjax ul li.disabled a, .paginationSinAjax ul li.disabled a:hover {
+  background-color: none;
+  color: #bfbfbf;
+}
+
+.paginationSinAjax ul li.next a {
+  border: 0;
+}
+
 .topbar {
   height: 50px;
   position: absolute;
@@ -1660,7 +1706,6 @@ background-color: rgb(136, 130, 141);
 width: 100%;
 min-height: 25px;
 padding-top: 10px;
-padding-left: 15px;
 }
 
 
@@ -1685,15 +1730,15 @@ background:url(../../../img/admin/new_icon.png) no-repeat left center;
 }
 
 .mode_edit{
-	background:url(../../../img/admin/edit_icon.png) no-repeat top center;
+	background:url(../../img/edit_icon.png) no-repeat top center;
 }
 
 .mode_delete{
-	background:url(../../../img/admin/edit_delete.png) no-repeat top center;
+	background:url(../../img/delete_icon.png) no-repeat top center;
 }
 
 .mode_preview{
-	background:url(../../../img/admin/edit_view.png) no-repeat top center;
+	background:url(../../img/view_icon.png) no-repeat top center;
 }
  
  

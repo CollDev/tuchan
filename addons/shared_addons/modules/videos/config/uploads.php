@@ -11,6 +11,7 @@ $config['videos:videos']   = UPLOAD_VIDEOS;
 
 $config['videos:formatos'] = 'mp4|mpg|flv|avi|wmv';
 $config['videos:extension'] = 'vid';
+$config['extension:mp4'] = 'mp4';
 
 //identificadores para los tipos de maestros
 $config['videos:programa'] = '3';
@@ -22,6 +23,12 @@ $config['estado:borrador'] = '0';
 $config['estado:publicado'] = '1';
 $config['estado:eliminado'] = '2';
 
+//estados de los videos
+$config['video:codificando'] = '0';
+$config['video:borrador'] = '1';
+$config['video:publicado'] = '2';
+$config['video:eliminado'] = '3';
+
 //estado de migración
 $config['migracion:nuevo'] = '0';
 $config['migracion:actualizado'] = '9';
@@ -29,6 +36,7 @@ $config['migracion:actualizado'] = '9';
 //estados de los videos en el flujo de upload
 $config['status:codificando'] = '0';
 $config['liquid:nuevo'] = '0';
+$config['liquid:mp4'] = '2';
 
 //estados de las imagenes
 $config['imagen:borrador'] = '0';
@@ -53,13 +61,14 @@ $config['imagen:formatos'] = 'jpg|png|jpeg';
 
 //procedencia
 $config['procedencia:liquid'] = '1';
+$config['procedencia:elemento'] = '0';
 
 //tipos de tag
 $config['tag:tematicas'] = '1';
 $config['tag:personajes'] = '2';
 
 //servidor elemento
-$config['server:elemento'] = 'dev.e.micanal.e3.pe';
+//$config['server:elemento'] = 'dev.e.micanal.e3.pe';
 
 //protocolos
 $config['protocolo:http'] = 'http://';
@@ -100,3 +109,9 @@ $config['grupo:administrador-canales'] = '4';
 
 //tipo de canal
 $config['canal:mi_canal'] = '5';
+//intervalo de tiempo en segundos para verificar el estado de videos
+$config['video:segundos'] = '20000';
+$config['video:verificar'] = '0';
+
+//submenus
+$config['submenu:carga_unitaria'] = 'Subir video';

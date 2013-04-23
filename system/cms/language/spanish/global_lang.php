@@ -5,10 +5,13 @@ if (!defined('BASEPATH'))
 
 $lang['global:control-panel'] = 'Panel de Control';
 $lang['global:profile'] = 'Perfil';
+$lang['global:upgrade'] = 'Actualizar';
+$lang['global:accesos'] = 'Accesos';
 
 $lang['global:estado'] = 'Estado';
 $lang['global:acciones'] = 'Acciones';
 $lang['global:no_data'] = 'No hay datos para mostrar';
+$lang['global:ver_portada'] = 'Ver portada';
 
 # estados
 $lang['global:0_estado'] = 'Borrador';
@@ -39,6 +42,8 @@ $lang['dialog.no'] = 'No';
 
 $lang['global:select-none'] = '-- Ninguno --';
 $lang['global:select-all'] = '-- Todos --';
+$lang['global:select-all-status'] = '-- Todos los estados --';
+$lang['global:select-all-programs'] = '-- Todos los programas --';
 $lang['global:select-any'] = '-- Cualquiera --';
 $lang['global:select-pick'] = '-- Seleccionar --';
 

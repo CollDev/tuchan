@@ -36,6 +36,10 @@ class Admin extends Admin_Controller {
         $this->config->load('videos/uploads');
         $this->load->library('image_lib');
         $this->load->library('imagenes_lib');
+        $this->load->library('procesos_lib');
+        
+        ci()->load->model('videos_mp');
+        ci()->load->library("Procesos/proceso");
     }
 
     public function index() {
@@ -46,7 +50,12 @@ class Admin extends Admin_Controller {
         $returnValue = true;
         $path_video_old = FCPATH . 'uploads/videos/' . $name_file;
         $ext = pathinfo($path_video_old, PATHINFO_EXTENSION);
-        $path_video_new = FCPATH . 'uploads/videos/' . $objBeanVideo->id . '.' . $this->config->item('videos:extension'); // . $ext;
+        if ($ext != $this->config->item('extension:mp4')) {
+            $path_video_new = FCPATH . 'uploads/videos/' . $objBeanVideo->id . '.' . $this->config->item('videos:extension'); // . $ext;
+        } else {
+            $path_video_new = FCPATH . 'uploads/videos/' . $objBeanVideo->id . '.' . $this->config->item('extension:mp4'); // . $ext;
+            $this->videos_m->update($objBeanVideo->id, array("estado_liquid"=>$this->config->item('liquid:mp4')));
+        }
         rename($path_video_old, $path_video_new);
         return $returnValue;
     }
@@ -96,7 +105,6 @@ class Admin extends Admin_Controller {
     }
 
     public function _saveTagsTematicaPersonajes($objBeanVideo, $post) {
-
         $user_id = (int) $this->session->userdata('user_id');
         $arrayTagTematicas = explode(",", $post['tematicas']);
         $arraytagPersonajes = explode(",", $post['personajes']);
@@ -307,7 +315,6 @@ class Admin extends Admin_Controller {
     }
 
     public function carga_unitaria($canal_id = 0, $video_id = 0) {
-        //$this->vd($this->input->post());die();
         $error = false;
         $message = '';
         if ($this->input->post()) {
@@ -360,6 +367,7 @@ class Admin extends Admin_Controller {
                         //$objBeanVideo->fecha_migracion_sphinx_tit ='';
                         //$objBeanVideo->fecha_migracion_actualizacion_sphinx_tit ='';
                         $objBeanVideo->estado_migracion_sphinx_des = 0;
+                        $objBeanVideo->padre = 0;
                         //$objBeanVideo->fecha_migracion_sphinx_des ='';
                         //$objBeanVideo->fecha_migracion_actualizacion_sphinx_des ='';
                         $objBeanVideo = $this->videos_m->save_video($objBeanVideo);
@@ -369,7 +377,8 @@ class Admin extends Admin_Controller {
                         $this->_saveVideoMaestroDetalle($objBeanVideo, $this->input->post());
                         //cambiar nombre del video por el ID del registro del video 
                         $this->renameVideo($objBeanVideo, $nameVideo);
-
+                        //disparar el proceso de envio del video a liquid
+                        $this->procesos_lib->procesoVideos();
                         $this->load->helper('url');
                         redirect('/admin/canales/videos/' . $canal_id, 'refresh');
                     }
@@ -445,6 +454,7 @@ class Admin extends Admin_Controller {
             $objBeanForm->tematicas = $this->_getTag($video_id, $this->config->item('tag:tematicas'));
             $objBeanForm->personajes = $this->_getTag($video_id, $this->config->item('tag:personajes'));
             $objBeanForm->tipo = $objVideo->tipo_videos_id;
+            $objBeanForm->estado = $objVideo->estado;
             $objBeanForm->programa = $programa;
             $objBeanForm->coleccion = $coleccion;
             $objBeanForm->lista = $lista;
@@ -459,6 +469,7 @@ class Admin extends Admin_Controller {
             $objBeanForm->tipo_maestro = '';
             $objBeanForm->keywords = '';
             $objBeanForm->error = $error;
+            $objBeanForm->padre = 0;
             $objBeanForm->message = $message;
             $objBeanForm->ruta = $objVideo->ruta; /* adicionado */
             $objBeanForm->tiene_imagen = $this->_tieneAvatar($video_id);
@@ -495,6 +506,7 @@ class Admin extends Admin_Controller {
                 $objBeanForm->error = $error;
                 $objBeanForm->message = $message;
                 $objBeanForm->keywords = '';
+                $objBeanForm->padre = $this->input->post('padre');
             } else {
                 $objBeanForm->video_id = $video_id;
                 $objBeanForm->titulo = '';
@@ -522,6 +534,7 @@ class Admin extends Admin_Controller {
                 $objBeanForm->error = $error;
                 $objBeanForm->message = $message;
                 $objBeanForm->keywords = '';
+                $objBeanForm->padre = 0;
             }
         }
 
@@ -530,13 +543,8 @@ class Admin extends Admin_Controller {
         $canal = $this->canales_m->get($canal_id);
         $arrayCategory = $this->categoria_m->getCategoryDropDown(array("categorias_id" => "0"), 'nombre');
         $arrayTipo = $this->tipo_video_m->getTipoDropDown(array(), 'nombre');
-
-        //$arrayTipoMaestro = $this->tipo_maestro_m->getTipoDropDown(array(), 'nombre');
         //listamos las listas dependientes con datos filtrados
         if ($video_id > 0) {
-            //$arrayProgramme = $this->grupo_maestro_m->getCollectionDropDown(array('tipo_grupo_maestro_id' => $this->config->item('videos:programa'), 'canales_id' => $canal_id), 'nombre');
-            //$arrayColeccionVideo = $this->getChild($programa, $coleccion, $lista, $this->config->item('videos:coleccion'), true);
-            //$arrayList = $this->getChild($programa, $coleccion, $lista, $this->config->item('videos:lista'),true);
             $arrayProgramme = $this->grupo_maestro_m->getCollectionDropDown(array('tipo_grupo_maestro_id' => $this->config->item('videos:programa'), 'canales_id' => $canal_id), 'nombre');
             if ($programa == 0 && $coleccion == 0 && $lista == 0) {
                 $arrayColeccionVideo = $this->grupo_maestro_m->getCollectionDropDown(array('tipo_grupo_maestro_id' => $this->config->item('videos:coleccion'), 'canales_id' => $canal_id), 'nombre');
@@ -590,7 +598,10 @@ class Admin extends Admin_Controller {
             }
         }
 
+        // Busca los videos hijos (clips)
+        $clips = $this->videos_m->get_clips_by_video($video_id);
         $arrayFuente = $this->canales_m->getCanalDropDown(array(), 'nombre');
+        $lista_imagenes = $this->listaImagenes($video_id, 'video');
         $this->template
                 ->title($this->module_details['name'])
                 ->append_js('AjaxUpload.2.0.min.js')
@@ -603,11 +614,16 @@ class Admin extends Admin_Controller {
                 ->set('lista_rep', $arrayList)
                 ->set('fuente', $arrayFuente)
                 ->set('objBeanForm', $objBeanForm)
+                ->set('objClips', $clips)
                 ->append_metadata($this->load->view('fragments/wysiwyg', array(), TRUE))
                 ->append_js('jquery/jquery.tagsinput.js')
                 ->append_css('jquery/jquery.tagsinput.css')
                 ->append_js('module::jquery.ddslick.min.js')
                 //->append_js('cms/module::blog_form.js')
+                ->set_partial('imagenes', 'admin/tables/imagenes')
+                ->set('imagenes', $lista_imagenes)
+                ->append_css('module::fineuploader-3.4.1.css')
+                ->append_js('module::jquery.fineuploader-3.4.1.min.js')
                 ->set('carga_unitaria', 'carga_unitaria');
 
         $this->input->is_ajax_request() ?
@@ -668,6 +684,7 @@ class Admin extends Admin_Controller {
                         //$objBeanVideo->fecha_migracion_sphinx_tit ='';
                         //$objBeanVideo->fecha_migracion_actualizacion_sphinx_tit ='';
                         $objBeanVideo->estado_migracion_sphinx_des = 0;
+                        $objBeanVideo->padre = 0;
                         //$objBeanVideo->fecha_migracion_sphinx_des ='';
                         //$objBeanVideo->fecha_migracion_actualizacion_sphinx_des ='';
                         $objBeanVideo = $this->videos_m->save_video($objBeanVideo);
@@ -1262,7 +1279,10 @@ class Admin extends Admin_Controller {
                 $objBeanMaestro->estado_migracion = NULL;
                 $objBeanMaestro->fecha_migracion = '0000-00-00 00:00:00';
                 $objBeanMaestro->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
-                $objBeanMaestroSaved = $this->grupo_maestro_m->save_maestro($objBeanMaestroSaved);
+                $objBeanMaestro->comentarios = 0;
+                $objBeanMaestro->fecha_transmision_inicio = date("Y-m-d H:i:s");
+                $objBeanMaestro->fecha_transmision_fin = date("Y-m-d H:i:s");
+                $objBeanMaestroSaved = $this->grupo_maestro_m->save_maestro($objBeanMaestro);
                 //guardar en el detalle de maestros en caso de guardarse como hijo
                 $this->_saveMaestroDetalle($this->input->post(), $objBeanMaestroSaved);
                 //generar su portada si el maestro es de tipo programa
@@ -1351,7 +1371,7 @@ class Admin extends Admin_Controller {
 
     private function obtenerPesoSeccionPortada($portada_id) {
         $peso = 1;
-        $secciones = $this->portada_m->order_by('peso', 'ASC')->get_many_by(array("portadas_id" => $portada_id));
+        $secciones = $this->secciones_m->order_by('peso', 'ASC')->get_many_by(array("portadas_id" => $portada_id));
         if (count($secciones) > 0) {
             $nuevo_peso = 2;
             foreach ($secciones as $puntero => $objSeccion) {
@@ -1456,7 +1476,7 @@ class Admin extends Admin_Controller {
                 $objCollectionMaestro = $this->grupo_maestro_m->getListCollection($arrayIdMaestro);
                 if (count($objCollectionMaestro) > 0) {
                     foreach ($objCollectionMaestro as $indice => $objMaestro) {
-                        if (strtolower(trim($objMaestro->nombre)) == $nombre_maestro) {
+                        if (strtolower(trim($objMaestro->nombre)) == strtolower(trim($nombre_maestro))) {
                             $returnValue = true;
                             break;
                         }
@@ -1533,7 +1553,9 @@ class Admin extends Admin_Controller {
                     }
                     if (count($arrayCollectionMaestro) > 0) {
                         foreach ($arrayCollectionMaestro as $indice => $objMaestro) {
-                            $returnValue[$objMaestro->id] = $objMaestro->nombre;
+                            if ($objMaestro->estado < $this->config->item('estado:eliminado')) {
+                                $returnValue[$objMaestro->id] = $objMaestro->nombre;
+                            }
                         }
                     } else {
                         $returnValue['error'] = 1; // 1 => no hay datos a mostrar
@@ -1578,7 +1600,9 @@ class Admin extends Admin_Controller {
                         }
                         if (count($arrayCollectionMaestro) > 0) {
                             foreach ($arrayCollectionMaestro as $indice => $objMaestro) {
-                                $returnValue[$objMaestro->id] = $objMaestro->nombre;
+                                if ($objMaestro->estado < $this->config->item('estado:eliminado')) {
+                                    $returnValue[$objMaestro->id] = $objMaestro->nombre;
+                                }
                             }
                         } else {
                             $returnValue['error'] = 1; // 1 => no hay datos a mostrar
@@ -1832,6 +1856,10 @@ class Admin extends Admin_Controller {
             $arrayImagenes = $this->_getListImagen($video_id, false);
             echo json_encode(array('respuesta' => $returnValue, 'video_id' => $video_id, 'imagen_id' => $imagen_id_small, 'url' => $this->config->item('protocolo:http') . $nameImage_small, 'imagenes' => $arrayImagenes));
         }
+    }
+
+    public function subir_imagenes_maestro() {
+        
     }
 
     public function registrar_imagenes_maestro($maestro_id, $arrayImagenesSubir = array(), $imagen_original = '') {
@@ -2222,6 +2250,7 @@ class Admin extends Admin_Controller {
                 $objBeanVideo->ubicacion = $this->input->post('ubicacion');
                 $objBeanVideo->fecha_actualizacion = date("Y-m-d H:i:s");
                 $objBeanVideo->usuario_actualizacion = $user_id;
+                $objBeanVideo->padre = $this->input->post('padre');
                 $this->videos_m->update_video($objBeanVideo);
 
                 $this->_saveTagsTematicaPersonajes($objBeanVideo, $this->input->post());
@@ -2240,24 +2269,7 @@ class Admin extends Admin_Controller {
         }
     }
 
-    public function postDatos($url, $post) {
-
-
-
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible;)");
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_POST, TRUE);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
-        //curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        //curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
-        // curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-Type: text/xml"));
-        $result = curl_exec($ch);
-        curl_close($ch);
-
-        //echo "resultadoi:". $result;
-        return $result;
-    }
+  
 
     public function insertCorteVideo($canal_id, $video_id) {
 //        print_r($this->input->post());
@@ -2313,21 +2325,21 @@ class Admin extends Admin_Controller {
                 }
                 //guardamos en la tabla grupo detalle
                 $this->_saveVideoMaestroDetalle($objBeanVideo, $this->input->post(), $maestro_detalle_id);
+            
+                $datos = array();
+                $datos["id_padre"] = $video_id;
+                $datos["id_hijo"] = $objvideotemp->id;
+                $datos["inicio"] =  $this->input->post('ini_corte');
+                $datos["duracion"] = $this->input->post('dur_corte');
 
+                $result = ci()->videos_mp->getVideosxId($video_id);
+                $datos["ruta"] = $result[0]->ruta;
+                
+                Proceso::corte_Video($datos);
+                $this->procesos_lib->procesoVideos();
+                         
 
-                //$urlpost=  base_url("/procesos/cortevideo.php");
-                $urlpost = "http://localhost/adminmicanal/procesos/cortevideo.php";
-
-                $post = array(
-                    "id_padre" => $video_id,
-                    "id_hijo" => $objvideotemp->id,
-                    "inicio" => $this->input->post('ini_corte'),
-                    "duracion" => $this->input->post('dur_corte')
-                );
-
-
-                $this->postDatos($urlpost, $post);
-
+         
                 echo json_encode(array("value" => '0'));
             }
         }
@@ -2445,12 +2457,44 @@ class Admin extends Admin_Controller {
     }
 
     public function maestro($canal_id) {
-        //$lista_programas = $this->listaProgramacompleto($this->grupo_maestro_m->get_many_by(array("canales_id" => $canal_id, "tipo_grupo_maestro_id" => $this->config->item('videos:programa'))));
-        //$listaSinNivel = $this->listarSinNivel($lista_programas);
-        $base_where = array("canales_id" => $canal_id, "tipo_grupo_maestro_id" => $this->config->item('videos:programa'));
-        $total_rows = $this->grupo_maestro_m->count_by($base_where);
-        $pagination = create_pagination('admin/videos/maestro/' . $canal_id . '/index', $total_rows, 3, 6);
-        $lista_programas = $this->listaProgramacompleto($this->grupo_maestro_m->limit($pagination['limit'])->get_many_by($base_where));
+        
+        if ($this->input->post('f_estado') > 0) {
+            if ($this->input->post('f_estado') == '3') {
+                $estado_cambiado = $this->config->item('estado:borrador');
+            } else {
+                $estado_cambiado = $this->input->post('f_estado');
+            }
+            //$base_where = array("canales_id" => $canal_id, "estado" => $estado_cambiado);
+             $base_where = array("canales_id" => $canal_id, "tipo_grupo_maestro_id" => $this->config->item('videos:programa'), "estado" => $estado_cambiado);
+        } else {
+            $base_where = array("canales_id" => $canal_id, "tipo_grupo_maestro_id" => $this->config->item('videos:programa'));
+        }
+        
+        if($this->input->post('f_programa')){
+            $base_where['id']= $this->input->post('f_programa');
+        }
+        
+        $keyword = '';
+        if ($this->input->post('f_keywords'))
+            $keyword = $this->input->post('f_keywords');
+        // Create pagination links
+        if (strlen(trim($keyword)) > 0) {
+            $total_rows = $this->grupo_maestro_m->like('nombre', $keyword)->count_by($base_where);
+        } else {
+            $total_rows = $this->grupo_maestro_m->count_by($base_where);
+        }
+        //$total_rows = $this->grupo_maestro_m->count_by($base_where);
+        $pagination = create_pagination('admin/videos/maestro/' . $canal_id . '/index', $total_rows, 5, 6);
+        // Using this data, get the relevant results
+        if (strlen(trim($keyword)) > 0) {
+            $lista_programas = $this->listaProgramacompleto($this->grupo_maestro_m->order_by('fecha_registro', 'DESC')->like('nombre', $keyword)->limit($pagination['limit'])->get_many_by($base_where));
+        } else {
+            $lista_programas = $this->listaProgramacompleto($this->grupo_maestro_m->order_by('fecha_registro', 'DESC')->limit($pagination['limit'])->get_many_by($base_where));
+        }
+        
+        $estados = array($this->config->item('estado:publicado') => "Publicado", "3" => "Borrador", $this->config->item('estado:eliminado') => "Eliminado");
+        //$lista_programas = $this->listaProgramacompleto($this->grupo_maestro_m->order_by('fecha_registro', 'DESC')->limit($pagination['limit'])->get_many_by($base_where));
+        $programas = $this->grupo_maestro_m->getCollectionDropDown(array("tipo_grupo_maestro_id" => $this->config->item('videos:programa'), "canales_id" => $canal_id), 'nombre');
         $this->input->is_ajax_request() and $this->template->set_layout(FALSE);
         $this->template
                 ->title($this->module_details['name'])
@@ -2459,6 +2503,8 @@ class Admin extends Admin_Controller {
                 ->append_js('module::jquery.alerts.js')
                 ->append_css('module::jquery.alerts.css')
                 ->set('pagination', $pagination)
+                ->set('estados', $estados)
+                ->set('programa', $programas)
                 ->set_partial('maestros', 'admin/tables/maestros')
                 ->set('canal_id', $canal_id)
                 ->set('lista_programas', $lista_programas);
@@ -2682,12 +2728,17 @@ class Admin extends Admin_Controller {
             $objMaestro->personajes = '';
             $objMaestro->tiene_imagen = false;
             $objMaestro->avatar = array();
+            $objMaestro->fecha_transmision_inicio = date("Y-m-d H:i:s");
+            $objMaestro->fecha_transmision_fin = date("Y-m-d H:i:s");
             $tipo_maestros = $this->tipo_maestro_m->getTipoDropDown(array(), 'id');
         }
         //lista tipo de maestros
         $items = $this->itemsMaestros($maestro_id);
         //categorias
         $categorias = $this->categoria_m->getCategoryDropDown(array());
+        //listamos las imagenes
+        $lista_imagenes = $this->listaImagenes($maestro_id);
+
         $this->template
                 ->title($this->module_details['name'])
                 ->set('objCanal', $objCanal)
@@ -2699,13 +2750,376 @@ class Admin extends Admin_Controller {
                 ->append_js('module::jquery.alerts.js')
                 ->append_css('module::jquery.alerts.css')
                 ->append_js('module::smartpaginator.js')
+                ->append_css('module::fineuploader-3.4.1.css')
+                ->append_js('module::jquery.fineuploader-3.4.1.min.js')
                 ->append_css('module::smartpaginator.css')
                 ->set('tipo_maestros', $tipo_maestros)
                 ->set('items', $items)
                 ->set_partial('contenidos', 'admin/tables/contenidos')
+                ->set_partial('imagenes', 'admin/tables/imagenes')
+                ->set('imagenes', $lista_imagenes)
                 ->set('categorias', $categorias)
                 ->set('objMaestro', $objMaestro);
         $this->input->is_ajax_request() ? $this->template->build('admin/tables/contenidos') : $this->template->build('admin/grupo_maestro');
+    }
+
+    public function subir_imagen_grupo($maestro_id, $tipo_imagen_id, $imagen_id, $tipo_origen = 'maestro') {
+        if ($this->input->is_ajax_request()) {
+            $user_id = (int) $this->session->userdata('user_id');
+            $url_imagen = '';
+            $respuesta = 0;
+            $cod_imagen_nueva = $imagen_id;
+            $pasaImgSize = FALSE;
+            // Obtenemos los datos del archivo
+            $tamanio = $_FILES['qqfile']['size'];
+            $tipo = $_FILES['qqfile']['type'];
+            $archivo = $_FILES['qqfile']['name'];
+            $fileType = array('image/jpeg', 'image/pjpeg', 'image/png');
+            $directorio = '';
+            // Tamaño de la imagen
+            $imageSize = getimagesize($_FILES['qqfile']['tmp_name']);
+            // Verificamos la extensión del archivo independiente del tipo mime
+            $extension = explode('.', $_FILES['qqfile']['name']);
+            $num = count($extension) - 1;
+            // Creamos el nombre del archivo dependiendo la opción
+            $imgFile = time() . '.' . $extension[$num];
+            // Verificamos el tamaño válido para las fotos
+            $objTipoImagen = $this->tipo_imagen_m->get($tipo_imagen_id);
+            if ($imageSize[0] >= $objTipoImagen->ancho && $imageSize[1] >= $objTipoImagen->alto && ($extension[$num] == 'jpg' || $extension[$num] == 'png')) {
+                $pasaImgSize = TRUE;
+            }
+            // Verificamos el status de las dimensiones de la imagen a publicar mediante nuestro jQuery para fotos
+            if ($pasaImgSize) {
+                // Verificamos Tamaño y extensiones
+                if (in_array($tipo, $fileType) && $tamanio > 0 && $tamanio <= $this->config->item('imagen:maxSize')) {
+                    // Intentamos copiar el archivo
+                    if (is_uploaded_file($_FILES['qqfile']['tmp_name'])) {
+                        umask(0);
+                        // Verificamos si se pudo copiar el archivo a nustra carpeta
+                        if (move_uploaded_file($_FILES['qqfile']['tmp_name'], UPLOAD_IMAGENES_VIDEOS . $directorio . $imgFile)) {
+                            //usamos el crop de imagemagic para crear las 4 imagenes
+                            $this->imagenes_lib->loadImage(UPLOAD_IMAGENES_VIDEOS . $directorio . $imgFile);
+                            $this->imagenes_lib->crop($objTipoImagen->ancho, $objTipoImagen->alto, 'center');
+                            $this->imagenes_lib->save(UPLOAD_IMAGENES_VIDEOS . $directorio . preg_replace("/\\.[^.\\s]{3,4}$/", "", $imgFile) . '_' . $objTipoImagen->ancho . 'x' . $objTipoImagen->alto . '.' . $extension[$num]);
+                            $respuesta = 1;
+                            $mensajeFile = 'done';
+                            //eliminamos la imagen inicial
+                            if (file_exists(UPLOAD_IMAGENES_VIDEOS . $directorio . $imgFile)) {
+                                unlink(UPLOAD_IMAGENES_VIDEOS . $directorio . $imgFile);
+                            }
+                            //obtenemos el nombre de la imagen a enviar a Elemento
+                            $imagen_cortada = preg_replace("/\\.[^.\\s]{3,4}$/", "", $imgFile) . '_' . $objTipoImagen->ancho . 'x' . $objTipoImagen->alto . '.' . $extension[$num];
+                            if (file_exists(UPLOAD_IMAGENES_VIDEOS . $imagen_cortada)) {
+                                if ($imagen_id > 0) {//cambiar imagen
+                                    //enviamos a borrador a la imagen a cambiar
+                                    $this->imagen_m->update($imagen_id, array("estado" => $this->config->item('estado:borrador'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                    $this->imagen_m->desabilitarImagenes($maestro_id, $tipo_imagen_id, $tipo_origen);
+                                    //registramos una nueva imagen
+                                    $objBeanImagen = new stdClass();
+                                    $objBeanImagen->id = NULL;
+                                    $objBeanImagen->canales_id = NULL;
+                                    $objBeanImagen->grupo_maestros_id = NULL;
+                                    $objBeanImagen->videos_id = NULL;
+                                    if ($tipo_origen == 'maestro') {
+                                        $objBeanImagen->grupo_maestros_id = $maestro_id;
+                                    }
+                                    if ($tipo_origen == 'video') {
+                                        $objBeanImagen->videos_id = $maestro_id;
+                                    }
+                                    if ($tipo_origen == 'canal') {
+                                        $objBeanImagen->canales_id = $maestro_id;
+                                    }
+                                    $objBeanImagen->imagen = $imagen_cortada;
+                                    $objBeanImagen->tipo_imagen_id = $tipo_imagen_id;
+                                    $objBeanImagen->estado = $this->config->item('estado:publicado');
+                                    $objBeanImagen->fecha_registro = date("Y-m-d H:i:d");
+                                    $objBeanImagen->usuario_registro = $user_id;
+                                    $objBeanImagen->fecha_actualizacion = date("Y-m-d H:i:d");
+                                    $objBeanImagen->usuario_actualizacion = $user_id;
+                                    $objBeanImagen->estado_migracion = $this->config->item('migracion:nuevo');
+                                    $objBeanImagen->fecha_migracion = '0000-00-00 00:00:00';
+                                    $objBeanImagen->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
+                                    $objBeanImagen->imagen_padre = 0;
+                                    $objBeanImagen->procedencia = $this->config->item('procedencia:elemento');
+                                    $objBeanImagen->imagen_anterior = NULL;
+                                    $objBeanImagenSaved = $this->imagen_m->saveImage($objBeanImagen);
+                                    $cod_imagen_nueva = $objBeanImagen->id;
+                                    $url_imagen = $this->config->item('protocolo:http') . $this->config->item('server:elemento') . '/' . $objBeanImagenSaved->imagen;
+                                    //enviamos al servidor elemento
+                                    $ruta_absoluta_imagen = FCPATH . 'uploads/imagenes/' . $imagen_cortada;
+                                    $path_image_element = $this->elemento_upload($objBeanImagenSaved->id, $ruta_absoluta_imagen);
+                                    $array_path = explode("/", $path_image_element);
+                                    if ($array_path[0] == $this->config->item('server:elemento')) {
+                                        unset($array_path[0]);
+                                    }
+                                    $path_single_element = implode('/', $array_path);
+                                    $this->imagen_m->update($objBeanImagenSaved->id, array("imagen" => $path_single_element, "estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                    $url_imagen = $this->config->item('protocolo:http') . $this->config->item('server:elemento') . '/' . $path_single_element;
+                                    //eliminamos la imagen local
+                                    if (file_exists($ruta_absoluta_imagen)) {
+                                        unlink($ruta_absoluta_imagen);
+                                    }
+                                } else {//subir una nueva imagen.
+                                    $this->imagen_m->desabilitarImagenes($maestro_id, $tipo_imagen_id, $tipo_origen);
+                                    $objBeanImagen = new stdClass();
+                                    $objBeanImagen->id = NULL;
+                                    $objBeanImagen->canales_id = NULL;
+                                    $objBeanImagen->grupo_maestros_id = NULL;
+                                    $objBeanImagen->videos_id = NULL;
+                                    if ($tipo_origen == 'maestro') {
+                                        $objBeanImagen->grupo_maestros_id = $maestro_id;
+                                    }
+                                    if ($tipo_origen == 'video') {
+                                        $objBeanImagen->videos_id = $maestro_id;
+                                    }
+                                    if ($tipo_origen == 'canal') {
+                                        $objBeanImagen->canales_id = $maestro_id;
+                                    }
+                                    $objBeanImagen->imagen = $imagen_cortada;
+                                    $objBeanImagen->tipo_imagen_id = $tipo_imagen_id;
+                                    $objBeanImagen->estado = $this->config->item('estado:publicado');
+                                    $objBeanImagen->fecha_registro = date("Y-m-d H:i:d");
+                                    $objBeanImagen->usuario_registro = $user_id;
+                                    $objBeanImagen->fecha_actualizacion = date("Y-m-d H:i:d");
+                                    $objBeanImagen->usuario_actualizacion = $user_id;
+                                    $objBeanImagen->estado_migracion = $this->config->item('migracion:nuevo');
+                                    $objBeanImagen->fecha_migracion = '0000-00-00 00:00:00';
+                                    $objBeanImagen->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
+                                    $objBeanImagen->imagen_padre = 0;
+                                    $objBeanImagen->procedencia = $this->config->item('procedencia:elemento');
+                                    $objBeanImagen->imagen_anterior = NULL;
+                                    $objBeanImagenSaved = $this->imagen_m->saveImage($objBeanImagen);
+                                    $cod_imagen_nueva = $objBeanImagen->id;
+                                    //enviamos al servidor elemento
+                                    $ruta_absoluta_imagen = FCPATH . 'uploads/imagenes/' . $imagen_cortada;
+                                    $path_image_element = $this->elemento_upload($objBeanImagenSaved->id, $ruta_absoluta_imagen);
+                                    $array_path = explode("/", $path_image_element);
+                                    if ($array_path[0] == $this->config->item('server:elemento')) {
+                                        unset($array_path[0]);
+                                    }
+                                    $path_single_element = implode('/', $array_path);
+                                    $this->imagen_m->update($objBeanImagenSaved->id, array("imagen" => $path_single_element, "estado" => $this->config->item('estado:publicado')));
+                                    $url_imagen = $this->config->item('protocolo:http') . $this->config->item('server:elemento') . '/' . $path_single_element;
+                                    //eliminamos la imagen local
+                                    if (file_exists($ruta_absoluta_imagen)) {
+                                        unlink($ruta_absoluta_imagen);
+                                    }
+                                }
+                            }
+                        } else {
+                            // error del lado del servidor
+                            $mensajeFile = 'No se pudo subir el archivo';
+                        }
+                    } else {
+                        // error del lado del servidor
+                        $mensajeFile = 'No se pudo subir el archivo';
+                    }
+                } else {
+                    // Error en el tamaño y tipo de imagen
+                    $mensajeFile = 'Verifique el tamanio y tipo de imagen';
+                }
+            } else {
+                // Error en las dimensiones de la imagen
+                $mensajeFile = 'Verifique las dimensiones de la Imagen';
+            }
+            $salidaJson = array("success" => $respuesta,
+                "url" => $url_imagen,
+                "error" => $mensajeFile,
+                "imagen_id" => $cod_imagen_nueva,
+                "fileName" => $archivo);
+            echo json_encode($salidaJson);
+        }
+    }
+
+    private function listaImagenes($maestro_id, $tipo = 'maestro') {
+        $returnValue = array();
+        $tipo_imagenes = $this->tipo_imagen_m->listType();
+        if (count($tipo_imagenes) > 0) {
+            foreach ($tipo_imagenes as $puntero => $objTipoImagen) {
+                switch ($tipo) {
+                    case 'maestro':
+                        $objImagen = $this->imagen_m->get_by(array("grupo_maestros_id" => $maestro_id, "estado" => $this->config->item('estado:publicado'), "tipo_imagen_id" => $objTipoImagen->id));
+                        break;
+                    case 'video':
+                        $objImagen = $this->imagen_m->get_by(array("videos_id" => $maestro_id, "estado" => $this->config->item('estado:publicado'), "tipo_imagen_id" => $objTipoImagen->id));
+                        break;
+                    case 'canal':
+                        $objImagen = $this->imagen_m->get_by(array("canales_id" => $maestro_id, "estado" => $this->config->item('estado:publicado'), "tipo_imagen_id" => $objTipoImagen->id));
+                        break;
+                }
+
+                if (count($objImagen) > 0) {
+                    $objImagen->tipo_imagen = $objTipoImagen->nombre;
+                    $objImagen->tamanio = $objTipoImagen->ancho . 'x' . $objTipoImagen->alto;
+                    if ($objImagen->procedencia == $this->config->item('procedencia:liquid')) {
+                        $objImagen->imagen = $objImagen->imagen;
+                    } else {
+                        $objImagen->imagen = $this->config->item('protocolo:http') . $this->config->item('server:elemento') . '/' . $objImagen->imagen;
+                    }
+                    $objImagen->existe = 'Si';
+                    $objImagen->tipo = $tipo;
+                    $objImagen->accion = '<div style="width:120px;" id="fine-uploader-basic_' . $objImagen->tipo_imagen_id . '_' . $objImagen->id . '" class="btn red"><i class="icon-upload icon-white"></i>' . lang('imagen:cambiar_imagen') . '</div>';
+                    $objImagen->accion.= '<div class="btn blue" onclick="restaurar_imagen(' . $objTipoImagen->id . ',' . $maestro_id . ');return false;" style="width:120px;" id="restaurar_imagen_' . $objImagen->id . '">' . lang('imagen:restaurar_imagen') . '</button>';
+                    $objImagen->progreso = '<div id="messages_' . $objImagen->tipo_imagen_id . '_' . $objImagen->id . '"></div>';
+                    array_push($returnValue, $objImagen);
+                } else {
+                    $oImagen = new stdClass();
+                    $oImagen->id = 0;
+                    $oImagen->canales_id = NULL;
+                    $oImagen->grupo_maestros_id = NULL;
+                    $oImagen->videos_id = NULL;
+                    if ($tipo == 'maestro') {
+                        $oImagen->grupo_maestros_id = $maestro_id;
+                    }
+                    if ($tipo == 'video') {
+                        $oImagen->videos_id = $maestro_id;
+                    }
+                    if ($tipo == 'canal') {
+                        $oImagen->canales_id = $maestro_id;
+                    }
+                    $oImagen->imagen = UPLOAD_IMAGENES_VIDEOS . 'no_video.jpg';
+                    $oImagen->tipo_imagen_id = $objTipoImagen->id;
+                    $oImagen->estado = $this->config->item('estado:publicado');
+                    $oImagen->existe = 'No';
+                    $oImagen->fecha_registro = '';
+                    $oImagen->imagen_padre = 0;
+                    $oImagen->procedencia = 0;
+                    $oImagen->imagen_anterior = NULL;
+                    $oImagen->tipo = $tipo;
+                    $oImagen->tipo_imagen = $objTipoImagen->nombre;
+                    $oImagen->tamanio = $objTipoImagen->ancho . 'x' . $objTipoImagen->alto;
+                    $oImagen->accion = '<div style="width:120px;" id="fine-uploader-basic_' . $oImagen->tipo_imagen_id . '_' . $oImagen->id . '" class="btn red"><i class="icon-upload icon-white"></i>' . lang('imagen:subir_imagen') . '</div>';
+                    //$oImagen->accion.= '<button style="width:130px;" id="cambiar_imagen_' . $oImagen->id . '">' . lang('imagen:subir_imagen') . '</button>';
+                    $oImagen->accion.= '<div class="btn blue" onclick="restaurar_imagen(' . $objTipoImagen->id . ',' . $maestro_id . ');return false;" style="width:120px;" id="restaurar_imagen_' . $oImagen->id . '">' . lang('imagen:restaurar_imagen') . '</div>';
+                    $oImagen->progreso = '<div id="messages_' . $oImagen->tipo_imagen_id . '_' . $oImagen->id . '"></div>';
+                    array_push($returnValue, $oImagen);
+                }
+            }
+        }
+        /* $lista_imagenes = $this->imagen_m->get_many_by(array("grupo_maestros_id" => $maestro_id));
+          if (count($lista_imagenes) > 0) {
+          $array_id_imagen = array();
+          foreach ($lista_imagenes as $puntero => $objImagen) {
+          if ($objImagen->imagen_padre == NULL || $objImagen->imagen_padre == '0') {
+          array_push($array_id_imagen, $objImagen->id);
+          }
+          }
+          //obtenemos solo las imagenes padre
+          $lista_imagenes_padre = $this->imagen_m->where_in('id', $array_id_imagen)->get_many_by(array());
+          if (count($lista_imagenes_padre) > 0) {
+
+          foreach ($lista_imagenes_padre as $index => $objImagenPadre) {
+          $lista_tipo_imagenes = $this->tipo_imagen_m->listType();
+          if ($objImagenPadre->procedencia == $this->config->item('procedencia:liquid')) {
+          $objImagenPadre->imagen = $objImagenPadre->imagen;
+          } else {
+          $objImagenPadre->imagen = $this->config->item('protocolo:http') . $this->config->item('server:elemento') . '/' . $objImagenPadre->imagen;
+          }
+          switch ($objImagenPadre->tipo_imagen_id) {
+          case $this->config->item('imagen:small'):
+          $objImagenPadre->tipo_imagen = 'Small';
+          $oTipoImagen = $this->tipo_imagen_m->get($objImagenPadre->tipo_imagen_id);
+          $objImagenPadre->tamanio = $oTipoImagen->ancho . 'x' . $oTipoImagen->alto;
+          break;
+          case $this->config->item('imagen:medium'):
+          $objImagenPadre->tipo_imagen = 'Medium';
+          $oTipoImagen = $this->tipo_imagen_m->get($objImagenPadre->tipo_imagen_id);
+          $objImagenPadre->tamanio = $oTipoImagen->ancho . 'x' . $oTipoImagen->alto;
+          break;
+          case $this->config->item('imagen:large'):
+          $objImagenPadre->tipo_imagen = 'Large';
+          $oTipoImagen = $this->tipo_imagen_m->get($objImagenPadre->tipo_imagen_id);
+          $objImagenPadre->tamanio = $oTipoImagen->ancho . 'x' . $oTipoImagen->alto;
+          break;
+          case $this->config->item('imagen:extralarge'):
+          $objImagenPadre->tipo_imagen = 'Extralarge';
+          $oTipoImagen = $this->tipo_imagen_m->get($objImagenPadre->tipo_imagen_id);
+          $objImagenPadre->tamanio = $oTipoImagen->ancho . 'x' . $oTipoImagen->alto;
+          break;
+          }
+          $objImagenPadre->existe = 'Si';
+          $objImagenPadre->accion = '<div style="width:120px;" id="fine-uploader-basic_' . $objImagenPadre->tipo_imagen_id . '_' . $objImagenPadre->id . '" class="btn red"><i class="icon-upload icon-white"></i>' . lang('imagen:cambiar_imagen') . '</div>';
+          //$objImagenPadre->accion.= '<button style="width:130px;" id="cambiar_imagen_' . $objImagenPadre->id . '">' . lang('imagen:cambiar_imagen') . '</button>';
+          $objImagenPadre->accion.= '<div class="btn blue" style="width:120px;" id="restaurar_imagen_' . $objImagenPadre->id . '">' . lang('imagen:restaurar_imagen') . '</button>';
+          $objImagenPadre->progreso = '<div id="messages_' . $objImagenPadre->tipo_imagen_id . '_' . $objImagenPadre->id . '"></div>';
+          array_push($returnValue, $objImagenPadre);
+          //eliminamos el tipo del padre
+          foreach ($lista_tipo_imagenes as $i => $objTipo) {
+          if ($objImagenPadre->tipo_imagen_id == $objTipo->id) {
+          unset($lista_tipo_imagenes[$i]);
+          }
+          }
+          //obtenemos las imagenes restantes del padre
+          foreach ($lista_tipo_imagenes as $i => $objTipoImagen) {
+          $oImagen = $this->imagen_m->get_by(array("imagen_padre" => $objImagenPadre->id, "tipo_imagen_id" => $objTipoImagen->id));
+          if (count($oImagen) > 0) {
+          if ($oImagen->procedencia == $this->config->item('procedencia:liquid')) {
+          $oImagen->imagen = $oImagen->imagen;
+          } else {
+          $oImagen->imagen = $this->config->item('protocolo:http') . $this->config->item('server:elemento') . '/' . $oImagen->imagen;
+          }
+          switch ($oImagen->tipo_imagen_id) {
+          case $this->config->item('imagen:small'):
+          $oImagen->tipo_imagen = 'Small';
+          $oTipoImagen = $this->tipo_imagen_m->get($oImagen->tipo_imagen_id);
+          $oImagen->tamanio = $oTipoImagen->ancho . 'x' . $oTipoImagen->alto;
+          break;
+          case $this->config->item('imagen:medium'):
+          $oImagen->tipo_imagen = 'Medium';
+          $oTipoImagen = $this->tipo_imagen_m->get($oImagen->tipo_imagen_id);
+          $oImagen->tamanio = $oTipoImagen->ancho . 'x' . $oTipoImagen->alto;
+          break;
+          case $this->config->item('imagen:large'):
+          $oImagen->tipo_imagen = 'Large';
+          $oTipoImagen = $this->tipo_imagen_m->get($oImagen->tipo_imagen_id);
+          $oImagen->tamanio = $oTipoImagen->ancho . 'x' . $oTipoImagen->alto;
+          break;
+          case $this->config->item('imagen:extralarge'):
+          $oImagen->tipo_imagen = 'Extralarge';
+          $oTipoImagen = $this->tipo_imagen_m->get($oImagen->tipo_imagen_id);
+          $oImagen->tamanio = $oTipoImagen->ancho . 'x' . $oTipoImagen->alto;
+          break;
+          }
+          $oImagen->existe = 'Si';
+          $oImagen->accion = '<div style="width:120px;" id="fine-uploader-basic_' . $oImagen->tipo_imagen_id . '_' . $oImagen->id . '" class="btn red"><i class="icon-upload icon-white"></i>' . lang('imagen:cambiar_imagen') . '</div>';
+          //$oImagen->accion.= '<button style="width:130px;" id="cambiar_imagen_' . $oImagen->id . '">' . lang('imagen:cambiar_imagen') . '</button>';
+          $oImagen->accion.= '<div class="btn blue" style="width:120px;" id="restaurar_imagen_' . $oImagen->id . '">' . lang('imagen:restaurar_imagen') . '</button>';
+          $oImagen->progreso = '<div id="messages_' . $oImagen->tipo_imagen_id . '_' . $oImagen->id . '"></div>';
+          array_push($returnValue, $oImagen);
+          } else {
+          $oImagen = new stdClass();
+          $oImagen->id = 0;
+          $oImagen->canales_id = $objImagenPadre->canales_id;
+          $oImagen->grupo_maestros_id = $objImagenPadre->grupo_maestros_id;
+          $oImagen->videos_id = $objImagenPadre->videos_id;
+          $oImagen->imagen = UPLOAD_IMAGENES_VIDEOS . 'no_video.jpg';
+          $oImagen->tipo_imagen_id = $objTipoImagen->id;
+          $oImagen->estado = $objImagenPadre->estado;
+          $oImagen->existe = 'No';
+          $oImagen->fecha_registro = $objImagenPadre->fecha_registro;
+          $oImagen->usuario_registro = $objImagenPadre->usuario_registro;
+          $oImagen->fecha_actualizacion = $objImagenPadre->fecha_actualizacion;
+          $oImagen->usuario_actualizacion = $objImagenPadre->usuario_actualizacion;
+          $oImagen->estado_migracion = $objImagenPadre->estado_migracion;
+          $oImagen->fecha_migracion = $objImagenPadre->fecha_migracion;
+          $oImagen->fecha_migracion_actualizacion = $objImagenPadre->fecha_migracion_actualizacion;
+          $oImagen->imagen_padre = $objImagenPadre->imagen_padre;
+          $oImagen->procedencia = $objImagenPadre->procedencia;
+          $oImagen->imagen_anterior = $objImagenPadre->imagen_anterior;
+          $oImagen->tipo_imagen = $objTipoImagen->nombre;
+          $oImagen->tamanio = $objTipoImagen->ancho . 'x' . $objTipoImagen->alto;
+          $oImagen->accion = '<div style="width:120px;" id="fine-uploader-basic_' . $oImagen->tipo_imagen_id . '_' . $oImagen->id . '" class="btn red"><i class="icon-upload icon-white"></i>' . lang('imagen:subir_imagen') . '</div>';
+          //$oImagen->accion.= '<button style="width:130px;" id="cambiar_imagen_' . $oImagen->id . '">' . lang('imagen:subir_imagen') . '</button>';
+          $oImagen->accion.= '<div class="btn blue" style="width:120px;" id="restaurar_imagen_' . $oImagen->id . '">' . lang('imagen:restaurar_imagen') . '</div>';
+          $oImagen->progreso = '<div id="messages_' . $oImagen->tipo_imagen_id . '_' . $oImagen->id . '"></div>';
+          array_push($returnValue, $oImagen);
+          }
+          }
+          //listamos los tipos de imagenes para maestros
+          }
+          }
+          } */
+        return $returnValue;
     }
 
     public function active_imagen_maestro($maestro_id, $imagen_id) {
@@ -2830,10 +3244,13 @@ class Admin extends Admin_Controller {
                     $objBeanMaestro->fecha_actualizacion = date("Y-m-d H:i:s");
                     $objBeanMaestro->usuario_actualizacion = $user_id;
                     $objBeanMaestro->estado_migracion = $this->config->item('migracion:actualizado');
+                    $objBeanMaestro->fecha_transmision_inicio = date("Y-m-d H:i:s", strtotime($this->input->post('fec_pub_ini')));
+                    $objBeanMaestro->fecha_transmision_fin = date("Y-m-d H:i:s", strtotime($this->input->post('fec_pub_fin')));
                     $this->grupo_maestro_m->update($objBeanMaestro->id, array("nombre" => $objBeanMaestro->nombre,
                         "descripcion" => $objBeanMaestro->descripcion, "alias" => $objBeanMaestro->alias,
                         "tipo_grupo_maestro_id" => $objBeanMaestro->tipo_grupo_maestro_id, "canales_id" => $objBeanMaestro->canales_id,
-                        "fecha_actualizacion" => $objBeanMaestro->fecha_actualizacion, "usuario_actualizacion" => $objBeanMaestro->usuario_actualizacion, "estado_migracion" => $objBeanMaestro->estado_migracion));
+                        "fecha_actualizacion" => $objBeanMaestro->fecha_actualizacion, "usuario_actualizacion" => $objBeanMaestro->usuario_actualizacion,
+                        "estado_migracion" => $objBeanMaestro->estado_migracion, "fecha_transmision_inicio" => $objBeanMaestro->fecha_transmision_inicio, "fecha_transmision_fin" => $objBeanMaestro->fecha_transmision_fin));
                     $returnValue = 0;
                     $this->guardarTagsMaestro($objBeanMaestro, $this->input->post());
                 }
@@ -2860,7 +3277,9 @@ class Admin extends Admin_Controller {
                     $objBeanMaestro->estado_migracion = 0;
                     $objBeanMaestro->fecha_migracion = '0000-00-00 00:00:00';
                     $objBeanMaestro->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
-                    $objBeanMaestro->comentarios = '';
+                    $objBeanMaestro->comentarios = 0;
+                    $objBeanMaestro->fecha_transmision_inicio = date("Y-m-d H:i:s", strtotime($this->input->post('fec_pub_ini')));
+                    $objBeanMaestro->fecha_transmision_fin = date("Y-m-d H:i:s", strtotime($this->input->post('fec_pub_fin')));
                     /* $this->vd($objBeanMaestro);
                       die(); */
                     $objBeanMaestroSaved = $this->grupo_maestro_m->save_maestro($objBeanMaestro);
@@ -2900,6 +3319,14 @@ class Admin extends Admin_Controller {
                             $objCanal = $this->canales_m->get($this->input->post('canal_id'));
                             if ($this->input->post('tipo') == $this->config->item('videos:programa')) {
                                 $this->generarNuevaPortada($objCanal, $objBeanMaestroSaved, $this->config->item('portada:programa'));
+                            } else {
+                                if ($this->input->post('tipo') == $this->config->item('videos:coleccion')) {
+                                    if ($this->input->post('programa') > 0) {//generamos la seccion coleccion para el programa
+                                        $this->generarSeccionColeccion($this->input->post('programa'), $objBeanMaestroSaved);
+                                    } else {//generamos la seccion coleccion para el canal
+                                        $this->generarSeccionColeccionCanal($this->input->post('canal_id'), $objBeanMaestroSaved);
+                                    }
+                                }
                             }
                             $maestro_id = $objBeanMaestroSaved->id;
                         }
@@ -2973,7 +3400,7 @@ class Admin extends Admin_Controller {
                 $objBeanSeccion->tipo = '0';
                 $objBeanSeccion->portadas_id = $objBeanPortadaSaved->id;
                 $objBeanSeccion->tipo_secciones_id = $objTipoSeccion->id;
-                $objBeanSeccion->peso = $pos;
+                $objBeanSeccion->peso = ($puntero + 1);
                 $objBeanSeccion->id_mongo = '0';
                 $objBeanSeccion->estado = '0';
                 $objBeanSeccion->fecha_registro = date("Y-m-d H:i:s");
@@ -4110,6 +4537,112 @@ class Admin extends Admin_Controller {
                 }
             }
         }
+    }
+
+    public function formulario_restaurar_imagen($maestro_id, $tipo_imagen) {
+        if ($this->input->is_ajax_request()) {
+            $html = '<table><tr>';
+            $html.='<th>#</th>';
+            $html.='<th>Imagen</th>';
+            $html.='<th>Acción</th>';
+            $html.='<th>ID</th>';
+            $html.='</tr>';
+
+            if ($this->input->post('tipo_origen') == 'video') {
+                $imagenes_resturar = $this->imagen_m->get_many_by(array("videos_id" => $maestro_id, "tipo_imagen_id" => $tipo_imagen)); //$this->imagen_m->get_many_by(array("videos_id" => $maestro_id, "tipo_imagen_id" => $tipo_imagen, "estado" => "NULL"));
+                if (count($imagenes_resturar) > 0) {
+                    foreach ($imagenes_resturar as $ind => $objImg) {
+                        if ($objImg->estado == $this->config->item('estado:publicado')) {
+                            unset($imagenes_resturar[$ind]);
+                        }
+                    }
+                }
+            } else {
+                $imagenes_resturar = $this->imagen_m->get_many_by(array("grupo_maestros_id" => $maestro_id, "tipo_imagen_id" => $tipo_imagen, "estado" => $this->config->item('estado:borrador')));
+            }
+
+            if (count($imagenes_resturar) > 0) {
+                foreach ($imagenes_resturar as $puntero => $objImagen) {
+                    if ($objImagen->procedencia == '1') {
+                        $imagen = $objImagen->imagen;
+                    } else {
+                        $imagen = $this->config->item('protocolo:http') . $this->config->item('server:elemento') . '/' . $objImagen->imagen;
+                    }
+                    $html.='<tr>';
+                    $html.='<td>' . ($puntero + 1) . '</td>';
+                    $html.='<td><img style="width:100px; height:70px;" src="' . $imagen . '" /></td>';
+                    $html.='<td><div class="btn blue" onclick="restaurar_imagen_grupo(' . $objImagen->id . ',' . $tipo_imagen . ', ' . $maestro_id . ', ' . $this->input->post('tipo_origen') . ');return false;">Restaurar</div></td>';
+                    $html.='<td>' . $objImagen->id . '</td>';
+                    $html.='</tr>';
+                }
+            } else {
+                $html.='<tr>';
+                $html.='<td colspan="4">No hay imagenes</td>';
+                $html.='</tr>';
+            }
+            $html.='</table>';
+            echo $html;
+        }
+    }
+
+    public function restaurar_imagen_grupo($imagen_id, $tipo_imagen_id, $maestro_id, $tipo_origen = 'maestro') {
+        if ($this->input->is_ajax_request()) {
+            $this->imagen_m->desabilitarImagenes($maestro_id, $tipo_imagen_id, $tipo_origen);
+            $this->imagen_m->update($imagen_id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+            $objImagen = $this->imagen_m->get($imagen_id);
+            if ($objImagen->procedencia == '1') {
+                $imagen = $objImagen->imagen;
+            } else {
+                $imagen = $this->config->item('protocolo:http') . $this->config->item('server:elemento') . '/' . $objImagen->imagen;
+            }
+            echo json_encode(array("url" => $imagen, "imagen_id" => $imagen_id));
+        }
+    }
+
+    public function verificar_estado_video() {
+        if ($this->input->is_ajax_request()) {
+            $lista_videos = $this->input->post();
+            $error = 0;
+            $array_video = array();
+            if (is_array($lista_videos)) {
+                if (count($lista_videos) > 0) {
+                    foreach ($lista_videos as $puntero => $video_id) {
+                        $objVideo = $this->videos_m->get($video_id);
+                        $array_video[$video_id] = $objVideo->estado;
+                    }
+                } else {
+                    $error = 1;
+                }
+            } else {
+                $error = 1;
+            }
+
+            echo json_encode(array("error" => $error, "videos" => $array_video));
+        }
+    }
+
+    public function misvideos() {
+        $ruta_video = FCPATH . 'uploads/videos/*';
+        $archivos = array();
+        foreach (glob($ruta_video) as $nombre_archivo) {
+            //echo "Tamaño de $nombre_archivo " . filesize($nombre_archivo) . "\n";
+            array_push($archivos, $nombre_archivo);
+        }
+        if (count($archivos) > 0) {
+            $arrayArchivos = array();
+            foreach ($archivos as $index => $ruta_archivo) {
+                $objArchivo = new stdClass();
+                $objArchivo->ruta = $ruta_archivo;
+                $objArchivo->peso = filesize($ruta_archivo);
+                $info = pathinfo($ruta_archivo);
+                $objArchivo->nombre = $info['basename'];
+                array_push($arrayArchivos, $objArchivo);
+            }
+        }
+        $this->template
+                ->title($this->module_details['name'])
+                ->set('misvideos', $arrayArchivos);
+        $this->template->build('admin/misvideos');
     }
 
 }

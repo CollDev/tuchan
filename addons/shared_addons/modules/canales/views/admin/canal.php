@@ -1,5 +1,15 @@
-<section class="title">
-    <h4><?php echo $module_details['name']; ?></h4>
+<section class="title"> 
+    <?php
+    if ($objCanal->id > 0):
+        echo anchor('admin/videos/carga_unitaria/' . $objCanal->id, $this->config->item('submenu:carga_unitaria'), array('class' => ''));
+        echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
+        /*    echo anchor('admin/videos/carga_masiva/' . $canal_id, 'Carga masiva', array('class' => ''));
+          echo '&nbsp;&nbsp;|&nbsp;&nbsp;'; */
+        echo anchor('admin/videos/maestro/' . $objCanal->id, 'Organizar videos', array('class' => ''));
+        echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
+        echo anchor('admin/canales/portada/' . $objCanal->id, 'Portadas', array('class' => ''));
+    endif;
+    ?>
 </section>
 <section class="item">
 
@@ -92,11 +102,11 @@
             </div>
             <br /><br /><br />
             <div id="previewLogo" style="width: 260px; height: 140px; border:1px dotted #660033; text-align: center; vertical-align: middle;"><span style="font-size: 40px; color:#f1f1f1;">
-                <?php
-                if (strlen(trim($objCanal->imagen_logotipo)) > 0) {
-                    echo '<img src="' . $objCanal->imagen_logotipo . '" />';
-                }
-                ?>             
+                    <?php
+                    if (strlen(trim($objCanal->imagen_logotipo)) > 0) {
+                        echo '<img src="' . $objCanal->imagen_logotipo . '" />';
+                    }
+                    ?>             
             </div>            
             <?php
         }
@@ -184,6 +194,20 @@
         <br /><br /><br />
     </div>
     <script type="text/javascript">
+        function mostrar_titulo() {
+            var vista = 'canal';
+            var post_url = "/admin/canales/mostrar_titulo/<?php echo $objCanal->id; ?>/" + vista;
+            $.ajax({
+                type: "POST",
+                url: post_url,
+                dataType: 'html',
+                //data:imagen_id,
+                success: function(respuesta) //we're calling the response json array 'cities'
+                {
+                    $(".subbar > .wrapper").html(respuesta);
+                } //end success
+            }); //end AJAX              
+        }
         function guardar() {
             var values = {};
             $.each($('#frmCanal').serializeArray(), function(i, field) {
@@ -194,7 +218,7 @@
                 //var apikey = $("#apikey").val();
                 //var playerkey = $("#playerkey").val();
                 var apikey = 'apikey';
-                var playerkey = 'playerkey';                
+                var playerkey = 'playerkey';
             } else {
                 var apikey = 'apikey';
                 var playerkey = 'playerkey';
@@ -218,9 +242,9 @@
                 editorText2 = editorText2.replace(/(&nbsp;)*/g, "");
                 if (editorText.length > 0 && editorText2.length > 0) {
                     //validamos si selecciono una imagen de portada
-                    if(canal_id > 0){
+                    if (canal_id > 0) {
                         var imagen_portada = '--';
-                    }else{
+                    } else {
                         var imagen_portada = $.trim($("#imagen_portada").val());
                     }
                     if (imagen_portada.length > 0) {
@@ -261,7 +285,7 @@
                                                                     showMessage('error', '<?php echo lang('canales:exist_canal') ?>', 2000, '');//no se encontro el logotipo en el servidor 
                                                                 } else {
                                                                     var url = "admin/canales";
-                                                                    //showMessage('exit', '<?php //echo lang('canales:success_saved') ?>', 2000, '');//no se encontro el logotipo en el servidor 
+                                                                    //showMessage('exit', '<?php //echo lang('canales:success_saved')  ?>', 2000, '');//no se encontro el logotipo en el servidor 
                                                                     $(location).attr('href', '<?php echo BASE_URL; ?>' + url);
                                                                 }
                                                             }
@@ -377,20 +401,20 @@
                 return true;
             return false;
         }
-        
-        function saveImages(respuesta){
+
+        function saveImages(respuesta) {
             //console.log(respuesta);
             var values = {};
             $.each($('#frmCanal').serializeArray(), function(i, field) {
                 values[field.name] = field.value;
             });
-             var serializedData = $('#frmCanal').serialize();    
-            var post_url = "/admin/canales/registrar_portada/"+values['canal_id'];
+            var serializedData = $('#frmCanal').serialize();
+            var post_url = "/admin/canales/registrar_portada/" + values['canal_id'];
             $.ajax({
                 type: "POST",
                 url: post_url,
                 dataType: 'json',
-                data:respuesta,
+                data: respuesta,
                 success: function(returnRespuesta) //we're calling the response json array 'cities'
                 {
                     $('#loaderAjax').hide();
@@ -398,17 +422,17 @@
                     $('#listaImagenes').ddslick('destroy');
                     $("#contenedorImage").empty();
                     var htmlN = '<select id="listaImagenes">';
-                    $.each(returnRespuesta.imagenes, function(k,v){
+                    $.each(returnRespuesta.imagenes, function(k, v) {
                         //console.log(k+" ->"  +v.imagen_id + ", "+v.url); 
-                        htmlN+='<option value=\"'+v.id+'\" data-imagesrc=\"'+v.path+'\" data-description=\" \"></option>';
+                        htmlN += '<option value=\"' + v.id + '\" data-imagesrc=\"' + v.path + '\" data-description=\" \"></option>';
                     });
-                    htmlN+='</select>';
+                    htmlN += '</select>';
                     $("#contenedorImage").html(htmlN);
                     $('#listaImagenes').ddslick({
                         width: 300,
                         imagePosition: "center",
                         selectText: "Seleccione su imagen principal",
-                        onSelected: function (data) {
+                        onSelected: function(data) {
                             //console.log(data);
                             activeImageVideo(data['selectedData'].value);
                         }
@@ -417,10 +441,10 @@
                 } //end success
             }); //end AJAX        
         }
-        
-        function activeImageVideo(imagen_id){
+
+        function activeImageVideo(imagen_id) {
             var canal_id = $("#canal_id").val();
-            var post_url = "/admin/canales/active_portada/"+imagen_id+"/"+canal_id;
+            var post_url = "/admin/canales/active_portada/" + imagen_id + "/" + canal_id;
             $.ajax({
                 type: "POST",
                 url: post_url,
@@ -431,9 +455,12 @@
                     console.log(returnRespuesta);
                 } //end success
             }); //end AJAX              
-        }        
+        }
 
         $(document).ready(function() {
+            <?php if ($objCanal->id > 0):?>
+            mostrar_titulo();
+            <?php endif; ?>
             //upload de la imagen de portada
             var btn_firma = $('#addImagen'), interval;
             new AjaxUpload('#addImagen', {
@@ -457,12 +484,12 @@
                     if (respuestas.respuesta == 'done') {
                         //saveImages(respuesta);
                         //console.log(respuesta);
-                        if($("#canal_id").val()== 0){
+                        if ($("#canal_id").val() == 0) {
                             $('#loaderAjax').hide();
                             $("#imagen_portada").val(respuestas.image);
                             var htmlImg = '<img src="uploads/temp/' + respuestas.image + '" title="' + respuestas.image + '" style="width:570px;" />';
-                            $("#previewImagen").html(htmlImg);                            
-                        }else{
+                            $("#previewImagen").html(htmlImg);
+                        } else {
                             saveImages(respuestas);
                         }
                     }
@@ -498,9 +525,9 @@
                         $("#imagen_logotipo").val(respuesta.image);
                         var htmlImg = '<img src="uploads/temp/' + respuesta.image + '" title="' + respuesta.image + '" style="width:260px;" />';
                         $("#previewLogo").html(htmlImg);
-                        if($("#canal_id").val()> 0){
+                        if ($("#canal_id").val() > 0) {
                             $("#update_logotipo").val("1");
-                        }                        
+                        }
                         $('#loaderLogo').hide();
                     }
                     else {
@@ -535,9 +562,9 @@
                         $("#imagen_isotipo").val(respuesta.image);
                         var htmlImg = '<img src="uploads/temp/' + respuesta.image + '" title="' + respuesta.image + '" style="width:70px;" />';
                         $("#previewIsotipo").html(htmlImg);
-                        if($("#canal_id").val()> 0){
+                        if ($("#canal_id").val() > 0) {
                             $("#update_isotipo").val("1");
-                        }                        
+                        }
                         $('#loaderIsotipo').hide();
                     }
                     else {
@@ -568,7 +595,7 @@
 <?php } ?>
         });
     </script>
-    <input type="hidden" name="imagen_portada" id="imagen_portada" value="<?php //echo $objCanal->imgen_portada; ?>" />
+    <input type="hidden" name="imagen_portada" id="imagen_portada" value="<?php //echo $objCanal->imgen_portada;  ?>" />
     <input type="hidden" name="imagen_logotipo" id="imagen_logotipo" value="<?php echo $objCanal->imagen_logotipo; ?>" />
     <input type="hidden" name="update_logotipo" id="update_logotipo" value="0" />
     <input type="hidden" name="imagen_isotipo" id="imagen_isotipo" value="<?php echo $objCanal->imagen_isotipo; ?>" />

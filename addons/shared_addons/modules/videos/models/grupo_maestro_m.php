@@ -42,7 +42,9 @@ class Grupo_maestro_m extends MY_Model {
         $arrayData = $this->getCollection($where, $order);
         if (count($arrayData) > 0) {
             foreach ($arrayData as $index => $objTipo) {
-                $returnValue[$objTipo->id] = $objTipo->nombre;
+                if($objTipo->estado < $this->config->item('estado:eliminado')){
+                    $returnValue[$objTipo->id] = $objTipo->nombre;
+                }
             }
         }
         
@@ -67,7 +69,10 @@ class Grupo_maestro_m extends MY_Model {
                     'usuario_actualizacion' => $objBeanMaestro->usuario_actualizacion,
                     'estado_migracion' => $objBeanMaestro->estado_migracion,
                     'fecha_migracion' => $objBeanMaestro->fecha_migracion,
-                    'fecha_migracion_actualizacion' => $objBeanMaestro->fecha_migracion_actualizacion
+                    'fecha_migracion_actualizacion' => $objBeanMaestro->fecha_migracion_actualizacion,
+                    'comentarios' => $objBeanMaestro->comentarios,
+                    'fecha_transmision_inicio' => $objBeanMaestro->fecha_transmision_inicio,
+                    'fecha_transmision_fin' => $objBeanMaestro->fecha_transmision_inicio
         ));
         return $objBeanMaestro;
     }

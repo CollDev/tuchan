@@ -34,13 +34,38 @@ class Videos_m extends MY_Model
     }
     
     /**
+     * Obtiene los videos hijos (clips) del video seleccionado
+     * @param array $where
+     * @return object
+     */
+    public function get_clips_by_video($where = array())
+    {
+        if (!is_array($where)) {
+            $where = array('v.padre'  => $where, 
+                           'v.estado' => ESTADO_PUBLICADO,
+                           'v.estado_liquid'  => '6', 
+                           'ti.id'    => '1', // Small
+                      );
+        }
+                        
+        $this->db->select('v.titulo, v.ruta, i.imagen');
+        $this->db->from($this->_table . ' v');
+        $this->db->join('default_cms_imagenes i', 'i.videos_id = v.id');
+        $this->db->join('default_cms_tipo_imagen ti', 'ti.id = i.tipo_imagen_id');
+        $this->db->where($where);
+        
+        $result = $this->db->get()->result();
+        return $result;
+    }
+    
+    /**
      * Query que retorna lista de videos
      * @param int $canal_id
      * @return array obj
      */
     private function _obtener_query_videos($canal_id)
     {        
-        $query = "SELECT v.id, v.titulo, v.fuente, v.fecha_registro, v.fecha_publicacion_inicio, fecha_publicacion_fin,
+        $query = "SELECT v.id, v.titulo, v.fecha_registro, v.fecha_publicacion_inicio, fecha_publicacion_fin,
                     v.fecha_transmision, v.horario_transmision_inicio, v.horario_transmision_fin, v.estado,                            
                     c.nombre as canal, c.nombre as fuente, cat.nombre as categoria, tv.nombre as tipo_video, 
                     i.imagen, ";
