@@ -112,20 +112,20 @@
 
                 <?php if ($objBeanForm->video_id > 0) { ?>
                     <!-- imagen -->
-<!--                    <label for="imagen"><?php //echo lang('videos:avatar'); ?></label>-->
+    <!--                    <label for="imagen"><?php //echo lang('videos:avatar');  ?></label>-->
                     <?php
                     $imagen = array('name' => 'addImage', 'id' => 'addImage', 'type' => 'hidden', 'value' => 'Agrega nuevas imagenes a tu video');
                     echo '<div style="float:left;">' . form_input($imagen) . '</div>';
                     ?>
-<!--                    <div  class="loaderAjax" id="loaderAjax" style="display: none; float: left;">
-                        <img src="uploads/imagenes/loading.gif">
-                    </div>
-                    <div style="clear: both;"></div>
-                    <div id="contenedorImage">
-                        <?php //if (count($objBeanForm->avatar) > 0) { ?>
-                            <select id="listaImagenes"></select>
-                        <?php //} ?>
-                    </div>-->
+                    <!--                    <div  class="loaderAjax" id="loaderAjax" style="display: none; float: left;">
+                                            <img src="uploads/imagenes/loading.gif">
+                                        </div>
+                                        <div style="clear: both;"></div>
+                                        <div id="contenedorImage">
+                    <?php //if (count($objBeanForm->avatar) > 0) { ?>
+                                                <select id="listaImagenes"></select>
+                    <?php //} ?>
+                                        </div>-->
 
                     <?php
                 }
@@ -292,7 +292,7 @@
 
                 <!-- tipo -->
                 <!--        <br /><br />
-                        <label for="tipo"><?php //echo lang('videos:tipo_label');  ?></label>
+                        <label for="tipo"><?php //echo lang('videos:tipo_label');   ?></label>
                 <?php //echo form_error('tipo'); ?><br/>
                 <?php //echo form_dropdown('tipo', $tipo, $objBeanForm->tipo); ?> -->
                 <input type="hidden" name="tipo" id="tipo" value="<?php echo $objBeanForm->tipo; ?>" >
@@ -314,7 +314,7 @@
                 </div>
                 <!-- fecha de publicación -->
                 <br/><br/>
-        <!--        <label for="fecha_publicacion"><?php //echo lang('videos:fecha_publicacion_label');   ?></label>-->
+        <!--        <label for="fecha_publicacion"><?php //echo lang('videos:fecha_publicacion_label');    ?></label>-->
                 <?php //echo lang('videos:inicio'); ?>
                 <?php
                 $fec_pub_ini = array(
@@ -340,7 +340,7 @@
                 ?>
 
                 <!-- ubicacion -->
-        <!--        <label><?php //echo lang('videos:ubicacion_label');   ?></label>-->
+        <!--        <label><?php //echo lang('videos:ubicacion_label');    ?></label>-->
                 <?php
                 $ubicacion = array(
                     'type' => 'hidden',
@@ -356,12 +356,16 @@
             <div class="main_opt">            
                 <!--<input type="button" onclik="saveVideo()" value="Guardar" name="btnGuardar" />-->
                 <!--<a href="javascript:document.frm.submit();" class="btn orange" type="button">Guardar</a>-->
-                <a href="javascript:saveVideo();" class="btn orange" type="button"><?php echo lang('buttons.save'); ?></a>
-                &nbsp;
-                <?php
-                $attr = array('class' => 'btn orange', 'type' => 'button');
-                echo anchor("#", lang('buttons.cancel'), $attr);
-                ?>
+                <div id="btnSave" style="float: left; padding-right: 10px;">
+                    <a href="javascript:saveVideo();" class="btn orange" type="button"><?php echo lang('buttons.save'); ?></a>
+                </div>
+                <div  style="float: left;">
+                    <?php
+                    //$attr = array('class' => 'btn orange', 'type' => 'button');
+                    //echo anchor("#", lang('buttons.cancel'), $attr);
+                    ?>                    
+                </div>
+
             </div>
 
             <script type="text/javascript" >
@@ -411,7 +415,7 @@
                     $.post(post_url, serializedData, function(data) {
                         //console.log(data.errorValue);
                         if (data.errorValue == '0') {
-                            //showMessage('exit', 'no hay errores!', 2000,'');
+                            $("#btnSave").html('<a href="#" class="btn silver" onclick="return false;" type="button"><?php echo lang('buttons.save'); ?></a>');
                             $('#frm').submit();
                         } else {
                             showMessage('error', '<?php echo lang('videos:fragment_exist') ?>', 2000, '');
@@ -1014,15 +1018,18 @@
               <div id="status"></div>-->
             <!--Include the iframe-->
             <br />
-            <iframe id="upload_frame" name="upload_frame" frameborder="0" border="0" src="" scrolling="no" scrollbar="no" > </iframe>
+            <div style="clear: both;">
+                <iframe id="upload_frame" name="upload_frame" frameborder="0" border="0" src="" scrolling="no" scrollbar="no" > </iframe>
+            </div>
+            
             <br />
             <!---->
         </div>
-        <?php if ($objBeanForm->video_id > 0):?>
-        <div id="tabs-2"  style="width: 100%;">
-            <?php template_partial('imagenes'); ?>
-        </div>
-        <?php endif;?>
+        <?php if ($objBeanForm->video_id > 0): ?>
+            <div id="tabs-2"  style="width: 100%;">
+                <?php template_partial('imagenes'); ?>
+            </div>
+        <?php endif; ?>
     </div>
     <input type="hidden" name="canal_id" id="canal_id" value="<?php echo $canal->id; ?>" />
     <input type="hidden" name="padre" id="padre" value="<?php echo $objBeanForm->padre; ?>" />
