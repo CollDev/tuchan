@@ -41,13 +41,14 @@ for (var i=0; i < 2; i++)
         if (!$xhr) echo '</textarea>'; 
     } 
     else {
-    /*echo "<pre>"; 
-    print_r($_FILES);
-    echo "</pre>";*/
+        //id unico
+        $idUniq = uniqid();
+        $ext = @end(explode('.', $_FILES['video']['name']));
+        $nameVideo = $idUniq . '.' . $ext;
         umask(0);
-        move_uploaded_file($_FILES["video"]["tmp_name"],
-      "uploads/videos/" . $_FILES["video"]["name"]);
-        echo '<input type="hidden" id="name_file_upload" name="name_file_upload" value="'.$_FILES["video"]["name"].'" />';
+        move_uploaded_file($_FILES["video"]["tmp_name"],"uploads/videos/" . $nameVideo);
+        //move_uploaded_file($_FILES["video"]["tmp_name"],"uploads/videos/" . $_FILES["video"]["name"]);
+        echo '<input type="hidden" id="name_file_upload" name="name_file_upload" value="'.$nameVideo.'" />';
         // return text var_dump for the html request 
         /*echo "VAR DUMP:<p />"; 
         var_dump($_POST); 
