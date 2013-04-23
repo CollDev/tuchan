@@ -20917,3 +20917,9 @@ ERROR - 2013-04-23 15:26:53 --> Severity: Notice  --> Trying to get property of 
 ERROR - 2013-04-23 15:26:55 --> Severity: Notice  --> Trying to get property of non-object /var/www/local.adminmicanal.com/system/cms/modules/users/models/ion_auth_model.php 89
 ERROR - 2013-04-23 15:26:55 --> Severity: Notice  --> Trying to get property of non-object /var/www/local.adminmicanal.com/system/cms/modules/users/models/ion_auth_model.php 89
 ERROR - 2013-04-23 15:26:55 --> Severity: Notice  --> Trying to get property of non-object /var/www/local.adminmicanal.com/system/cms/modules/users/models/ion_auth_model.php 89
+ERROR - 2013-04-23 16:25:53 --> Severity: Warning  --> mysqli_connect(): (HY000/2003): Can't connect to MySQL server on '10.203.31.139' (110) /var/www/local.adminmicanal.com/system/codeigniter/database/drivers/mysqli/mysqli_driver.php 75
+ERROR - 2013-04-23 16:25:53 --> Unable to connect to the database
+ERROR - 2013-04-23 16:26:00 --> Severity: Warning  --> mysqli_connect(): (HY000/2003): Can't connect to MySQL server on '10.203.31.139' (110) /var/www/local.adminmicanal.com/system/codeigniter/database/drivers/mysqli/mysqli_driver.php 75
+ERROR - 2013-04-23 16:26:00 --> Unable to connect to the database
+ERROR - 2013-04-23 16:27:03 --> Severity: Warning  --> mysqli_connect(): (HY000/2003): Can't connect to MySQL server on '10.203.31.139' (110) /var/www/local.adminmicanal.com/system/codeigniter/database/drivers/mysqli/mysqli_driver.php 75
+ERROR - 2013-04-23 16:27:03 --> Unable to connect to the database
