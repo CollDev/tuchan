@@ -6,7 +6,7 @@
 <table>
     <tr>
         <td style="text-align: right;">
-            desarrollando el boton de subida de imagenes "NO USAR"----->&nbsp;
+            
             <!-- imagen -->
             <?php
             $imagen = array('class' => 'btn blue','name' => 'addImage', 'id' => 'addImage', 'type' => 'button', 'value' => 'Agrega nuevas imagenes');
