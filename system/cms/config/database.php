@@ -53,6 +53,8 @@ $db[PYRO_DEVELOPMENT] = array(
 );
 */
 
+// configuracion para EC
+
 // El Comercio
 $db[PYRO_DEVELOPMENT] = array(
 	'hostname'		=> 	'10.203.31.139',
