@@ -371,7 +371,7 @@ class Admin extends Admin_Controller {
                         $this->renameVideo($objBeanVideoSaved, $archivo_video['basename']);
                         //disparar el proceso de envio del video a liquid
                         //$this->procesos_lib->procesoVideos();
-                        //$this->load->helper('url');
+                        ////$this->load->helper('url');
                         //redirect('/admin/canales/videos/' . $canal_id, 'refresh');
                         echo json_encode(array("error"=>"0"));
                     }
