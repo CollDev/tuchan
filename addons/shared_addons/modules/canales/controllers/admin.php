@@ -159,6 +159,14 @@ class Admin extends Admin_Controller {
             foreach ($listVideo as $puntero => $oResultVideo) {
                 if (strlen(trim($oResultVideo->programa)) == 0) {
                     $oResultVideo->programa = $this->_getNamePrograma($oResultVideo->id);
+                    $objImagen = $this->obtenerImagenVideo($oResultVideo->id);
+                    $oResultVideo->procedencia = $objImagen->procedencia;
+                    $oResultVideo->imagen = $objImagen->imagen;
+                    $listVideo[$puntero] = $oResultVideo;
+                } else {
+                    $objImagen = $this->obtenerImagenVideo($oResultVideo->id);
+                    $oResultVideo->procedencia = $objImagen->procedencia;
+                    $oResultVideo->imagen = $objImagen->imagen;
                     $listVideo[$puntero] = $oResultVideo;
                 }
             }
@@ -190,6 +198,16 @@ class Admin extends Admin_Controller {
                 // ->append_js('module::lib/splitter.js')
                 ->set('programa', $programas);
         $this->input->is_ajax_request() ? $this->template->build('admin/tables/users') : $this->template->build('admin/videos');
+    }
+
+    private function obtenerImagenVideo($video_id) {
+        $objImagen = $this->imagen_m->get_by(array("estado" => $this->config->item('estado:publicado'), "videos_id" => $video_id));
+        if (count($objImagen) == 0) {
+            $objImagen = new stdClass();
+            $objImagen->procedencia = 2;
+            $objImagen->imagen = '';
+        }
+        return $objImagen;
     }
 
     function liquid_player($video_id, $width = 0, $height = 0) {

@@ -80,6 +80,8 @@ $(function(){
 			pyro.clear_notifications();
 
 			pyro.filter.$content.fadeOut('fast', function(){
+                                //poner mensaje de espere
+                                pyro.filter.$content.html('<div align="center"><h2>Cargando...</h2></div>').fadeIn('fast');
 				//send the request to the server
 				$.post(post_url, form_data, function(data, response, xhr) {
 					
@@ -95,7 +97,6 @@ $(function(){
 					else {
 						html = data;
 					}
-
 					//success stuff here
 					pyro.chosen();
 					pyro.filter.$content.html(html).fadeIn('fast');
