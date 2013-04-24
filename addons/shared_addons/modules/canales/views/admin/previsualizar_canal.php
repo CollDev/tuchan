@@ -1,11 +1,15 @@
 <link href="<?php echo base_url('/addons/shared_addons/modules/canales/css/custom.css') ?>" rel="stylesheet" />
 <link href="<?php echo base_url('/addons/shared_addons/modules/canales/css/mediaquerie.css') ?>" rel="stylesheet" />
+
+<div class="container-main">
+<div class="wrapper-main">
+
 <div class="mc_column mc_columnA ">
     <div class="mc_column mc_columnE mc_mbottom  mc_mright">  
         <div class="mc_colum mc_columnA player_video_main3">
             <div class="flexslider">
                 <ul class="slides">
-                    <li style="width: 100%; float: left; margin-right: -100%; position: relative; display: none;" class="">
+                    <li>
                         <div class="content_section3">
                             <div class="layer_content">                        
                                 <img src="http://dev.e.micanal.e3.pe/0/0/0/0/4/4644.jpg" title="Insensato Corazón" alt="Insensato Corazón">
@@ -65,4 +69,9 @@
 
 
     </div>
+</div>
+
+
+
+</div>
 </div>
