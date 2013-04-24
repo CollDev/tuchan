@@ -32,7 +32,7 @@
 */
 
 // Development
-
+/*
 $db[PYRO_DEVELOPMENT] = array(
 	'hostname'		=> 	'192.168.1.35', //'10.203.31.139'
 	'username'		=> 	'root',//'micanalcmsdev',
@@ -51,11 +51,11 @@ $db[PYRO_DEVELOPMENT] = array(
 	// 'Tough love': Forces strict mode to test your app for best compatibility
 	'stricton' 		=> TRUE,
 );
-
+*/
 // configuracion para EC
 
 // El Comercio
-/*
+
 $db[PYRO_DEVELOPMENT] = array(
 	'hostname'		=> 	'10.203.31.139',
 	'username'		=> 	'micanalcmsdev',
@@ -92,7 +92,7 @@ $db[PYRO_STAGING] = array(
 	'port' 	 		=>	3306,
 );
 */
-
+/*
 // Production
 $db[PYRO_PRODUCTION] = array(
 	'hostname'		=> 	'localhost',
@@ -108,7 +108,7 @@ $db[PYRO_PRODUCTION] = array(
 	'dbcollat' 		=>	'utf8_unicode_ci',
 	'port' 	 		=>	'3306',
 );
-
+*/
 
 // Check the configuration group in use exists
 if ( ! array_key_exists(ENVIRONMENT, $db))
