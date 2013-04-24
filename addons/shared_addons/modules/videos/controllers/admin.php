@@ -377,12 +377,9 @@ class Admin extends Admin_Controller {
                         //$this->procesos_lib->curlProcesoVideosXId($objBeanVideo->id);
                         //$this->load->helper('url');
                         //redirect('/admin/canales/videos/' . $canal_id, 'refresh');
-<<<<<<< HEAD
-                        echo json_encode(array("error" => "0"));
-=======
-                        echo json_encode(array("error"=>"0"));
 
->>>>>>> e760f10915ddcc2038d93e4465607def51946511
+                        echo json_encode(array("error" => "0"));
+
                     }
                 } else {
                     $error = true;
