@@ -1,7 +1,7 @@
 <?php
+set_time_limit(2000);
 
-if (!defined('BASEPATH'))
-    exit('No direct script access allowed');
+if (!defined('BASEPATH'))     exit('No direct script access allowed');
 
 class Liquid {
 
@@ -17,16 +17,22 @@ class Liquid {
             curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-Type: text/xml"));
             
             ERROR_LIQUID:
-                
+            ////error_log("post entro error liquid titulo");
             $result = curl_exec($ch);
             $info = curl_getinfo($ch);
             
+            ////error_log("http_code postXML: " .   $info['http_code']);
+            ////error_log("curl_errno: " .   curl_errno($ch));
+            
             if(!curl_errno($ch) && $info['http_code']=='200')
             {
-                curl_close($ch);               
+                curl_close($ch);  
+                ////error_log("paso publish");
                 return $result;
             }else{
                 sleep(5);
+                ////error_log("no paso publish");
+                
                 goto ERROR_LIQUID;
             }          
         } catch (Exception $exc) {
@@ -38,18 +44,34 @@ class Liquid {
     function getXml($url) {
         try {
             
-            $ch = curl_init($url); 
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL,$url);
+            curl_setopt($ch, CURLOPT_FAILONERROR,1);
+            curl_setopt($ch, CURLOPT_FOLLOWLOCATION,1);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
+            curl_setopt($ch, CURLOPT_TIMEOUT, 15);            
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
             
             ERROR_LIQUID:
-                 
+            ////error_log("url get " . $url);
+            ////error_log("get entro error liquid titulo");
+            
             $result = curl_exec($ch);
             $info = curl_getinfo($ch);
             
-            if(!curl_errno($ch) && $info['http_code']=='200' && $info['']=='application/xml'){
-                curl_close($ch);               
+            
+            ////error_log("http_code: " .   $info['http_code']);
+            ////error_log("content_type: " .   $info['content_type']);
+            ////error_log("curl_errno: " .   curl_errno($ch));
+            
+            if($info['http_code']=='200' &&  $info["content_type"]=='application/xml'){
+                curl_close($ch);  
+                ////error_log(" paso get");
+                ////error_log(" result : " .  $result);
                 return $result;
             }else{
                 sleep(5);
+                 ////error_log(" no paso get");
                 goto ERROR_LIQUID;
             }          
 //            $result = file_get_contents(trim($url));
@@ -90,12 +112,18 @@ class Liquid {
         $post .= "</Media>";
 
         $url = APIURL . "/medias/" . $datos->codigo . "?key=" . $datos->apikey;
-
+        ////error_log("url pusblish: ".$url);
         $retorno = self::postXML($url, $post);
+        
+        ////error_log("retorno: " . $retorno);
+        
         $pos = strpos($retorno, "SUCCESS");
         if ($pos === false) {
+            ////error_log("no paso SUCCESS");
+            
             return FALSE;
         } else {
+            ////error_log("paso SUCCESS");
             return TRUE;
         }
     }
@@ -133,15 +161,16 @@ class Liquid {
             curl_setopt($ch, CURLOPT_MAXREDIRS, 7);
             curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
 
-            error_log(PATH_VIDEOS);
+            ////error_log(PATH_VIDEOS);
             $post = array(
                 "file" => "@" . PATH_VIDEOS . $id_video . ".mp4",
                 "token" => $apiKey
             );
 
             curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
-
+            ////error_log("inicio envio de video a liquid");
             $response = curl_exec($ch);
+            ////error_log("fin envio de video a liquid");
             curl_close($ch);
 
             $mediaxml = new SimpleXMLElement($response);
@@ -162,7 +191,11 @@ class Liquid {
 
         $url = APIURL . "/medias/" . $datos->codigo . "?key=" . $datos->apikey . "&filter=id;thumbs;files;published";
         //echo $url . "<br>";
+        
+        ////error_log("url obtener datos: " . $url);
+        
         $response = self::getXml($url);
+        ////error_log("Response obtener datos" . $response);
         $mediaxml = new SimpleXMLElement($response);
 
         $mediaarr = json_decode(json_encode($mediaxml), true);

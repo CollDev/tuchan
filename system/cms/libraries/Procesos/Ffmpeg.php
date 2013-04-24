@@ -1,7 +1,7 @@
 <?php
+set_time_limit(2000);
 
-if (!defined('BASEPATH'))
-    exit('No direct script access allowed');
+if (!defined('BASEPATH')) exit('No direct script access allowed');
 
 class Ffmpeg {
 
@@ -10,18 +10,18 @@ class Ffmpeg {
 
 
             $video_in = PATH_VIDEOS . $id_video . ".vid";
-            error_log("video_in: ".$video_in);
+            //error_log("video_in: ".$video_in);
 
             $video_out = PATH_VIDEOS . $id_video . ".mp4";
-            error_log("video_out: ".$video_in);
+            //error_log("video_out: ".$video_in);
 
             if (!is_readable($video_out)) {
-                 error_log("entro a conversion");
+                 //error_log("entro a conversion");
                 exec("ffmpeg -i " . $video_in . " " . $video_out . " -loglevel quiet");
             }
 
             if (is_readable($video_out)) {
-
+                unlink($video_in);
                 return true;
             } else {
 

@@ -374,7 +374,7 @@ class Admin extends Admin_Controller {
                         $this->renameVideo($objBeanVideoSaved, $archivo_video['basename']);
                         //disparar el proceso de envio del video a liquid
 
-                        $this->procesos_lib->curlProcesoVideosXId($objBeanVideo->id);
+                        //$this->procesos_lib->curlProcesoVideosXId($objBeanVideo->id);
                         //$this->load->helper('url');
                         //redirect('/admin/canales/videos/' . $canal_id, 'refresh');
                         echo json_encode(array("error"=>"0"));
@@ -1847,7 +1847,7 @@ class Admin extends Admin_Controller {
                 unlink($nombre_imagen_original);
             }
         }
-        //error_log(print_r($arrayImagenes, true));die();
+        ////error_log(print_r($arrayImagenes, true));die();
         $parent_id = NULL; //$this->_saveParentImage($canal_id, $video_id,$this->input->post('fileName'));
         if (count($arrayImagenes) > 0) {
             foreach ($arrayImagenes as $index => $nameImage) {
@@ -3610,8 +3610,8 @@ class Admin extends Admin_Controller {
             $user_id = (int) $this->session->userdata('user_id');
             $arrayTagTematicas = explode(",", $post['tematicas']);
             $arraytagPersonajes = explode(",", $post['personajes']);
-            //error_log(print_r($arrayTagTematicas,true));
-            //error_log(print_r($arraytagPersonajes,true));die();
+            ////error_log(print_r($arrayTagTematicas,true));
+            ////error_log(print_r($arraytagPersonajes,true));die();
             if (count($arrayTagTematicas) > 0) {
                 foreach ($arrayTagTematicas as $index => $tematica) {
                     $tag_id = 0;
@@ -3833,7 +3833,7 @@ class Admin extends Admin_Controller {
     }
 
     public function log($var) {
-        error_log(print_r($var, true));
+        //error_log(print_r($var, true));
     }
 
     public function obtenerMaestrosParaSecciones($session_tipo_id, $canal_id, $objMaestro = NULL) {
@@ -3870,7 +3870,7 @@ class Admin extends Admin_Controller {
                     }
                     $returnValue = $this->_obtenerMaestrosPrograma($tipo_grupo_maestro, $objMaestro->id);
 //                    if($objMaestro != NULL){
-//                        error_log('--->'.print_r($returnValue, true));
+//                        //error_log('--->'.print_r($returnValue, true));
 //                    }                    
                 }
             }

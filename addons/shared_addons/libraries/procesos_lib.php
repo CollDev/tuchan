@@ -1,4 +1,5 @@
 <?php
+set_time_limit(2000);
 
 class Procesos_lib extends MX_Controller {
 
@@ -74,20 +75,20 @@ class Procesos_lib extends MX_Controller {
 
     /* Subir Videos - INICIO */
     public function curlProcesoVideosXId($id){  
-        error_log("ini - curlProcesoVideosXId: ".$id);
+        //error_log("ini - curlProcesoVideosXId: ".$id);
 //        $ch=curl_init("http://local.adminmicanal.dev/curlproceso/procesoVideosXId/".$id); 
 //        curl_exec($ch);
         
-        $ruta=  "http://local.adminmicanal.dev/curlproceso/procesoVideosXId/".$id;
+        $ruta =  base_url("curlproceso/procesoVideosXId/".$id);
         
         shell_exec("curl ".$ruta . " > /dev/null 2>/dev/null &");
         
-        error_log("fin - curlProcesoVideosXId: ".$id);
+        //error_log("fin - curlProcesoVideosXId: ".$id);
     }
     
     public function procesoVideosXId($id) { 
         
-        error_log("id: ".$id);
+        //error_log("id: ".$id);
         
         $this->_convertirVideosXId($id);       
         $this->_uploadVideosXId($id);        
@@ -110,8 +111,8 @@ class Procesos_lib extends MX_Controller {
     protected function _uploadVideosXId($id) {
 
         $resultado = $this->videos_mp->getVideosMp4XId($id);
-//        error_log('-------------------lista de videos mp4---------------------');
-//        error_log(print_r($resultado, true));
+//        //error_log('-------------------lista de videos mp4---------------------');
+//        //error_log(print_r($resultado, true));
         if (count($resultado) > 0) {
             foreach ($resultado as $value) {
 
@@ -119,8 +120,8 @@ class Procesos_lib extends MX_Controller {
                 $retorno = Liquid::uploadVideoLiquid($value->id, $value->apikey);
 
                 if ($retorno != FALSE) {
-//                    error_log('----------------------------------------');
-//                    error_log(print_r($retorno, true));
+//                    //error_log('----------------------------------------');
+//                    //error_log(print_r($retorno, true));
                     $this->videos_mp->setEstadosVideos($value->id, 0, 4);
                     $this->videos_mp->setMediaVideos($value->id, $retorno);
                 } else {
@@ -147,7 +148,7 @@ class Procesos_lib extends MX_Controller {
     
     protected function _obtenerImagesUrlVideosXId($id) {
         
-        error_log("entro a upload");
+        //error_log("entro a upload");
 
         $resultado = $this->videos_mp->getVideosObtenerDatosXId($id);
 
@@ -174,11 +175,13 @@ class Procesos_lib extends MX_Controller {
                         $datos["videos_id"] = $value->id;
                         $datos["imagen_padre"] = NULL;
                         $datos["procedencia"] = 1;
+                        $datos["estado"] = 1;
                         $datos["fecha_registro"] = date('Y-m-d H:i:s');
 
                         foreach ($imagenes as $value2) {
                             $datos["imagen"] = $value2["url"];
                             $datos["tipo_imagen_id"] = $value2["tipo_imagen_id"];
+                            //error_log("id imagen padre: ". $datos["imagen_padre"]);
                             $datos["imagen_padre"] = $this->imagenes_mp->setImagenVideos($datos);
                         }
                     }
@@ -192,13 +195,13 @@ class Procesos_lib extends MX_Controller {
     }
 
     public function procesoVideos() {
-        error_log('iniciando - convertir');
+        //error_log('iniciando - convertir');
         $this->_convertirVideos();
-        error_log('iniciando - upload');
+        //error_log('iniciando - upload');
         $this->_uploadVideos();
-        error_log('iniciando - publicar video');
+        //error_log('iniciando - publicar video');
         $this->_publishVideos();
-        error_log('iniciando - obtiene URL');
+        //error_log('iniciando - obtiene URL');
         $this->_obtenerImagesUrlVideos();
     }
 
@@ -222,8 +225,8 @@ class Procesos_lib extends MX_Controller {
     protected function _uploadVideos() {
 
         $resultado = $this->videos_mp->getVideosMp4();
-//        error_log('-------------------lista de videos mp4---------------------');
-//        error_log(print_r($resultado, true));
+//        //error_log('-------------------lista de videos mp4---------------------');
+//        //error_log(print_r($resultado, true));
         if (count($resultado) > 0) {
             foreach ($resultado as $value) {
 
@@ -231,8 +234,8 @@ class Procesos_lib extends MX_Controller {
                 $retorno = Liquid::uploadVideoLiquid($value->id, $value->apikey);
 
                 if ($retorno != FALSE) {
-//                    error_log('----------------------------------------');
-//                    error_log(print_r($retorno, true));
+//                    //error_log('----------------------------------------');
+//                    //error_log(print_r($retorno, true));
                     $this->videos_mp->setEstadosVideos($value->id, 0, 4);
                     $this->videos_mp->setMediaVideos($value->id, $retorno);
                 } else {
@@ -338,7 +341,7 @@ class Procesos_lib extends MX_Controller {
 
 
             foreach ($resquery as $value) {
-                error_log($value->estado_migracion . "  -  " . $value->estado);
+                //error_log($value->estado_migracion . "  -  " . $value->estado);
 
                 if (($value->estado_migracion == 0 or $value->estado_migracion == 9 ) && $value->estado == 1) {
 
@@ -411,7 +414,7 @@ class Procesos_lib extends MX_Controller {
                             $this->micanal_mp->updateEstadoMigracionPortadas($value->id);
                         } elseif ($value->estado_migracion == 9) {
                             $id_mongo = new MongoId($value->id_mongo);
-                            error_log("entro a actualizar");
+                            //error_log("entro a actualizar");
                             $this->micanal_mp->setItemCollectionUpdate($objmongo, array('_id' => $id_mongo));
                             $this->micanal_mp->updateEstadoMigracionPortadasActualizacion($value->id);
                         }
@@ -622,8 +625,8 @@ class Procesos_lib extends MX_Controller {
 
 
         $resquery = $this->secciones_mp->getSeccionesXId($id);
-        error_log("dato entrada    : ".$id." -- ");
-        error_log("cantidad   : ".count($resquery)." -- ");
+        //error_log("dato entrada    : ".$id." -- ");
+        //error_log("cantidad   : ".count($resquery)." -- ");
          
         if (count($resquery) != 0) {
 
@@ -1059,7 +1062,7 @@ class Procesos_lib extends MX_Controller {
     /* Canal Mongo - FIN */
     
     public function test($var){
-        error_log("funciona: ".$var. "-----");
+        //error_log("funciona: ".$var. "-----");
     }
 }
 

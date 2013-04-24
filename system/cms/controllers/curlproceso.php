@@ -1,4 +1,6 @@
 <?php
+set_time_limit(2000);
+
 class curlProceso extends MX_Controller {
     
     function __construct() {
@@ -10,9 +12,9 @@ class curlProceso extends MX_Controller {
     }
    
     public function procesoVideosXId($id){
-        error_log("ini en curl - procesoVideosXId".$id);
+        //error_log("ini en curl - procesoVideosXId".$id);
         $this->procesos_lib->procesoVideosXId($id);
-        error_log("fin en curl - procesoVideosXId".$id);
+        //error_log("fin en curl - procesoVideosXId".$id);
     }
 }
 ?>
