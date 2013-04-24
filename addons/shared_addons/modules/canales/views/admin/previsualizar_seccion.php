@@ -1,10 +1,10 @@
+<link href="<?php echo base_url('/addons/shared_addons/modules/canales/css/custom.css') ?>" rel="stylesheet" />
+<link href="<?php echo base_url('/addons/shared_addons/modules/canales/css/mediaquerie.css') ?>" rel="stylesheet" />
 <div class="sli_item">
         <!-- ENCABEZADO --> 
         <div class="head_section mc_column mc_columnA mc_mbottom hd_sli">
             <div class="bkg_col02 hsection">
-                
-                
-                                <a href="http://dev.micanal.pe/categoria/deporte/seccion/los-mas-comentados">
+                <a href="http://dev.micanal.pe/categoria/deporte/seccion/los-mas-comentados">
                    <h4>LOS MAS COMENTADOS</h4>
                 </a>
                 
