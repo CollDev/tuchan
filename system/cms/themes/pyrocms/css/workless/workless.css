@@ -1721,7 +1721,7 @@ background:url(../../../img/admin/new_icon.png) no-repeat left center;
 
 
 
-.mode_edit, .mode_delete, .mode_preview,.mode_front,.mode_publish{
+.mode_edit, .mode_delete, .mode_preview,.mode_front,.mode_publish, .mode_restore,.mode_cut, .mode_remove, .mode_add{
 	display:block;
 	float:left;
 	padding-top: 30px;
@@ -1749,6 +1749,22 @@ background: url(../../img/front_icon.png) no-repeat top center;
 background: url(../../img/publish_icon.png) no-repeat top center;
 }
  
+.mode_restore{
+background: url(../../img/restore_icon.png) no-repeat top center;
+}
+ 
+.mode_cut{
+background: url(../../img/cut_icon.png) no-repeat top center;
+}
+
+.mode_remove{
+background: url(../../img/remove_icon.png) no-repeat top center;
+}
+
+.mode_add{
+background: url(../../img/add_icon.png) no-repeat top center;
+}
+
  
  
 @media print {
