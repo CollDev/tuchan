@@ -109,10 +109,10 @@
 
                 <?php if ($objBeanForm->video_id > 0) { ?>
                     <!-- imagen -->
-    <!--                    <label for="imagen"><?php //echo lang('videos:avatar');   ?></label>-->
+    <!--                    <label for="imagen"><?php //echo lang('videos:avatar');    ?></label>-->
                     <?php
-                    $imagen = array('name' => 'addImage', 'id' => 'addImage', 'type' => 'hidden', 'value' => 'Agrega nuevas imagenes a tu video');
-                    echo '<div style="float:left;">' . form_input($imagen) . '</div>';
+//                    $imagen = array('name' => 'addImage', 'id' => 'addImage', 'type' => 'hidden', 'value' => 'Agrega nuevas imagenes a tu video');
+//                    echo '<div style="float:left;">' . form_input($imagen) . '</div>';
                     ?>
                     <!--                    <div  class="loaderAjax" id="loaderAjax" style="display: none; float: left;">
                                             <img src="uploads/imagenes/loading.gif">
@@ -289,7 +289,7 @@
 
                 <!-- tipo -->
                 <!--        <br /><br />
-                        <label for="tipo"><?php //echo lang('videos:tipo_label');    ?></label>
+                        <label for="tipo"><?php //echo lang('videos:tipo_label');     ?></label>
                 <?php //echo form_error('tipo'); ?><br/>
                 <?php //echo form_dropdown('tipo', $tipo, $objBeanForm->tipo); ?> -->
                 <input type="hidden" name="tipo" id="tipo" value="<?php echo $objBeanForm->tipo; ?>" >
@@ -311,7 +311,7 @@
                 </div>
                 <!-- fecha de publicación -->
                 <br/><br/>
-        <!--        <label for="fecha_publicacion"><?php //echo lang('videos:fecha_publicacion_label');     ?></label>-->
+        <!--        <label for="fecha_publicacion"><?php //echo lang('videos:fecha_publicacion_label');      ?></label>-->
                 <?php //echo lang('videos:inicio'); ?>
                 <?php
                 $fec_pub_ini = array(
@@ -337,7 +337,7 @@
                 ?>
 
                 <!-- ubicacion -->
-        <!--        <label><?php //echo lang('videos:ubicacion_label');     ?></label>-->
+        <!--        <label><?php //echo lang('videos:ubicacion_label');      ?></label>-->
                 <?php
                 $ubicacion = array(
                     'type' => 'hidden',
@@ -704,7 +704,7 @@
                      $("#frm").submit(function() {
                      if (show_bar === 1) {
                      function set() {
-                     $('#upload_frame').attr('src', 'upload_frame.php?up_id=<?php //echo $up_id;  ?>');
+                     $('#upload_frame').attr('src', 'upload_frame.php?up_id=<?php //echo $up_id;   ?>');
                      }
                      setTimeout(set);
                      }
@@ -788,7 +788,7 @@
 <?php if ($objBeanForm->video_id > 0) { ?>
                         var btn_firma = $('#addImage'), interval;
                         new AjaxUpload('#addImage', {
-                            action: 'admin/videos/subir_imagen',
+                            action: 'admin/videos/subir_imagen/<?php echo $objBeanForm->video_id; ?>',
                             onSubmit: function(file, ext) {
                                 if (!(ext && /^(jpg|png)$/.test(ext))) {
                                     // extensiones permitidas
@@ -842,7 +842,9 @@
                         value: editorText
                     }).appendTo('#frm');
                     var serializedData = $('#frm').serialize();
-                    var post_url = "/admin/videos/registrar_imagenes/" + values['canal_id'] + "/" + values['video_id'];
+                    var tipo = $("#tipo").val();
+                    //var post_url = "/admin/videos/registrar_imagenes/" + values['canal_id'] + "/" + values['video_id'];
+                    var post_url = "/admin/videos/subir_imagenes_maestro/" + values['video_id'] + "/" + tipo;
                     $.ajax({
                         type: "POST",
                         url: post_url,
@@ -851,31 +853,12 @@
                         success: function(returnRespuesta) //we're calling the response json array 'cities'
                         {
                             $('#loaderAjax').hide();
-                            //var liHtml = '<li><a class=\"dd-option\"> <input type=\"hidden\" value=\"'+returnRespuesta.imagen_id+'\" class=\"dd-option-value\"> <img src=\"'+returnRespuesta.url+'\" class=\"dd-option-image\"></a></li>';
-                            //var tdHtml = '<td><img src=\"'+returnRespuesta.url+'\" /></td>';
-                            //$("#listImage").show();
-                            //$("#tableIaages tr").prepend(tdHtml);
-                            //$("#listaImagenes ul").prepend(liHtml);
-                            //limpiar
-                            $('#listaImagenes').ddslick('destroy');
-                            $("#contenedorImage").empty();
-                            var htmlN = '<select id="listaImagenes">';
                             $.each(returnRespuesta.imagenes, function(k, v) {
-                                //console.log(k+" ->"  +v.imagen_id + ", "+v.url); 
-                                htmlN += '<option value=\"' + v.id + '\" data-imagesrc=\"' + v.path + '\" data-description=\" \"></option>';
+                                var htmlimagen = '<img src="' + v.imagen + '" style="width:120px; height: 70px;">';
+                                $("#tipo_" + v.tipo_imagen_id).html(htmlimagen);
+                                $("#codigo_" + v.tipo_imagen_id).html(v.id);
+                                $("#proceso_" + v.tipo_imagen_id).empty();
                             });
-                            htmlN += '</select>';
-                            $("#contenedorImage").html(htmlN);
-                            $('#listaImagenes').ddslick({
-                                width: 300,
-                                imagePosition: "center",
-                                selectText: "Seleccione su imagen principal",
-                                onSelected: function(data) {
-                                    //console.log(data);
-                                    activeImageVideo(data['selectedData'].value);
-                                }
-                            });
-
                         } //end success
                     }); //end AJAX        
                 }
@@ -910,7 +893,7 @@
                                 } else {
                                     if (respuesta.error == 0) {
                                         var url = "admin/canales/videos/" + values['canal_id'];
-                                        showMessage('exit', '<?php echo lang('videos:add_video_success')  ?>', 2000, url);
+                                        showMessage('exit', '<?php echo lang('videos:add_video_success') ?>', 2000, url);
                                     }
                                 }
                             }
@@ -922,9 +905,9 @@
                              });
                              if (resultado) {
                              var url = "admin/canales/videos/" + values['canal_id'];
-                             showMessage('exit', '<?php //echo lang('videos:add_video_success')  ?>', 2000, url);
+                             showMessage('exit', '<?php //echo lang('videos:add_video_success')   ?>', 2000, url);
                              } else {
-                             showMessage('error', '<?php //echo lang('videos:not_found_video')  ?>', 2000, '');
+                             showMessage('error', '<?php //echo lang('videos:not_found_video')   ?>', 2000, '');
                              }*/
                         } //end success
                     }); //end AJAX

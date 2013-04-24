@@ -16,5 +16,14 @@ class curlProceso extends MX_Controller {
         $this->procesos_lib->procesoVideosXId($id);
         //error_log("fin en curl - procesoVideosXId".$id);
     }
+    
+    public function  generarMiCanal(){
+        $this->procesos_lib->generarMiCanal();
+    }
+    
+    public function generarCanal(){
+        $this->procesos_lib->generarCanal();
+    }
+            
 }
 ?>

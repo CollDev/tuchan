@@ -13,5 +13,14 @@ class Secciones_mp extends CI_Model {
         
         return $this->db->query($query)->result();
     }
-
+    
+    public function updateEstadoMigracionSeccion($id){
+            $query= "update ". $this->_table. " set estado_migracion=2, fecha_migracion= now() where id=" .$id;
+            $this->db->query($query);        
+    }
+            
+    public function updateEstadoMigracionSeccionActualizacion($id){
+            $query= "update ". $this->_table. " set estado_migracion=2, fecha_migracion_actualizacion= now() where id=" .$id;
+            $this->db->query($query);        
+    }
 }
