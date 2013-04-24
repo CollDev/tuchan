@@ -94,10 +94,12 @@ class MiCanal_mp extends CI_Model {
 
 
             case '4':
-                $query = "SELECT ds.id,ds.videos_id,ds.grupo_maestros_id,ds.imagenes_id,ds.peso,im.imagen,im.procedencia,ds.estado,ds.estado_migracion
+                $query = "SELECT se.tipo_secciones_id,po.tipo_portadas_id,ds.id,ds.videos_id,ds.grupo_maestros_id,ds.imagenes_id,ds.peso,im.imagen,im.procedencia,ds.estado,ds.estado_migracion
                             FROM default_cms_detalle_secciones ds
                             INNER JOIN default_cms_imagenes im ON im.id=ds.imagenes_id
-                            WHERE secciones_id=" . $id . " and ds.estado=1  ORDER BY peso asc ";
+                            INNER JOIN default_cms_secciones se ON ds.secciones_id=se.id
+                            INNER JOIN default_cms_portadas po ON po.id=se.portadas_id
+                            WHERE secciones_id=".$id." AND ds.estado=1  ORDER BY peso ASC ";
                
                 break;
 

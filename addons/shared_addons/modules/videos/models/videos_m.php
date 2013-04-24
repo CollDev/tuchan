@@ -313,7 +313,7 @@ class Videos_m extends MY_Model
                     'padre' => $objBeanVideo->padre
         ));
         $objBeanVideo->alias = $objBeanVideo->alias.'-'.$objBeanVideo->id;
-        parent::update($objBeanVideo->id, array('alias'=>$objBeanVideo->alias));
+        parent::update($objBeanVideo->id, array('alias'=>$objBeanVideo->alias));        
         return $objBeanVideo;
     }
     

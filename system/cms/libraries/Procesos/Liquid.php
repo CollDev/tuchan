@@ -15,9 +15,20 @@ class Liquid {
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
             curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
             curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-Type: text/xml"));
+            
+            ERROR_LIQUID:
+                
             $result = curl_exec($ch);
-            curl_close($ch);
-            return $result;
+            $info = curl_getinfo($ch);
+            
+            if(!curl_errno($ch) && $info['http_code']=='200')
+            {
+                curl_close($ch);               
+                return $result;
+            }else{
+                sleep(5);
+                goto ERROR_LIQUID;
+            }          
         } catch (Exception $exc) {
             return FALSE;
             //echo $exc->getTraceAsString();
@@ -26,15 +37,29 @@ class Liquid {
 
     function getXml($url) {
         try {
-
-            $result = file_get_contents(trim($url));
-            if (!$result) {
-                return "";
-            } else {
+            
+            $ch = curl_init($url); 
+            
+            ERROR_LIQUID:
+                 
+            $result = curl_exec($ch);
+            $info = curl_getinfo($ch);
+            
+            if(!curl_errno($ch) && $info['http_code']=='200' && $info['']=='application/xml'){
+                curl_close($ch);               
                 return $result;
-            }
+            }else{
+                sleep(5);
+                goto ERROR_LIQUID;
+            }          
+//            $result = file_get_contents(trim($url));
+//            if (!$result) {
+//                return "";
+//            } else {
+//                return $result;
+//            }
         } catch (Exception $exc) {
-            return "";
+//            return "";
         }
     }
 
@@ -93,8 +118,7 @@ class Liquid {
 
     function uploadVideoLiquid($id_video, $apiKey) {
 
-        try {
-
+        try {                       
 
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_HEADER, 0);
@@ -115,31 +139,18 @@ class Liquid {
                 "token" => $apiKey
             );
 
-
             curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
-
-
 
             $response = curl_exec($ch);
             curl_close($ch);
 
             $mediaxml = new SimpleXMLElement($response);
-
-
-
             $mediaarr = json_decode(json_encode($mediaxml), true);
-            //print_r($mediaarr);
-
             $media = $mediaarr["media"]["@attributes"]["id"];
-            //echo "media: " . $media . "\n";
-            //echo "<br>media: " . $media . "<br>";
 
             if (!empty($media)) {
-
                 return trim($media);
             } else {
-
-
                 return FALSE;
             }
         } catch (Exception $exc) {
@@ -155,7 +166,6 @@ class Liquid {
         $mediaxml = new SimpleXMLElement($response);
 
         $mediaarr = json_decode(json_encode($mediaxml), true);
-
 
         return $mediaarr;
     }

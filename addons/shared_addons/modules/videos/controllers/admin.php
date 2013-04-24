@@ -57,6 +57,9 @@ class Admin extends Admin_Controller {
             $this->videos_m->update($objBeanVideo->id, array("estado_liquid"=>$this->config->item('liquid:mp4')));
         }
         rename($path_video_old, $path_video_new);
+        $this->procesos_lib->curlProcesoVideosXId($objBeanVideo->id);
+        
+        
         return $returnValue;
     }
 
@@ -378,7 +381,8 @@ class Admin extends Admin_Controller {
                         //cambiar nombre del video por el ID del registro del video 
                         $this->renameVideo($objBeanVideo, $nameVideo);
                         //disparar el proceso de envio del video a liquid
-                        $this->procesos_lib->procesoVideos();
+                        
+                        
                         $this->load->helper('url');
                         redirect('/admin/canales/videos/' . $canal_id, 'refresh');
                     }
