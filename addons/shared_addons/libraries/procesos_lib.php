@@ -94,6 +94,7 @@ class Procesos_lib extends MX_Controller {
         $this->_uploadVideosXId($id);        
         $this->_publishVideosXId($id);        
         $this->_obtenerImagesUrlVideosXId($id);
+        $this->_generarVideosXId($id);
     }
     
     protected function _convertirVideosXId($id) {
@@ -137,10 +138,13 @@ class Procesos_lib extends MX_Controller {
         //echo print_r($resultado) . "\n";
         if (count($resultado) > 0) {
             foreach ($resultado as $value) {
+                
                 $retorno = Liquid::updatePublishedMediaNode($value);
                 //var_dump($retorno);
                 if ($retorno != FALSE) {
                     $this->videos_mp->setEstadosVideos($value->id, 1, 5);
+                }else{
+                  
                 }
             }
         }
@@ -195,13 +199,9 @@ class Procesos_lib extends MX_Controller {
     }
 
     public function procesoVideos() {
-        //error_log('iniciando - convertir');
-        $this->_convertirVideos();
-        //error_log('iniciando - upload');
-        $this->_uploadVideos();
-        //error_log('iniciando - publicar video');
-        $this->_publishVideos();
-        //error_log('iniciando - obtiene URL');
+        $this->_convertirVideos();      
+        $this->_uploadVideos();        
+        $this->_publishVideos();        
         $this->_obtenerImagesUrlVideos();
     }
 
@@ -328,9 +328,9 @@ class Procesos_lib extends MX_Controller {
         $this->_generarDetalleSeccionesMiCanal();
     }
 
-    public function actualizarPortadas() {
-        $this->_generarPortadasMiCanal();
-    }
+//    public function generarPortadasMiCanal() {
+//        $this->_generarPortadasMiCanal();
+//    }
 
     private function _generarPortadasMiCanal() {
 
@@ -432,15 +432,15 @@ class Procesos_lib extends MX_Controller {
         }
     }
 
-   
-    public function actualizarSecciones() {
-        $this->_generarSeccionesMiCanal();
-    }
+//    public function generarSeccionesMiCanal() {
+//        $this->_generarSeccionesMiCanal();
+//    }
     
-    public function actualizarDetalleSecciones() {
-        $this->_generarDetalleSeccionesMiCanal();
-    }
+//    public function actualizarDetalleSecciones() {
+//        $this->_generarDetalleSeccionesMiCanal();
+//    }
 
+    
     private function _generarSeccionesMiCanal() {
 
         $array = array();
@@ -459,6 +459,7 @@ class Procesos_lib extends MX_Controller {
                     $array["peso"] = $value->peso;
                     $array["template"] = $value->templates_id;
                     $array["padre"] = $value->mongo_po;
+                    $array["estado"] ="1";
 
                     $array["alias_pa"] = $value->alias_pa;
                     $array["alias_se"] = $this->urls_amigables($value->nombre);
@@ -503,21 +504,40 @@ class Procesos_lib extends MX_Controller {
 
                     $array["item"] = $item;
                     $objmongo = $array;
-
-                    if ($value->estado_migracion == 0) {
+                    
+                   
+                     $id_mongo="";
+                    
+                    if ($value->mongo_se == "") {
                         $id_mongo = $this->micanal_mp->SetItemCollection($objmongo);
-                        $array["id_mongo"] = $id_mongo;
-                        $array["id"] = $value->id;
                         $this->micanal_mp->updateIdMongoSecciones($value->id, $id_mongo);
-                        $this->micanal_mp->updateEstadoMigracionPortadas($value->id);
-                    } elseif ($value->estado_migracion == 9) {
-                        $id_mongo = new MongoId($value->id_mongo);
-                        $this->micanal_mp->SetItemCollectionUpdate($objmongo, array('_id' => $id_mongo));
-                        $this->updateEstadoMigracionPortadasActualizacion($value->id);
+                        $this->secciones_mp->updateEstadoMigracionSeccion($value->id);
+                    } elseif ($value->estado_migracion == 9 ||  $value->estado_migracion == 2 ) {                    
+                        $id_mongo = $value->mongo_se;
+                         $mongoid = new MongoId($id_mongo);
+                        $this->micanal_mp->SetItemCollectionUpdate($objmongo, array('_id' => $mongoid));
+                        $this->secciones_mp->updateEstadoMigracionSeccionActualizacion($value->id);
                     }
+                    
+                    error_log($id_mongo);      
+                    $mongoid = new MongoId($id_mongo);
+                    
+                    $this->_generarDetalleSeccionesMiCanalXSeccionId($value->id,$id_mongo); 
 
-
-                    $this->_generarDetalleSeccionesMiCanalXSeccionId($value->id);
+//                    if ($value->estado_migracion == 0) {
+//                        $id_mongo = $this->micanal_mp->SetItemCollection($objmongo);
+//                        $array["id_mongo"] = $id_mongo;
+//                        $array["id"] = $value->id;
+//                        $this->micanal_mp->updateIdMongoSecciones($value->id, $id_mongo);
+//                        $this->micanal_mp->updateEstadoMigracionPortadas($value->id);
+//                    } elseif ($value->estado_migracion == 9) {
+//                        $id_mongo = new MongoId($value->id_mongo);
+//                        $this->micanal_mp->SetItemCollectionUpdate($objmongo, array('_id' => $id_mongo));
+//                        $this->updateEstadoMigracionPortadasActualizacion($value->id);
+//                    }
+//
+//
+//                    $this->_generarDetalleSeccionesMiCanalXSeccionId($value->id);
 
                     unset($array);
                     unset($objmongo);
@@ -614,6 +634,7 @@ class Procesos_lib extends MX_Controller {
         }
     }
 
+    
     public function actualizarSeccionesXId($id){
         $this->_generarSeccionesMiCanalXSeccionId($id);
     }
@@ -641,6 +662,7 @@ class Procesos_lib extends MX_Controller {
                     $array["padre"] = $value->mongo_po;
                     $array["alias_pa"] = $value->alias_pa;
                     $array["alias_se"] = $this->urls_amigables($value->nombre);
+                    $array["estado"] = "1";
                     
                     if ($value->tipo_portadas_id == 5 and $value->tipo_secciones_id == 1) {
 
@@ -680,18 +702,28 @@ class Procesos_lib extends MX_Controller {
                     $array["item"] =array();
                     $objmongo = $array;
 
-//                    if ($value->estado_migracion == 0) {
-//                        $id_mongo = $this->micanal_mp->SetItemCollection($objmongo);
-//                        $array["id_mongo"] = $id_mongo;
-//                        $array["id"] = $value->id;
-//                        $this->micanal_mp->updateIdMongoSecciones($value->id, $id_mongo);
-//                        $this->micanal_mp->updateEstadoMigracionPortadas($value->id);
-//                    } elseif ($value->estado_migracion == 9) {
-                        $id_mongo = new MongoId($value->id_mongo);
-                        $this->micanal_mp->SetItemCollectionUpdate($objmongo, array('_id' => $id_mongo));
-                       // $this->secciones_mp->updateEstadoMigracionPortadasActualizacion($value->id);
-//                    }
-                    $this->_generarDetalleSeccionesMiCanalXSeccionId($value->id,$value->mongo_se);
+                    error_log("mongo_se: " . $value->mongo_se);                        
+                    error_log("estado_migracion: " .$value->estado_migracion);                        
+
+                    $id_mongo="";
+                    
+                    if ($value->mongo_se == "") {
+                        $id_mongo = $this->micanal_mp->SetItemCollection($objmongo);
+                        $this->micanal_mp->updateIdMongoSecciones($value->id, $id_mongo);
+                        $this->secciones_mp->updateEstadoMigracionSeccion($value->id);
+                    } elseif ($value->estado_migracion == 9 ||  $value->estado_migracion == 2 ) {                    
+                        $id_mongo = $value->mongo_se;
+                         $mongoid = new MongoId($id_mongo);
+                        $this->micanal_mp->SetItemCollectionUpdate($objmongo, array('_id' => $mongoid));
+                        $this->secciones_mp->updateEstadoMigracionSeccionActualizacion($value->id);
+                    }
+                    
+                    error_log($id_mongo);      
+                    $mongoid = new MongoId($id_mongo);
+                    
+                    $this->_generarDetalleSeccionesMiCanalXSeccionId($value->id,$id_mongo);
+
+                    //$this->_generarDetalleSeccionesMiCanalXSeccionId($value->id,$value->mongo_se);
 
                     unset($array);
                     unset($objmongo);
@@ -700,13 +732,12 @@ class Procesos_lib extends MX_Controller {
                     $id_mongo = new MongoId($value->mongo_se);
                     $this->micanal_mp->setItemCollectionUpdate(array("estado" => "0"), array('_id' => $id_mongo));
                     //$this->conexionmongodb->SetItemCollectionDelete(array('_id' => $id_mongo));
-                    $this->updateEstadoMigracionActualizacion($value->id);
+                    $this->secciones_mp->updateEstadoMigracionSeccionActualizacion($value->id);
                 }
             }
         }  
     }
-
-
+        
     private function _generarDetalleSeccionesMiCanalXSeccionId($id,$id_mongo) {
 
         //echo "seccion_id" . $value->id . "; mongo:" . $value->id_mongo . "\n";
@@ -949,6 +980,7 @@ class Procesos_lib extends MX_Controller {
                 $objmongo['playerkey'] = $datovideo[0]->xplayerkey;
                 $objmongo['apikey'] = $datovideo[0]->xapikey;
                 $objmongo['valoracion'] = $datovideo[0]->xvi_val;
+                $objmongo['estado'] = "1";
 
                 if ($datovideo[0]->xfechatransmision == $datovideo[0]->xlistareproduccion) {
                     $urltemp = $datovideo[0]->xprogramaalias . "/" . $datovideo[0]->xfechatransmision . "-" . $datovideo[0]->xvideoalias; //  2. micanal.pe/[programa]/[fecha]-[video]-id [ nombre de lista es igual a la fecha de transmisi?n de los videos.                      
@@ -989,7 +1021,7 @@ class Procesos_lib extends MX_Controller {
             $where = array("_id" => new MongoId($value->id_mongo));
 
             if (!empty($value->id)) {
-                $imagenes = $this->canal_mp->queryMysqlImagen($value->id);
+                $imagenes = $this->imagenes_mp->getImagenesVideos($value->id);
 
                 foreach ($imagenes as $rowx) {
                     if ($rowx->procedencia == 0) {
@@ -1002,7 +1034,7 @@ class Procesos_lib extends MX_Controller {
                 $this->canal_mp->SetItemCollectionUpdate($set, $where);
 
 
-                $playlist = $this->canal_mp->queryMysqlPlaylist($value->id);
+                $playlist = $this->videos_mp->getVideosPlaylist($value->id);
 
                 $arrayplaylist = array();
 
@@ -1014,6 +1046,73 @@ class Procesos_lib extends MX_Controller {
 
                 $set = array("playlist" => $arrayplaylist);
                 $this->canal_mp->SetItemCollectionUpdate($set, $where);
+            }
+        }
+    }
+    
+    private function _generarVideosXId($id) {
+
+        $video = $this->videos_mp->getVideosxId($id);
+        //print_r($videosactivos);
+
+        foreach ($video as $value) {
+
+            if ($value->estado == 2) {
+                $datovideo = $this->canal_mp->queryProcedure(4, $value->id);
+                $objmongo['id'] = $value->id;
+                $objmongo['canal'] = ($datovideo[0]->xcanal);
+                $objmongo['canal_alias'] = $datovideo[0]->xcanalalias;
+                $objmongo['programa'] = ($datovideo[0]->xprograma);
+                $objmongo['programa_alias'] = $datovideo[0]->xprogramaalias;
+                $objmongo['fecha'] = date("d-m-Y", strtotime($datovideo[0]->xfechatransmision));
+                $objmongo['etiquetas'] = explode(",", $value->etiquetas);
+                $objmongo['logo'] = PATH_ELEMENTOS . $value->imagen;
+                $objmongo['nombre'] = $datovideo[0]->xvideo;
+                $objmongo['descripcion'] = (strip_tags($datovideo[0]->xdescripcion));
+
+                $objmongo['imagen'] = array();
+//
+                $objmongo['categoria'] = $datovideo[0]->xcategoria;
+                $objmongo['reproducciones'] = $datovideo[0]->xvi_rep;
+                $objmongo['lista_reproduccion'] = ($datovideo[0]->xlistareproduccion);
+                $objmongo['duracion'] = $datovideo[0]->xduracion;
+                $objmongo['media'] = $datovideo[0]->xcodigo;
+                $objmongo['comentarios'] = $datovideo[0]->xvi_com;
+                $objmongo['related'] = array();
+                $objmongo['playlist'] = array();
+                $objmongo['clips'] = array();
+                $objmongo['playerkey'] = $datovideo[0]->xplayerkey;
+                $objmongo['apikey'] = $datovideo[0]->xapikey;
+                $objmongo['valoracion'] = $datovideo[0]->xvi_val;
+                $objmongo['estado'] = "1";
+
+                if ($datovideo[0]->xfechatransmision == $datovideo[0]->xlistareproduccion) {
+                    $urltemp = $datovideo[0]->xprogramaalias . "/" . $datovideo[0]->xfechatransmision . "-" . $datovideo[0]->xvideoalias; //  2. micanal.pe/[programa]/[fecha]-[video]-id [ nombre de lista es igual a la fecha de transmisi?n de los videos.                      
+                } else {
+                    $urltemp = $datovideo[0]->xprogramaalias . "/" . $datovideo[0]->xlistareproduccionalias . "/" . $datovideo[0]->xfechatransmision . "-" . $datovideo[0]->xvideoalias; //  1. micanal.pe/[programa]/[lista]/[fecha]-[video]-id                        
+                }
+
+                $objmongo['url'] = $urltemp;
+                //$objmongo['padre'] = $arrlistarepro['idmongo'];
+                $objmongo['nivel'] = "4";
+
+                if ($value->estado_migracion == 0) {
+                    $mongo_id = $this->canal_mp->setItemCollection($objmongo);
+                    $this->canal_mp->updateIdMongoVideos($value->id, $mongo_id);
+                    $this->canal_mp->updateEstadoMigracionVideos($value->id);
+                } elseif ($value->estado_migracion == 9) {
+                    $mongo_id = $value->id_mongo;
+                    $MongoId = array("_id" => new MongoId($value->id_mongo));
+                    $this->canal_mp->setItemCollectionUpdate($objmongo, $MongoId);
+                    $this->canal_mp->updateEstadoMigracionVideosActualizacion($value->id);
+                    //print_r($set);
+                }
+
+                $this->_generarDetalleVideosXId($value->id, $mongo_id);
+                unset($objmongo);
+            } else {
+                $id_mongo = new MongoId($value->id_mongo);
+                $this->canal_mp->setItemCollectionUpdate(array("estado" => "0"), array('_id' => $id_mongo));
             }
         }
     }
@@ -1061,9 +1160,7 @@ class Procesos_lib extends MX_Controller {
 
     /* Canal Mongo - FIN */
     
-    public function test($var){
-        //error_log("funciona: ".$var. "-----");
-    }
+    
 }
 
 ?>

@@ -57,10 +57,6 @@ class Canal_mp extends CI_Model {
         return $objresult->result();
     }
 
-
-
-
-
     function updateIdMongoCanales($id, $id_mongo) {
         $query = "update " . $this->_table_canales . " set id_mongo='" . $id_mongo . "' where id=" . $id;
         $this->db->query($query);

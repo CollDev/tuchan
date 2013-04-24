@@ -113,17 +113,21 @@ class Liquid {
 
         $url = APIURL . "/medias/" . $datos->codigo . "?key=" . $datos->apikey;
         ////error_log("url pusblish: ".$url);
+        
+        PUBLISHED:
         $retorno = self::postXML($url, $post);
         
-        ////error_log("retorno: " . $retorno);
+        //error_log("retorno: " . $retorno);
         
         $pos = strpos($retorno, "SUCCESS");
+        //error_log("POS: ". $pos);
+        
         if ($pos === false) {
-            ////error_log("no paso SUCCESS");
-            
+            //error_log("no paso SUCCESS");
+            goto PUBLISHED;
             return FALSE;
         } else {
-            ////error_log("paso SUCCESS");
+            //error_log("paso SUCCESS");
             return TRUE;
         }
     }
