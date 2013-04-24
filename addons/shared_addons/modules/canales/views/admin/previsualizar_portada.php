@@ -1,5 +1,10 @@
 <link href="<?php echo base_url('/addons/shared_addons/modules/canales/css/custom.css') ?>" rel="stylesheet" />
 <link href="<?php echo base_url('/addons/shared_addons/modules/canales/css/mediaquerie.css') ?>" rel="stylesheet" />
+
+<div class="container-main">
+<div class="wrapper-main">
+<div class="mc_column mc_columnA mc_mbottom">
+
 <div class="flexslider">
             <ul class="slides">
                                 
@@ -76,3 +81,10 @@
                     </li>
                             </ul>
         <ol class="flex-control-nav flex-control-paging"><li><a class="flex-active">1</a></li><li><a class="">2</a></li><li><a class="">3</a></li></ol><ul class="flex-direction-nav"><li><a class="flex-prev" href="#">Previous</a></li><li><a class="flex-next" href="#">Next</a></li></ul></div>
+        
+        
+        
+</div>     
+</div>
+</div> 
+        
