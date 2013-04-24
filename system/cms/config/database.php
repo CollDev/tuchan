@@ -51,11 +51,6 @@ $db[PYRO_DEVELOPMENT] = array(
 	// 'Tough love': Forces strict mode to test your app for best compatibility
 	'stricton' 		=> TRUE,
 );
-<<<<<<< HEAD
-
-=======
->>>>>>> e760f10915ddcc2038d93e4465607def51946511
-
 
 // configuracion para EC
 /*
