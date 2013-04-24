@@ -58,8 +58,8 @@ class Admin extends Admin_Controller {
         }
         rename($path_video_old, $path_video_new);
         $this->procesos_lib->curlProcesoVideosXId($objBeanVideo->id);
-        
-        
+
+
         return $returnValue;
     }
 
@@ -373,13 +373,11 @@ class Admin extends Admin_Controller {
                         //cambiar nombre del video por el ID del registro del video 
                         $this->renameVideo($objBeanVideoSaved, $archivo_video['basename']);
                         //disparar el proceso de envio del video a liquid
-
                         //$this->procesos_lib->curlProcesoVideosXId($objBeanVideo->id);
                         //$this->load->helper('url');
                         //redirect('/admin/canales/videos/' . $canal_id, 'refresh');
 
                         echo json_encode(array("error" => "0"));
-
                     }
                 } else {
                     $error = true;
@@ -4706,7 +4704,7 @@ class Admin extends Admin_Controller {
             foreach ($archivos as $index => $ruta_archivo) {
                 $objArchivo = new stdClass();
                 $objArchivo->ruta = $ruta_archivo;
-                $objArchivo->peso = filesize($ruta_archivo);
+                $objArchivo->peso = $this->filesize_formatted($ruta_archivo);
                 $info = pathinfo($ruta_archivo);
                 $objArchivo->nombre = $info['basename'];
                 array_push($arrayArchivos, $objArchivo);
@@ -4716,6 +4714,13 @@ class Admin extends Admin_Controller {
                 ->title($this->module_details['name'])
                 ->set('misvideos', $arrayArchivos);
         $this->template->build('admin/misvideos');
+    }
+
+    function filesize_formatted($path) {
+        $size = filesize($path);
+        $units = array('B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB');
+        $power = $size > 0 ? floor(log($size, 1024)) : 0;
+        return number_format($size / pow(1024, $power), 2, '.', ',') . ' ' . $units[$power];
     }
 
 }
