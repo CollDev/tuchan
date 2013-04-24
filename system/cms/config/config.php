@@ -395,6 +395,6 @@ $config['modules_locations'] = array(
 );
 
 //servidor elemento
-$config['server:elemento'] = 'dev.e.micanal.e3.pe';
+$config['server:elemento'] = 'pre.e.micanal.e3.pe';
 
 /* End of file config.php */
