@@ -1741,6 +1741,14 @@ background:url(../../../img/admin/new_icon.png) no-repeat left center;
 	background:url(../../img/view_icon.png) no-repeat top center;
 }
  
+.mode_front {
+background: url(../../img/view_front.png) no-repeat top center;
+}
+ 
+.mode_publish {
+background: url(../../img/view_front.png) no-repeat top center;
+}
+ 
  
  
 @media print {

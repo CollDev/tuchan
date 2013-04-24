@@ -57,18 +57,9 @@ class Canal_mp extends CI_Model {
         return $objresult->result();
     }
 
-    function queryMysqlRelated($id) {
-        $query = "SELECT vi.id_mongo FROM " . $this->_table_grupo_detalles . " gd INNER JOIN " . $this->_table_videos . " vi ON gd.video_id = vi.id 
-            WHERE gd.grupo_maestro_padre = (SELECT gd2.grupo_maestro_padre FROM " . $this->_table_grupo_detalles . " gd2 WHERE video_id=" . $id . ") 
-            ORDER BY vi.fecha_registro DESC";
 
-        return $this->db->query($query)->result();
-    }
 
-    function queryMysqlImagen($id) {
-        $query = "SELECT alto,ancho,imagen,procedencia FROM default_cms_imagenes im INNER JOIN default_cms_tipo_imagen ti ON im.tipo_imagen_id = ti.id WHERE videos_id=" . $id;
-        return $this->db->query($query)->result();
-    }
+
 
     function updateIdMongoCanales($id, $id_mongo) {
         $query = "update " . $this->_table_canales . " set id_mongo='" . $id_mongo . "' where id=" . $id;
