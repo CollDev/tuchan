@@ -1158,3 +1158,8 @@ ERROR - 2013-04-24 20:30:22 --> Severity: Notice  --> Undefined property: stdCla
 ERROR - 2013-04-24 20:30:22 --> Severity: Notice  --> Undefined property: stdClass::$imagen /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1069
 ERROR - 2013-04-24 20:33:58 --> Severity: Notice  --> Undefined property: stdClass::$etiquetas /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1068
 ERROR - 2013-04-24 20:33:58 --> Severity: Notice  --> Undefined property: stdClass::$imagen /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1069
+ERROR - 2013-04-24 22:41:01 --> Severity: Warning  --> unlink(/var/www/local.adminmicanal.dev//uploads/videos/2161.vid): No such file or directory /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Ffmpeg.php 24
+ERROR - 2013-04-24 22:44:13 --> Severity: Notice  --> Undefined property: stdClass::$etiquetas /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1068
+ERROR - 2013-04-24 22:44:13 --> Severity: Notice  --> Undefined property: stdClass::$imagen /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1069
+ERROR - 2013-04-24 23:20:09 --> Severity: Notice  --> Undefined property: CI::$portadas_mp /home/user/Escritorio/adminmicanal/system/cms/libraries/MX/Controller.php 57
+ERROR - 2013-04-24 23:20:53 --> Severity: Notice  --> Undefined property: CI::$portadas_mp /home/user/Escritorio/adminmicanal/system/cms/libraries/MX/Controller.php 57

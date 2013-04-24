@@ -24,6 +24,10 @@ class curlProceso extends MX_Controller {
     public function generarCanal(){
         $this->procesos_lib->generarCanal();
     }
+    
+    public function estadosVideos(){
+        $this->procesos_lib->estadosVideos();
+    }
             
 }
 ?>

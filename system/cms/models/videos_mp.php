@@ -16,6 +16,11 @@ class Videos_mp extends CI_Model {
     protected $_table_imagenes = 'default_cms_imagenes';
     protected $_table_tags = 'default_cms_tags';
 
+    public function getVideos(){
+         $query = "select * from " . $this->_table. " order by id desc limit 10";
+          return $this->db->query($query)->result();
+    }
+        
     public function getVideosActivos() {
         $query = "select id,id_mongo from " . $this->_table . " where estado=2";
         return $this->db->query($query)->result();
