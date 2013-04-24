@@ -52,10 +52,10 @@ $db[PYRO_DEVELOPMENT] = array(
 	'stricton' 		=> TRUE,
 );
 
-
 // configuracion para EC
 /*
 // El Comercio
+/*
 $db[PYRO_DEVELOPMENT] = array(
 	'hostname'		=> 	'10.203.31.139',
 	'username'		=> 	'micanalcmsdev',

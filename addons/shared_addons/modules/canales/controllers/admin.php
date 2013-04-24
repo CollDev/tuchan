@@ -3098,6 +3098,8 @@ class Admin extends Admin_Controller {
     public function previsualizar_canal() {
         $this->template
                 ->set_layout('modal', 'admin')
+                //->append_css('module::custom.css')
+                //->append_css('module::mediaquerie.css')
                 ->build('admin/previsualizar_canal');
     }
 
