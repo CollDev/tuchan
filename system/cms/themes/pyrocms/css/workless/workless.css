@@ -1326,7 +1326,7 @@ button.btn::-moz-focus-inner, input[type=submit].btn::-moz-focus-inner {
 }
 
 .ui-state-active a {
-  background: #ffffff!important;
+  background: #ffffff /*!important*/;
   padding: 0 14px;
   border-left: 1px solid #efefef;
   border-top: 1px solid #efefef;
@@ -1722,47 +1722,49 @@ background:url(../../../img/admin/new_icon.png) no-repeat left center;
 
 
 .mode_edit, .mode_delete, .mode_preview,.mode_front,.mode_publish, .mode_restore,.mode_cut, .mode_remove, .mode_add{
-	display:block;
-	float:left;
-	padding-top: 30px;
-	padding-right: 5px;
-	font-size: 10px;
+	display:block !important;
+	float:left !important;
+	padding-top: 30px !important;
+	padding-left: 0px !important;
+	padding-right: 5px !important;
+	padding-bottom: 0px !important;
+	font-size: 10px !important;
 }
 
 .mode_edit{
-	background:url(../../img/edit_icon.png) no-repeat top center;
+	background:url(../../img/edit_icon.png) no-repeat top center !important;
 }
 
 .mode_delete{
-	background:url(../../img/delete_icon.png) no-repeat top center;
+	background:url(../../img/delete_icon.png) no-repeat top center !important;
 }
 
 .mode_preview{
-	background:url(../../img/view_icon.png) no-repeat top center;
+	background:url(../../img/view_icon.png) no-repeat top center !important;
 }
  
 .mode_front {
-background: url(../../img/front_icon.png) no-repeat top center;
+background: url(../../img/front_icon.png) no-repeat top center !important;
 }
  
 .mode_publish {
-background: url(../../img/publish_icon.png) no-repeat top center;
+background: url(../../img/publish_icon.png) no-repeat top center !important;
 }
  
 .mode_restore{
-background: url(../../img/restore_icon.png) no-repeat top center;
+background: url(../../img/restore_icon.png) no-repeat top center !important;
 }
  
 .mode_cut{
-background: url(../../img/cut_icon.png) no-repeat top center;
+background: url(../../img/cut_icon.png) no-repeat top center !important;
 }
 
 .mode_remove{
-background: url(../../img/remove_icon.png) no-repeat top center;
+background: url(../../img/remove_icon.png) no-repeat top center !important;
 }
 
 .mode_add{
-background: url(../../img/add_icon.png) no-repeat top center;
+background: url(../../img/add_icon.png) no-repeat top center !important;
 }
 
  
