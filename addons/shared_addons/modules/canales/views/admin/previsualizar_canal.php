@@ -3,7 +3,6 @@
 
 <div class="container-main">
 <div class="wrapper-main">
-
 <div class="mc_column mc_columnA ">
     <div class="mc_column mc_columnE mc_mbottom  mc_mright">  
         <div class="mc_colum mc_columnA player_video_main3">
@@ -61,17 +60,7 @@
                 <span>Favoritos</span>
             </div>        
         </div>
-
-
-
-
-
-
-
     </div>
 </div>
-
-
-
 </div>
 </div>
