@@ -402,4 +402,7 @@ $config['path:video'] = FCPATH.'uploads/videos/';
 $config['path:imagen'] = FCPATH.'uploads/imagenes/';
 $config['path:temp'] = FCPATH.'uploads/temp/';
 
+//url de imagenes predefinidas
+$config['url:default_imagen'] = BASE_URL.'uploads/imagenes/';
+
 /* End of file config.php */
