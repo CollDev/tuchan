@@ -1721,7 +1721,7 @@ background:url(../../../img/admin/new_icon.png) no-repeat left center;
 
 
 
-.mode_edit, .mode_delete, .mode_preview{
+.mode_edit, .mode_delete, .mode_preview,.mode_front,.mode_publish{
 	display:block;
 	float:left;
 	padding-top: 30px;
