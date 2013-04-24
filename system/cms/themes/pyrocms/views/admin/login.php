@@ -38,7 +38,7 @@
 		<?php $this->load->view('admin/partials/notices') ?>
 		
 		<header id="main">
-			<a href="http://dev.micanal.pe/" target="_blank"><div id="login-logo"></div></a>
+                    <a href="<?php echo MOTOR ?>" target="_blank"><div id="login-logo"></div></a>
 		</header>
 		
 		<?php echo form_open('admin/login'); ?>
@@ -63,7 +63,7 @@
 		<?php echo form_close(); ?>
 	</div>
 	<center style="margin-top: 15px">
-            <a href="http://dev.micanal.pe/" target="_blank">Mi Canal 2013</a>
+            <a href="<?php echo MOTOR ?>" target="_blank">Mi Canal 2013</a>
             <!--<ul id="login-footer">
 		<li><a href="http://dev.micanal.pe/">Mi Canal 2013</a></li>
             </ul>-->

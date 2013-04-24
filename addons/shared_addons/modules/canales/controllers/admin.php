@@ -4469,11 +4469,14 @@ class Admin extends Admin_Controller {
     }
 
     public function test() {
-        $r = $this->procesos_lib->generarMiCanal();
-        $this->template
-                ->title($this->module_details['name'])
-                ->set('canales', "d");
-        $this->template->build('admin/test');
+        //$r = $this->procesos_lib->generarMiCanal();
+        if ($this->input->post()) {
+        } else {
+            $this->template
+                    ->title($this->module_details['name'])
+                    ->set('canales', "d");
+            $this->template->build('admin/test');
+        }
     }
 
     /**

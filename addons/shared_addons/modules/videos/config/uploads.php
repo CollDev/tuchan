@@ -68,7 +68,7 @@ $config['tag:tematicas'] = '1';
 $config['tag:personajes'] = '2';
 
 //servidor elemento
-$config['server:elemento'] = 'dev.e.micanal.e3.pe';
+//$config['server:elemento'] = 'dev.e.micanal.e3.pe';
 
 //protocolos
 $config['protocolo:http'] = 'http://';
@@ -111,7 +111,7 @@ $config['grupo:administrador-canales'] = '4';
 $config['canal:mi_canal'] = '5';
 //intervalo de tiempo en segundos para verificar el estado de videos
 $config['video:segundos'] = '20000';
-$config['video:verificar'] = '0';
+$config['video:verificar'] = '1';
 
 //submenus
 $config['submenu:carga_unitaria'] = 'Subir video';

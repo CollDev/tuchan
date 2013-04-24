@@ -74,7 +74,10 @@ define('BASE_URI', $base_uri);
 define('APPPATH_URI', BASE_URI . APPPATH);
 if (isset($_SERVER['DOCUMENT_ROOT'])) {
     define('PATH_VIDEOS', $_SERVER['DOCUMENT_ROOT'] . "/uploads/videos/");
+    define('PATH_SQL',$_SERVER['DOCUMENT_ROOT'] . "/procesos/sql/");
 }
+
+
 // We dont need these variables any more
 unset($base_uri, $base_url);
 
@@ -117,6 +120,8 @@ define('ESTADO_PUBLICADO', '2');
 define("PATH_ELEMENTOS", "http://dev.e.micanal.e3.pe/");
 define('APIURL', 'http://api.liquidplatform.com/2.0');
 define('WEBURL', 'http://webtv.liquidplatform.com/2.0/uploadMedia');
+
+define('MOTOR', 'http://dev.micanal.pe/');
 /*
 |--------------------------------------------------------------------------
 | Custom constants
