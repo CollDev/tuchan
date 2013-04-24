@@ -126,4 +126,14 @@ class Imagen_m extends MY_Model {
         return $result;
     }
 
+    public function desactivasImagenMaestroTipo($maestro_id, $tipo_imagen, $tipo = 'maestro') {
+        if ($tipo == 'maestro') {
+            $query = "UPDATE " . $this->_table . " SET estado = '0' WHERE grupo_maestros_id =" . $maestro_id . " AND tipo_imagen_id IN (" . $tipo_imagen . ")";
+        } else {
+            $query = "UPDATE " . $this->_table . " SET estado = '0' WHERE videos_id =" . $maestro_id . " AND tipo_imagen_id IN (" . $tipo_imagen . ")";
+        }
+        $result = $this->db->query($query);
+        return $result;
+    }
+
 }

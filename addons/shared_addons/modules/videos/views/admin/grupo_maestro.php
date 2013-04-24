@@ -2,22 +2,22 @@
     <?php
     echo anchor('admin/videos/carga_unitaria/' . $objCanal->id, $this->config->item('submenu:carga_unitaria'), array('class' => ''));
     echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
-/*    echo anchor('admin/videos/carga_masiva/' . $canal_id, 'Carga masiva', array('class' => ''));
-    echo '&nbsp;&nbsp;|&nbsp;&nbsp;';*/
+    /*    echo anchor('admin/videos/carga_masiva/' . $canal_id, 'Carga masiva', array('class' => ''));
+      echo '&nbsp;&nbsp;|&nbsp;&nbsp;'; */
     echo anchor('admin/videos/maestro/' . $objCanal->id, 'Organizar videos', array('class' => ''));
     echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
     echo anchor('admin/canales/portada/' . $objCanal->id, 'Portadas', array('class' => ''));
     ?>
 </section>
+<?php
+if ($objMaestro->id > 0):
+    $title_tab = 'Editar ' . $objMaestro->nombre;
+    ?>
     <?php
-    if ($objMaestro->id > 0):
-        $title_tab = 'Editar ' . $objMaestro->nombre;
-        ?>
-        <?php
-    else:
-        $title_tab = 'Crear nuevo maestro ';
-        ?>
-    <?php endif; ?>
+else:
+    $title_tab = 'Crear nuevo maestro ';
+    ?>
+<?php endif; ?>
 <section class="item">
     <?php
     // Canales_id       
@@ -275,16 +275,23 @@
                         $.each($('#formMaestro').serializeArray(), function(i, field) {
                             values[field.name] = field.value;
                         });
+                        var tipo = $("#tipo").val();
                         //var post_url = "/admin/videos/registrar_imagenes_maestro/" + values['maestro_id'];
-                        var post_url = "/admin/videos/subir_imagenes_maestro/" + values['maestro_id'];
+                        var post_url = "/admin/videos/subir_imagenes_maestro/" + values['maestro_id']+"/"+tipo;
                         $.ajax({
                             type: "POST",
                             url: post_url,
                             dataType: 'json',
                             data: respuesta,
-                            success: function(returnRespuesta) //we're calling the response json array 'cities'
+                            success: function(response) //we're calling the response json array 'cities'
                             {
                                 $('#loaderAjax').hide();
+                                $.each(response.imagenes, function(k, v) {
+                                       var htmlimagen = '<img src="'+v.imagen+'" style="width:120px; height: 70px;">';
+                                       $("#tipo_"+v.tipo_imagen_id).html(htmlimagen);
+                                       $("#codigo_"+v.tipo_imagen_id).html(v.id);
+                                       $("#proceso_"+v.tipo_imagen_id).empty();
+                                });
                                 //limpiar
 //                                $('#listaImagenes').ddslick('destroy');
 //                                $("#contenedorImage").empty();

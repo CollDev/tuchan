@@ -6,13 +6,13 @@
 <table>
     <tr>
         <td style="text-align: right;">
-            
+            <input type="hidden" name="tipo" id="tipo" value="<?php echo $tipo; ?>" />
             <!-- imagen -->
             <?php
-            $imagen = array('class' => 'btn blue','name' => 'addImage', 'id' => 'addImage', 'type' => 'hidden', 'value' => 'Agrega nuevas imagenes');
+            $imagen = array('class' => 'btn blue','name' => 'addImage', 'id' => 'addImage', 'type' => 'button', 'value' => 'Agrega nuevas imagenes');
             echo '<div style="float:right;">' . form_input($imagen) . '</div>';
             ?>
-            <div  class="loaderAjax" id="loaderAjax" style="display: none; float: left;">
+            <div  class="loaderAjax" id="loaderAjax" style="display: none; float: right;">
                 <img src="uploads/imagenes/loading.gif">
             </div>
             <div style="clear: both;"></div>
