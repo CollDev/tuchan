@@ -11,9 +11,6 @@
                             <li>
                                 <div class="content_section3">
                                     <div class="layer_content">
-                                        <pre>
-                                            <?php //print_r($objPortada); ?>
-                                        </pre>
                                         <?php $detalles = $objPortada[0]->detalle; ?>
                                         <?php if (count($detalles) > 0): ?>
                                             <?php foreach ($detalles as $puntero => $objDetalle): ?>
@@ -23,7 +20,7 @@
                                             endforeach;
                                             ?>
                                         <?php else: ?>
-                                            <img src="<?php echo $this->config->item('url:logo'); ?>" title="Insensato Corazón" alt="Insensato Corazón">
+                                            <img style="width:820px; height: 400px;" src="<?php echo $this->config->item('url:portada'); ?>" title="Insensato Corazón" alt="Insensato Corazón">
                                         <?php endif; ?>
                                         <div class="mode_fade">
                                             <a href="#">

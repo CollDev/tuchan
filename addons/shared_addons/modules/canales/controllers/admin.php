@@ -4550,6 +4550,8 @@ class Admin extends Admin_Controller {
                         $detalles[$puntero] = $objDetalleSeccion;
                     }
                     $objDestacado->detalle = $detalles;
+                }else{
+                    $objDestacado->detalle = array();
                 }
                 array_push($returnValue, $objDestacado);
             }

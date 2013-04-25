@@ -47,7 +47,7 @@
                         <?php elseif($video->procedencia == '1'): ?>
                             <td class="collapse"><img style="width: 100px;" src="<?php echo $this->config->item('servidor:elemento').$video->imagen ?>" border="0"></img></td>
                         <?php else: ?>
-                            <td class="collapse"><img style="width: 100px;" src="<?php echo BASE_URL.UPLOAD_IMAGENES_VIDEOS.'no_video.jpg';?>" border="0"></img></td>
+                            <td class="collapse"><img style="width: 100px;" src="<?php echo $this->config->item('url:default_imagen').'no_video.jpg';?>" border="0"></img></td>
                         <?php endif; ?>
                             <td class="collapse"><input type="hidden" name="codvideo_<?php echo $video->id ?>" id="codvideo_<?php echo $video->id ?>" value="<?php echo $video->id ?>" /><?php echo $video->titulo; ?></td>
                         <td class="collapse"><?php echo $video->nombre_categoria; ?></td>
