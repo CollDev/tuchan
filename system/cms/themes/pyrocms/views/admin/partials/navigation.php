@@ -82,7 +82,7 @@
                                     ($this->session->userdata['group'] == 'admin' || $this->session->userdata['group'] == 'administrador-mi-canal')) {
                                 
                                 echo '<li>' . anchor('', $module['name'], array('class' => 'menu'));
-				die( $this->session->userdata['canal_usuario']  );                                
+				//die( $this->session->userdata['canal_usuario']  );                                
                                 asort($this->session->userdata['canal_usuario']);
                                 
                                 // Sub menú canales
