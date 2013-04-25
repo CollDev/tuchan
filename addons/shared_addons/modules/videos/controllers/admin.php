@@ -48,15 +48,21 @@ class Admin extends Admin_Controller {
 
     public function renameVideo($objBeanVideo, $name_file) {
         $returnValue = true;
-        $path_video_old = FCPATH . 'uploads/videos/' . $name_file;
+        //$path_video_old = FCPATH . 'uploads/videos/' . $name_file;
+        $path_video_old = $this->config->item('path:video') . $name_file;
         $ext = pathinfo($path_video_old, PATHINFO_EXTENSION);
         if ($ext != $this->config->item('extension:mp4')) {
-            $path_video_new = FCPATH . 'uploads/videos/' . $objBeanVideo->id . '.' . $this->config->item('videos:extension'); // . $ext;
+            //$path_video_new = FCPATH . 'uploads/videos/' . $objBeanVideo->id . '.' . $this->config->item('videos:extension'); // . $ext;
+            $path_video_new = $this->config->item('path:video') . $objBeanVideo->id . '.' . $this->config->item('videos:extension'); // . $ext;
         } else {
-            $path_video_new = FCPATH . 'uploads/videos/' . $objBeanVideo->id . '.' . $this->config->item('extension:mp4'); // . $ext;
+            //$path_video_new = FCPATH . 'uploads/videos/' . $objBeanVideo->id . '.' . $this->config->item('extension:mp4'); // . $ext;
+            $path_video_new = $this->config->item('path:video') . $objBeanVideo->id . '.' . $this->config->item('extension:mp4'); // . $ext;
             $this->videos_m->update($objBeanVideo->id, array("estado_liquid" => $this->config->item('liquid:mp4')));
         }
         rename($path_video_old, $path_video_new);
+        $this->procesos_lib->curlProcesoVideosXId($objBeanVideo->id);
+
+
         return $returnValue;
     }
 
@@ -322,7 +328,8 @@ class Admin extends Admin_Controller {
             //umask(0);
             //asign temp name
             //$idUniq = uniqid();
-            $ruta_video = FCPATH . 'uploads/videos/' . $this->input->post('name_file_upload');
+            //$ruta_video = FCPATH . 'uploads/videos/' . $this->input->post('name_file_upload');
+            $ruta_video = $this->config->item('path:video') . $this->input->post('name_file_upload');
             $archivo_video = pathinfo($ruta_video);
             $ext = $archivo_video['extension'];
             $size_video = filesize($ruta_video);
@@ -370,20 +377,21 @@ class Admin extends Admin_Controller {
                         //cambiar nombre del video por el ID del registro del video 
                         $this->renameVideo($objBeanVideoSaved, $archivo_video['basename']);
                         //disparar el proceso de envio del video a liquid
-                        //$this->procesos_lib->procesoVideos();
-                        ////$this->load->helper('url');
+                        //$this->procesos_lib->curlProcesoVideosXId($objBeanVideo->id);
+                        //$this->load->helper('url');
                         //redirect('/admin/canales/videos/' . $canal_id, 'refresh');
-                        echo json_encode(array("error"=>"0"));
+
+                        echo json_encode(array("error" => "0"));
                     }
                 } else {
                     $error = true;
                     $message = lang('videos:size_invalid');
-                    echo json_encode(array("error"=>"1"));
+                    echo json_encode(array("error" => "1"));
                 }
             } else {
                 $error = true;
                 $message = lang('videos:format_invalid');
-                echo json_encode(array("error"=>"2"));
+                echo json_encode(array("error" => "2"));
             }
         } else {
 
@@ -580,6 +588,7 @@ class Admin extends Admin_Controller {
                     //->append_js('cms/module::blog_form.js')
                     ->set_partial('imagenes', 'admin/tables/imagenes')
                     ->set('imagenes', $lista_imagenes)
+                    ->set('tipo', 'video')
                     ->append_css('module::fineuploader-3.4.1.css')
                     ->append_js('module::jquery.fineuploader-3.4.1.min.js')
                     ->set('carga_unitaria', 'carga_unitaria');
@@ -602,9 +611,10 @@ class Admin extends Admin_Controller {
             if (in_array($ext, $arrayExt)) {
                 if ($_FILES["video"]["size"] > 0 && $_FILES["video"]["size"] <= 2147483648) { //10485760=>10MB 2147483648=>2GB
                     $nameVideo = $idUniq . '.' . $ext;
-                    move_uploaded_file($_FILES["video"]["tmp_name"], UPLOAD_VIDEOS . $nameVideo);
+                    move_uploaded_file($_FILES["video"]["tmp_name"], $this->config->item('path:video') . $nameVideo);
                     //validamos que el archivo exista en el servidor
-                    $path_video = FCPATH . UPLOAD_VIDEOS . $nameVideo;
+                    //$path_video = FCPATH . UPLOAD_VIDEOS . $nameVideo;
+                    $path_video = $this->config->item('path:video') . $nameVideo;
                     if (file_exists($path_video) && strlen(trim($nameVideo)) > 0) {//validamos que exista el archivo
                         $user_id = (int) $this->session->userdata('user_id');
                         $objBeanVideo = new stdClass();
@@ -1643,9 +1653,10 @@ class Admin extends Admin_Controller {
     }
 
     public function subir_imagen($maestro_id = 0) {
-        $directorio = '../temp/';
+        //$directorio = '../temp/';
+        $directorio = $this->config->item('path:temp');
         if ($maestro_id > 0) {
-            $directorio = '';
+            $directorio = $this->config->item('path:imagen');
         }
         $fileType = array('image/jpeg', 'image/pjpeg', 'image/png');
 
@@ -1684,7 +1695,7 @@ class Admin extends Admin_Controller {
                 if (is_uploaded_file($_FILES['userfile']['tmp_name'])) {
                     umask(0);
                     // Verificamos si se pudo copiar el archivo a nustra carpeta
-                    if (move_uploaded_file($_FILES['userfile']['tmp_name'], UPLOAD_IMAGENES_VIDEOS . $directorio . $imgFile)) {
+                    if (move_uploaded_file($_FILES['userfile']['tmp_name'], $directorio . $imgFile)) {
                         if ($maestro_id > 0) {
                             //usamos el crop de imagemagic para crear las 4 imagenes
                             $arrayTipoImagen = $this->tipo_imagen_m->listType();
@@ -1693,9 +1704,9 @@ class Admin extends Admin_Controller {
                             if (count($arrayTipoImagen) > 0) {
                                 foreach ($arrayTipoImagen as $index => $objTipoImagen) {
                                     if ($width >= $objTipoImagen->ancho && $height >= $objTipoImagen->alto) {
-                                        $this->imagenes_lib->loadImage(UPLOAD_IMAGENES_VIDEOS . $directorio . $imgFile);
+                                        $this->imagenes_lib->loadImage($directorio . $imgFile);
                                         $this->imagenes_lib->crop($objTipoImagen->ancho, $objTipoImagen->alto, 'center');
-                                        $this->imagenes_lib->save(UPLOAD_IMAGENES_VIDEOS . $directorio . preg_replace("/\\.[^.\\s]{3,4}$/", "", $imgFile) . '_' . $objTipoImagen->ancho . 'x' . $objTipoImagen->alto . '.' . $extension[$num]);
+                                        $this->imagenes_lib->save($directorio . preg_replace("/\\.[^.\\s]{3,4}$/", "", $imgFile) . '_' . $objTipoImagen->ancho . 'x' . $objTipoImagen->alto . '.' . $extension[$num]);
                                         array_push($arrayImagenes, preg_replace("/\\.[^.\\s]{3,4}$/", "", $imgFile) . '_' . $objTipoImagen->ancho . 'x' . $objTipoImagen->alto . '.' . $extension[$num]);
                                     }
                                 }
@@ -1730,7 +1741,8 @@ class Admin extends Admin_Controller {
 
     public function _saveParentImage($canal_id, $video_id, $parentImage) {
         $user_id = (int) $this->session->userdata('user_id');
-        $img_path = UPLOAD_IMAGENES_VIDEOS . $parentImage;
+        //$img_path = UPLOAD_IMAGENES_VIDEOS . $parentImage;
+        $img_path = $this->config->item('path:video') . $parentImage;
         $objBeanImage = new stdClass();
         $objBeanImage->id = NULL;
         $objBeanImage->canales_id = $canal_id;
@@ -1757,14 +1769,16 @@ class Admin extends Admin_Controller {
             $returnValue = 0;
             $arrayImagenes = $this->input->post('imagenes');
             //eliminamos la imagen original
-            if (file_exists(UPLOAD_IMAGENES_VIDEOS . $this->input->post('fileName'))) {
-                unlink(UPLOAD_IMAGENES_VIDEOS . $this->input->post('fileName'));
+            if (file_exists($this->config->item('path:imagen') . $this->input->post('fileName'))) {
+                unlink($this->config->item('path:imagen') . $this->input->post('fileName'));
             }
             $parent_id = NULL; //$this->_saveParentImage($canal_id, $video_id,$this->input->post('fileName'));
             if (count($arrayImagenes) > 0) {
                 foreach ($arrayImagenes as $index => $nameImage) {
-                    $img_path = UPLOAD_IMAGENES_VIDEOS . $nameImage;
-                    $ruta_absoluta_imagen = FCPATH . 'uploads/imagenes/' . $nameImage;
+                    //$img_path = UPLOAD_IMAGENES_VIDEOS . $nameImage;
+                    $img_path = $this->config->item('path:imagen') . $nameImage;
+                    //$ruta_absoluta_imagen = FCPATH . 'uploads/imagenes/' . $nameImage;
+                    $ruta_absoluta_imagen = $this->config->item('path:imagen') . $nameImage;
                     if (file_exists($img_path)) {
                         $grupo_maestro_id = NULL;
                         $objGrupoDetalle = $this->grupo_detalle_m->get_by(array("video_id" => $video_id));
@@ -1817,8 +1831,118 @@ class Admin extends Admin_Controller {
         }
     }
 
-    public function subir_imagenes_maestro() {
-        
+    public function subir_imagenes_maestro($id, $tipo = 'maestro') {
+        if ($this->input->is_ajax_request()) {
+            $user_id = (int) $this->session->userdata('user_id');
+            $imagenes = $this->input->post('imagenes');
+            if (count($imagenes) > 0) {
+                if ($tipo == 'maestro') {
+                    $array_imagenes = array();
+                    foreach ($imagenes as $puntero => $nombreImagen) {
+                        //$ruta_absoluta_imagen = FCPATH . 'uploads/imagenes/' . $nombreImagen;
+                        $ruta_absoluta_imagen = $this->config->item('path:imagen') . $nombreImagen;
+                        // Tamaño de la imagen
+                        $imageSize = getimagesize($ruta_absoluta_imagen);
+                        $objTipoImagen = $this->tipo_imagen_m->where_in('id', array(1, 2, 3, 4))->get_by(array("ancho" => $imageSize[0], "alto" => $imageSize[1]));
+                        if (count($objTipoImagen) > 0) {
+                            $objBeanImagen = new stdClass();
+                            $objBeanImagen->id = NULL;
+                            $objBeanImagen->canales_id = NULL;
+                            $objBeanImagen->grupo_maestros_id = $id;
+                            $objBeanImagen->videos_id = NULL;
+                            $objBeanImagen->imagen = $nombreImagen;
+                            $objBeanImagen->tipo_imagen_id = $objTipoImagen->id;
+                            $objBeanImagen->estado = $this->config->item('estado:publicado');
+                            $objBeanImagen->fecha_registro = date("Y-m-d H:i:s");
+                            $objBeanImagen->usuario_registro = $user_id;
+                            $objBeanImagen->fecha_actualizacion = date("Y-m-d H:i:s");
+                            $objBeanImagen->usuario_actualizacion = $user_id;
+                            $objBeanImagen->estado_migracion = $this->config->item('migracion:nuevo');
+                            $objBeanImagen->fecha_migracion = '0000-00-00 00:00:00';
+                            $objBeanImagen->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
+                            $objBeanImagen->imagen_padre = NULL;
+                            $objBeanImagen->procedencia = 0;
+                            $objBeanImagen->imagen_anterior = NULL;
+                            //ponemos todas las imagenes del maestro del mismo tipo en estado desactivo
+                            $this->imagen_m->desactivasImagenMaestroTipo($id, $objTipoImagen->id);
+                            //guardamos la imagen nueva
+                            $objBeanImagenSaved = $this->imagen_m->saveImage($objBeanImagen);
+                            $path_image_element = $this->elemento_upload($objBeanImagenSaved->id, $ruta_absoluta_imagen);
+                            $array_path = explode("/", $path_image_element);
+                            if ($array_path[0] == $this->config->item('server:elemento')) {
+                                unset($array_path[0]);
+                            }
+                            $path_single_element = implode('/', $array_path);
+                            $this->imagen_m->update($objBeanImagenSaved->id, array("imagen" => $path_single_element));
+                            //editamos la url de la imagen para que pinte
+                            $objBeanImagenSaved->imagen = $this->config->item('protocolo:http') . $this->config->item('server:elemento') . '/' . $path_single_element;
+                            array_push($array_imagenes, $objBeanImagenSaved);
+                            unlink($ruta_absoluta_imagen);
+                            //eliminamos la imagen referencial
+                            //$imagen_referencial = FCPATH . 'uploads/imagenes/' . $this->input->post('fileName');
+                            $imagen_referencial = $this->config->item('path:imagen') . $this->input->post('fileName');
+                            if (file_exists($imagen_referencial)) {
+                                unlink($imagen_referencial);
+                            }
+                        }
+                    }
+                    echo json_encode(array("imagenes" => $array_imagenes));
+                } else {//para videos
+                    $array_imagenes = array();
+                    foreach ($imagenes as $puntero => $nombreImagen) {
+                        //$ruta_absoluta_imagen = FCPATH . 'uploads/imagenes/' . $nombreImagen;
+                        $ruta_absoluta_imagen = $this->config->item('path:imagen') . $nombreImagen;
+                        // Tamaño de la imagen
+                        $imageSize = getimagesize($ruta_absoluta_imagen);
+                        $objTipoImagen = $this->tipo_imagen_m->where_in('id', array(1, 2, 3, 4))->get_by(array("ancho" => $imageSize[0], "alto" => $imageSize[1]));
+                        if (count($objTipoImagen) > 0) {
+                            $objBeanImagen = new stdClass();
+                            $objBeanImagen->id = NULL;
+                            $objBeanImagen->canales_id = NULL;
+                            $objBeanImagen->grupo_maestros_id = NULL;
+                            $objBeanImagen->videos_id = $id;
+                            $objBeanImagen->imagen = $nombreImagen;
+                            $objBeanImagen->tipo_imagen_id = $objTipoImagen->id;
+                            $objBeanImagen->estado = $this->config->item('estado:publicado');
+                            $objBeanImagen->fecha_registro = date("Y-m-d H:i:s");
+                            $objBeanImagen->usuario_registro = $user_id;
+                            $objBeanImagen->fecha_actualizacion = date("Y-m-d H:i:s");
+                            $objBeanImagen->usuario_actualizacion = $user_id;
+                            $objBeanImagen->estado_migracion = $this->config->item('migracion:nuevo');
+                            $objBeanImagen->fecha_migracion = '0000-00-00 00:00:00';
+                            $objBeanImagen->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
+                            $objBeanImagen->imagen_padre = NULL;
+                            $objBeanImagen->procedencia = 0;
+                            $objBeanImagen->imagen_anterior = NULL;
+                            //ponemos todas las imagenes del maestro del mismo tipo en estado desactivo
+                            $this->imagen_m->desactivasImagenMaestroTipo($id, $objTipoImagen->id, 'video');
+                            //guardamos la imagen nueva
+                            $objBeanImagenSaved = $this->imagen_m->saveImage($objBeanImagen);
+                            $path_image_element = $this->elemento_upload($objBeanImagenSaved->id, $ruta_absoluta_imagen);
+                            $array_path = explode("/", $path_image_element);
+                            if ($array_path[0] == $this->config->item('server:elemento')) {
+                                unset($array_path[0]);
+                            }
+                            $path_single_element = implode('/', $array_path);
+                            $this->imagen_m->update($objBeanImagenSaved->id, array("imagen" => $path_single_element));
+                            //editamos la url de la imagen para que pinte
+                            $objBeanImagenSaved->imagen = $this->config->item('protocolo:http') . $this->config->item('server:elemento') . '/' . $path_single_element;
+                            array_push($array_imagenes, $objBeanImagenSaved);
+                            unlink($ruta_absoluta_imagen);
+                            //eliminamos la imagen referencial
+                            //$imagen_referencial = FCPATH . 'uploads/imagenes/' . $this->input->post('fileName');
+                            $imagen_referencial = $this->config->item('path:imagen') . $this->input->post('fileName');
+                            if (file_exists($imagen_referencial)) {
+                                unlink($imagen_referencial);
+                            }
+                        }
+                    }
+                    echo json_encode(array("imagenes" => $array_imagenes));
+                }
+            } else {
+                echo json_encode(array("error" => "1")); // no hay imagenes a subir
+            }
+        }
     }
 
     public function registrar_imagenes_maestro($maestro_id, $arrayImagenesSubir = array(), $imagen_original = '') {
@@ -1832,8 +1956,9 @@ class Admin extends Admin_Controller {
         if (strlen(trim($imagen_original)) == 0) {
             $nombre_imagen_original = $this->input->post('fileName');
             //eliminamos la imagen original
-            if (file_exists(UPLOAD_IMAGENES_VIDEOS . $nombre_imagen_original)) {
-                unlink(UPLOAD_IMAGENES_VIDEOS . $nombre_imagen_original);
+            if (file_exists($this->config->item('path:imagen') . $nombre_imagen_original)) {
+                //unlink(UPLOAD_IMAGENES_VIDEOS . $nombre_imagen_original);
+                unlink($this->config->item('path:imagen') . $nombre_imagen_original);
             }
         } else {
             $nombre_imagen_original = $imagen_original;
@@ -1842,12 +1967,14 @@ class Admin extends Admin_Controller {
                 unlink($nombre_imagen_original);
             }
         }
-        //error_log(print_r($arrayImagenes, true));die();
+        ////error_log(print_r($arrayImagenes, true));die();
         $parent_id = NULL; //$this->_saveParentImage($canal_id, $video_id,$this->input->post('fileName'));
         if (count($arrayImagenes) > 0) {
             foreach ($arrayImagenes as $index => $nameImage) {
-                $img_path = UPLOAD_IMAGENES_VIDEOS . $nameImage;
-                $ruta_absoluta_imagen = FCPATH . 'uploads/imagenes/' . $nameImage;
+                //$img_path = UPLOAD_IMAGENES_VIDEOS . $nameImage;
+                $img_path = $this->config->item('path:imagen') . $nameImage;
+                //$ruta_absoluta_imagen = FCPATH . 'uploads/imagenes/' . $nameImage;
+                $ruta_absoluta_imagen = $this->config->item('path:imagen') . $nameImage;
                 if (file_exists($img_path)) {
                     $user_id = (int) $this->session->userdata('user_id');
                     $objBeanImage = new stdClass();
@@ -2480,7 +2607,8 @@ class Admin extends Admin_Controller {
                         $imagen = $this->config->item('protocolo:http') . $this->config->item('server:elemento') . '/' . $objImagen->imagen;
                     }
                 } else {
-                    $imagen = UPLOAD_IMAGENES_VIDEOS . 'no_video.jpg';
+                    //$imagen = UPLOAD_IMAGENES_VIDEOS . 'no_video.jpg';
+                    $imagen = $this->config->item('url:default_imagen') . 'no_video.jpg';
                 }
                 $objCategoria = $this->categoria_m->get($objPrograma->categorias_id);
                 if (count($objCategoria) == 0) {
@@ -2526,7 +2654,8 @@ class Admin extends Admin_Controller {
                                 $imagen = $this->config->item('protocolo:http') . $this->config->item('server:elemento') . '/' . $objImagen->imagen;
                             }
                         } else {
-                            $imagen = UPLOAD_IMAGENES_VIDEOS . 'no_video.jpg';
+                            //$imagen = UPLOAD_IMAGENES_VIDEOS . 'no_video.jpg';
+                            $imagen = $this->config->item('url:default_imagen') . 'no_video.jpg';
                         }
                         $objCategoria = $this->categoria_m->get($objMaestro->categorias_id);
                         if (count($objCategoria) > 0) {
@@ -2573,7 +2702,8 @@ class Admin extends Admin_Controller {
                                 $imagen = $this->config->item('protocolo:http') . $this->config->item('server:elemento') . '/' . $objImagen->imagen;
                             }
                         } else {
-                            $imagen = UPLOAD_IMAGENES_VIDEOS . 'no_video.jpg';
+                            //$imagen = UPLOAD_IMAGENES_VIDEOS . 'no_video.jpg';
+                            $imagen = $this->config->item('url:default_imagen') . 'no_video.jpg';
                         }
                         $objCategoria = $this->categoria_m->get($objMaestro->categorias_id);
                         if (count($objCategoria) > 0) {
@@ -2618,7 +2748,8 @@ class Admin extends Admin_Controller {
                             $imagen = $this->config->item('protocolo:http') . $this->config->item('server:elemento') . '/' . $objImagen->imagen;
                         }
                     } else {
-                        $imagen = UPLOAD_IMAGENES_VIDEOS . 'no_video.jpg';
+                        //$imagen = UPLOAD_IMAGENES_VIDEOS . 'no_video.jpg';
+                        $imagen = $this->config->item('url:default_imagen') . 'no_video.jpg';
                     }
                     $objCategoria = $this->categoria_m->get($objVideo->categorias_id);
                     if (count($objCategoria) > 0) {
@@ -2716,6 +2847,7 @@ class Admin extends Admin_Controller {
                 ->set_partial('imagenes', 'admin/tables/imagenes')
                 ->set('imagenes', $lista_imagenes)
                 ->set('categorias', $categorias)
+                ->set('tipo', 'maestro')
                 ->set('objMaestro', $objMaestro);
         $this->input->is_ajax_request() ? $this->template->build('admin/tables/contenidos') : $this->template->build('admin/grupo_maestro');
     }
@@ -2732,7 +2864,7 @@ class Admin extends Admin_Controller {
             $tipo = $_FILES['qqfile']['type'];
             $archivo = $_FILES['qqfile']['name'];
             $fileType = array('image/jpeg', 'image/pjpeg', 'image/png');
-            $directorio = '';
+            $directorio = $this->config->item('path:imagen');
             // Tamaño de la imagen
             $imageSize = getimagesize($_FILES['qqfile']['tmp_name']);
             // Verificamos la extensión del archivo independiente del tipo mime
@@ -2753,20 +2885,20 @@ class Admin extends Admin_Controller {
                     if (is_uploaded_file($_FILES['qqfile']['tmp_name'])) {
                         umask(0);
                         // Verificamos si se pudo copiar el archivo a nustra carpeta
-                        if (move_uploaded_file($_FILES['qqfile']['tmp_name'], UPLOAD_IMAGENES_VIDEOS . $directorio . $imgFile)) {
+                        if (move_uploaded_file($_FILES['qqfile']['tmp_name'], $directorio . $imgFile)) {
                             //usamos el crop de imagemagic para crear las 4 imagenes
-                            $this->imagenes_lib->loadImage(UPLOAD_IMAGENES_VIDEOS . $directorio . $imgFile);
+                            $this->imagenes_lib->loadImage($directorio . $imgFile);
                             $this->imagenes_lib->crop($objTipoImagen->ancho, $objTipoImagen->alto, 'center');
-                            $this->imagenes_lib->save(UPLOAD_IMAGENES_VIDEOS . $directorio . preg_replace("/\\.[^.\\s]{3,4}$/", "", $imgFile) . '_' . $objTipoImagen->ancho . 'x' . $objTipoImagen->alto . '.' . $extension[$num]);
+                            $this->imagenes_lib->save($directorio . preg_replace("/\\.[^.\\s]{3,4}$/", "", $imgFile) . '_' . $objTipoImagen->ancho . 'x' . $objTipoImagen->alto . '.' . $extension[$num]);
                             $respuesta = 1;
                             $mensajeFile = 'done';
                             //eliminamos la imagen inicial
-                            if (file_exists(UPLOAD_IMAGENES_VIDEOS . $directorio . $imgFile)) {
-                                unlink(UPLOAD_IMAGENES_VIDEOS . $directorio . $imgFile);
+                            if (file_exists($directorio . $imgFile)) {
+                                unlink($directorio . $imgFile);
                             }
                             //obtenemos el nombre de la imagen a enviar a Elemento
                             $imagen_cortada = preg_replace("/\\.[^.\\s]{3,4}$/", "", $imgFile) . '_' . $objTipoImagen->ancho . 'x' . $objTipoImagen->alto . '.' . $extension[$num];
-                            if (file_exists(UPLOAD_IMAGENES_VIDEOS . $imagen_cortada)) {
+                            if (file_exists($this->config->item('path:imagen'). $imagen_cortada)) {
                                 if ($imagen_id > 0) {//cambiar imagen
                                     //enviamos a borrador a la imagen a cambiar
                                     $this->imagen_m->update($imagen_id, array("estado" => $this->config->item('estado:borrador'), "estado_migracion" => $this->config->item('migracion:actualizado')));
@@ -2803,7 +2935,8 @@ class Admin extends Admin_Controller {
                                     $cod_imagen_nueva = $objBeanImagen->id;
                                     $url_imagen = $this->config->item('protocolo:http') . $this->config->item('server:elemento') . '/' . $objBeanImagenSaved->imagen;
                                     //enviamos al servidor elemento
-                                    $ruta_absoluta_imagen = FCPATH . 'uploads/imagenes/' . $imagen_cortada;
+                                    //$ruta_absoluta_imagen = FCPATH . 'uploads/imagenes/' . $imagen_cortada;
+                                    $ruta_absoluta_imagen = $this->config->item('path:imagen') . $imagen_cortada;
                                     $path_image_element = $this->elemento_upload($objBeanImagenSaved->id, $ruta_absoluta_imagen);
                                     $array_path = explode("/", $path_image_element);
                                     if ($array_path[0] == $this->config->item('server:elemento')) {
@@ -2848,7 +2981,8 @@ class Admin extends Admin_Controller {
                                     $objBeanImagenSaved = $this->imagen_m->saveImage($objBeanImagen);
                                     $cod_imagen_nueva = $objBeanImagen->id;
                                     //enviamos al servidor elemento
-                                    $ruta_absoluta_imagen = FCPATH . 'uploads/imagenes/' . $imagen_cortada;
+                                    //$ruta_absoluta_imagen = FCPATH . 'uploads/imagenes/' . $imagen_cortada;
+                                    $ruta_absoluta_imagen = $this->config->item('path:imagen') . $imagen_cortada;
                                     $path_image_element = $this->elemento_upload($objBeanImagenSaved->id, $ruta_absoluta_imagen);
                                     $array_path = explode("/", $path_image_element);
                                     if ($array_path[0] == $this->config->item('server:elemento')) {
@@ -2934,7 +3068,8 @@ class Admin extends Admin_Controller {
                     if ($tipo == 'canal') {
                         $oImagen->canales_id = $maestro_id;
                     }
-                    $oImagen->imagen = UPLOAD_IMAGENES_VIDEOS . 'no_video.jpg';
+                    //$oImagen->imagen = UPLOAD_IMAGENES_VIDEOS . 'no_video.jpg';
+                    $oImagen->imagen = $this->config->item('url:default_imagen') . 'no_video.jpg';
                     $oImagen->tipo_imagen_id = $objTipoImagen->id;
                     $oImagen->estado = $this->config->item('estado:publicado');
                     $oImagen->existe = 'No';
@@ -3156,7 +3291,7 @@ class Admin extends Admin_Controller {
     }
 
     public function obtenerImagenMaestro($maestro_id, $tipo = 1) {
-        $imagen = UPLOAD_IMAGENES_VIDEOS . 'no_video.jpg';
+        $imagen = $this->config->item('url:default_imagen') . 'no_video.jpg';
         $objImagen = $this->imagen_m->get_by(array("grupo_maestros_id" => $maestro_id, "tipo_imagen_id" => $tipo, "estado" => "1"));
         if (count($objImagen) > 0) {
             if ($objImagen->procedencia == '0') {
@@ -3169,7 +3304,8 @@ class Admin extends Admin_Controller {
     }
 
     public function obtenerImagenVideo($video_id, $tipo) {
-        $imagen = UPLOAD_IMAGENES_VIDEOS . 'no_video.jpg';
+        //$imagen = UPLOAD_IMAGENES_VIDEOS . 'no_video.jpg';
+        $imagen = $this->config->item('url:default_imagen') . 'no_video.jpg';
         $objImagen = $this->imagen_m->get_by(array("videos_id" => $video_id, "tipo_imagen_id" => $tipo, "estado" => "1"));
         if (count($objImagen) > 0) {
             if ($objImagen->procedencia == '0') {
@@ -3243,7 +3379,8 @@ class Admin extends Admin_Controller {
                     //registramos el detalle maestro
                     $this->registrarDetalleMaestro($objBeanMaestroSaved, $this->input->post());
                     //movemos las imagenes y lo subimos a elemento
-                    $direccion_imagen = FCPATH . 'uploads/temp/' . $this->input->post('imagen_maestro');
+                    //$direccion_imagen = FCPATH . 'uploads/temp/' . $this->input->post('imagen_maestro');
+                    $direccion_imagen = $this->config->item('path:temp') . $this->input->post('imagen_maestro');
 
                     if (file_exists($direccion_imagen)) {
                         // Verificamos la extensión del archivo independiente del tipo mime
@@ -3262,14 +3399,16 @@ class Admin extends Admin_Controller {
                             $arrayImagenes = array();
                             foreach ($arrayTipoImagen as $index => $objTipoImagen) {
                                 if ($width >= $objTipoImagen->ancho && $height >= $objTipoImagen->alto) {
-                                    $this->imagenes_lib->loadImage(UPLOAD_IMAGENES_VIDEOS . '../temp/' . $imgFile);
+                                    //$this->imagenes_lib->loadImage(UPLOAD_IMAGENES_VIDEOS . '../temp/' . $imgFile);
+                                    $this->imagenes_lib->loadImage($this->config->item('path:temp') . $imgFile);
                                     $this->imagenes_lib->crop($objTipoImagen->ancho, $objTipoImagen->alto, 'center');
-                                    $this->imagenes_lib->save(UPLOAD_IMAGENES_VIDEOS . $directorio . preg_replace("/\\.[^.\\s]{3,4}$/", "", $imgFile) . '_' . $objTipoImagen->ancho . 'x' . $objTipoImagen->alto . '.' . $extension[$num]);
+                                    //$this->imagenes_lib->save(UPLOAD_IMAGENES_VIDEOS . $directorio . preg_replace("/\\.[^.\\s]{3,4}$/", "", $imgFile) . '_' . $objTipoImagen->ancho . 'x' . $objTipoImagen->alto . '.' . $extension[$num]);
+                                    $this->imagenes_lib->save($this->config->item('path:imagen') . preg_replace("/\\.[^.\\s]{3,4}$/", "", $imgFile) . '_' . $objTipoImagen->ancho . 'x' . $objTipoImagen->alto . '.' . $extension[$num]);
                                     array_push($arrayImagenes, preg_replace("/\\.[^.\\s]{3,4}$/", "", $imgFile) . '_' . $objTipoImagen->ancho . 'x' . $objTipoImagen->alto . '.' . $extension[$num]);
                                 }
                             }
-
-                            $this->registrar_imagenes_maestro($objBeanMaestroSaved->id, $arrayImagenes, FCPATH . 'uploads/temp/' . $this->input->post('imagen_maestro'));
+                            $ruta_imagen_temporal = $this->config->item('path:temp').$this->input->post('imagen_maestro');
+                            $this->registrar_imagenes_maestro($objBeanMaestroSaved->id, $arrayImagenes, $ruta_imagen_temporal);
                             $post = $this->input->post();
                             $post['maestro_id'] = $objBeanMaestroSaved->id;
                             $this->guardarTagsMaestro($objBeanMaestroSaved, $post);
@@ -3605,8 +3744,8 @@ class Admin extends Admin_Controller {
             $user_id = (int) $this->session->userdata('user_id');
             $arrayTagTematicas = explode(",", $post['tematicas']);
             $arraytagPersonajes = explode(",", $post['personajes']);
-            //error_log(print_r($arrayTagTematicas,true));
-            //error_log(print_r($arraytagPersonajes,true));die();
+            ////error_log(print_r($arrayTagTematicas,true));
+            ////error_log(print_r($arraytagPersonajes,true));die();
             if (count($arrayTagTematicas) > 0) {
                 foreach ($arrayTagTematicas as $index => $tematica) {
                     $tag_id = 0;
@@ -3828,7 +3967,7 @@ class Admin extends Admin_Controller {
     }
 
     public function log($var) {
-        error_log(print_r($var, true));
+        //error_log(print_r($var, true));
     }
 
     public function obtenerMaestrosParaSecciones($session_tipo_id, $canal_id, $objMaestro = NULL) {
@@ -3865,7 +4004,7 @@ class Admin extends Admin_Controller {
                     }
                     $returnValue = $this->_obtenerMaestrosPrograma($tipo_grupo_maestro, $objMaestro->id);
 //                    if($objMaestro != NULL){
-//                        error_log('--->'.print_r($returnValue, true));
+//                        //error_log('--->'.print_r($returnValue, true));
 //                    }                    
                 }
             }
@@ -4179,7 +4318,8 @@ class Admin extends Admin_Controller {
                             $imagen = $objImagen->imagen;
                         }
                     } else {
-                        $imagen = UPLOAD_IMAGENES_VIDEOS . 'no_video.jpg';
+                        //$imagen = UPLOAD_IMAGENES_VIDEOS . 'no_video.jpg';
+                        $imagen = $this->config->item('url:default_imagen') . 'no_video.jpg';
                     }
                     $returnValue.='<tr>';
                     $returnValue.='<td>' . ($indice + 1) . '</td>';
@@ -4200,7 +4340,8 @@ class Admin extends Admin_Controller {
                             $imagen = $objImagen->imagen;
                         }
                     } else {
-                        $imagen = UPLOAD_IMAGENES_VIDEOS . 'no_video.jpg';
+                        //$imagen = UPLOAD_IMAGENES_VIDEOS . 'no_video.jpg';
+                        $imagen = $this->config->item('url:default_imagen') . 'no_video.jpg';
                     }
                     $returnValue.='<tr>';
                     $returnValue.='<td>' . ($indice + 1) . '</td>';
@@ -4528,7 +4669,7 @@ class Admin extends Admin_Controller {
                     $html.='<tr>';
                     $html.='<td>' . ($puntero + 1) . '</td>';
                     $html.='<td><img style="width:100px; height:70px;" src="' . $imagen . '" /></td>';
-                    $html.='<td><div class="btn blue" onclick="restaurar_imagen_grupo(' . $objImagen->id . ',' . $tipo_imagen . ', ' . $maestro_id . ', ' . $this->input->post('tipo_origen') . ');return false;">Restaurar</div></td>';
+                    $html.='<td><div class="btn blue" onclick="restaurar_imagen_grupo(' . $objImagen->id . ',' . $tipo_imagen . ', ' . $maestro_id . ', \'' . $this->input->post('tipo_origen') . '\');return false;">Restaurar</div></td>';
                     $html.='<td>' . $objImagen->id . '</td>';
                     $html.='</tr>';
                 }
@@ -4592,7 +4733,7 @@ class Admin extends Admin_Controller {
             foreach ($archivos as $index => $ruta_archivo) {
                 $objArchivo = new stdClass();
                 $objArchivo->ruta = $ruta_archivo;
-                $objArchivo->peso = filesize($ruta_archivo);
+                $objArchivo->peso = $this->filesize_formatted($ruta_archivo);
                 $info = pathinfo($ruta_archivo);
                 $objArchivo->nombre = $info['basename'];
                 array_push($arrayArchivos, $objArchivo);
@@ -4602,6 +4743,13 @@ class Admin extends Admin_Controller {
                 ->title($this->module_details['name'])
                 ->set('misvideos', $arrayArchivos);
         $this->template->build('admin/misvideos');
+    }
+
+    function filesize_formatted($path) {
+        $size = filesize($path);
+        $units = array('B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB');
+        $power = $size > 0 ? floor(log($size, 1024)) : 0;
+        return number_format($size / pow(1024, $power), 2, '.', ',') . ' ' . $units[$power];
     }
 
 }

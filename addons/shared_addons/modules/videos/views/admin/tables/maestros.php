@@ -63,19 +63,19 @@
                         switch ($objPrograma->estado_id):
                             case $this->config->item('estado:borrador'):
                                 $u = 'admin/videos/grupo_maestro/' . $objPrograma->canales_id . '/' . $objPrograma->id;
-                                $link = '<button class="btn orange" onclick="editar(\'' . $u . '\');return false;">Editar</button>';
-                                $link.= '<button class="btn red" onclick="eliminar(' . $objPrograma->id . ', \'programa\');return false;">Eliminar</button>';
-                                $link.= '<button class="btn blue" onclick="publicar(' . $objPrograma->id . ', \'programa\');return false;">Publicar</button>';
+                                $link = '<a href="#" class="mode mode_edit" onclick="editar(\'' . $u . '\');return false;">Editar</a>';
+                                $link.= '<a href="#" class="mode mode_delete" onclick="eliminar(' . $objPrograma->id . ', \'programa\');return false;">Eliminar</a>';
+                                $link.= '<a href="#" class="mode mode_publish" onclick="publicar(' . $objPrograma->id . ', \'programa\');return false;">Publicar</a>';
                                 break;
                             case $this->config->item('estado:publicado'):
                                 $u = 'admin/videos/grupo_maestro/' . $objPrograma->canales_id . '/' . $objPrograma->id;
-                                $link = '<button class="btn orange" onclick="editar(\'' . $u . '\');return false;">Editar</button>';
-                                $link.= '<button class="btn red btnEliminar" onclick="eliminar(' . $objPrograma->id . ', \'programa\');return false;">Eliminar</button>';
+                                $link = '<a href="#" class="mode mode_edit" onclick="editar(\'' . $u . '\');return false;">Editar</a>';
+                                $link.= '<a href="#" class="mode mode_delete btnEliminar" onclick="eliminar(' . $objPrograma->id . ', \'programa\');return false;">Eliminar</a>';
                                 break;
                             case $this->config->item('estado:eliminado'):
                                 $u = 'admin/videos/grupo_maestro/' . $objPrograma->canales_id . '/' . $objPrograma->id;
                                 //$link = '<button class="btn blue" onclick="publicar(' . $objPrograma->id . ', \'programa\');return false;">Publicar</button>';
-                                $link = '<button class="btn green" onclick="restablecer(' . $objPrograma->id . ', \'programa\');return false;">Restablecer</button>';
+                                $link = '<a href="#" class="mode mode_restore" onclick="restablecer(' . $objPrograma->id . ', \'programa\');return false;">Restablecer</a>';
                                 break;
                         endswitch;
                         ?>
@@ -101,19 +101,19 @@
                                     switch ($objColeccion->estado_id):
                                         case $this->config->item('estado:borrador'):
                                             $u = 'admin/videos/grupo_maestro/' . $objColeccion->canales_id . '/' . $objColeccion->id;
-                                            $link = '<button class="btn orange" onclick="editar(\'' . $u . '\');return false;">Editar</button>';
-                                            $link.= '<button class="btn red" onclick="eliminar(' . $objColeccion->id . ', \'coleccion\');return false;">Eliminar</button>';
-                                            $link.= '<button class="btn blue" onclick="publicar(' . $objColeccion->id . ', \'coleccion\');return false;">Publicar</button>';
+                                            $link = '<a href="#" class="mode mode_edit" onclick="editar(\'' . $u . '\');return false;">Editar</a>';
+                                            $link.= '<a href="#" class="mode mode_delete" onclick="eliminar(' . $objColeccion->id . ', \'coleccion\');return false;">Eliminar</a>';
+                                            $link.= '<a href="#" class="mode mode_publish" onclick="publicar(' . $objColeccion->id . ', \'coleccion\');return false;">Publicar</a>';
                                             break;
                                         case $this->config->item('estado:publicado'):
                                             $u = 'admin/videos/grupo_maestro/' . $objColeccion->canales_id . '/' . $objColeccion->id;
-                                            $link = '<button class="btn orange" onclick="editar(\'' . $u . '\');return false;">Editar</button>';
-                                            $link.= '<button class="btn red btnEliminar" onclick="eliminar(' . $objColeccion->id . ', \'coleccion\');return false;">Eliminar</button>';
+                                            $link = '<a href="#" class="mode mode_edit" onclick="editar(\'' . $u . '\');return false;">Editar</a>';
+                                            $link.= '<a href="#" class="mode mode_delete btnEliminar" onclick="eliminar(' . $objColeccion->id . ', \'coleccion\');return false;">Eliminar</a>';
                                             break;
                                         case $this->config->item('estado:eliminado'):
                                             $u = 'admin/videos/grupo_maestro/' . $objColeccion->canales_id . '/' . $objColeccion->id;
                                             //$link.= '<button class="btn blue" onclick="publicar(' . $objColeccion->id . ', \'coleccion\');return false;">Publicar</button>';
-                                            $link = '<button class="btn green" onclick="restablecer(' . $objColeccion->id . ', \'coleccion\');return false;">Restablecer</button>';
+                                            $link = '<a href="#" class="mode mode_restore" onclick="restablecer(' . $objColeccion->id . ', \'coleccion\');return false;">Restablecer</a>';
                                             break;
                                     endswitch;
                                     ?>                                    
@@ -139,19 +139,19 @@
                                                 switch ($objLista->estado_id):
                                                     case $this->config->item('estado:borrador'):
                                                         $u = 'admin/videos/grupo_maestro/' . $objLista->canales_id . '/' . $objLista->id;
-                                                        $link = '<button class="btn orange" onclick="editar(\'' . $u . '\');return false;">Editar</button>';
-                                                        $link.= '<button class="btn red" onclick="eliminar(' . $objLista->id . ', \'lista\');return false;">Eliminar</button>';
-                                                        $link.= '<button class="btn blue" onclick="publicar(' . $objLista->id . ', \'lista\');return false;">Publicar</button>';
+                                                        $link = '<a href="#" class="mode mode_edit" onclick="editar(\'' . $u . '\');return false;">Editar</a>';
+                                                        $link.= '<a href="#" class="mode mode_delete" onclick="eliminar(' . $objLista->id . ', \'lista\');return false;">Eliminar</a>';
+                                                        $link.= '<a href="#" class="mode mode_publish" onclick="publicar(' . $objLista->id . ', \'lista\');return false;">Publicar</a>';
                                                         break;
                                                     case $this->config->item('estado:publicado'):
                                                         $u = 'admin/videos/grupo_maestro/' . $objLista->canales_id . '/' . $objLista->id;
-                                                        $link = '<button class="btn orange" onclick="editar(\'' . $u . '\');return false;">Editar</button>';
-                                                        $link.= '<button class="btn red btnEliminar" onclick="eliminar(' . $objLista->id . ', \'lista\');return false;">Eliminar</button>';
+                                                        $link = '<a href="#" class="mode mode_edit" onclick="editar(\'' . $u . '\');return false;">Editar</a>';
+                                                        $link.= '<a href="#" class="mode mode_delete btnEliminar" onclick="eliminar(' . $objLista->id . ', \'lista\');return false;">Eliminar</a>';
                                                         break;
                                                     case $this->config->item('estado:eliminado'):
                                                         $u = 'admin/videos/grupo_maestro/' . $objLista->canales_id . '/' . $objLista->id;
                                                         //$link = '<button class="btn blue" onclick="publicar(' . $objLista->id . ', \'lista\');return false;">Publicar</button>';
-                                                        $link = '<button class="btn green" onclick="restablecer(' . $objLista->id . ', \'lista\');return false;">Restablecer</button>';
+                                                        $link = '<a href="#" class="mode mode_restore" onclick="restablecer(' . $objLista->id . ', \'lista\');return false;">Restablecer</a>';
                                                         break;
                                                 endswitch;
                                                 ?>                                                
@@ -177,19 +177,19 @@
                                                             switch ($objVideo->estado_id):
                                                                 case $this->config->item('estado:borrador'):
                                                                     $u = 'admin/videos/carga_unitaria/' . $objVideo->canales_id . '/' . $objVideo->id;
-                                                                    $link = '<button class="btn orange" onclick="editar(\'' . $u . '\');return false;">Editar</button>';
-                                                                    $link.= '<button class="btn red" onclick="eliminar(' . $objVideo->id . ', \'video\');return false;">Eliminar</button>';
-                                                                    $link.= '<button class="btn blue" onclick="publicar(' . $objVideo->id . ', \'video\');return false;">Publicar</button>';
+                                                                    $link = '<a href="#" class="mode mode_edit" onclick="editar(\'' . $u . '\');return false;">Editar</a>';
+                                                                    $link.= '<a href="#" class="mode mode_delete" onclick="eliminar(' . $objVideo->id . ', \'video\');return false;">Eliminar</a>';
+                                                                    $link.= '<a href="#" class="mode mode_publish" onclick="publicar(' . $objVideo->id . ', \'video\');return false;">Publicar</a>';
                                                                     break;
                                                                 case $this->config->item('estado:publicado'):
                                                                     $u = 'admin/videos/carga_unitaria/' . $objVideo->canales_id . '/' . $objVideo->id;
-                                                                    $link = '<button class="btn orange" onclick="editar(\'' . $u . '\');return false;">Editar</button>';
-                                                                    $link.= '<button class="btn red btnEliminar" onclick="eliminar(' . $objVideo->id . ', \'video\');return false;">Eliminar</button>';
+                                                                    $link = '<a href="#" class="mode mode_edit" onclick="editar(\'' . $u . '\');return false;">Editar</a>';
+                                                                    $link.= '<a href="#" class="mode mode_delete btnEliminar" onclick="eliminar(' . $objVideo->id . ', \'video\');return false;">Eliminar</a>';
                                                                     break;
                                                                 case $this->config->item('estado:eliminado'):
                                                                     $u = 'admin/videos/carga_unitaria/' . $objVideo->canales_id . '/' . $objVideo->id;
                                                                     //$link.= '<button class="btn blue" onclick="publicar(' . $objColeccion->id . ', \'video\');return false;">Publicar</button>';
-                                                                    $link = '<button class="btn green" onclick="restablecer(' . $objVideo->id . ', \'video\');return false;">Restablecer</button>';
+                                                                    $link = '<a href="#" class="mode mode_restore" onclick="restablecer(' . $objVideo->id . ', \'video\');return false;">Restablecer</a>';
                                                                     break;
                                                             endswitch;
                                                             ?>                                                             
@@ -240,7 +240,7 @@
             collapsible: true
         });
 
-        $('.btn').click(function(e) {
+        $('.mode').click(function(e) {
             e.stopPropagation();
             //Your Code here(For example a call to your function)
         });
@@ -269,9 +269,9 @@
                             $("#" + tipo + "_" + maestro_id).html('Eliminado');
                             var htmlButton = '';
                             //htmlButton+='<button class="btn blue" onclick="publicar(' +maestro_id+ ', \''+tipo+'\');return false;">Publicar</button>';
-                            htmlButton = '<button class="btn green" onclick="restablecer(' + maestro_id + ', \'' + tipo + '\');return false;">Restablecer</button>';
+                            htmlButton = '<a href="#" class="mode mode_restore" onclick="restablecer(' + maestro_id + ', \'' + tipo + '\');return false;">Restablecer</a>';
                             $("#" + tipo + "_boton_" + maestro_id).html(htmlButton);
-                            $('.btn').click(function(e) {
+                            $('.mode').click(function(e) {
                                 e.stopPropagation();
                                 //Your Code here(For example a call to your function)
                             });
@@ -307,11 +307,11 @@
                             } else {
                                 var url = 'admin/videos/grupo_maestro/' + canal_id + '/' + maestro_id;
                             }
-                            htmlButton += '<button class="btn orange" onclick="editar(\'' + url + '\');return false;">Editar</button>';
-                            htmlButton += '<button class="btn red" onclick="eliminar(' + maestro_id + ', \'' + tipo + '\');return false;">Eliminar</button>';
-                            htmlButton += '<button class="btn blue" onclick="publicar(' + maestro_id + ', \'' + tipo + '\');return false;">Publicar</button>';
+                            htmlButton += '<a href="#" class="mode mode_edit" onclick="editar(\'' + url + '\');return false;">Editar</a>';
+                            htmlButton += '<a href="#" class="mode mode_delete" onclick="eliminar(' + maestro_id + ', \'' + tipo + '\');return false;">Eliminar</a>';
+                            htmlButton += '<a href="#" class="mode mode_publish" onclick="publicar(' + maestro_id + ', \'' + tipo + '\');return false;">Publicar</a>';
                             $("#" + tipo + "_boton_" + maestro_id).html(htmlButton);
-                            $('.btn').click(function(e) {
+                            $('.mode').click(function(e) {
                                 e.stopPropagation();
                                 //Your Code here(For example a call to your function)
                             });
@@ -347,10 +347,10 @@
                             } else {
                                 var url = 'admin/videos/grupo_maestro/' + canal_id + '/' + maestro_id;
                             }
-                            htmlButton += '<button class="btn orange" onclick="editar(\'' + url + '\');return false;">Editar</button>';
-                            htmlButton += '<button class="btn red" onclick="eliminar(' + maestro_id + ', \'' + tipo + '\');return false;">Eliminar</button>';
+                            htmlButton += '<a href="#" class="mode mode_edit" onclick="editar(\'' + url + '\');return false;">Editar</a>';
+                            htmlButton += '<a href="#" class="mode mode_delete" onclick="eliminar(' + maestro_id + ', \'' + tipo + '\');return false;">Eliminar</a>';
                             $("#" + tipo + "_boton_" + maestro_id).html(htmlButton);
-                            $('.btn').click(function(e) {
+                            $('.mode').click(function(e) {
                                 e.stopPropagation();
                                 //Your Code here(For example a call to your function)
                             });

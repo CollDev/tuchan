@@ -41,12 +41,16 @@ for (var i=0; i < 2; i++)
         if (!$xhr) echo '</textarea>'; 
     } 
     else {
-        //id unico
+        //include 'system/cms/config/config.php';
+        //error_log(print_r($config,true));
+        //error_log(print_r($this->config->item('path:video'),true));
+        ////id unico
         $idUniq = uniqid();
         $ext = @end(explode('.', $_FILES['video']['name']));
         $nameVideo = $idUniq . '.' . $ext;
         umask(0);
         move_uploaded_file($_FILES["video"]["tmp_name"],"uploads/videos/" . $nameVideo);
+        //move_uploaded_file($_FILES["video"]["tmp_name"], $config['path:video'] . $nameVideo);
         //move_uploaded_file($_FILES["video"]["tmp_name"],"uploads/videos/" . $_FILES["video"]["name"]);
         echo '<input type="hidden" id="name_file_upload" name="name_file_upload" value="'.$nameVideo.'" />';
         // return text var_dump for the html request 

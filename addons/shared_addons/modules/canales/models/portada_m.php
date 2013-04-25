@@ -84,7 +84,7 @@ class Portada_m extends MY_Model {
         
         parent::update($id, $array);
         
-        $this->procesos_lib->actualizarPortadas();
+        $this->procesos_lib->actualizarPortadasMiCanalXId($id);
     }    
 
 }
