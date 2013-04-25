@@ -1312,8 +1312,11 @@ class Admin extends Admin_Controller {
      * @param type $mensaje 
      * @return string  name, direccion real de la imagen dominio
      */
-    public function elemento_upload($fid, $file, $mensaje) {
+    public function elemento_upload($fid, $file, $mensaje = '') {
         //$url = "http://dev.e3.pe/index.php/api/v1";
+        if(strlen(trim($mensaje))==0){
+            $mensaje = $this->config->item('mensaje:elemento');
+        }        
         $url = $this->config->item('url:elemento');
         $remotedir = $this->elemento_basepath($fid, $this->config->item('server:elemento'));
         $ext = explode('.', $file);
