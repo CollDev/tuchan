@@ -1162,57 +1162,56 @@ class Procesos_lib extends MX_Controller {
         foreach ($video as $value) {
 
             if ($value->estado == 2) {
-                $datovideo = $this->canal_mp->queryProcedure(4, $value->id);
-                $objmongo['id'] = $value->id;
-                $objmongo['canal'] = ($datovideo[0]->xcanal);
-                $objmongo['canal_alias'] = $datovideo[0]->xcanalalias;
-                $objmongo['programa'] = ($datovideo[0]->xprograma);
-                $objmongo['programa_alias'] = $datovideo[0]->xprogramaalias;
-                $objmongo['fecha'] = date("d-m-Y", strtotime($datovideo[0]->xfechatransmision));
-                $objmongo['etiquetas'] = explode(",", $value->etiquetas);
-                $objmongo['logo'] = PATH_ELEMENTOS . $value->imagen;
-                $objmongo['nombre'] = $datovideo[0]->xvideo;
-                $objmongo['descripcion'] = (strip_tags($datovideo[0]->xdescripcion));
-
-                $objmongo['imagen'] = array();
+//                $datovideo = $this->canal_mp->queryProcedure(4, $value->id);
+//                $objmongo['id'] = $value->id;
+//                $objmongo['canal'] = ($datovideo[0]->xcanal);
+//                $objmongo['canal_alias'] = $datovideo[0]->xcanalalias;
+//                $objmongo['programa'] = ($datovideo[0]->xprograma);
+//                $objmongo['programa_alias'] = $datovideo[0]->xprogramaalias;
+//                $objmongo['fecha'] = date("d-m-Y", strtotime($datovideo[0]->xfechatransmision));
+//                $objmongo['etiquetas'] = explode(",", $value->etiquetas);
+//                $objmongo['logo'] = PATH_ELEMENTOS . $value->imagen;
+//                $objmongo['nombre'] = $datovideo[0]->xvideo;
+//                $objmongo['descripcion'] = (strip_tags($datovideo[0]->xdescripcion));
 //
-                $objmongo['categoria'] = $datovideo[0]->xcategoria;
-                $objmongo['reproducciones'] = $datovideo[0]->xvi_rep;
-                $objmongo['lista_reproduccion'] = ($datovideo[0]->xlistareproduccion);
-                $objmongo['duracion'] = $datovideo[0]->xduracion;
-                $objmongo['media'] = $datovideo[0]->xcodigo;
-                $objmongo['comentarios'] = $datovideo[0]->xvi_com;
-                $objmongo['related'] = array();
-                $objmongo['playlist'] = array();
-                $objmongo['clips'] = array();
-                $objmongo['playerkey'] = $datovideo[0]->xplayerkey;
-                $objmongo['apikey'] = $datovideo[0]->xapikey;
-                $objmongo['valoracion'] = $datovideo[0]->xvi_val;
-                $objmongo['estado'] = "1";
-
-                if ($datovideo[0]->xfechatransmision == $datovideo[0]->xlistareproduccion) {
-                    $urltemp = $datovideo[0]->xprogramaalias . "/" . $datovideo[0]->xfechatransmision . "-" . $datovideo[0]->xvideoalias; //  2. micanal.pe/[programa]/[fecha]-[video]-id [ nombre de lista es igual a la fecha de transmisi?n de los videos.                      
-                } else {
-                    $urltemp = $datovideo[0]->xprogramaalias . "/" . $datovideo[0]->xlistareproduccionalias . "/" . $datovideo[0]->xfechatransmision . "-" . $datovideo[0]->xvideoalias; //  1. micanal.pe/[programa]/[lista]/[fecha]-[video]-id                        
-                }
-
-                $objmongo['url'] = $urltemp;
-                //$objmongo['padre'] = $arrlistarepro['idmongo'];
-                $objmongo['nivel'] = "4";
+//                $objmongo['imagen'] = array();
+////
+//                $objmongo['categoria'] = $datovideo[0]->xcategoria;
+//                $objmongo['reproducciones'] = $datovideo[0]->xvi_rep;
+//                $objmongo['lista_reproduccion'] = ($datovideo[0]->xlistareproduccion);
+//                $objmongo['duracion'] = $datovideo[0]->xduracion;
+//                $objmongo['media'] = $datovideo[0]->xcodigo;
+//                $objmongo['comentarios'] = $datovideo[0]->xvi_com;
+//                $objmongo['related'] = array();
+//                $objmongo['playlist'] = array();
+//                $objmongo['clips'] = array();
+//                $objmongo['playerkey'] = $datovideo[0]->xplayerkey;
+//                $objmongo['apikey'] = $datovideo[0]->xapikey;
+//                $objmongo['valoracion'] = $datovideo[0]->xvi_val;
+//                $objmongo['estado'] = "1";
+//
+//                if ($datovideo[0]->xfechatransmision == $datovideo[0]->xlistareproduccion) {
+//                    $urltemp = $datovideo[0]->xprogramaalias . "/" . $datovideo[0]->xfechatransmision . "-" . $datovideo[0]->xvideoalias; //  2. micanal.pe/[programa]/[fecha]-[video]-id [ nombre de lista es igual a la fecha de transmisi?n de los videos.                      
+//                } else {
+//                    $urltemp = $datovideo[0]->xprogramaalias . "/" . $datovideo[0]->xlistareproduccionalias . "/" . $datovideo[0]->xfechatransmision . "-" . $datovideo[0]->xvideoalias; //  1. micanal.pe/[programa]/[lista]/[fecha]-[video]-id                        
+//                }
+//
+//                $objmongo['url'] = $urltemp;
+//                //$objmongo['padre'] = $arrlistarepro['idmongo'];
+//                $objmongo['nivel'] = "4";
 
                 if ($value->estado_migracion == 0) {
-                    $mongo_id = $this->canal_mp->setItemCollection($objmongo);
-                    $this->canal_mp->updateIdMongoVideos($value->id, $mongo_id);
+                   // $mongo_id = $this->canal_mp->setItemCollection($objmongo);
+                    //$this->canal_mp->updateIdMongoVideos($value->id, $mongo_id);
                     $this->canal_mp->updateEstadoMigracionVideos($value->id);
                 } elseif ($value->estado_migracion == 9) {
-                    $mongo_id = $value->id_mongo;
-                    $MongoId = array("_id" => new MongoId($value->id_mongo));
-                    $this->canal_mp->setItemCollectionUpdate($objmongo, $MongoId);
+                    //$mongo_id = $value->id_mongo;
+                   // $MongoId = array("_id" => new MongoId($value->id_mongo));
+                   // $this->canal_mp->setItemCollectionUpdate($objmongo, $MongoId);
                     $this->canal_mp->updateEstadoMigracionVideosActualizacion($value->id);
-                    //print_r($set);
                 }
 
-                $this->_generarDetalleVideosXId($value->id, $mongo_id);
+                //$this->_generarDetalleVideosXId($value->id, $mongo_id);
                 unset($objmongo);
             } else {
                 $id_mongo = new MongoId($value->id_mongo);
@@ -1267,10 +1266,10 @@ class Procesos_lib extends MX_Controller {
     public function estadosVideos(){
         $videos = $this->videos_mp->getVideos();
         
-        echo "<table border=1><tr><td>id</td><td>estado_liquid</td><td>estado</td><td>id_mongo</td></tr>";
+        echo "<table border=1><tr><td>id</td><td>estado_liquid</td><td>estado</td><td>id_mongo</td><td>fecha_migracion</td><td>fecha_migracion_actualizacion</td></tr>";
         
         foreach ($videos as $value) {
-            echo "<tr><td>". $value->id ."</td><td>". $value->estado_liquid."</td><td>". $value->estado."</td><td>". $value->id_mongo."</td></tr>";    
+            echo "<tr><td>". $value->id ."</td><td>". $value->estado_liquid."</td><td>". $value->estado."</td><td>". $value->id_mongo."</td><td>". $value->fecha_migracion."</td><td>". $value->fecha_migracion_actualizacion."</td></tr>";    
         }
         echo "</table>";
     }
