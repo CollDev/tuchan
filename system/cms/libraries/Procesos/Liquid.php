@@ -1,5 +1,5 @@
 <?php
-set_time_limit(2000);
+set_time_limit(TIME_LIMIT);
 
 if (!defined('BASEPATH'))     exit('No direct script access allowed');
 
@@ -50,7 +50,6 @@ class Liquid {
             curl_setopt($ch, CURLOPT_FOLLOWLOCATION,1);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
             curl_setopt($ch, CURLOPT_TIMEOUT, 15);            
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
             
             ERROR_LIQUID:
             ////error_log("url get " . $url);

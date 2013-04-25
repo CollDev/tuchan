@@ -1,5 +1,5 @@
 <?php
-set_time_limit(2000);
+set_time_limit(TIME_LIMIT);
 
 if (!defined('BASEPATH')) exit('No direct script access allowed');
 
@@ -21,7 +21,9 @@ class Ffmpeg {
             }
 
             if (is_readable($video_out)) {
-                unlink($video_in);
+                if(is_readable($video_in)){
+                     unlink($video_in);
+                }               
                 return true;
             } else {
 

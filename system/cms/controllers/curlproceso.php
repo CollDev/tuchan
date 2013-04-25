@@ -1,5 +1,5 @@
 <?php
-set_time_limit(2000);
+set_time_limit(TIME_LIMIT);
 
 class curlProceso extends MX_Controller {
     
@@ -28,6 +28,13 @@ class curlProceso extends MX_Controller {
     public function estadosVideos(){
         $this->procesos_lib->estadosVideos();
     }
-            
+     
+    public function datosVideos($id){
+        $this->procesos_lib->datosVideos($id);
+    }
+    
+    public function datosProFun(){
+        $this->procesos_lib->showProFun();
+    }
 }
 ?>
