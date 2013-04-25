@@ -3105,9 +3105,23 @@ class Admin extends Admin_Controller {
     /**
      * metodo para llamar al archivo previsualizar_canal.php para la vista previa
      */
-    public function previsualizar_canal() {
+    public function previsualizar_canal($canal_id) {
+        $objCanal = $this->canales_m->get($canal_id);
+        $objLogo = $this->imagen_m->get_by(array("canales_id" => $canal_id, "estado" => $this->config->item('estado:publicado'), "tipo_imagen_id" => $this->config->item('imagen:logo')));
+        if (count($objLogo) > 0) {
+            if ($objLogo->procedencia == 0) {
+                $objCanal->logo = $this->config->item('protocolo:http') . $this->config->item('server:elemento') . '/' . $objLogo->imagen;
+            } else {
+                $objLogo->logo = $objLogo->imagen;
+            }
+        } else {
+            $objCanal->logo = $this->config->item('url:logo');
+        }
+        $objPortada = $this->obtenerPortadaCanal($canal_id);
         $this->template
                 ->set_layout('modal', 'admin')
+                ->set('objCanal', $objCanal)
+                ->set('objPortada', $objPortada)
                 //->append_css('module::custom.css')
                 //->append_css('module::mediaquerie.css')
                 ->build('admin/previsualizar_canal');
@@ -4486,6 +4500,7 @@ class Admin extends Admin_Controller {
     public function test() {
         //$r = $this->procesos_lib->generarMiCanal();
         if ($this->input->post()) {
+            
         } else {
             $this->template
                     ->title($this->module_details['name'])
@@ -4505,6 +4520,43 @@ class Admin extends Admin_Controller {
                 //->append_js('module::flowplayer.min.js')
                 //->append_css('module::skin/minimalist.css')                
                 ->build('admin/visualizar_video');
+    }
+
+    /**
+     * Obtenemos el objeto con datos de la portada para la previsualizacion
+     * @param int $canal_id
+     * @return array $returnValue
+     */
+    private function obtenerPortadaCanal($canal_id) {
+        $returnValue = array();
+        $objPortada = $this->portada_m->get_by(array("tipo_portadas_id" => $this->config->item('portada:canal'), "origen_id" => $canal_id));
+        if (count($objPortada) > 0) {
+            $objDestacado = $this->secciones_m->get_by(array("portadas_id" => $objPortada->id, "tipo_secciones_id" => $this->config->item('seccion:destacado'), "estado" => $this->config->item('estado:publicado')));
+            if (count($objDestacado) > 0) {
+                //$this->vd($objDestacado);
+                $detalles = $this->detalle_secciones_m->order_by('peso', 'ASC')->get_many_by(array("secciones_id" => $objDestacado->id, "estado" => $this->config->item('estado:publicado')));
+                if (count($detalles) > 0) {
+                    foreach ($detalles as $puntero => $objDetalleSeccion) {
+                        $objImagen = $this->imagen_m->get($objDetalleSeccion->imagenes_id);
+                        if (count($objImagen) > 0) {
+                            if ($objImagen->procedencia == 0) {
+                                $objDetalleSeccion->imagen = $this->config->item('protocolo:http') . $this->config->item('server:elemento') . '/' . $objImagen->imagen;
+                            } else {
+                                $objDetalleSeccion->imagen = $objImagen->imagen;
+                            }
+                        } else {
+                            $objDetalleSeccion->imagen = $this->config->item('url:logo');
+                        }
+                        $detalles[$puntero] = $objDetalleSeccion;
+                    }
+                    $objDestacado->detalle = $detalles;
+                }else{
+                    $objDestacado->detalle = array();
+                }
+                array_push($returnValue, $objDestacado);
+            }
+        }
+        return $returnValue;
     }
 
 }

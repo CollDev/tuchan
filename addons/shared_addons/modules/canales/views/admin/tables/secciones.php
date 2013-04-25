@@ -26,13 +26,13 @@
             foreach ($coleccionDetalle as $index => $objDetalleSeccion):
                 if ($primer->peso == $objDetalleSeccion->peso):
                     //$img = '<img title="Bajar" src="' . UPLOAD_IMAGENES_VIDEOS . 'down.png" onclick="bajar(' . $objDetalleSeccion->id . ', ' . ($index + 1) . ', ' . $objDetalleSeccion->peso . ')" />';
-                    $img = '<img title="Bajar" src="' . UPLOAD_IMAGENES_VIDEOS . 'down.png" class="bajar"  />';
+                    $img = '<img title="Bajar" src="' . $this->config->item('url:default_imagen') . 'down.png" class="bajar"  />';
                 elseif ($ultimo->peso == $objDetalleSeccion->peso):
                     //$img = '<img title="Subir" src="' . UPLOAD_IMAGENES_VIDEOS . 'up.png" onclick="subir(' . $objDetalleSeccion->id . ', ' . ($index + 1) . ', ' . $objDetalleSeccion->peso . ')" />';
-                    $img = '<img title="Subir" src="' . UPLOAD_IMAGENES_VIDEOS . 'up.png" class="subir"  />';
+                    $img = '<img title="Subir" src="' . $this->config->item('url:default_imagen') . 'up.png" class="subir"  />';
                 else:
                     //$img = '<img title="Subir" src="' . UPLOAD_IMAGENES_VIDEOS . 'up.png" onclick="subir(' . $objDetalleSeccion->id . ', ' . ($index + 1) . ', ' . $objDetalleSeccion->peso . ')" />' . '<img title="Bajar" src="' . UPLOAD_IMAGENES_VIDEOS . 'down.png"  onclick="bajar(' . $objDetalleSeccion->id . ', ' . ($index + 1) . ', ' . $objDetalleSeccion->peso . ')" />';
-                    $img = '<a href="#" onclick="subir($(this).closest(\'tr\'),' . $objDetalleSeccion->id . ', ' . ($index + 1) . ', ' . $objDetalleSeccion->peso . ');return false;"><img title="Subir" src="' . UPLOAD_IMAGENES_VIDEOS . 'up.png" class="subir" /></a>' . '<img title="Bajar" src="' . UPLOAD_IMAGENES_VIDEOS . 'down.png"  class="bajar" />';
+                    $img = '<a href="#" onclick="subir($(this).closest(\'tr\'),' . $objDetalleSeccion->id . ', ' . ($index + 1) . ', ' . $objDetalleSeccion->peso . ');return false;"><img title="Subir" src="' . $this->config->item('url:default_imagen') . 'up.png" class="subir" /></a>' . '<img title="Bajar" src="' . $this->config->item('url:default_imagen') . 'down.png"  class="bajar" />';
                 endif;
                 ?>
                 <?php if ($index == 0 && $objSeccion->tipo_secciones_id == $this->config->item('seccion:coleccion')) { ?>
