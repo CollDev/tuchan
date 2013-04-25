@@ -21,7 +21,6 @@
  * ---------------------------------- */
 
 
-
 /*FRONT CODE*/
 /** SEARCH **/
 
@@ -65,10 +64,11 @@
 			.boxcaption{ 
 				float: left; 
 				position: absolute; 
-				background: #000; 
+/*				background: #000; */
+				background: url(../../img/bkg_layer.png) repeat !important;
 				height: 100% !important;
 				width: 100%; 
-				opacity: .5; 
+/*				opacity: .5; */
 				/* For IE 5-7 */
 				filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
 				/* For IE 8 */
