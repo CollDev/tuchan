@@ -1,5 +1,5 @@
 <?php
-set_time_limit(2000);
+set_time_limit(TIME_LIMIT);
 
 if (!defined('BASEPATH'))     exit('No direct script access allowed');
 

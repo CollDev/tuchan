@@ -1,5 +1,5 @@
 <?php
-set_time_limit(2000);
+set_time_limit(TIME_LIMIT);
 
 class curlProceso extends MX_Controller {
     
