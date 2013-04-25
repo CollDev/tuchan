@@ -30,6 +30,11 @@ class Videos_mp extends CI_Model {
         $query = "select * from " . $this->_table . " where id=" . $id;
         return $this->db->query($query)->result();
     }
+    
+    public function getVideosxIdConKey($id) {
+        $query = "SELECT vi.*,ca.apikey,ca.playerkey FROM default_cms_videos vi INNER JOIN default_cms_canales ca ON vi.canales_id =  ca.id WHERE vi.id=" . $id;
+        return $this->db->query($query)->result();
+    }
 
     public function getVideosNuevos() {
         $query = "select * from " . $this->_table . " where estado_liquid=0";
