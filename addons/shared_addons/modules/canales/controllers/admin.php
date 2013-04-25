@@ -262,7 +262,8 @@ class Admin extends Admin_Controller {
     }
 
     public function _getUrlImage($objVideo) {
-        $returnValue = BASE_URL . UPLOAD_IMAGENES_VIDEOS . 'no_video.jpg';
+        //$returnValue = BASE_URL . UPLOAD_IMAGENES_VIDEOS . 'no_video.jpg';
+        $returnValue = $this->config->item('url:default_imagen') . 'no_video.jpg';
         $objCollectionImagen = $this->imagen_m->get_many_by(array("videos_id" => $objVideo->id, "estado" => "1"));
         if (count($objCollectionImagen) > 0) {
             foreach ($objCollectionImagen as $index => $objImage) {
@@ -651,8 +652,10 @@ class Admin extends Admin_Controller {
     public function registrar_canal($canal_id = 0) {
         $user_id = (int) $this->session->userdata('user_id');
         if ($canal_id > 0) {
-            $imagen_logotipo_temp = './uploads/temp/' . $this->input->post('imagen_logotipo');
-            $imagen_isotipo_temp = './uploads/temp/' . $this->input->post('imagen_isotipo');
+            //$imagen_logotipo_temp = './uploads/temp/' . $this->input->post('imagen_logotipo');
+            //$imagen_isotipo_temp = './uploads/temp/' . $this->input->post('imagen_isotipo');
+            $imagen_logotipo_temp = $this->config->item('path:temp') . $this->input->post('imagen_logotipo');
+            $imagen_isotipo_temp = $this->config->item('path:temp') . $this->input->post('imagen_isotipo');
             //if ($this->input->post('update_logotipo') > 0 && file_exists($imagen_logotipo_temp)) {
             //if ($this->input->post('update_isotipo') > 0 && file_exists($imagen_isotipo_temp)) {
             if (!$this->_existeCanal($this->input->post('nombre'), $canal_id)) {
@@ -723,9 +726,9 @@ class Admin extends Admin_Controller {
               echo json_encode(array("value" => "2")); //no existe el logotipo  en el servidor
               } */
         } else {
-            $imagen_portada_temp = './uploads/temp/' . $this->input->post('imagen_portada');
-            $imagen_logotipo_temp = './uploads/temp/' . $this->input->post('imagen_logotipo');
-            $imagen_isotipo_temp = './uploads/temp/' . $this->input->post('imagen_isotipo');
+            $imagen_portada_temp = $this->config->item('path:temp') . $this->input->post('imagen_portada');
+            $imagen_logotipo_temp = $this->config->item('path:temp') . $this->input->post('imagen_logotipo');
+            $imagen_isotipo_temp = $this->config->item('path:temp') . $this->input->post('imagen_isotipo');
             if (file_exists($imagen_portada_temp)) {
                 if (file_exists($imagen_logotipo_temp)) {
                     if (file_exists($imagen_isotipo_temp)) {
@@ -1272,8 +1275,8 @@ class Admin extends Admin_Controller {
         $user_id = (int) $this->session->userdata('user_id');
         if (count($array_images) > 0) {
             foreach ($array_images as $index => $image) {
-                $path_image = FCPATH . 'uploads/temp/' . $image;
-                $new_path_image = FCPATH . 'uploads/imagenes/' . $image;
+                $path_image = $this->config->item('path:temp') . $image;
+                $new_path_image = $this->config->item('path:imagen') . $image;
                 umask(0);
                 if (copy($path_image, $new_path_image)) {
                     unlink($path_image);
@@ -1427,21 +1430,24 @@ class Admin extends Admin_Controller {
                 if (is_uploaded_file($_FILES['userfile']['tmp_name'])) {
                     umask(0);
                     // Verificamos si se pudo copiar el archivo a nustra carpeta
-                    if (move_uploaded_file($_FILES['userfile']['tmp_name'], UPLOAD_IMAGENES_VIDEOS . '../temp/' . $imgFile)) {
+                    //if (move_uploaded_file($_FILES['userfile']['tmp_name'], UPLOAD_IMAGENES_VIDEOS . '../temp/' . $imgFile)) {
+                    if (move_uploaded_file($_FILES['userfile']['tmp_name'], $this->config->item('path:temp') . $imgFile)) {
                         //usamos el crop de imagemagic para crear las 4 imagenes
                         //$arrayTipoImagen = $this->tipo_imagen_m->listType();
                         $width = $imageSize[0];
                         $height = $imageSize[1];
                         if ($width >= $objTipoImagenUpload->ancho && $height >= $objTipoImagenUpload->alto) {
-                            $this->imagenes_lib->loadImage(UPLOAD_IMAGENES_VIDEOS . '../temp/' . $imgFile);
+                            //$this->imagenes_lib->loadImage(UPLOAD_IMAGENES_VIDEOS . '../temp/' . $imgFile);
+                            $this->imagenes_lib->loadImage($this->config->item('path:temp') . $imgFile);
                             $this->imagenes_lib->crop($objTipoImagenUpload->ancho, $objTipoImagenUpload->alto, 'center');
-                            $this->imagenes_lib->save(UPLOAD_IMAGENES_VIDEOS . '../temp/' . preg_replace("/\\.[^.\\s]{3,4}$/", "", $imgFile) . '_' . $objTipoImagenUpload->ancho . 'x' . $objTipoImagenUpload->alto . '.' . $extension[$num]);
+                            //$this->imagenes_lib->save(UPLOAD_IMAGENES_VIDEOS . '../temp/' . preg_replace("/\\.[^.\\s]{3,4}$/", "", $imgFile) . '_' . $objTipoImagenUpload->ancho . 'x' . $objTipoImagenUpload->alto . '.' . $extension[$num]);
+                            $this->imagenes_lib->save($this->config->item('path:temp') . preg_replace("/\\.[^.\\s]{3,4}$/", "", $imgFile) . '_' . $objTipoImagenUpload->ancho . 'x' . $objTipoImagenUpload->alto . '.' . $extension[$num]);
                             //array_push($arrayImagenes, preg_replace("/\\.[^.\\s]{3,4}$/", "", $imgFile) . '_' . $objTipoImagenUpload->ancho . 'x' . $objTipoImagenUpload->alto . '.' . $extension[$num]);
                             $imageCroped = preg_replace("/\\.[^.\\s]{3,4}$/", "", $imgFile) . '_' . $objTipoImagenUpload->ancho . 'x' . $objTipoImagenUpload->alto . '.' . $extension[$num];
                         }
                         //eliminamos el archivo madre
-                        if (file_exists(UPLOAD_IMAGENES_VIDEOS . '../temp/' . $imgFile)) {
-                            unlink(UPLOAD_IMAGENES_VIDEOS . '../temp/' . $imgFile);
+                        if (file_exists($this->config->item('path:temp') . $imgFile)) {
+                            unlink($this->config->item('path:temp') . $imgFile);
                         }
                         $respuestaFile = 'done';
                         $fileName = $imgFile;
@@ -1529,7 +1535,7 @@ class Admin extends Admin_Controller {
 
     public function registrar_portada($canal_id) {
         $imagen = $this->input->post('image');
-        $path_image = FCPATH . 'uploads/temp/' . $imagen;
+        $path_image = $this->config->item('path:temp') . $imagen;
         $returnValue = 0;
         if (file_exists($path_image)) {
             $user_id = (int) $this->session->userdata('user_id');
@@ -2212,7 +2218,8 @@ class Admin extends Admin_Controller {
                                     $imagen = $objImagen->imagen;
                                 }
                             } else {
-                                $imagen = UPLOAD_IMAGENES_VIDEOS . 'no_video.jpg';
+                                //$imagen = UPLOAD_IMAGENES_VIDEOS . 'no_video.jpg';
+                                $imagen = $this->config->item('url:default_imagen') . 'no_video.jpg';
                             }
                             $htmlContenido.='<tr>';
                             $htmlContenido.='<td>' . ($puntero + 1) . '</td>';
@@ -2243,7 +2250,8 @@ class Admin extends Admin_Controller {
                                         $imagen = $objImagen->imagen;
                                     }
                                 } else {
-                                    $imagen = UPLOAD_IMAGENES_VIDEOS . 'no_video.jpg';
+                                    //$imagen = UPLOAD_IMAGENES_VIDEOS . 'no_video.jpg';
+                                    $imagen = $this->config->item('url:default_imagen') . 'no_video.jpg';
                                 }
                                 $htmlContenido.='<tr>';
                                 $htmlContenido.='<td>' . ($puntero + 1) . '</td>';
@@ -2303,7 +2311,8 @@ class Admin extends Admin_Controller {
                                     $imagen = $objImagen->imagen;
                                 }
                             } else {
-                                $imagen = UPLOAD_IMAGENES_VIDEOS . 'no_video.jpg';
+                                //$imagen = UPLOAD_IMAGENES_VIDEOS . 'no_video.jpg';
+                                $imagen = $this->config->item('url:default_imagen') . 'no_video.jpg';
                             }
                             $htmlContenido.='<tr>';
                             $htmlContenido.='<td>' . ($puntero + 1) . '</td>';
@@ -2394,7 +2403,8 @@ class Admin extends Admin_Controller {
                         $imagen = $objImagen->imagen;
                     }
                 } else {
-                    $imagen = UPLOAD_IMAGENES_VIDEOS . 'no_video.jpg';
+                    //$imagen = UPLOAD_IMAGENES_VIDEOS . 'no_video.jpg';
+                    $imagen = $this->config->item('url:default_imagen') . 'no_video.jpg';
                 }
                 $returnValue.='<tr>';
                 $returnValue.='<td>' . ($indice + 1) . '</td>';
@@ -3229,7 +3239,8 @@ class Admin extends Admin_Controller {
                             $imagen = $objImagen->imagen;
                         }
                     } else {
-                        $imagen = UPLOAD_IMAGENES_VIDEOS . 'no_video.jpg';
+                        //$imagen = UPLOAD_IMAGENES_VIDEOS . 'no_video.jpg';
+                        $imagen = $this->config->item('url:default_imagen') . 'no_video.jpg';
                     }
                     $returnValue.='<tr>';
                     $returnValue.='<td>' . ($indice + 1) . '</td>';
@@ -3252,7 +3263,8 @@ class Admin extends Admin_Controller {
                                 $imagen = $objImagen->imagen;
                             }
                         } else {
-                            $imagen = UPLOAD_IMAGENES_VIDEOS . 'no_video.jpg';
+                            //$imagen = UPLOAD_IMAGENES_VIDEOS . 'no_video.jpg';
+                            $imagen = $this->config->item('url:default_imagen') . 'no_video.jpg';
                         }
                         $returnValue.='<tr>';
                         $returnValue.='<td>' . ($indice + 1) . '</td>';
@@ -3274,7 +3286,8 @@ class Admin extends Admin_Controller {
                                 $imagen = $objImagen->imagen;
                             }
                         } else {
-                            $imagen = UPLOAD_IMAGENES_VIDEOS . 'no_video.jpg';
+                            //$imagen = UPLOAD_IMAGENES_VIDEOS . 'no_video.jpg';
+                            $imagen = $this->config->item('url:default_imagen') . 'no_video.jpg';
                         }
                         $returnValue.='<tr>';
                         $returnValue.='<td>' . ($indice + 1) . '</td>';
@@ -3554,11 +3567,11 @@ class Admin extends Admin_Controller {
             if (count($lista_detalle_seccion) > 0) {
                 foreach ($lista_detalle_seccion as $index => $objDetalleSeccion):
                     if ($primero->peso == $objDetalleSeccion->peso):
-                        $img = '<img title="Bajar" src="' . UPLOAD_IMAGENES_VIDEOS . 'down.png" class="bajar"  />';
+                        $img = '<img title="Bajar" src="' . $this->config->item('url:default_imagen') . 'down.png" class="bajar"  />';
                     elseif ($ultimo->peso == $objDetalleSeccion->peso):
-                        $img = '<img title="Subir" src="' . UPLOAD_IMAGENES_VIDEOS . 'up.png" class="subir"  />';
+                        $img = '<img title="Subir" src="' . $this->config->item('url:default_imagen') . 'up.png" class="subir"  />';
                     else:
-                        $img = '<a href="#" onclick="subir($(this).closest(\'tr\'),' . $objDetalleSeccion->id . ', ' . ($index + 1) . ', ' . $objDetalleSeccion->peso . ');return false;"><img title="Subir" src="' . UPLOAD_IMAGENES_VIDEOS . 'up.png" class="subir" /></a>' . '<img title="Bajar" src="' . UPLOAD_IMAGENES_VIDEOS . 'down.png"  class="bajar" />';
+                        $img = '<a href="#" onclick="subir($(this).closest(\'tr\'),' . $objDetalleSeccion->id . ', ' . ($index + 1) . ', ' . $objDetalleSeccion->peso . ');return false;"><img title="Subir" src="' . $this->config->item('url:default_imagen') . 'up.png" class="subir" /></a>' . '<img title="Bajar" src="' . $this->config->item('url:default_imagen') . 'down.png"  class="bajar" />';
                     endif;
                     $html.='<tr id="' . $objDetalleSeccion->id . '_' . $objDetalleSeccion->peso . '">';
                     $html.='<td>' . ($index + 1) . '</td>';
