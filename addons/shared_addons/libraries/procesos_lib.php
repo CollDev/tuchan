@@ -1268,7 +1268,7 @@ class Procesos_lib extends MX_Controller {
                     $this->canal_mp->updateEstadoMigracionVideosActualizacion($value->id);
                 }
 
-                //$this->_generarDetalleVideosXId($value->id, $mongo_id);
+                $this->_generarDetalleVideosXId($value->id, $mongo_id);
                 unset($objmongo);
             } else {
                 $id_mongo = new MongoId($value->id_mongo);
