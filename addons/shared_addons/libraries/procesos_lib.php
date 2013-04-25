@@ -1267,10 +1267,10 @@ class Procesos_lib extends MX_Controller {
     public function estadosVideos(){
         $videos = $this->videos_mp->getVideos();
         
-        echo "<table border=1><tr><td>id</td><td>estado_liquid</td><td>estado</td></tr>";
+        echo "<table border=1><tr><td>id</td><td>estado_liquid</td><td>estado</td><td>id_mongo</td></tr>";
         
         foreach ($videos as $value) {
-            echo "<tr><td>". $value->id ."</td><td>". $value->estado_liquid."</td><td>". $value->estado."</td></tr>";    
+            echo "<tr><td>". $value->id ."</td><td>". $value->estado_liquid."</td><td>". $value->estado."</td><td>". $value->id_mongo."</td></tr>";    
         }
         echo "</table>";
     }
