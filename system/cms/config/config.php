@@ -397,6 +397,9 @@ $config['modules_locations'] = array(
 //servidor elemento
 $config['server:elemento'] = 'dev.e.micanal.e3.pe';
 
+//servidor pre
+//$config['server:elemento'] = 'pre.e.micanal.e3.pe';
+
 //rutas de uploads
 $config['path:video'] = FCPATH.'uploads/videos/';
 $config['path:imagen'] = FCPATH.'uploads/imagenes/';
