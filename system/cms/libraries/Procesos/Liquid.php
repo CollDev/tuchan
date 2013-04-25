@@ -17,21 +17,21 @@ class Liquid {
             curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-Type: text/xml"));
             
             ERROR_LIQUID:
-            ////error_log("post entro error liquid titulo");
+            //////error_log("post entro error liquid titulo");
             $result = curl_exec($ch);
             $info = curl_getinfo($ch);
             
-            ////error_log("http_code postXML: " .   $info['http_code']);
-            ////error_log("curl_errno: " .   curl_errno($ch));
+            //////error_log("http_code postXML: " .   $info['http_code']);
+            //////error_log("curl_errno: " .   curl_errno($ch));
             
             if(!curl_errno($ch) && $info['http_code']=='200')
             {
                 curl_close($ch);  
-                ////error_log("paso publish");
+                //////error_log("paso publish");
                 return $result;
             }else{
                 sleep(5);
-                ////error_log("no paso publish");
+                //////error_log("no paso publish");
                 
                 goto ERROR_LIQUID;
             }          
@@ -52,25 +52,25 @@ class Liquid {
             curl_setopt($ch, CURLOPT_TIMEOUT, 15);            
             
             ERROR_LIQUID:
-            ////error_log("url get " . $url);
-            ////error_log("get entro error liquid titulo");
+            //////error_log("url get " . $url);
+            //////error_log("get entro error liquid titulo");
             
             $result = curl_exec($ch);
             $info = curl_getinfo($ch);
             
             
-            ////error_log("http_code: " .   $info['http_code']);
-            ////error_log("content_type: " .   $info['content_type']);
-            ////error_log("curl_errno: " .   curl_errno($ch));
+            //////error_log("http_code: " .   $info['http_code']);
+            //////error_log("content_type: " .   $info['content_type']);
+            //////error_log("curl_errno: " .   curl_errno($ch));
             
             if($info['http_code']=='200' &&  $info["content_type"]=='application/xml'){
                 curl_close($ch);  
-                ////error_log(" paso get");
-                ////error_log(" result : " .  $result);
+                //////error_log(" paso get");
+                //////error_log(" result : " .  $result);
                 return $result;
             }else{
                 sleep(5);
-                 ////error_log(" no paso get");
+                 //////error_log(" no paso get");
                 goto ERROR_LIQUID;
             }          
 //            $result = file_get_contents(trim($url));
@@ -111,7 +111,7 @@ class Liquid {
         $post .= "</Media>";
 
         $url = APIURL . "/medias/" . $datos->codigo . "?key=" . $datos->apikey;
-        ////error_log("url pusblish: ".$url);
+        //////error_log("url pusblish: ".$url);
         
         PUBLISHED:
         $retorno = self::postXML($url, $post);
@@ -164,16 +164,16 @@ class Liquid {
             curl_setopt($ch, CURLOPT_MAXREDIRS, 7);
             curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
 
-            ////error_log(PATH_VIDEOS);
+            //////error_log(PATH_VIDEOS);
             $post = array(
                 "file" => "@" . PATH_VIDEOS . $id_video . ".mp4",
                 "token" => $apiKey
             );
 
             curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
-            ////error_log("inicio envio de video a liquid");
+            //////error_log("inicio envio de video a liquid");
             $response = curl_exec($ch);
-            ////error_log("fin envio de video a liquid");
+            //////error_log("fin envio de video a liquid");
             curl_close($ch);
 
             $mediaxml = new SimpleXMLElement($response);
@@ -195,10 +195,10 @@ class Liquid {
         $url = APIURL . "/medias/" . $datos->codigo . "?key=" . $datos->apikey . "&filter=id;thumbs;files;published";
         //echo $url . "<br>";
         
-        ////error_log("url obtener datos: " . $url);
+        //////error_log("url obtener datos: " . $url);
         
         $response = self::getXml($url);
-        ////error_log("Response obtener datos" . $response);
+        //////error_log("Response obtener datos" . $response);
         $mediaxml = new SimpleXMLElement($response);
 
         $mediaarr = json_decode(json_encode($mediaxml), true);
@@ -333,6 +333,42 @@ class Liquid {
         $mediaarr = json_decode(json_encode($mediaxml), TRUE);
 
         return $this->getUrlVideoLiquidRawLite($mediarr);
+    }
+    
+    function getVerificarLiquidPostUpload($media,$apiKey){
+     try {
+            $url = APIURL . "/medias/" . $media . "?key=" . $apiKey . "&filter=id;thumbs;files;published";
+            
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL,$url);
+            curl_setopt($ch, CURLOPT_FAILONERROR,1);
+            curl_setopt($ch, CURLOPT_FOLLOWLOCATION,1);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
+            curl_setopt($ch, CURLOPT_TIMEOUT, 15);            
+                 
+            //error_log("entro getVerificarLiquidPostUpload " . $url);
+            //////error_log("get entro error liquid titulo");
+            
+            $result = curl_exec($ch);
+            $info = curl_getinfo($ch);
+            
+            
+            //error_log("http_code: " .   $info['http_code']);
+            //error_log("content_type: " .   $info['content_type']);
+            //error_log("curl_errno: " .   curl_errno($ch));
+            
+            if($info['http_code']=='200' &&  $info["content_type"]=='application/xml'){
+                //error_log("return true");
+                return TRUE;
+            }else{
+                //error_log("return false");
+                return FALSE;
+           
+            }          
+
+        } catch (Exception $exc) {
+           return FALSE;
+        }
     }
 
 }
