@@ -160,7 +160,7 @@ class Liquid {
             curl_setopt($ch, CURLOPT_POST, true);
             curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-Type: multipart/form-data;"));
             curl_setopt($ch, CURLOPT_AUTOREFERER, true);
-            curl_setopt($ch, CURLOPT_TIMEOUT, 1000);
+            curl_setopt($ch, CURLOPT_TIMEOUT, TIME_LIMIT);
             curl_setopt($ch, CURLOPT_MAXREDIRS, 7);
             curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
 
