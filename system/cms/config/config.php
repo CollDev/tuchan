@@ -397,6 +397,9 @@ $config['modules_locations'] = array(
 //servidor elemento
 $config['server:elemento'] = 'dev.e.micanal.e3.pe';
 
+//servidor pre
+//$config['server:elemento'] = 'pre.e.micanal.e3.pe';
+
 //rutas de uploads
 $config['path:video'] = FCPATH.'uploads/videos/';
 $config['path:imagen'] = FCPATH.'uploads/imagenes/';
@@ -404,5 +407,7 @@ $config['path:temp'] = FCPATH.'uploads/temp/';
 
 //url de imagenes predefinidas
 $config['url:default_imagen'] = BASE_URL.'uploads/imagenes/';
+$config['url:logo'] = BASE_URL.'system/cms/themes/pyrocms/img/image_no_found.png';
+$config['url:portada'] = BASE_URL.'system/cms/themes/pyrocms/img/imagen_portada_default.jpg';
 
 /* End of file config.php */
