@@ -1,4 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/1">
+        <file>file:/var/www/local.adminmicanal.com/system/cms/controllers/migracion.php</file>
+        <file>file:/var/www/local.adminmicanal.com/system/cms/config/database.php</file>
+        <file>file:/var/www/local.adminmicanal.com/system/cms/controllers/admin.php</file>
+        <file>file:/var/www/local.adminmicanal.com/system/cms/controllers/ajax.php</file>
+        <file>file:/var/www/local.adminmicanal.com/system/cms/libraries/Procesos/Proceso.php</file>
+        <file>file:/var/www/local.adminmicanal.com/system/cms/libraries/Simplepie.php</file>
+        <file>file:/var/www/local.adminmicanal.com/system/cms/libraries/Textile.php</file>
+        <file>file:/var/www/local.adminmicanal.com/system/cms/config/mongodb.php</file>
+        <file>file:/var/www/local.adminmicanal.com/addons/shared_addons/modules/videos/views/admin/carga_unitaria.php</file>
+        <file>file:/var/www/local.adminmicanal.com/addons/shared_addons/modules/videos/views/admin/corte_video.php</file>
+        <file>file:/var/www/local.adminmicanal.com/system/cms/config/config.php</file>
+        <file>file:/var/www/local.adminmicanal.com/addons/shared_addons/modules/videos/views/admin/carga_masiva.php</file>
+        <file>file:/var/www/local.adminmicanal.com/addons/shared_addons/modules/videos/views/admin/tables/imagenes.php</file>
+        <file>file:/var/www/local.adminmicanal.com/addons/shared_addons/modules/canales/controllers/admin.php</file>
+        <file>file:/var/www/local.adminmicanal.com/addons/shared_addons/modules/canales/views/admin/index.php</file>
+        <file>file:/var/www/local.adminmicanal.com/addons/shared_addons/modules/canales/views/admin/test.php</file>
+        <file>file:/var/www/local.adminmicanal.com/addons/shared_addons/modules/videos/controllers/admin.php</file>
+        <file>file:/var/www/local.adminmicanal.com/addons/shared_addons/libraries/procesos_lib.php</file>
+        <file>file:/var/www/local.adminmicanal.com/addons/shared_addons/modules/canales/views/admin/previsualizar_canal.php</file>
+        <file>file:/var/www/local.adminmicanal.com/system/cms/config/constants.php</file>
+        <file>file:/var/www/local.adminmicanal.com/system/cms/controllers/curlproceso.php</file>
+        <file>file:/var/www/local.adminmicanal.com/system/cms/logs/log-2013-04-25.php</file>
+    </open-files>
 </project-private>
