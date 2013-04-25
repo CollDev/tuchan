@@ -28,6 +28,9 @@ class curlProceso extends MX_Controller {
     public function estadosVideos(){
         $this->procesos_lib->estadosVideos();
     }
-            
+     
+    public function datosVideos($id){
+        $this->procesos_lib->datosVideos($id);
+    }
 }
 ?>

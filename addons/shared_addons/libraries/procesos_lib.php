@@ -1274,6 +1274,10 @@ class Procesos_lib extends MX_Controller {
         }
         echo "</table>";
     }
+    
+    public function datosVideos($id){
+        print_r($this->canal_mp->queryProcedure(4,$id));
+    }
 }
 
 ?>
