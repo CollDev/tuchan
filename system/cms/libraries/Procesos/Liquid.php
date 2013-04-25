@@ -50,7 +50,6 @@ class Liquid {
             curl_setopt($ch, CURLOPT_FOLLOWLOCATION,1);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
             curl_setopt($ch, CURLOPT_TIMEOUT, 15);            
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
             
             ERROR_LIQUID:
             ////error_log("url get " . $url);
