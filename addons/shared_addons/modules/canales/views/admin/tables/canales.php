@@ -42,12 +42,12 @@
                             break;
                         case $this->config->item('estado:publicado')://btn orange edit
                             $link = anchor('/admin/canales/canal/' . $post->id, lang('global:edit'), 'class="mode_edit"');
-                            $link.=anchor('/admin/canales/previsualizar_canal/', lang('global:preview'), 'target ="_blank" class="mode_preview modal-large"');
+                            $link.=anchor('/admin/canales/previsualizar_canal/' . $post->id, lang('global:preview'), 'target ="_blank" class="mode_preview modal-large"');
                             $link.= anchor('/admin/canales/portada/' . $post->id, lang('global:ver_portada'), 'class="mode_front"');
                             $link.= anchor('#', lang('global:delete'), 'class="mode_delete" onclick="eliminar(' . $post->id . ',\'canal\');return false;"');
                             break;
                         case $this->config->item('estado:eliminado'):
-                            $link = anchor('/admin/canales/previsualizar_canal/', lang('global:preview'), 'target ="_blank" class="mode_preview modal-large"');
+                            $link = anchor('/admin/canales/previsualizar_canal/' . $post->id, lang('global:preview'), 'target ="_blank" class="mode_preview modal-large"');
                             $link.= anchor('/admin/canales/portada/' . $post->id, lang('global:ver_portada'), 'class="mode_front"');
                             $link.= anchor('#', lang('global:restore'), 'class="mode_restore" onclick="restablecer(' . $post->id . ',\'canal\');return false;"');
                             break;
