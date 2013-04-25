@@ -21,7 +21,9 @@ class Ffmpeg {
             }
 
             if (is_readable($video_out)) {
-                unlink($video_in);
+                if(is_readable($video_in)){
+                     unlink($video_in);
+                }               
                 return true;
             } else {
 

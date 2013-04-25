@@ -182,3 +182,9 @@ ERROR - 2013-04-25 01:06:37 --> Severity: Warning  --> mysqli_connect(): (HY000/
 ERROR - 2013-04-25 01:06:37 --> Unable to connect to the database
 ERROR - 2013-04-25 01:06:57 --> Severity: Warning  --> mysqli_connect(): (HY000/2003): Can't connect to MySQL server on '10.203.31.139' (110) /home/user/Escritorio/adminmicanal/system/codeigniter/database/drivers/mysqli/mysqli_driver.php 75
 ERROR - 2013-04-25 01:06:57 --> Unable to connect to the database
+ERROR - 2013-04-25 01:42:37 --> Severity: Warning  --> mysqli_connect(): (HY000/2003): Can't connect to MySQL server on '10.203.31.139' (110) /home/user/Escritorio/adminmicanal/system/codeigniter/database/drivers/mysqli/mysqli_driver.php 75
+ERROR - 2013-04-25 01:42:37 --> Unable to connect to the database
+ERROR - 2013-04-25 01:42:57 --> Severity: Warning  --> mysqli_connect(): (HY000/2003): Can't connect to MySQL server on '10.203.31.139' (110) /home/user/Escritorio/adminmicanal/system/codeigniter/database/drivers/mysqli/mysqli_driver.php 75
+ERROR - 2013-04-25 01:42:57 --> Unable to connect to the database
+ERROR - 2013-04-25 14:18:56 --> Severity: Notice  --> Undefined property: stdClass::$etiquetas /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1172
+ERROR - 2013-04-25 14:18:56 --> Severity: Notice  --> Undefined property: stdClass::$imagen /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1173
