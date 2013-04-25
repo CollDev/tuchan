@@ -11,11 +11,15 @@
                             <li>
                                 <div class="content_section3">
                                     <div class="layer_content">
-                                        <?php $detalles = $objPortada[0]->detalle; ?>
+                                        <?php 
+                                            $detalles = $objPortada[0]->detalle; 
+                                            $titulo = '';
+                                        ?>
                                         <?php if (count($detalles) > 0): ?>
                                             <?php foreach ($detalles as $puntero => $objDetalle): ?>
                                                 <img src="<?php echo $objDetalle->imagen; ?>" title="Insensato Corazón" alt="Insensato Corazón">
                                                 <?php
+                                                $titulo = $objDetalle->maestro->nombre;
                                                 break;
                                             endforeach;
                                             ?>
@@ -28,7 +32,7 @@
                                                 <div class="layer_info">
                                                     <div class="data_info down_place4">
                                                         <span class="span_text2"></span> 
-                                                        <h5>Insensato Corazón</h5>
+                                                        <h5><?php echo $titulo; ?></h5>
                                                         <span class="span_text2"></span>
                                                     </div>
                                                 </div>
