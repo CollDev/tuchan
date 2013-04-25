@@ -404,5 +404,6 @@ $config['path:temp'] = FCPATH.'uploads/temp/';
 
 //url de imagenes predefinidas
 $config['url:default_imagen'] = BASE_URL.'uploads/imagenes/';
+$config['url:logo'] = BASE_URL.'system/cms/themes/pyrocms/img/image_no_found.png';
 
 /* End of file config.php */
