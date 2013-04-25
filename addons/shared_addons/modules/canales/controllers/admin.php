@@ -1312,13 +1312,15 @@ class Admin extends Admin_Controller {
      * @param type $mensaje 
      * @return string  name, direccion real de la imagen dominio
      */
-    public function elemento_upload($fid, $file, $mensaje = 'cms.micanal.pe') {
-        $url = "http://dev.e3.pe/index.php/api/v1";
+    public function elemento_upload($fid, $file, $mensaje) {
+        //$url = "http://dev.e3.pe/index.php/api/v1";
+        $url = $this->config->item('url:elemento');
         $remotedir = $this->elemento_basepath($fid, $this->config->item('server:elemento'));
         $ext = explode('.', $file);
         $infofile = urlencode(file_get_contents($file)); //encode_content_file($file);
         $data = array(
-            'apikey' => '590ee43e919b1f4baa2125a424f03cd160ff8901',
+            //'apikey' => '590ee43e919b1f4baa2125a424f03cd160ff8901',
+            'apikey' => $this->config->item('apikey:elemento'),
             'name' => $fid . '.' . $ext[1],
             'content' => $infofile,
             //'ruta' => 'files/' . $remotedir,
@@ -1342,7 +1344,7 @@ class Admin extends Admin_Controller {
      * @param type $container
      * @return string
      */
-    public function elemento_basepath($fid, $container = 'dev.e.micanal.e3.pe') {
+    public function elemento_basepath($fid, $container) {
 //    $container = md_elemento_container($ext);
         $filename = str_pad($fid, 8, "0", STR_PAD_LEFT);
         $dir_split_file = preg_split('//', substr($filename, 0, strlen($filename) - 3), -1, PREG_SPLIT_NO_EMPTY);
@@ -4547,6 +4549,8 @@ class Admin extends Admin_Controller {
                         } else {
                             $objDetalleSeccion->imagen = $this->config->item('url:logo');
                         }
+                        //obtenemos el maestro
+                        $objDetalleSeccion->maestro = $this->grupo_maestro_m->get($objDetalleSeccion->grupo_maestros_id);
                         $detalles[$puntero] = $objDetalleSeccion;
                     }
                     $objDestacado->detalle = $detalles;
