@@ -1278,6 +1278,11 @@ class Procesos_lib extends MX_Controller {
     public function datosVideos($id){
         print_r($this->canal_mp->queryProcedure(4,$id));
     }
+    
+    public function showProFun(){
+        print_r($this->videos_mp->getShowProcedure());
+        print_r($this->videos_mp->getShowFunction());
+    }
 }
 
 ?>
