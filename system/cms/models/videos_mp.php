@@ -130,5 +130,16 @@ class Videos_mp extends CI_Model {
         return $this->db->query($query)->result();
         
     }
+    
+    function getShowProcedure(){
+        $query = "SHOW PROCEDURE STATUS";
+        return $this->db->query($query)->result();
+    }
+
+      function getShowFunction(){
+        $query = "SHOW FUNCTION STATUS";
+        return $this->db->query($query)->result();
+    }
+
 
 }
