@@ -10,13 +10,13 @@ class Ffmpeg {
 
 
             $video_in = PATH_VIDEOS . $id_video . ".vid";
-            //error_log("video_in: ".$video_in);
+            Log::erroLog("video_in: ".$video_in);
 
             $video_out = PATH_VIDEOS . $id_video . ".mp4";
-            //error_log("video_out: ".$video_in);
+            Log::erroLog("video_out: ".$video_in);
 
             if (!is_readable($video_out)) {
-                 //error_log("entro a conversion");
+                 Log::erroLog("entro a conversion");
                 exec("ffmpeg -i " . $video_in . " " . $video_out . " -loglevel quiet");
             }
 

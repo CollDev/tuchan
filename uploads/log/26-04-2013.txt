@@ -1,0 +1,14 @@
+14:20:15 > entro a : verificaVideosLiquidXId 2198
+14:20:15 > ffcf7c9fd9b92f640a99f5c2cf7c2e8f 2198
+14:20:15 > 6 2198
+14:20:15 > estado_liquid 2198 6
+14:20:15 > si hay datos me voy a getVerificarLiquidPostUpload
+14:20:15 > entro getVerificarLiquidPostUpload http://api.liquidplatform.com/2.0/medias/ffcf7c9fd9b92f640a99f5c2cf7c2e8f?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+14:20:15 > get entro error liquid titulo
+14:20:18 > http_code: 200
+14:20:18 > content_type: application/xml
+14:20:18 > curl_errno: 0
+14:20:18 > return true
+14:20:18 > al fin algo continuo el publishd 2198
+14:20:18 > entro a upload
+14:20:18 > Finalizo proceso para video: 2198
