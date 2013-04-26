@@ -404,6 +404,7 @@ $config['mensaje:elemento'] = 'cms.micanal.pe';
 $config['path:video'] = FCPATH.'uploads/videos/';
 $config['path:imagen'] = FCPATH.'uploads/imagenes/';
 $config['path:temp'] = FCPATH.'uploads/temp/';
+$config['path:log'] = FCPATH.'uploads/log/';
 
 //url de imagenes predefinidas
 $config['url:default_imagen'] = BASE_URL.'uploads/imagenes/';
