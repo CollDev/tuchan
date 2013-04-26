@@ -96,7 +96,6 @@ class Procesos_lib extends MX_Controller {
         
         //$this->_uploadVideosXId($id);
         Log::erroLog("entro a curl upload video: ". $id);
-        
         $this->curlUploadVideosXId($id);
         Log::erroLog("salio de curl upload video ". $id);
         
