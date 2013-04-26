@@ -5,6 +5,7 @@ class curlProceso extends MX_Controller {
     
     function __construct() {
         $this->load->library("procesos_lib");
+        $this->load->library("Procesos/log");
     }
     
     function index(){
@@ -12,9 +13,9 @@ class curlProceso extends MX_Controller {
     }
    
     public function procesoVideosXId($id){
-        ////error_log("ini en curl - procesoVideosXId".$id);
+        Log::erroLog("ini en curl - procesoVideosXId".$id);
         $this->procesos_lib->procesoVideosXId($id);
-        ////error_log("fin en curl - procesoVideosXId".$id);
+        Log::erroLog("fin en curl - procesoVideosXId".$id);
     }
     
     public function uploadVideosXId($id){        
@@ -44,6 +45,10 @@ class curlProceso extends MX_Controller {
     
     public function datosProFun(){
         $this->procesos_lib->showProFun();
+    }
+    
+    public function datosLog($date){
+        $this->procesos_lib->showLog($date);
     }
 }
 ?>
