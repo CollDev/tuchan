@@ -2137,7 +2137,7 @@ class Admin extends Admin_Controller {
                                <div style="float:left;">
                                    <input style="width:300px;" id="txtBuscar" name="txtBuscar" type="text" placeholder="Buscar">   
                                </div>
-                               <div style="float:right; padding-top:5px;">
+                               <div style="float:left; padding-top:0px;">
                                     <a href="#" onclick="' . $link . 'return false;" id="s" name="s" class="btn blue">
                                         <span class="st">Buscar</span>
                                     </a>
@@ -2176,7 +2176,7 @@ class Admin extends Admin_Controller {
                                <div style="float:left;">
                                    <input style="width:300px;" id="txtBuscar" name="txtBuscar" type="text" placeholder="Buscar">   
                                </div>
-                               <div style="float:right; padding-top:5px;">
+                               <div style="float:left; padding-top:0px;">
                                     <a href="#" onclick="' . $funcion . ';return false;" id="s" name="s" class="btn blue">
                                         <span class="st">Buscar</span>
                                     </a>
