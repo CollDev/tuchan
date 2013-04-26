@@ -664,7 +664,7 @@
 					$("#btnSave").find("a").click(function(e) {
 					  e.preventDefault();
 					  $('#frm').submit();
-					  $("#btnSave").find("a")attr('disabled', true);
+					  $("#btnSave").find("a").attr('disabled', true);
 					});
 					
 					
