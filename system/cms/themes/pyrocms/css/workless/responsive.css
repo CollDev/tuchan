@@ -151,9 +151,11 @@ display:block;
 text-decoration:none;
 color:#FFF !important;
 /*padding-left: 36px;new*/
-margin-left: 15px;/*new*/
+margin-left: 10px;/*new*/
 margin-top:3px;/*new*/
+margin-bottom:144px;/*new*/
 }
+
 
 span.st {
 /*	padding-left:12px;
