@@ -355,6 +355,7 @@
                 <!--<a href="javascript:document.frm.submit();" class="btn orange" type="button">Guardar</a>-->
                 <div id="btnSave" style="float: left; padding-right: 10px;">
                     <a href="javascript:saveVideo();" class="btn orange" type="button"><?php echo lang('buttons.save'); ?></a>
+                    <!--<a href="javascript:saveVideo();" class="btn orange" type="button"><?php //echo lang('buttons.save'); ?></a>-->
                 </div>
                 <div  style="float: left;">
                     <?php
@@ -412,8 +413,9 @@
                     $.post(post_url, serializedData, function(data) {
                         //console.log(data.errorValue);
                         if (data.errorValue == '0') {
-                            $("#btnSave").html('<a href="#" class="btn silver" onclick="return false;" type="button"><?php echo lang('buttons.save'); ?></a>');
-                            $('#frm').submit();
+                           // $("#btnSave").html('<a href="#" class="btn silver" onclick="return false;" type="button"><?php echo lang('buttons.save'); ?></a>');
+                           // $('#frm').submit();
+						   $("#btnSave").attr("disabled","false");
                         } else {
                             showMessage('error', '<?php echo lang('videos:fragment_exist') ?>', 2000, '');
                         }
@@ -658,6 +660,15 @@
                 }
 
                 $(document).ready(function() {
+					$("#btnSave").attr('disabled', true);
+					$("#btnSave").click(function(e) {
+					  e.preventDefault();
+					  $('#frm').submit();
+					  $("#btnSave").attr('disabled', true);
+					});
+					
+					
+					
                     mostrar_titulo();
 <?php if ($objBeanForm->video_id > 0) { ?>
                         //Dropdown plugin data
