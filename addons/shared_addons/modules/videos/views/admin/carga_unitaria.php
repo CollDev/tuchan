@@ -230,7 +230,7 @@
             <div class="right_arm">
 
                 <!-- categoria -->
-                <label for="categoria"><?php echo lang('videos:categoria_label'); ?></label>
+                <label for="categoria"><?php echo lang('videos:categoria_label'); ?>*</label>
                 <?php echo form_error('categoria'); ?><br />
                 <?php echo form_dropdown('categoria', $categoria, $objBeanForm->categoria); ?>
 

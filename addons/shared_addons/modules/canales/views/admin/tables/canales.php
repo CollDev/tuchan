@@ -35,7 +35,7 @@
                     switch ($post->estado):
                         case $this->config->item('estado:borrador'):
                             $link = anchor('/admin/canales/canal/' . $post->id, lang('global:edit'), 'class="mode_edit"');
-                            $link.= anchor('/admin/canales/previsualizar_canal/', lang('global:preview'), 'target ="_blank" class="mode_preview modal-large"');
+                            $link.= anchor('/admin/canales/previsualizar_canal/' . $post->id, lang('global:preview'), 'target ="_blank" class="mode_preview modal-large"');
                             $link.= anchor('/admin/canales/portada/' . $post->id, lang('global:ver_portada'), 'class="mode_front"');
                             $link.= anchor('#', lang('global:1_estado'), 'class="mode_publish" onclick="publicar(' . $post->id . ',\'canal\');return false;"');
                             $link.= anchor('#', lang('global:delete'), 'class="mode_delete" onclick="eliminar(' . $post->id . ',\'canal\');return false;"');

@@ -2137,7 +2137,7 @@ class Admin extends Admin_Controller {
                                <div style="float:left;">
                                    <input style="width:300px;" id="txtBuscar" name="txtBuscar" type="text" placeholder="Buscar">   
                                </div>
-                               <div style="float:right; padding-top:5px;">
+                               <div style="float:left; padding-top:0px;">
                                     <a href="#" onclick="' . $link . 'return false;" id="s" name="s" class="btn blue">
                                         <span class="st">Buscar</span>
                                     </a>
@@ -2176,7 +2176,7 @@ class Admin extends Admin_Controller {
                                <div style="float:left;">
                                    <input style="width:300px;" id="txtBuscar" name="txtBuscar" type="text" placeholder="Buscar">   
                                </div>
-                               <div style="float:right; padding-top:5px;">
+                               <div style="float:left; padding-top:0px;">
                                     <a href="#" onclick="' . $funcion . ';return false;" id="s" name="s" class="btn blue">
                                         <span class="st">Buscar</span>
                                     </a>
@@ -4533,13 +4533,19 @@ class Admin extends Admin_Controller {
      * @return array $returnValue
      */
     private function obtenerPortadaCanal($canal_id) {
+        $user_id = (int) $this->session->userdata('user_id');
         $returnValue = array();
-        $objPortada = $this->portada_m->get_by(array("tipo_portadas_id" => $this->config->item('portada:canal'), "origen_id" => $canal_id));
+        $objCanal = $this->canales_m->get($canal_id);
+        if($objCanal->tipo_canales_id == $this->config->item('canal:mi_canal')){
+            $objPortada = $this->portada_m->get_by(array("tipo_portadas_id" => $this->config->item('portada:principal'), "origen_id" => $canal_id));
+        }else{
+            $objPortada = $this->portada_m->get_by(array("tipo_portadas_id" => $this->config->item('portada:canal'), "origen_id" => $canal_id));
+        }
         if (count($objPortada) > 0) {
-            $objDestacado = $this->secciones_m->get_by(array("portadas_id" => $objPortada->id, "tipo_secciones_id" => $this->config->item('seccion:destacado'), "estado" => $this->config->item('estado:publicado')));
-            if (count($objDestacado) > 0) {
+            $objSeccion = $this->secciones_m->order_by('peso','ASC')->get_many_by(array("portadas_id" => $objPortada->id, "estado" => $this->config->item('estado:publicado')));
+            if (count($objSeccion) > 0) {
                 //$this->vd($objDestacado);
-                $detalles = $this->detalle_secciones_m->order_by('peso', 'ASC')->get_many_by(array("secciones_id" => $objDestacado->id, "estado" => $this->config->item('estado:publicado')));
+                $detalles = $this->detalle_secciones_m->order_by('peso', 'ASC')->get_many_by(array("secciones_id" => $objSeccion->id, "estado" => $this->config->item('estado:publicado')));
                 if (count($detalles) > 0) {
                     foreach ($detalles as $puntero => $objDetalleSeccion) {
                         $objImagen = $this->imagen_m->get($objDetalleSeccion->imagenes_id);
@@ -4556,13 +4562,33 @@ class Admin extends Admin_Controller {
                         $objDetalleSeccion->maestro = $this->grupo_maestro_m->get($objDetalleSeccion->grupo_maestros_id);
                         $detalles[$puntero] = $objDetalleSeccion;
                     }
-                    $objDestacado->detalle = $detalles;
+                    $objSeccion->detalle = $detalles;
                 }else{
-                    $objDestacado->detalle = array();
+                    $objSeccion->detalle = array();
                 }
-                array_push($returnValue, $objDestacado);
+                array_push($returnValue, $objSeccion);
             }
-        }
+        }else{
+                //creamos un objeto de tipo portada vacia para que generar error
+                $objPortada = new stdClass();
+                $objPortada->id = 0;
+                $objPortada->canales_id = $canal_id;
+                $objPortada->nombre = '';
+                $objPortada->descripcion = '';
+                $objPortada->tipo_portadas_id = $this->config->item('portada:canal');
+                $objPortada->origen_id = $canal_id;
+                $objPortada->estado = $this->config->item('estado:borrador');
+                $objPortada->fecha_registro = '0000-00-00 00:00:00';
+                $objPortada->usuario_registro = $user_id;
+                $objPortada->fecha_actualizacion = '0000-00-00 00:00:00';
+                $objPortada->usuario_actualizacion = $user_id;
+                $objPortada->id_mongo = NULL;
+                $objPortada->estado_migracion = $this->config->item('migracion:nuevo');
+                $objPortada->fecha_migracion = '0000-00-00 00:00:00';
+                $objPortada->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
+                $objPortada->secciones = array();
+                array_push($returnValue, $objPortada);
+            }
         return $returnValue;
     }
 
