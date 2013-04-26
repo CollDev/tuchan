@@ -96,10 +96,11 @@ class Procesos_lib extends MX_Controller {
         
         //$this->_uploadVideosXId($id);
         Log::erroLog("entro a curl upload video: ". $id);
+        
         $this->curlUploadVideosXId($id);
         Log::erroLog("salio de curl upload video ". $id);
-        sleep(20);
-        $this->curlVerificaVideosLiquidXId($id);              
+        
+                    
         
     }
     
@@ -125,14 +126,19 @@ class Procesos_lib extends MX_Controller {
     public function verificaVideosLiquidXId($id){
         
         Log::erroLog("entro a : verificaVideosLiquidXId ". $id);
+
         
         $video = $this->videos_mp->getVideosxIdConKey($id);
         
+        Log::erroLog($video[0]->codigo." ". $id);
+        Log::erroLog($video[0]->estado_liquid." ". $id);
+        
+        Log::erroLog("estado_liquid ". $id. " ".$video[0]->estado_liquid);
         if(empty($video[0]->codigo)){
             if($video[0]->estado_liquid==2){
                 Log::erroLog("el video no se cargo me voy a  curlUploadVideosXId ". $id);
                 $this->curlUploadVideosXId($id);                               
-            }elseif($video[0]->estado_liquid==4){
+            }elseif($video[0]->estado_liquid== 3 || $video[0]->estado_liquid== 4){
                 Log::erroLog("no hay datos me voy a curlVerificaVideosLiquidXId ". $id);
                 $this->curlVerificaVideosLiquidXId($id);
             }                   
@@ -150,6 +156,7 @@ class Procesos_lib extends MX_Controller {
     }
     
      public function curlVerificaVideosLiquidXId($id){
+         sleep(10);
         Log::erroLog("entro a : curlVerificaVideosLiquidXId" . $id);
         $ruta =  base_url("curlproceso/verificaVideosLiquidXId/".$id);        
         shell_exec("curl ".$ruta . " > /dev/null 2>/dev/null &");
@@ -176,6 +183,7 @@ class Procesos_lib extends MX_Controller {
             foreach ($resultado as $value) {
 
                 $this->videos_mp->setEstadosVideos($value->id, 0, 3);
+                $this->curlVerificaVideosLiquidXId($id); 
                 $retorno = Liquid::uploadVideoLiquid($value->id, $value->apikey);
 
                 if ($retorno != FALSE) {
@@ -1237,8 +1245,8 @@ class Procesos_lib extends MX_Controller {
                 $objmongo['programa'] = ($datovideo[0]->xprograma);
                 $objmongo['programa_alias'] = $datovideo[0]->xprogramaalias;
                 $objmongo['fecha'] = date("d-m-Y", strtotime($datovideo[0]->xfechatransmision));
-                $objmongo['etiquetas'] = explode(",", $value->etiquetas);
-                $objmongo['logo'] = PATH_ELEMENTOS . $value->imagen;
+//                $objmongo['etiquetas'] = explode(",", $value->etiquetas);
+//                $objmongo['logo'] = PATH_ELEMENTOS . $value->imagen;
                 $objmongo['nombre'] = $datovideo[0]->xvideo;
                 $objmongo['descripcion'] = (strip_tags($datovideo[0]->xdescripcion));
 
@@ -1283,8 +1291,11 @@ class Procesos_lib extends MX_Controller {
                     $this->canal_mp->setItemCollectionUpdate($objmongo, $MongoId);
                     $this->canal_mp->updateEstadoMigracionVideosActualizacion($value->id);
                 }
-
-                $this->_generarDetalleVideosXId($value->id, $mongo_id);
+                
+                if ($value->estado_migracion == 0 || $value->estado_migracion == 9){
+                    $this->_generarDetalleVideosXId($value->id, $mongo_id);
+                }
+                
                 unset($objmongo);
             } else {
                 $id_mongo = new MongoId($value->id_mongo);
