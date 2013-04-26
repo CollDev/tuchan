@@ -8,10 +8,15 @@ class curlProceso extends MX_Controller {
         $this->load->library("Procesos/log");
     }
     
-    function index(){
-       
+    function index(){       
     }
    
+    public function corteVideoXId($id_padre, $id_hijo, $inicio, $duracion) {
+        Log::erroLog("ini en curl - procesoVideosXId".$id);
+        $this->procesos_lib->corteVideoXId($id_padre, $id_hijo, $inicio, $duracion);
+        Log::erroLog("fin en curl - procesoVideosXId".$id);
+    }
+    
     public function procesoVideosXId($id){
         Log::erroLog("ini en curl - procesoVideosXId".$id);
         $this->procesos_lib->procesoVideosXId($id);

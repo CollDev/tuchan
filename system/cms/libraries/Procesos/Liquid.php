@@ -177,15 +177,21 @@ class Liquid {
             curl_close($ch);
 
             $mediaxml = new SimpleXMLElement($response);
+            Log::erroLog("mediaxml " . $mediaxml ." ". $id_video);
             $mediaarr = json_decode(json_encode($mediaxml), true);
+            Log::erroLog("mediaarr " . $mediaarr ." ". $id_video);
             $media = $mediaarr["media"]["@attributes"]["id"];
+            Log::erroLog("media " . $media ." ". $id_video);
 
             if (!empty($media)) {
+                 Log::erroLog("return media " . trim($media));
                 return trim($media);
             } else {
+                Log::erroLog("return FALSE");
                 return FALSE;
             }
         } catch (Exception $exc) {
+            Log::erroLog("return FALSE de Exception");
             return FALSE;
         }
     }

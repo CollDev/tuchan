@@ -25,16 +25,30 @@ class Procesos_lib extends MX_Controller {
     }
 
     /* Corte video  -  INICIO */
+    
+    public function curlCorteVideoXId($id_padre, $id_hijo, $inicio, $duracion){
+        Log::erroLog("ini - curlCorteVideo: ".$id_padre. ", hijo ". $id_hijo);
+        $ruta =  base_url("curlproceso/corteVideoXId/".$id_padre."/".$id_hijo."/".$inicio."/".$duracion);
+        
+        shell_exec("curl ".$ruta . " > /dev/null 2>/dev/null &");
+        
+        Log::erroLog("fin - curlCorteVideo: ".$id_padre. ", hijo ". $id_hijo);
+    }
 
-    public function corte_Video($id_padre, $id_hijo, $inicio, $duracion) {
-        $datos = array();
-        $datos["id_padre"] = $id_padre;
-        $datos["id_hijo"] = $id_hijo;
-        $datos["inicio"] = $inicio;
-        $datos["duracion"] = $duracion;
-        $result = ci()->videos_mp->getVideosxId($id_padre);
-        $datos["ruta"] = $result[0]->ruta;
-        Proceso::corte_Video($datos);
+    public function corteVideoXId($id_padre, $id_hijo, $inicio, $duracion) {
+
+        $result =$this->videos_mp->getVideosxId($id_padre);
+
+        
+        if (!empty($id_padre) && !empty($id_hijo) && !empty($inicio) && !empty($duracion)) {
+            if (Ffmpeg::downloadVideo($result[0]->id, $result[0]->ruta)) {
+                if (Ffmpeg::splitVideo($id_padre,$id_hijo,$inicio, $duracion)) {
+                    $this->curlProcesoVideosXId($id_hijo);
+                } 
+            }
+        } else {
+            return FALSE;
+        }        
     }
 
     /* Corte video  -  Fin */
@@ -81,10 +95,8 @@ class Procesos_lib extends MX_Controller {
 //        $ch=curl_init("http://local.adminmicanal.dev/curlproceso/procesoVideosXId/".$id); 
 //        curl_exec($ch);
         
-        $ruta =  base_url("curlproceso/procesoVideosXId/".$id);
-        
-        shell_exec("curl ".$ruta . " > /dev/null 2>/dev/null &");
-        
+        $ruta =  base_url("curlproceso/procesoVideosXId/".$id);        
+        shell_exec("curl ".$ruta . " > /dev/null 2>/dev/null &");        
         Log::erroLog("fin - curlProcesoVideosXId: ".$id);
     }
     

@@ -27,7 +27,7 @@ class Videos_mp extends CI_Model {
     }
 
     public function getVideosxId($id) {
-        $query = "SELECT vi.id,vi.id_mongo,vi.estado_migracion,vi.estado, (SELECT GROUP_CONCAT(ta.nombre)
+        $query = "SELECT vi.ruta,vi.id,vi.id_mongo,vi.estado_migracion,vi.estado, (SELECT GROUP_CONCAT(ta.nombre)
                     FROM default_cms_video_tags vt INNER JOIN default_cms_tags ta ON vt.tags_id = ta.id  
                     WHERE vt.videos_id=vi.id) AS 'etiquetas',
                     ( SELECT  imagen FROM default_cms_imagenes WHERE tipo_imagen_id=5 AND canales_id=vi.canales_id) AS 'imagen'				
