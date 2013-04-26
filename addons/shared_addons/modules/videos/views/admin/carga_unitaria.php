@@ -415,7 +415,7 @@
                         if (data.errorValue == '0') {
                            // $("#btnSave").html('<a href="#" class="btn silver" onclick="return false;" type="button"><?php echo lang('buttons.save'); ?></a>');
                            // $('#frm').submit();
-						   $("#btnSave").attr("disabled","false");
+						   $("#btnSave").find("a").attr("disabled","false");
                         } else {
                             showMessage('error', '<?php echo lang('videos:fragment_exist') ?>', 2000, '');
                         }
@@ -660,11 +660,11 @@
                 }
 
                 $(document).ready(function() {
-					$("#btnSave").attr('disabled', true);
-					$("#btnSave").click(function(e) {
+					$("#btnSave").find("a").attr('disabled', true);
+					$("#btnSave").find("a").click(function(e) {
 					  e.preventDefault();
 					  $('#frm').submit();
-					  $("#btnSave").attr('disabled', true);
+					  $("#btnSave").find("a")attr('disabled', true);
 					});
 					
 					
