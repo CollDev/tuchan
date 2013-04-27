@@ -184,6 +184,9 @@ class Liquid {
             Log::erroLog("media " . $media ." ". $id_video);
 
             if (!empty($media)) {
+                 Log::erroLog("entro a : updateMediaVideosXId ". $id_video."/".$media);
+                 $ruta =  base_url("curlproceso/updateMediaVideosXId/".$id_video."/".$media);        
+                 shell_exec("curl ".$ruta . " > /dev/null 2>/dev/null &");
                  Log::erroLog("return media " . trim($media));
                 return trim($media);
             } else {

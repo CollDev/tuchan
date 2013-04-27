@@ -103,13 +103,13 @@ class Videos_mp extends CI_Model {
 
     public function setEstadosVideos($id = "", $estado = "", $estado_liquid = "") {
         $query = "update " . $this->_table . " set estado=" . $estado . ",estado_liquid =" . $estado_liquid . " where id=" . $id;
-        //echo $query . "\n";
+         Log::erroLog("query setEstadosVideos  ".$query);
         $this->db->query($query);
     }
 
-    function setMediaVideos($id = "", $media = "") {
+    function setMediaVideos($id, $media) {
         $query = "update " . $this->_table . " set codigo='" . $media . "' where id=" . $id;
-        //echo $query . "\n";
+        Log::erroLog("query setEstadosVideos  ".$query);
         $this->db->query($query);
     }
 

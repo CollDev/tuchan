@@ -3798,3 +3798,355 @@ ERROR - 2013-04-26 22:35:46 --> Severity: Warning  --> mysqli_connect(): (HY000/
 ERROR - 2013-04-26 22:35:46 --> Unable to connect to the database
 ERROR - 2013-04-26 22:35:54 --> Severity: Warning  --> mysqli_connect(): (HY000/2003): Can't connect to MySQL server on '10.203.31.139' (110) /home/user/Escritorio/adminmicanal/system/codeigniter/database/drivers/mysqli/mysqli_driver.php 75
 ERROR - 2013-04-26 22:35:54 --> Unable to connect to the database
+ERROR - 2013-04-26 23:25:09 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:25:09 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:25:09 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:25:09 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:25:09 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:25:09 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:25:10 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:25:10 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:25:10 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:25:10 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:25:10 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:25:10 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:25:10 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:25:10 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:25:10 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:25:10 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:25:10 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:25:10 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:25:10 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:25:10 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:25:10 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:25:10 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:25:10 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:25:10 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:25:10 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:25:10 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:25:10 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:25:10 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:25:10 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:25:10 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:25:27 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:25:27 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:25:27 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:25:27 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:25:27 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:25:27 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:25:28 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:25:28 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:25:28 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:25:28 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:25:28 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:25:28 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:25:29 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:25:29 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:25:29 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:25:29 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:25:29 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:25:29 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:25:42 --> Severity: Warning  --> mysqli_connect(): (HY000/2003): Can't connect to MySQL server on '10.203.31.139' (110) /home/user/Escritorio/adminmicanal/system/codeigniter/database/drivers/mysqli/mysqli_driver.php 75
+ERROR - 2013-04-26 23:25:42 --> Unable to connect to the database
+ERROR - 2013-04-26 23:26:06 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:26:06 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:26:06 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:26:06 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:26:06 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:26:06 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:26:07 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:26:07 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:26:07 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:26:07 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:26:07 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:26:07 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:26:22 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:26:22 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:26:22 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:26:22 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:26:22 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:26:22 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:26:22 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:26:22 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:26:22 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:26:22 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:26:22 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:26:22 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:26:29 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:26:29 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:26:29 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:26:29 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:26:29 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:26:29 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:26:29 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:26:29 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:26:29 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:26:29 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:26:29 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:26:29 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:26:29 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:26:29 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:26:29 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:26:29 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:26:29 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:26:29 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:27:11 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:27:11 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:27:11 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:27:11 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:27:11 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:27:11 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:27:11 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:27:11 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:27:11 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:27:11 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:27:11 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:27:11 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:27:15 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:27:15 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:27:15 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:27:15 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:27:15 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:27:15 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:27:15 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:27:15 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:27:15 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:27:15 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:27:15 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:27:15 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:27:25 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:27:25 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:27:25 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:27:25 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:27:25 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:27:25 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:27:25 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:27:25 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:27:25 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:27:25 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:27:25 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:27:25 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:27:32 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:27:32 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:27:32 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:27:32 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:27:32 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:27:32 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:27:33 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:27:33 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:27:33 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:27:33 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:27:33 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-04-26 23:27:33 --> Severity: Notice  --> Undefined index: en /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 144
+ERROR - 2013-04-26 23:31:57 --> Severity: Warning  --> filesize(): stat failed for /home/user/Escritorio/adminmicanal/uploads/videos/517b0e6316226. /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/controllers/admin.php 335
+ERROR - 2013-04-26 23:31:57 --> Severity: Warning  --> filesize(): stat failed for /home/user/Escritorio/adminmicanal/uploads/videos/517b0e661c5dd. /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/controllers/admin.php 335
+ERROR - 2013-04-26 23:31:57 --> Severity: Warning  --> filesize(): stat failed for /home/user/Escritorio/adminmicanal/uploads/videos/517b0e661c5df. /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/controllers/admin.php 335
+ERROR - 2013-04-26 23:31:57 --> Severity: Warning  --> filesize(): stat failed for /home/user/Escritorio/adminmicanal/uploads/videos/517b0e661d5c6. /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/controllers/admin.php 335
+ERROR - 2013-04-26 23:31:57 --> Severity: Warning  --> filesize(): stat failed for /home/user/Escritorio/adminmicanal/uploads/videos/517b0e661d5f5. /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/controllers/admin.php 335
+ERROR - 2013-04-26 23:31:57 --> Severity: Warning  --> filesize(): stat failed for /home/user/Escritorio/adminmicanal/uploads/videos/517b0e661e577. /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/controllers/admin.php 335
+ERROR - 2013-04-26 23:31:57 --> Severity: Warning  --> filesize(): stat failed for /home/user/Escritorio/adminmicanal/uploads/videos/517b0e6d18ffa. /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/controllers/admin.php 335
+ERROR - 2013-04-26 23:32:03 --> Severity: Warning  --> filesize(): stat failed for /home/user/Escritorio/adminmicanal/uploads/videos/517b0e701e32e. /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/controllers/admin.php 335
+ERROR - 2013-04-26 23:32:03 --> Severity: Warning  --> filesize(): stat failed for /home/user/Escritorio/adminmicanal/uploads/videos/517b0e702053e. /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/controllers/admin.php 335
+ERROR - 2013-04-26 23:32:03 --> Severity: Warning  --> filesize(): stat failed for /home/user/Escritorio/adminmicanal/uploads/videos/517b0e701f4ee. /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/controllers/admin.php 335
+ERROR - 2013-04-26 23:32:03 --> Severity: Warning  --> filesize(): stat failed for /home/user/Escritorio/adminmicanal/uploads/videos/517b0e7020c5b. /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/controllers/admin.php 335
+ERROR - 2013-04-26 23:32:03 --> Severity: Warning  --> filesize(): stat failed for /home/user/Escritorio/adminmicanal/uploads/videos/517b0e701ee67. /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/controllers/admin.php 335
+ERROR - 2013-04-26 23:33:15 --> Severity: Warning  --> fopen(/home/user/Escritorio/adminmicanal/uploads/log/26-04-2013.txt): failed to open stream: Permission denied /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 9
+ERROR - 2013-04-26 23:33:15 --> Severity: Warning  --> fwrite() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 10
+ERROR - 2013-04-26 23:33:15 --> Severity: Warning  --> fclose() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 11
+ERROR - 2013-04-26 23:33:15 --> Severity: Warning  --> fopen(/home/user/Escritorio/adminmicanal/uploads/log/26-04-2013.txt): failed to open stream: Permission denied /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 9
+ERROR - 2013-04-26 23:33:15 --> Severity: Warning  --> fwrite() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 10
+ERROR - 2013-04-26 23:33:15 --> Severity: Warning  --> fclose() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 11
+ERROR - 2013-04-26 23:33:16 --> Severity: Warning  --> fopen(/home/user/Escritorio/adminmicanal/uploads/log/26-04-2013.txt): failed to open stream: Permission denied /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 9
+ERROR - 2013-04-26 23:33:16 --> Severity: Warning  --> fwrite() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 10
+ERROR - 2013-04-26 23:33:16 --> Severity: Warning  --> fclose() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 11
+ERROR - 2013-04-26 23:33:16 --> Severity: Warning  --> fopen(/home/user/Escritorio/adminmicanal/uploads/log/26-04-2013.txt): failed to open stream: Permission denied /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 9
+ERROR - 2013-04-26 23:33:16 --> Severity: Warning  --> fwrite() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 10
+ERROR - 2013-04-26 23:33:16 --> Severity: Warning  --> fclose() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 11
+ERROR - 2013-04-26 23:33:16 --> Severity: Warning  --> fopen(/home/user/Escritorio/adminmicanal/uploads/log/26-04-2013.txt): failed to open stream: Permission denied /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 9
+ERROR - 2013-04-26 23:33:16 --> Severity: Warning  --> fwrite() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 10
+ERROR - 2013-04-26 23:33:16 --> Severity: Warning  --> fclose() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 11
+ERROR - 2013-04-26 23:33:16 --> Severity: Warning  --> fopen(/home/user/Escritorio/adminmicanal/uploads/log/26-04-2013.txt): failed to open stream: Permission denied /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 9
+ERROR - 2013-04-26 23:33:16 --> Severity: Warning  --> fwrite() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 10
+ERROR - 2013-04-26 23:33:16 --> Severity: Warning  --> fclose() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 11
+ERROR - 2013-04-26 23:33:16 --> Severity: Warning  --> fopen(/home/user/Escritorio/adminmicanal/uploads/log/26-04-2013.txt): failed to open stream: Permission denied /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 9
+ERROR - 2013-04-26 23:33:16 --> Severity: Warning  --> fwrite() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 10
+ERROR - 2013-04-26 23:33:16 --> Severity: Warning  --> fclose() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 11
+ERROR - 2013-04-26 23:33:16 --> Severity: Warning  --> fopen(/home/user/Escritorio/adminmicanal/uploads/log/26-04-2013.txt): failed to open stream: Permission denied /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 9
+ERROR - 2013-04-26 23:33:16 --> Severity: Warning  --> fwrite() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 10
+ERROR - 2013-04-26 23:33:16 --> Severity: Warning  --> fclose() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 11
+ERROR - 2013-04-26 23:33:16 --> Severity: Warning  --> fopen(/home/user/Escritorio/adminmicanal/uploads/log/26-04-2013.txt): failed to open stream: Permission denied /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 9
+ERROR - 2013-04-26 23:33:16 --> Severity: Warning  --> fwrite() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 10
+ERROR - 2013-04-26 23:33:16 --> Severity: Warning  --> fclose() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 11
+ERROR - 2013-04-26 23:33:16 --> Severity: Warning  --> fopen(/home/user/Escritorio/adminmicanal/uploads/log/26-04-2013.txt): failed to open stream: Permission denied /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 9
+ERROR - 2013-04-26 23:33:16 --> Severity: Warning  --> fwrite() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 10
+ERROR - 2013-04-26 23:33:16 --> Severity: Warning  --> fclose() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 11
+ERROR - 2013-04-26 23:33:26 --> Severity: Warning  --> fopen(/home/user/Escritorio/adminmicanal/uploads/log/26-04-2013.txt): failed to open stream: Permission denied /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 9
+ERROR - 2013-04-26 23:33:26 --> Severity: Warning  --> fwrite() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 10
+ERROR - 2013-04-26 23:33:26 --> Severity: Warning  --> fclose() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 11
+ERROR - 2013-04-26 23:33:26 --> Severity: Warning  --> fopen(/home/user/Escritorio/adminmicanal/uploads/log/26-04-2013.txt): failed to open stream: Permission denied /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 9
+ERROR - 2013-04-26 23:33:26 --> Severity: Warning  --> fwrite() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 10
+ERROR - 2013-04-26 23:33:26 --> Severity: Warning  --> fclose() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 11
+ERROR - 2013-04-26 23:33:26 --> Severity: Warning  --> fopen(/home/user/Escritorio/adminmicanal/uploads/log/26-04-2013.txt): failed to open stream: Permission denied /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 9
+ERROR - 2013-04-26 23:33:26 --> Severity: Warning  --> fwrite() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 10
+ERROR - 2013-04-26 23:33:26 --> Severity: Warning  --> fclose() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 11
+ERROR - 2013-04-26 23:33:26 --> Severity: Warning  --> fopen(/home/user/Escritorio/adminmicanal/uploads/log/26-04-2013.txt): failed to open stream: Permission denied /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 9
+ERROR - 2013-04-26 23:33:26 --> Severity: Warning  --> fwrite() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 10
+ERROR - 2013-04-26 23:33:26 --> Severity: Warning  --> fclose() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 11
+ERROR - 2013-04-26 23:33:26 --> Severity: Warning  --> fopen(/home/user/Escritorio/adminmicanal/uploads/log/26-04-2013.txt): failed to open stream: Permission denied /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 9
+ERROR - 2013-04-26 23:33:26 --> Severity: Warning  --> fwrite() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 10
+ERROR - 2013-04-26 23:33:26 --> Severity: Warning  --> fclose() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 11
+ERROR - 2013-04-26 23:33:26 --> Severity: Warning  --> fopen(/home/user/Escritorio/adminmicanal/uploads/log/26-04-2013.txt): failed to open stream: Permission denied /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 9
+ERROR - 2013-04-26 23:33:26 --> Severity: Warning  --> fwrite() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 10
+ERROR - 2013-04-26 23:33:26 --> Severity: Warning  --> fclose() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 11
+ERROR - 2013-04-26 23:33:26 --> Severity: Warning  --> fopen(/home/user/Escritorio/adminmicanal/uploads/log/26-04-2013.txt): failed to open stream: Permission denied /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 9
+ERROR - 2013-04-26 23:33:26 --> Severity: Warning  --> fwrite() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 10
+ERROR - 2013-04-26 23:33:26 --> Severity: Warning  --> fclose() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 11
+ERROR - 2013-04-26 23:33:26 --> Severity: Warning  --> fopen(/home/user/Escritorio/adminmicanal/uploads/log/26-04-2013.txt): failed to open stream: Permission denied /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 9
+ERROR - 2013-04-26 23:33:26 --> Severity: Warning  --> fwrite() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 10
+ERROR - 2013-04-26 23:33:26 --> Severity: Warning  --> fclose() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 11
+ERROR - 2013-04-26 23:33:36 --> Severity: Warning  --> fopen(/home/user/Escritorio/adminmicanal/uploads/log/26-04-2013.txt): failed to open stream: Permission denied /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 9
+ERROR - 2013-04-26 23:33:36 --> Severity: Warning  --> fwrite() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 10
+ERROR - 2013-04-26 23:33:36 --> Severity: Warning  --> fclose() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 11
+ERROR - 2013-04-26 23:33:36 --> Severity: Warning  --> fopen(/home/user/Escritorio/adminmicanal/uploads/log/26-04-2013.txt): failed to open stream: Permission denied /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 9
+ERROR - 2013-04-26 23:33:36 --> Severity: Warning  --> fwrite() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 10
+ERROR - 2013-04-26 23:33:36 --> Severity: Warning  --> fclose() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 11
+ERROR - 2013-04-26 23:33:36 --> Severity: Warning  --> fopen(/home/user/Escritorio/adminmicanal/uploads/log/26-04-2013.txt): failed to open stream: Permission denied /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 9
+ERROR - 2013-04-26 23:33:36 --> Severity: Warning  --> fwrite() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 10
+ERROR - 2013-04-26 23:33:36 --> Severity: Warning  --> fclose() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 11
+ERROR - 2013-04-26 23:33:36 --> Severity: Warning  --> fopen(/home/user/Escritorio/adminmicanal/uploads/log/26-04-2013.txt): failed to open stream: Permission denied /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 9
+ERROR - 2013-04-26 23:33:36 --> Severity: Warning  --> fwrite() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 10
+ERROR - 2013-04-26 23:33:36 --> Severity: Warning  --> fclose() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 11
+ERROR - 2013-04-26 23:33:36 --> Severity: Warning  --> fopen(/home/user/Escritorio/adminmicanal/uploads/log/26-04-2013.txt): failed to open stream: Permission denied /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 9
+ERROR - 2013-04-26 23:33:36 --> Severity: Warning  --> fwrite() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 10
+ERROR - 2013-04-26 23:33:36 --> Severity: Warning  --> fclose() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 11
+ERROR - 2013-04-26 23:33:36 --> Severity: Warning  --> fopen(/home/user/Escritorio/adminmicanal/uploads/log/26-04-2013.txt): failed to open stream: Permission denied /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 9
+ERROR - 2013-04-26 23:33:36 --> Severity: Warning  --> fwrite() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 10
+ERROR - 2013-04-26 23:33:36 --> Severity: Warning  --> fclose() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 11
+ERROR - 2013-04-26 23:33:46 --> Severity: Warning  --> fopen(/home/user/Escritorio/adminmicanal/uploads/log/26-04-2013.txt): failed to open stream: Permission denied /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 9
+ERROR - 2013-04-26 23:33:46 --> Severity: Warning  --> fwrite() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 10
+ERROR - 2013-04-26 23:33:46 --> Severity: Warning  --> fclose() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 11
+ERROR - 2013-04-26 23:33:46 --> Severity: Warning  --> fopen(/home/user/Escritorio/adminmicanal/uploads/log/26-04-2013.txt): failed to open stream: Permission denied /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 9
+ERROR - 2013-04-26 23:33:46 --> Severity: Warning  --> fwrite() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 10
+ERROR - 2013-04-26 23:33:46 --> Severity: Warning  --> fclose() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 11
+ERROR - 2013-04-26 23:33:46 --> Severity: Warning  --> fopen(/home/user/Escritorio/adminmicanal/uploads/log/26-04-2013.txt): failed to open stream: Permission denied /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 9
+ERROR - 2013-04-26 23:33:46 --> Severity: Warning  --> fwrite() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 10
+ERROR - 2013-04-26 23:33:46 --> Severity: Warning  --> fclose() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 11
+ERROR - 2013-04-26 23:33:46 --> Severity: Warning  --> fopen(/home/user/Escritorio/adminmicanal/uploads/log/26-04-2013.txt): failed to open stream: Permission denied /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 9
+ERROR - 2013-04-26 23:33:46 --> Severity: Warning  --> fwrite() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 10
+ERROR - 2013-04-26 23:33:46 --> Severity: Warning  --> fclose() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 11
+ERROR - 2013-04-26 23:33:46 --> Severity: Warning  --> fopen(/home/user/Escritorio/adminmicanal/uploads/log/26-04-2013.txt): failed to open stream: Permission denied /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 9
+ERROR - 2013-04-26 23:33:46 --> Severity: Warning  --> fwrite() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 10
+ERROR - 2013-04-26 23:33:46 --> Severity: Warning  --> fclose() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 11
+ERROR - 2013-04-26 23:33:46 --> Severity: Warning  --> fopen(/home/user/Escritorio/adminmicanal/uploads/log/26-04-2013.txt): failed to open stream: Permission denied /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 9
+ERROR - 2013-04-26 23:33:46 --> Severity: Warning  --> fwrite() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 10
+ERROR - 2013-04-26 23:33:46 --> Severity: Warning  --> fclose() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 11
+ERROR - 2013-04-26 23:33:56 --> Severity: Warning  --> fopen(/home/user/Escritorio/adminmicanal/uploads/log/26-04-2013.txt): failed to open stream: Permission denied /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 9
+ERROR - 2013-04-26 23:33:56 --> Severity: Warning  --> fwrite() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 10
+ERROR - 2013-04-26 23:33:56 --> Severity: Warning  --> fclose() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 11
+ERROR - 2013-04-26 23:33:56 --> Severity: Warning  --> fopen(/home/user/Escritorio/adminmicanal/uploads/log/26-04-2013.txt): failed to open stream: Permission denied /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 9
+ERROR - 2013-04-26 23:33:56 --> Severity: Warning  --> fwrite() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 10
+ERROR - 2013-04-26 23:33:56 --> Severity: Warning  --> fclose() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 11
+ERROR - 2013-04-26 23:33:56 --> Severity: Warning  --> fopen(/home/user/Escritorio/adminmicanal/uploads/log/26-04-2013.txt): failed to open stream: Permission denied /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 9
+ERROR - 2013-04-26 23:33:56 --> Severity: Warning  --> fwrite() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 10
+ERROR - 2013-04-26 23:33:56 --> Severity: Warning  --> fclose() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 11
+ERROR - 2013-04-26 23:33:56 --> Severity: Warning  --> fopen(/home/user/Escritorio/adminmicanal/uploads/log/26-04-2013.txt): failed to open stream: Permission denied /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 9
+ERROR - 2013-04-26 23:33:56 --> Severity: Warning  --> fwrite() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 10
+ERROR - 2013-04-26 23:33:56 --> Severity: Warning  --> fclose() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 11
+ERROR - 2013-04-26 23:33:56 --> Severity: Warning  --> fopen(/home/user/Escritorio/adminmicanal/uploads/log/26-04-2013.txt): failed to open stream: Permission denied /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 9
+ERROR - 2013-04-26 23:33:56 --> Severity: Warning  --> fwrite() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 10
+ERROR - 2013-04-26 23:33:56 --> Severity: Warning  --> fclose() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 11
+ERROR - 2013-04-26 23:33:56 --> Severity: Warning  --> fopen(/home/user/Escritorio/adminmicanal/uploads/log/26-04-2013.txt): failed to open stream: Permission denied /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 9
+ERROR - 2013-04-26 23:33:56 --> Severity: Warning  --> fwrite() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 10
+ERROR - 2013-04-26 23:33:56 --> Severity: Warning  --> fclose() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 11
+ERROR - 2013-04-26 23:34:06 --> Severity: Warning  --> fopen(/home/user/Escritorio/adminmicanal/uploads/log/26-04-2013.txt): failed to open stream: Permission denied /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 9
+ERROR - 2013-04-26 23:34:06 --> Severity: Warning  --> fwrite() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 10
+ERROR - 2013-04-26 23:34:06 --> Severity: Warning  --> fclose() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 11
+ERROR - 2013-04-26 23:34:06 --> Severity: Warning  --> fopen(/home/user/Escritorio/adminmicanal/uploads/log/26-04-2013.txt): failed to open stream: Permission denied /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 9
+ERROR - 2013-04-26 23:34:06 --> Severity: Warning  --> fwrite() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 10
+ERROR - 2013-04-26 23:34:06 --> Severity: Warning  --> fclose() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 11
+ERROR - 2013-04-26 23:34:06 --> Severity: Warning  --> fopen(/home/user/Escritorio/adminmicanal/uploads/log/26-04-2013.txt): failed to open stream: Permission denied /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 9
+ERROR - 2013-04-26 23:34:06 --> Severity: Warning  --> fwrite() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 10
+ERROR - 2013-04-26 23:34:06 --> Severity: Warning  --> fclose() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 11
+ERROR - 2013-04-26 23:34:06 --> Severity: Warning  --> fopen(/home/user/Escritorio/adminmicanal/uploads/log/26-04-2013.txt): failed to open stream: Permission denied /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 9
+ERROR - 2013-04-26 23:34:06 --> Severity: Warning  --> fwrite() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 10
+ERROR - 2013-04-26 23:34:06 --> Severity: Warning  --> fclose() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 11
+ERROR - 2013-04-26 23:34:06 --> Severity: Warning  --> fopen(/home/user/Escritorio/adminmicanal/uploads/log/26-04-2013.txt): failed to open stream: Permission denied /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 9
+ERROR - 2013-04-26 23:34:06 --> Severity: Warning  --> fwrite() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 10
+ERROR - 2013-04-26 23:34:06 --> Severity: Warning  --> fclose() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 11
+ERROR - 2013-04-26 23:34:06 --> Severity: Warning  --> fopen(/home/user/Escritorio/adminmicanal/uploads/log/26-04-2013.txt): failed to open stream: Permission denied /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 9
+ERROR - 2013-04-26 23:34:06 --> Severity: Warning  --> fwrite() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 10
+ERROR - 2013-04-26 23:34:06 --> Severity: Warning  --> fclose() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 11
+ERROR - 2013-04-26 23:34:16 --> Severity: Warning  --> fopen(/home/user/Escritorio/adminmicanal/uploads/log/26-04-2013.txt): failed to open stream: Permission denied /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 9
+ERROR - 2013-04-26 23:34:16 --> Severity: Warning  --> fwrite() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 10
+ERROR - 2013-04-26 23:34:16 --> Severity: Warning  --> fclose() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 11
+ERROR - 2013-04-26 23:34:16 --> Severity: Warning  --> fopen(/home/user/Escritorio/adminmicanal/uploads/log/26-04-2013.txt): failed to open stream: Permission denied /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 9
+ERROR - 2013-04-26 23:34:16 --> Severity: Warning  --> fwrite() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 10
+ERROR - 2013-04-26 23:34:16 --> Severity: Warning  --> fclose() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 11
+ERROR - 2013-04-26 23:34:16 --> Severity: Warning  --> fopen(/home/user/Escritorio/adminmicanal/uploads/log/26-04-2013.txt): failed to open stream: Permission denied /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 9
+ERROR - 2013-04-26 23:34:16 --> Severity: Warning  --> fwrite() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 10
+ERROR - 2013-04-26 23:34:16 --> Severity: Warning  --> fclose() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 11
+ERROR - 2013-04-26 23:34:16 --> Severity: Warning  --> fopen(/home/user/Escritorio/adminmicanal/uploads/log/26-04-2013.txt): failed to open stream: Permission denied /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 9
+ERROR - 2013-04-26 23:34:16 --> Severity: Warning  --> fwrite() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 10
+ERROR - 2013-04-26 23:34:16 --> Severity: Warning  --> fclose() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 11
+ERROR - 2013-04-26 23:34:16 --> Severity: Warning  --> fopen(/home/user/Escritorio/adminmicanal/uploads/log/26-04-2013.txt): failed to open stream: Permission denied /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 9
+ERROR - 2013-04-26 23:34:16 --> Severity: Warning  --> fwrite() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 10
+ERROR - 2013-04-26 23:34:16 --> Severity: Warning  --> fclose() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 11
+ERROR - 2013-04-26 23:34:16 --> Severity: Warning  --> fopen(/home/user/Escritorio/adminmicanal/uploads/log/26-04-2013.txt): failed to open stream: Permission denied /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 9
+ERROR - 2013-04-26 23:34:16 --> Severity: Warning  --> fwrite() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 10
+ERROR - 2013-04-26 23:34:16 --> Severity: Warning  --> fclose() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 11
+ERROR - 2013-04-26 23:34:26 --> Severity: Warning  --> fopen(/home/user/Escritorio/adminmicanal/uploads/log/26-04-2013.txt): failed to open stream: Permission denied /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 9
+ERROR - 2013-04-26 23:34:26 --> Severity: Warning  --> fwrite() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 10
+ERROR - 2013-04-26 23:34:26 --> Severity: Warning  --> fclose() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 11
+ERROR - 2013-04-26 23:34:26 --> Severity: Warning  --> fopen(/home/user/Escritorio/adminmicanal/uploads/log/26-04-2013.txt): failed to open stream: Permission denied /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 9
+ERROR - 2013-04-26 23:34:26 --> Severity: Warning  --> fwrite() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 10
+ERROR - 2013-04-26 23:34:26 --> Severity: Warning  --> fclose() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 11
+ERROR - 2013-04-26 23:34:26 --> Severity: Warning  --> fopen(/home/user/Escritorio/adminmicanal/uploads/log/26-04-2013.txt): failed to open stream: Permission denied /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 9
+ERROR - 2013-04-26 23:34:26 --> Severity: Warning  --> fwrite() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 10
+ERROR - 2013-04-26 23:34:26 --> Severity: Warning  --> fclose() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 11
+ERROR - 2013-04-26 23:34:26 --> Severity: Warning  --> fopen(/home/user/Escritorio/adminmicanal/uploads/log/26-04-2013.txt): failed to open stream: Permission denied /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 9
+ERROR - 2013-04-26 23:34:26 --> Severity: Warning  --> fwrite() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 10
+ERROR - 2013-04-26 23:34:26 --> Severity: Warning  --> fclose() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 11
+ERROR - 2013-04-26 23:34:26 --> Severity: Warning  --> fopen(/home/user/Escritorio/adminmicanal/uploads/log/26-04-2013.txt): failed to open stream: Permission denied /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 9
+ERROR - 2013-04-26 23:34:26 --> Severity: Warning  --> fwrite() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 10
+ERROR - 2013-04-26 23:34:26 --> Severity: Warning  --> fclose() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 11
+ERROR - 2013-04-26 23:34:26 --> Severity: Warning  --> fopen(/home/user/Escritorio/adminmicanal/uploads/log/26-04-2013.txt): failed to open stream: Permission denied /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 9
+ERROR - 2013-04-26 23:34:26 --> Severity: Warning  --> fwrite() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 10
+ERROR - 2013-04-26 23:34:26 --> Severity: Warning  --> fclose() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 11
+ERROR - 2013-04-26 23:34:36 --> Severity: Warning  --> fopen(/home/user/Escritorio/adminmicanal/uploads/log/26-04-2013.txt): failed to open stream: Permission denied /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 9
+ERROR - 2013-04-26 23:34:36 --> Severity: Warning  --> fwrite() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 10
+ERROR - 2013-04-26 23:34:36 --> Severity: Warning  --> fclose() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 11
+ERROR - 2013-04-26 23:34:36 --> Severity: Warning  --> fopen(/home/user/Escritorio/adminmicanal/uploads/log/26-04-2013.txt): failed to open stream: Permission denied /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 9
+ERROR - 2013-04-26 23:34:36 --> Severity: Warning  --> fwrite() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 10
+ERROR - 2013-04-26 23:34:36 --> Severity: Warning  --> fclose() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 11
+ERROR - 2013-04-26 23:34:36 --> Severity: Warning  --> fopen(/home/user/Escritorio/adminmicanal/uploads/log/26-04-2013.txt): failed to open stream: Permission denied /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 9
+ERROR - 2013-04-26 23:34:36 --> Severity: Warning  --> fwrite() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 10
+ERROR - 2013-04-26 23:34:36 --> Severity: Warning  --> fclose() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 11
+ERROR - 2013-04-26 23:34:36 --> Severity: Warning  --> fopen(/home/user/Escritorio/adminmicanal/uploads/log/26-04-2013.txt): failed to open stream: Permission denied /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 9
+ERROR - 2013-04-26 23:34:36 --> Severity: Warning  --> fwrite() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 10
+ERROR - 2013-04-26 23:34:36 --> Severity: Warning  --> fclose() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 11
+ERROR - 2013-04-26 23:34:36 --> Severity: Warning  --> fopen(/home/user/Escritorio/adminmicanal/uploads/log/26-04-2013.txt): failed to open stream: Permission denied /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 9
+ERROR - 2013-04-26 23:34:36 --> Severity: Warning  --> fwrite() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 10
+ERROR - 2013-04-26 23:34:36 --> Severity: Warning  --> fclose() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 11
+ERROR - 2013-04-26 23:34:36 --> Severity: Warning  --> fopen(/home/user/Escritorio/adminmicanal/uploads/log/26-04-2013.txt): failed to open stream: Permission denied /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 9
+ERROR - 2013-04-26 23:34:36 --> Severity: Warning  --> fwrite() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 10
+ERROR - 2013-04-26 23:34:36 --> Severity: Warning  --> fclose() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 11
+ERROR - 2013-04-26 23:34:46 --> Severity: Warning  --> fopen(/home/user/Escritorio/adminmicanal/uploads/log/26-04-2013.txt): failed to open stream: Permission denied /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 9
+ERROR - 2013-04-26 23:34:46 --> Severity: Warning  --> fwrite() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 10
+ERROR - 2013-04-26 23:34:46 --> Severity: Warning  --> fclose() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 11
+ERROR - 2013-04-26 23:34:46 --> Severity: Warning  --> fopen(/home/user/Escritorio/adminmicanal/uploads/log/26-04-2013.txt): failed to open stream: Permission denied /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 9
+ERROR - 2013-04-26 23:34:46 --> Severity: Warning  --> fwrite() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 10
+ERROR - 2013-04-26 23:34:46 --> Severity: Warning  --> fclose() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 11
+ERROR - 2013-04-26 23:34:46 --> Severity: Warning  --> fopen(/home/user/Escritorio/adminmicanal/uploads/log/26-04-2013.txt): failed to open stream: Permission denied /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 9
+ERROR - 2013-04-26 23:34:46 --> Severity: Warning  --> fwrite() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 10
+ERROR - 2013-04-26 23:34:46 --> Severity: Warning  --> fclose() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 11
+ERROR - 2013-04-26 23:34:46 --> Severity: Warning  --> fopen(/home/user/Escritorio/adminmicanal/uploads/log/26-04-2013.txt): failed to open stream: Permission denied /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 9
+ERROR - 2013-04-26 23:34:46 --> Severity: Warning  --> fwrite() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 10
+ERROR - 2013-04-26 23:34:46 --> Severity: Warning  --> fclose() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 11
+ERROR - 2013-04-26 23:34:46 --> Severity: Warning  --> fopen(/home/user/Escritorio/adminmicanal/uploads/log/26-04-2013.txt): failed to open stream: Permission denied /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 9
+ERROR - 2013-04-26 23:34:46 --> Severity: Warning  --> fwrite() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 10
+ERROR - 2013-04-26 23:34:46 --> Severity: Warning  --> fclose() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 11
+ERROR - 2013-04-26 23:34:46 --> Severity: Warning  --> fopen(/home/user/Escritorio/adminmicanal/uploads/log/26-04-2013.txt): failed to open stream: Permission denied /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 9
+ERROR - 2013-04-26 23:34:46 --> Severity: Warning  --> fwrite() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 10
+ERROR - 2013-04-26 23:34:46 --> Severity: Warning  --> fclose() expects parameter 1 to be resource, boolean given /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Log.php 11
+ERROR - 2013-04-26 23:35:19 --> Severity: Notice  --> Array to string conversion /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 182
+ERROR - 2013-04-26 23:36:48 --> Severity: Warning  --> filesize(): stat failed for /home/user/Escritorio/adminmicanal/uploads/videos/517b0f8f15143. /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/controllers/admin.php 335

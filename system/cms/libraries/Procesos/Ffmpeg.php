@@ -22,15 +22,17 @@ class Ffmpeg {
 
             if (is_readable($video_out)) {
                 if(is_readable($video_in)){
-                     unlink($video_in);
-                }               
+                    Log::erroLog("borrando archivo origen ". $id);
+                    unlink($video_in);
+                }   
+                Log::erroLog("retornando true archivo convertido: ". $id);
                 return true;
             } else {
-
+                Log::erroLog("retornando false archivo no convertido: ". $id);
                 return false;
             }
         } catch (Exception $e) {
-
+            Log::erroLog("excepxion de conversion: ". $id);
             return false;
         }
     }
@@ -70,7 +72,7 @@ class Ffmpeg {
                 return TRUE;
             } else {
                 DONWLOADVIDEO:
-                 Log::erroLog("Inicio descarga de Video id: ". $id_video);
+                Log::erroLog("Inicio descarga de Video id: ". $id_video);
                 Log::erroLog("Ruta : ". $ruta);
                 $fp = fopen($filePath, "w");
 
