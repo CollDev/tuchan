@@ -6,8 +6,12 @@ if (!defined('BASEPATH'))     exit('No direct script access allowed');
 class Liquid {
 
     function postXML($url, $post) {
+         ERROR_LIQUID:
+            Log::erroLog("postXML - url: " . $url);
+            Log::erroLog("postXML - Post : " .  $post);
+        
         try {
-            ERROR_LIQUID:
+           
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible;)");
             curl_setopt($ch, CURLOPT_URL, $url);
@@ -17,8 +21,9 @@ class Liquid {
             curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
             curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-Type: text/xml"));
                         
-            Log::erroLog("post entro error liquid titulo");
+            Log::erroLog("iniciando envio de postXML ");
             $result = curl_exec($ch);
+            Log::erroLog("finalizado envio de postXML ");
             $info = curl_getinfo($ch);
             
             Log::erroLog("http_code postXML: " .   $info['http_code']);
