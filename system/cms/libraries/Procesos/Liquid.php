@@ -103,7 +103,7 @@ class Liquid {
     }
 
     function updatePublishedMediaNode($datos) {
-
+        PUBLISHED:
 
         $fecha = date('Y-m-d H:i:s');
         $date = date("Y-m-d\TH:i:sP", strtotime($fecha));
