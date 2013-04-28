@@ -8,7 +8,7 @@ class Liquid {
     function postXML($url, $post) {
          ERROR_LIQUID:
             Log::erroLog("postXML - url: " . $url);
-            Log::erroLog("postXML - Post : " .  $post);
+            Log::erroLog("postXML - Post : " . print_r($post));
         
         try {
            
@@ -32,8 +32,12 @@ class Liquid {
             if(!curl_errno($ch) && $info['http_code']=='200')
             {
                 curl_close($ch);  
-                Log::erroLog("paso publish");
+                Log::erroLog("paso publishd");
                 return $result;
+            }elseif ($info['http_code']=='500') {
+                Log::erroLog("publishd datos genericos");
+                return self::updatePublishedMedia($url);
+                
             }else{
                 sleep(5);
                 Log::erroLog("no paso publish");
@@ -90,13 +94,13 @@ class Liquid {
         }
     }
 
-    function updatePublishedMedia($mediaId, $apiKey) {
+    function updatePublishedMedia($url) {
         $mediaId = trim($mediaId);
 
         $fecha = date('Y-m-d H:i:s');
         $date = date("Y-m-d\TH:i:sP", strtotime($fecha));
 
-        $post = "<Media><published>true</published><publishDate>" . $date . "</publishDate></Media>";
+        $post = "<Media><title>Titulo</title><description>Descripcion</description><published>true</published><publishDate>" . $date . "</publishDate></Media>";
         $url = APIURL . "/medias/" . $mediaId . "?key=" . $apiKey;
         //echo $url . "<br>";
         return $this->postXML($url, $post);
