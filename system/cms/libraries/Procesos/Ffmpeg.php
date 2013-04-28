@@ -13,7 +13,7 @@ class Ffmpeg {
             Log::erroLog("video_in: ".$video_in);
 
             $video_out = PATH_VIDEOS . $id_video . ".mp4";
-            Log::erroLog("video_out: ".$video_in);
+            Log::erroLog("video_out: ".$video_out);
 
             if (!is_readable($video_out)) {
                  Log::erroLog("entro a conversion");
@@ -22,17 +22,17 @@ class Ffmpeg {
 
             if (is_readable($video_out)) {
                 if(is_readable($video_in)){
-                    Log::erroLog("borrando archivo origen ". $id);
+                    Log::erroLog("borrando archivo origen ". $id_video);
                     unlink($video_in);
                 }   
-                Log::erroLog("retornando true archivo convertido: ". $id);
+                Log::erroLog("retornando true archivo convertido: ". $id_video);
                 return true;
             } else {
-                Log::erroLog("retornando false archivo no convertido: ". $id);
+                Log::erroLog("retornando false archivo no convertido: ". $id_video);
                 return false;
             }
         } catch (Exception $e) {
-            Log::erroLog("excepxion de conversion: ". $id);
+            Log::erroLog("excepxion de conversion: ". $id_video);
             return false;
         }
     }
