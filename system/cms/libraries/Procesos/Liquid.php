@@ -7,6 +7,7 @@ class Liquid {
 
     function postXML($url, $post) {
         try {
+            ERROR_LIQUID:
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible;)");
             curl_setopt($ch, CURLOPT_URL, $url);
@@ -15,8 +16,7 @@ class Liquid {
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
             curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
             curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-Type: text/xml"));
-            
-            ERROR_LIQUID:
+                        
             Log::erroLog("post entro error liquid titulo");
             $result = curl_exec($ch);
             $info = curl_getinfo($ch);
