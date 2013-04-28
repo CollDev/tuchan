@@ -38,12 +38,13 @@ class Liquid {
                 Log::erroLog("publishd datos genericos");
                 return self::updatePublishedMedia($url);
                 
-            }else{
-                sleep(5);
-                Log::erroLog("no paso publish");
-                
-                goto ERROR_LIQUID;
-            }          
+            }
+//            else{
+//                sleep(5);
+//                Log::erroLog("no paso publish");
+//                
+//                goto ERROR_LIQUID;
+//            }          
         } catch (Exception $exc) {
             return FALSE;
             //echo $exc->getTraceAsString();
