@@ -48,6 +48,7 @@ class Liquid {
 
     function getXml($url) {
         try {
+            ERROR_LIQUID:
             
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL,$url);
@@ -56,7 +57,7 @@ class Liquid {
             curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
             curl_setopt($ch, CURLOPT_TIMEOUT, 15);            
             
-            ERROR_LIQUID:
+            
             Log::erroLog("url get " . $url);
             Log::erroLog("get entro error liquid titulo");
             
@@ -118,7 +119,7 @@ class Liquid {
         $url = APIURL . "/medias/" . $datos->codigo . "?key=" . $datos->apikey;
         Log::erroLog("url pusblish: ".$url);
         
-        PUBLISHED:
+        
         $retorno = self::postXML($url, $post);
         
         Log::erroLog("retorno: " . $retorno);
