@@ -6,7 +6,7 @@ if (!defined('BASEPATH'))     exit('No direct script access allowed');
 class Liquid {
 
     function postXML($url, $post) {
-         ERROR_LIQUID:
+         // ERROR_LIQUID: 
             Log::erroLog("postXML - url: " . $url);
             Log::erroLog("postXML - Post : " . print_r($post));
         
@@ -39,12 +39,12 @@ class Liquid {
                 return self::updatePublishedMedia($url);
                 
             }
-//            else{
-//                sleep(5);
-//                Log::erroLog("no paso publish");
-//                
-//                goto ERROR_LIQUID;
-//            }          
+            else{
+                sleep(5);
+                Log::erroLog("no paso publish");
+                
+                //goto ERROR_LIQUID;
+            }          
         } catch (Exception $exc) {
             return FALSE;
             //echo $exc->getTraceAsString();
