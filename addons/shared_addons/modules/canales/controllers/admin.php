@@ -3027,7 +3027,7 @@ class Admin extends Admin_Controller {
                 $objBeanSeccion->tipo = '0';
                 $objBeanSeccion->portadas_id = $objBeanPortadaSaved->id;
                 $objBeanSeccion->tipo_secciones_id = $objTipoSeccion->id;
-                $objBeanSeccion->peso = $pos;
+                $objBeanSeccion->peso = ($puntero + 1);
                 $objBeanSeccion->id_mongo = '0';
                 $objBeanSeccion->estado = '0';
                 $objBeanSeccion->fecha_registro = date("Y-m-d H:i:s");
