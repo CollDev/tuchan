@@ -669,6 +669,7 @@ class Admin extends Admin_Controller {
                 $objBeanCanal->playerkey = $this->input->post('playerkey');
                 $objBeanCanal->fecha_actualizacion = date("Y-m-d H:i:s");
                 $objBeanCanal->usuario_actualizacion = $user_id;
+
                 $this->canales_m->actualizar($objBeanCanal);
 
                 //guardamos las imagenes
@@ -1368,7 +1369,7 @@ class Admin extends Admin_Controller {
                 $returnValue = true;
             }
         } else {
-            $lista = $this->canales_m->like("nombre", $nombre_canal)->get_many_by();
+            $lista = $this->canales_m->like("nombre", $nombre_canal)->get_many_by(array());
             if (count($lista) > 0) {
                 foreach ($lista as $index => $objCanal) {
                     if (strtolower($nombre_canal) == strtolower($objCanal->nombre) && $objCanal->id != $canal_id) {
