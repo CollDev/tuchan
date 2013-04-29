@@ -188,9 +188,9 @@ class Liquid {
             curl_close($ch);
 
             $mediaxml = new SimpleXMLElement($response);
-            Log::erroLog("mediaxml " . $mediaxml ." ". $id_video);
+            
             $mediaarr = json_decode(json_encode($mediaxml), true);
-            Log::erroLog("mediaarr " . $mediaarr ." ". $id_video);
+           
             $media = $mediaarr["media"]["@attributes"]["id"];
             Log::erroLog("media " . $media ." ". $id_video);
 
