@@ -13,33 +13,54 @@
     </div>
 </section>
 
-<script>    
+<script>
     $(document).ready(function() {
-        $("td input:radio").attr("disabled","true");        
-       put_disabled(); 
-       
-        $("input:checkbox:checked").change(function(){
-            $("td input:radio").attr("disabled","true");
+        $("td input:radio").attr("disabled", "true");
+        put_disabled();
+
+        $("input:checkbox:checked").change(function() {
+            $("td input:radio").attr("disabled", "true");
             put_disabled();
-        });       
-       
+        });
+        
+        $("input:checkbox").change(function() {
+            desabilitar_radios();
+        });        
+        
     });
     //$("td input:radio").attr("disabled","true");
-        
-    function put_disabled(){
+
+    function put_disabled() {
         var cont = 0;
-        $("input:checkbox:checked").each(function(){
-            
+        $("input:checkbox:checked").each(function() {
             $(this).parent().parent().find("td input:radio").removeAttr("disabled");
-            if(cont == 0){
-                $(this).parent().parent().find("td input:radio").attr('checked',true);
-                //$('td input:radio')[cont].checked = true;
+            if (cont == 0) {
+                $(this).parent().parent().find("td input:radio").attr('checked', true);
             }
             cont++;
-        });    
-        
-    }    
-    
-  
-    
+        });
+        if (cont == 0) {
+            $("input:checkbox").change(function() {
+                if ($(this).is(':checked')) {
+                    $(this).parent().parent().find("td input:radio").attr('checked', true);
+                    $(this).parent().parent().find("td input:radio").attr('disabled', false);
+                }
+                desabilitar_radios();
+            });
+        }
+
+    }
+
+    function desabilitar_radios() {
+        $("input:checkbox").each(function() {
+            if ($(this).is(':checked')) {
+                $(this).parent().parent().find("td input:radio").attr('disabled', false);
+            } else {
+                $(this).parent().parent().find("td input:radio").attr('disabled', true);
+            }
+        });
+    }
+
+
+
 </script>
