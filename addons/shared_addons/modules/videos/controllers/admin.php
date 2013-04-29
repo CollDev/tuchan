@@ -62,7 +62,6 @@ class Admin extends Admin_Controller {
         rename($path_video_old, $path_video_new);
         $this->procesos_lib->curlProcesoVideosXId($objBeanVideo->id);
 
-
         return $returnValue;
     }
 
@@ -2420,11 +2419,8 @@ class Admin extends Admin_Controller {
 //                $datos["ruta"] = $result[0]->ruta;
 //
 //                Proceso::corte_Video($datos);
-                error_log("ingreso a curlCorteVideoXId ".$video_id);
+                
                 $this->procesos_lib->curlCorteVideoXId($video_id,$objvideotemp->id,$this->input->post('ini_corte'),$this->input->post('dur_corte'));
-                error_log("Salio a curlCorteVideoXId " .$video_id);
-
-
                 echo json_encode(array("value" => '0'));
             }
         }
