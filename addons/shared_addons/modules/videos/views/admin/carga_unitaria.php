@@ -413,9 +413,9 @@
                     $.post(post_url, serializedData, function(data) {
                         //console.log(data.errorValue);
                         if (data.errorValue == '0') {
-                           // $("#btnSave").html('<a href="#" class="btn silver" onclick="return false;" type="button"><?php echo lang('buttons.save'); ?></a>');
-                           // $('#frm').submit();
-						   $("#btnSave").find("a").attr("disabled","false");
+                            $("#btnSave").html('<a href="#" class="btn silver" onclick="return false;" type="button"><?php echo lang('buttons.save'); ?></a>');
+                            $('#frm').submit();
+						   //$("#btnSave").find("a").attr("disabled","false");
                         } else {
                             showMessage('error', '<?php echo lang('videos:fragment_exist') ?>', 2000, '');
                         }

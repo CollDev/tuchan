@@ -1314,9 +1314,9 @@ class Admin extends Admin_Controller {
      */
     public function elemento_upload($fid, $file, $mensaje = '') {
         //$url = "http://dev.e3.pe/index.php/api/v1";
-        if(strlen(trim($mensaje))==0){
+        if (strlen(trim($mensaje)) == 0) {
             $mensaje = $this->config->item('mensaje:elemento');
-        }        
+        }
         $url = $this->config->item('url:elemento');
         $remotedir = $this->elemento_basepath($fid, $this->config->item('server:elemento'));
         $ext = explode('.', $file);
@@ -4534,62 +4534,60 @@ class Admin extends Admin_Controller {
      */
     private function obtenerPortadaCanal($canal_id) {
         $user_id = (int) $this->session->userdata('user_id');
-        $returnValue = array();
+        //$returnValue = array();
         $objCanal = $this->canales_m->get($canal_id);
-        if($objCanal->tipo_canales_id == $this->config->item('canal:mi_canal')){
+        if ($objCanal->tipo_canales_id == $this->config->item('canal:mi_canal')) {
             $objPortada = $this->portada_m->get_by(array("tipo_portadas_id" => $this->config->item('portada:principal'), "origen_id" => $canal_id));
-        }else{
+        } else {
             $objPortada = $this->portada_m->get_by(array("tipo_portadas_id" => $this->config->item('portada:canal'), "origen_id" => $canal_id));
         }
         if (count($objPortada) > 0) {
-            $objSeccion = $this->secciones_m->order_by('peso','ASC')->get_many_by(array("portadas_id" => $objPortada->id, "estado" => $this->config->item('estado:publicado')));
-            if (count($objSeccion) > 0) {
-                //$this->vd($objDestacado);
-                $detalles = $this->detalle_secciones_m->order_by('peso', 'ASC')->get_many_by(array("secciones_id" => $objSeccion->id, "estado" => $this->config->item('estado:publicado')));
-                if (count($detalles) > 0) {
-                    foreach ($detalles as $puntero => $objDetalleSeccion) {
-                        $objImagen = $this->imagen_m->get($objDetalleSeccion->imagenes_id);
-                        if (count($objImagen) > 0) {
-                            if ($objImagen->procedencia == 0) {
-                                $objDetalleSeccion->imagen = $this->config->item('protocolo:http') . $this->config->item('server:elemento') . '/' . $objImagen->imagen;
+            $objColeccionSeccion = $this->secciones_m->order_by('peso', 'ASC')->get_many_by(array("portadas_id" => $objPortada->id, "estado" => $this->config->item('estado:publicado')));
+            if (count($objColeccionSeccion) > 0) {
+                foreach ($objColeccionSeccion as $puntero => $objSeccion) {
+                    $detalle_seccion = $this->detalle_secciones_m->get_many_by(array("secciones_id" => $objSeccion->id, "estado"=>$this->config->item('estado:publicado')));
+                    if (count($detalle_seccion) > 0) {
+                        foreach ($detalle_seccion as $index => $objDetalleSeccion) {
+                            $objImagen = $this->imagen_m->get($objDetalleSeccion->imagenes_id);
+                            if (count($objImagen) > 0) {
+                                if ($objImagen->procedencia == 0) {
+                                    $objDetalleSeccion->imagen = $this->config->item('protocolo:http') . $this->config->item('server:elemento') . '/' . $objImagen->imagen;
+                                } else {
+                                    $objDetalleSeccion->imagen = $objImagen->imagen;
+                                }
                             } else {
-                                $objDetalleSeccion->imagen = $objImagen->imagen;
+                                $objDetalleSeccion->imagen = $this->config->item('url:portada');
                             }
-                        } else {
-                            $objDetalleSeccion->imagen = $this->config->item('url:logo');
                         }
-                        //obtenemos el maestro
-                        $objDetalleSeccion->maestro = $this->grupo_maestro_m->get($objDetalleSeccion->grupo_maestros_id);
-                        $detalles[$puntero] = $objDetalleSeccion;
                     }
-                    $objSeccion->detalle = $detalles;
-                }else{
-                    $objSeccion->detalle = array();
+                    $objSeccion->detalle_seccion = $detalle_seccion;
+                    $objColeccionSeccion[$puntero] = $objSeccion;
                 }
-                array_push($returnValue, $objSeccion);
             }
-        }else{
-                //creamos un objeto de tipo portada vacia para que generar error
-                $objPortada = new stdClass();
-                $objPortada->id = 0;
-                $objPortada->canales_id = $canal_id;
-                $objPortada->nombre = '';
-                $objPortada->descripcion = '';
-                $objPortada->tipo_portadas_id = $this->config->item('portada:canal');
-                $objPortada->origen_id = $canal_id;
-                $objPortada->estado = $this->config->item('estado:borrador');
-                $objPortada->fecha_registro = '0000-00-00 00:00:00';
-                $objPortada->usuario_registro = $user_id;
-                $objPortada->fecha_actualizacion = '0000-00-00 00:00:00';
-                $objPortada->usuario_actualizacion = $user_id;
-                $objPortada->id_mongo = NULL;
-                $objPortada->estado_migracion = $this->config->item('migracion:nuevo');
-                $objPortada->fecha_migracion = '0000-00-00 00:00:00';
-                $objPortada->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
-                $objPortada->secciones = array();
-                array_push($returnValue, $objPortada);
-            }
-        return $returnValue;
+            $objPortada->secciones = $objColeccionSeccion;
+            //array_push($returnValue, $objPortada);
+        } else {
+            //creamos un objeto de tipo portada vacia para que generar error
+            $objPortada = new stdClass();
+            $objPortada->id = 0;
+            $objPortada->canales_id = $canal_id;
+            $objPortada->nombre = '';
+            $objPortada->descripcion = '';
+            $objPortada->tipo_portadas_id = $this->config->item('portada:canal');
+            $objPortada->origen_id = $canal_id;
+            $objPortada->estado = $this->config->item('estado:borrador');
+            $objPortada->fecha_registro = '0000-00-00 00:00:00';
+            $objPortada->usuario_registro = $user_id;
+            $objPortada->fecha_actualizacion = '0000-00-00 00:00:00';
+            $objPortada->usuario_actualizacion = $user_id;
+            $objPortada->id_mongo = NULL;
+            $objPortada->estado_migracion = $this->config->item('migracion:nuevo');
+            $objPortada->fecha_migracion = '0000-00-00 00:00:00';
+            $objPortada->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
+            $objPortada->secciones = array();
+            //array_push($returnValue, $objPortada);
+        }
+        return $objPortada;
     }
 
 }

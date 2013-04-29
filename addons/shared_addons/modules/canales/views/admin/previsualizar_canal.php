@@ -12,19 +12,23 @@
                                 <div class="content_section3">
                                     <div class="layer_content">
                                         <?php
-                                        $detalles = $objPortada[0]->detalle;
+                                        $objColeccionSeccion = $objPortada->secciones;
                                         $titulo = '';
                                         ?>
-                                        <?php if (count($detalles) > 0): ?>
-                                            <?php foreach ($detalles as $puntero => $objDetalle): ?>
-                                                <img src="<?php echo $objDetalle->imagen; ?>" title="Insensato Corazón" alt="Insensato Corazón">
-                                                <?php
-                                                if (count($objDetalle->maestro) > 0) {
-                                                    $titulo = $objDetalle->maestro->nombre;
-                                                }
-                                                break;
-                                            endforeach;
-                                            ?>
+                                        <?php if (count($objColeccionSeccion) > 0): ?>
+                                            <?php foreach ($objColeccionSeccion as $puntero => $objSeccion): ?>
+                                                <?php if ($objSeccion->tipo_secciones_id == $this->config->item('seccion:destacado')): ?>
+                                                    <?php $coleccion_detalle_seccion = $objSeccion->detalle_seccion; ?>
+                                                    <?php if (count($coleccion_detalle_seccion) > 0): ?>
+                                                        <?php foreach($coleccion_detalle_seccion as $indice=>$objDetalleSeccion): ?>
+                                                            <img src="<?php echo $objDetalleSeccion->imagen; ?>" title="Insensato Corazón" alt="Insensato Corazón">
+                                                            <?php break; ?>
+                                                        <?php endforeach;?>
+                                                    <?php else: ?>
+                                                        <img style="width:820px; height: 400px;" src="<?php echo $this->config->item('url:portada'); ?>" title="Insensato Corazón" alt="Insensato Corazón">
+                                                    <?php endif; ?>
+                                                <?php endif; ?>
+                                            <?php endforeach; ?>
                                         <?php else: ?>
                                             <img style="width:820px; height: 400px;" src="<?php echo $this->config->item('url:portada'); ?>" title="Insensato Corazón" alt="Insensato Corazón">
                                         <?php endif; ?>
@@ -76,5 +80,7 @@
                 </div>
             </div>
         </div>
+        <!--gdfgfdg-->
+        
     </div>
 </div>
