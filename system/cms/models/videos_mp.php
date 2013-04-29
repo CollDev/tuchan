@@ -27,7 +27,7 @@ class Videos_mp extends CI_Model {
     }
 
     public function getVideosxId($id) {
-        $query = "SELECT vi.id,vi.id_mongo,vi.estado_migracion,vi.estado, (SELECT GROUP_CONCAT(ta.nombre)
+        $query = "SELECT vi.ruta,vi.id,vi.id_mongo,vi.estado_migracion,vi.estado, (SELECT GROUP_CONCAT(ta.nombre)
                     FROM default_cms_video_tags vt INNER JOIN default_cms_tags ta ON vt.tags_id = ta.id  
                     WHERE vt.videos_id=vi.id) AS 'etiquetas',
                     ( SELECT  imagen FROM default_cms_imagenes WHERE tipo_imagen_id=5 AND canales_id=vi.canales_id) AS 'imagen'				
@@ -103,20 +103,21 @@ class Videos_mp extends CI_Model {
 
     public function setEstadosVideos($id = "", $estado = "", $estado_liquid = "") {
         $query = "update " . $this->_table . " set estado=" . $estado . ",estado_liquid =" . $estado_liquid . " where id=" . $id;
-        //echo $query . "\n";
         $this->db->query($query);
+        Log::erroLog("query setEstadosVideos  ".$query);
+        
     }
 
-    function setMediaVideos($id = "", $media = "") {
-        $query = "update " . $this->_table . " set codigo='" . $media . "' where id=" . $id;
-        //echo $query . "\n";
+    function setMediaVideos($id, $media) {
+        $query = "update " . $this->_table . " set codigo='" . $media . "' where id=" . $id;        
         $this->db->query($query);
+        Log::erroLog("query setEstadosVideos  ".$query);
     }
 
     function setRutaVideos($id = "", $ruta = "") {
-        $query = "update " . $this->_table . " set ruta='" . $ruta . "' where id=" . $id;
-        //echo $query . "\n";
+        $query = "update " . $this->_table . " set ruta='" . $ruta . "' where id=" . $id;        
         $this->db->query($query);
+        Log::erroLog("setRutaVideos  ".$query);
     }
 
     function setComentariosValorizacion($id, $comentarios, $valorizacion) {

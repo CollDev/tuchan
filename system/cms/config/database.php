@@ -52,6 +52,7 @@ $db[PYRO_DEVELOPMENT] = array(
 	'stricton' 		=> TRUE,
 );
 */
+
 // configuracion para EC
 
 // El Comercio

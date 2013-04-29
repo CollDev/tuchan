@@ -38,8 +38,8 @@ class Admin extends Admin_Controller {
         $this->load->library('imagenes_lib');
         $this->load->library('procesos_lib');
 
-        ci()->load->model('videos_mp');
-        ci()->load->library("Procesos/proceso");
+//        ci()->load->model('videos_mp');
+//        ci()->load->library("Procesos/proceso");
     }
 
     public function index() {
@@ -61,7 +61,6 @@ class Admin extends Admin_Controller {
         }
         rename($path_video_old, $path_video_new);
         $this->procesos_lib->curlProcesoVideosXId($objBeanVideo->id);
-
 
         return $returnValue;
     }
@@ -2410,18 +2409,19 @@ class Admin extends Admin_Controller {
                 //guardamos en la tabla grupo detalle
                 $this->_saveVideoMaestroDetalle($objBeanVideo, $this->input->post(), $maestro_detalle_id);
 
-                $datos = array();
-                $datos["id_padre"] = $video_id;
-                $datos["id_hijo"] = $objvideotemp->id;
-                $datos["inicio"] = $this->input->post('ini_corte');
-                $datos["duracion"] = $this->input->post('dur_corte');
+//                $datos = array();
+//                $datos["id_padre"] = $video_id;
+//                $datos["id_hijo"] = $objvideotemp->id;
+//                $datos["inicio"] = $this->input->post('ini_corte');
+//                $datos["duracion"] = $this->input->post('dur_corte');
 
-                $result = ci()->videos_mp->getVideosxId($video_id);
-                $datos["ruta"] = $result[0]->ruta;
-
-                Proceso::corte_Video($datos);
-                $this->procesos_lib->procesoVideos();
-
+//                $result = ci()->videos_mp->getVideosxId($video_id);
+//                $datos["ruta"] = $result[0]->ruta;
+//
+//                Proceso::corte_Video($datos);
+                error_log("ingreso a curlCorteVideoXId ".$video_id);
+                $this->procesos_lib->curlCorteVideoXId($video_id,$objvideotemp->id,$this->input->post('ini_corte'),$this->input->post('dur_corte'));
+                error_log("Salio a curlCorteVideoXId " .$video_id);
 
 
                 echo json_encode(array("value" => '0'));

@@ -6,7 +6,12 @@ if (!defined('BASEPATH'))     exit('No direct script access allowed');
 class Liquid {
 
     function postXML($url, $post) {
+         // ERROR_LIQUID: 
+            Log::erroLog("postXML - url: " . $url);
+            Log::erroLog("postXML - Post : " . print_r($post));
+        
         try {
+           
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible;)");
             curl_setopt($ch, CURLOPT_URL, $url);
@@ -15,10 +20,10 @@ class Liquid {
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
             curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
             curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-Type: text/xml"));
-            
-            ERROR_LIQUID:
-            Log::erroLog("post entro error liquid titulo");
+                        
+            Log::erroLog("iniciando envio de postXML ");
             $result = curl_exec($ch);
+            Log::erroLog("finalizado envio de postXML ");
             $info = curl_getinfo($ch);
             
             Log::erroLog("http_code postXML: " .   $info['http_code']);
@@ -27,13 +32,18 @@ class Liquid {
             if(!curl_errno($ch) && $info['http_code']=='200')
             {
                 curl_close($ch);  
-                Log::erroLog("paso publish");
+                Log::erroLog("paso publishd");
                 return $result;
-            }else{
+            }elseif ($info['http_code']=='500') {
+                Log::erroLog("publishd datos genericos");
+                return self::updatePublishedMedia($url);
+                
+            }
+            else{
                 sleep(5);
                 Log::erroLog("no paso publish");
                 
-                goto ERROR_LIQUID;
+                //goto ERROR_LIQUID;
             }          
         } catch (Exception $exc) {
             return FALSE;
@@ -43,6 +53,7 @@ class Liquid {
 
     function getXml($url) {
         try {
+            ERROR_LIQUID:
             
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL,$url);
@@ -51,7 +62,7 @@ class Liquid {
             curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
             curl_setopt($ch, CURLOPT_TIMEOUT, 15);            
             
-            ERROR_LIQUID:
+            
             Log::erroLog("url get " . $url);
             Log::erroLog("get entro error liquid titulo");
             
@@ -84,20 +95,20 @@ class Liquid {
         }
     }
 
-    function updatePublishedMedia($mediaId, $apiKey) {
+    function updatePublishedMedia($url) {
         $mediaId = trim($mediaId);
 
         $fecha = date('Y-m-d H:i:s');
         $date = date("Y-m-d\TH:i:sP", strtotime($fecha));
 
-        $post = "<Media><published>true</published><publishDate>" . $date . "</publishDate></Media>";
+        $post = "<Media><title>Titulo</title><description>Descripcion</description><published>true</published><publishDate>" . $date . "</publishDate></Media>";
         $url = APIURL . "/medias/" . $mediaId . "?key=" . $apiKey;
         //echo $url . "<br>";
         return $this->postXML($url, $post);
     }
 
     function updatePublishedMediaNode($datos) {
-
+        PUBLISHED:
 
         $fecha = date('Y-m-d H:i:s');
         $date = date("Y-m-d\TH:i:sP", strtotime($fecha));
@@ -113,7 +124,7 @@ class Liquid {
         $url = APIURL . "/medias/" . $datos->codigo . "?key=" . $datos->apikey;
         Log::erroLog("url pusblish: ".$url);
         
-        PUBLISHED:
+        
         $retorno = self::postXML($url, $post);
         
         Log::erroLog("retorno: " . $retorno);
@@ -177,15 +188,24 @@ class Liquid {
             curl_close($ch);
 
             $mediaxml = new SimpleXMLElement($response);
+            
             $mediaarr = json_decode(json_encode($mediaxml), true);
+           
             $media = $mediaarr["media"]["@attributes"]["id"];
+            Log::erroLog("media " . $media ." ". $id_video);
 
             if (!empty($media)) {
+                 Log::erroLog("entro a : updateMediaVideosXId ". $id_video."/".$media);
+                 $ruta =  base_url("curlproceso/updateMediaVideosXId/".$id_video."/".$media);        
+                 shell_exec("curl ".$ruta . " > /dev/null 2>/dev/null &");
+                 Log::erroLog("return media " . trim($media));
                 return trim($media);
             } else {
+                Log::erroLog("return FALSE");
                 return FALSE;
             }
         } catch (Exception $exc) {
+            Log::erroLog("return FALSE de Exception");
             return FALSE;
         }
     }

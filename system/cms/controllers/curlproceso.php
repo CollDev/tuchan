@@ -8,10 +8,15 @@ class curlProceso extends MX_Controller {
         $this->load->library("Procesos/log");
     }
     
-    function index(){
-       
+    function index(){       
     }
    
+    public function corteVideoXId($id_padre, $id_hijo, $inicio, $duracion) {
+        Log::erroLog("ini en curl - corteVideoXId".$id_padre);
+        $this->procesos_lib->corteVideoXId($id_padre, $id_hijo, $inicio, $duracion);
+        Log::erroLog("fin en curl - corteVideoXId".$id_padre);
+    }
+    
     public function procesoVideosXId($id){
         Log::erroLog("ini en curl - procesoVideosXId".$id);
         $this->procesos_lib->procesoVideosXId($id);
@@ -19,9 +24,16 @@ class curlProceso extends MX_Controller {
     }
     
     public function uploadVideosXId($id){        
+         Log::erroLog("ini en curl - uploadVideosXId".$id);
         $this->procesos_lib->uploadVideosXId($id);
+         Log::erroLog("ini en curl - uploadVideosXId".$id);
     }
     
+    public function updateMediaVideosXId($id,$media){
+         Log::erroLog("ini en curl - updateMediaVideosXId".$id);
+         $this->procesos_lib->updateMediaVideosXId($id,$media);
+         Log::erroLog("fin en curl - updateMediaVideosXId".$id);
+    }   
     
     public function verificaVideosLiquidXId($id){
         $this->procesos_lib->verificaVideosLiquidXId($id);

@@ -25,20 +25,33 @@ class Procesos_lib extends MX_Controller {
     }
 
     /* Corte video  -  INICIO */
+    
+    public function curlCorteVideoXId($id_padre, $id_hijo, $inicio, $duracion){
+        Log::erroLog("ini - curlCorteVideo: ".$id_padre. ", hijo ". $id_hijo);
+        $ruta =  base_url("curlproceso/corteVideoXId/".$id_padre."/".$id_hijo."/".$inicio."/".$duracion);
+        
+        shell_exec("curl ".$ruta . " > /dev/null 2>/dev/null &");
+        
+        Log::erroLog("fin - curlCorteVideo: ".$id_padre. ", hijo ". $id_hijo);
+    }
 
-    public function corte_Video($id_padre, $id_hijo, $inicio, $duracion) {
-        $datos = array();
-        $datos["id_padre"] = $id_padre;
-        $datos["id_hijo"] = $id_hijo;
-        $datos["inicio"] = $inicio;
-        $datos["duracion"] = $duracion;
-        $result = ci()->videos_mp->getVideosxId($id_padre);
-        $datos["ruta"] = $result[0]->ruta;
-        Proceso::corte_Video($datos);
+    public function corteVideoXId($id_padre, $id_hijo, $inicio, $duracion) {
+
+        $result =$this->videos_mp->getVideosxId($id_padre);
+
+        
+        if (!empty($id_padre) && !empty($id_hijo) && !empty($inicio) && !empty($duracion)) {
+            if (Ffmpeg::downloadVideo($result[0]->id, $result[0]->ruta)) {
+                if (Ffmpeg::splitVideo($id_padre,$id_hijo,$inicio, $duracion)) {
+                    $this->curlProcesoVideosXId($id_hijo);
+                } 
+            }
+        } else {
+            return FALSE;
+        }        
     }
 
     /* Corte video  -  Fin */
-
 
     /* Actualizar Visualizaciones Liquid  -  INICIO */
 
@@ -71,36 +84,23 @@ class Procesos_lib extends MX_Controller {
 
     /* Actualizar Comentarios Valoracion -  FIN */
 
-
-
     /* Actualizar comentarios y valorizaciones de Mysql a Mongo */
 
     /* Subir Videos - INICIO */
     public function curlProcesoVideosXId($id){  
-        Log::erroLog("ini - curlProcesoVideosXId: ".$id);
-//        $ch=curl_init("http://local.adminmicanal.dev/curlproceso/procesoVideosXId/".$id); 
-//        curl_exec($ch);
-        
-        $ruta =  base_url("curlproceso/procesoVideosXId/".$id);
-        
-        shell_exec("curl ".$ruta . " > /dev/null 2>/dev/null &");
-        
-        Log::erroLog("fin - curlProcesoVideosXId: ".$id);
+        Log::erroLog("ini - curlProcesoVideosXId: ".$id);      
+        $ruta =  base_url("curlproceso/procesoVideosXId/".$id);        
+        shell_exec("curl ".$ruta . " > /dev/null 2>/dev/null &");        
+        Log::erroLog("fin - curlProcesoVideosXId: ".$id . " ruta ".$ruta);
     }
     
-    public function procesoVideosXId($id) { 
-        
-        Log::erroLog("id: ".$id);
-        
-        $this->_convertirVideosXId($id); 
-        
+    public function procesoVideosXId($id) {         
+        Log::erroLog("id: ".$id);        
+        $this->_convertirVideosXId($id);         
         //$this->_uploadVideosXId($id);
         Log::erroLog("entro a curl upload video: ". $id);
         $this->curlUploadVideosXId($id);
         Log::erroLog("salio de curl upload video ". $id);
-        
-                    
-        
     }
     
     
@@ -114,7 +114,8 @@ class Procesos_lib extends MX_Controller {
     
     public function curlUploadVideosXId($id){
         Log::erroLog("entro a : curlUploadVideosXId ". $id);
-        $ruta =  base_url("curlproceso/uploadVideosXId/".$id);        
+        $ruta =  base_url("curlproceso/uploadVideosXId/".$id);
+        Log::erroLog("curlUploadVideosXId ruta - ". $ruta);
         shell_exec("curl ".$ruta . " > /dev/null 2>/dev/null &");
     }
     
@@ -154,7 +155,7 @@ class Procesos_lib extends MX_Controller {
         }   
     }
     
-     public function curlVerificaVideosLiquidXId($id){
+    public function curlVerificaVideosLiquidXId($id){
          sleep(10);
         Log::erroLog("entro a : curlVerificaVideosLiquidXId" . $id);
         $ruta =  base_url("curlproceso/verificaVideosLiquidXId/".$id);        
@@ -184,17 +185,24 @@ class Procesos_lib extends MX_Controller {
                 $this->videos_mp->setEstadosVideos($value->id, 0, 3);
                 $this->curlVerificaVideosLiquidXId($id); 
                 $retorno = Liquid::uploadVideoLiquid($value->id, $value->apikey);
-
-                if ($retorno != FALSE) {
-//                    Log::erroLog('----------------------------------------');
-//                    Log::erroLog(print_r($retorno, true));
-                    $this->videos_mp->setEstadosVideos($value->id, 0, 4);
-                    $this->videos_mp->setMediaVideos($value->id, $retorno);
-                } else {
-
-                    $this->videos_mp->setEstadosVideos($value->id, 0, 2);
-                }
+                
+                Log::erroLog("retorno de upload video: ". $retorno);                
             }
+        }
+    }
+    
+    public function updateMediaVideosXId($id,$media){
+        $this->_updateMediaVideosXId($id, $media);
+    }
+    
+    protected function _updateMediaVideosXId($id, $media) {
+        if ($media != FALSE) {
+            Log::erroLog("es diferente de FALSE media: " . $media);
+            $this->videos_mp->setEstadosVideos($id, 0, 4);
+            $this->videos_mp->setMediaVideos($id, $media);
+        } else {
+            Log::erroLog("es FALSE retorno: " . $media);
+            $this->videos_mp->setEstadosVideos($id, 0, 2);
         }
     }
     
@@ -1349,10 +1357,10 @@ class Procesos_lib extends MX_Controller {
     public function estadosVideos(){
         $videos = $this->videos_mp->getVideos();
         
-        echo "<table border=1><tr><td>id</td><td>estado_liquid</td><td>estado</td><td>id_mongo</td><td>fecha_migracion</td><td>fecha_migracion_actualizacion</td></tr>";
+        echo "<table border=1><tr><td>id</td><td>estado_liquid</td><td>codigo</td><td>estado</td><td>id_mongo</td><td>fecha_migracion</td><td>fecha_migracion_actualizacion</td></tr>";
         
         foreach ($videos as $value) {
-            echo "<tr><td>". $value->id ."</td><td>". $value->estado_liquid."</td><td>". $value->estado."</td><td>". $value->id_mongo."</td><td>". $value->fecha_migracion."</td><td>". $value->fecha_migracion_actualizacion."</td></tr>";    
+            echo "<tr><td>". $value->id ."</td><td>". $value->estado_liquid."</td><td>".$value->codigo."</td><td>". $value->estado."</td><td>". $value->id_mongo."</td><td>". $value->fecha_migracion."</td><td>". $value->fecha_migracion_actualizacion."</td></tr>";    
         }
         echo "</table>";
     }
