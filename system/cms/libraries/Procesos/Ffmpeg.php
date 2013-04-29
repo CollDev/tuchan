@@ -25,6 +25,9 @@ class Ffmpeg {
                     Log::erroLog("borrando archivo origen ". $id_video);
                     unlink($video_in);
                 }   
+                $ruta =  base_url("curlproceso/uploadVideosXId/".$id);        
+                shell_exec("curl ".$ruta . " > /dev/null 2>/dev/null &");
+                
                 Log::erroLog("retornando true archivo convertido: ". $id_video);
                 return true;
             } else {

@@ -97,10 +97,10 @@ class Procesos_lib extends MX_Controller {
     public function procesoVideosXId($id) {         
         Log::erroLog("id: ".$id);        
         $this->_convertirVideosXId($id);         
-        //$this->_uploadVideosXId($id);
-        Log::erroLog("entro a curl upload video: ". $id);
-        $this->curlUploadVideosXId($id);
-        Log::erroLog("salio de curl upload video ". $id);
+//        $this->_uploadVideosXId($id);
+//        Log::erroLog("entro a curl upload video: ". $id);
+//        $this->curlUploadVideosXId($id);
+//        Log::erroLog("salio de curl upload video ". $id);
     }
     
     
@@ -114,9 +114,9 @@ class Procesos_lib extends MX_Controller {
     
     public function curlUploadVideosXId($id){
         Log::erroLog("entro a : curlUploadVideosXId ". $id);
-        $ruta =  base_url("curlproceso/uploadVideosXId/".$id);
-        Log::erroLog("curlUploadVideosXId ruta - ". $ruta);
+        $ruta =  base_url("curlproceso/uploadVideosXId/".$id);        
         shell_exec("curl ".$ruta . " > /dev/null 2>/dev/null &");
+        Log::erroLog("curlUploadVideosXId ruta - ". $ruta);
     }
     
     public function uploadVideosXId($id){
