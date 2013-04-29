@@ -62,7 +62,6 @@ class Admin extends Admin_Controller {
         rename($path_video_old, $path_video_new);
         $this->procesos_lib->curlProcesoVideosXId($objBeanVideo->id);
 
-
         return $returnValue;
     }
 
