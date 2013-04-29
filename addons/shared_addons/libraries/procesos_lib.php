@@ -53,7 +53,6 @@ class Procesos_lib extends MX_Controller {
 
     /* Corte video  -  Fin */
 
-
     /* Actualizar Visualizaciones Liquid  -  INICIO */
 
     private function actualizarVisualizacion() {
@@ -85,34 +84,23 @@ class Procesos_lib extends MX_Controller {
 
     /* Actualizar Comentarios Valoracion -  FIN */
 
-
-
     /* Actualizar comentarios y valorizaciones de Mysql a Mongo */
 
     /* Subir Videos - INICIO */
     public function curlProcesoVideosXId($id){  
-        Log::erroLog("ini - curlProcesoVideosXId: ".$id);
-//        $ch=curl_init("http://local.adminmicanal.dev/curlproceso/procesoVideosXId/".$id); 
-//        curl_exec($ch);
-        
+        Log::erroLog("ini - curlProcesoVideosXId: ".$id);      
         $ruta =  base_url("curlproceso/procesoVideosXId/".$id);        
         shell_exec("curl ".$ruta . " > /dev/null 2>/dev/null &");        
-        Log::erroLog("fin - curlProcesoVideosXId: ".$id);
+        Log::erroLog("fin - curlProcesoVideosXId: ".$id . " ruta ".$ruta);
     }
     
-    public function procesoVideosXId($id) { 
-        
-        Log::erroLog("id: ".$id);
-        
-        $this->_convertirVideosXId($id); 
-        
+    public function procesoVideosXId($id) {         
+        Log::erroLog("id: ".$id);        
+        $this->_convertirVideosXId($id);         
         //$this->_uploadVideosXId($id);
         Log::erroLog("entro a curl upload video: ". $id);
         $this->curlUploadVideosXId($id);
         Log::erroLog("salio de curl upload video ". $id);
-        
-                    
-        
     }
     
     

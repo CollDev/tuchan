@@ -28,7 +28,6 @@ $config['mongo_db'] = 'micanaldevmdb';
 $config['mongo_port'] = 27017;
 
 
-
 /*
 $config['mongo_user'] = '';
 $config['mongo_pass'] = '';
