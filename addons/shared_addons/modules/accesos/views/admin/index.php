@@ -14,19 +14,32 @@
 </section>
 
 <script>    
-    
-    $("td input:radio").attr("disabled","true");
+    $(document).ready(function() {
+        $("td input:radio").attr("disabled","true");        
+       put_disabled(); 
+       
+        $("input:checkbox:checked").change(function(){
+            $("td input:radio").attr("disabled","true");
+            put_disabled();
+        });       
+       
+    });
+    //$("td input:radio").attr("disabled","true");
         
     function put_disabled(){
-        $("input:checkbox:checked").each(function(){            
-            $(this).parent().parent().find("td input:radio").removeAttr("disabled");            
+        var cont = 0;
+        $("input:checkbox:checked").each(function(){
+            
+            $(this).parent().parent().find("td input:radio").removeAttr("disabled");
+            if(cont == 0){
+                $(this).parent().parent().find("td input:radio").attr('checked',true);
+                //$('td input:radio')[cont].checked = true;
+            }
+            cont++;
         });    
         
     }    
     
-    $("input:checkbox:checked").change(function(){
-        $("td input:radio").attr("disabled","true");
-        put_disabled();
-    });  
+  
     
 </script>
