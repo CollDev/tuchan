@@ -4546,7 +4546,7 @@ class Admin extends Admin_Controller {
             $objColeccionSeccion = $this->secciones_m->order_by('peso', 'ASC')->get_many_by(array("portadas_id" => $objPortada->id, "estado" => $this->config->item('estado:publicado')));
             if (count($objColeccionSeccion) > 0) {
                 foreach ($objColeccionSeccion as $puntero => $objSeccion) {
-                    $detalle_seccion = $this->detalle_secciones_m->get_many_by(array("secciones_id" => $objSeccion->id, "estado"=>$this->config->item('estado:publicado')));
+                    $detalle_seccion = $this->detalle_secciones_m->order_by('peso', 'ASC')->get_many_by(array("secciones_id" => $objSeccion->id, "estado"=>$this->config->item('estado:publicado')));
                     if (count($detalle_seccion) > 0) {
                         foreach ($detalle_seccion as $index => $objDetalleSeccion) {
                             $objImagen = $this->imagen_m->get($objDetalleSeccion->imagenes_id);

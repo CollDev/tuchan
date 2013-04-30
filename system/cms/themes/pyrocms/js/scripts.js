@@ -225,7 +225,7 @@ jQuery(function($) {
 				width: "90%",
 				height: "95%",
 				iframe: true,
-				scrolling: false,
+				scrolling: true,
 				current: current_module + " {current} / {total}",
 				onComplete: function(){ pyro.chosen() }
 			});
