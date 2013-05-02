@@ -15,19 +15,19 @@
  * ['mongo_suppress_connect_error'] If the driver can't connect by default it will throw an error which dislays the username and password used to connect. Set to TRUE to hide these details.
  * ['mongo_host_db_flag']   If running in auth mode and the user does not have global read/write then set this to true
  */
-
+/*
 $config['mongo_host'] = '192.168.1.35';
 $config['mongo_port'] = 27017;
 $config['mongo_db'] = 'micanal_pre';
-
+*/
 
 // El Comercio
-/*
+
 $config['mongo_host'] = '10.203.31.139';
 $config['mongo_db'] = 'micanaldevmdb';
 $config['mongo_port'] = 27017;
-*/
-    
+
+   
     
 /*
 $config['mongo_user'] = '';
