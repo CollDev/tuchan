@@ -115,3 +115,6 @@ $config['video:verificar'] = '1';
 
 //submenus
 $config['submenu:carga_unitaria'] = 'Subir video';
+
+//Migración
+$config['migracion:no_canal'] = '1';

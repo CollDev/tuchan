@@ -37,6 +37,7 @@ class Admin extends Admin_Controller {
         $this->load->library('image_lib');
         $this->load->library('imagenes_lib');
         $this->load->library('procesos_lib');
+        $this->load->library('migracion_lib');
 
 //        ci()->load->model('videos_mp');
 //        ci()->load->library("Procesos/proceso");
@@ -4746,11 +4747,20 @@ class Admin extends Admin_Controller {
         $this->template->build('admin/misvideos');
     }
 
-    function filesize_formatted($path) {
+    public function filesize_formatted($path) {
         $size = filesize($path);
         $units = array('B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB');
         $power = $size > 0 ? floor(log($size, 1024)) : 0;
         return number_format($size / pow(1024, $power), 2, '.', ',') . ' ' . $units[$power];
+    }
+    /**
+     * Metodo para iniciarla migracion atraves de su libreria 
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @return boolean $returnValue
+     */
+    public function inicar_migracion(){
+        $returnValue = $this->migracion_lib->inicar_migracion_masiva();
+        return $returnValue;
     }
 
 }
