@@ -121,6 +121,19 @@ class Admin extends Admin_Controller {
                     $canales = $this->canales_m->order_by('fecha_registro','DESC')->limit($pagination['limit'])->get_many_by($base_where);
                 }
             }
+            
+            //agregamos las imagenes de tipo isotipo para cada canal
+            if(count($canales)>0){
+                foreach ($canales as $puntero=>$objCanal){
+                    $objIsotipo = $this->imagen_m->get_by(array("canales_id"=>$objCanal->id, "estado"=>$this->config->item('estado:publicado'),"tipo_imagen_id"=>$this->config->item('imagen:iso')));
+                    if(count($objIsotipo)>0){
+                        $objCanal->imagen_iso = $this->config->item('protocolo:http').$this->config->item('server:elemento').'/'.$objIsotipo->imagen;
+                    }else{
+                        $objCanal->imagen_iso = $this->config->item('url:iso');
+                    }
+                    $canales[$puntero]= $objCanal;
+                }
+            }
 
             $estados = array($this->config->item('estado:publicado') => "Publicado", "3" => "Borrador", $this->config->item('estado:eliminado') => "Eliminado");
 

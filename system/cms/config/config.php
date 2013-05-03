@@ -415,6 +415,7 @@ $config['path:log'] = FCPATH.'uploads/log/';
 //url de imagenes predefinidas
 $config['url:default_imagen'] = BASE_URL.'uploads/imagenes/';
 $config['url:logo'] = BASE_URL.'system/cms/themes/pyrocms/img/image_no_found.png';
+$config['url:iso'] = BASE_URL.'system/cms/themes/pyrocms/img/channel_icon.fw.png';
 $config['url:portada'] = BASE_URL.'system/cms/themes/pyrocms/img/imagen_portada_default.jpg';
 
 //variables de la migracion de canales
