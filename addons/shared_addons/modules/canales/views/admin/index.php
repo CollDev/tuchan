@@ -1,7 +1,9 @@
 <section class="title">
     <h4><?php echo $module_details['name']; ?></h4>
 </section>
+<?php if($this->session->userdata['group'] == 'admin'): ?>
 <section class="menu"><?php echo anchor('/admin/canales/canal/', lang('canales:new')) ?></section>
+<?php endif; ?>
 <section class="item">
     <?php template_partial('filters'); ?>
     <div id="filter-stage">
