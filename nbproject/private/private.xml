@@ -1,4 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/1">
+        <file>file:/var/www/local.adminmicanal.dev/system/cms/models/videos_mp.php</file>
+        <file>file:/var/www/local.adminmicanal.dev/system/cms/models/micanal_mp.php</file>
+        <file>file:/var/www/local.adminmicanal.dev/system/cms/models/imagenes_mp.php</file>
+        <file>file:/var/www/local.adminmicanal.dev/system/cms/models/canal_mp.php</file>
+        <file>file:/var/www/local.adminmicanal.dev/system/cms/models/canales_mp.php</file>
+        <file>file:/var/www/local.adminmicanal.dev/system/cms/models/secciones_mp.php</file>
+        <file>file:/var/www/local.adminmicanal.dev/addons/shared_addons/modules/videos/views/admin/tables/imagenes.php</file>
+        <file>file:/var/www/local.adminmicanal.dev/system/cms/config/mongodb.php</file>
+        <file>file:/var/www/local.adminmicanal.dev/system/cms/config/database.php</file>
+        <file>file:/var/www/local.adminmicanal.dev/system/cms/models/portadas_mp.php</file>
+        <file>file:/var/www/local.adminmicanal.dev/addons/shared_addons/libraries/procesos_lib.php</file>
+        <file>file:/var/www/local.adminmicanal.dev/system/cms/libraries/Procesos/Liquid.php</file>
+        <file>file:/var/www/local.adminmicanal.dev/system/cms/controllers/curlproceso.php</file>
+        <file>file:/var/www/local.adminmicanal.dev/system/cms/libraries/Procesos/Ffmpeg.php</file>
+        <file>file:/var/www/local.adminmicanal.dev/system/cms/libraries/Procesos/Log.php</file>
+        <file>file:/var/www/local.adminmicanal.dev/system/cms/config/config.php</file>
+        <file>file:/var/www/local.adminmicanal.dev/addons/shared_addons/modules/videos/controllers/admin.php</file>
+        <file>file:/var/www/local.adminmicanal.dev/addons/shared_addons/modules/canales/views/admin/visualizar_video.php</file>
+    </open-files>
 </project-private>

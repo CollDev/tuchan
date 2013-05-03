@@ -4522,7 +4522,8 @@ class Admin extends Admin_Controller {
         $objVideo = $this->videos_m->get($video_id);
         $this->template
                 ->set_layout('modal', 'admin')
-                ->set('ruta', $objVideo->ruta)
+                //->set('ruta', $objVideo->ruta)
+                ->set('id', $objVideo->id)
                 //->append_js('module::flowplayer.min.js')
                 //->append_css('module::skin/minimalist.css')                
                 ->build('admin/visualizar_video');
