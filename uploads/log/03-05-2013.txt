@@ -692,3 +692,1023 @@
 16:46:50 > 3 2238
 16:46:50 > estado_liquid 2238 3
 16:46:50 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:47:00 > entro a : curlVerificaVideosLiquidXId2238
+16:47:00 > entro a : verificaVideosLiquidXId 2238
+16:47:00 >  2238
+16:47:00 > 3 2238
+16:47:00 > estado_liquid 2238 3
+16:47:00 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:47:10 > entro a : curlVerificaVideosLiquidXId2238
+16:47:10 > entro a : verificaVideosLiquidXId 2238
+16:47:10 >  2238
+16:47:10 > 3 2238
+16:47:10 > estado_liquid 2238 3
+16:47:10 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:47:20 > entro a : curlVerificaVideosLiquidXId2238
+16:47:20 > entro a : verificaVideosLiquidXId 2238
+16:47:20 >  2238
+16:47:20 > 3 2238
+16:47:20 > estado_liquid 2238 3
+16:47:20 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:47:30 > entro a : curlVerificaVideosLiquidXId2238
+16:47:30 > entro a : verificaVideosLiquidXId 2238
+16:47:30 >  2238
+16:47:30 > 3 2238
+16:47:30 > estado_liquid 2238 3
+16:47:30 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:47:40 > entro a : curlVerificaVideosLiquidXId2238
+16:47:40 > entro a : verificaVideosLiquidXId 2238
+16:47:40 >  2238
+16:47:40 > 3 2238
+16:47:40 > estado_liquid 2238 3
+16:47:40 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:47:50 > entro a : curlVerificaVideosLiquidXId2238
+16:47:50 > entro a : verificaVideosLiquidXId 2238
+16:47:50 >  2238
+16:47:50 > 3 2238
+16:47:50 > estado_liquid 2238 3
+16:47:50 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:48:00 > entro a : curlVerificaVideosLiquidXId2238
+16:48:00 > entro a : verificaVideosLiquidXId 2238
+16:48:00 >  2238
+16:48:00 > 3 2238
+16:48:00 > estado_liquid 2238 3
+16:48:00 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:48:10 > entro a : curlVerificaVideosLiquidXId2238
+16:48:10 > entro a : verificaVideosLiquidXId 2238
+16:48:10 >  2238
+16:48:10 > 3 2238
+16:48:10 > estado_liquid 2238 3
+16:48:10 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:48:20 > entro a : curlVerificaVideosLiquidXId2238
+16:48:20 > entro a : verificaVideosLiquidXId 2238
+16:48:20 >  2238
+16:48:20 > 3 2238
+16:48:20 > estado_liquid 2238 3
+16:48:20 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:48:30 > entro a : curlVerificaVideosLiquidXId2238
+16:48:30 > entro a : verificaVideosLiquidXId 2238
+16:48:30 >  2238
+16:48:30 > 3 2238
+16:48:30 > estado_liquid 2238 3
+16:48:30 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:48:40 > entro a : curlVerificaVideosLiquidXId2238
+16:48:40 > entro a : verificaVideosLiquidXId 2238
+16:48:40 >  2238
+16:48:40 > 3 2238
+16:48:40 > estado_liquid 2238 3
+16:48:40 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:48:50 > entro a : curlVerificaVideosLiquidXId2238
+16:48:50 > entro a : verificaVideosLiquidXId 2238
+16:48:50 >  2238
+16:48:50 > 3 2238
+16:48:50 > estado_liquid 2238 3
+16:48:50 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:49:00 > entro a : curlVerificaVideosLiquidXId2238
+16:49:00 > entro a : verificaVideosLiquidXId 2238
+16:49:00 >  2238
+16:49:00 > 3 2238
+16:49:00 > estado_liquid 2238 3
+16:49:00 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:49:10 > entro a : curlVerificaVideosLiquidXId2238
+16:49:10 > entro a : verificaVideosLiquidXId 2238
+16:49:10 >  2238
+16:49:10 > 3 2238
+16:49:10 > estado_liquid 2238 3
+16:49:10 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:49:20 > entro a : curlVerificaVideosLiquidXId2238
+16:49:20 > entro a : verificaVideosLiquidXId 2238
+16:49:20 >  2238
+16:49:20 > 3 2238
+16:49:20 > estado_liquid 2238 3
+16:49:20 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:49:30 > entro a : curlVerificaVideosLiquidXId2238
+16:49:30 > entro a : verificaVideosLiquidXId 2238
+16:49:30 >  2238
+16:49:30 > 3 2238
+16:49:30 > estado_liquid 2238 3
+16:49:30 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:49:40 > entro a : curlVerificaVideosLiquidXId2238
+16:49:40 > entro a : verificaVideosLiquidXId 2238
+16:49:40 >  2238
+16:49:40 > 3 2238
+16:49:40 > estado_liquid 2238 3
+16:49:40 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:49:50 > entro a : curlVerificaVideosLiquidXId2238
+16:49:50 > entro a : verificaVideosLiquidXId 2238
+16:49:50 >  2238
+16:49:50 > 3 2238
+16:49:50 > estado_liquid 2238 3
+16:49:50 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:50:00 > entro a : curlVerificaVideosLiquidXId2238
+16:50:00 > entro a : verificaVideosLiquidXId 2238
+16:50:00 >  2238
+16:50:00 > 3 2238
+16:50:00 > estado_liquid 2238 3
+16:50:00 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:50:10 > entro a : curlVerificaVideosLiquidXId2238
+16:50:10 > entro a : verificaVideosLiquidXId 2238
+16:50:10 >  2238
+16:50:10 > 3 2238
+16:50:10 > estado_liquid 2238 3
+16:50:10 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:50:20 > entro a : curlVerificaVideosLiquidXId2238
+16:50:20 > entro a : verificaVideosLiquidXId 2238
+16:50:20 >  2238
+16:50:20 > 3 2238
+16:50:20 > estado_liquid 2238 3
+16:50:20 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:50:30 > entro a : curlVerificaVideosLiquidXId2238
+16:50:31 > entro a : verificaVideosLiquidXId 2238
+16:50:31 >  2238
+16:50:31 > 3 2238
+16:50:31 > estado_liquid 2238 3
+16:50:31 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:50:41 > entro a : curlVerificaVideosLiquidXId2238
+16:50:41 > entro a : verificaVideosLiquidXId 2238
+16:50:41 >  2238
+16:50:41 > 3 2238
+16:50:41 > estado_liquid 2238 3
+16:50:41 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:50:51 > entro a : curlVerificaVideosLiquidXId2238
+16:50:51 > entro a : verificaVideosLiquidXId 2238
+16:50:51 >  2238
+16:50:51 > 3 2238
+16:50:51 > estado_liquid 2238 3
+16:50:51 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:51:01 > entro a : curlVerificaVideosLiquidXId2238
+16:51:01 > entro a : verificaVideosLiquidXId 2238
+16:51:01 >  2238
+16:51:01 > 3 2238
+16:51:01 > estado_liquid 2238 3
+16:51:01 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:51:11 > entro a : curlVerificaVideosLiquidXId2238
+16:51:11 > entro a : verificaVideosLiquidXId 2238
+16:51:11 >  2238
+16:51:11 > 3 2238
+16:51:11 > estado_liquid 2238 3
+16:51:11 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:51:21 > entro a : curlVerificaVideosLiquidXId2238
+16:51:21 > entro a : verificaVideosLiquidXId 2238
+16:51:21 >  2238
+16:51:21 > 3 2238
+16:51:21 > estado_liquid 2238 3
+16:51:21 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:51:31 > entro a : curlVerificaVideosLiquidXId2238
+16:51:31 > entro a : verificaVideosLiquidXId 2238
+16:51:31 >  2238
+16:51:31 > 3 2238
+16:51:31 > estado_liquid 2238 3
+16:51:31 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:51:41 > entro a : curlVerificaVideosLiquidXId2238
+16:51:41 > entro a : verificaVideosLiquidXId 2238
+16:51:41 >  2238
+16:51:41 > 3 2238
+16:51:41 > estado_liquid 2238 3
+16:51:41 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:51:51 > entro a : curlVerificaVideosLiquidXId2238
+16:51:51 > entro a : verificaVideosLiquidXId 2238
+16:51:51 >  2238
+16:51:51 > 3 2238
+16:51:51 > estado_liquid 2238 3
+16:51:51 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:52:01 > entro a : curlVerificaVideosLiquidXId2238
+16:52:01 > entro a : verificaVideosLiquidXId 2238
+16:52:01 >  2238
+16:52:01 > 3 2238
+16:52:01 > estado_liquid 2238 3
+16:52:01 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:52:11 > entro a : curlVerificaVideosLiquidXId2238
+16:52:11 > entro a : verificaVideosLiquidXId 2238
+16:52:11 >  2238
+16:52:11 > 3 2238
+16:52:11 > estado_liquid 2238 3
+16:52:11 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:52:21 > entro a : curlVerificaVideosLiquidXId2238
+16:52:21 > entro a : verificaVideosLiquidXId 2238
+16:52:21 >  2238
+16:52:21 > 3 2238
+16:52:21 > estado_liquid 2238 3
+16:52:21 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:52:31 > entro a : curlVerificaVideosLiquidXId2238
+16:52:31 > entro a : verificaVideosLiquidXId 2238
+16:52:31 >  2238
+16:52:31 > 3 2238
+16:52:31 > estado_liquid 2238 3
+16:52:31 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:52:41 > entro a : curlVerificaVideosLiquidXId2238
+16:52:41 > entro a : verificaVideosLiquidXId 2238
+16:52:41 >  2238
+16:52:41 > 3 2238
+16:52:41 > estado_liquid 2238 3
+16:52:41 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:52:51 > entro a : curlVerificaVideosLiquidXId2238
+16:52:51 > entro a : verificaVideosLiquidXId 2238
+16:52:51 >  2238
+16:52:51 > 3 2238
+16:52:51 > estado_liquid 2238 3
+16:52:51 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:53:01 > entro a : curlVerificaVideosLiquidXId2238
+16:53:01 > entro a : verificaVideosLiquidXId 2238
+16:53:01 >  2238
+16:53:01 > 3 2238
+16:53:01 > estado_liquid 2238 3
+16:53:01 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:53:11 > entro a : curlVerificaVideosLiquidXId2238
+16:53:11 > entro a : verificaVideosLiquidXId 2238
+16:53:11 >  2238
+16:53:11 > 3 2238
+16:53:11 > estado_liquid 2238 3
+16:53:11 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:53:21 > entro a : curlVerificaVideosLiquidXId2238
+16:53:21 > entro a : verificaVideosLiquidXId 2238
+16:53:21 >  2238
+16:53:21 > 3 2238
+16:53:21 > estado_liquid 2238 3
+16:53:21 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:53:31 > entro a : curlVerificaVideosLiquidXId2238
+16:53:31 > entro a : verificaVideosLiquidXId 2238
+16:53:31 >  2238
+16:53:31 > 3 2238
+16:53:31 > estado_liquid 2238 3
+16:53:31 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:53:41 > entro a : curlVerificaVideosLiquidXId2238
+16:53:41 > entro a : verificaVideosLiquidXId 2238
+16:53:41 >  2238
+16:53:41 > 3 2238
+16:53:41 > estado_liquid 2238 3
+16:53:41 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:53:51 > entro a : curlVerificaVideosLiquidXId2238
+16:53:51 > entro a : verificaVideosLiquidXId 2238
+16:53:51 >  2238
+16:53:51 > 3 2238
+16:53:51 > estado_liquid 2238 3
+16:53:51 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:54:01 > entro a : curlVerificaVideosLiquidXId2238
+16:54:01 > entro a : verificaVideosLiquidXId 2238
+16:54:01 >  2238
+16:54:01 > 3 2238
+16:54:01 > estado_liquid 2238 3
+16:54:01 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:54:11 > entro a : curlVerificaVideosLiquidXId2238
+16:54:11 > entro a : verificaVideosLiquidXId 2238
+16:54:11 >  2238
+16:54:11 > 3 2238
+16:54:11 > estado_liquid 2238 3
+16:54:11 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:54:21 > entro a : curlVerificaVideosLiquidXId2238
+16:54:21 > entro a : verificaVideosLiquidXId 2238
+16:54:21 >  2238
+16:54:21 > 3 2238
+16:54:21 > estado_liquid 2238 3
+16:54:21 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:54:31 > entro a : curlVerificaVideosLiquidXId2238
+16:54:31 > entro a : verificaVideosLiquidXId 2238
+16:54:31 >  2238
+16:54:31 > 3 2238
+16:54:31 > estado_liquid 2238 3
+16:54:31 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:54:41 > entro a : curlVerificaVideosLiquidXId2238
+16:54:41 > entro a : verificaVideosLiquidXId 2238
+16:54:41 >  2238
+16:54:41 > 3 2238
+16:54:41 > estado_liquid 2238 3
+16:54:41 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:54:51 > entro a : curlVerificaVideosLiquidXId2238
+16:54:51 > entro a : verificaVideosLiquidXId 2238
+16:54:51 >  2238
+16:54:51 > 3 2238
+16:54:51 > estado_liquid 2238 3
+16:54:51 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:55:01 > entro a : curlVerificaVideosLiquidXId2238
+16:55:01 > entro a : verificaVideosLiquidXId 2238
+16:55:01 >  2238
+16:55:01 > 3 2238
+16:55:01 > estado_liquid 2238 3
+16:55:01 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:55:11 > entro a : curlVerificaVideosLiquidXId2238
+16:55:11 > entro a : verificaVideosLiquidXId 2238
+16:55:11 >  2238
+16:55:11 > 3 2238
+16:55:11 > estado_liquid 2238 3
+16:55:11 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:55:21 > entro a : curlVerificaVideosLiquidXId2238
+16:55:21 > entro a : verificaVideosLiquidXId 2238
+16:55:21 >  2238
+16:55:21 > 3 2238
+16:55:21 > estado_liquid 2238 3
+16:55:21 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:55:31 > entro a : curlVerificaVideosLiquidXId2238
+16:55:31 > entro a : verificaVideosLiquidXId 2238
+16:55:31 >  2238
+16:55:31 > 3 2238
+16:55:31 > estado_liquid 2238 3
+16:55:31 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:55:41 > entro a : curlVerificaVideosLiquidXId2238
+16:55:41 > entro a : verificaVideosLiquidXId 2238
+16:55:41 >  2238
+16:55:41 > 3 2238
+16:55:41 > estado_liquid 2238 3
+16:55:41 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:55:51 > entro a : curlVerificaVideosLiquidXId2238
+16:55:51 > entro a : verificaVideosLiquidXId 2238
+16:55:51 >  2238
+16:55:51 > 3 2238
+16:55:51 > estado_liquid 2238 3
+16:55:51 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:56:01 > entro a : curlVerificaVideosLiquidXId2238
+16:56:02 > entro a : verificaVideosLiquidXId 2238
+16:56:02 >  2238
+16:56:02 > 3 2238
+16:56:02 > estado_liquid 2238 3
+16:56:02 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:56:12 > entro a : curlVerificaVideosLiquidXId2238
+16:56:12 > entro a : verificaVideosLiquidXId 2238
+16:56:12 >  2238
+16:56:12 > 3 2238
+16:56:12 > estado_liquid 2238 3
+16:56:12 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:56:22 > entro a : curlVerificaVideosLiquidXId2238
+16:56:22 > entro a : verificaVideosLiquidXId 2238
+16:56:22 >  2238
+16:56:22 > 3 2238
+16:56:22 > estado_liquid 2238 3
+16:56:22 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:56:32 > entro a : curlVerificaVideosLiquidXId2238
+16:56:34 > entro a : verificaVideosLiquidXId 2238
+16:56:34 >  2238
+16:56:34 > 3 2238
+16:56:34 > estado_liquid 2238 3
+16:56:34 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:56:44 > entro a : curlVerificaVideosLiquidXId2238
+16:56:44 > entro a : verificaVideosLiquidXId 2238
+16:56:44 >  2238
+16:56:44 > 3 2238
+16:56:44 > estado_liquid 2238 3
+16:56:44 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:56:54 > entro a : curlVerificaVideosLiquidXId2238
+16:56:54 > entro a : verificaVideosLiquidXId 2238
+16:56:54 >  2238
+16:56:54 > 3 2238
+16:56:54 > estado_liquid 2238 3
+16:56:54 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:57:04 > entro a : curlVerificaVideosLiquidXId2238
+16:57:04 > entro a : verificaVideosLiquidXId 2238
+16:57:04 >  2238
+16:57:04 > 3 2238
+16:57:04 > estado_liquid 2238 3
+16:57:04 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:57:14 > entro a : curlVerificaVideosLiquidXId2238
+16:57:14 > entro a : verificaVideosLiquidXId 2238
+16:57:14 >  2238
+16:57:14 > 3 2238
+16:57:14 > estado_liquid 2238 3
+16:57:14 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:57:24 > entro a : curlVerificaVideosLiquidXId2238
+16:57:24 > entro a : verificaVideosLiquidXId 2238
+16:57:24 >  2238
+16:57:24 > 3 2238
+16:57:24 > estado_liquid 2238 3
+16:57:24 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:57:34 > entro a : curlVerificaVideosLiquidXId2238
+16:57:34 > entro a : verificaVideosLiquidXId 2238
+16:57:34 >  2238
+16:57:34 > 3 2238
+16:57:34 > estado_liquid 2238 3
+16:57:34 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:57:44 > entro a : curlVerificaVideosLiquidXId2238
+16:57:44 > entro a : verificaVideosLiquidXId 2238
+16:57:44 >  2238
+16:57:44 > 3 2238
+16:57:44 > estado_liquid 2238 3
+16:57:44 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:57:54 > entro a : curlVerificaVideosLiquidXId2238
+16:57:54 > entro a : verificaVideosLiquidXId 2238
+16:57:54 >  2238
+16:57:54 > 3 2238
+16:57:54 > estado_liquid 2238 3
+16:57:54 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:58:04 > entro a : curlVerificaVideosLiquidXId2238
+16:58:04 > entro a : verificaVideosLiquidXId 2238
+16:58:04 >  2238
+16:58:04 > 3 2238
+16:58:04 > estado_liquid 2238 3
+16:58:04 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:58:14 > entro a : curlVerificaVideosLiquidXId2238
+16:58:14 > entro a : verificaVideosLiquidXId 2238
+16:58:14 >  2238
+16:58:14 > 3 2238
+16:58:14 > estado_liquid 2238 3
+16:58:14 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:58:24 > entro a : curlVerificaVideosLiquidXId2238
+16:58:24 > entro a : verificaVideosLiquidXId 2238
+16:58:24 >  2238
+16:58:24 > 3 2238
+16:58:24 > estado_liquid 2238 3
+16:58:24 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:58:34 > entro a : curlVerificaVideosLiquidXId2238
+16:58:34 > entro a : verificaVideosLiquidXId 2238
+16:58:34 >  2238
+16:58:34 > 3 2238
+16:58:34 > estado_liquid 2238 3
+16:58:34 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:58:43 > dato entrada    : 1868 -- 
+16:58:43 > cantidad   : 0 -- 
+16:58:43 > dato entrada    : 1875 -- 
+16:58:43 > cantidad   : 0 -- 
+16:58:43 > dato entrada    : 1881 -- 
+16:58:43 > cantidad   : 0 -- 
+16:58:44 > dato entrada    : 1990 -- 
+16:58:44 > cantidad   : 0 -- 
+16:58:44 > dato entrada    : 2667 -- 
+16:58:44 > cantidad   : 1 -- 
+16:58:44 > dato entrada    : 2782 -- 
+16:58:44 > cantidad   : 1 -- 
+16:58:44 > dato entrada    : 3452 -- 
+16:58:44 > cantidad   : 0 -- 
+16:58:44 > dato entrada    : 3459 -- 
+16:58:44 > cantidad   : 0 -- 
+16:58:44 > dato entrada    : 3465 -- 
+16:58:44 > cantidad   : 0 -- 
+16:58:44 > dato entrada    : 3574 -- 
+16:58:44 > cantidad   : 0 -- 
+16:58:44 > dato entrada    : 4244 -- 
+16:58:44 > cantidad   : 0 -- 
+16:58:44 > dato entrada    : 4251 -- 
+16:58:44 > cantidad   : 0 -- 
+16:58:44 > dato entrada    : 4257 -- 
+16:58:44 > cantidad   : 0 -- 
+16:58:44 > dato entrada    : 4366 -- 
+16:58:44 > cantidad   : 0 -- 
+16:58:44 > dato entrada    : 5036 -- 
+16:58:44 > cantidad   : 0 -- 
+16:58:44 > dato entrada    : 5043 -- 
+16:58:44 > cantidad   : 0 -- 
+16:58:44 > dato entrada    : 5049 -- 
+16:58:44 > cantidad   : 0 -- 
+16:58:44 > dato entrada    : 5158 -- 
+16:58:44 > cantidad   : 0 -- 
+16:58:44 > dato entrada    : 5828 -- 
+16:58:44 > cantidad   : 0 -- 
+16:58:44 > dato entrada    : 5835 -- 
+16:58:44 > cantidad   : 0 -- 
+16:58:44 > dato entrada    : 5841 -- 
+16:58:44 > cantidad   : 0 -- 
+16:58:44 > dato entrada    : 5950 -- 
+16:58:44 > cantidad   : 0 -- 
+16:58:44 > dato entrada    : 6620 -- 
+16:58:44 > cantidad   : 0 -- 
+16:58:44 > dato entrada    : 6627 -- 
+16:58:44 > cantidad   : 0 -- 
+16:58:44 > dato entrada    : 6633 -- 
+16:58:44 > cantidad   : 0 -- 
+16:58:44 > dato entrada    : 6742 -- 
+16:58:44 > cantidad   : 0 -- 
+16:58:44 > dato entrada    : 7440 -- 
+16:58:44 > cantidad   : 0 -- 
+16:58:44 > dato entrada    : 7447 -- 
+16:58:44 > cantidad   : 0 -- 
+16:58:44 > dato entrada    : 7453 -- 
+16:58:44 > cantidad   : 0 -- 
+16:58:44 > dato entrada    : 7562 -- 
+16:58:44 > cantidad   : 0 -- 
+16:58:44 > dato entrada    : 8260 -- 
+16:58:44 > cantidad   : 0 -- 
+16:58:44 > dato entrada    : 8267 -- 
+16:58:44 > cantidad   : 0 -- 
+16:58:44 > dato entrada    : 8273 -- 
+16:58:44 > cantidad   : 0 -- 
+16:58:44 > dato entrada    : 8382 -- 
+16:58:44 > cantidad   : 0 -- 
+16:58:44 > dato entrada    : 9080 -- 
+16:58:44 > cantidad   : 0 -- 
+16:58:44 > dato entrada    : 9087 -- 
+16:58:44 > cantidad   : 0 -- 
+16:58:44 > dato entrada    : 9093 -- 
+16:58:44 > cantidad   : 0 -- 
+16:58:44 > dato entrada    : 9202 -- 
+16:58:44 > cantidad   : 0 -- 
+16:58:44 > dato entrada    : 9900 -- 
+16:58:44 > cantidad   : 0 -- 
+16:58:44 > dato entrada    : 9907 -- 
+16:58:44 > cantidad   : 0 -- 
+16:58:44 > dato entrada    : 9913 -- 
+16:58:44 > cantidad   : 0 -- 
+16:58:44 > dato entrada    : 10022 -- 
+16:58:44 > cantidad   : 0 -- 
+16:58:44 > dato entrada    : 10720 -- 
+16:58:44 > cantidad   : 0 -- 
+16:58:44 > dato entrada    : 10727 -- 
+16:58:44 > cantidad   : 0 -- 
+16:58:44 > dato entrada    : 10733 -- 
+16:58:44 > cantidad   : 0 -- 
+16:58:44 > dato entrada    : 10842 -- 
+16:58:44 > cantidad   : 0 -- 
+16:58:44 > dato entrada    : 11758 -- 
+16:58:44 > cantidad   : 0 -- 
+16:58:44 > dato entrada    : 11765 -- 
+16:58:44 > cantidad   : 0 -- 
+16:58:44 > entro a : curlVerificaVideosLiquidXId2238
+16:58:44 > dato entrada    : 11771 -- 
+16:58:44 > cantidad   : 0 -- 
+16:58:44 > entro a : verificaVideosLiquidXId 2238
+16:58:44 >  2238
+16:58:44 > 3 2238
+16:58:44 > estado_liquid 2238 3
+16:58:44 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:58:44 > dato entrada    : 11880 -- 
+16:58:44 > cantidad   : 0 -- 
+16:58:44 > dato entrada    : 12796 -- 
+16:58:44 > cantidad   : 0 -- 
+16:58:45 > dato entrada    : 12803 -- 
+16:58:45 > cantidad   : 0 -- 
+16:58:45 > dato entrada    : 12809 -- 
+16:58:45 > cantidad   : 0 -- 
+16:58:45 > dato entrada    : 12918 -- 
+16:58:45 > cantidad   : 0 -- 
+16:58:45 > dato entrada    : 13276 -- 
+16:58:45 > cantidad   : 0 -- 
+16:58:45 > dato entrada    : 13984 -- 
+16:58:45 > cantidad   : 0 -- 
+16:58:45 > dato entrada    : 13991 -- 
+16:58:45 > cantidad   : 0 -- 
+16:58:45 > dato entrada    : 13997 -- 
+16:58:45 > cantidad   : 0 -- 
+16:58:45 > dato entrada    : 14106 -- 
+16:58:45 > cantidad   : 0 -- 
+16:58:45 > dato entrada    : 14464 -- 
+16:58:45 > cantidad   : 0 -- 
+16:58:45 > dato entrada    : 15172 -- 
+16:58:45 > cantidad   : 0 -- 
+16:58:45 > dato entrada    : 15179 -- 
+16:58:45 > cantidad   : 0 -- 
+16:58:45 > dato entrada    : 15185 -- 
+16:58:45 > cantidad   : 0 -- 
+16:58:45 > dato entrada    : 15294 -- 
+16:58:45 > cantidad   : 0 -- 
+16:58:45 > dato entrada    : 15652 -- 
+16:58:45 > cantidad   : 0 -- 
+16:58:45 > dato entrada    : 16360 -- 
+16:58:45 > cantidad   : 0 -- 
+16:58:45 > dato entrada    : 16367 -- 
+16:58:45 > cantidad   : 0 -- 
+16:58:45 > dato entrada    : 16373 -- 
+16:58:45 > cantidad   : 0 -- 
+16:58:45 > dato entrada    : 16482 -- 
+16:58:45 > cantidad   : 0 -- 
+16:58:45 > dato entrada    : 16840 -- 
+16:58:45 > cantidad   : 0 -- 
+16:58:45 > dato entrada    : 17552 -- 
+16:58:45 > cantidad   : 0 -- 
+16:58:45 > dato entrada    : 17559 -- 
+16:58:45 > cantidad   : 0 -- 
+16:58:45 > dato entrada    : 17565 -- 
+16:58:45 > cantidad   : 0 -- 
+16:58:45 > dato entrada    : 17674 -- 
+16:58:45 > cantidad   : 0 -- 
+16:58:45 > dato entrada    : 18032 -- 
+16:58:45 > cantidad   : 0 -- 
+16:58:45 > dato entrada    : 18764 -- 
+16:58:45 > cantidad   : 0 -- 
+16:58:45 > dato entrada    : 18771 -- 
+16:58:45 > cantidad   : 0 -- 
+16:58:45 > dato entrada    : 18777 -- 
+16:58:45 > cantidad   : 0 -- 
+16:58:45 > dato entrada    : 18886 -- 
+16:58:45 > cantidad   : 0 -- 
+16:58:45 > dato entrada    : 19244 -- 
+16:58:45 > cantidad   : 0 -- 
+16:58:45 > dato entrada    : 19952 -- 
+16:58:45 > cantidad   : 0 -- 
+16:58:45 > dato entrada    : 19959 -- 
+16:58:45 > cantidad   : 0 -- 
+16:58:45 > dato entrada    : 19965 -- 
+16:58:45 > cantidad   : 0 -- 
+16:58:45 > dato entrada    : 20074 -- 
+16:58:45 > cantidad   : 0 -- 
+16:58:45 > dato entrada    : 20432 -- 
+16:58:45 > cantidad   : 0 -- 
+16:58:45 > dato entrada    : 33742 -- 
+16:58:45 > cantidad   : 0 -- 
+16:58:49 > dato entrada    : 1868 -- 
+16:58:49 > cantidad   : 0 -- 
+16:58:49 > dato entrada    : 1875 -- 
+16:58:49 > cantidad   : 0 -- 
+16:58:49 > dato entrada    : 1881 -- 
+16:58:49 > cantidad   : 0 -- 
+16:58:49 > dato entrada    : 1990 -- 
+16:58:49 > cantidad   : 0 -- 
+16:58:49 > dato entrada    : 2667 -- 
+16:58:49 > cantidad   : 1 -- 
+16:58:49 > dato entrada    : 2782 -- 
+16:58:49 > cantidad   : 1 -- 
+16:58:49 > dato entrada    : 3452 -- 
+16:58:49 > cantidad   : 0 -- 
+16:58:49 > dato entrada    : 3459 -- 
+16:58:49 > cantidad   : 0 -- 
+16:58:49 > dato entrada    : 3465 -- 
+16:58:49 > cantidad   : 0 -- 
+16:58:49 > dato entrada    : 3574 -- 
+16:58:49 > cantidad   : 0 -- 
+16:58:49 > dato entrada    : 4244 -- 
+16:58:49 > cantidad   : 0 -- 
+16:58:49 > dato entrada    : 4251 -- 
+16:58:49 > cantidad   : 0 -- 
+16:58:49 > dato entrada    : 4257 -- 
+16:58:49 > cantidad   : 0 -- 
+16:58:49 > dato entrada    : 4366 -- 
+16:58:49 > cantidad   : 0 -- 
+16:58:49 > dato entrada    : 5036 -- 
+16:58:49 > cantidad   : 0 -- 
+16:58:49 > dato entrada    : 5043 -- 
+16:58:49 > cantidad   : 0 -- 
+16:58:49 > dato entrada    : 5049 -- 
+16:58:49 > cantidad   : 0 -- 
+16:58:49 > dato entrada    : 5158 -- 
+16:58:49 > cantidad   : 0 -- 
+16:58:49 > dato entrada    : 5828 -- 
+16:58:49 > cantidad   : 0 -- 
+16:58:49 > dato entrada    : 5835 -- 
+16:58:49 > cantidad   : 0 -- 
+16:58:49 > dato entrada    : 5841 -- 
+16:58:49 > cantidad   : 0 -- 
+16:58:49 > dato entrada    : 5950 -- 
+16:58:49 > cantidad   : 0 -- 
+16:58:49 > dato entrada    : 6620 -- 
+16:58:49 > cantidad   : 0 -- 
+16:58:49 > dato entrada    : 6627 -- 
+16:58:49 > cantidad   : 0 -- 
+16:58:49 > dato entrada    : 6633 -- 
+16:58:49 > cantidad   : 0 -- 
+16:58:49 > dato entrada    : 6742 -- 
+16:58:49 > cantidad   : 0 -- 
+16:58:49 > dato entrada    : 7440 -- 
+16:58:49 > cantidad   : 0 -- 
+16:58:49 > dato entrada    : 7447 -- 
+16:58:49 > cantidad   : 0 -- 
+16:58:49 > dato entrada    : 7453 -- 
+16:58:49 > cantidad   : 0 -- 
+16:58:49 > dato entrada    : 7562 -- 
+16:58:49 > cantidad   : 0 -- 
+16:58:49 > dato entrada    : 8260 -- 
+16:58:49 > cantidad   : 0 -- 
+16:58:49 > dato entrada    : 8267 -- 
+16:58:49 > cantidad   : 0 -- 
+16:58:49 > dato entrada    : 8273 -- 
+16:58:49 > cantidad   : 0 -- 
+16:58:49 > dato entrada    : 8382 -- 
+16:58:49 > cantidad   : 0 -- 
+16:58:50 > dato entrada    : 9080 -- 
+16:58:50 > cantidad   : 0 -- 
+16:58:50 > dato entrada    : 9087 -- 
+16:58:50 > cantidad   : 0 -- 
+16:58:50 > dato entrada    : 9093 -- 
+16:58:50 > cantidad   : 0 -- 
+16:58:50 > dato entrada    : 9202 -- 
+16:58:50 > cantidad   : 0 -- 
+16:58:50 > dato entrada    : 9900 -- 
+16:58:50 > cantidad   : 0 -- 
+16:58:50 > dato entrada    : 9907 -- 
+16:58:50 > cantidad   : 0 -- 
+16:58:50 > dato entrada    : 9913 -- 
+16:58:50 > cantidad   : 0 -- 
+16:58:50 > dato entrada    : 10022 -- 
+16:58:50 > cantidad   : 0 -- 
+16:58:50 > dato entrada    : 10720 -- 
+16:58:50 > cantidad   : 0 -- 
+16:58:50 > dato entrada    : 10727 -- 
+16:58:50 > cantidad   : 0 -- 
+16:58:50 > dato entrada    : 10733 -- 
+16:58:50 > cantidad   : 0 -- 
+16:58:50 > dato entrada    : 10842 -- 
+16:58:50 > cantidad   : 0 -- 
+16:58:50 > dato entrada    : 11758 -- 
+16:58:50 > cantidad   : 0 -- 
+16:58:50 > dato entrada    : 11765 -- 
+16:58:50 > cantidad   : 0 -- 
+16:58:50 > dato entrada    : 11771 -- 
+16:58:50 > cantidad   : 0 -- 
+16:58:50 > dato entrada    : 11880 -- 
+16:58:50 > cantidad   : 0 -- 
+16:58:50 > dato entrada    : 12796 -- 
+16:58:50 > cantidad   : 0 -- 
+16:58:50 > dato entrada    : 12803 -- 
+16:58:50 > cantidad   : 0 -- 
+16:58:50 > dato entrada    : 12809 -- 
+16:58:50 > cantidad   : 0 -- 
+16:58:50 > dato entrada    : 12918 -- 
+16:58:50 > cantidad   : 0 -- 
+16:58:50 > dato entrada    : 13276 -- 
+16:58:50 > cantidad   : 0 -- 
+16:58:50 > dato entrada    : 13984 -- 
+16:58:50 > cantidad   : 0 -- 
+16:58:50 > dato entrada    : 13991 -- 
+16:58:50 > cantidad   : 0 -- 
+16:58:50 > dato entrada    : 13997 -- 
+16:58:50 > cantidad   : 0 -- 
+16:58:50 > dato entrada    : 14106 -- 
+16:58:50 > cantidad   : 0 -- 
+16:58:50 > dato entrada    : 14464 -- 
+16:58:50 > cantidad   : 0 -- 
+16:58:50 > dato entrada    : 15172 -- 
+16:58:50 > cantidad   : 0 -- 
+16:58:50 > dato entrada    : 15179 -- 
+16:58:50 > cantidad   : 0 -- 
+16:58:50 > dato entrada    : 15185 -- 
+16:58:50 > cantidad   : 0 -- 
+16:58:50 > dato entrada    : 15294 -- 
+16:58:50 > cantidad   : 0 -- 
+16:58:50 > dato entrada    : 15652 -- 
+16:58:50 > cantidad   : 0 -- 
+16:58:50 > dato entrada    : 16360 -- 
+16:58:50 > cantidad   : 0 -- 
+16:58:50 > dato entrada    : 16367 -- 
+16:58:50 > cantidad   : 0 -- 
+16:58:50 > dato entrada    : 16373 -- 
+16:58:50 > cantidad   : 0 -- 
+16:58:50 > dato entrada    : 16482 -- 
+16:58:50 > cantidad   : 0 -- 
+16:58:50 > dato entrada    : 16840 -- 
+16:58:50 > cantidad   : 0 -- 
+16:58:50 > dato entrada    : 17552 -- 
+16:58:50 > cantidad   : 0 -- 
+16:58:50 > dato entrada    : 17559 -- 
+16:58:50 > cantidad   : 0 -- 
+16:58:50 > dato entrada    : 17565 -- 
+16:58:50 > cantidad   : 0 -- 
+16:58:50 > dato entrada    : 17674 -- 
+16:58:50 > cantidad   : 0 -- 
+16:58:50 > dato entrada    : 18032 -- 
+16:58:50 > cantidad   : 0 -- 
+16:58:50 > dato entrada    : 18764 -- 
+16:58:50 > cantidad   : 0 -- 
+16:58:50 > dato entrada    : 18771 -- 
+16:58:50 > cantidad   : 0 -- 
+16:58:50 > dato entrada    : 18777 -- 
+16:58:50 > cantidad   : 0 -- 
+16:58:50 > dato entrada    : 18886 -- 
+16:58:50 > cantidad   : 0 -- 
+16:58:50 > dato entrada    : 19244 -- 
+16:58:50 > cantidad   : 0 -- 
+16:58:50 > dato entrada    : 19952 -- 
+16:58:50 > cantidad   : 0 -- 
+16:58:50 > dato entrada    : 19959 -- 
+16:58:50 > cantidad   : 0 -- 
+16:58:50 > dato entrada    : 19965 -- 
+16:58:50 > cantidad   : 0 -- 
+16:58:51 > dato entrada    : 20074 -- 
+16:58:51 > cantidad   : 0 -- 
+16:58:51 > dato entrada    : 20432 -- 
+16:58:51 > cantidad   : 0 -- 
+16:58:51 > dato entrada    : 33742 -- 
+16:58:51 > cantidad   : 0 -- 
+16:58:54 > dato entrada    : 1868 -- 
+16:58:54 > cantidad   : 0 -- 
+16:58:54 > dato entrada    : 1875 -- 
+16:58:54 > cantidad   : 0 -- 
+16:58:54 > dato entrada    : 1881 -- 
+16:58:54 > cantidad   : 0 -- 
+16:58:54 > dato entrada    : 1990 -- 
+16:58:54 > cantidad   : 0 -- 
+16:58:54 > dato entrada    : 2667 -- 
+16:58:54 > cantidad   : 1 -- 
+16:58:54 > dato entrada    : 2782 -- 
+16:58:54 > cantidad   : 1 -- 
+16:58:54 > dato entrada    : 3452 -- 
+16:58:54 > cantidad   : 0 -- 
+16:58:54 > dato entrada    : 3459 -- 
+16:58:54 > cantidad   : 0 -- 
+16:58:54 > dato entrada    : 3465 -- 
+16:58:54 > cantidad   : 0 -- 
+16:58:54 > dato entrada    : 3574 -- 
+16:58:54 > cantidad   : 0 -- 
+16:58:54 > dato entrada    : 4244 -- 
+16:58:54 > cantidad   : 0 -- 
+16:58:54 > dato entrada    : 4251 -- 
+16:58:54 > cantidad   : 0 -- 
+16:58:54 > dato entrada    : 4257 -- 
+16:58:54 > cantidad   : 0 -- 
+16:58:54 > dato entrada    : 4366 -- 
+16:58:54 > cantidad   : 0 -- 
+16:58:54 > dato entrada    : 5036 -- 
+16:58:54 > cantidad   : 0 -- 
+16:58:54 > dato entrada    : 5043 -- 
+16:58:54 > cantidad   : 0 -- 
+16:58:54 > dato entrada    : 5049 -- 
+16:58:54 > cantidad   : 0 -- 
+16:58:54 > dato entrada    : 5158 -- 
+16:58:54 > cantidad   : 0 -- 
+16:58:54 > dato entrada    : 5828 -- 
+16:58:54 > cantidad   : 0 -- 
+16:58:54 > dato entrada    : 5835 -- 
+16:58:54 > cantidad   : 0 -- 
+16:58:54 > dato entrada    : 5841 -- 
+16:58:54 > cantidad   : 0 -- 
+16:58:54 > dato entrada    : 5950 -- 
+16:58:54 > cantidad   : 0 -- 
+16:58:54 > dato entrada    : 6620 -- 
+16:58:54 > cantidad   : 0 -- 
+16:58:54 > dato entrada    : 6627 -- 
+16:58:54 > cantidad   : 0 -- 
+16:58:54 > dato entrada    : 6633 -- 
+16:58:54 > cantidad   : 0 -- 
+16:58:54 > dato entrada    : 6742 -- 
+16:58:54 > cantidad   : 0 -- 
+16:58:54 > dato entrada    : 7440 -- 
+16:58:54 > cantidad   : 0 -- 
+16:58:54 > dato entrada    : 7447 -- 
+16:58:54 > cantidad   : 0 -- 
+16:58:54 > dato entrada    : 7453 -- 
+16:58:54 > cantidad   : 0 -- 
+16:58:54 > entro a : curlVerificaVideosLiquidXId2238
+16:58:54 > dato entrada    : 7562 -- 
+16:58:54 > cantidad   : 0 -- 
+16:58:55 > dato entrada    : 8260 -- 
+16:58:55 > cantidad   : 0 -- 
+16:58:55 > entro a : verificaVideosLiquidXId 2238
+16:58:55 >  2238
+16:58:55 > 3 2238
+16:58:55 > estado_liquid 2238 3
+16:58:55 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:58:55 > dato entrada    : 8267 -- 
+16:58:55 > cantidad   : 0 -- 
+16:58:55 > dato entrada    : 8273 -- 
+16:58:55 > cantidad   : 0 -- 
+16:58:55 > dato entrada    : 8382 -- 
+16:58:55 > cantidad   : 0 -- 
+16:58:55 > dato entrada    : 9080 -- 
+16:58:55 > cantidad   : 0 -- 
+16:58:55 > dato entrada    : 9087 -- 
+16:58:55 > cantidad   : 0 -- 
+16:58:55 > dato entrada    : 9093 -- 
+16:58:55 > cantidad   : 0 -- 
+16:58:55 > dato entrada    : 9202 -- 
+16:58:55 > cantidad   : 0 -- 
+16:58:55 > dato entrada    : 9900 -- 
+16:58:55 > cantidad   : 0 -- 
+16:58:55 > dato entrada    : 9907 -- 
+16:58:55 > cantidad   : 0 -- 
+16:58:55 > dato entrada    : 9913 -- 
+16:58:55 > cantidad   : 0 -- 
+16:58:55 > dato entrada    : 10022 -- 
+16:58:55 > cantidad   : 0 -- 
+16:58:55 > dato entrada    : 10720 -- 
+16:58:55 > cantidad   : 0 -- 
+16:58:55 > dato entrada    : 10727 -- 
+16:58:55 > cantidad   : 0 -- 
+16:58:55 > dato entrada    : 10733 -- 
+16:58:55 > cantidad   : 0 -- 
+16:58:55 > dato entrada    : 10842 -- 
+16:58:55 > cantidad   : 0 -- 
+16:58:55 > dato entrada    : 11758 -- 
+16:58:55 > cantidad   : 0 -- 
+16:58:55 > dato entrada    : 11765 -- 
+16:58:55 > cantidad   : 0 -- 
+16:58:55 > dato entrada    : 11771 -- 
+16:58:55 > cantidad   : 0 -- 
+16:58:55 > dato entrada    : 11880 -- 
+16:58:55 > cantidad   : 0 -- 
+16:58:55 > dato entrada    : 12796 -- 
+16:58:55 > cantidad   : 0 -- 
+16:58:55 > dato entrada    : 12803 -- 
+16:58:55 > cantidad   : 0 -- 
+16:58:55 > dato entrada    : 12809 -- 
+16:58:55 > cantidad   : 0 -- 
+16:58:55 > dato entrada    : 12918 -- 
+16:58:55 > cantidad   : 0 -- 
+16:58:55 > dato entrada    : 13276 -- 
+16:58:55 > cantidad   : 0 -- 
+16:58:55 > dato entrada    : 13984 -- 
+16:58:55 > cantidad   : 0 -- 
+16:58:55 > dato entrada    : 13991 -- 
+16:58:55 > cantidad   : 0 -- 
+16:58:55 > dato entrada    : 13997 -- 
+16:58:55 > cantidad   : 0 -- 
+16:58:55 > dato entrada    : 14106 -- 
+16:58:55 > cantidad   : 0 -- 
+16:58:55 > dato entrada    : 14464 -- 
+16:58:55 > cantidad   : 0 -- 
+16:58:55 > dato entrada    : 15172 -- 
+16:58:55 > cantidad   : 0 -- 
+16:58:55 > dato entrada    : 15179 -- 
+16:58:55 > cantidad   : 0 -- 
+16:58:55 > dato entrada    : 15185 -- 
+16:58:55 > cantidad   : 0 -- 
+16:58:55 > dato entrada    : 15294 -- 
+16:58:55 > cantidad   : 0 -- 
+16:58:55 > dato entrada    : 15652 -- 
+16:58:55 > cantidad   : 0 -- 
+16:58:55 > dato entrada    : 16360 -- 
+16:58:55 > cantidad   : 0 -- 
+16:58:55 > dato entrada    : 16367 -- 
+16:58:55 > cantidad   : 0 -- 
+16:58:55 > dato entrada    : 16373 -- 
+16:58:55 > cantidad   : 0 -- 
+16:58:55 > dato entrada    : 16482 -- 
+16:58:55 > cantidad   : 0 -- 
+16:58:55 > dato entrada    : 16840 -- 
+16:58:55 > cantidad   : 0 -- 
+16:58:55 > dato entrada    : 17552 -- 
+16:58:55 > cantidad   : 0 -- 
+16:58:55 > dato entrada    : 17559 -- 
+16:58:55 > cantidad   : 0 -- 
+16:58:55 > dato entrada    : 17565 -- 
+16:58:55 > cantidad   : 0 -- 
+16:58:55 > dato entrada    : 17674 -- 
+16:58:55 > cantidad   : 0 -- 
+16:58:55 > dato entrada    : 18032 -- 
+16:58:55 > cantidad   : 0 -- 
+16:58:55 > dato entrada    : 18764 -- 
+16:58:55 > cantidad   : 0 -- 
+16:58:55 > dato entrada    : 18771 -- 
+16:58:55 > cantidad   : 0 -- 
+16:58:55 > dato entrada    : 18777 -- 
+16:58:55 > cantidad   : 0 -- 
+16:58:55 > dato entrada    : 18886 -- 
+16:58:55 > cantidad   : 0 -- 
+16:58:55 > dato entrada    : 19244 -- 
+16:58:55 > cantidad   : 0 -- 
+16:58:55 > dato entrada    : 19952 -- 
+16:58:55 > cantidad   : 0 -- 
+16:58:55 > dato entrada    : 19959 -- 
+16:58:55 > cantidad   : 0 -- 
+16:58:55 > dato entrada    : 19965 -- 
+16:58:55 > cantidad   : 0 -- 
+16:58:56 > dato entrada    : 20074 -- 
+16:58:56 > cantidad   : 0 -- 
+16:58:56 > dato entrada    : 20432 -- 
+16:58:56 > cantidad   : 0 -- 
+16:58:56 > dato entrada    : 33742 -- 
+16:58:56 > cantidad   : 0 -- 
+16:59:05 > entro a : curlVerificaVideosLiquidXId2238
+16:59:05 > entro a : verificaVideosLiquidXId 2238
+16:59:05 >  2238
+16:59:05 > 3 2238
+16:59:05 > estado_liquid 2238 3
+16:59:05 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:59:15 > entro a : curlVerificaVideosLiquidXId2238
+16:59:15 > entro a : verificaVideosLiquidXId 2238
+16:59:15 >  2238
+16:59:15 > 3 2238
+16:59:15 > estado_liquid 2238 3
+16:59:15 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:59:25 > entro a : curlVerificaVideosLiquidXId2238
+16:59:25 > entro a : verificaVideosLiquidXId 2238
+16:59:25 >  2238
+16:59:25 > 3 2238
+16:59:25 > estado_liquid 2238 3
+16:59:25 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:59:35 > entro a : curlVerificaVideosLiquidXId2238
+16:59:35 > entro a : verificaVideosLiquidXId 2238
+16:59:35 >  2238
+16:59:35 > 3 2238
+16:59:35 > estado_liquid 2238 3
+16:59:35 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:59:45 > entro a : curlVerificaVideosLiquidXId2238
+16:59:45 > entro a : verificaVideosLiquidXId 2238
+16:59:45 >  2238
+16:59:45 > 3 2238
+16:59:45 > estado_liquid 2238 3
+16:59:45 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+16:59:55 > entro a : curlVerificaVideosLiquidXId2238
+16:59:55 > entro a : verificaVideosLiquidXId 2238
+16:59:55 >  2238
+16:59:55 > 3 2238
+16:59:55 > estado_liquid 2238 3
+16:59:55 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+17:00:05 > entro a : curlVerificaVideosLiquidXId2238
+17:00:05 > entro a : verificaVideosLiquidXId 2238
+17:00:05 >  2238
+17:00:05 > 3 2238
+17:00:05 > estado_liquid 2238 3
+17:00:05 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+17:00:15 > entro a : curlVerificaVideosLiquidXId2238
+17:00:15 > entro a : verificaVideosLiquidXId 2238
+17:00:15 >  2238
+17:00:15 > 3 2238
+17:00:15 > estado_liquid 2238 3
+17:00:15 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+17:00:25 > entro a : curlVerificaVideosLiquidXId2238
+17:00:25 > entro a : verificaVideosLiquidXId 2238
+17:00:25 >  2238
+17:00:25 > 3 2238
+17:00:25 > estado_liquid 2238 3
+17:00:25 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+17:00:35 > entro a : curlVerificaVideosLiquidXId2238
+17:00:35 > entro a : verificaVideosLiquidXId 2238
+17:00:35 >  2238
+17:00:35 > 3 2238
+17:00:35 > estado_liquid 2238 3
+17:00:35 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+17:00:45 > entro a : curlVerificaVideosLiquidXId2238
+17:00:45 > entro a : verificaVideosLiquidXId 2238
+17:00:45 >  2238
+17:00:45 > 3 2238
+17:00:45 > estado_liquid 2238 3
+17:00:45 > no hay datos me voy a curlVerificaVideosLiquidXId 2238
+17:00:55 > entro a : curlVerificaVideosLiquidXId2238
+17:00:55 > entro a : verificaVideosLiquidXId 2238
+17:00:55 >  2238
+17:00:55 > 3 2238
+17:00:55 > estado_liquid 2238 3
+17:00:55 > no hay datos me voy a curlVerificaVideosLiquidXId 2238

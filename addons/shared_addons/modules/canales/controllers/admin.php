@@ -741,11 +741,11 @@ class Admin extends Admin_Controller {
                             $objBeanCanal->alias = url_title(strtolower(convert_accented_characters($this->input->post('nombre'))));
                             $objBeanCanal->nombre = $this->input->post('nombre');
                             $objBeanCanal->descripcion = $this->input->post('descripcion_updated');
-                            $objBeanCanal->apikey = '';
-                            $objBeanCanal->playerkey = '';
+                            $objBeanCanal->apikey = $this->input->post('apikey');
+                            $objBeanCanal->playerkey = $this->input->post('playerkey');
                             $objBeanCanal->id_mongo = NULL;
                             $objBeanCanal->cantidad_suscriptores = '0';
-                            $objBeanCanal->estado = '1';
+                            $objBeanCanal->estado = $this->config->item('estado:borrador');
                             $objBeanCanal->fecha_registro = date("Y-m-d H:i:s");
                             $objBeanCanal->usuario_registro = $user_id;
                             $objBeanCanal->fecha_actualizacion = date("Y-m-d H:i:s");
