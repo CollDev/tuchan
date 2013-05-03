@@ -455,7 +455,28 @@
                 //data:imagen_id,
                 success: function(returnRespuesta) //we're calling the response json array 'cities'
                 {
-                    console.log(returnRespuesta);
+                    //limpiar
+//                    $('#listaImagenes').ddslick('destroy');
+//                    $("#contenedorImage").empty();
+//                    var htmlN = '<select id="listaImagenes">';
+//                    $.each(returnRespuesta.imagenes, function(k, v) {
+//                        if (v.estado == '1') {
+//                            htmlN += '<option selected=\"selected\" value=\"' + v.id + '\" data-imagesrc=\"' + v.path + '\" data-description=\" \"></option>';
+//                        } else {
+//                            htmlN += '<option value=\"' + v.id + '\" data-imagesrc=\"' + v.path + '\" data-description=\" \"></option>';
+//                        }
+//                    });
+//                    htmlN += '</select>';
+//                    $("#contenedorImage").html(htmlN);
+//                    $('#listaImagenes').ddslick({
+//                        width: 300,
+//                        imagePosition: "center",
+//                        selectText: "Seleccione su imagen principal",
+//                        onSelected: function(data) {
+//                            //console.log(data);
+//                            activeImageMaestro(data['selectedData'].value);
+//                        }
+//                    });
                 } //end success
             }); //end AJAX              
         }

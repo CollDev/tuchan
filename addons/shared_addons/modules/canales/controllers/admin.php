@@ -1555,6 +1555,9 @@ class Admin extends Admin_Controller {
         $path_image = $this->config->item('path:temp') . $imagen;
         $returnValue = 0;
         if (file_exists($path_image)) {
+            //actualizar las imagenes de este tipo a estado borrador
+            //$this->imagen_m->update_many(array("canales_id"=>$canal_id, "tipo_imagen_id"=>$this->config->item('imagen:extralarge')), array("estado"=>$this->config->item('estado:borrador')));
+            $this->imagen_m->deshabilitar($canal_id, $this->config->item('imagen:extralarge'));
             $user_id = (int) $this->session->userdata('user_id');
             $objBeanImage = new stdClass();
             $objBeanImage->id = NULL;
@@ -1563,7 +1566,7 @@ class Admin extends Admin_Controller {
             $objBeanImage->videos_id = NULL;
             $objBeanImage->imagen = $path_image;
             $objBeanImage->tipo_imagen_id = $this->config->item('imagen:extralarge');
-            $objBeanImage->estado = $this->config->item('imagen:borrador');
+            $objBeanImage->estado = $this->config->item('estado:publicado');
             $objBeanImage->fecha_registro = date("Y-m-d H:i:s");
             $objBeanImage->usuario_registro = $user_id;
             $objBeanImage->fecha_actualizacion = date("Y-m-d H:i:s");
@@ -1576,8 +1579,8 @@ class Admin extends Admin_Controller {
             $objBeanImageSaved = $this->imagen_m->saveImage($objBeanImage);
 
             //deshabilitamos todas las imagenes
-            $listaImagenes = $this->imagen_m->get_many_by(array("canales_id" => $canal_id, "tipo_imagen_id" => $this->config->item('imagen:extralarge')));
-            if (count($listaImagenes) > 0) {
+            //$listaImagenes = $this->imagen_m->get_many_by(array("canales_id" => $canal_id, "tipo_imagen_id" => $this->config->item('imagen:extralarge')));
+            /*if (count($listaImagenes) > 0) {
                 foreach ($listaImagenes as $index => $objImagen) {
                     if ($objBeanImageSaved->id == $objImagen->id) {
                         $this->imagen_m->update($objImagen->id, array("estado" => "1"));
@@ -1585,7 +1588,7 @@ class Admin extends Admin_Controller {
                         $this->imagen_m->update($objImagen->id, array("estado" => "0"));
                     }
                 }
-            }
+            }*/
             //subir la imagen a elemento
             $path_image_element = $this->elemento_upload($objBeanImageSaved->id, $objBeanImageSaved->imagen);
             $array_path = explode("/", $path_image_element);
@@ -1599,7 +1602,7 @@ class Admin extends Admin_Controller {
             //echo json_encode(array("error" => "0"));
             $returnValue = 1;
         }
-        $arrayImagenes = $this->imagen_m->get_many_by(array("canales_id" => $canal_id, "tipo_imagen_id" => $this->config->item('imagen:extralarge')));
+        $arrayImagenes = $this->imagen_m->order_by('estado', 'DESC')->get_many_by(array("canales_id" => $canal_id, "tipo_imagen_id" => $this->config->item('imagen:extralarge')));
         foreach ($arrayImagenes as $indice => $objImg) {
             $objImg->path = $this->config->item('protocolo:http') . $this->config->item('server:elemento') . '/' . $objImg->imagen;
             $arrayImagenes[$indice] = $objImg;
