@@ -86,9 +86,9 @@ class Admin extends Admin_Controller {
 
             // Using this data, get the relevant results
             if (strlen(trim($keyword)) > 0) {
-                $canales = $this->canales_m->like('nombre', $keyword)->limit($pagination['limit'])->get_many_by($base_where);
+                $canales = $this->canales_m->order_by('fecha_registro','DESC')->like('nombre', $keyword)->limit($pagination['limit'])->get_many_by($base_where);
             } else {
-                $canales = $this->canales_m->limit($pagination['limit'])->get_many_by($base_where);
+                $canales = $this->canales_m->order_by('fecha_registro','DESC')->limit($pagination['limit'])->get_many_by($base_where);
             }
 
             $estados = array($this->config->item('estado:publicado') => "Publicado", "3" => "Borrador", $this->config->item('estado:eliminado') => "Eliminado");
