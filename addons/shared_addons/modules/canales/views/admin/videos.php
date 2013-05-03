@@ -1,4 +1,5 @@
 <section class="title"> 
+    <div style ="float: left;">
     <?php
     echo anchor('admin/videos/carga_unitaria/' . $canal->id, $this->config->item('submenu:carga_unitaria'), array('class' => ''));
     echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
@@ -7,7 +8,11 @@
     echo anchor('admin/videos/maestro/' . $canal->id, 'Organizar videos', array('class' => ''));
     echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
     echo anchor('admin/canales/portada/' . $canal->id, 'Portadas', array('class' => ''));
-    ?>
+    ?>        
+    </div>
+    <div style="float: right;">
+        <?php echo anchor('admin/canales/papelera/' . $canal->id, 'Papelera', array('class' => ''));?>
+    </div>
 </section>
 
 <section class="item">

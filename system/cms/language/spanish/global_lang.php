@@ -108,5 +108,6 @@ $lang['global:cortar'] = 'Cortar';
 $lang['global:empty'] = 'Vaciar';
 $lang['global:delete'] = 'Eliminar';
 $lang['global:remove'] = 'Eliminar';
+$lang['global:type'] = 'Tipo';
 
 $lang['global:keywords'] = 'Palabras claves';

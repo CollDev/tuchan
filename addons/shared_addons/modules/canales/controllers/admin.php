@@ -63,17 +63,17 @@ class Admin extends Admin_Controller {
         //echo "here!!---->".($this->session->userdata['group']);die();
         if ($this->session->userdata['group'] == 'administrador-canales' || $this->session->userdata['group'] == 'admin' || $this->session->userdata['group'] == 'administrador-mi-canal') {
             $user_id = (int) $this->session->userdata('user_id');
-            if($this->session->userdata['group'] != 'admin'){
-                $canalesxUsuario = $this->usuario_grupo_canales_m->get_many_by(array("user_id"=>$user_id));
-            }else{
+            if ($this->session->userdata['group'] != 'admin') {
+                $canalesxUsuario = $this->usuario_grupo_canales_m->get_many_by(array("user_id" => $user_id));
+            } else {
                 $canalesxUsuario = array();
             }
             $arrayCanales = array();
-            if(count($canalesxUsuario)>0){
-                foreach($canalesxUsuario as $in=>$objgrupocanal){
+            if (count($canalesxUsuario) > 0) {
+                foreach ($canalesxUsuario as $in => $objgrupocanal) {
                     array_push($arrayCanales, $objgrupocanal->canal_id);
                 }
-                if(count($arrayCanales)>0){
+                if (count($arrayCanales) > 0) {
                     $arrayCanales = array_unique($arrayCanales);
                 }
             }
@@ -93,15 +93,15 @@ class Admin extends Admin_Controller {
                 $keyword = $this->input->post('f_keywords');
             // Create pagination links
             if (strlen(trim($keyword)) > 0) {
-                if(count($canalesxUsuario)>0){
+                if (count($canalesxUsuario) > 0) {
                     $total_rows = $this->canales_m->like('nombre', $keyword)->count_by($base_where);
-                }else{
-                    $total_rows = $this->canales_m->where_in('id',$arrayCanales)->like('nombre', $keyword)->count_by($base_where);
+                } else {
+                    $total_rows = $this->canales_m->where_in('id', $arrayCanales)->like('nombre', $keyword)->count_by($base_where);
                 }
             } else {
-                if(count($canalesxUsuario)>0){
-                    $total_rows = $this->canales_m->where_in('id',$arrayCanales)->count_by($base_where);
-                }else{
+                if (count($canalesxUsuario) > 0) {
+                    $total_rows = $this->canales_m->where_in('id', $arrayCanales)->count_by($base_where);
+                } else {
                     $total_rows = $this->canales_m->count_by($base_where);
                 }
             }
@@ -109,29 +109,29 @@ class Admin extends Admin_Controller {
 
             // Using this data, get the relevant results
             if (strlen(trim($keyword)) > 0) {
-                if(count($canalesxUsuario)>0){
-                    $canales = $this->canales_m->where_in('id',$arrayCanales)->order_by('fecha_registro','DESC')->like('nombre', $keyword)->limit($pagination['limit'])->get_many_by($base_where);
-                }else{
-                    $canales = $this->canales_m->order_by('fecha_registro','DESC')->like('nombre', $keyword)->limit($pagination['limit'])->get_many_by($base_where);
+                if (count($canalesxUsuario) > 0) {
+                    $canales = $this->canales_m->where_in('id', $arrayCanales)->order_by('fecha_registro', 'DESC')->like('nombre', $keyword)->limit($pagination['limit'])->get_many_by($base_where);
+                } else {
+                    $canales = $this->canales_m->order_by('fecha_registro', 'DESC')->like('nombre', $keyword)->limit($pagination['limit'])->get_many_by($base_where);
                 }
             } else {
-                if(count($canalesxUsuario)>0){
-                    $canales = $this->canales_m->where_in('id',$arrayCanales)->order_by('fecha_registro','DESC')->limit($pagination['limit'])->get_many_by($base_where);
-                }else{
-                    $canales = $this->canales_m->order_by('fecha_registro','DESC')->limit($pagination['limit'])->get_many_by($base_where);
+                if (count($canalesxUsuario) > 0) {
+                    $canales = $this->canales_m->where_in('id', $arrayCanales)->order_by('fecha_registro', 'DESC')->limit($pagination['limit'])->get_many_by($base_where);
+                } else {
+                    $canales = $this->canales_m->order_by('fecha_registro', 'DESC')->limit($pagination['limit'])->get_many_by($base_where);
                 }
             }
-            
+
             //agregamos las imagenes de tipo isotipo para cada canal
-            if(count($canales)>0){
-                foreach ($canales as $puntero=>$objCanal){
-                    $objIsotipo = $this->imagen_m->get_by(array("canales_id"=>$objCanal->id, "estado"=>$this->config->item('estado:publicado'),"tipo_imagen_id"=>$this->config->item('imagen:iso')));
-                    if(count($objIsotipo)>0){
-                        $objCanal->imagen_iso = $this->config->item('protocolo:http').$this->config->item('server:elemento').'/'.$objIsotipo->imagen;
-                    }else{
+            if (count($canales) > 0) {
+                foreach ($canales as $puntero => $objCanal) {
+                    $objIsotipo = $this->imagen_m->get_by(array("canales_id" => $objCanal->id, "estado" => $this->config->item('estado:publicado'), "tipo_imagen_id" => $this->config->item('imagen:iso')));
+                    if (count($objIsotipo) > 0) {
+                        $objCanal->imagen_iso = $this->config->item('protocolo:http') . $this->config->item('server:elemento') . '/' . $objIsotipo->imagen;
+                    } else {
                         $objCanal->imagen_iso = $this->config->item('url:iso');
                     }
-                    $canales[$puntero]= $objCanal;
+                    $canales[$puntero] = $objCanal;
                 }
             }
 
@@ -1613,15 +1613,15 @@ class Admin extends Admin_Controller {
 
             //deshabilitamos todas las imagenes
             //$listaImagenes = $this->imagen_m->get_many_by(array("canales_id" => $canal_id, "tipo_imagen_id" => $this->config->item('imagen:extralarge')));
-            /*if (count($listaImagenes) > 0) {
-                foreach ($listaImagenes as $index => $objImagen) {
-                    if ($objBeanImageSaved->id == $objImagen->id) {
-                        $this->imagen_m->update($objImagen->id, array("estado" => "1"));
-                    } else {
-                        $this->imagen_m->update($objImagen->id, array("estado" => "0"));
-                    }
-                }
-            }*/
+            /* if (count($listaImagenes) > 0) {
+              foreach ($listaImagenes as $index => $objImagen) {
+              if ($objBeanImageSaved->id == $objImagen->id) {
+              $this->imagen_m->update($objImagen->id, array("estado" => "1"));
+              } else {
+              $this->imagen_m->update($objImagen->id, array("estado" => "0"));
+              }
+              }
+              } */
             //subir la imagen a elemento
             $path_image_element = $this->elemento_upload($objBeanImageSaved->id, $objBeanImageSaved->imagen);
             $array_path = explode("/", $path_image_element);
@@ -4594,7 +4594,7 @@ class Admin extends Admin_Controller {
             $objColeccionSeccion = $this->secciones_m->order_by('peso', 'ASC')->get_many_by(array("portadas_id" => $objPortada->id, "estado" => $this->config->item('estado:publicado')));
             if (count($objColeccionSeccion) > 0) {
                 foreach ($objColeccionSeccion as $puntero => $objSeccion) {
-                    $detalle_seccion = $this->detalle_secciones_m->order_by('peso', 'ASC')->get_many_by(array("secciones_id" => $objSeccion->id, "estado"=>$this->config->item('estado:publicado')));
+                    $detalle_seccion = $this->detalle_secciones_m->order_by('peso', 'ASC')->get_many_by(array("secciones_id" => $objSeccion->id, "estado" => $this->config->item('estado:publicado')));
                     if (count($detalle_seccion) > 0) {
                         foreach ($detalle_seccion as $index => $objDetalleSeccion) {
                             $objImagen = $this->imagen_m->get($objDetalleSeccion->imagenes_id);
@@ -4637,6 +4637,74 @@ class Admin extends Admin_Controller {
             //array_push($returnValue, $objPortada);
         }
         return $objPortada;
+    }
+
+    /**
+     * Método para mostrar una vista con ls lista de maestros eliminados
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param int $canal_id
+     */
+    public function papelera($canal_id) {
+        $objCanal = $this->canales_m->get($canal_id);
+        //$objColeccionMaestro = $this->grupo_maestro_m->get_many_by(array("canales_id" => $canal_id, "estado" => $this->config->item('estado:eliminado')));
+
+        if ($canal_id == 0) {
+            $objUsuarioCanal = $this->usuario_grupo_canales_m->get_by(array("user_id" => $this->current_user->id, "estado" => $this->config->item('estado:publicado')));
+            $canal_id = $objUsuarioCanal->canal_id;
+        }
+        $base_where = array("canales_id" => $canal_id, "estado" => $this->config->item('estado:publicado'));
+
+        //$programme_id = 0;
+        $keyword = '';
+        if ($this->input->post('f_keywords'))
+            $keyword = $this->input->post('f_keywords');
+
+        if ($this->input->post('f_programa'))
+            $base_where['nombre'] = $this->input->post('f_programa');
+
+        // Create pagination links
+        if (strlen(trim($keyword)) > 0) {
+            $total_rows = $this->grupo_maestro_m->like('nombre', $keyword)->count_by($base_where);
+        } else {
+            $total_rows = $this->grupo_maestro_m->count_by($base_where);
+        }
+        $pagination = create_pagination('admin/canales/papelera/' . $canal_id . '/index/', $total_rows, 10, 6);
+        if (strlen(trim($keyword)) > 0) {
+            // Using this data, get the relevant results
+            $objColeccionMaestro = $this->grupo_maestro_m->like('nombre', $keyword)->order_by('fecha_registro', 'DESC')->limit($pagination['limit'])->get_many_by($base_where);
+        } else {
+            $objColeccionMaestro = $this->grupo_maestro_m->order_by('fecha_registro', 'DESC')->limit($pagination['limit'])->get_many_by($base_where);
+        }
+
+        //obtenemos la imagen
+        if (count($objColeccionMaestro) > 0) {
+            foreach ($objColeccionMaestro as $puntero => $objMaestro) {
+                $objImagen = $this->imagen_m->get_by(array("estado" => $this->config->item('estado:publicado'), "grupo_maestros_id" => $objMaestro->id, "tipo_imagen_id" => $this->config->item('imagen:small')));
+                if (count($objImagen) > 0) {
+                    if ($objImagen->procedencia == '1') {
+                        $objMaestro->imagen = $objImagen->imagen;
+                    } else {
+                        $objMaestro->imagen = $this->config->item('protocolo:http') . $this->config->item('server:elemento') . '/' . $objImagen->imagen;
+                    }
+                } else {
+                    $objMaestro->imagen = $this->config->item('url:default_imagen') . 'no_video.jpg';
+                }
+                $objColeccionMaestro[$puntero] = $objMaestro;
+            }
+        }
+        //do we need to unset the layout because the request is ajax?
+        $this->input->is_ajax_request() and $this->template->set_layout(FALSE);
+        $this->template
+                ->title($this->module_details['name'])
+                ->append_js('admin/filter.js')
+                ->append_js('module::jquery.alerts.js')
+                ->append_css('module::jquery.alerts.css')
+                ->set('maestros', $objColeccionMaestro)
+                ->set('canal', $objCanal)
+                ->set_partial('papeleras', 'admin/tables/papeleras')
+                ->set('pagination', $pagination);
+        //$this->template->build('admin/papelera');
+        $this->input->is_ajax_request() ? $this->template->build('admin/tables/papeleras') : $this->template->build('admin/papelera');
     }
 
 }
