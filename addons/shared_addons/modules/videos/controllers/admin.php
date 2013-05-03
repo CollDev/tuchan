@@ -1240,7 +1240,7 @@ class Admin extends Admin_Controller {
                 $objBeanMaestro->cantidad_suscriptores = 0;
                 $objBeanMaestro->peso = 1;
                 $objBeanMaestro->id_mongo = NULL;
-                $objBeanMaestro->estado = 1;
+                $objBeanMaestro->estado = $this->config->item('estado:borrador');
                 $objBeanMaestro->fecha_registro = date("Y-m-d H:i:s");
                 $objBeanMaestro->usuario_registro = $user_id;
                 $objBeanMaestro->fecha_actualizacion = date("Y-m-d H:i:s");
@@ -3375,7 +3375,7 @@ class Admin extends Admin_Controller {
                     $objBeanMaestro->cantidad_suscriptores = 0;
                     $objBeanMaestro->peso = $this->_obtenerPesoMaestro($this->input->post());
                     $objBeanMaestro->id_mongo = NULL;
-                    $objBeanMaestro->estado = 0;
+                    $objBeanMaestro->estado = $this->config->item('estado:borrador');
                     $objBeanMaestro->fecha_registro = date("Y-m-d H:i:s");
                     $objBeanMaestro->usuario_registro = $user_id;
                     $objBeanMaestro->estado_migracion = 0;
@@ -4051,7 +4051,7 @@ class Admin extends Admin_Controller {
                     $objVideo = $this->videos_m->get($objMaestroDetalle->video_id);
                     if (count($objVideo) > 0) {
                         $objVideo->es_maestro = 0;
-                        array_push($returnValue, $objMaestroDetalle);
+                        array_push($returnValue, $objVideo);
                     }
                 }
             }
@@ -4125,8 +4125,8 @@ class Admin extends Admin_Controller {
             //listar las colecciones, listas y videos paginado con jquery
             //primero listamos las colecciones del programa
             $colecciones = $this->grupo_detalle_m->get_many_by(array("grupo_maestro_padre" => $this->input->post('maestro_id')));
+            $array_coleccion = array();
             if (count($colecciones) > 0) {
-                $array_coleccion = array();
                 foreach ($colecciones as $puntero => $objDetalleGrupo) {
                     $objColeccion = $this->grupo_maestro_m->get_by(array("id" => $objDetalleGrupo->grupo_maestro_id, "tipo_grupo_maestro_id" => $this->config->item('videos:coleccion')));
                     if (count($objColeccion) > 0) {
@@ -4134,13 +4134,16 @@ class Admin extends Admin_Controller {
                         array_push($array_coleccion, $objColeccion);
                     }
                 }
+                
                 //obtenemos las colecciones directamente del canal
                 $colecciones_canal = $this->coleccion_canal($this->input->post('canal_id'));
+                
                 if (count($colecciones_canal) > 0) {
                     $array_coleccion = array_merge($array_coleccion, $colecciones_canal);
                 }
                 //obtenemos las listas
                 $listas = $this->lista_programa(NULL, $this->input->post('maestro_id'));
+                
                 if (count($listas) > 0) {
                     $array_coleccion = array_merge($array_coleccion, $listas);
                 }
@@ -4160,6 +4163,7 @@ class Admin extends Admin_Controller {
                     $array_coleccion = array_merge($array_coleccion, $videos_canal);
                 }
             }
+            
             $total = count($array_coleccion);
             $cantidad_mostrar = 3;
             $current_page = $current_page - 1;
