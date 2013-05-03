@@ -1251,6 +1251,8 @@ class Admin extends Admin_Controller {
                 $objBeanMaestro->comentarios = 0;
                 $objBeanMaestro->fecha_transmision_inicio = date("Y-m-d H:i:s");
                 $objBeanMaestro->fecha_transmision_fin = date("Y-m-d H:i:s");
+                $objBeanMaestro->horario_transmision_inicio = date("H:i:s");
+                $objBeanMaestro->horario_transmision_fin = date("H:i:s");
                 $objBeanMaestroSaved = $this->grupo_maestro_m->save_maestro($objBeanMaestro);
                 //guardar en el detalle de maestros en caso de guardarse como hijo
                 $this->_saveMaestroDetalle($this->input->post(), $objBeanMaestroSaved);
@@ -2820,6 +2822,8 @@ class Admin extends Admin_Controller {
             $objMaestro->avatar = array();
             $objMaestro->fecha_transmision_inicio = date("Y-m-d H:i:s");
             $objMaestro->fecha_transmision_fin = date("Y-m-d H:i:s");
+            $objMaestro->horario_transmision_inicio = date("H:i:s");
+            $objMaestro->horario_transmision_fin = date("H:i:s");
             $tipo_maestros = $this->tipo_maestro_m->getTipoDropDown(array(), 'id');
         }
         //lista tipo de maestros
@@ -3334,20 +3338,25 @@ class Admin extends Admin_Controller {
                     $objBeanMaestro->nombre = $this->input->post('titulo');
                     $objBeanMaestro->descripcion = $this->input->post('descripcion_updated');
                     $objBeanMaestro->alias = url_title(strtolower(convert_accented_characters($this->input->post('titulo'))));
-                    $objBeanMaestro->tipo_grupo_maestro_id = $this->input->post('tipo');
+                    $objBeanMaestro->tipo_grupo_maestro_id = $this->input->post('tipo_grupo');
                     $objBeanMaestro->canales_id = $this->input->post('canal_id');
                     $objBeanMaestro->fecha_actualizacion = date("Y-m-d H:i:s");
                     $objBeanMaestro->usuario_actualizacion = $user_id;
                     $objBeanMaestro->estado_migracion = $this->config->item('migracion:actualizado');
                     $objBeanMaestro->fecha_transmision_inicio = date("Y-m-d H:i:s", strtotime($this->input->post('fec_pub_ini')));
                     $objBeanMaestro->fecha_transmision_fin = date("Y-m-d H:i:s", strtotime($this->input->post('fec_pub_fin')));
+                    $objBeanMaestro->horario_transmision_inicio = date("H:i:s", strtotime($this->input->post('horario_transmision_inicio')));
+                    $objBeanMaestro->horario_transmision_fin = date("H:i:s", strtotime($this->input->post('horario_transmision_fin')));
                     $this->grupo_maestro_m->update($objBeanMaestro->id, array("nombre" => $objBeanMaestro->nombre,
                         "descripcion" => $objBeanMaestro->descripcion, "alias" => $objBeanMaestro->alias,
                         "tipo_grupo_maestro_id" => $objBeanMaestro->tipo_grupo_maestro_id, "canales_id" => $objBeanMaestro->canales_id,
                         "fecha_actualizacion" => $objBeanMaestro->fecha_actualizacion, "usuario_actualizacion" => $objBeanMaestro->usuario_actualizacion,
-                        "estado_migracion" => $objBeanMaestro->estado_migracion, "fecha_transmision_inicio" => $objBeanMaestro->fecha_transmision_inicio, "fecha_transmision_fin" => $objBeanMaestro->fecha_transmision_fin));
+                        "estado_migracion" => $objBeanMaestro->estado_migracion, 
+                        "fecha_transmision_inicio" => $objBeanMaestro->fecha_transmision_inicio, "fecha_transmision_fin" => $objBeanMaestro->fecha_transmision_fin,
+                        "horario_transmision_inicio" => $objBeanMaestro->horario_transmision_inicio, "horario_transmision_fin" => $objBeanMaestro->horario_transmision_fin));
                     $returnValue = 0;
                     $this->guardarTagsMaestro($objBeanMaestro, $this->input->post());
+                    $maestro_id = $this->input->post('maestro_id');
                 }
             } else {//registrar un nuevo maestro
                 if ($this->existeNombreMaestro($this->input->post('titulo'), $this->input->post('canal_id'), $this->input->post('maestro_id'))) {
@@ -3375,6 +3384,8 @@ class Admin extends Admin_Controller {
                     $objBeanMaestro->comentarios = 0;
                     $objBeanMaestro->fecha_transmision_inicio = date("Y-m-d H:i:s", strtotime($this->input->post('fec_pub_ini')));
                     $objBeanMaestro->fecha_transmision_fin = date("Y-m-d H:i:s", strtotime($this->input->post('fec_pub_fin')));
+                    $objBeanMaestro->horario_transmision_inicio = date("H:i:s", strtotime($this->input->post('horario_transmision_inicio')));
+                    $objBeanMaestro->horario_transmision_fin = date("H:i:s", strtotime($this->input->post('horario_transmision_fin')));
                     /* $this->vd($objBeanMaestro);
                       die(); */
                     $objBeanMaestroSaved = $this->grupo_maestro_m->save_maestro($objBeanMaestro);
@@ -3894,7 +3905,7 @@ class Admin extends Admin_Controller {
     public function generar_programa() {
         if ($this->input->is_ajax_request()) {
             $html = '';
-            switch ($this->input->post('tipo')) {
+            switch ($this->input->post('tipo_grupo')) {
                 case $this->config->item('videos:coleccion'):
                     $lista_programas = $this->grupo_maestro_m->get_many_by(array("canales_id" => $this->input->post('canal_id'), "tipo_grupo_maestro_id" => $this->config->item('videos:programa')));
                     if (count($lista_programas) > 0) {

@@ -72,7 +72,9 @@ class Grupo_maestro_m extends MY_Model {
                     'fecha_migracion_actualizacion' => $objBeanMaestro->fecha_migracion_actualizacion,
                     'comentarios' => $objBeanMaestro->comentarios,
                     'fecha_transmision_inicio' => $objBeanMaestro->fecha_transmision_inicio,
-                    'fecha_transmision_fin' => $objBeanMaestro->fecha_transmision_inicio
+                    'fecha_transmision_fin' => $objBeanMaestro->fecha_transmision_inicio,
+                    'horario_transmision_inicio' => $objBeanMaestro->horario_transmision_inicio,
+                    'horario_transmision_fin' => $objBeanMaestro->horario_transmision_inicio
         ));
         return $objBeanMaestro;
     }
