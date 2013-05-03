@@ -75,10 +75,41 @@ else:
                     'class' => 'selectedDateTime'
                 );
                 echo form_input($fec_pub_fin);
-                ?>                
+                ?>
+                <br /><br />
+                <div>
+                    <!-- horario de tranmisión -->
+                    <label for="horario_transmision"><?php echo lang('videos:horaio_transmision'); ?></label>                    
+                    <div style="float:left;">
+
+                        <?php echo lang('videos:inicio'); ?>
+                        <?php
+                        $hora_trans_ini = array(
+                            'name' => 'horario_transmision_inicio',
+                            'id' => 'horario_transmision_inicio',
+                            'value' => $objMaestro->horario_transmision_inicio,
+                            'class' => 'selectedHour',
+                            'style' => 'width:140px;'
+                        );
+                        echo form_input($hora_trans_ini);
+                        ?>
+                    </div>
+                    <div style="float:left;">
+                        <?php echo lang('videos:fin'); ?>
+                        <?php
+                        $hora_trans_fin = array(
+                            'name' => 'horario_transmision_fin',
+                            'id' => 'horario_transmision_fin',
+                            'value' => $objMaestro->horario_transmision_fin,
+                            'class' => 'selectedHour',
+                            'style' => 'width:140px;'
+                        );
+                        echo form_input($hora_trans_fin);
+                        ?>
+                    </div>
+                    <div style="clear: both;"></div>
+                </div>
                 <?php if ($objMaestro->id > 0) { ?>
-
-
                 <?php } else { ?>
                     <!-- imagen -->
                     <label for="imagen"><?php echo lang('videos:avatar'); ?></label>
@@ -96,9 +127,8 @@ else:
             </div>
             <div class="right_arm">
                 <!-- tipo -->
-                <label for="tipo"><?php echo lang('videos:tipo_label'); ?></label>
-                <?php echo form_error('tipo'); ?><br/>
-                <?php echo form_dropdown('tipo', $tipo_maestros, $objMaestro->tipo_grupo_maestro_id, 'onchange="generarMaestro();return false;"'); ?>          
+                <label for="tipo_s"><?php echo lang('videos:tipo_label'); ?></label>
+                <?php echo form_dropdown('tipo_grupo', $tipo_maestros, $objMaestro->tipo_grupo_maestro_id, 'onchange="generarMaestro();return false;"'); ?>          
                 <br/></br>
                 <div id="divPrograma"></div>        
                 <!-- tipo -->
@@ -277,7 +307,7 @@ else:
                         });
                         var tipo = $("#tipo").val();
                         //var post_url = "/admin/videos/registrar_imagenes_maestro/" + values['maestro_id'];
-                        var post_url = "/admin/videos/subir_imagenes_maestro/" + values['maestro_id']+"/"+tipo;
+                        var post_url = "/admin/videos/subir_imagenes_maestro/" + values['maestro_id'] + "/" + tipo;
                         $.ajax({
                             type: "POST",
                             url: post_url,
@@ -287,10 +317,10 @@ else:
                             {
                                 $('#loaderAjax').hide();
                                 $.each(response.imagenes, function(k, v) {
-                                       var htmlimagen = '<img src="'+v.imagen+'" style="width:120px; height: 70px;">';
-                                       $("#tipo_"+v.tipo_imagen_id).html(htmlimagen);
-                                       $("#codigo_"+v.tipo_imagen_id).html(v.id);
-                                       $("#proceso_"+v.tipo_imagen_id).empty();
+                                    var htmlimagen = '<img src="' + v.imagen + '" style="width:120px; height: 70px;">';
+                                    $("#tipo_" + v.tipo_imagen_id).html(htmlimagen);
+                                    $("#codigo_" + v.tipo_imagen_id).html(v.id);
+                                    $("#proceso_" + v.tipo_imagen_id).empty();
                                 });
                                 //limpiar
 //                                $('#listaImagenes').ddslick('destroy');
@@ -367,17 +397,17 @@ else:
                                     if (values['personajes'].length > 0) {
                                         if (nombre_imagen.length > 0) {
                                             if (values['categoria'].length > 0) {
-                                                if (values['tipo'] == '1') {
-                                                    var tipo = 'Lista de reproducción';
+                                                if (values['tipo_grupo'] == '1') {
+                                                    var tipo_master = 'Lista de reproducción';
                                                 } else {
-                                                    if (values['tipo'] == '2') {
-                                                        var tipo = 'Colección';
+                                                    if (values['tipo_grupo'] == '2') {
+                                                        var tipo_master = 'Colección';
                                                     } else {
-                                                        var tipo = 'Programa';
+                                                        var tipo_master = 'Programa';
                                                     }
                                                 }
 <?php if ($objMaestro->id == 0): ?>
-                                                    jConfirm("Seguro que desea crear un maestro de tipo: " + tipo, "Crear Maestro", function(r) {
+                                                    jConfirm("Seguro que desea crear un maestro de tipo: " + tipo_master, "Crear Maestro", function(r) {
                                                         if (r) {
 <?php endif; ?>
                                                         var serializedData = $('#formMaestro').serialize();
@@ -467,8 +497,8 @@ else:
                         $.each($('#formMaestro').serializeArray(), function(i, field) {
                             values[field.name] = field.value;
                         });
-                        if ($("#tipo_id").val() != values['tipo']) {
-                            $("#tipo_id").val(values['tipo']);
+                        if ($("#tipo_id").val() != values['tipo_grupo']) {
+                            $("#tipo_id").val(values['tipo_grupo']);
                             if ($("#tipo_id").val() == '3') {
                                 $("#divPrograma").empty();
                             } else {

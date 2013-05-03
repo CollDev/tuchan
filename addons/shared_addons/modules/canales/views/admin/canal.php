@@ -156,7 +156,8 @@
     </div>
     <div class="main_opt">
         <?php
-        if ($this->session->userdata['group'] == 'admin' && $objCanal->id > 0):
+        //if ($this->session->userdata['group'] == 'admin' && $objCanal->id > 0):
+        if ($this->session->userdata['group'] == 'admin'):
             ?>
             <div style="float: left;">
                 <label for="apikey"><?php echo lang('canales:apikey'); ?> <span class="required">*</span></label>
@@ -215,13 +216,15 @@
             });
             var canal_id = $("#canal_id").val();
             if (canal_id > 0) {
-                //var apikey = $("#apikey").val();
-                //var playerkey = $("#playerkey").val();
-                var apikey = 'apikey';
-                var playerkey = 'playerkey';
+                var apikey = $("#apikey").val();
+                var playerkey = $("#playerkey").val();
+                //var apikey = 'apikey';
+                //var playerkey = 'playerkey';
             } else {
-                var apikey = 'apikey';
-                var playerkey = 'playerkey';
+                var apikey = $("#apikey").val();
+                var playerkey = $("#playerkey").val();                
+                //var apikey = 'apikey';
+                //var playerkey = 'playerkey';
             }
             var editorText = CKEDITOR.instances.descripcion.getData();
             $('<input>').attr({

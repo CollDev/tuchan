@@ -62,6 +62,17 @@ class Admin extends Admin_Controller {
     public function index() {
         //echo "here!!---->".($this->session->userdata['group']);die();
         if ($this->session->userdata['group'] == 'administrador-canales' || $this->session->userdata['group'] == 'admin' || $this->session->userdata['group'] == 'administrador-mi-canal') {
+            $user_id = (int) $this->session->userdata('user_id');
+            $canalesxUsuario = $this->usuario_grupo_canales_m->get_many_by(array("user_id"=>$user_id));
+            $arrayCanales = array();
+            if(count($canalesxUsuario)>0){
+                foreach($canalesxUsuario as $in=>$objgrupocanal){
+                    array_push($arrayCanales, $objgrupocanal->canal_id);
+                }
+                if(count($arrayCanales)>0){
+                    $arrayCanales = array_unique($arrayCanales);
+                }
+            }
             //$base_where = array();
             if ($this->input->post('f_estado') > 0) {
                 if ($this->input->post('f_estado') == '3') {
@@ -78,17 +89,17 @@ class Admin extends Admin_Controller {
                 $keyword = $this->input->post('f_keywords');
             // Create pagination links
             if (strlen(trim($keyword)) > 0) {
-                $total_rows = $this->canales_m->like('nombre', $keyword)->count_by($base_where);
+                $total_rows = $this->canales_m->where_in('id',$arrayCanales)->like('nombre', $keyword)->count_by($base_where);
             } else {
-                $total_rows = $this->canales_m->count_by($base_where);
+                $total_rows = $this->canales_m->where_in('id',$arrayCanales)->count_by($base_where);
             }
             $pagination = create_pagination('admin/canales/index', $total_rows, 10);
 
             // Using this data, get the relevant results
             if (strlen(trim($keyword)) > 0) {
-                $canales = $this->canales_m->like('nombre', $keyword)->limit($pagination['limit'])->get_many_by($base_where);
+                $canales = $this->canales_m->where_in('id',$arrayCanales)->order_by('fecha_registro','DESC')->like('nombre', $keyword)->limit($pagination['limit'])->get_many_by($base_where);
             } else {
-                $canales = $this->canales_m->limit($pagination['limit'])->get_many_by($base_where);
+                $canales = $this->canales_m->where_in('id',$arrayCanales)->order_by('fecha_registro','DESC')->limit($pagination['limit'])->get_many_by($base_where);
             }
 
             $estados = array($this->config->item('estado:publicado') => "Publicado", "3" => "Borrador", $this->config->item('estado:eliminado') => "Eliminado");
@@ -741,11 +752,11 @@ class Admin extends Admin_Controller {
                             $objBeanCanal->alias = url_title(strtolower(convert_accented_characters($this->input->post('nombre'))));
                             $objBeanCanal->nombre = $this->input->post('nombre');
                             $objBeanCanal->descripcion = $this->input->post('descripcion_updated');
-                            $objBeanCanal->apikey = '';
-                            $objBeanCanal->playerkey = '';
+                            $objBeanCanal->apikey = $this->input->post('apikey');
+                            $objBeanCanal->playerkey = $this->input->post('playerkey');
                             $objBeanCanal->id_mongo = NULL;
                             $objBeanCanal->cantidad_suscriptores = '0';
-                            $objBeanCanal->estado = '1';
+                            $objBeanCanal->estado = $this->config->item('estado:borrador');
                             $objBeanCanal->fecha_registro = date("Y-m-d H:i:s");
                             $objBeanCanal->usuario_registro = $user_id;
                             $objBeanCanal->fecha_actualizacion = date("Y-m-d H:i:s");
@@ -4522,7 +4533,8 @@ class Admin extends Admin_Controller {
         $objVideo = $this->videos_m->get($video_id);
         $this->template
                 ->set_layout('modal', 'admin')
-                ->set('ruta', $objVideo->ruta)
+                //->set('ruta', $objVideo->ruta)
+                ->set('id', $objVideo->id)
                 //->append_js('module::flowplayer.min.js')
                 //->append_css('module::skin/minimalist.css')                
                 ->build('admin/visualizar_video');
