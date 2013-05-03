@@ -63,7 +63,11 @@ class Admin extends Admin_Controller {
         //echo "here!!---->".($this->session->userdata['group']);die();
         if ($this->session->userdata['group'] == 'administrador-canales' || $this->session->userdata['group'] == 'admin' || $this->session->userdata['group'] == 'administrador-mi-canal') {
             $user_id = (int) $this->session->userdata('user_id');
-            $canalesxUsuario = $this->usuario_grupo_canales_m->get_many_by(array("user_id"=>$user_id));
+            if($this->session->userdata['group'] != 'admin'){
+                $canalesxUsuario = $this->usuario_grupo_canales_m->get_many_by(array("user_id"=>$user_id));
+            }else{
+                $canalesxUsuario = array();
+            }
             $arrayCanales = array();
             if(count($canalesxUsuario)>0){
                 foreach($canalesxUsuario as $in=>$objgrupocanal){
@@ -89,17 +93,33 @@ class Admin extends Admin_Controller {
                 $keyword = $this->input->post('f_keywords');
             // Create pagination links
             if (strlen(trim($keyword)) > 0) {
-                $total_rows = $this->canales_m->where_in('id',$arrayCanales)->like('nombre', $keyword)->count_by($base_where);
+                if(count($canalesxUsuario)>0){
+                    $total_rows = $this->canales_m->like('nombre', $keyword)->count_by($base_where);
+                }else{
+                    $total_rows = $this->canales_m->where_in('id',$arrayCanales)->like('nombre', $keyword)->count_by($base_where);
+                }
             } else {
-                $total_rows = $this->canales_m->where_in('id',$arrayCanales)->count_by($base_where);
+                if(count($canalesxUsuario)>0){
+                    $total_rows = $this->canales_m->where_in('id',$arrayCanales)->count_by($base_where);
+                }else{
+                    $total_rows = $this->canales_m->count_by($base_where);
+                }
             }
             $pagination = create_pagination('admin/canales/index', $total_rows, 10);
 
             // Using this data, get the relevant results
             if (strlen(trim($keyword)) > 0) {
-                $canales = $this->canales_m->where_in('id',$arrayCanales)->order_by('fecha_registro','DESC')->like('nombre', $keyword)->limit($pagination['limit'])->get_many_by($base_where);
+                if(count($canalesxUsuario)>0){
+                    $canales = $this->canales_m->where_in('id',$arrayCanales)->order_by('fecha_registro','DESC')->like('nombre', $keyword)->limit($pagination['limit'])->get_many_by($base_where);
+                }else{
+                    $canales = $this->canales_m->order_by('fecha_registro','DESC')->like('nombre', $keyword)->limit($pagination['limit'])->get_many_by($base_where);
+                }
             } else {
-                $canales = $this->canales_m->where_in('id',$arrayCanales)->order_by('fecha_registro','DESC')->limit($pagination['limit'])->get_many_by($base_where);
+                if(count($canalesxUsuario)>0){
+                    $canales = $this->canales_m->where_in('id',$arrayCanales)->order_by('fecha_registro','DESC')->limit($pagination['limit'])->get_many_by($base_where);
+                }else{
+                    $canales = $this->canales_m->order_by('fecha_registro','DESC')->limit($pagination['limit'])->get_many_by($base_where);
+                }
             }
 
             $estados = array($this->config->item('estado:publicado') => "Publicado", "3" => "Borrador", $this->config->item('estado:eliminado') => "Eliminado");
