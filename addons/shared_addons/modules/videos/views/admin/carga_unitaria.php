@@ -3,15 +3,20 @@
     .bar{background-color:#b4f5b4;width:0%;height:20px;border-radius:3px}
     .percent{position:absolute;display:inline-block;top:3px;left:48%}</style>
 <section class="title">
-    <?php
-    echo anchor('admin/videos/carga_unitaria/' . $canal->id, $this->config->item('submenu:carga_unitaria'), array('class' => ''));
-    echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
-    /*    echo anchor('admin/videos/carga_masiva/' . $canal->id, 'Carga masiva', array('class' => ''));
-      echo '&nbsp;&nbsp;|&nbsp;&nbsp;'; */
-    echo anchor('admin/videos/maestro/' . $canal->id, 'Organizar videos', array('class' => ''));
-    echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
-    echo anchor('admin/canales/portada/' . $canal->id, 'Portadas', array('class' => ''));
-    ?>
+    <div style ="float: left;">
+        <?php
+        echo anchor('admin/videos/carga_unitaria/' . $canal->id, $this->config->item('submenu:carga_unitaria'), array('class' => ''));
+        echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
+        /*    echo anchor('admin/videos/carga_masiva/' . $canal->id, 'Carga masiva', array('class' => ''));
+          echo '&nbsp;&nbsp;|&nbsp;&nbsp;'; */
+        echo anchor('admin/videos/maestro/' . $canal->id, 'Organizar videos', array('class' => ''));
+        echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
+        echo anchor('admin/canales/portada/' . $canal->id, 'Portadas', array('class' => ''));
+        ?>        
+    </div>
+    <div style="float: right;">
+        <?php echo anchor('admin/canales/papelera/' . $canal->id, 'Papelera', array('class' => '')); ?>
+    </div>     
 </section>
 
 <section class="item">
@@ -109,7 +114,7 @@
 
                 <?php if ($objBeanForm->video_id > 0) { ?>
                     <!-- imagen -->
-    <!--                    <label for="imagen"><?php //echo lang('videos:avatar');    ?></label>-->
+    <!--                    <label for="imagen"><?php //echo lang('videos:avatar');     ?></label>-->
                     <?php
 //                    $imagen = array('name' => 'addImage', 'id' => 'addImage', 'type' => 'hidden', 'value' => 'Agrega nuevas imagenes a tu video');
 //                    echo '<div style="float:left;">' . form_input($imagen) . '</div>';
@@ -289,7 +294,7 @@
 
                 <!-- tipo -->
                 <!--        <br /><br />
-                        <label for="tipo"><?php //echo lang('videos:tipo_label');     ?></label>
+                        <label for="tipo"><?php //echo lang('videos:tipo_label');      ?></label>
                 <?php //echo form_error('tipo'); ?><br/>
                 <?php //echo form_dropdown('tipo', $tipo, $objBeanForm->tipo); ?> -->
                 <input type="hidden" name="tipo" id="tipo" value="<?php echo $objBeanForm->tipo; ?>" >
@@ -311,7 +316,7 @@
                 </div>
                 <!-- fecha de publicación -->
                 <br/><br/>
-        <!--        <label for="fecha_publicacion"><?php //echo lang('videos:fecha_publicacion_label');      ?></label>-->
+        <!--        <label for="fecha_publicacion"><?php //echo lang('videos:fecha_publicacion_label');       ?></label>-->
                 <?php //echo lang('videos:inicio'); ?>
                 <?php
                 $fec_pub_ini = array(
@@ -337,7 +342,7 @@
                 ?>
 
                 <!-- ubicacion -->
-        <!--        <label><?php //echo lang('videos:ubicacion_label');      ?></label>-->
+        <!--        <label><?php //echo lang('videos:ubicacion_label');       ?></label>-->
                 <?php
                 $ubicacion = array(
                     'type' => 'hidden',
@@ -355,7 +360,7 @@
                 <!--<a href="javascript:document.frm.submit();" class="btn orange" type="button">Guardar</a>-->
                 <div id="btnSave" style="float: left; padding-right: 10px;">
                     <a href="javascript:saveVideo();" class="btn orange" type="button"><?php echo lang('buttons.save'); ?></a>
-                    <!--<a href="javascript:saveVideo();" class="btn orange" type="button"><?php //echo lang('buttons.save'); ?></a>-->
+                    <!--<a href="javascript:saveVideo();" class="btn orange" type="button"><?php //echo lang('buttons.save');  ?></a>-->
                 </div>
                 <div  style="float: left;">
                     <?php
@@ -415,7 +420,7 @@
                         if (data.errorValue == '0') {
                             $("#btnSave").html('<a href="#" class="btn silver" onclick="return false;" type="button"><?php echo lang('buttons.save'); ?></a>');
                             $('#frm').submit();
-						   //$("#btnSave").find("a").attr("disabled","false");
+                            //$("#btnSave").find("a").attr("disabled","false");
                         } else {
                             showMessage('error', '<?php echo lang('videos:fragment_exist') ?>', 2000, '');
                         }
@@ -660,15 +665,15 @@
                 }
 
                 $(document).ready(function() {
-					/*$("#btnSave").find("a").attr('disabled', true);
-					$("#btnSave").find("a").click(function(e) {
-					  e.preventDefault();
-					  $('#frm').submit();
-					  $("#btnSave").find("a").attr('disabled', true);
-					});*/
-					
-					
-					
+                    /*$("#btnSave").find("a").attr('disabled', true);
+                     $("#btnSave").find("a").click(function(e) {
+                     e.preventDefault();
+                     $('#frm').submit();
+                     $("#btnSave").find("a").attr('disabled', true);
+                     });*/
+
+
+
                     mostrar_titulo();
 <?php if ($objBeanForm->video_id > 0) { ?>
                         //Dropdown plugin data
@@ -715,7 +720,7 @@
                      $("#frm").submit(function() {
                      if (show_bar === 1) {
                      function set() {
-                     $('#upload_frame').attr('src', 'upload_frame.php?up_id=<?php //echo $up_id;   ?>');
+                     $('#upload_frame').attr('src', 'upload_frame.php?up_id=<?php //echo $up_id;    ?>');
                      }
                      setTimeout(set);
                      }
@@ -916,9 +921,9 @@
                              });
                              if (resultado) {
                              var url = "admin/canales/videos/" + values['canal_id'];
-                             showMessage('exit', '<?php //echo lang('videos:add_video_success')   ?>', 2000, url);
+                             showMessage('exit', '<?php //echo lang('videos:add_video_success')    ?>', 2000, url);
                              } else {
-                             showMessage('error', '<?php //echo lang('videos:not_found_video')   ?>', 2000, '');
+                             showMessage('error', '<?php //echo lang('videos:not_found_video')    ?>', 2000, '');
                              }*/
                         } //end success
                     }); //end AJAX

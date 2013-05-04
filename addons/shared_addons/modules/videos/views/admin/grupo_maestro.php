@@ -1,13 +1,18 @@
 <section class="title"> 
-    <?php
-    echo anchor('admin/videos/carga_unitaria/' . $objCanal->id, $this->config->item('submenu:carga_unitaria'), array('class' => ''));
-    echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
-    /*    echo anchor('admin/videos/carga_masiva/' . $canal_id, 'Carga masiva', array('class' => ''));
-      echo '&nbsp;&nbsp;|&nbsp;&nbsp;'; */
-    echo anchor('admin/videos/maestro/' . $objCanal->id, 'Organizar videos', array('class' => ''));
-    echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
-    echo anchor('admin/canales/portada/' . $objCanal->id, 'Portadas', array('class' => ''));
-    ?>
+    <div style ="float: left;">
+        <?php
+        echo anchor('admin/videos/carga_unitaria/' . $objCanal->id, $this->config->item('submenu:carga_unitaria'), array('class' => ''));
+        echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
+        /*    echo anchor('admin/videos/carga_masiva/' . $canal_id, 'Carga masiva', array('class' => ''));
+          echo '&nbsp;&nbsp;|&nbsp;&nbsp;'; */
+        echo anchor('admin/videos/maestro/' . $objCanal->id, 'Organizar videos', array('class' => ''));
+        echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
+        echo anchor('admin/canales/portada/' . $objCanal->id, 'Portadas', array('class' => ''));
+        ?>        
+    </div>
+    <div style="float: right;">
+        <?php echo anchor('admin/canales/papelera/' . $objCanal->id, 'Papelera', array('class' => '')); ?>
+    </div>     
 </section>
 <?php
 if ($objMaestro->id > 0):

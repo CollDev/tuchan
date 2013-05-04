@@ -1,15 +1,20 @@
 <section class="title"> 
-    <?php
-    if ($objCanal->id > 0):
-        echo anchor('admin/videos/carga_unitaria/' . $objCanal->id, $this->config->item('submenu:carga_unitaria'), array('class' => ''));
-        echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
-        /*    echo anchor('admin/videos/carga_masiva/' . $canal_id, 'Carga masiva', array('class' => ''));
-          echo '&nbsp;&nbsp;|&nbsp;&nbsp;'; */
-        echo anchor('admin/videos/maestro/' . $objCanal->id, 'Organizar videos', array('class' => ''));
-        echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
-        echo anchor('admin/canales/portada/' . $objCanal->id, 'Portadas', array('class' => ''));
-    endif;
-    ?>
+    <div style ="float: left;">
+        <?php
+        if ($objCanal->id > 0):
+            echo anchor('admin/videos/carga_unitaria/' . $objCanal->id, $this->config->item('submenu:carga_unitaria'), array('class' => ''));
+            echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
+            /*    echo anchor('admin/videos/carga_masiva/' . $canal_id, 'Carga masiva', array('class' => ''));
+              echo '&nbsp;&nbsp;|&nbsp;&nbsp;'; */
+            echo anchor('admin/videos/maestro/' . $objCanal->id, 'Organizar videos', array('class' => ''));
+            echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
+            echo anchor('admin/canales/portada/' . $objCanal->id, 'Portadas', array('class' => ''));
+        endif;
+        ?>        
+    </div>
+    <div style="float: right;">
+        <?php echo anchor('admin/canales/papelera/' . $objCanal->id, 'Papelera', array('class' => '')); ?>
+    </div>     
 </section>
 <section class="item">
 
@@ -222,7 +227,7 @@
                 //var playerkey = 'playerkey';
             } else {
                 var apikey = $("#apikey").val();
-                var playerkey = $("#playerkey").val();                
+                var playerkey = $("#playerkey").val();
                 //var apikey = 'apikey';
                 //var playerkey = 'playerkey';
             }
@@ -288,7 +293,7 @@
                                                                     showMessage('error', '<?php echo lang('canales:exist_canal') ?>', 2000, '');//no se encontro el logotipo en el servidor 
                                                                 } else {
                                                                     var url = "admin/canales";
-                                                                    //showMessage('exit', '<?php //echo lang('canales:success_saved')  ?>', 2000, '');//no se encontro el logotipo en el servidor 
+                                                                    //showMessage('exit', '<?php //echo lang('canales:success_saved')   ?>', 2000, '');//no se encontro el logotipo en el servidor 
                                                                     $(location).attr('href', '<?php echo BASE_URL; ?>' + url);
                                                                 }
                                                             }
@@ -482,9 +487,9 @@
         }
 
         $(document).ready(function() {
-            <?php if ($objCanal->id > 0):?>
-            mostrar_titulo();
-            <?php endif; ?>
+<?php if ($objCanal->id > 0): ?>
+                mostrar_titulo();
+<?php endif; ?>
             //upload de la imagen de portada
             var btn_firma = $('#addImagen'), interval;
             new AjaxUpload('#addImagen', {
@@ -619,7 +624,7 @@
 <?php } ?>
         });
     </script>
-    <input type="hidden" name="imagen_portada" id="imagen_portada" value="<?php //echo $objCanal->imgen_portada;  ?>" />
+    <input type="hidden" name="imagen_portada" id="imagen_portada" value="<?php //echo $objCanal->imgen_portada;   ?>" />
     <input type="hidden" name="imagen_logotipo" id="imagen_logotipo" value="<?php echo $objCanal->imagen_logotipo; ?>" />
     <input type="hidden" name="update_logotipo" id="update_logotipo" value="0" />
     <input type="hidden" name="imagen_isotipo" id="imagen_isotipo" value="<?php echo $objCanal->imagen_isotipo; ?>" />

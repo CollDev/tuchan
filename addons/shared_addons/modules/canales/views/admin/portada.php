@@ -6,27 +6,32 @@
     .validateTips { border: 1px solid transparent; padding: 0.3em; }
 </style>
 <section class="title"> 
-    <?php
-    echo anchor('admin/videos/carga_unitaria/' . $canal_id, $this->config->item('submenu:carga_unitaria'), array('class' => ''));
-    echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
-/*    echo anchor('admin/videos/carga_masiva/' . $canal_id, 'Carga masiva', array('class' => ''));
-    echo '&nbsp;&nbsp;|&nbsp;&nbsp;';*/
-    echo anchor('admin/videos/maestro/' . $canal_id, 'Organizar videos', array('class' => ''));
-    echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
-    echo anchor('admin/canales/portada/' . $canal_id, 'Portadas', array('class' => ''));
-    ?>
+    <div> 
+        <?php
+        echo anchor('admin/videos/carga_unitaria/' . $canal_id, $this->config->item('submenu:carga_unitaria'), array('class' => ''));
+        echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
+        /*    echo anchor('admin/videos/carga_masiva/' . $canal_id, 'Carga masiva', array('class' => ''));
+          echo '&nbsp;&nbsp;|&nbsp;&nbsp;'; */
+        echo anchor('admin/videos/maestro/' . $canal_id, 'Organizar videos', array('class' => ''));
+        echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
+        echo anchor('admin/canales/portada/' . $canal_id, 'Portadas', array('class' => ''));
+        ?>        
+    </div>
+    <div style="float: right;">
+        <?php echo anchor('admin/canales/papelera/' . $canal_id, 'Papelera', array('class' => '')); ?>
+    </div>    
 </section>
 <?php if ($objCanal->tipo_canales_id == $this->config->item('canal:mi_canal')): ?>
-<!--    <section>
-        <a href="#" id="display-form" title="<?php //echo lang('portada:add_portada'); ?>"><?php //echo lang('portada:add_portada'); ?></a>
-    </section>-->
+            <!--    <section>
+                    <a href="#" id="display-form" title="<?php //echo lang('portada:add_portada');    ?>"><?php //echo lang('portada:add_portada');    ?></a>
+                </section>-->
 <?php endif; ?>
 <section class="item">
     <?php template_partial('filters'); ?>
     <div id="filter-stage">
         <?php template_partial('portadas'); ?>
     </div>
-    <?php if (/*$objCanal->tipo_canales_id == $this->config->item('canal:mi_canal')*/TRUE): ?>
+    <?php if (/* $objCanal->tipo_canales_id == $this->config->item('canal:mi_canal') */TRUE): ?>
         <script type="text/javascript">
             $(function() {
                 mostrar_titulo();
@@ -102,7 +107,7 @@
                                     {
                                         //$(".validateTips").empty();
                                         if (respuesta.error == 1) {
-                                            //$(".validateTips").html('<?php //echo lang('portada:portada_existe');    ?>');
+                                            //$(".validateTips").html('<?php //echo lang('portada:portada_existe');       ?>');
                                             updateTips('<?php echo lang('portada:portada_existe'); ?>');
                                         } else {
                                             $(this).dialog("close");
@@ -146,7 +151,7 @@
                                     type: "POST",
                                     url: post_url,
                                     dataType: 'json',
-                                    data: serializedData+'&canal_id='+$("#canal_id").val(),
+                                    data: serializedData + '&canal_id=' + $("#canal_id").val(),
                                     success: function(respuesta)
                                     {
                                         if (respuesta.error == 1) {
@@ -185,21 +190,21 @@
             function agregar_portada() {
                 $("#dialog-form").dialog("open");
             }
-            
-        function mostrar_titulo() {
-            var vista = 'portadas';
-            var post_url = "/admin/canales/mostrar_titulo/<?php echo $canal_id; ?>/" + vista;
-            $.ajax({
-                type: "POST",
-                url: post_url,
-                dataType: 'html',
-                //data:imagen_id,
-                success: function(respuesta) //we're calling the response json array 'cities'
-                {
-                    $(".subbar > .wrapper").html(respuesta);
-                } //end success
-            }); //end AJAX              
-        }            
+
+            function mostrar_titulo() {
+                var vista = 'portadas';
+                var post_url = "/admin/canales/mostrar_titulo/<?php echo $canal_id; ?>/" + vista;
+                $.ajax({
+                    type: "POST",
+                    url: post_url,
+                    dataType: 'html',
+                    //data:imagen_id,
+                    success: function(respuesta) //we're calling the response json array 'cities'
+                    {
+                        $(".subbar > .wrapper").html(respuesta);
+                    } //end success
+                }); //end AJAX              
+            }
 
 
         </script>
@@ -227,12 +232,12 @@
                     <label for="descripcion"><?php echo lang('canales:descripcion_label'); ?></label>
                     <input type="text" name="descripcion_seccion" id="descripcion_seccion" value="" class="text ui-widget-content ui-corner-all" style="width:420px;" />
                     <br />
-<!--                    <label for="tipo_seccion"><?php //echo lang('portada:tipo_portada') ?></label>
-                    <?php //echo //form_dropdown('tipo_seccion', $tipo_seccion, 10); ?>
+    <!--                    <label for="tipo_seccion"><?php //echo lang('portada:tipo_portada')    ?></label>
+                    <?php //echo //form_dropdown('tipo_seccion', $tipo_seccion, 10);  ?>
                     <br /><br />-->
                     <label for="templates"><?php echo lang('portada:template') ?></label>
                     <?php echo form_dropdown('template', $templates, 0); ?>
-                    
+
                     <input type="hidden" nombre="portada_id" id="portada_id" value="" />
                 </fieldset>
             </form>

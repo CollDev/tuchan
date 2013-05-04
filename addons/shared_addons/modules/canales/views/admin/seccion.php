@@ -3,15 +3,20 @@
     #sortable li { margin: 3px 3px 3px 0; padding: 1px; float: left; width: 100px; height: 90px; font-size: 4em; text-align: center; }
 </style>
 <section class="title"> 
-    <?php
-    echo anchor('admin/videos/carga_unitaria/' . $canal_id, $this->config->item('submenu:carga_unitaria'), array('class' => ''));
-    echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
-/*    echo anchor('admin/videos/carga_masiva/' . $canal_id, 'Carga masiva', array('class' => ''));
-    echo '&nbsp;&nbsp;|&nbsp;&nbsp;';*/
-    echo anchor('admin/videos/maestro/' . $canal_id, 'Organizar videos', array('class' => ''));
-    echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
-    echo anchor('admin/canales/portada/' . $canal_id, 'Portadas', array('class' => ''));
-    ?>
+    <div style ="float: left;">
+        <?php
+        echo anchor('admin/videos/carga_unitaria/' . $canal_id, $this->config->item('submenu:carga_unitaria'), array('class' => ''));
+        echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
+        /*    echo anchor('admin/videos/carga_masiva/' . $canal_id, 'Carga masiva', array('class' => ''));
+          echo '&nbsp;&nbsp;|&nbsp;&nbsp;'; */
+        echo anchor('admin/videos/maestro/' . $canal_id, 'Organizar videos', array('class' => ''));
+        echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
+        echo anchor('admin/canales/portada/' . $canal_id, 'Portadas', array('class' => ''));
+        ?>        
+    </div>
+    <div style="float: right;">
+        <?php echo anchor('admin/canales/papelera/' . $canal_id, 'Papelera', array('class' => '')); ?>
+    </div>    
 </section>
 <section class="item">
     <?php
@@ -71,7 +76,7 @@
                     $(".subbar > .wrapper").html(respuesta);
                 } //end success
             }); //end AJAX              
-        }        
+        }
         function buscar_para_programa_micanal(numero_pagina) {
             var serializedData = $('#frmBuscar').serialize();
             var post_url = "/admin/canales/buscar_para_programa_micanal/" + numero_pagina;
@@ -96,7 +101,7 @@
                     });
                 } //end success
             }); //end AJAX              
-        }        
+        }
         function buscar_para_micanal(numero_pagina) {
             var serializedData = $('#frmBuscar').serialize();
             var post_url = "/admin/canales/buscar_para_micanal/" + numero_pagina;
@@ -121,7 +126,7 @@
                     });
                 } //end success
             }); //end AJAX              
-        }        
+        }
         function buscar_para_destacado_micanal(numero_pagina) {
             var serializedData = $('#frmBuscar').serialize();
             var post_url = "/admin/canales/buscar_para_destacado_micanal/" + numero_pagina;
@@ -146,7 +151,7 @@
                     });
                 } //end success
             }); //end AJAX              
-        }        
+        }
         function buscar_para_losmas_programa(numero_pagina) {
             var serializedData = $('#frmBuscar').serialize();
             var post_url = "/admin/canales/buscar_para_losmas_programa/" + numero_pagina;
@@ -171,7 +176,7 @@
                     });
                 } //end success
             }); //end AJAX              
-        }        
+        }
         function buscar_para_video_programa(numero_pagina) {
             var serializedData = $('#frmBuscar').serialize();
             var post_url = "/admin/canales/buscar_para_video_programa/" + numero_pagina;
@@ -196,7 +201,7 @@
                     });
                 } //end success
             }); //end AJAX              
-        }        
+        }
         function buscar_para_lista_programa(numero_pagina) {
             var serializedData = $('#frmBuscar').serialize();
             var post_url = "/admin/canales/buscar_para_lista_programa/" + numero_pagina;
@@ -221,7 +226,7 @@
                     });
                 } //end success
             }); //end AJAX              
-        }        
+        }
         function buscar_para_coleccion_programa(numero_pagina) {
             var serializedData = $('#frmBuscar').serialize();
             var post_url = "/admin/canales/buscar_para_coleccion_programa/" + numero_pagina;
@@ -246,7 +251,7 @@
                     });
                 } //end success
             }); //end AJAX              
-        }        
+        }
         function buscar_para_destacado_programa(numero_pagina) {
             var serializedData = $('#frmBuscar').serialize();
             var post_url = "/admin/canales/buscar_para_destacado_programa/" + numero_pagina;
@@ -271,7 +276,7 @@
                     });
                 } //end success
             }); //end AJAX              
-        }        
+        }
         function buscar_para_losmas(numero_pagina) {
             var serializedData = $('#frmBuscar').serialize();
             var post_url = "/admin/canales/buscar_para_losmas/" + numero_pagina;
@@ -296,7 +301,7 @@
                     });
                 } //end success
             }); //end AJAX              
-        }        
+        }
         function buscar_para_video(numero_pagina) {
             var serializedData = $('#frmBuscar').serialize();
             var post_url = "/admin/canales/buscar_para_video/" + numero_pagina;
@@ -321,7 +326,7 @@
                     });
                 } //end success
             }); //end AJAX              
-        }        
+        }
         function buscar_para_lista(numero_pagina) {
             var serializedData = $('#frmBuscar').serialize();
             var post_url = "/admin/canales/buscar_para_lista/" + numero_pagina;
@@ -346,7 +351,7 @@
                     });
                 } //end success
             }); //end AJAX              
-        }        
+        }
         function buscar_para_coleccion(numero_pagina) {
             var serializedData = $('#frmBuscar').serialize();
             var post_url = "/admin/canales/buscar_para_coleccion/" + numero_pagina;
@@ -371,7 +376,7 @@
                     });
                 } //end success
             }); //end AJAX              
-        }        
+        }
         function buscar_para_programa(numero_pagina) {
             var serializedData = $('#frmBuscar').serialize();
             var post_url = "/admin/canales/buscar_para_programa/" + numero_pagina;
@@ -396,7 +401,7 @@
                     });
                 } //end success
             }); //end AJAX              
-        }        
+        }
         function buscar_para_destacado(numero_pagina) {
             var serializedData = $('#frmBuscar').serialize();
             var post_url = "/admin/canales/buscar_para_destacado/" + numero_pagina;
@@ -429,7 +434,7 @@
          * */
         function paginar_portada_programa(newPage, metodo) {
             var serializedData = $('#frmBuscar').serialize();
-            var post_url = "/admin/canales/"+metodo+"/" + newPage + "/1";
+            var post_url = "/admin/canales/" + metodo + "/" + newPage + "/1";
             $.ajax({
                 type: "POST",
                 url: post_url,
