@@ -325,24 +325,13 @@ class Admin extends Admin_Controller {
         $message = '';
         //if ($this->input->post()) {
         if ($this->input->is_ajax_request()) {
-            //umask(0);
-            //asign temp name
-            //$idUniq = uniqid();
-            //$ruta_video = FCPATH . 'uploads/videos/' . $this->input->post('name_file_upload');
             $ruta_video = $this->config->item('path:video') . $this->input->post('name_file_upload');
             $archivo_video = pathinfo($ruta_video);
             $ext = $archivo_video['extension'];
             $size_video = filesize($ruta_video);
             $arrayExt = explode("|", $this->config->item('videos:formatos'));
-            //$ext = end(explode('.', $_FILES['video']['name']));
-            //$arrayExt = explode("|", $this->config->item('videos:formatos'));
-
             if (in_array($ext, $arrayExt)) {
                 if ($size_video > 0 && $size_video <= 2147483648) { //10485760=>10MB 2147483648=>2GB
-                    //$nameVideo = $idUniq . '.' . $ext;
-                    //move_uploaded_file($_FILES["video"]["tmp_name"], UPLOAD_VIDEOS . $nameVideo);
-                    //validamos que el archivo exista en el servidor
-                    //$path_video = FCPATH . UPLOAD_VIDEOS . $nameVideo;
                     if (file_exists($ruta_video) && strlen(trim($archivo_video['basename'])) > 0) {//validamos que exista el archivo
                         $user_id = (int) $this->session->userdata('user_id');
                         $objBeanVideo = new stdClass();
@@ -358,8 +347,8 @@ class Admin extends Admin_Controller {
                         $objBeanVideo->fecha_publicacion_inicio = date("H:i:s", strtotime($this->input->post('fec_pub_ini')));
                         $objBeanVideo->fecha_publicacion_fin = date("H:i:s", strtotime($this->input->post('fec_pub_fin')));
                         $objBeanVideo->fecha_transmision = date("Y-m-d H:i:s", strtotime($this->input->post('fec_trans')));
-                        $objBeanVideo->horario_transmision_inicio = date("Y-m-d H:i:s", strtotime($this->input->post('hora_trans_ini')));
-                        $objBeanVideo->horario_transmision_fin = date("Y-m-d H:i:s", strtotime($this->input->post('hora_trans_fin')));
+                        $objBeanVideo->horario_transmision_inicio = date("H:i:s", strtotime($this->input->post('hora_trans_ini')));
+                        $objBeanVideo->horario_transmision_fin = date("H:i:s", strtotime($this->input->post('hora_trans_fin')));
                         $objBeanVideo->ubicacion = $this->input->post('ubicacion');
                         $objBeanVideo->estado = $this->config->item('status:codificando');
                         $objBeanVideo->estado_liquid = $this->config->item('liquid:nuevo');
@@ -376,11 +365,6 @@ class Admin extends Admin_Controller {
                         $this->_saveVideoMaestroDetalle($objBeanVideoSaved, $this->input->post());
                         //cambiar nombre del video por el ID del registro del video 
                         $this->renameVideo($objBeanVideoSaved, $archivo_video['basename']);
-                        //disparar el proceso de envio del video a liquid
-                        //$this->procesos_lib->curlProcesoVideosXId($objBeanVideo->id);
-                        //$this->load->helper('url');
-                        //redirect('/admin/canales/videos/' . $canal_id, 'refresh');
-
                         echo json_encode(array("error" => "0"));
                     }
                 } else {
