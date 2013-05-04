@@ -6,7 +6,7 @@
     .validateTips { border: 1px solid transparent; padding: 0.3em; }
 </style>
 <section class="title"> 
-    <div> 
+    <div style ="float: left;">
         <?php
         echo anchor('admin/videos/carga_unitaria/' . $canal_id, $this->config->item('submenu:carga_unitaria'), array('class' => ''));
         echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
