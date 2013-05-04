@@ -476,7 +476,22 @@
                     var inputfile = $("#video").val();
                     values['tematicas'] = $.trim(values['tematicas']);
                     values['personajes'] = $.trim(values['personajes']);
-                    if (values['hora_trans_fin'] > values['hora_trans_ini']) {
+                    values['hora_trans_fin'] = $.trim(values['hora_trans_fin']);
+                    values['hora_trans_ini'] = $.trim(values['hora_trans_ini']);
+                    var hfin = $.trim($("#hora_trans_fin").val());
+                    var hini = $.trim($("#hora_trans_ini").val());
+                    var hora_valida = true;
+                    if(hfin.length > 0 && hini.length > 0){
+                     if(hfin > hini){
+                         hora_valida= true;
+                     }else{
+                         hora_valida= false;
+                     }
+                    }else{
+                        hora_valida= true;
+                    }
+                    
+                    if (hora_valida) {
                         if (titulo.length > 0) {
                             //validamos el input file
                             if (inputfile.length > 0) {
