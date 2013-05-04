@@ -30,7 +30,7 @@
         </tfoot>
         <tbody>                
             <?php foreach ($maestros as $video) : ?>
-                <tr>
+                <tr id="item_<?php echo $video->id; ?>">
                     <td><?php echo form_checkbox('action_to[]', $video->id); ?></td>
                     <td class="collapse"><img style="width: 100px;" src="<?php echo $video->imagen ?>" border="0"></img></td>
                     <td class="collapse"><?php echo $video->nombre; ?></td>

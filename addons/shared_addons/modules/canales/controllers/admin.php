@@ -4652,7 +4652,7 @@ class Admin extends Admin_Controller {
             $objUsuarioCanal = $this->usuario_grupo_canales_m->get_by(array("user_id" => $this->current_user->id, "estado" => $this->config->item('estado:publicado')));
             $canal_id = $objUsuarioCanal->canal_id;
         }
-        $base_where = array("canales_id" => $canal_id, "estado" => $this->config->item('estado:publicado'));
+        $base_where = array("canales_id" => $canal_id, "estado" => $this->config->item('estado:eliminado'));
 
         //$programme_id = 0;
         $keyword = '';
@@ -4702,9 +4702,25 @@ class Admin extends Admin_Controller {
                 ->set('maestros', $objColeccionMaestro)
                 ->set('canal', $objCanal)
                 ->set_partial('papeleras', 'admin/tables/papeleras')
+                ->append_js('module::jquery.alerts.js')
+                ->append_css('module::jquery.alerts.css')
                 ->set('pagination', $pagination);
         //$this->template->build('admin/papelera');
         $this->input->is_ajax_request() ? $this->template->build('admin/tables/papeleras') : $this->template->build('admin/papelera');
+    }
+
+    /**
+     * Método para enviar a estado borrador los items maestros y/o video
+     * @param int $id
+     * @param string $tipo
+     */
+    public function resturar($id, $tipo) {
+        if ($this->input->is_ajax_request()) {
+            if ($tipo == 'maestro') {
+                $this->grupo_maestro_m->update($id, array("estado" => $this->config->item('estado:borrador')));
+            }
+            echo json_encode(array("value" => "1"));
+        }
     }
 
 }

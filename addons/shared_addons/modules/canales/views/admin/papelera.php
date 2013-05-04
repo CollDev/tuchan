@@ -39,4 +39,24 @@
             } //end success
         }); //end AJAX              
     }
+
+    function restaurar_maestro(id) {
+        jConfirm("Seguro que deseas restaurar este Item?", "Papelera", function(r) {
+            if (r) {
+                var post_url = "/admin/canales/resturar/" + id+"/maestro";
+                $.ajax({
+                    type: "POST",
+                    url: post_url,
+                    dataType: 'json',
+                    //data: indexOrder,
+                    success: function(respuesta)
+                    {
+                        if(respuesta.value == 1){
+                            $("#item_"+id).empty();
+                        }
+                    } //end success
+                }); //end AJAX   
+            }
+        });
+    }
 </script>
