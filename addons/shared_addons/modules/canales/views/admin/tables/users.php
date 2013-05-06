@@ -77,7 +77,7 @@
                                 $estado = lang('videos:3_estado');
                                 break;
                         endswitch; ?>
-                        <td class="collapse" id="video_<?php echo $video->id;?>"><?php echo $estado ?></td>
+                        <td class="collapse" id="video_<?php echo $video->id;?>"><?php echo $estado.'->'.$video->estado ?></td>
                         
                         <td>
 

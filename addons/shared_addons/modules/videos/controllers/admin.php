@@ -37,6 +37,7 @@ class Admin extends Admin_Controller {
         $this->load->library('image_lib');
         $this->load->library('imagenes_lib');
         $this->load->library('procesos_lib');
+        $this->load->library('migracion_lib');
 
 //        ci()->load->model('videos_mp');
 //        ci()->load->library("Procesos/proceso");
@@ -324,24 +325,13 @@ class Admin extends Admin_Controller {
         $message = '';
         //if ($this->input->post()) {
         if ($this->input->is_ajax_request()) {
-            //umask(0);
-            //asign temp name
-            //$idUniq = uniqid();
-            //$ruta_video = FCPATH . 'uploads/videos/' . $this->input->post('name_file_upload');
             $ruta_video = $this->config->item('path:video') . $this->input->post('name_file_upload');
             $archivo_video = pathinfo($ruta_video);
             $ext = $archivo_video['extension'];
             $size_video = filesize($ruta_video);
             $arrayExt = explode("|", $this->config->item('videos:formatos'));
-            //$ext = end(explode('.', $_FILES['video']['name']));
-            //$arrayExt = explode("|", $this->config->item('videos:formatos'));
-
             if (in_array($ext, $arrayExt)) {
                 if ($size_video > 0 && $size_video <= 2147483648) { //10485760=>10MB 2147483648=>2GB
-                    //$nameVideo = $idUniq . '.' . $ext;
-                    //move_uploaded_file($_FILES["video"]["tmp_name"], UPLOAD_VIDEOS . $nameVideo);
-                    //validamos que el archivo exista en el servidor
-                    //$path_video = FCPATH . UPLOAD_VIDEOS . $nameVideo;
                     if (file_exists($ruta_video) && strlen(trim($archivo_video['basename'])) > 0) {//validamos que exista el archivo
                         $user_id = (int) $this->session->userdata('user_id');
                         $objBeanVideo = new stdClass();
@@ -357,8 +347,8 @@ class Admin extends Admin_Controller {
                         $objBeanVideo->fecha_publicacion_inicio = date("H:i:s", strtotime($this->input->post('fec_pub_ini')));
                         $objBeanVideo->fecha_publicacion_fin = date("H:i:s", strtotime($this->input->post('fec_pub_fin')));
                         $objBeanVideo->fecha_transmision = date("Y-m-d H:i:s", strtotime($this->input->post('fec_trans')));
-                        $objBeanVideo->horario_transmision_inicio = date("Y-m-d H:i:s", strtotime($this->input->post('hora_trans_ini')));
-                        $objBeanVideo->horario_transmision_fin = date("Y-m-d H:i:s", strtotime($this->input->post('hora_trans_fin')));
+                        $objBeanVideo->horario_transmision_inicio = date("H:i:s", strtotime($this->input->post('hora_trans_ini')));
+                        $objBeanVideo->horario_transmision_fin = date("H:i:s", strtotime($this->input->post('hora_trans_fin')));
                         $objBeanVideo->ubicacion = $this->input->post('ubicacion');
                         $objBeanVideo->estado = $this->config->item('status:codificando');
                         $objBeanVideo->estado_liquid = $this->config->item('liquid:nuevo');
@@ -375,11 +365,6 @@ class Admin extends Admin_Controller {
                         $this->_saveVideoMaestroDetalle($objBeanVideoSaved, $this->input->post());
                         //cambiar nombre del video por el ID del registro del video 
                         $this->renameVideo($objBeanVideoSaved, $archivo_video['basename']);
-                        //disparar el proceso de envio del video a liquid
-                        //$this->procesos_lib->curlProcesoVideosXId($objBeanVideo->id);
-                        //$this->load->helper('url');
-                        //redirect('/admin/canales/videos/' . $canal_id, 'refresh');
-
                         echo json_encode(array("error" => "0"));
                     }
                 } else {
@@ -1239,7 +1224,7 @@ class Admin extends Admin_Controller {
                 $objBeanMaestro->cantidad_suscriptores = 0;
                 $objBeanMaestro->peso = 1;
                 $objBeanMaestro->id_mongo = NULL;
-                $objBeanMaestro->estado = 1;
+                $objBeanMaestro->estado = $this->config->item('estado:borrador');
                 $objBeanMaestro->fecha_registro = date("Y-m-d H:i:s");
                 $objBeanMaestro->usuario_registro = $user_id;
                 $objBeanMaestro->fecha_actualizacion = date("Y-m-d H:i:s");
@@ -1250,6 +1235,8 @@ class Admin extends Admin_Controller {
                 $objBeanMaestro->comentarios = 0;
                 $objBeanMaestro->fecha_transmision_inicio = date("Y-m-d H:i:s");
                 $objBeanMaestro->fecha_transmision_fin = date("Y-m-d H:i:s");
+                $objBeanMaestro->horario_transmision_inicio = date("H:i:s");
+                $objBeanMaestro->horario_transmision_fin = date("H:i:s");
                 $objBeanMaestroSaved = $this->grupo_maestro_m->save_maestro($objBeanMaestro);
                 //guardar en el detalle de maestros en caso de guardarse como hijo
                 $this->_saveMaestroDetalle($this->input->post(), $objBeanMaestroSaved);
@@ -2771,7 +2758,7 @@ class Admin extends Admin_Controller {
                     $objVideo->tipo = 'Video';
                     $objVideo->cantidad = '-';
                     $objVideo->categoria = $categoria;
-                    $objVideo->estado = $estado;
+                    $objVideo->estado = lang('videos:'.$objVideo->estado.'_estado');
                     array_push($returnValue, $objVideo);
                 }
             }
@@ -2819,6 +2806,8 @@ class Admin extends Admin_Controller {
             $objMaestro->avatar = array();
             $objMaestro->fecha_transmision_inicio = date("Y-m-d H:i:s");
             $objMaestro->fecha_transmision_fin = date("Y-m-d H:i:s");
+            $objMaestro->horario_transmision_inicio = date("H:i:s");
+            $objMaestro->horario_transmision_fin = date("H:i:s");
             $tipo_maestros = $this->tipo_maestro_m->getTipoDropDown(array(), 'id');
         }
         //lista tipo de maestros
@@ -3333,20 +3322,25 @@ class Admin extends Admin_Controller {
                     $objBeanMaestro->nombre = $this->input->post('titulo');
                     $objBeanMaestro->descripcion = $this->input->post('descripcion_updated');
                     $objBeanMaestro->alias = url_title(strtolower(convert_accented_characters($this->input->post('titulo'))));
-                    $objBeanMaestro->tipo_grupo_maestro_id = $this->input->post('tipo');
+                    $objBeanMaestro->tipo_grupo_maestro_id = $this->input->post('tipo_grupo');
                     $objBeanMaestro->canales_id = $this->input->post('canal_id');
                     $objBeanMaestro->fecha_actualizacion = date("Y-m-d H:i:s");
                     $objBeanMaestro->usuario_actualizacion = $user_id;
                     $objBeanMaestro->estado_migracion = $this->config->item('migracion:actualizado');
                     $objBeanMaestro->fecha_transmision_inicio = date("Y-m-d H:i:s", strtotime($this->input->post('fec_pub_ini')));
                     $objBeanMaestro->fecha_transmision_fin = date("Y-m-d H:i:s", strtotime($this->input->post('fec_pub_fin')));
+                    $objBeanMaestro->horario_transmision_inicio = date("H:i:s", strtotime($this->input->post('horario_transmision_inicio')));
+                    $objBeanMaestro->horario_transmision_fin = date("H:i:s", strtotime($this->input->post('horario_transmision_fin')));
                     $this->grupo_maestro_m->update($objBeanMaestro->id, array("nombre" => $objBeanMaestro->nombre,
                         "descripcion" => $objBeanMaestro->descripcion, "alias" => $objBeanMaestro->alias,
                         "tipo_grupo_maestro_id" => $objBeanMaestro->tipo_grupo_maestro_id, "canales_id" => $objBeanMaestro->canales_id,
                         "fecha_actualizacion" => $objBeanMaestro->fecha_actualizacion, "usuario_actualizacion" => $objBeanMaestro->usuario_actualizacion,
-                        "estado_migracion" => $objBeanMaestro->estado_migracion, "fecha_transmision_inicio" => $objBeanMaestro->fecha_transmision_inicio, "fecha_transmision_fin" => $objBeanMaestro->fecha_transmision_fin));
+                        "estado_migracion" => $objBeanMaestro->estado_migracion, 
+                        "fecha_transmision_inicio" => $objBeanMaestro->fecha_transmision_inicio, "fecha_transmision_fin" => $objBeanMaestro->fecha_transmision_fin,
+                        "horario_transmision_inicio" => $objBeanMaestro->horario_transmision_inicio, "horario_transmision_fin" => $objBeanMaestro->horario_transmision_fin));
                     $returnValue = 0;
                     $this->guardarTagsMaestro($objBeanMaestro, $this->input->post());
+                    $maestro_id = $this->input->post('maestro_id');
                 }
             } else {//registrar un nuevo maestro
                 if ($this->existeNombreMaestro($this->input->post('titulo'), $this->input->post('canal_id'), $this->input->post('maestro_id'))) {
@@ -3365,7 +3359,7 @@ class Admin extends Admin_Controller {
                     $objBeanMaestro->cantidad_suscriptores = 0;
                     $objBeanMaestro->peso = $this->_obtenerPesoMaestro($this->input->post());
                     $objBeanMaestro->id_mongo = NULL;
-                    $objBeanMaestro->estado = 0;
+                    $objBeanMaestro->estado = $this->config->item('estado:borrador');
                     $objBeanMaestro->fecha_registro = date("Y-m-d H:i:s");
                     $objBeanMaestro->usuario_registro = $user_id;
                     $objBeanMaestro->estado_migracion = 0;
@@ -3374,6 +3368,8 @@ class Admin extends Admin_Controller {
                     $objBeanMaestro->comentarios = 0;
                     $objBeanMaestro->fecha_transmision_inicio = date("Y-m-d H:i:s", strtotime($this->input->post('fec_pub_ini')));
                     $objBeanMaestro->fecha_transmision_fin = date("Y-m-d H:i:s", strtotime($this->input->post('fec_pub_fin')));
+                    $objBeanMaestro->horario_transmision_inicio = date("H:i:s", strtotime($this->input->post('horario_transmision_inicio')));
+                    $objBeanMaestro->horario_transmision_fin = date("H:i:s", strtotime($this->input->post('horario_transmision_fin')));
                     /* $this->vd($objBeanMaestro);
                       die(); */
                     $objBeanMaestroSaved = $this->grupo_maestro_m->save_maestro($objBeanMaestro);
@@ -3893,7 +3889,7 @@ class Admin extends Admin_Controller {
     public function generar_programa() {
         if ($this->input->is_ajax_request()) {
             $html = '';
-            switch ($this->input->post('tipo')) {
+            switch ($this->input->post('tipo_grupo')) {
                 case $this->config->item('videos:coleccion'):
                     $lista_programas = $this->grupo_maestro_m->get_many_by(array("canales_id" => $this->input->post('canal_id'), "tipo_grupo_maestro_id" => $this->config->item('videos:programa')));
                     if (count($lista_programas) > 0) {
@@ -4039,7 +4035,7 @@ class Admin extends Admin_Controller {
                     $objVideo = $this->videos_m->get($objMaestroDetalle->video_id);
                     if (count($objVideo) > 0) {
                         $objVideo->es_maestro = 0;
-                        array_push($returnValue, $objMaestroDetalle);
+                        array_push($returnValue, $objVideo);
                     }
                 }
             }
@@ -4113,8 +4109,8 @@ class Admin extends Admin_Controller {
             //listar las colecciones, listas y videos paginado con jquery
             //primero listamos las colecciones del programa
             $colecciones = $this->grupo_detalle_m->get_many_by(array("grupo_maestro_padre" => $this->input->post('maestro_id')));
+            $array_coleccion = array();
             if (count($colecciones) > 0) {
-                $array_coleccion = array();
                 foreach ($colecciones as $puntero => $objDetalleGrupo) {
                     $objColeccion = $this->grupo_maestro_m->get_by(array("id" => $objDetalleGrupo->grupo_maestro_id, "tipo_grupo_maestro_id" => $this->config->item('videos:coleccion')));
                     if (count($objColeccion) > 0) {
@@ -4122,13 +4118,16 @@ class Admin extends Admin_Controller {
                         array_push($array_coleccion, $objColeccion);
                     }
                 }
+                
                 //obtenemos las colecciones directamente del canal
                 $colecciones_canal = $this->coleccion_canal($this->input->post('canal_id'));
+                
                 if (count($colecciones_canal) > 0) {
                     $array_coleccion = array_merge($array_coleccion, $colecciones_canal);
                 }
                 //obtenemos las listas
                 $listas = $this->lista_programa(NULL, $this->input->post('maestro_id'));
+                
                 if (count($listas) > 0) {
                     $array_coleccion = array_merge($array_coleccion, $listas);
                 }
@@ -4148,6 +4147,7 @@ class Admin extends Admin_Controller {
                     $array_coleccion = array_merge($array_coleccion, $videos_canal);
                 }
             }
+            
             $total = count($array_coleccion);
             $cantidad_mostrar = 3;
             $current_page = $current_page - 1;
@@ -4746,11 +4746,20 @@ class Admin extends Admin_Controller {
         $this->template->build('admin/misvideos');
     }
 
-    function filesize_formatted($path) {
+    public function filesize_formatted($path) {
         $size = filesize($path);
         $units = array('B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB');
         $power = $size > 0 ? floor(log($size, 1024)) : 0;
         return number_format($size / pow(1024, $power), 2, '.', ',') . ' ' . $units[$power];
+    }
+    /**
+     * Metodo para iniciarla migracion atraves de su libreria 
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @return boolean $returnValue
+     */
+    public function iniciar_migracion(){
+        $returnValue = $this->migracion_lib->iniciar_migracion_masiva();
+        return $returnValue;
     }
 
 }

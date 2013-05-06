@@ -40,6 +40,17 @@ $lang['videos:1_estado'] =  'Borrador';
 $lang['videos:2_estado'] =  'Publicado';
 $lang['videos:3_estado'] =  'Eliminado';
 
+// estados maestros
+$lang['estado:0_estado'] =  'Borrador';
+$lang['estado:1_estado'] =  'Publicado';
+$lang['estado:2_estado'] =  'Eliminado';
+
+// maestros
+$lang['maestro:1_maestro'] =  'Lista de reproducción';
+$lang['maestro:2_maestro'] =  'Colección';
+$lang['maestro:3_maestro'] =  'Programa';
+$lang['maestro:4_maestro'] =  'Video';
+
 // mensajes
 $lang['videos:publish_success']        = 'El video "%s" ha sido publicado.';
 $lang['videos:mass_publish_success']   = 'Los videos "%s" han sido publicados.';

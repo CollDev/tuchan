@@ -11,10 +11,11 @@
         <thead>
             <tr>
                 <th width="20"><?php echo form_checkbox(array('name' => 'action_to_all', 'class' => 'check-all')); ?></th>
+                <th></th>
                 <th><?php echo lang('canales:nombre_label'); ?></th>
                 <th class="collapse"><?php echo lang('canales:descripcion_label'); ?></th>
                 <th class="collapse"><?php echo lang('canales:estado_label'); ?></th>
-                <th width="300"></th>
+                <th width="300"><?php echo lang('global:acciones'); ?></th>
             </tr>
         </thead>
         <tfoot>
@@ -28,6 +29,7 @@
             <?php foreach ($canales as $post) : ?>
                 <tr>
                     <td><?php echo form_checkbox('action_to[]', $post->id); ?></td>
+                    <td class="collapse"><img src="<?php echo $post->imagen_iso; ?>" /></td>
                     <td class="collapse"><?php echo anchor('admin/canales/videos/' . $post->id, $post->nombre); //$post->nombre;   ?></td>
                     <td class="collapse"><?php echo $post->descripcion; ?></td>					
                     <td><div id="canal_<?php echo $post->id; ?>"><?php echo lang('global:' . $post->estado . '_estado'); ?></div></td>

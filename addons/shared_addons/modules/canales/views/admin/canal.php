@@ -1,15 +1,20 @@
 <section class="title"> 
-    <?php
-    if ($objCanal->id > 0):
-        echo anchor('admin/videos/carga_unitaria/' . $objCanal->id, $this->config->item('submenu:carga_unitaria'), array('class' => ''));
-        echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
-        /*    echo anchor('admin/videos/carga_masiva/' . $canal_id, 'Carga masiva', array('class' => ''));
-          echo '&nbsp;&nbsp;|&nbsp;&nbsp;'; */
-        echo anchor('admin/videos/maestro/' . $objCanal->id, 'Organizar videos', array('class' => ''));
-        echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
-        echo anchor('admin/canales/portada/' . $objCanal->id, 'Portadas', array('class' => ''));
-    endif;
-    ?>
+    <div style ="float: left;">
+        <?php
+        if ($objCanal->id > 0):
+            echo anchor('admin/videos/carga_unitaria/' . $objCanal->id, $this->config->item('submenu:carga_unitaria'), array('class' => ''));
+            echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
+            /*    echo anchor('admin/videos/carga_masiva/' . $canal_id, 'Carga masiva', array('class' => ''));
+              echo '&nbsp;&nbsp;|&nbsp;&nbsp;'; */
+            echo anchor('admin/videos/maestro/' . $objCanal->id, 'Organizar videos', array('class' => ''));
+            echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
+            echo anchor('admin/canales/portada/' . $objCanal->id, 'Portadas', array('class' => ''));
+        endif;
+        ?>        
+    </div>
+    <div style="float: right;">
+        <?php echo anchor('admin/canales/papelera/' . $objCanal->id, 'Papelera', array('class' => '')); ?>
+    </div>     
 </section>
 <section class="item">
 
@@ -156,7 +161,8 @@
     </div>
     <div class="main_opt">
         <?php
-        if ($this->session->userdata['group'] == 'admin' && $objCanal->id > 0):
+        //if ($this->session->userdata['group'] == 'admin' && $objCanal->id > 0):
+        if ($this->session->userdata['group'] == 'admin'):
             ?>
             <div style="float: left;">
                 <label for="apikey"><?php echo lang('canales:apikey'); ?> <span class="required">*</span></label>
@@ -215,13 +221,15 @@
             });
             var canal_id = $("#canal_id").val();
             if (canal_id > 0) {
-                //var apikey = $("#apikey").val();
-                //var playerkey = $("#playerkey").val();
-                var apikey = 'apikey';
-                var playerkey = 'playerkey';
+                var apikey = $("#apikey").val();
+                var playerkey = $("#playerkey").val();
+                //var apikey = 'apikey';
+                //var playerkey = 'playerkey';
             } else {
-                var apikey = 'apikey';
-                var playerkey = 'playerkey';
+                var apikey = $("#apikey").val();
+                var playerkey = $("#playerkey").val();
+                //var apikey = 'apikey';
+                //var playerkey = 'playerkey';
             }
             var editorText = CKEDITOR.instances.descripcion.getData();
             $('<input>').attr({
@@ -285,7 +293,7 @@
                                                                     showMessage('error', '<?php echo lang('canales:exist_canal') ?>', 2000, '');//no se encontro el logotipo en el servidor 
                                                                 } else {
                                                                     var url = "admin/canales";
-                                                                    //showMessage('exit', '<?php //echo lang('canales:success_saved')  ?>', 2000, '');//no se encontro el logotipo en el servidor 
+                                                                    //showMessage('exit', '<?php //echo lang('canales:success_saved')   ?>', 2000, '');//no se encontro el logotipo en el servidor 
                                                                     $(location).attr('href', '<?php echo BASE_URL; ?>' + url);
                                                                 }
                                                             }
@@ -396,9 +404,15 @@
             //alert('Character was ' + character);
             //alert(code);
             //if (code == 8) return true;
-            var AllowRegex = /^[\ba-zA-Z\s-]$/;
-            if (AllowRegex.test(character))
+            //var AllowRegex = /^[\ba-zA-Z\s-]$/;
+            //console.log(code);
+            if(code == 32 || code == 8){
                 return true;
+            }else{
+                var AllowRegex = /^[0-9A-Za-z]+$/;
+                if (AllowRegex.test(character))
+                    return true;                
+            }
             return false;
         }
 
@@ -452,15 +466,36 @@
                 //data:imagen_id,
                 success: function(returnRespuesta) //we're calling the response json array 'cities'
                 {
-                    console.log(returnRespuesta);
+                    //limpiar
+//                    $('#listaImagenes').ddslick('destroy');
+//                    $("#contenedorImage").empty();
+//                    var htmlN = '<select id="listaImagenes">';
+//                    $.each(returnRespuesta.imagenes, function(k, v) {
+//                        if (v.estado == '1') {
+//                            htmlN += '<option selected=\"selected\" value=\"' + v.id + '\" data-imagesrc=\"' + v.path + '\" data-description=\" \"></option>';
+//                        } else {
+//                            htmlN += '<option value=\"' + v.id + '\" data-imagesrc=\"' + v.path + '\" data-description=\" \"></option>';
+//                        }
+//                    });
+//                    htmlN += '</select>';
+//                    $("#contenedorImage").html(htmlN);
+//                    $('#listaImagenes').ddslick({
+//                        width: 300,
+//                        imagePosition: "center",
+//                        selectText: "Seleccione su imagen principal",
+//                        onSelected: function(data) {
+//                            //console.log(data);
+//                            activeImageMaestro(data['selectedData'].value);
+//                        }
+//                    });
                 } //end success
             }); //end AJAX              
         }
 
         $(document).ready(function() {
-            <?php if ($objCanal->id > 0):?>
-            mostrar_titulo();
-            <?php endif; ?>
+<?php if ($objCanal->id > 0): ?>
+                mostrar_titulo();
+<?php endif; ?>
             //upload de la imagen de portada
             var btn_firma = $('#addImagen'), interval;
             new AjaxUpload('#addImagen', {
@@ -595,7 +630,7 @@
 <?php } ?>
         });
     </script>
-    <input type="hidden" name="imagen_portada" id="imagen_portada" value="<?php //echo $objCanal->imgen_portada;  ?>" />
+    <input type="hidden" name="imagen_portada" id="imagen_portada" value="<?php //echo $objCanal->imgen_portada;   ?>" />
     <input type="hidden" name="imagen_logotipo" id="imagen_logotipo" value="<?php echo $objCanal->imagen_logotipo; ?>" />
     <input type="hidden" name="update_logotipo" id="update_logotipo" value="0" />
     <input type="hidden" name="imagen_isotipo" id="imagen_isotipo" value="<?php echo $objCanal->imagen_isotipo; ?>" />
