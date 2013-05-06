@@ -45,11 +45,12 @@ class MiCanal_mp extends CI_Model {
 
     public function queryProcedure($option, $id) {
         switch ($option) {
-            case '4':
-                $query = "";
-                $query = "call sp_obtenerdatos(" . $id . ")";
-                //echo $query."<br>";                
+            case '1':
+                $query = "call sp_llenartiposeccion6789";                                
                 break;
+            case '4':
+                $query = "call sp_obtenerdatos(" . $id . ")";
+                break;            
         }
 
 //         $objresult=$this->db->query($query);
@@ -77,12 +78,6 @@ class MiCanal_mp extends CI_Model {
 
                 break;
 
-//            case '3':
-//                $query = "SELECT ds.videos_id,ds.grupo_maestros_id,ds.imagenes_id,ds.peso,im.imagen,im.procedencia
-//                            FROM " . $this->_table_detalle_secciones . " ds
-//                            INNER JOIN " . $this->_table_imagenes . " im ON im.id=ds.imagenes_id
-//                            WHERE secciones_id=" . $id . " and ds.estado=1  ORDER BY peso asc ";
-//                break;
 
             case '3' :
                 $query = "SELECT se.id,se.id_mongo,se.tipo_secciones_id,po.tipo_portadas_id

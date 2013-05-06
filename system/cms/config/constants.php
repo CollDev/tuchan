@@ -123,6 +123,10 @@ define('WEBURL', 'http://webtv.liquidplatform.com/2.0/uploadMedia');
 
 define('MOTOR', 'http://dev.micanal.pe/');
 
+
+// Buscador
+define('EC_CLIENTE_SOAP', 'busca/busqueda.wsdl');
+
 define('TIME_LIMIT',3500);
 /*
 |--------------------------------------------------------------------------
