@@ -39,6 +39,7 @@ class Migracion_lib extends MX_Controller {
      */
     public function __construct() {
         $this->load->model('canales/canales_m');
+        $this->load->model('videos/videos_m');
         $this->url = $this->config->item('migracion:url');
         //$this->filtro = $this->config->item('migracion:filtro');
     }
@@ -48,7 +49,7 @@ class Migracion_lib extends MX_Controller {
      * @author Johnny Huamani <johnny1402@gmail.com>
      * @return boolean
      */
-    public function inicar_migracion_masiva() {
+    public function iniciar_migracion_masiva() {
         $returnValue = FALSE;
         $objColeccionCanal = $this->canales_m->get_many_by(array("estado" => $this->config->item('estado:publicado')));
         if (count($objColeccionCanal) > 0) {
@@ -73,26 +74,78 @@ class Migracion_lib extends MX_Controller {
             $ruta_api = $this->generarApi($objCanal, $indice);
             $data = @simplexml_load_file($ruta_api);
             if ($data) {
-                $this->guardar_data($data, $objCanal);
+                $this->obtener_objeto_bean_video($data, $objCanal);
             }
             break;
         }
     }
 
     /**
-     * Método para iterar la data e insertar en la Base de datos
+     * Método para iterar la data y retornar objeto bean para guardar en la BD
      * @author Johnny Huamani <johnny1402@gmail.com>
      * @param object $data
      * @param object $objCanal
      */
-    private function guardar_data($data, $objCanal) {
-
+    private function obtener_objeto_bean_video($data, $objCanal) {
+        //iteramos el contenido de Media, ahí están la lista de videos e imagenes
+        $user_id = (int) $this->session->userdata('user_id');
         $lista_videos = $data->Media;
+        $contador = 0;
         foreach ($lista_videos as $puntero => $objVideo) {
             if (property_exists($objVideo, 'files')) {
-                $objFile = $this->obtenerFile($objVideo->files);
-                $this->vd($objFile);
+                $oVideo = $this->videos_m->like('codigo', $objVideo->id, 'none')->get_by(array());
+                if (count($oVideo) > 0) {//el video ya se encuentra registrado
+                } else { // es un video que no se encuentra en nuestra BD
+                    $objFile = $this->obtenerFile($objVideo->files);
+                    echo "----------------------#".$contador."#-------------------------------";
+                    $this->vd($objVideo->id);
+                    $objBeanVideo = new stdClass();
+                    $objBeanVideo->id = NULL;
+                    $objBeanVideo->tipo_videos_id = $this->config->item('videos:normal');
+                    $objBeanVideo->categorias_id = $this->config->item('categoria:modas');
+                    $objBeanVideo->usuarios_id = $user_id;
+                    $objBeanVideo->canales_id = $objCanal->id;
+                    $objBeanVideo->nid = NULL;
+                    $objBeanVideo->titulo = '';
+                    $objBeanVideo->alias = '';
+                    $objBeanVideo->descripcion = '';
+                    $objBeanVideo->fragmento = 0;
+                    $objBeanVideo->codigo = $objVideo->id;
+                    $objBeanVideo->reproducciones = 0;
+                    $objBeanVideo->duracion = '';
+                    /*$objBeanVideo->fecha_publicacion_inicio                  datetime       YES             (NULL)                   
+                    $objBeanVideo->fecha_publicacion_fin                     datetime       YES             (NULL)                   
+                    $objBeanVideo->fecha_transmision                         date           YES             (NULL)                   
+                    $objBeanVideo->horario_transmision_inicio                time           YES             (NULL)                   
+                    $objBeanVideo->horario_transmision_fin                   time           YES             (NULL)                   
+                    $objBeanVideo->ubicacion                                 varchar(100)   YES             (NULL)                   
+                    $objBeanVideo->id_mongo                                  varchar(25)    YES             (NULL)                   
+                    $objBeanVideo->estado                                    tinyint(4)     YES             0                        
+                    $objBeanVideo->estado_liquid                             tinyint(4)     YES             0                        
+                    $objBeanVideo->fecha_registro                            datetime       YES             (NULL)                   
+                    $objBeanVideo->usuario_registro                          int(11)        YES             (NULL)                   
+                    $objBeanVideo->fecha_actualizacion                       datetime       YES             (NULL)                   
+                    $objBeanVideo->usuario_actualizacion                     int(11)        YES             (NULL)                   
+                    $objBeanVideo->estado_migracion                          tinyint(4)     YES             0                        
+                    $objBeanVideo->fecha_migracion                           datetime       YES             (NULL)                   
+                    $objBeanVideo->fecha_migracion_actualizacion             datetime       YES             (NULL)                   
+                    $objBeanVideo->estado_migracion_sphinx_tit               tinyint(4)     YES             0                        
+                    $objBeanVideo->fecha_migracion_sphinx_tit                datetime       YES             (NULL)                   
+                    $objBeanVideo->fecha_migracion_actualizacion_sphinx_tit  datetime       YES             (NULL)                   
+                    $objBeanVideo->estado_migracion_sphinx_des               tinyint(4)     YES             0                        
+                    $objBeanVideo->fecha_migracion_sphinx_des                datetime       YES             (NULL)                   
+                    $objBeanVideo->fecha_migracion_actualizacion_sphinx_des  datetime       YES             (NULL)                   
+                    $objBeanVideo->valorizacion                              int(11)        YES             0                        
+                    $objBeanVideo->comentarios                               int(11)        YES             0                        
+                    $objBeanVideo->ruta                                      varchar(150)   YES             (NULL)                   
+                    $objBeanVideo->padre                                     int(11)        YES             0                        
+                    $objBeanVideo->estado_migracion_sphinx                   tinyint(4)     YES             (NULL)                   
+                    $objBeanVideo->fecha_migracion_sphinx                    datetime       YES             (NULL)                   
+                    $objBeanVideo->fecha_migracion_actualizacion_sphinx      datetime       YES             (NULL)                   
+                    $objBeanVideo->procedencia*/
+                }
             }
+            $contador++;
         }
     }
 
@@ -130,11 +183,12 @@ class Migracion_lib extends MX_Controller {
     private function generarApi($objCanal, $pagina = 0) {
         $returnValue = '';
         $returnValue = $this->url . $objCanal->apikey . '&first=' . $pagina . '&' . $this->filtro;
+        echo $returnValue;
         return $returnValue;
     }
 
     /**
-     * metodo para imprimir variables con formato
+     * metodo para debuguear variables con formato
      * @author Johnny Huamani <johnny1402@gmail.com>
      * @param undefined $var
      */

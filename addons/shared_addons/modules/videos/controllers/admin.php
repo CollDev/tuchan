@@ -2758,7 +2758,7 @@ class Admin extends Admin_Controller {
                     $objVideo->tipo = 'Video';
                     $objVideo->cantidad = '-';
                     $objVideo->categoria = $categoria;
-                    $objVideo->estado = $estado;
+                    $objVideo->estado = lang('videos:'.$objVideo->estado.'_estado');
                     array_push($returnValue, $objVideo);
                 }
             }
@@ -4757,8 +4757,8 @@ class Admin extends Admin_Controller {
      * @author Johnny Huamani <johnny1402@gmail.com>
      * @return boolean $returnValue
      */
-    public function inicar_migracion(){
-        $returnValue = $this->migracion_lib->inicar_migracion_masiva();
+    public function iniciar_migracion(){
+        $returnValue = $this->migracion_lib->iniciar_migracion_masiva();
         return $returnValue;
     }
 

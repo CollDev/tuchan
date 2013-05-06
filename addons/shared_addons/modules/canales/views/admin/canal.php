@@ -404,9 +404,15 @@
             //alert('Character was ' + character);
             //alert(code);
             //if (code == 8) return true;
-            var AllowRegex = /^[\ba-zA-Z\s-]$/;
-            if (AllowRegex.test(character))
+            //var AllowRegex = /^[\ba-zA-Z\s-]$/;
+            //console.log(code);
+            if(code == 32 || code == 8){
                 return true;
+            }else{
+                var AllowRegex = /^[0-9A-Za-z]+$/;
+                if (AllowRegex.test(character))
+                    return true;                
+            }
             return false;
         }
 
