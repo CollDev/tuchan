@@ -90,7 +90,7 @@ class Videos_mp extends CI_Model {
         $query = "SELECT vi.id,vi.codigo,vi.ruta,vi.duracion,ca.apikey,(select count(im.id) from " . $this->_table_imagenes . " im  WHERE im.videos_id=vi.id and im.procedencia=1) as 'imag'
                     FROM " . $this->_table . " vi  
                     INNER  JOIN " . $this->_table_canales . " ca ON  vi.canales_id=ca.id
-                    WHERE vi.estado_liquid=5 and vi.id=" . $id;
+                    WHERE  vi.id=" . $id; //vi.estado_liquid=5 and
 
         return $this->db->query($query)->result();
     }

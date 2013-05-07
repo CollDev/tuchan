@@ -1,1 +1,3 @@
-<iframe width="560" height="315" src="<?php echo MOTOR;?>embedcms/<?php echo $id;?>" frameborder="0" allowfullscreen/></iframe>
+<iframe width="100%" height="560" 
+        src="<?php echo $this->config->item('motor') ?>/embedcms/<?php echo $id;?>" frameborder="0" />
+</iframe>

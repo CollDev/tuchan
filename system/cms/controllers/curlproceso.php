@@ -71,6 +71,10 @@ class curlProceso extends MX_Controller {
     public function actualizarSecciones6789(){
         $this->procesos_lib->actualizarSecciones6789();
     }
+    
+    public function actualizarVideos(){
+        $this->procesos_lib->actualizarVideos();
+    }
             
 }
 ?>

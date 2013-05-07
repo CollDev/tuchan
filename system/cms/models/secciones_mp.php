@@ -18,6 +18,11 @@ class Secciones_mp extends CI_Model {
         return $this->db->query($query)->result();
     }
     
+    public function getSeccionesXPortadaId($id){
+        $query = "SELECT * FROM default_cms_secciones WHERE portadas_id=".$id;
+        return $this->db->query($query)->result();
+    }
+    
     public function updateEstadoMigracionSeccion($id){
             $query= "update ". $this->_table. " set estado_migracion=2, fecha_migracion= now() where id=" .$id;
             $this->db->query($query);        

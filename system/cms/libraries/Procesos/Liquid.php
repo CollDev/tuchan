@@ -213,7 +213,7 @@ class Liquid {
     function obtenerDatosMedia($datos) {
 
         $url = APIURL . "/medias/" . $datos->codigo . "?key=" . $datos->apikey . "&filter=id;thumbs;files;published";
-        //echo $url . "<br>";
+        error_log($url);
         
         Log::erroLog("url obtener datos: " . $url);
         
@@ -302,7 +302,6 @@ class Liquid {
                     $urlimg = $value["url"] . "\n";
                     break;
                 } else {
-
                     foreach ($value as $value2) {
                         if (isset($value2["url"])) {
                             $urlimg = $value2["url"] . "\n";
@@ -319,18 +318,24 @@ class Liquid {
                 // print_r($value);
 
                 if (isset($value["id"])) {
-                    if ($value["output"]["name"] == "_RAW") {
+                    //if ($value["output"]["name"] == "_RAW") {
                         $video_filename = $value["fileName"];
                         $video_id = $value["id"];
                         break;
-                    }
+                    //}
                 } else {
-                    foreach ($value as $value2) {
-                        if ($value2["output"]["name"] == "_RAW") {
-                            $video_filename = $value2["fileName"];
-                            $video_id = $value2["id"];
-                            break 2;
-                        }
+                    $min = 9999;
+                    foreach ($value as $value2) { 
+                        
+                       
+                        
+                        if($value2["output"]["name"]!="_RAW"){
+                            if ($value2["videoInfo"]["height"] < $min) {                              
+                                $min =  $value2["videoInfo"]["height"];                            
+                                $video_filename = $value2["fileName"];
+                                $video_id = $value2["id"];                         
+                            } 
+                        }                      
                     }
                 }
             }
@@ -361,19 +366,28 @@ class Liquid {
     }
     
     function getDurationLiquid($mediaarr){
+        error_log("entro duration");
         $duration=0;
+        
+        
+        
         
         if (count($mediaarr["files"]) > 0) {
             foreach ($mediaarr["files"] as $value) {
 
-                if (isset($value["id"])){                     
-                    if(!empty($value["videoInfo"]["duration"])){
+                if (isset($value["id"])){ 
+                        
+                    if(!empty($value["videoInfo"]["duration"])){                        
+                        error_log("duracion 2" . $value["videoInfo"]);
                          $duration = number_format($value["videoInfo"]["duration"],2);
+                         
                          break;
                      }                         
-                } else {
+                }   else {
+                    
                     foreach ($value as $value2) {
                     if(!empty($value["videoInfo"]["duration"])){
+                        error_log("duracion 2" . $value["videoInfo"]["duration"]);
                          $duration = number_format($value["videoInfo"]["duration"],2);
                          break 2;
                      } 

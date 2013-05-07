@@ -423,4 +423,7 @@ $config['migracion:url'] = 'http://fast.api.liquidplatform.com/2.0/medias/?key='
 $config['migracion:filtro'] = 'filter=id;secondUrl;published;title;thumbs;tags;description';
 $config['migracion:output'] = '_RAW';
 
+$config['motor'] = 'http://dev.micanal.pe';
+$config['motor'] = 'http://ci.micanal.dev';
+
 /* End of file config.php */
