@@ -230,6 +230,16 @@ jQuery(function($) {
 				onComplete: function(){ pyro.chosen() }
 			});
 		});
+		$('a[rel="modal-large_custom"], a.modal-large_custom').livequery(function() {
+			$(this).colorbox({
+				width: "50%",
+				height: "100%",
+				iframe: true,
+				//scrolling: true,
+				current: current_module + " {current} / {total}",
+				onComplete: function(){ pyro.chosen() }
+			});
+		});
 	};
 
 	pyro.clear_notifications = function()
