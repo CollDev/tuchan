@@ -336,7 +336,7 @@ class Admin extends Admin_Controller {
                         $user_id = (int) $this->session->userdata('user_id');
                         $objBeanVideo = new stdClass();
                         $objBeanVideo->id = NULL;
-                        $objBeanVideo->tipo_videos_id = $this->input->post('tipo');
+                        $objBeanVideo->tipo_videos_id = $this->input->post('int_tipo_video');
                         $objBeanVideo->categorias_id = $this->input->post('categoria');
                         $objBeanVideo->usuarios_id = $user_id;
                         $objBeanVideo->canales_id = $this->input->post('canal_id');
@@ -438,7 +438,7 @@ class Admin extends Admin_Controller {
                     $objBeanForm->categoria = $this->input->post('categoria');
                     $objBeanForm->tematicas = $this->input->post('tematicas');
                     $objBeanForm->personajes = $this->input->post('personajes');
-                    $objBeanForm->tipo = $this->input->post('tipo');
+                    $objBeanForm->tipo = $this->input->post('int_tipo_video');
                     $objBeanForm->programa = $this->input->post('programa');
                     $objBeanForm->coleccion = $this->input->post('coleccion');
                     $objBeanForm->lista = $this->input->post('lista');
@@ -2110,6 +2110,7 @@ class Admin extends Admin_Controller {
                             $objBeanDetalleSecciones->secciones_id = $objBeanSeccionSaved->id;
                             $objBeanDetalleSecciones->reglas_id = NULL;
                             $objBeanDetalleSecciones->videos_id = NULL;
+                            $objBeanDetalleSecciones->canales_id = NULL;
                             $objBeanDetalleSecciones->grupo_maestros_id = NULL;
                             $objBeanDetalleSecciones->categorias_id = NULL;
                             $objBeanDetalleSecciones->tags_id = NULL;
@@ -2144,6 +2145,7 @@ class Admin extends Admin_Controller {
                                         $objBeanDetalleSecciones->grupo_maestros_id = $objGrupoMaestro->id;
                                     }
                                     $objBeanDetalleSecciones->categorias_id = NULL;
+                                    $objBeanDetalleSecciones->canales_id = NULL;
                                     $objBeanDetalleSecciones->tags_id = NULL;
                                     $objBeanDetalleSecciones->imagenes_id = $this->_obtenerImagenPorMaestro($objGrupoMaestro->id, $this->config->item('imagen:small'), $objTipoSeccion->id, $objCanal->id); //
                                     $objBeanDetalleSecciones->peso = $index + 2;
@@ -2211,6 +2213,7 @@ class Admin extends Admin_Controller {
                                         $objBeanDetalleSecciones->secciones_id = $objBeanSeccionSaved->id;
                                         $objBeanDetalleSecciones->reglas_id = NULL;
                                         $objBeanDetalleSecciones->videos_id = NULL;
+                                        $objBeanDetalleSecciones->canales_id = NULL;
                                         $objBeanDetalleSecciones->grupo_maestros_id = $objGrupoMaestroLista->id;
                                         $objBeanDetalleSecciones->categorias_id = NULL;
                                         $objBeanDetalleSecciones->tags_id = NULL;
@@ -2237,6 +2240,7 @@ class Admin extends Admin_Controller {
                                     $objBeanDetalleSecciones->secciones_id = $objBeanSeccionSaved->id;
                                     $objBeanDetalleSecciones->reglas_id = NULL;
                                     $objBeanDetalleSecciones->videos_id = NULL;
+                                    $objBeanDetalleSecciones->canales_id = NULL;
                                     $objBeanDetalleSecciones->grupo_maestros_id = $objMaestroColeccion->id;
                                     $objBeanDetalleSecciones->categorias_id = NULL;
                                     $objBeanDetalleSecciones->tags_id = NULL;
@@ -2305,7 +2309,7 @@ class Admin extends Admin_Controller {
                 $user_id = (int) $this->session->userdata('user_id');
                 $objBeanVideo = new stdClass();
                 $objBeanVideo->id = $video_id;
-                $objBeanVideo->tipo_videos_id = $this->input->post('tipo');
+                $objBeanVideo->tipo_videos_id = $this->input->post('int_tipo_video');
                 $objBeanVideo->categorias_id = $this->input->post('categoria');
                 $objBeanVideo->usuarios_id = $user_id;
                 $objBeanVideo->canales_id = $this->input->post('canal_id');
@@ -3350,7 +3354,7 @@ class Admin extends Admin_Controller {
                     $objBeanMaestro->nombre = $this->input->post('titulo');
                     $objBeanMaestro->descripcion = $this->input->post('descripcion_updated');
                     $objBeanMaestro->alias = url_title(strtolower(convert_accented_characters($this->input->post('titulo'))));
-                    $objBeanMaestro->tipo_grupo_maestro_id = $this->input->post('tipo');
+                    $objBeanMaestro->tipo_grupo_maestro_id = $this->input->post('tipo_grupo');
                     $objBeanMaestro->canales_id = $this->input->post('canal_id');
                     $objBeanMaestro->fecha_actualizacion = date("Y-m-d H:i:s");
                     $objBeanMaestro->usuario_actualizacion = $user_id;
@@ -3409,10 +3413,10 @@ class Admin extends Admin_Controller {
                             $post['maestro_id'] = $objBeanMaestroSaved->id;
                             $this->guardarTagsMaestro($objBeanMaestroSaved, $post);
                             $objCanal = $this->canales_m->get($this->input->post('canal_id'));
-                            if ($this->input->post('tipo') == $this->config->item('videos:programa')) {
+                            if ($this->input->post('tipo_grupo') == $this->config->item('videos:programa')) {
                                 $this->generarNuevaPortada($objCanal, $objBeanMaestroSaved, $this->config->item('portada:programa'));
                             } else {
-                                if ($this->input->post('tipo') == $this->config->item('videos:coleccion')) {
+                                if ($this->input->post('tipo_grupo') == $this->config->item('videos:coleccion')) {
                                     if ($this->input->post('programa') > 0) {//generamos la seccion coleccion para el programa
                                         $this->generarSeccionColeccion($this->input->post('programa'), $objBeanMaestroSaved);
                                     } else {//generamos la seccion coleccion para el canal
@@ -3516,6 +3520,7 @@ class Admin extends Admin_Controller {
                             $objBeanDetalleSecciones->secciones_id = $objBeanSeccionSaved->id;
                             $objBeanDetalleSecciones->reglas_id = NULL;
                             $objBeanDetalleSecciones->videos_id = NULL;
+                            $objBeanDetalleSecciones->canales_id = NULL;
                             $objBeanDetalleSecciones->grupo_maestros_id = $objMaestro->id;
                             $objBeanDetalleSecciones->categorias_id = NULL;
                             $objBeanDetalleSecciones->tags_id = NULL;
@@ -3539,7 +3544,7 @@ class Admin extends Admin_Controller {
 
     private function registrarDetalleMaestro($objMaestro, $post) {
         $user_id = (int) $this->session->userdata('user_id');
-        switch ($post['tipo']) {
+        switch ($post['tipo_grupo']) {
             case $this->config->item('videos:coleccion'):
                 if ($post['programa'] > 0) {
                     $objBeanGrupoDetalle = new stdClass();
@@ -3604,7 +3609,7 @@ class Admin extends Admin_Controller {
 
     private function _obtenerPesoMaestro($post) {
         $returnValue = 0;
-        switch ($post['tipo']) {
+        switch ($post['tipo_grupo']) {
             case $this->config->item('videos:coleccion'):
                 if ($post['programa'] > 0) {
                     $lista_coleccion_programa = $this->coleccion_de_programa($post['programa']);
@@ -4182,8 +4187,9 @@ class Admin extends Admin_Controller {
             //listar las colecciones, listas y videos paginado con jquery
             //primero listamos las colecciones del programa
             $colecciones = $this->grupo_detalle_m->get_many_by(array("grupo_maestro_padre" => $this->input->post('maestro_id')));
+            $array_coleccion = array();
             if (count($colecciones) > 0) {
-                $array_coleccion = array();
+                
                 foreach ($colecciones as $puntero => $objDetalleGrupo) {
                     $objColeccion = $this->grupo_maestro_m->get_by(array("id" => $objDetalleGrupo->grupo_maestro_id, "tipo_grupo_maestro_id" => $this->config->item('videos:lista')));
                     if (count($objColeccion) > 0) {
