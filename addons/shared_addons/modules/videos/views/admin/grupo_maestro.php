@@ -67,7 +67,7 @@ else:
                     'name' => 'fec_pub_ini',
                     'id' => 'fec_pub_ini',
                     'value' => $objMaestro->fecha_transmision_inicio,
-                    'class' => 'selectedDateTime'
+                    'class' => 'selectedDate'
                 );
                 echo form_input($fec_pub_ini);
                 ?>
@@ -77,7 +77,7 @@ else:
                     'name' => 'fec_pub_fin',
                     'id' => 'fec_pub_fin',
                     'value' => $objMaestro->fecha_transmision_fin,
-                    'class' => 'selectedDateTime'
+                    'class' => 'selectedDate'
                 );
                 echo form_input($fec_pub_fin);
                 ?>
@@ -132,12 +132,12 @@ else:
             </div>
             <div class="right_arm">
                 <!-- tipo -->
-                <label for="tipo_s"><?php echo lang('videos:tipo_label'); ?></label>
+                <label for="tipo_s"><?php echo lang('videos:tipo_label'); ?><span class="required">*</span></label>
                 <?php echo form_dropdown('tipo_grupo', $tipo_maestros, $objMaestro->tipo_grupo_maestro_id, 'onchange="generarMaestro();return false;"'); ?>          
                 <br/></br>
                 <div id="divPrograma"></div>        
                 <!-- tipo -->
-                <label for="categoria"><?php echo lang('videos:category'); ?></label>
+                <label for="categoria"><?php echo lang('videos:category'); ?><span class="required">*</span></label>
                 <?php echo form_dropdown('categoria', $categorias, $objMaestro->categorias_id); ?>          
                 <br/></br>        
                 <label for="tematicas"><?php echo lang('videos:etiquetas_tematicas_label'); ?> <span class="required">*</span></label>
