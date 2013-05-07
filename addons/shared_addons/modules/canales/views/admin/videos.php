@@ -21,7 +21,7 @@
         <?php template_partial('users'); ?>
     </div> 
     <!--    <div id="visualizar_video">
-            <div class="flowplayer" data-swf="<?php //echo base_url('addons/shared_addons/modules/canales/js/flowplayer.swf')    ?>" data-ratio="0.417">
+            <div class="flowplayer" data-swf="<?php //echo base_url('addons/shared_addons/modules/canales/js/flowplayer.swf')     ?>" data-ratio="0.417">
                 <video>
                     <source id="urlvideo" type="video/mp4" src="http://webcast.sambatech.com.br/805FD4/origin1/account/194/10/2013-04-20/video/02db9b15f36f4ffdebab51b3cb2db47c/2102.mp4" />
                 </video>
@@ -87,7 +87,7 @@
             width: 820,
             modal: true
         });
-        //new MediaSplitter('#media-1', '<?php //echo base_url("addons/shared_addons/modules/canales/js/lib/flowplayer/flowplayer-3.2.16.swf")      ?>');
+        //new MediaSplitter('#media-1', '<?php //echo base_url("addons/shared_addons/modules/canales/js/lib/flowplayer/flowplayer-3.2.16.swf")       ?>');
         var post_url = "/admin/canales/liquid_player/" + video_id + "/400/400";
         $.ajax({
             type: "POST",
@@ -102,5 +102,25 @@
         }); //end AJAX         
 
     }
+
+    function eliminar_video(video_id) {
+        jConfirm("Seguro que deseas eliminar este video?", "Video", function(r) {
+            if (r) {
+                var post_url = "/admin/canales/eliminar_video/" + video_id ;
+                $.ajax({
+                    type: "POST",
+                    url: post_url,
+                    dataType: 'json',
+                    //data: indexOrder,
+                    success: function(respuesta)
+                    {
+                        if (respuesta.value == 1) {
+                            $("#item_" + video_id).empty();
+                        }
+                    } //end success
+                }); //end AJAX   
+            }
+        });
+    }
 </script>
-<!--<script src="<?php //echo base_url("system/cms/themes/pyrocms/js/fix_channels.js")            ?>"></script>-->
+<!--<script src="<?php //echo base_url("system/cms/themes/pyrocms/js/fix_channels.js")             ?>"></script>-->

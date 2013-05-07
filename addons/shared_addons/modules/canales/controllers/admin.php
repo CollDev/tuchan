@@ -64,7 +64,7 @@ class Admin extends Admin_Controller {
         if ($this->session->userdata['group'] == 'administrador-canales' || $this->session->userdata['group'] == 'admin' || $this->session->userdata['group'] == 'administrador-mi-canal') {
             $user_id = (int) $this->session->userdata('user_id');
             if ($this->session->userdata['group'] != 'admin') {
-                $canalesxUsuario = $this->usuario_grupo_canales_m->get_many_by(array("user_id" => $user_id, "estado"=>$this->config->item('estado:publicado')));
+                $canalesxUsuario = $this->usuario_grupo_canales_m->get_many_by(array("user_id" => $user_id, "estado" => $this->config->item('estado:publicado')));
             } else {
                 $canalesxUsuario = array();
             }
@@ -175,8 +175,11 @@ class Admin extends Admin_Controller {
                 $estado_cambiado = $this->input->post('f_estado');
             }
             $base_where = array("canales_id" => $canal_id, "estado" => $estado_cambiado);
+            $estados_video_listar = array();
         } else {
             $base_where = array("canales_id" => $canal_id);
+            //estados de los videos a listar
+            $estados_video_listar = array($this->config->item('video:codificando'), $this->config->item('video:borrador'), $this->config->item('video:publicado'));
         }
         //$programme_id = 0;
         $keyword = '';
@@ -190,14 +193,22 @@ class Admin extends Admin_Controller {
         if (strlen(trim($keyword)) > 0) {
             $total_rows = $this->vw_video_m->like('titulo', $keyword)->count_by($base_where);
         } else {
-            $total_rows = $this->vw_video_m->count_by($base_where);
+            if(count($estados_video_listar)>0){
+                $total_rows = $this->vw_video_m->where_in('estado', $estados_video_listar)->count_by($base_where);
+            }else{
+                $total_rows = $this->vw_video_m->count_by($base_where);
+            }
         }
         $pagination = create_pagination('admin/canales/videos/' . $canal_id . '/index/', $total_rows, 10, 6);
         if (strlen(trim($keyword)) > 0) {
             // Using this data, get the relevant results
             $listVideo = $this->vw_video_m->like('titulo', $keyword)->order_by('fecha_registro', 'DESC')->limit($pagination['limit'])->get_many_by($base_where);
         } else {
-            $listVideo = $this->vw_video_m->order_by('fecha_registro', 'DESC')->limit($pagination['limit'])->get_many_by($base_where);
+            if(count($estados_video_listar)>0){
+                $listVideo = $this->vw_video_m->where_in('estado', $estados_video_listar)->order_by('fecha_registro', 'DESC')->limit($pagination['limit'])->get_many_by($base_where);
+            }else{
+                $listVideo = $this->vw_video_m->order_by('fecha_registro', 'DESC')->limit($pagination['limit'])->get_many_by($base_where);
+            }
         }
         //corregimos  el listado para maestros y programas
         if (count($listVideo) > 0) {
@@ -236,11 +247,8 @@ class Admin extends Admin_Controller {
                 ->set('canal', $canal)
                 ->set('estados', $estados)
                 ->set('logo_canal', $logo_canal)
-                //->append_css('module::mediasplitter.css')
-                //->append_js('module::flowplayer.min.js')
-                //->append_css('module::skin/minimalist.css')
-                //->append_js('module::lib/flowplayer/flowplayer-3.2.12.min.js')
-                // ->append_js('module::lib/splitter.js')
+                ->append_js('module::jquery.alerts.js')
+                ->append_css('module::jquery.alerts.css')
                 ->set('programa', $programas);
         $this->input->is_ajax_request() ? $this->template->build('admin/tables/users') : $this->template->build('admin/videos');
     }
@@ -715,8 +723,8 @@ class Admin extends Admin_Controller {
                 $objBeanCanal->fecha_actualizacion = date("Y-m-d H:i:s");
                 $objBeanCanal->usuario_actualizacion = $user_id;
                 $objBeanCanal->estado_migracion = 9;
-               
-               
+
+
 
                 $this->canales_m->actualizar($objBeanCanal);
 
@@ -766,8 +774,6 @@ class Admin extends Admin_Controller {
                 //$this->actualizarPortadaCanal($canal_id);
                 $this->procesos_lib->generarCanalesXId($objBeanCanal->id);
                 echo json_encode(array("value" => "0"));
-                
-                
             } else {
                 echo json_encode(array("value" => "4")); //ya existe un canal registrado
             }
@@ -806,7 +812,7 @@ class Admin extends Admin_Controller {
                             $objBeanCanal->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
                             $objBeanCanalSaved = $this->canales_m->save($objBeanCanal);
                             $this->procesos_lib->generarCanalesXId($objBeanCanal->id);
-                            
+
                             //guardamos las imagenes
                             $array_images = array($this->config->item('imagen:extralarge') => $this->input->post('imagen_portada'), $this->config->item('imagen:logo') => $this->input->post('imagen_logotipo'), $this->config->item('imagen:iso') => $this->input->post('imagen_isotipo'));
                             $arrayImagenSaved = $this->saveImages($array_images, $objBeanCanalSaved->id);
@@ -817,7 +823,7 @@ class Admin extends Admin_Controller {
                             $this->_enviarImagenesElemento($arrayImagenSaved);
                             //registramos en la tabla de permisos para grupos
                             $this->registrarPermisoGrupo($objBeanCanalSaved->id);
-                            
+
                             echo json_encode(array("value" => "0"));
                         } else {
                             echo json_encode(array("value" => "4")); //ya existe un canal registrado
@@ -3137,7 +3143,7 @@ class Admin extends Admin_Controller {
             if (count($objPortada) > 0) {
                 $this->portada_m->update($objPortada->id, array("estado" => $this->config->item('estado:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
             }
-            $this->procesos_lib->generarCanalesXId($canal_id);          
+            $this->procesos_lib->generarCanalesXId($canal_id);
             echo json_encode(array("value" => "1"));
         }
     }
@@ -4723,6 +4729,7 @@ class Admin extends Admin_Controller {
 
     /**
      * Método para enviar a estado borrador los items maestros y/o video
+     * @author Johnny Huamani <johnny1402@gmail.com>
      * @param int $id
      * @param string $tipo
      */
@@ -4731,6 +4738,18 @@ class Admin extends Admin_Controller {
             if ($tipo == 'maestro') {
                 $this->grupo_maestro_m->update($id, array("estado" => $this->config->item('estado:borrador')));
             }
+            echo json_encode(array("value" => "1"));
+        }
+    }
+
+    /**
+     * Método para eliminar un video, entrada x ajax
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param int $video_id
+     */
+    public function eliminar_video($video_id) {
+        if ($this->input->is_ajax_request()) {
+            $this->videos_m->update($video_id, array("estado" => $this->config->item('video:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
             echo json_encode(array("value" => "1"));
         }
     }
