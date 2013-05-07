@@ -713,6 +713,9 @@ class Admin extends Admin_Controller {
                 $objBeanCanal->playerkey = $this->input->post('playerkey');
                 $objBeanCanal->fecha_actualizacion = date("Y-m-d H:i:s");
                 $objBeanCanal->usuario_actualizacion = $user_id;
+                $objBeanCanal->estado_migracion = 9;
+               
+               
 
                 $this->canales_m->actualizar($objBeanCanal);
 
@@ -760,7 +763,10 @@ class Admin extends Admin_Controller {
                 }
                 //actualizamos la imagen de portada en el detalle de secciones
                 //$this->actualizarPortadaCanal($canal_id);
+                $this->procesos_lib->generarCanalesXId($objBeanCanal->id);
                 echo json_encode(array("value" => "0"));
+                
+                
             } else {
                 echo json_encode(array("value" => "4")); //ya existe un canal registrado
             }
@@ -798,6 +804,8 @@ class Admin extends Admin_Controller {
                             $objBeanCanal->fecha_migracion = '0000-00-00 00:00:00';
                             $objBeanCanal->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
                             $objBeanCanalSaved = $this->canales_m->save($objBeanCanal);
+                            $this->procesos_lib->generarCanalesXId($objBeanCanal->id);
+                            
                             //guardamos las imagenes
                             $array_images = array($this->config->item('imagen:extralarge') => $this->input->post('imagen_portada'), $this->config->item('imagen:logo') => $this->input->post('imagen_logotipo'), $this->config->item('imagen:iso') => $this->input->post('imagen_isotipo'));
                             $arrayImagenSaved = $this->saveImages($array_images, $objBeanCanalSaved->id);
@@ -808,6 +816,7 @@ class Admin extends Admin_Controller {
                             $this->_enviarImagenesElemento($arrayImagenSaved);
                             //registramos en la tabla de permisos para grupos
                             $this->registrarPermisoGrupo($objBeanCanalSaved->id);
+                            
                             echo json_encode(array("value" => "0"));
                         } else {
                             echo json_encode(array("value" => "4")); //ya existe un canal registrado
@@ -3127,6 +3136,7 @@ class Admin extends Admin_Controller {
             if (count($objPortada) > 0) {
                 $this->portada_m->update($objPortada->id, array("estado" => $this->config->item('estado:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
             }
+            $this->procesos_lib->generarCanalesXId($canal_id);          
             echo json_encode(array("value" => "1"));
         }
     }
@@ -3151,6 +3161,7 @@ class Admin extends Admin_Controller {
             if (count($objPortada) > 0) {
                 $this->portada_m->update($objPortada->id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
             }
+            $this->procesos_lib->generarCanalesXId($canal_id);
             echo json_encode(array("value" => "1"));
         }
     }

@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Video_tags_mp extends CI_Model {
+class Video_Tags_mp extends CI_Model {
 
     protected $_table = 'default_cms_video_tags';
 //    protected $_table_canales = 'default_cms_canales';

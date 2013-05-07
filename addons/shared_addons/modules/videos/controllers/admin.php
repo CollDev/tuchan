@@ -1191,6 +1191,7 @@ class Admin extends Admin_Controller {
     }
 
     public function save_maestro() {
+        
         if ($this->input->is_ajax_request()) {
             //$this->vd($this->input->post());die();
             header('Content-Type: application/x-json; charset=utf-8');
@@ -1210,7 +1211,7 @@ class Admin extends Admin_Controller {
             }
             if ($this->existNameMaestro($nombre_maestro, $tipo_grupo_maestro_id, $this->input->post())) {
                 $returnValue = array();
-                $returnValue['error'] = 1; // when exists name for master group
+                $returnValue['error'] = 1; 
             } else {
                 $user_id = (int) $this->session->userdata('user_id');
                 $objBeanMaestro = new stdClass();
@@ -1229,7 +1230,7 @@ class Admin extends Admin_Controller {
                 $objBeanMaestro->usuario_registro = $user_id;
                 $objBeanMaestro->fecha_actualizacion = date("Y-m-d H:i:s");
                 $objBeanMaestro->usuario_actualizacion = $user_id;
-                $objBeanMaestro->estado_migracion = NULL;
+                $objBeanMaestro->estado_migracion = 0;
                 $objBeanMaestro->fecha_migracion = '0000-00-00 00:00:00';
                 $objBeanMaestro->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
                 $objBeanMaestro->comentarios = 0;
@@ -1256,10 +1257,14 @@ class Admin extends Admin_Controller {
                         }
                     }
                 }
+                
+                $this->procesos_lib->generarGrupoMaestroXId($objBeanMaestroSaved->tipo_grupo_maestro_id,$objBeanMaestroSaved->id);
+                
                 $returnValue = array();
                 $returnValue[$objBeanMaestroSaved->id] = $objBeanMaestroSaved->nombre;
                 $returnValue['error'] = 0;
             }
+            
             echo(json_encode($returnValue));
         }
     }
