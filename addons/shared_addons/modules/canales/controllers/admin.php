@@ -64,10 +64,11 @@ class Admin extends Admin_Controller {
         if ($this->session->userdata['group'] == 'administrador-canales' || $this->session->userdata['group'] == 'admin' || $this->session->userdata['group'] == 'administrador-mi-canal') {
             $user_id = (int) $this->session->userdata('user_id');
             if ($this->session->userdata['group'] != 'admin') {
-                $canalesxUsuario = $this->usuario_grupo_canales_m->get_many_by(array("user_id" => $user_id));
+                $canalesxUsuario = $this->usuario_grupo_canales_m->get_many_by(array("user_id" => $user_id, "estado"=>$this->config->item('estado:publicado')));
             } else {
                 $canalesxUsuario = array();
             }
+            //$this->vd($canalesxUsuario);
             $arrayCanales = array();
             if (count($canalesxUsuario) > 0) {
                 foreach ($canalesxUsuario as $in => $objgrupocanal) {
