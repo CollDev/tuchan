@@ -10,6 +10,7 @@ $lang['global:accesos'] = 'Accesos';
 
 $lang['global:estado'] = 'Estado';
 $lang['global:acciones'] = 'Acciones';
+$lang['global:migracion'] = 'Migración';
 $lang['global:no_data'] = 'No hay datos para mostrar';
 $lang['global:ver_portada'] = 'Ver portada';
 

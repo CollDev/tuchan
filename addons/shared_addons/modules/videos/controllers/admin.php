@@ -2401,13 +2401,12 @@ class Admin extends Admin_Controller {
 //                $datos["id_hijo"] = $objvideotemp->id;
 //                $datos["inicio"] = $this->input->post('ini_corte');
 //                $datos["duracion"] = $this->input->post('dur_corte');
-
 //                $result = ci()->videos_mp->getVideosxId($video_id);
 //                $datos["ruta"] = $result[0]->ruta;
 //
 //                Proceso::corte_Video($datos);
-                
-                $this->procesos_lib->curlCorteVideoXId($video_id,$objvideotemp->id,$this->input->post('ini_corte'),$this->input->post('dur_corte'));
+
+                $this->procesos_lib->curlCorteVideoXId($video_id, $objvideotemp->id, $this->input->post('ini_corte'), $this->input->post('dur_corte'));
                 echo json_encode(array("value" => '0'));
             }
         }
@@ -2420,9 +2419,9 @@ class Admin extends Admin_Controller {
      * @param type $mensaje 
      * @return string  name, direccion real de la imagen dominio
      */
-    public function elemento_upload($fid, $file, $mensaje='') {
+    public function elemento_upload($fid, $file, $mensaje = '') {
         //$url = "http://dev.e3.pe/index.php/api/v1";
-        if(strlen(trim($mensaje))==0){
+        if (strlen(trim($mensaje)) == 0) {
             $mensaje = $this->config->item('mensaje:elemento');
         }
         $url = $this->config->item('url:elemento');
@@ -2758,7 +2757,7 @@ class Admin extends Admin_Controller {
                     $objVideo->tipo = 'Video';
                     $objVideo->cantidad = '-';
                     $objVideo->categoria = $categoria;
-                    $objVideo->estado = lang('videos:'.$objVideo->estado.'_estado');
+                    $objVideo->estado = lang('videos:' . $objVideo->estado . '_estado');
                     array_push($returnValue, $objVideo);
                 }
             }
@@ -2888,7 +2887,7 @@ class Admin extends Admin_Controller {
                             }
                             //obtenemos el nombre de la imagen a enviar a Elemento
                             $imagen_cortada = preg_replace("/\\.[^.\\s]{3,4}$/", "", $imgFile) . '_' . $objTipoImagen->ancho . 'x' . $objTipoImagen->alto . '.' . $extension[$num];
-                            if (file_exists($this->config->item('path:imagen'). $imagen_cortada)) {
+                            if (file_exists($this->config->item('path:imagen') . $imagen_cortada)) {
                                 if ($imagen_id > 0) {//cambiar imagen
                                     //enviamos a borrador a la imagen a cambiar
                                     $this->imagen_m->update($imagen_id, array("estado" => $this->config->item('estado:borrador'), "estado_migracion" => $this->config->item('migracion:actualizado')));
@@ -3335,7 +3334,7 @@ class Admin extends Admin_Controller {
                         "descripcion" => $objBeanMaestro->descripcion, "alias" => $objBeanMaestro->alias,
                         "tipo_grupo_maestro_id" => $objBeanMaestro->tipo_grupo_maestro_id, "canales_id" => $objBeanMaestro->canales_id,
                         "fecha_actualizacion" => $objBeanMaestro->fecha_actualizacion, "usuario_actualizacion" => $objBeanMaestro->usuario_actualizacion,
-                        "estado_migracion" => $objBeanMaestro->estado_migracion, 
+                        "estado_migracion" => $objBeanMaestro->estado_migracion,
                         "fecha_transmision_inicio" => $objBeanMaestro->fecha_transmision_inicio, "fecha_transmision_fin" => $objBeanMaestro->fecha_transmision_fin,
                         "horario_transmision_inicio" => $objBeanMaestro->horario_transmision_inicio, "horario_transmision_fin" => $objBeanMaestro->horario_transmision_fin));
                     $returnValue = 0;
@@ -3404,7 +3403,7 @@ class Admin extends Admin_Controller {
                                     array_push($arrayImagenes, preg_replace("/\\.[^.\\s]{3,4}$/", "", $imgFile) . '_' . $objTipoImagen->ancho . 'x' . $objTipoImagen->alto . '.' . $extension[$num]);
                                 }
                             }
-                            $ruta_imagen_temporal = $this->config->item('path:temp').$this->input->post('imagen_maestro');
+                            $ruta_imagen_temporal = $this->config->item('path:temp') . $this->input->post('imagen_maestro');
                             $this->registrar_imagenes_maestro($objBeanMaestroSaved->id, $arrayImagenes, $ruta_imagen_temporal);
                             $post = $this->input->post();
                             $post['maestro_id'] = $objBeanMaestroSaved->id;
@@ -4118,16 +4117,16 @@ class Admin extends Admin_Controller {
                         array_push($array_coleccion, $objColeccion);
                     }
                 }
-                
+
                 //obtenemos las colecciones directamente del canal
                 $colecciones_canal = $this->coleccion_canal($this->input->post('canal_id'));
-                
+
                 if (count($colecciones_canal) > 0) {
                     $array_coleccion = array_merge($array_coleccion, $colecciones_canal);
                 }
                 //obtenemos las listas
                 $listas = $this->lista_programa(NULL, $this->input->post('maestro_id'));
-                
+
                 if (count($listas) > 0) {
                     $array_coleccion = array_merge($array_coleccion, $listas);
                 }
@@ -4147,7 +4146,7 @@ class Admin extends Admin_Controller {
                     $array_coleccion = array_merge($array_coleccion, $videos_canal);
                 }
             }
-            
+
             $total = count($array_coleccion);
             $cantidad_mostrar = 3;
             $current_page = $current_page - 1;
@@ -4752,14 +4751,23 @@ class Admin extends Admin_Controller {
         $power = $size > 0 ? floor(log($size, 1024)) : 0;
         return number_format($size / pow(1024, $power), 2, '.', ',') . ' ' . $units[$power];
     }
+
     /**
      * Metodo para iniciarla migracion atraves de su libreria 
      * @author Johnny Huamani <johnny1402@gmail.com>
      * @return boolean $returnValue
      */
-    public function iniciar_migracion(){
-        $returnValue = $this->migracion_lib->iniciar_migracion_masiva();
-        return $returnValue;
+    public function iniciar_migracion($canal_id) {
+        if ($this->input->is_ajax_request()) {
+            $returnvalue = 0;
+            $objCanal = $this->canales_m->get($canal_id);
+            if (strlen(trim($objCanal->apikey)) > 0) {
+                $returnvalue = $this->migracion_lib->migrar_canal($objCanal);
+                echo json_encode(array("error"=>"0", "cantidad" => $returnvalue));
+            }else{
+                echo json_encode(array("error"=>"1", "cantidad" => $returnvalue));// no tiene apikey
+            }
+        }
     }
 
 }

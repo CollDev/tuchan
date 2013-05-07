@@ -1,8 +1,8 @@
 <section class="title">
     <h4><?php echo $module_details['name']; ?></h4>
 </section>
-<?php if($this->session->userdata['group'] == 'admin'): ?>
-<section class="menu"><?php echo anchor('/admin/canales/canal/', lang('canales:new')) ?></section>
+<?php if ($this->session->userdata['group'] == 'admin'): ?>
+    <section class="menu"><?php echo anchor('/admin/canales/canal/', lang('canales:new')) ?></section>
 <?php endif; ?>
 <section class="item">
     <?php template_partial('filters'); ?>
@@ -141,6 +141,28 @@
                                 htmlButton += '<a href="#" onclick="eliminar(' + canal_id + ',\'canal\');return false;" class="mode_delete">Eliminar</a>';
                                 htmlButton += '<a href="/admin/canales/portada/' + canal_id + '" class="mode_front">Portada</a>';
                                 $("#" + tipo + "_boton_" + canal_id).html(htmlButton);
+                            }
+                        } //end success
+                    }); //end AJAX   
+                }
+            });
+        }
+
+        function migrar_canal(canal_id) {
+            jConfirm("Seguro que deseas realizar la importación?", "Canales", function(r) {
+                if (r) {
+                    var post_url = "/admin/videos/iniciar_migracion/" + canal_id;
+                    $.ajax({
+                        type: "POST",
+                        url: post_url,
+                        dataType: 'json',
+                        //data: indexOrder,
+                        success: function(respuesta)
+                        {
+                            if(respuesta.error == 1){//no tiene apikey
+                                showMessage('error', 'Este canal no tiene un apikey', 2000, '');
+                            }else{
+                                showMessage('exit', 'Se importaron '+respuesta.cantidad+' video', 2000, '');
                             }
                         } //end success
                     }); //end AJAX   
