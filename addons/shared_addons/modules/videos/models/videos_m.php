@@ -361,6 +361,57 @@ class Videos_m extends MY_Model
         }
         return $returnValue;        
     }
+    
+    
+    public function save($objBeanVideo){
+        $objBeanVideo->id = parent::insert(array(
+                    'tipo_videos_id' => $objBeanVideo->tipo_videos_id,
+                    'categorias_id' => $objBeanVideo->categorias_id,
+                    'usuarios_id' => $objBeanVideo->usuarios_id,
+                    'canales_id' => $objBeanVideo->canales_id,
+                    'nid' => $objBeanVideo->nid,
+                    'titulo' => $objBeanVideo->titulo,
+                    'alias' => $objBeanVideo->alias,
+                    'descripcion' => $objBeanVideo->descripcion,
+                    'fragmento' => $objBeanVideo->fragmento,
+                    'codigo' => $objBeanVideo->codigo,
+                    'reproducciones' => $objBeanVideo->reproducciones,
+                    'duracion' => $objBeanVideo->duracion,
+                    'fecha_publicacion_inicio' => $objBeanVideo->fecha_publicacion_inicio,
+                    'fecha_publicacion_fin' => $objBeanVideo->fecha_publicacion_fin,
+                    'fecha_transmision' => $objBeanVideo->fecha_transmision,
+                    'horario_transmision_inicio' => $objBeanVideo->horario_transmision_inicio,
+                    'horario_transmision_fin' => $objBeanVideo->horario_transmision_fin,
+                    'ubicacion' => $objBeanVideo->ubicacion,
+                    'id_mongo' => $objBeanVideo->id_mongo,
+                    'estado' => $objBeanVideo->estado,
+                    'estado_liquid' => $objBeanVideo->estado_liquid,
+                    'fecha_registro' => $objBeanVideo->fecha_registro,
+                    'usuario_registro' => $objBeanVideo->usuario_registro,
+                    'fecha_actualizacion' => $objBeanVideo->fecha_actualizacion,
+                    'usuario_actualizacion' => $objBeanVideo->usuario_actualizacion,
+                    'estado_migracion' => $objBeanVideo->estado_migracion,
+                    'fecha_migracion' => $objBeanVideo->fecha_migracion,
+                    'fecha_migracion_actualizacion' => $objBeanVideo->fecha_migracion_actualizacion,
+                    'estado_migracion_sphinx_tit' => $objBeanVideo->estado_migracion_sphinx_tit,
+                    'fecha_migracion_sphinx_tit' => $objBeanVideo->fecha_migracion_sphinx_tit,
+                    'fecha_migracion_actualizacion_sphinx_tit' => $objBeanVideo->fecha_migracion_actualizacion_sphinx_tit,
+                    'estado_migracion_sphinx_des' => $objBeanVideo->estado_migracion_sphinx_des,
+                    'fecha_migracion_sphinx_des' => $objBeanVideo->fecha_migracion_sphinx_des,
+                    'fecha_migracion_actualizacion_sphinx_des' => $objBeanVideo->fecha_migracion_actualizacion_sphinx_des,
+                    'valorizacion' => $objBeanVideo->valorizacion,
+                    'comentarios' => $objBeanVideo->comentarios,
+                    'ruta' => $objBeanVideo->ruta,
+                    'padre' => $objBeanVideo->padre,
+                    'estado_migracion_sphinx' => $objBeanVideo->estado_migracion_sphinx,
+                    'fecha_migracion_sphinx' => $objBeanVideo->fecha_migracion_sphinx,
+                    'fecha_migracion_actualizacion_sphinx' => $objBeanVideo->fecha_migracion_actualizacion_sphinx,
+                    'procedencia' => $objBeanVideo->procedencia
+        ));
+        $objBeanVideo->alias = $objBeanVideo->alias.'-'.$objBeanVideo->id;
+        parent::update($objBeanVideo->id, array('alias'=>$objBeanVideo->alias));        
+        return $objBeanVideo;
+    }    
 }
 
 /* End of file videos_m.php */

@@ -4,6 +4,10 @@
             <td colspan="7">
                 <div class="inner"><?php $this->load->view('admin/partials/pagination'); ?></div>
             </td>
+            <td>    <div style="text-align: right;" >
+                    <?php echo anchor('/admin/canales/canal/', lang('canales:new'), 'class="btn blue"') ?>
+                </div>
+            </td>            
         </tr>    
     </table>
     <?php echo form_open(''); ?>
@@ -16,6 +20,9 @@
                 <th class="collapse"><?php echo lang('canales:descripcion_label'); ?></th>
                 <th class="collapse"><?php echo lang('canales:estado_label'); ?></th>
                 <th width="300"><?php echo lang('global:acciones'); ?></th>
+                <?php if ($this->session->userdata['group'] == 'admin'): ?>
+                    <th><?php echo lang('global:migracion'); ?></th>
+                <?php endif; ?>
             </tr>
         </thead>
         <tfoot>
@@ -30,7 +37,7 @@
                 <tr>
                     <td><?php echo form_checkbox('action_to[]', $post->id); ?></td>
                     <td class="collapse"><img src="<?php echo $post->imagen_iso; ?>" /></td>
-                    <td class="collapse"><?php echo anchor('admin/canales/videos/' . $post->id, $post->nombre); //$post->nombre;   ?></td>
+                    <td class="collapse"><?php echo anchor('admin/canales/videos/' . $post->id, $post->nombre); //$post->nombre;      ?></td>
                     <td class="collapse"><?php echo $post->descripcion; ?></td>					
                     <td><div id="canal_<?php echo $post->id; ?>"><?php echo lang('global:' . $post->estado . '_estado'); ?></div></td>
                     <?php
@@ -61,6 +68,10 @@
                         <?php //echo anchor('', 'crear portadas', array('class' => 'btn red delete', 'onclick' => ' dispatch(' . $post->id . ');return false;')); ?>
                         <div id="canal_boton_<?php echo $post->id; ?>"><?php echo $link; ?></div>
                     </td>
+                    <?php if ($this->session->userdata['group'] == 'admin'): ?>
+                        <td><a href="#" onclick="migrar_canal(<?php echo $post->id; ?>);
+                                            return false;"><img src="<?php echo BASE_URL . 'system/cms/themes/pyrocms/img/Import24x24.png'; ?>" /></a></td>
+                        <?php endif; ?>                    
                 </tr>
             <?php endforeach; ?>
         </tbody>

@@ -201,8 +201,6 @@ else:
                                 }
                             });
 <?php endif; ?>
-                        //var ind = $("indiceImage").val();
-                        //$('#listaImagenes').ddslick('select', {index: ind });
                         // needed so that Keywords can return empty JSON
                         $.ajaxSetup({
                             allowEmpty: true

@@ -193,6 +193,11 @@
                 ?>
             </div>
             <?php
+            else:
+                ?>
+        <input type="hidden" id="apikey" name="apikey" value="<?php echo $objCanal->apikey; ?>" />
+        <input type="hidden" id="playerkey" name="playerkey" value="<?php echo $objCanal->playerkey; ?>" />
+        <?php
         endif;
         ?>
         <br /><br /><br /><br /><br />

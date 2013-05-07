@@ -73,15 +73,17 @@ class Migracion_lib extends MX_Controller {
      */
     public function migrar_canal($objCanal) {
         //obtenemos el path del api
+        $cantidad = 0;
         for ($indice = 0; $indice < $this->pagina; $indice++) {
             $ruta_api = $this->generarApi($objCanal, $indice);
             $data = @simplexml_load_file($ruta_api);
             if ($data) {
-                $cantidad = $this->obtener_objeto_bean_video($data, $objCanal);
-                echo $cantidad;
+                $cantidad+= $this->obtener_objeto_bean_video($data, $objCanal);
+                //echo $cantidad;
             }
             break;
         }
+        return $cantidad;
     }
 
     /**
@@ -97,10 +99,10 @@ class Migracion_lib extends MX_Controller {
         $contador = 0;
         foreach ($lista_videos as $puntero => $objVideo) {
             if (property_exists($objVideo, 'files')) {
-                $oVideo = $this->videos_m->like('codigo', $objVideo->id, 'none')->get_by(array());
+                $objFile = $this->obtenerFile($objVideo->files);
+                $oVideo = $this->videos_m->like('codigo', $objFile->id, 'none')->get_by(array());
                 if (count($oVideo) > 0) {//el video ya se encuentra registrado
                 } else { // es un video que no se encuentra en nuestra BD
-                    $objFile = $this->obtenerFile($objVideo->files);
                     $objBeanVideo = new stdClass();
                     $objBeanVideo->id = NULL;
                     $objBeanVideo->tipo_videos_id = $this->config->item('videos:normal');
@@ -139,21 +141,48 @@ class Migracion_lib extends MX_Controller {
                     $objBeanVideo->fecha_migracion_sphinx_des = '0000-00-00 00:00:00';
                     $objBeanVideo->fecha_migracion_actualizacion_sphinx_des = '0000-00-00 00:00:00';
                     $objBeanVideo->valorizacion = 0;
-                    $objBeanVideo->comentarios = '';
+                    $objBeanVideo->comentarios = 0;
                     $objBeanVideo->ruta = $this->generar_ruta_video($objVideo, $objVideo->thumbs, $objFile);
                     $objBeanVideo->padre = NULL;
                     $objBeanVideo->estado_migracion_sphinx = 0;
                     $objBeanVideo->fecha_migracion_sphinx = '0000-00-00 00:00:00';
                     $objBeanVideo->fecha_migracion_actualizacion_sphinx = '0000-00-00 00:00:00';
                     $objBeanVideo->procedencia = $this->config->item('procedencia:migracion');
-                    //$objBeanVideoSaved = $this->videos_m->save($objBeanVideo);
+                    //$this->vd($objBeanVideo);
+                    $objBeanVideoSaved = $this->videos_m->save($objBeanVideo);
+                    //registramos el detalle de grupo maestro
+                    $this->registrar_detalle_maestro($objBeanVideoSaved);
                     //guardamos las imagenes de cada video
-                    //$this->guardar_imagenes($objBeanVideo->id, $objVideo->thumbs);
+                    $this->guardar_imagenes($objBeanVideoSaved->id, $objVideo->thumbs);
                     $contador++;
                 }
             }
         }
         return $contador;
+    }
+    /**
+     * Método para registrar la relación de videos con un maestro
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param object $objBeanVideo
+     */
+    private function registrar_detalle_maestro($objBeanVideo){
+        $user_id = (int) $this->session->userdata('user_id');
+        $objBeanGrupoDetalle = new stdClass();
+        $objBeanGrupoDetalle->id = NULL;
+        $objBeanGrupoDetalle->grupo_maestro_padre = $this->config->item('migracion:coleccion');
+        $objBeanGrupoDetalle->grupo_maestro_id = NULL;
+        $objBeanGrupoDetalle->video_id = $objBeanVideo->id;
+        $objBeanGrupoDetalle->tipo_grupo_maestros_id = $this->config->item('videos:coleccion');
+        $objBeanGrupoDetalle->id_mongo = NULL;
+        $objBeanGrupoDetalle->estado = 1;
+        $objBeanGrupoDetalle->fecha_registro = date("Y-m-d H:i:s");
+        $objBeanGrupoDetalle->usuario_registro = $user_id;
+        $objBeanGrupoDetalle->fecha_actualizacion = date("Y-m-d H:i:s");
+        $objBeanGrupoDetalle->usuario_actualizacion = $user_id;
+        $objBeanGrupoDetalle->estado_migracion = 0;
+        $objBeanGrupoDetalle->fecha_migracion = '0000-00-00 00:00:00';
+        $objBeanGrupoDetalle->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
+        $objBeanGrupoDetalleSaved = $this->grupo_detalle_m->saveMaestroDetalle($objBeanGrupoDetalle);
     }
 
     /**
