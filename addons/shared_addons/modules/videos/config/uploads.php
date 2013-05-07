@@ -126,3 +126,6 @@ $config['submenu:carga_unitaria'] = 'Subir video';
 
 //Migración
 $config['migracion:no_canal'] = '1';
+$config['migracion:programa'] = '492';
+$config['migracion:coleccion'] = '497';
+
