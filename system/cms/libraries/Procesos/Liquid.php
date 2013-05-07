@@ -368,27 +368,24 @@ class Liquid {
     function getDurationLiquid($mediaarr){
         error_log("entro duration");
         $duration=0;
-        
-        
-        
-        
+                       
         if (count($mediaarr["files"]) > 0) {
             foreach ($mediaarr["files"] as $value) {
 
                 if (isset($value["id"])){ 
                         
                     if(!empty($value["videoInfo"]["duration"])){                        
-                        error_log("duracion 2" . $value["videoInfo"]);
-                         $duration = number_format($value["videoInfo"]["duration"],2);
-                         
+                        error_log("duracion 2 ->" . $value["videoInfo"]);
+                         $duration = $value["videoInfo"]["duration"];                         
                          break;
                      }                         
                 }   else {
                     
                     foreach ($value as $value2) {
-                    if(!empty($value["videoInfo"]["duration"])){
-                        error_log("duracion 2" . $value["videoInfo"]["duration"]);
-                         $duration = number_format($value["videoInfo"]["duration"],2);
+                        
+                    if(!empty($value2["videoInfo"]["duration"])){
+                        error_log("duracion 2->" . $value2["videoInfo"]["duration"]);
+                         $duration = $value2["videoInfo"]["duration"];
                          break 2;
                      } 
                     }

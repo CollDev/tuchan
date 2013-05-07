@@ -22,7 +22,7 @@ class Videos_mp extends CI_Model {
     }
 
     public function getVideosActivos() {
-        $query = "select id,id_mongo from " . $this->_table . " where estado=2";
+        $query = "select id,id_mongo from " . $this->_table . " WHERE (duracion IS NULL OR duracion = '00:00:00') AND estado=2";
         return $this->db->query($query)->result();
     }
 
@@ -119,7 +119,7 @@ class Videos_mp extends CI_Model {
     }
     
     function setDuracionVideos($id = "", $duracion = "") {
-        $query = "update " . $this->_table . " set duracion='" . $duracion . "' where id=" . $id;
+        $query = "update " . $this->_table . " set duracion= SEC_TO_TIME(" . $duracion . ") where id=" . $id;
         $this->db->query($query);
         Log::erroLog("setDuracionVideos  " . $query);
     }

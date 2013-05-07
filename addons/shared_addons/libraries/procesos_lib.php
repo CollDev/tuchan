@@ -247,8 +247,7 @@ class Procesos_lib extends MX_Controller {
                 //if(empty($value->duracion)){
                     $duracion = Liquid::getDurationLiquid($mediaarr);
                     if (!empty($duracion)) {
-                        $duracion = ($duracion/1000);
-                        $duracion =($duracion/60);                        
+                        $duracion = ($duracion/1000);                       
                         $this->videos_mp->setDuracionVideos($value->id, $duracion);
                     }
                     error_log("duracion : " . $duracion);
