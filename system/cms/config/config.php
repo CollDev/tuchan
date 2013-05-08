@@ -420,7 +420,7 @@ $config['url:portada'] = BASE_URL.'system/cms/themes/pyrocms/img/imagen_portada_
 
 //variables de la migracion de canales
 $config['migracion:url'] = 'http://fast.api.liquidplatform.com/2.0/medias/?search=tags:LIFWeek&key=';
-$config['migracion:filtro'] = 'filter=id;secondUrl;published;title;thumbs;tags;description';
+$config['migracion:filtro'] = 'filter=id;files;published;title;thumbs;tags;description';
 $config['migracion:output'] = '_RAW';
 $config['migracion:paginas'] = '10';
 $config['migracion:margen_error_imagen'] = '20';

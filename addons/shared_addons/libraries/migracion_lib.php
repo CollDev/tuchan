@@ -78,6 +78,7 @@ class Migracion_lib extends MX_Controller {
         $cantidad = 0;
         for ($indice = 0; $indice < $this->pagina; $indice++) {
             $ruta_api = $this->generarApi($objCanal, $indice);
+            error_log($ruta_api);
             $data = @simplexml_load_file($ruta_api);
             if ($data) {
                 $cantidad+= $this->obtener_objeto_bean_video($data, $objCanal);
@@ -394,8 +395,8 @@ class Migracion_lib extends MX_Controller {
      */
     private function generarApi($objCanal, $pagina = 0) {
         $returnValue = '';
-        //$returnValue = $this->url . $objCanal->apikey . '&first=' . $pagina . '&' . $this->filtro;
-        $returnValue = $this->url . $objCanal->apikey . '&first=' . $pagina;
+        $returnValue = $this->url . $objCanal->apikey . '&first=' . $pagina . '&' . $this->filtro;
+        //$returnValue = $this->url . $objCanal->apikey . '&first=' . $pagina;
         //echo $returnValue;
         return $returnValue;
     }
