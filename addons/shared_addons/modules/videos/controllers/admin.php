@@ -1192,7 +1192,7 @@ class Admin extends Admin_Controller {
     }
 
     public function save_maestro() {
-        
+
         if ($this->input->is_ajax_request()) {
             //$this->vd($this->input->post());die();
             header('Content-Type: application/x-json; charset=utf-8');
@@ -1212,7 +1212,7 @@ class Admin extends Admin_Controller {
             }
             if ($this->existNameMaestro($nombre_maestro, $tipo_grupo_maestro_id, $this->input->post())) {
                 $returnValue = array();
-                $returnValue['error'] = 1; 
+                $returnValue['error'] = 1;
             } else {
                 $user_id = (int) $this->session->userdata('user_id');
                 $objBeanMaestro = new stdClass();
@@ -1258,14 +1258,14 @@ class Admin extends Admin_Controller {
                         }
                     }
                 }
-                
-                $this->procesos_lib->generarGrupoMaestroXId($objBeanMaestroSaved->tipo_grupo_maestro_id,$objBeanMaestroSaved->id);
-                
+
+                $this->procesos_lib->generarGrupoMaestroXId($objBeanMaestroSaved->tipo_grupo_maestro_id, $objBeanMaestroSaved->id);
+
                 $returnValue = array();
                 $returnValue[$objBeanMaestroSaved->id] = $objBeanMaestroSaved->nombre;
                 $returnValue['error'] = 0;
             }
-            
+
             echo(json_encode($returnValue));
         }
     }
@@ -1669,7 +1669,7 @@ class Admin extends Admin_Controller {
         $archivo = $_FILES['userfile']['name'];
         // Tamaño de la imagen
         $imageSize = getimagesize($_FILES['userfile']['tmp_name']);
-        
+
         // Verificamos la extensión del archivo independiente del tipo mime
         $extension = explode('.', $_FILES['userfile']['name']);
         $num = count($extension) - 1;
@@ -4195,7 +4195,7 @@ class Admin extends Admin_Controller {
             $colecciones = $this->grupo_detalle_m->get_many_by(array("grupo_maestro_padre" => $this->input->post('maestro_id')));
             $array_coleccion = array();
             if (count($colecciones) > 0) {
-                
+
                 foreach ($colecciones as $puntero => $objDetalleGrupo) {
                     $objColeccion = $this->grupo_maestro_m->get_by(array("id" => $objDetalleGrupo->grupo_maestro_id, "tipo_grupo_maestro_id" => $this->config->item('videos:lista')));
                     if (count($objColeccion) > 0) {
@@ -4717,9 +4717,11 @@ class Admin extends Admin_Controller {
             if (is_array($lista_videos)) {
                 if (count($lista_videos) > 0) {
                     foreach ($lista_videos as $puntero => $video_id) {
-                        if (!is_array($video_id)) {
-                            $objVideo = $this->videos_m->get($video_id);
-                            $array_video[$video_id] = $objVideo->estado;
+                        if ($puntero != 'canal_id') {
+                            if (!is_array($video_id)) {
+                                $objVideo = $this->videos_m->get($video_id);
+                                $array_video[$video_id] = $objVideo->estado;
+                            }
                         }
                     }
                 } else {
@@ -4775,9 +4777,9 @@ class Admin extends Admin_Controller {
             $objCanal = $this->canales_m->get($canal_id);
             if (strlen(trim($objCanal->apikey)) > 0) {
                 $returnvalue = $this->migracion_lib->migrar_canal($objCanal);
-                echo json_encode(array("error"=>"0", "cantidad" => $returnvalue));
-            }else{
-                echo json_encode(array("error"=>"1", "cantidad" => $returnvalue));// no tiene apikey
+                echo json_encode(array("error" => "0", "cantidad" => $returnvalue));
+            } else {
+                echo json_encode(array("error" => "1", "cantidad" => $returnvalue)); // no tiene apikey
             }
         }
     }
