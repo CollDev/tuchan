@@ -194,9 +194,9 @@ class Admin extends Admin_Controller {
         if (strlen(trim($keyword)) > 0) {
             $total_rows = $this->vw_video_m->like('titulo', $keyword)->count_by($base_where);
         } else {
-            if(count($estados_video_listar)>0){
+            if (count($estados_video_listar) > 0) {
                 $total_rows = $this->vw_video_m->where_in('estado', $estados_video_listar)->count_by($base_where);
-            }else{
+            } else {
                 $total_rows = $this->vw_video_m->count_by($base_where);
             }
         }
@@ -205,9 +205,9 @@ class Admin extends Admin_Controller {
             // Using this data, get the relevant results
             $listVideo = $this->vw_video_m->like('titulo', $keyword)->order_by('fecha_registro', 'DESC')->limit($pagination['limit'])->get_many_by($base_where);
         } else {
-            if(count($estados_video_listar)>0){
+            if (count($estados_video_listar) > 0) {
                 $listVideo = $this->vw_video_m->where_in('estado', $estados_video_listar)->order_by('fecha_registro', 'DESC')->limit($pagination['limit'])->get_many_by($base_where);
-            }else{
+            } else {
                 $listVideo = $this->vw_video_m->order_by('fecha_registro', 'DESC')->limit($pagination['limit'])->get_many_by($base_where);
             }
         }
@@ -4753,6 +4753,18 @@ class Admin extends Admin_Controller {
             $this->videos_m->update($video_id, array("estado" => $this->config->item('video:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
             echo json_encode(array("value" => "1"));
         }
+    }
+
+    /**
+     * Método para publicar el video
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param int $video_id
+     */
+    public function publicar_video($video_id) {
+        if ($this->input->is_ajax_request()) {
+            $this->videos_m->update($video_id, array("estado" => $this->config->item('video:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+            echo json_encode(array("value" => "1"));
+        }        
     }
 
 }
