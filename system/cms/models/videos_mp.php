@@ -17,7 +17,7 @@ class Videos_mp extends CI_Model {
     protected $_table_tags = 'default_cms_tags';
 
     public function getVideos() {
-        $query = "select * from " . $this->_table . " order by id desc limit 10";
+        $query = "select * from " . $this->_table . " order by id desc limit 100";
         return $this->db->query($query)->result();
     }
 

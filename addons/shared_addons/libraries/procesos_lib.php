@@ -1553,7 +1553,7 @@ class Procesos_lib extends MX_Controller {
     public function  actualizarVideos(){       
        $videos =  $this->videos_mp->getVideosActivos();
        foreach ($videos as $value) {   
-            $this->obtenerImagesUrlVideosXId($value->id);
+            $this->_obtenerImagesUrlVideosXId($value->id);
             $this->_generarVideosXId($value->id);                   
        }               
     }
