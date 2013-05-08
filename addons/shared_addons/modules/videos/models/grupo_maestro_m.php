@@ -107,5 +107,10 @@ class Grupo_maestro_m extends MY_Model {
         print_r($var);
         echo"</pre>";
     }
+    
+    public function update($id, $array){
+        parent::update($id, $array);
+        //$this->procesos_lib->actualizarDetalleSecciones();
+    }    
 
 }

@@ -1,0 +1,6 @@
+20:09:42 > dato entrada    : 3225 -- 
+20:09:42 > cantidad   : 1 -- 
+20:09:42 > mongo_se: 0
+20:09:42 > estado_migracion: 0
+20:09:42 > id_mongo: 518ab106a68b69901c000000
+20:09:42 > id_mongo de seccion 518ab106a68b69901c000000
