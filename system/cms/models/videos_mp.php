@@ -30,7 +30,7 @@ class Videos_mp extends CI_Model {
         $query = "SELECT vi.ruta,vi.id,vi.id_mongo,vi.estado_migracion,vi.estado, (SELECT GROUP_CONCAT(ta.nombre)
                     FROM default_cms_video_tags vt INNER JOIN default_cms_tags ta ON vt.tags_id = ta.id  
                     WHERE vt.videos_id=vi.id) AS 'etiquetas',
-                    ( SELECT  imagen FROM default_cms_imagenes WHERE tipo_imagen_id=5 AND canales_id=vi.canales_id) AS 'imagen'				
+                    ( SELECT  imagen FROM default_cms_imagenes im WHERE im.tipo_imagen_id=5 AND canales_id=vi.canales_id and im.estado=1 ) AS 'imagen'				
                     FROM default_cms_videos vi WHERE vi.id =" . $id;
         return $this->db->query($query)->result();
     }
