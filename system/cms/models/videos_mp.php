@@ -22,7 +22,7 @@ class Videos_mp extends CI_Model {
     }
 
     public function getVideosActivos() {
-        $query = "select id,id_mongo from " . $this->_table . " WHERE codigo  IS NOT NULL AND rutasplitter IS NULL";
+        $query = "select id,id_mongo from " . $this->_table . " WHERE codigo  IS NOT NULL and estado_liquid =0 and estado=1 ";
         return $this->db->query($query)->result();
     }
 
@@ -87,7 +87,7 @@ class Videos_mp extends CI_Model {
     }
 
     public function getVideosObtenerDatosXId($id) {
-        $query = "SELECT vi.id,vi.codigo,vi.ruta,vi.rutasplitter,vi.duracion,ca.apikey,(select count(im.id) from " . $this->_table_imagenes . " im  WHERE im.videos_id=vi.id and im.procedencia=1) as 'imag'
+        $query = "SELECT vi.id,vi.estado,vi.codigo,vi.ruta,vi.rutasplitter,vi.duracion,ca.apikey,(select count(im.id) from " . $this->_table_imagenes . " im  WHERE im.videos_id=vi.id and im.procedencia=1) as 'imag'
                     FROM " . $this->_table . " vi  
                     INNER  JOIN " . $this->_table_canales . " ca ON  vi.canales_id=ca.id
                     WHERE  vi.id=" . $id; //vi.estado_liquid=5 and

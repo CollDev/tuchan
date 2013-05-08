@@ -282,7 +282,7 @@ class Procesos_lib extends MX_Controller {
 
                         $datos["videos_id"] = $value->id;
                         $datos["procedencia"] = 1;
-                        $datos["estado"] = 1;
+                        $datos["estado"] = $value->estado;
                         $datos["fecha_registro"] = date('Y-m-d H:i:s');
 
                         foreach ($imagenes as $value2) {
@@ -1309,8 +1309,12 @@ class Procesos_lib extends MX_Controller {
                     $objmongo['canal'] =strip_tags($value->nombre);
                     $objmongo['descripcion'] =strip_tags($value->descripcion);
                     $objmongo['url'] = $value->alias;
-                    $objmongo['imagen'] =$value->imagen;
-                    $objmongo['estado'] = "1";
+                    
+                    if($value->procedencia == 0){                        
+                        $objmongo['imagen'] = $this->config->item('protocolo:http').$this->config->item('server:elemento')."/".$value->imagen;    
+                    }
+                                                       
+                    $objmongo['estado'] = $value->estado;
                     $objmongo['padre'] = "";
                     $objmongo['nivel'] = "0";
                     $objmongo['apikey'] = $value->apikey;
@@ -1405,7 +1409,7 @@ class Procesos_lib extends MX_Controller {
         //print_r($videosactivos);
 
         foreach ($video as $value) {
-
+                
             if ($value->estado == 2) {
                 $datovideo = $this->canal_mp->queryProcedure(4, $value->id);
                 $objmongo['id'] = $value->id;
@@ -1546,14 +1550,11 @@ class Procesos_lib extends MX_Controller {
 
     /* Canal Mongo - FIN */
 
-    public function actualizarVideos(){
-        
+    public function  actualizarVideos(){       
        $videos =  $this->videos_mp->getVideosActivos();
-       error_log("inicio");
-       foreach ($videos as $value) {     
-           
-           error_log($value->id);
-                   $this->_obtenerImagesUrlVideosXId($value->id);   
+       foreach ($videos as $value) {   
+            $this->obtenerImagesUrlVideosXId($value->id);
+            $this->_generarVideosXId($value->id);                   
        }               
     }
     
