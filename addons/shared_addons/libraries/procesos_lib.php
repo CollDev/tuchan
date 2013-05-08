@@ -1510,8 +1510,8 @@ class Procesos_lib extends MX_Controller {
             $tags = $this->video_tags_mp->getTagsVideosXId($id);
             print_r($tags);
 
-            //$clienteSOAP = new SoapClient(MOTOR . EC_CLIENTE_SOAP);
-            $clienteSOAP = new SoapClient('http://192.168.1.35/sphinx/busqueda.wsdl');
+            $clienteSOAP = new SoapClient($this->config->item('motor') ."/". EC_CLIENTE_SOAP);
+            //$clienteSOAP = new SoapClient('http://192.168.1.35/sphinx/busqueda.wsdl');
             
 
             $parametros = array();
