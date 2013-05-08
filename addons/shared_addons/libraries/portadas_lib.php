@@ -155,7 +155,20 @@ class Portadas_lib extends MX_Controller {
                     }
                 }
             }
+            //verificamos si el maestro es de tipo programa
+            if ($objMaestro->tipo_grupo_maestro_id == $this->config->item('videos:programa')) {
+                //$this->actualizar_portada_programa($maestro_id);
+            }
         }
+    }
+
+    /**
+     * Método para actualizar la portada de tipo programa
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param int $maestro_id
+     */
+    private function actualizar_portada_programa($maestro_id) {
+        
     }
 
     /**
