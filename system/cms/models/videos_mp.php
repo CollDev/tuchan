@@ -22,7 +22,7 @@ class Videos_mp extends CI_Model {
     }
 
     public function getVideosActivos() {
-        $query = "select id,id_mongo from " . $this->_table . " WHERE codigo  IS NOT NULL and estado_liquid =0 and estado=1 ";
+        $query = "select id,id_mongo from " . $this->_table . " WHERE codigo  IS NOT NULL and estado_liquid =0 ";
         return $this->db->query($query)->result();
     }
 
