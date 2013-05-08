@@ -44,22 +44,22 @@
                         <?php
                         switch ($post->estado):
                             case $this->config->item('estado:borrador'):
-                                $link = '<a href="/admin/canales/previsualizar_portada/" target ="_blank" class="btn modal-large">' . lang('global:preview') . '</a>';
-                                $link.='<a href="#" class="link_portada btn" onclick="publicar_portada(' . $post->id . ',\'portada\');return false;">Publicar</a>';
-                                $link.='<a href="#" class="link_portada btn">Editar</a>';
-                                $link.='<a href="#" class="link_portada btn" onclick="eliminar_portada(' . $post->id . ',\'portada\');return false;">Eliminar</a>';
-                                $link.='<a href="#" class="link_portada btn" onclick="agregar_seccion(' . $post->id . ');return false;">Añadir sección</a>';
+                                $link = '<a href="/admin/canales/previsualizar_portada/" target ="_blank" class="mode_preview modal-large">' . lang('global:preview') . '</a>';
+                                $link.='<a href="#" class="link_portada mode_publish" onclick="publicar_portada(' . $post->id . ',\'portada\');return false;">Publicar</a>';
+                                $link.='<a href="#" class="link_portada mode_edit">Editar</a>';
+                                $link.='<a href="#" class="link_portada mode_delete" onclick="eliminar_portada(' . $post->id . ',\'portada\');return false;">Eliminar</a>';
+                                $link.='<a href="#" class="link_portada mode_add" onclick="agregar_seccion(' . $post->id . ');return false;">Añadir sección</a>';
                                 break;
                             case $this->config->item('estado:publicado'):
-                                $link = '<a href="/admin/canales/previsualizar_portada/" target ="_blank" class="btn modal-large">' . lang('global:preview') . '</a>';
-                                $link.='<a href="#" class="link_portada btn">Editar</a>';
-                                $link.='<a href="#" class="link_portada btn"  onclick="eliminar_portada(' . $post->id . ',\'portada\');return false;">Eliminar</a>';
-                                $link.='<a href="#" class="link_portada btn" onclick="agregar_seccion(' . $post->id . ');return false;">Añadir sección</a>';
+                                $link = '<a href="/admin/canales/previsualizar_portada/" target ="_blank" class="mode_preview modal-large">' . lang('global:preview') . '</a>';
+                                $link.='<a href="#" class="link_portada mode_edit">Editar</a>';
+                                $link.='<a href="#" class="link_portada mode_delete"  onclick="eliminar_portada(' . $post->id . ',\'portada\');return false;">Eliminar</a>';
+                                $link.='<a href="#" class="link_portada mode_add" onclick="agregar_seccion(' . $post->id . ');return false;">Añadir sección</a>';
                                 break;
                             case $this->config->item('estado:eliminado'):
-                                $link = '<a href="/admin/canales/previsualizar_portada/" target ="_blank" class="btn modal-large">' . lang('global:preview') . '</a>';
-                                $link.='<a href="#" class="link_portada btn" onclick="restablecer_portada(' . $post->id . ',\'portada\');return false;">Restablecer</a>';
-                                $link.='<a href="#" class="link_portada btn" onclick="agregar_seccion(' . $post->id . ');return false;">Añadir sección</a>';
+                                $link = '<a href="/admin/canales/previsualizar_portada/" target ="_blank" class="mode_preview modal-large">' . lang('global:preview') . '</a>';
+                                $link.='<a href="#" class="link_portada mode_restore" onclick="restablecer_portada(' . $post->id . ',\'portada\');return false;">Restablecer</a>';
+                                $link.='<a href="#" class="link_portada mode_add" onclick="agregar_seccion(' . $post->id . ');return false;">Añadir sección</a>';
                                 break;
                         endswitch;
                         ?>
@@ -75,13 +75,19 @@
                     foreach ($coleccion_seccion as $indice => $objSeccion):
                         switch ($objSeccion->estado) {
                             case $this->config->item('estado:borrador'):
-                                $acciones = '<a href="/admin/canales/previsualizar_seccion/" target ="_blank" class="modal-large">Previsualizar</a> | <a href="#" onclick="publicar_seccion(' . $objSeccion->id . ', \'seccion\');return false;">Publicar</a> | <a title="Editar" href="admin/canales/seccion/' . $post->canales_id . '/' . $objSeccion->id . '">Editar</a> | <a href="#" onclick="eliminar_seccion(' . $objSeccion->id . ', \'seccion\');return false;">Eliminar</a>';
+                                $acciones = '<a href="/admin/canales/previsualizar_seccion/" target ="_blank" class="mode_preview modal-large">Previsualizar</a>';
+                                $acciones.= '<a href="#" onclick="publicar_seccion(' . $objSeccion->id . ', \'seccion\');return false;" class="mode_publish">Publicar</a>';
+                                $acciones.= '<a title="Editar" href="admin/canales/seccion/' . $post->canales_id . '/' . $objSeccion->id . '" class="mode_edit">Editar</a>';
+                                $acciones.= '<a href="#" onclick="eliminar_seccion(' . $objSeccion->id . ', \'seccion\');return false;" class="mode_delete">Eliminar</a>';
                                 break;
                             case $this->config->item('estado:publicado'):
-                                $acciones = '<a href="/admin/canales/previsualizar_seccion/" target ="_blank" class="modal-large">Previsualizar</a> | <a title="Editar" href="admin/canales/seccion/' . $post->canales_id . '/' . $objSeccion->id . '">Editar</a> | <a href="#" onclick="eliminar_seccion(' . $objSeccion->id . ', \'seccion\');return false;">Eliminar</a>';
+                                $acciones = '<a href="/admin/canales/previsualizar_seccion/" target ="_blank" class="modal-large mode_preview">Previsualizar</a>';
+                                $acciones.= '<a title="Editar" href="admin/canales/seccion/' . $post->canales_id . '/' . $objSeccion->id . '" class="mode_edit">Editar</a>';
+                                $acciones.= '<a href="#" onclick="eliminar_seccion(' . $objSeccion->id . ', \'seccion\');return false;" class="mode_delete">Eliminar</a>';
                                 break;
                             case $this->config->item('estado:eliminado') :
-                                $acciones = '<a href="/admin/canales/previsualizar_seccion/" target ="_blank" class="modal-large">Previsualizar</a> | <a href="#" onclick="restablecer_seccion(' . $objSeccion->id . ', \'seccion\');return false;">Restablecer</a>';
+                                $acciones = '<a href="/admin/canales/previsualizar_seccion/" target ="_blank" class="modal-large mode_preview">Previsualizar</a>';
+                                $acciones.= '<a href="#" onclick="restablecer_seccion(' . $objSeccion->id . ', \'seccion\');return false;" class="mode_restore">Restablecer</a>';
                                 break;
                         }
                         ?>
@@ -139,9 +145,9 @@
                                 $("#" + tipo + "_" + portada_id).empty();
                                 $("#" + tipo + "_" + portada_id).html('Eliminado');
                                 var htmlButton = '';
-                                htmlButton += '<a href="#" onclick="restablecer_portada(' + portada_id + ',\'portada\');return false;" class="link_portada btn">Restablecer</a>';
-                                htmlButton += '<a href="/admin/canales/previsualizar_portada/" target ="_blank" class="btn modal-large">Previsualizar</a>';
-                                htmlButton += '<a href="#" class="link_portada btn" onclick="agregar_seccion(' + portada_id + ');return false;">Añadir sección</a>';
+                                htmlButton += '<a href="#" onclick="restablecer_portada(' + portada_id + ',\'portada\');return false;" class="link_portada mode_restore">Restablecer</a>';
+                                htmlButton += '<a href="/admin/canales/previsualizar_portada/" target ="_blank" class="mode_preview modal-large">Previsualizar</a>';
+                                htmlButton += '<a href="#" class="link_portada mode_add" onclick="agregar_seccion(' + portada_id + ');return false;">Añadir sección</a>';
                                 $("#" + tipo + "_boton_" + portada_id).html(htmlButton);
                                 $('.link_portada').click(function(e) {
                                     e.stopPropagation();
@@ -170,11 +176,11 @@
                                 $("#" + tipo + "_" + portada_id).empty();
                                 $("#" + tipo + "_" + portada_id).html('Borrador');
                                 var htmlButton = '';
-                                htmlButton += '<a href="/admin/canales/previsualizar_portada/" target ="_blank" class="modal-large btn">Previsualizar</a>';
-                                htmlButton += '<a href="#" onclick="publicar_portada(' + portada_id + ', \'portada\');return false;" class="link_portada btn">Publicar</a>';
-                                htmlButton += '<a href="#" class="link_portada btn" onclick="return false;">Editar</a>';
-                                htmlButton += '<a href="#" class="link_portada btn" onclick="eliminar_portada(' + portada_id + ',\'portada\');return false;">Eliminar</a>';
-                                htmlButton += '<a href="#" class="link_portada btn" onclick="agregar_seccion(' + portada_id + ');return false;">Añadir sección</a>';
+                                htmlButton += '<a href="/admin/canales/previsualizar_portada/" target ="_blank" class="modal-large mode_preview">Previsualizar</a>';
+                                htmlButton += '<a href="#" onclick="publicar_portada(' + portada_id + ', \'portada\');return false;" class="link_portada mode_publish">Publicar</a>';
+                                htmlButton += '<a href="#" class="link_portada mode_edit" onclick="return false;">Editar</a>';
+                                htmlButton += '<a href="#" class="link_portada mode_delete" onclick="eliminar_portada(' + portada_id + ',\'portada\');return false;">Eliminar</a>';
+                                htmlButton += '<a href="#" class="link_portada mode_add" onclick="agregar_seccion(' + portada_id + ');return false;">Añadir sección</a>';
                                 $("#" + tipo + "_boton_" + portada_id).html(htmlButton);
                                 $('.link_portada').click(function(e) {
                                     e.stopPropagation();
@@ -203,10 +209,10 @@
                                 $("#" + tipo + "_" + portada_id).empty();
                                 $("#" + tipo + "_" + portada_id).html('Publicado');
                                 var htmlButton = '';
-                                htmlButton += '<a href="/admin/canales/previsualizar_portada/" target ="_blank" class="modal-large btn">Previsualizar</a>';
-                                htmlButton += '<a href="#" onclick="return false;" class="link_portada btn">Editar</a>';
-                                htmlButton += '<a href="#" onclick="eliminar_portada(' + portada_id + ',\'portada\');return false;" class="link_portada btn">Eliminar</a>';
-                                htmlButton += '<a href="#" class="link_portada btn" onclick="agregar_seccion(' + portada_id + ');return false;">Añadir sección</a>';
+                                htmlButton += '<a href="/admin/canales/previsualizar_portada/" target ="_blank" class="modal-large mode_preview">Previsualizar</a>';
+                                htmlButton += '<a href="#" onclick="return false;" class="link_portada mode_edit">Editar</a>';
+                                htmlButton += '<a href="#" onclick="eliminar_portada(' + portada_id + ',\'portada\');return false;" class="link_portada mode_delete">Eliminar</a>';
+                                htmlButton += '<a href="#" class="link_portada mode_add" onclick="agregar_seccion(' + portada_id + ');return false;">Añadir sección</a>';
                                 $("#" + tipo + "_boton_" + portada_id).html(htmlButton);
                                 $('.link_portada').click(function(e) {
                                     e.stopPropagation();
@@ -234,7 +240,8 @@
                                 //location.reload();
                                 $("#" + tipo + "_" + seccion_id).empty();
                                 $("#" + tipo + "_" + seccion_id).html('Eliminado');
-                                var htmlButton = '<a href="/admin/canales/previsualizar_seccion/" target ="_blank" class="modal-large">Previsualizar</a> | <a href="#" onclick="restablecer_seccion(' + seccion_id + ', \'seccion\');return false;">Restablecer</a>';
+                                var htmlButton = '<a href="/admin/canales/previsualizar_seccion/" target ="_blank" class="modal-large mode_preview">Previsualizar</a>';
+                                    htmlButton+='<a href="#" onclick="restablecer_seccion(' + seccion_id + ', \'seccion\');return false;" class="mode_restore">Restablecer</a>';
                                 $("#" + tipo + "_boton_" + seccion_id).html(htmlButton);
                             }
                         } //end success
@@ -259,7 +266,10 @@
                                 var canal_id = '<?php echo $canal_id; ?>';
                                 $("#" + tipo + "_" + seccion_id).empty();
                                 $("#" + tipo + "_" + seccion_id).html('Borrador');
-                                var htmlButton = '<a href="/admin/canales/previsualizar_seccion/" target ="_blank" class="modal-large">Previsualizar</a> | <a href="#" onclick="publicar_seccion(' + seccion_id + ', \'seccion\');return false;">Publicar</a> | <a title="Editar" href="admin/canales/seccion/' + canal_id + '/' + seccion_id + '">Editar</a> | <a href="#" onclick="eliminar_seccion(' + seccion_id + ', \'seccion\');return false;">Eliminar</a>';
+                                var htmlButton = '<a href="/admin/canales/previsualizar_seccion/" target ="_blank" class="modal-large mode_preview">Previsualizar</a>';
+                                    htmlButton+='<a href="#" onclick="publicar_seccion(' + seccion_id + ', \'seccion\');return false;" class="mode_publish">Publicar</a>';
+                                    htmlButton+='<a title="Editar" href="admin/canales/seccion/' + canal_id + '/' + seccion_id + '" class="mode_edit">Editar</a>';
+                                    htmlButton+='<a href="#" onclick="eliminar_seccion(' + seccion_id + ', \'seccion\');return false;" class="mode_delete">Eliminar</a>';
                                 $("#" + tipo + "_boton_" + seccion_id).html(htmlButton);
                             }
                         } //end success
@@ -284,7 +294,9 @@
                                 var canal_id = '<?php echo $canal_id; ?>';
                                 $("#" + tipo + "_" + seccion_id).empty();
                                 $("#" + tipo + "_" + seccion_id).html('Publicado');
-                                var htmlButton = '<a href="/admin/canales/previsualizar_seccion/" target ="_blank" class="modal-large">Previsualizar</a> | <a title="Editar" href="admin/canales/seccion/' + canal_id + '/' + seccion_id + '">Editar</a> | <a href="#" onclick="eliminar_seccion(' + seccion_id + ', \'seccion\');return false;">Eliminar</a>';
+                                var htmlButton = '<a href="/admin/canales/previsualizar_seccion/" target ="_blank" class="modal-large mode_preview">Previsualizar</a>';
+                                    htmlButton+='<a title="Editar" href="admin/canales/seccion/' + canal_id + '/' + seccion_id + '" class="mode_edit">Editar</a>';
+                                    htmlButton+='<a href="#" onclick="eliminar_seccion(' + seccion_id + ', \'seccion\');return false;" class="mode_delete">Eliminar</a>';
                                 $("#" + tipo + "_boton_" + seccion_id).html(htmlButton);
                             }
                         } //end success
