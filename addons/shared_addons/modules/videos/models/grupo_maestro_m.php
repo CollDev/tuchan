@@ -110,6 +110,9 @@ class Grupo_maestro_m extends MY_Model {
     
     public function update($id, $array){
         parent::update($id, $array);
+        //disaramos un proceso de la libreria portadas para actualizar estados de maestros en las portadas y secciones
+        $this->portadas_lib->actualizar_maestro($id);
+        
         //$this->procesos_lib->actualizarDetalleSecciones();
     }    
 

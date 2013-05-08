@@ -56,23 +56,31 @@ class Portadas_lib extends MX_Controller {
                                 //veremos si podemos publicarlo
                                 $arraySeccionPublicado = $this->detalle_secciones_m->get_many_by(array("secciones_id" => $seccion_id, "estado" => $this->config->item('estado:publicado')));
                                 if (count($arraySeccionPublicado) > 0) {
-                                    $this->secciones_m->update($seccion_id, array("estado" => $this->config->item('estado:publicado')));
+                                    $this->secciones_m->update($seccion_id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
                                 } else {
-                                    //verificamos que estado tuvo un estado eliminado
+                                    //verificamos que tuvo un estado eliminado
                                     if ($objSeccion->estado == $this->config->item('estado:publicado')) {
-                                        $this->secciones_m->update($seccion_id, array("estado" => $this->config->item('estado:borrador')));
+                                        $this->secciones_m->update($seccion_id, array("estado" => $this->config->item('estado:borrador'), "estado_migracion" => $this->config->item('migracion:actualizado')));
                                     }
                                 }
                             }
                         }
                         //verificamos el estado de la portada
-                        if(count($arrayIdPortada)>0){
+                        if (count($arrayIdPortada) > 0) {
                             $arrayIdPortada = array_unique($arrayIdPortada);
-                            foreach ($arrayIdPortada as $indice=>$portada_id){
+                            foreach ($arrayIdPortada as $indice => $portada_id) {
                                 $objPortada = $this->portada_m->get($portada_id);
-                                if(count($objPortada)>0){
+                                if (count($objPortada) > 0) {
                                     //veremos si podemos publicarlo
-                                    $arrayPortada = $this->secciones_m->get_many_by(array("portadas_id"=>$portada_id, "estado"=>$this->config->item('estado:publicado')));
+                                    $arrayPortada = $this->secciones_m->get_many_by(array("portadas_id" => $portada_id, "estado" => $this->config->item('estado:publicado')));
+                                    if (count($arrayPortada) > 0) {
+                                        $this->portada_m->update($portada_id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                    } else {
+                                        //verificamos que tuvo un estado eliminado
+                                        if ($objPortada->estado == $this->config->item('estado:publicado')) {
+                                            $this->portada_m->update($portada_id, array("estado" => $this->config->item('estado:borrador'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                        }
+                                    }
                                 }
                             }
                         }

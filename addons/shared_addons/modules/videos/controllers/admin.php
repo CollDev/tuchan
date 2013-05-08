@@ -37,6 +37,7 @@ class Admin extends Admin_Controller {
         $this->load->library('image_lib');
         $this->load->library('imagenes_lib');
         $this->load->library('procesos_lib');
+        $this->load->library('portadas_lib');
         $this->load->library('migracion_lib');
 
 //        ci()->load->model('videos_mp');

@@ -51,6 +51,7 @@ class Admin extends Admin_Controller {
         $this->load->model('detalle_secciones_m');
         $this->load->library('imagenes_lib');
         $this->load->library('procesos_lib');
+        $this->load->library('portadas_lib');
         $this->config->load('videos/uploads');
     }
 
