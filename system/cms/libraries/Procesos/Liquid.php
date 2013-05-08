@@ -53,7 +53,7 @@ class Liquid {
 
     function getXml($url) {
         try {
-            ERROR_LIQUID:
+            //ERROR_LIQUID:
             
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL,$url);
@@ -80,9 +80,10 @@ class Liquid {
                 Log::erroLog(" result : " .  $result);
                 return $result;
             }else{
-                sleep(5);
+               // sleep(5);
                  Log::erroLog(" no paso get");
-                goto ERROR_LIQUID;
+                 
+                //goto ERROR_LIQUID;
             }          
 //            $result = file_get_contents(trim($url));
 //            if (!$result) {
@@ -91,7 +92,7 @@ class Liquid {
 //                return $result;
 //            }
         } catch (Exception $exc) {
-//            return "";
+            return "";
         }
     }
 
@@ -219,11 +220,14 @@ class Liquid {
         
         $response = self::getXml($url);
         Log::erroLog("Response obtener datos" . $response);
-        $mediaxml = new SimpleXMLElement($response);
 
-        $mediaarr = json_decode(json_encode($mediaxml), true);
-
-        return $mediaarr;
+        try {
+            $mediaxml = new SimpleXMLElement($response);
+            $mediaarr = json_decode(json_encode($mediaxml), true);
+            return $mediaarr;
+        } catch (Exception $exc) {
+            return "";
+        }
     }
 
     function obtenernumberOfViews($apiKey) {
@@ -325,10 +329,7 @@ class Liquid {
                     //}
                 } else {
                     $min = 9999;
-                    foreach ($value as $value2) { 
-                        
-                       
-                        
+                    foreach ($value as $value2) {                                                                
                         if($value2["output"]["name"]!="_RAW"){
                             if ($value2["videoInfo"]["height"] < $min) {                              
                                 $min =  $value2["videoInfo"]["height"];                            
@@ -341,21 +342,73 @@ class Liquid {
             }
         }
 
-        if (isset($urlimg) && isset($video_filename) && isset($video_id)) {
-
-
-            $url = strstr($urlimg, "thumbnail", TRUE) . "video/" . $video_id . "/" . $video_filename . "\n";
+        if (!empty($urlimg) && !empty($video_filename) && !empty($video_id)) {
+           $url = strstr($urlimg, "thumbnail", TRUE) . "video/" . $video_id . "/" . $video_filename . "\n";
         }
 
-
-        if (isset($url)) {
+        if (!empty($url)) {
             return $url;
         } else {
             return "";
         }
     }
 
-    function getUrlVideoLiquidRaw($mediaId, $apiKey) {
+    function getUrlVideoLiquidRaw($mediaarr) {
+        if (count($mediaarr["thumbs"]) > 0) {
+            foreach ($mediaarr["thumbs"] as $value) {
+
+                if (isset($value["url"])) {
+                    $urlimg = $value["url"] . "\n";
+                    break;
+                } else {
+                    foreach ($value as $value2) {
+                        if (isset($value2["url"])) {
+                            $urlimg = $value2["url"] . "\n";
+                            break 2;
+                        }
+                    }
+                }
+            }
+        }
+
+        if (count($mediaarr["files"]) > 0) {
+            foreach ($mediaarr["files"] as $value) {
+
+                // print_r($value);
+
+                if (isset($value["id"])) {
+                    if ($value["output"]["name"] == "_RAW") {
+                        $video_filename = $value["fileName"];
+                        $video_id = $value["id"];
+                        break;
+                   }
+                } else {
+                    $min = 0;
+                    foreach ($value as $value2) {                                                                
+                        if($value2["output"]["name"]=="_RAW"){
+                            //if ($value2["videoInfo"]["height"] > $min) {                              
+                                $min =  $value2["videoInfo"]["height"];                            
+                                $video_filename = $value2["fileName"];
+                                $video_id = $value2["id"];                         
+                            //} 
+                        }                      
+                    }
+                }
+            }
+        }
+
+        if (!empty($urlimg) && !empty($video_filename) && !empty($video_id)) {
+           $url = strstr($urlimg, "thumbnail", TRUE) . "video/" . $video_id . "/" . $video_filename . "\n";
+        }
+
+        if (!empty($url)) {
+            return $url;
+        } else {
+            return "";
+        }
+    }    
+    
+    function getUrlVideoLiquid($mediaId, $apiKey) {
         $url = APIURL . "/medias/" . $mediaId . "?key=" . $apiKey . "&filter=id;thumbs;files";
 
         $response = $this->getXml($url);

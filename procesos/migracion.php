@@ -7,7 +7,7 @@ define("MYSQLPASS", "joh2Yeyeimaeb4");
 
 class Migracion extends Exception {
 
-    private $archivo = 'sql/data.200413.sql';
+    private $archivo = 'sql/altertable080513.sql';
 
     public function setQuery($consultamysql) {
         try {

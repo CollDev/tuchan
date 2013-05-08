@@ -47,7 +47,7 @@ class Procesos_lib extends MX_Controller {
 
 
         if (!empty($id_padre) && !empty($id_hijo) && !empty($inicio) && !empty($duracion)) {
-            if (Ffmpeg::downloadVideo($result[0]->id, $result[0]->ruta)) {
+            if (Ffmpeg::downloadVideo($result[0]->id, $result[0]->rutasplitter)) {
                 if (Ffmpeg::splitVideo($id_padre, $id_hijo, $inicio, $duracion)) {
                     $this->curlProcesoVideosXId($id_hijo);
                 }
@@ -243,8 +243,8 @@ class Procesos_lib extends MX_Controller {
 
                 $mediaarr = Liquid::obtenerDatosMedia($value);
                 
-                if(true){
-                //if(empty($value->duracion)){
+                
+                if(empty($value->duracion)){
                     $duracion = Liquid::getDurationLiquid($mediaarr);
                     if (!empty($duracion)) {
                         $duracion = ($duracion/1000);                       
@@ -259,6 +259,16 @@ class Procesos_lib extends MX_Controller {
                         $this->videos_mp->setRutaVideos($value->id, $urlvideo);                       
                     }
                 }
+                
+                error_log("ruta splitter". $value->rutasplitter);
+                
+                if(empty($value->rutasplitter)) {
+                    $urlvideo = Liquid::getUrlVideoLiquidRaw($mediaarr);
+                    if (!empty($urlvideo)) {
+                        $this->videos_mp->setRutaVideosSplitter($value->id, $urlvideo);                       
+                    }
+                }         
+                
 
                 if ($value->imag == 0) {
 
@@ -1388,7 +1398,7 @@ class Procesos_lib extends MX_Controller {
 //        
 //    }
 
-    private function _generarVideosXId($id) {
+    private function    _generarVideosXId($id) {
 
         $video = $this->videos_mp->getVideosxId($id);
         //$video = $this->videos_mp->getVideosxIdConKey($id);
@@ -1507,12 +1517,8 @@ class Procesos_lib extends MX_Controller {
             
 
             $this->resultado = $clienteSOAP->BusquedaRelacionado(json_encode($parametros), $tags[0]->tags);
-
-            
-            
+                  
             $resultado = json_decode($this->resultado);
-
-       
 
             $arrayrelacionados = array();
 
@@ -1543,9 +1549,11 @@ class Procesos_lib extends MX_Controller {
     public function actualizarVideos(){
         
        $videos =  $this->videos_mp->getVideosActivos();
-       
-       foreach ($videos as $value) {          
-                   $this->_obtenerImagesUrlVideosXId($value->id);
+       error_log("inicio");
+       foreach ($videos as $value) {     
+           
+           error_log($value->id);
+                   $this->_obtenerImagesUrlVideosXId($value->id);   
        }               
     }
     
