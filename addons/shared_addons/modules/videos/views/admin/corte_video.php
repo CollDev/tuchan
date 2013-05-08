@@ -1,4 +1,4 @@
-<section class="title">
+    <section class="title">
     <div style ="float: left;">
         <?php
         echo anchor('admin/videos/carga_unitaria/' . $canal->id, $this->config->item('submenu:carga_unitaria'), array('class' => ''));
@@ -34,25 +34,27 @@
     //echo form_open_multipart('file.php', $attributes, $hidden);
     ?>
     <!-- Editor de videos -->
-    <span style="display:block; width: 100%;">
-        <div id="media-1" class="mediasplitter" data-src="<?php echo $objBeanForm->ruta ?>" style="margin:0 auto;" >
-            <div class="mediasplitter-player"></div>
-            <div class="mediasplitter-controls">
-                <div class="noUiSlider mediasplitter-slider"></div>
-                <div class="mediasplitter-progress"><div class="mediasplitter-progress-indicator"></div></div>
-                <p>
-                    <span class="opaque">Comienza:</span> 
-                    <input name="ini_corte" id="ini_corte" class="mediasplitter-time-start" value="" type="text" size="5" readonly />            
-                    <span class="opaque">Termina:</span> <input name="fin_corte" id="fin_corte" class="mediasplitter-time-end" value="" size="5" type="
-                                                                text" readonly /> 
-                    <span class="opaque">Duración</span> <input name="dur_corte" id="dur_corte" class="mediasplitter-time-dur" value="" size="5" type="
-                                                                text" readonly /> 
-                    <span class="mediasplitter-time"><span class="mediasplitter-time-remaming">0.00</span> <span class="opaque">seg.</span> </span>
-                </p>
-            </div>
-            <input name="dur_total" id="dur_total"  value="" type="hidden" readonly />
-            <!--# End video section -->
-        </div>        
+    <span style="display:block; width: 100%;">           
+    <div id="media-1" class="mediasplitter" data-src="<?php echo trim($objBeanForm->ruta) ?>">
+      <p><button class="mediaspliter-edit">Cortar video</button></p>
+      <div class="mediasplitter-wrapp">
+        <div class="mediasplitter-player"></div>
+        <div class="mediasplitter-controls">
+          <div class="noUiSlider mediasplitter-slider"></div>
+          <div class="mediasplitter-progress"><div class="mediasplitter-progress-indicator"></div></div>
+          <p>
+            <span class="opaque">Comienza:</span> <input name="ini_corte" id="ini_corte" class="mediasplitter-time-start" autocomplete="off" value="" type="text" size="5" readonly /> 
+            <span class="opaque">Termina:</span> <input name="fin_corte" id="fin_corte" class="mediasplitter-time-end" autocomplete="off" value="" size="5" type="
+            text" readonly /> 
+            <span class="opaque">Duración</span> <input name="dur_corte" id="dur_corte" class="mediasplitter-time-dur" autocomplete="off" value="" size="5" type="
+            text" readonly />  <button class="mediasplitter-play" onClick="return false;">Play</button>
+            <span class="mediasplitter-time"><span class="mediasplitter-time-remaming">0.00</span> <span class="opaque">seg.</span> </span>
+          </p>
+        </div>
+      </div>
+      <input name="dur_total" id="dur_total"  value="" type="hidden" readonly />
+    </div>        
+        
     </span>
 
     <!--APC hidden field-->
@@ -396,7 +398,7 @@
          */
         function saveVideo() {
 
-            if ($("#dur_corte").val() == dur_video) {
+            if ($("#dur_corte").val() == $("#dur_total").val()) {
                 showMessage('error', 'La duracion del nuevo video debe ser diferente al original', 2000, '');
             } else {
                 var values = {};
@@ -979,13 +981,17 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url("system/cms/themes/pyrocms/css/nouislider.fox.css") ?>">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url("system/cms/themes/pyrocms/css/mediasplitter.css") ?>">
 
+<script src="<?php echo base_url("system/cms/themes/pyrocms/js/lib/jwplayer.js") ?>"></script>
 <script src="<?php echo base_url("system/cms/themes/pyrocms/js/lib/jquery.nouislider.min.js") ?>"></script>
-<script src="<?php echo base_url("system/cms/themes/pyrocms/js/lib/flowplayer/flowplayer-3.2.12.min.js") ?>"></script>
 <script src="<?php echo base_url("system/cms/themes/pyrocms/js/lib/splitter.js") ?>"></script>
 <script type="text/javascript">
-    $(function() {
-        new MediaSplitter('#media-1', '<?php echo base_url("system/cms/themes/pyrocms/js/lib/flowplayer/flowplayer-3.2.16.swf") ?>');
+  $(function () {
+    $(".mediaspliter-edit").on('click', function(e){
+      var _this = $(this),
+          mediaBlock = _this.closest('div.mediasplitter').addClass('mediasplitter-show');
+      new MediaSplitter('#' + mediaBlock.attr('id'));
+      _this.closest('p').remove();
     });
-
+  });
 </script>
 

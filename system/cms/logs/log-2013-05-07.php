@@ -2018,3 +2018,13 @@ ERROR - 2013-05-07 21:51:22 --> Query error: Incorrect time value: '8.3333333333
 ERROR - 2013-05-07 21:58:20 --> Query error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where id=2090' at line 1
 ERROR - 2013-05-07 21:59:51 --> Query error: Incorrect datetime value: '1'
 ERROR - 2013-05-07 22:54:11 --> Query error: Incorrect parameter count in the call to native function 'SEC_TO_TIME'
+ERROR - 2013-05-07 23:11:42 --> Severity: Warning  --> Missing argument 2 for Admin::insertCorteVideo() /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/controllers/admin.php 2353
+ERROR - 2013-05-07 23:11:52 --> Severity: Warning  --> Missing argument 2 for Admin::insertCorteVideo() /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/controllers/admin.php 2353
+ERROR - 2013-05-07 23:17:55 --> Severity: Warning  --> Missing argument 2 for Admin::insertCorteVideo() /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/controllers/admin.php 2353
+ERROR - 2013-05-07 23:25:31 --> Severity: Warning  --> Missing argument 2 for Admin::insertCorteVideo() /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/controllers/admin.php 2353
+ERROR - 2013-05-07 23:47:56 --> Severity: Warning  --> Missing argument 2 for Admin::insertCorteVideo() /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/controllers/admin.php 2353
+ERROR - 2013-05-07 23:48:04 --> Severity: Warning  --> Missing argument 2 for Admin::insertCorteVideo() /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/controllers/admin.php 2353
+ERROR - 2013-05-07 23:54:07 --> Severity: Warning  --> Missing argument 2 for Admin::insertCorteVideo() /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/controllers/admin.php 2353
+ERROR - 2013-05-07 23:56:47 --> Severity: Warning  --> Missing argument 2 for Admin::insertCorteVideo() /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/controllers/admin.php 2353
+ERROR - 2013-05-07 23:57:25 --> Severity: Warning  --> Missing argument 2 for Admin::insertCorteVideo() /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/controllers/admin.php 2353
+ERROR - 2013-05-07 23:58:23 --> Severity: Warning  --> Missing argument 2 for Admin::insertCorteVideo() /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/controllers/admin.php 2353
