@@ -354,7 +354,7 @@ class Liquid {
     }
 
     function getUrlVideoLiquidRaw($mediaarr) {
-        if (count($mediaarr["thumbs"]) > 0) {
+            if (count($mediaarr["thumbs"]) > 0) {
             foreach ($mediaarr["thumbs"] as $value) {
 
                 if (isset($value["url"])) {
