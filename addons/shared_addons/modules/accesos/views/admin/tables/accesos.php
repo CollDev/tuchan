@@ -6,6 +6,7 @@
             <tr>
                 <th width="20"><?php echo form_checkbox(array('name' => 'action_to_all', 'class' => 'check-all')); ?></th>
                 <th><?php echo lang('accesos:nombre_label'); ?></th>
+                <th><?php echo lang('global:estado'); ?></th>
                 <th><?php echo lang('accesos:predeterminado_label'); ?></th>
             </tr>
         </thead>
@@ -40,6 +41,7 @@
                 <tr>
                     <td><?php echo form_checkbox('action_to[]', $canal->id, $checked); ?></td>
                     <td class="collapse"><?php echo anchor('admin/canales/portada/' . $canal->id, $canal->nombre); ?></td>
+                    <td class="collapse"><?php echo lang('global:'.$canal->estado.'_estado'); ?></td>
                     <td>
                        <?php echo form_radio('default[]', $canal->id, $checked2); ?>
                     </td>

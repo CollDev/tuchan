@@ -415,12 +415,18 @@ $config['path:log'] = FCPATH.'uploads/log/';
 //url de imagenes predefinidas
 $config['url:default_imagen'] = BASE_URL.'uploads/imagenes/';
 $config['url:logo'] = BASE_URL.'system/cms/themes/pyrocms/img/image_no_found.png';
-$config['url:iso'] = BASE_URL.'system/cms/themes/pyrocms/img/channel_icon.fw.png';
+$config['url:iso'] = BASE_URL.'system/cms/themes/pyrocms/img/icon_tv4.png';
 $config['url:portada'] = BASE_URL.'system/cms/themes/pyrocms/img/imagen_portada_default.jpg';
 
 //variables de la migracion de canales
-$config['migracion:url'] = 'http://fast.api.liquidplatform.com/2.0/medias/?key=';
+$config['migracion:url'] = 'http://fast.api.liquidplatform.com/2.0/medias/?search=tags:LIFWeek&key=';
 $config['migracion:filtro'] = 'filter=id;secondUrl;published;title;thumbs;tags;description';
 $config['migracion:output'] = '_RAW';
+$config['migracion:paginas'] = '10';
+$config['migracion:margen_error_imagen'] = '20';
+
+
+$config['motor'] = 'http://dev.micanal.pe';
+$config['motor'] = 'http://ci.micanal.dev';
 
 /* End of file config.php */

@@ -48,7 +48,8 @@ class Admin extends Admin_Controller
 
             // Lista de canales
             //$canales = $this->canales_m->getCanales();   
-            $canales = $this->canales_m->get_many_by(array("estado"=>$this->config->item('estado:publicado')));   
+            //$canales = $this->canales_m->get_many_by(array("estado"=>$this->config->item('estado:publicado')));   
+            $canales = $this->canales_m->get_many_by(array());   
                         
             // Datos del usuario seleccionado
             $data_usuario = $this->ion_auth->get_user($id);

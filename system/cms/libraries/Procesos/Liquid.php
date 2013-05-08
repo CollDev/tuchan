@@ -213,7 +213,7 @@ class Liquid {
     function obtenerDatosMedia($datos) {
 
         $url = APIURL . "/medias/" . $datos->codigo . "?key=" . $datos->apikey . "&filter=id;thumbs;files;published";
-        //echo $url . "<br>";
+        error_log($url);
         
         Log::erroLog("url obtener datos: " . $url);
         
@@ -227,30 +227,35 @@ class Liquid {
     }
 
     function obtenernumberOfViews($apiKey) {
-        $ini = 0;
-        // max valor de $inc = 50
-        $inc = 50;
-        $flat = 1;
+        if(!empty($apiKey)){
+            $ini = 0;
+            // max valor de $inc = 50
+            $inc = 50;
+            $flat = 1;
 
-        $arraydatos = array();
+            $arraydatos = array();
 
-        do {
-            $url = APIURL . "/medias/?key=" . $apiKey . "&filter=id;numberOfViews&orderBy=numberOfViews&sort=desc&first=" . $ini . "&limit=" . $inc;
-            $response = $this->getXml($url);
-            $mediaxml = new SimpleXMLElement($response);
-            $mediaarr = json_decode(json_encode($mediaxml), true);
+            do {
+                $url = APIURL . "/medias/?key=" . $apiKey . "&filter=id;numberOfViews&orderBy=numberOfViews&sort=desc&first=" . $ini . "&limit=" . $inc;
+                $response = self::getXml($url);
+                $mediaxml = new SimpleXMLElement($response);
+                $mediaarr = json_decode(json_encode($mediaxml), true);
 
-            foreach ($mediaarr["Media"] as $value) {
-                if ($value["numberOfViews"] == 0) {
-                    break 2;
+                foreach ($mediaarr["Media"] as $value) {
+                    if ($value["numberOfViews"] == 0) {
+                        break 2;
+                    }
+                    array_push($arraydatos, $value);
                 }
-                array_push($arraydatos, $value);
-            }
 
-            $ini = $ini + $inc;
-        } while (true);
+                $ini = $ini + $inc;
+            } while (true);
 
-        return $arraydatos;
+            return $arraydatos;
+        }else{
+            return array();
+        }
+        
     }
 
     function getimagenesLiquid($mediaarr) {
@@ -297,7 +302,6 @@ class Liquid {
                     $urlimg = $value["url"] . "\n";
                     break;
                 } else {
-
                     foreach ($value as $value2) {
                         if (isset($value2["url"])) {
                             $urlimg = $value2["url"] . "\n";
@@ -314,18 +318,24 @@ class Liquid {
                 // print_r($value);
 
                 if (isset($value["id"])) {
-                    if ($value["output"]["name"] == "_RAW") {
+                    //if ($value["output"]["name"] == "_RAW") {
                         $video_filename = $value["fileName"];
                         $video_id = $value["id"];
                         break;
-                    }
+                    //}
                 } else {
-                    foreach ($value as $value2) {
-                        if ($value2["output"]["name"] == "_RAW") {
-                            $video_filename = $value2["fileName"];
-                            $video_id = $value2["id"];
-                            break 2;
-                        }
+                    $min = 9999;
+                    foreach ($value as $value2) { 
+                        
+                       
+                        
+                        if($value2["output"]["name"]!="_RAW"){
+                            if ($value2["videoInfo"]["height"] < $min) {                              
+                                $min =  $value2["videoInfo"]["height"];                            
+                                $video_filename = $value2["fileName"];
+                                $video_id = $value2["id"];                         
+                            } 
+                        }                      
                     }
                 }
             }
@@ -353,6 +363,36 @@ class Liquid {
         $mediaarr = json_decode(json_encode($mediaxml), TRUE);
 
         return $this->getUrlVideoLiquidRawLite($mediarr);
+    }
+    
+    function getDurationLiquid($mediaarr){
+        error_log("entro duration");
+        $duration=0;
+                       
+        if (count($mediaarr["files"]) > 0) {
+            foreach ($mediaarr["files"] as $value) {
+
+                if (isset($value["id"])){ 
+                        
+                    if(!empty($value["videoInfo"]["duration"])){                        
+                        error_log("duracion 2 ->" . $value["videoInfo"]);
+                         $duration = $value["videoInfo"]["duration"];                         
+                         break;
+                     }                         
+                }   else {
+                    
+                    foreach ($value as $value2) {
+                        
+                    if(!empty($value2["videoInfo"]["duration"])){
+                        error_log("duracion 2->" . $value2["videoInfo"]["duration"]);
+                         $duration = $value2["videoInfo"]["duration"];
+                         break 2;
+                     } 
+                    }
+                }
+            }
+        }        
+        return $duration;
     }
     
     function getVerificarLiquidPostUpload($media,$apiKey){
