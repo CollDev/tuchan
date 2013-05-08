@@ -1,3 +1,1204 @@
+<<<<<<< HEAD
+17:48:02 > id: 351
+17:48:02 > 9  -  0
+17:48:02 > paso: 351
+17:48:09 > id: 351
+17:48:09 > 9  -  1
+17:48:09 > dato entrada    : 2810 -- 
+17:48:09 > cantidad   : 1 -- 
+17:48:09 > paso: 351
+17:48:14 > id: 343
+17:48:14 > 9  -  2
+17:48:14 > paso: 343
+17:48:17 > id: 343
+17:48:17 > 9  -  0
+17:48:17 > paso: 343
+17:48:19 > id: 343
+17:48:19 > 9  -  1
+17:48:19 > dato entrada    : 2734 -- 
+17:48:19 > cantidad   : 1 -- 
+17:48:19 > mongo_se: 51783c3ac8437ee72e000105
+17:48:19 > estado_migracion: 2
+17:48:19 > id_mongo de seccion 51783c3ac8437ee72e000105
+17:48:19 > dato entrada    : 2735 -- 
+17:48:19 > cantidad   : 1 -- 
+17:48:19 > dato entrada    : 2736 -- 
+17:48:19 > cantidad   : 1 -- 
+17:48:19 > dato entrada    : 2737 -- 
+17:48:19 > cantidad   : 1 -- 
+17:48:19 > dato entrada    : 2738 -- 
+17:48:19 > cantidad   : 1 -- 
+17:48:19 > dato entrada    : 2739 -- 
+17:48:19 > cantidad   : 1 -- 
+17:48:19 > dato entrada    : 2740 -- 
+17:48:19 > cantidad   : 1 -- 
+17:48:19 > dato entrada    : 2741 -- 
+17:48:19 > cantidad   : 1 -- 
+17:48:19 > dato entrada    : 2742 -- 
+17:48:19 > cantidad   : 1 -- 
+17:48:19 > paso: 343
+17:48:28 > id: 344
+17:48:28 > 9  -  2
+17:48:28 > paso: 344
+17:48:31 > id: 344
+17:48:31 > 9  -  0
+17:48:31 > paso: 344
+17:48:33 > id: 344
+17:48:33 > 9  -  1
+17:48:33 > dato entrada    : 2743 -- 
+17:48:33 > cantidad   : 1 -- 
+17:48:33 > mongo_se: 51783c3ac8437ee72e000106
+17:48:33 > estado_migracion: 2
+17:48:33 > id_mongo de seccion 51783c3ac8437ee72e000106
+17:48:33 > dato entrada    : 2744 -- 
+17:48:33 > cantidad   : 1 -- 
+17:48:33 > dato entrada    : 2745 -- 
+17:48:33 > cantidad   : 1 -- 
+17:48:33 > dato entrada    : 2746 -- 
+17:48:33 > cantidad   : 1 -- 
+17:48:33 > dato entrada    : 2747 -- 
+17:48:33 > cantidad   : 1 -- 
+17:48:33 > dato entrada    : 2748 -- 
+17:48:33 > cantidad   : 1 -- 
+17:48:33 > dato entrada    : 2749 -- 
+17:48:33 > cantidad   : 1 -- 
+17:48:33 > dato entrada    : 2750 -- 
+17:48:33 > cantidad   : 1 -- 
+17:48:33 > dato entrada    : 2751 -- 
+17:48:33 > cantidad   : 1 -- 
+17:48:33 > paso: 344
+17:48:36 > id: 348
+17:48:36 > 9  -  2
+17:48:36 > paso: 348
+17:49:18 > id: 330
+17:49:18 > 9  -  2
+17:49:18 > paso: 330
+17:50:56 > id: 348
+17:50:56 > 9  -  0
+17:50:56 > paso: 348
+17:50:58 > id: 348
+17:50:58 > 9  -  1
+17:50:58 > dato entrada    : 2777 -- 
+17:50:58 > cantidad   : 1 -- 
+17:50:58 > mongo_se: 51783c3bc8437ee72e000116
+17:50:58 > estado_migracion: 2
+17:50:58 > id_mongo de seccion 51783c3bc8437ee72e000116
+17:50:58 > dato entrada    : 2778 -- 
+17:50:58 > cantidad   : 1 -- 
+17:50:58 > dato entrada    : 2779 -- 
+17:50:58 > cantidad   : 1 -- 
+17:50:58 > dato entrada    : 2780 -- 
+17:50:58 > cantidad   : 1 -- 
+17:50:58 > dato entrada    : 2781 -- 
+17:50:58 > cantidad   : 1 -- 
+17:50:58 > dato entrada    : 2782 -- 
+17:50:58 > cantidad   : 1 -- 
+17:50:58 > dato entrada    : 2783 -- 
+17:50:58 > cantidad   : 1 -- 
+17:50:58 > dato entrada    : 2784 -- 
+17:50:58 > cantidad   : 1 -- 
+17:50:58 > dato entrada    : 2785 -- 
+17:50:58 > cantidad   : 1 -- 
+17:50:58 > paso: 348
+17:51:02 > id: 330
+17:51:02 > 9  -  0
+17:51:02 > paso: 330
+17:51:05 > id: 330
+17:51:05 > 9  -  1
+17:51:05 > dato entrada    : 2635 -- 
+17:51:05 > cantidad   : 1 -- 
+17:51:05 > dato entrada    : 2634 -- 
+17:51:05 > cantidad   : 1 -- 
+17:51:05 > dato entrada    : 2633 -- 
+17:51:05 > cantidad   : 1 -- 
+17:51:05 > dato entrada    : 2632 -- 
+17:51:05 > cantidad   : 1 -- 
+17:51:05 > dato entrada    : 2631 -- 
+17:51:05 > cantidad   : 1 -- 
+17:51:05 > dato entrada    : 2630 -- 
+17:51:05 > cantidad   : 1 -- 
+17:51:05 > dato entrada    : 2629 -- 
+17:51:05 > cantidad   : 1 -- 
+17:51:05 > dato entrada    : 2628 -- 
+17:51:05 > cantidad   : 1 -- 
+17:51:05 > dato entrada    : 2627 -- 
+17:51:05 > cantidad   : 1 -- 
+17:51:05 > mongo_se: 51783c37c8437ee72e00006b
+17:51:05 > estado_migracion: 2
+17:51:05 > id_mongo de seccion 51783c37c8437ee72e00006b
+17:51:05 > paso: 330
+17:51:16 > id: 331
+17:51:16 > 9  -  0
+17:51:16 > paso: 331
+17:51:20 > id: 331
+17:51:20 > 9  -  1
+17:51:20 > dato entrada    : 2644 -- 
+17:51:20 > cantidad   : 1 -- 
+17:51:20 > mongo_se: 51783c37c8437ee72e000066
+17:51:20 > estado_migracion: 2
+17:51:20 > id_mongo de seccion 51783c37c8437ee72e000066
+17:51:20 > dato entrada    : 2643 -- 
+17:51:20 > cantidad   : 1 -- 
+17:51:20 > dato entrada    : 2642 -- 
+17:51:20 > cantidad   : 1 -- 
+17:51:20 > dato entrada    : 2641 -- 
+17:51:20 > cantidad   : 1 -- 
+17:51:20 > mongo_se: 51783c37c8437ee72e000068
+17:51:20 > estado_migracion: 2
+17:51:20 > id_mongo de seccion 51783c37c8437ee72e000068
+17:51:20 > dato entrada    : 2640 -- 
+17:51:20 > cantidad   : 1 -- 
+17:51:20 > dato entrada    : 2639 -- 
+17:51:20 > cantidad   : 1 -- 
+17:51:20 > dato entrada    : 2638 -- 
+17:51:20 > cantidad   : 1 -- 
+17:51:20 > dato entrada    : 2637 -- 
+17:51:20 > cantidad   : 1 -- 
+17:51:20 > mongo_se: 51783c37c8437ee72e000069
+17:51:20 > estado_migracion: 2
+17:51:20 > id_mongo de seccion 51783c37c8437ee72e000069
+17:51:20 > dato entrada    : 2636 -- 
+17:51:20 > cantidad   : 1 -- 
+17:51:20 > mongo_se: 51783c37c8437ee72e00006a
+17:51:20 > estado_migracion: 2
+17:51:20 > id_mongo de seccion 51783c37c8437ee72e00006a
+17:51:20 > paso: 331
+17:51:23 > id: 345
+17:51:23 > 9  -  2
+17:51:23 > paso: 345
+17:51:29 > id: 345
+17:51:29 > 9  -  0
+17:51:29 > paso: 345
+17:51:33 > id: 345
+17:51:33 > 9  -  1
+17:51:33 > dato entrada    : 2752 -- 
+17:51:33 > cantidad   : 1 -- 
+17:51:33 > mongo_se: 51783c3ac8437ee72e000107
+17:51:33 > estado_migracion: 2
+17:51:33 > id_mongo de seccion 51783c3ac8437ee72e000107
+17:51:33 > dato entrada    : 2753 -- 
+17:51:33 > cantidad   : 1 -- 
+17:51:33 > mongo_se: 51783c3ac8437ee72e000108
+17:51:33 > estado_migracion: 2
+17:51:33 > id_mongo de seccion 51783c3ac8437ee72e000108
+17:51:33 > dato entrada    : 2754 -- 
+17:51:33 > cantidad   : 1 -- 
+17:51:33 > dato entrada    : 2755 -- 
+17:51:33 > cantidad   : 1 -- 
+17:51:33 > dato entrada    : 2756 -- 
+17:51:33 > cantidad   : 1 -- 
+17:51:33 > dato entrada    : 2757 -- 
+17:51:33 > cantidad   : 1 -- 
+17:51:33 > mongo_se: 51783c3ac8437ee72e000109
+17:51:33 > estado_migracion: 2
+17:51:33 > id_mongo de seccion 51783c3ac8437ee72e000109
+17:51:33 > dato entrada    : 2758 -- 
+17:51:33 > cantidad   : 1 -- 
+17:51:33 > dato entrada    : 2759 -- 
+17:51:33 > cantidad   : 1 -- 
+17:51:33 > dato entrada    : 2760 -- 
+17:51:33 > cantidad   : 1 -- 
+17:51:33 > mongo_se: 51783c3ac8437ee72e00010b
+17:51:33 > estado_migracion: 2
+17:51:33 > id_mongo de seccion 51783c3ac8437ee72e00010b
+17:51:33 > dato entrada    : 3190 -- 
+17:51:33 > cantidad   : 1 -- 
+17:51:33 > paso: 345
+17:51:45 > id: 320
+17:51:45 > 9  -  2
+17:51:45 > paso: 320
+17:51:48 > id: 320
+17:51:48 > 9  -  0
+17:51:48 > paso: 320
+17:51:49 > id: 320
+17:51:49 > 9  -  1
+17:51:49 > dato entrada    : 2551 -- 
+17:51:49 > cantidad   : 1 -- 
+17:51:49 > mongo_se: 51783c37c8437ee72e00008c
+17:51:49 > estado_migracion: 2
+17:51:49 > id_mongo de seccion 51783c37c8437ee72e00008c
+17:51:49 > dato entrada    : 2550 -- 
+17:51:49 > cantidad   : 1 -- 
+17:51:49 > dato entrada    : 2549 -- 
+17:51:49 > cantidad   : 1 -- 
+17:51:49 > dato entrada    : 2548 -- 
+17:51:49 > cantidad   : 1 -- 
+17:51:49 > mongo_se: 51783c38c8437ee72e00008e
+17:51:49 > estado_migracion: 2
+17:51:49 > id_mongo de seccion 51783c38c8437ee72e00008e
+17:51:50 > dato entrada    : 2547 -- 
+17:51:50 > cantidad   : 1 -- 
+17:51:50 > dato entrada    : 2546 -- 
+17:51:50 > cantidad   : 1 -- 
+17:51:50 > dato entrada    : 2545 -- 
+17:51:50 > cantidad   : 1 -- 
+17:51:50 > dato entrada    : 2544 -- 
+17:51:50 > cantidad   : 1 -- 
+17:51:50 > mongo_se: 51783c38c8437ee72e00008f
+17:51:50 > estado_migracion: 2
+17:51:50 > id_mongo de seccion 51783c38c8437ee72e00008f
+17:51:50 > dato entrada    : 2543 -- 
+17:51:50 > cantidad   : 1 -- 
+17:51:50 > mongo_se: 51783c38c8437ee72e000090
+17:51:50 > estado_migracion: 2
+17:51:50 > id_mongo de seccion 51783c38c8437ee72e000090
+17:51:50 > paso: 320
+17:51:54 > id: 299
+17:51:54 > 9  -  2
+17:51:54 > paso: 299
+17:51:56 > id: 299
+17:51:56 > 9  -  0
+17:51:56 > paso: 299
+17:51:58 > id: 299
+17:51:58 > 9  -  1
+17:51:58 > dato entrada    : 2380 -- 
+17:51:58 > cantidad   : 1 -- 
+17:51:58 > mongo_se: 51783c3ac8437ee72e0000ef
+17:51:58 > estado_migracion: 2
+17:51:58 > id_mongo de seccion 51783c3ac8437ee72e0000ef
+17:51:58 > dato entrada    : 2379 -- 
+17:51:58 > cantidad   : 1 -- 
+17:51:58 > dato entrada    : 2378 -- 
+17:51:58 > cantidad   : 1 -- 
+17:51:58 > dato entrada    : 2377 -- 
+17:51:58 > cantidad   : 1 -- 
+17:51:58 > mongo_se: 51783c3ac8437ee72e0000f1
+17:51:58 > estado_migracion: 2
+17:51:58 > id_mongo de seccion 51783c3ac8437ee72e0000f1
+17:51:58 > dato entrada    : 2376 -- 
+17:51:58 > cantidad   : 1 -- 
+17:51:58 > dato entrada    : 2375 -- 
+17:51:58 > cantidad   : 1 -- 
+17:51:58 > mongo_se: 51783c3ac8437ee72e0000f2
+17:51:58 > estado_migracion: 2
+17:51:58 > id_mongo de seccion 51783c3ac8437ee72e0000f2
+17:51:58 > dato entrada    : 2374 -- 
+17:51:58 > cantidad   : 1 -- 
+17:51:58 > dato entrada    : 2373 -- 
+17:51:58 > cantidad   : 1 -- 
+17:51:58 > mongo_se: 51783c3ac8437ee72e0000f3
+17:51:58 > estado_migracion: 2
+17:51:58 > id_mongo de seccion 51783c3ac8437ee72e0000f3
+17:51:58 > dato entrada    : 2372 -- 
+17:51:58 > cantidad   : 1 -- 
+17:51:58 > mongo_se: 51783c3ac8437ee72e0000f4
+17:51:58 > estado_migracion: 2
+17:51:58 > id_mongo de seccion 51783c3ac8437ee72e0000f4
+17:51:58 > dato entrada    : 2954 -- 
+17:51:58 > cantidad   : 1 -- 
+17:51:58 > paso: 299
+18:05:55 > id: 351
+18:05:55 > 9  -  2
+18:05:55 > paso: 351
+18:05:58 > id: 351
+18:05:58 > 9  -  0
+18:05:58 > paso: 351
+18:06:00 > id: 351
+18:06:00 > 9  -  1
+18:06:00 > dato entrada    : 2810 -- 
+18:06:00 > cantidad   : 1 -- 
+18:06:00 > paso: 351
+18:06:03 > id: 343
+18:06:03 > 9  -  2
+18:06:03 > paso: 343
+18:06:05 > id: 343
+18:06:05 > 9  -  0
+18:06:06 > paso: 343
+18:06:08 > id: 343
+18:06:08 > 9  -  1
+18:06:08 > dato entrada    : 2734 -- 
+18:06:08 > cantidad   : 1 -- 
+18:06:08 > mongo_se: 51783c3ac8437ee72e000105
+18:06:08 > estado_migracion: 2
+18:06:08 > id_mongo de seccion 51783c3ac8437ee72e000105
+18:06:08 > dato entrada    : 2735 -- 
+18:06:08 > cantidad   : 1 -- 
+18:06:08 > dato entrada    : 2736 -- 
+18:06:08 > cantidad   : 1 -- 
+18:06:08 > dato entrada    : 2737 -- 
+18:06:08 > cantidad   : 1 -- 
+18:06:08 > dato entrada    : 2738 -- 
+18:06:08 > cantidad   : 1 -- 
+18:06:08 > dato entrada    : 2739 -- 
+18:06:08 > cantidad   : 1 -- 
+18:06:08 > dato entrada    : 2740 -- 
+18:06:08 > cantidad   : 1 -- 
+18:06:08 > dato entrada    : 2741 -- 
+18:06:08 > cantidad   : 1 -- 
+18:06:08 > dato entrada    : 2742 -- 
+18:06:08 > cantidad   : 1 -- 
+18:06:08 > paso: 343
+18:07:16 > id: 351
+18:07:16 > 9  -  2
+18:07:16 > paso: 351
+18:07:19 > id: 351
+18:07:19 > 9  -  0
+18:07:19 > paso: 351
+18:07:20 > id: 351
+18:07:20 > 9  -  1
+18:07:20 > dato entrada    : 2810 -- 
+18:07:20 > cantidad   : 1 -- 
+18:07:20 > paso: 351
+18:07:22 > id: 343
+18:07:22 > 9  -  2
+18:07:22 > paso: 343
+18:07:24 > id: 343
+18:07:24 > 9  -  0
+18:07:24 > paso: 343
+18:07:26 > id: 343
+18:07:26 > 9  -  1
+18:07:26 > dato entrada    : 2734 -- 
+18:07:26 > cantidad   : 1 -- 
+18:07:26 > mongo_se: 51783c3ac8437ee72e000105
+18:07:26 > estado_migracion: 2
+18:07:26 > id_mongo de seccion 51783c3ac8437ee72e000105
+18:07:26 > dato entrada    : 2735 -- 
+18:07:26 > cantidad   : 1 -- 
+18:07:26 > dato entrada    : 2736 -- 
+18:07:26 > cantidad   : 1 -- 
+18:07:26 > dato entrada    : 2737 -- 
+18:07:26 > cantidad   : 1 -- 
+18:07:26 > dato entrada    : 2738 -- 
+18:07:26 > cantidad   : 1 -- 
+18:07:26 > dato entrada    : 2739 -- 
+18:07:26 > cantidad   : 1 -- 
+18:07:26 > dato entrada    : 2740 -- 
+18:07:26 > cantidad   : 1 -- 
+18:07:26 > dato entrada    : 2741 -- 
+18:07:26 > cantidad   : 1 -- 
+18:07:26 > dato entrada    : 2742 -- 
+18:07:26 > cantidad   : 1 -- 
+18:07:26 > paso: 343
+18:07:29 > id: 344
+18:07:29 > 9  -  2
+18:07:29 > paso: 344
+18:07:31 > id: 344
+18:07:31 > 9  -  0
+18:07:31 > paso: 344
+18:07:32 > id: 344
+18:07:32 > 9  -  1
+18:07:32 > dato entrada    : 2743 -- 
+18:07:32 > cantidad   : 1 -- 
+18:07:32 > mongo_se: 51783c3ac8437ee72e000106
+18:07:32 > estado_migracion: 2
+18:07:32 > id_mongo de seccion 51783c3ac8437ee72e000106
+18:07:32 > dato entrada    : 2744 -- 
+18:07:32 > cantidad   : 1 -- 
+18:07:32 > dato entrada    : 2745 -- 
+18:07:32 > cantidad   : 1 -- 
+18:07:32 > dato entrada    : 2746 -- 
+18:07:32 > cantidad   : 1 -- 
+18:07:32 > dato entrada    : 2747 -- 
+18:07:32 > cantidad   : 1 -- 
+18:07:32 > dato entrada    : 2748 -- 
+18:07:32 > cantidad   : 1 -- 
+18:07:32 > dato entrada    : 2749 -- 
+18:07:32 > cantidad   : 1 -- 
+18:07:32 > dato entrada    : 2750 -- 
+18:07:32 > cantidad   : 1 -- 
+18:07:32 > dato entrada    : 2751 -- 
+18:07:32 > cantidad   : 1 -- 
+18:07:32 > paso: 344
+18:07:35 > id: 348
+18:07:35 > 9  -  2
+18:07:35 > paso: 348
+18:07:37 > id: 348
+18:07:37 > 9  -  0
+18:07:37 > paso: 348
+18:07:39 > id: 348
+18:07:39 > 9  -  1
+18:07:39 > dato entrada    : 2777 -- 
+18:07:39 > cantidad   : 1 -- 
+18:07:39 > mongo_se: 51783c3bc8437ee72e000116
+18:07:39 > estado_migracion: 2
+18:07:39 > id_mongo de seccion 51783c3bc8437ee72e000116
+18:07:39 > dato entrada    : 2778 -- 
+18:07:39 > cantidad   : 1 -- 
+18:07:39 > dato entrada    : 2779 -- 
+18:07:39 > cantidad   : 1 -- 
+18:07:39 > dato entrada    : 2780 -- 
+18:07:39 > cantidad   : 1 -- 
+18:07:39 > dato entrada    : 2781 -- 
+18:07:39 > cantidad   : 1 -- 
+18:07:39 > dato entrada    : 2782 -- 
+18:07:39 > cantidad   : 1 -- 
+18:07:39 > dato entrada    : 2783 -- 
+18:07:39 > cantidad   : 1 -- 
+18:07:39 > dato entrada    : 2784 -- 
+18:07:39 > cantidad   : 1 -- 
+18:07:39 > dato entrada    : 2785 -- 
+18:07:39 > cantidad   : 1 -- 
+18:07:39 > paso: 348
+18:07:43 > id: 330
+18:07:43 > 9  -  2
+18:07:43 > paso: 330
+18:07:47 > id: 330
+18:07:47 > 9  -  0
+18:07:47 > paso: 330
+18:07:49 > id: 330
+18:07:49 > 9  -  1
+18:07:49 > dato entrada    : 2635 -- 
+18:07:49 > cantidad   : 1 -- 
+18:07:49 > dato entrada    : 2634 -- 
+18:07:49 > cantidad   : 1 -- 
+18:07:49 > dato entrada    : 2633 -- 
+18:07:49 > cantidad   : 1 -- 
+18:07:49 > dato entrada    : 2632 -- 
+18:07:49 > cantidad   : 1 -- 
+18:07:49 > dato entrada    : 2631 -- 
+18:07:49 > cantidad   : 1 -- 
+18:07:49 > dato entrada    : 2630 -- 
+18:07:49 > cantidad   : 1 -- 
+18:07:49 > dato entrada    : 2629 -- 
+18:07:49 > cantidad   : 1 -- 
+18:07:49 > dato entrada    : 2628 -- 
+18:07:49 > cantidad   : 1 -- 
+18:07:49 > dato entrada    : 2627 -- 
+18:07:49 > cantidad   : 1 -- 
+18:07:49 > mongo_se: 51783c37c8437ee72e00006b
+18:07:49 > estado_migracion: 2
+18:07:49 > id_mongo de seccion 51783c37c8437ee72e00006b
+18:07:49 > paso: 330
+18:08:10 > id: 329
+18:08:10 > 9  -  2
+18:08:10 > paso: 329
+18:08:12 > id: 329
+18:08:12 > 9  -  0
+18:08:12 > paso: 329
+18:08:14 > id: 329
+18:08:14 > 9  -  1
+18:08:14 > dato entrada    : 2626 -- 
+18:08:14 > cantidad   : 1 -- 
+18:08:14 > dato entrada    : 2625 -- 
+18:08:14 > cantidad   : 1 -- 
+18:08:14 > dato entrada    : 2624 -- 
+18:08:14 > cantidad   : 1 -- 
+18:08:14 > dato entrada    : 2623 -- 
+18:08:14 > cantidad   : 1 -- 
+18:08:14 > dato entrada    : 2622 -- 
+18:08:14 > cantidad   : 1 -- 
+18:08:14 > dato entrada    : 2621 -- 
+18:08:14 > cantidad   : 1 -- 
+18:08:14 > dato entrada    : 2620 -- 
+18:08:14 > cantidad   : 1 -- 
+18:08:14 > dato entrada    : 2619 -- 
+18:08:14 > cantidad   : 1 -- 
+18:08:14 > dato entrada    : 2618 -- 
+18:08:14 > cantidad   : 1 -- 
+18:08:14 > mongo_se: 51783c37c8437ee72e00006c
+18:08:14 > estado_migracion: 2
+18:08:14 > id_mongo de seccion 51783c37c8437ee72e00006c
+18:08:14 > paso: 329
+18:08:17 > id: 299
+18:08:17 > 9  -  2
+18:08:17 > paso: 299
+18:08:19 > id: 299
+18:08:19 > 9  -  0
+18:08:19 > paso: 299
+18:08:20 > id: 299
+18:08:20 > 9  -  1
+18:08:20 > dato entrada    : 2380 -- 
+18:08:20 > cantidad   : 1 -- 
+18:08:20 > mongo_se: 51783c3ac8437ee72e0000ef
+18:08:20 > estado_migracion: 2
+18:08:20 > id_mongo de seccion 51783c3ac8437ee72e0000ef
+18:08:20 > dato entrada    : 2379 -- 
+18:08:20 > cantidad   : 1 -- 
+18:08:20 > dato entrada    : 2378 -- 
+18:08:20 > cantidad   : 1 -- 
+18:08:20 > dato entrada    : 2377 -- 
+18:08:20 > cantidad   : 1 -- 
+18:08:20 > mongo_se: 51783c3ac8437ee72e0000f1
+18:08:20 > estado_migracion: 2
+18:08:20 > id_mongo de seccion 51783c3ac8437ee72e0000f1
+18:08:20 > dato entrada    : 2376 -- 
+18:08:20 > cantidad   : 1 -- 
+18:08:20 > dato entrada    : 2375 -- 
+18:08:20 > cantidad   : 1 -- 
+18:08:20 > mongo_se: 51783c3ac8437ee72e0000f2
+18:08:20 > estado_migracion: 2
+18:08:20 > id_mongo de seccion 51783c3ac8437ee72e0000f2
+18:08:20 > dato entrada    : 2374 -- 
+18:08:20 > cantidad   : 1 -- 
+18:08:20 > dato entrada    : 2373 -- 
+18:08:20 > cantidad   : 1 -- 
+18:08:20 > mongo_se: 51783c3ac8437ee72e0000f3
+18:08:20 > estado_migracion: 2
+18:08:20 > id_mongo de seccion 51783c3ac8437ee72e0000f3
+18:08:21 > dato entrada    : 2372 -- 
+18:08:21 > cantidad   : 1 -- 
+18:08:21 > mongo_se: 51783c3ac8437ee72e0000f4
+18:08:21 > estado_migracion: 2
+18:08:21 > id_mongo de seccion 51783c3ac8437ee72e0000f4
+18:08:21 > dato entrada    : 2954 -- 
+18:08:21 > cantidad   : 1 -- 
+18:08:21 > paso: 299
+18:08:26 > id: 320
+18:08:26 > 9  -  2
+18:08:26 > paso: 320
+18:08:28 > id: 320
+18:08:28 > 9  -  0
+18:08:28 > paso: 320
+18:08:30 > id: 320
+18:08:30 > 9  -  1
+18:08:30 > dato entrada    : 2551 -- 
+18:08:30 > cantidad   : 1 -- 
+18:08:30 > mongo_se: 51783c37c8437ee72e00008c
+18:08:30 > estado_migracion: 2
+18:08:30 > id_mongo de seccion 51783c37c8437ee72e00008c
+18:08:30 > dato entrada    : 2550 -- 
+18:08:30 > cantidad   : 1 -- 
+18:08:30 > dato entrada    : 2549 -- 
+18:08:30 > cantidad   : 1 -- 
+18:08:30 > dato entrada    : 2548 -- 
+18:08:30 > cantidad   : 1 -- 
+18:08:30 > mongo_se: 51783c38c8437ee72e00008e
+18:08:30 > estado_migracion: 2
+18:08:30 > id_mongo de seccion 51783c38c8437ee72e00008e
+18:08:30 > dato entrada    : 2547 -- 
+18:08:30 > cantidad   : 1 -- 
+18:08:30 > dato entrada    : 2546 -- 
+18:08:30 > cantidad   : 1 -- 
+18:08:30 > dato entrada    : 2545 -- 
+18:08:30 > cantidad   : 1 -- 
+18:08:30 > dato entrada    : 2544 -- 
+18:08:30 > cantidad   : 1 -- 
+18:08:30 > mongo_se: 51783c38c8437ee72e00008f
+18:08:30 > estado_migracion: 2
+18:08:30 > id_mongo de seccion 51783c38c8437ee72e00008f
+18:08:30 > dato entrada    : 2543 -- 
+18:08:30 > cantidad   : 1 -- 
+18:08:30 > mongo_se: 51783c38c8437ee72e000090
+18:08:30 > estado_migracion: 2
+18:08:30 > id_mongo de seccion 51783c38c8437ee72e000090
+18:08:30 > paso: 320
+18:08:35 > id: 341
+18:08:35 > 9  -  0
+18:08:35 > paso: 341
+18:08:37 > id: 341
+18:08:37 > 9  -  1
+18:08:37 > dato entrada    : 2717 -- 
+18:08:37 > cantidad   : 1 -- 
+18:08:37 > mongo_se: 51783c3ac8437ee72e0000fc
+18:08:37 > estado_migracion: 2
+18:08:37 > id_mongo de seccion 51783c3ac8437ee72e0000fc
+18:08:37 > dato entrada    : 2718 -- 
+18:08:37 > cantidad   : 1 -- 
+18:08:37 > mongo_se: 51783c3ac8437ee72e0000fd
+18:08:37 > estado_migracion: 2
+18:08:37 > id_mongo de seccion 51783c3ac8437ee72e0000fd
+18:08:37 > dato entrada    : 2719 -- 
+18:08:37 > cantidad   : 1 -- 
+18:08:37 > dato entrada    : 2720 -- 
+18:08:37 > cantidad   : 1 -- 
+18:08:37 > dato entrada    : 2721 -- 
+18:08:37 > cantidad   : 1 -- 
+18:08:37 > dato entrada    : 2722 -- 
+18:08:37 > cantidad   : 1 -- 
+18:08:37 > mongo_se: 51783c3ac8437ee72e0000fe
+18:08:37 > estado_migracion: 2
+18:08:37 > id_mongo de seccion 51783c3ac8437ee72e0000fe
+18:08:37 > dato entrada    : 2723 -- 
+18:08:37 > cantidad   : 1 -- 
+18:08:37 > dato entrada    : 2724 -- 
+18:08:37 > cantidad   : 1 -- 
+18:08:37 > dato entrada    : 2725 -- 
+18:08:37 > cantidad   : 1 -- 
+18:08:37 > mongo_se: 51783c3ac8437ee72e000100
+18:08:37 > estado_migracion: 2
+18:08:37 > id_mongo de seccion 51783c3ac8437ee72e000100
+18:08:37 > paso: 341
+18:13:04 > id: 351
+18:13:04 > 9  -  2
+18:13:04 > paso: 351
+18:13:06 > id: 351
+18:13:06 > 9  -  0
+18:13:06 > paso: 351
+18:13:08 > id: 351
+18:13:08 > 9  -  1
+18:13:08 > dato entrada    : 2810 -- 
+18:13:08 > cantidad   : 1 -- 
+18:13:08 > paso: 351
+18:13:12 > id: 343
+18:13:12 > 9  -  2
+18:13:12 > paso: 343
+18:13:13 > id: 343
+18:13:13 > 9  -  0
+18:13:13 > paso: 343
+18:13:15 > id: 343
+18:13:15 > 9  -  1
+18:13:15 > dato entrada    : 2734 -- 
+18:13:15 > cantidad   : 1 -- 
+18:13:15 > mongo_se: 51783c3ac8437ee72e000105
+18:13:15 > estado_migracion: 2
+18:13:15 > id_mongo de seccion 51783c3ac8437ee72e000105
+18:13:15 > dato entrada    : 2735 -- 
+18:13:15 > cantidad   : 1 -- 
+18:13:15 > dato entrada    : 2736 -- 
+18:13:15 > cantidad   : 1 -- 
+18:13:15 > dato entrada    : 2737 -- 
+18:13:15 > cantidad   : 1 -- 
+18:13:15 > dato entrada    : 2738 -- 
+18:13:15 > cantidad   : 1 -- 
+18:13:15 > dato entrada    : 2739 -- 
+18:13:15 > cantidad   : 1 -- 
+18:13:15 > dato entrada    : 2740 -- 
+18:13:15 > cantidad   : 1 -- 
+18:13:15 > dato entrada    : 2741 -- 
+18:13:15 > cantidad   : 1 -- 
+18:13:15 > dato entrada    : 2742 -- 
+18:13:15 > cantidad   : 1 -- 
+18:13:15 > paso: 343
+18:13:17 > id: 344
+18:13:17 > 9  -  2
+18:13:17 > paso: 344
+18:13:19 > id: 344
+18:13:19 > 9  -  0
+18:13:19 > paso: 344
+18:13:20 > id: 344
+18:13:20 > 9  -  1
+18:13:20 > dato entrada    : 2743 -- 
+18:13:20 > cantidad   : 1 -- 
+18:13:20 > mongo_se: 51783c3ac8437ee72e000106
+18:13:20 > estado_migracion: 2
+18:13:20 > id_mongo de seccion 51783c3ac8437ee72e000106
+18:13:20 > dato entrada    : 2744 -- 
+18:13:20 > cantidad   : 1 -- 
+18:13:20 > dato entrada    : 2745 -- 
+18:13:20 > cantidad   : 1 -- 
+18:13:20 > dato entrada    : 2746 -- 
+18:13:20 > cantidad   : 1 -- 
+18:13:20 > dato entrada    : 2747 -- 
+18:13:20 > cantidad   : 1 -- 
+18:13:20 > dato entrada    : 2748 -- 
+18:13:20 > cantidad   : 1 -- 
+18:13:20 > dato entrada    : 2749 -- 
+18:13:20 > cantidad   : 1 -- 
+18:13:20 > dato entrada    : 2750 -- 
+18:13:20 > cantidad   : 1 -- 
+18:13:20 > dato entrada    : 2751 -- 
+18:13:20 > cantidad   : 1 -- 
+18:13:20 > paso: 344
+18:13:23 > id: 348
+18:13:23 > 9  -  2
+18:13:23 > paso: 348
+18:13:25 > id: 348
+18:13:25 > 9  -  0
+18:13:25 > paso: 348
+18:13:26 > id: 348
+18:13:26 > 9  -  1
+18:13:26 > dato entrada    : 2777 -- 
+18:13:26 > cantidad   : 1 -- 
+18:13:26 > mongo_se: 51783c3bc8437ee72e000116
+18:13:26 > estado_migracion: 2
+18:13:26 > id_mongo de seccion 51783c3bc8437ee72e000116
+18:13:26 > dato entrada    : 2778 -- 
+18:13:26 > cantidad   : 1 -- 
+18:13:26 > dato entrada    : 2779 -- 
+18:13:26 > cantidad   : 1 -- 
+18:13:26 > dato entrada    : 2780 -- 
+18:13:26 > cantidad   : 1 -- 
+18:13:26 > dato entrada    : 2781 -- 
+18:13:26 > cantidad   : 1 -- 
+18:13:26 > dato entrada    : 2782 -- 
+18:13:26 > cantidad   : 1 -- 
+18:13:26 > dato entrada    : 2783 -- 
+18:13:26 > cantidad   : 1 -- 
+18:13:26 > dato entrada    : 2784 -- 
+18:13:26 > cantidad   : 1 -- 
+18:13:26 > dato entrada    : 2785 -- 
+18:13:26 > cantidad   : 1 -- 
+18:13:26 > paso: 348
+18:13:42 > id: 330
+18:13:42 > 9  -  2
+18:13:42 > paso: 330
+18:13:44 > id: 330
+18:13:44 > 9  -  0
+18:13:44 > paso: 330
+18:13:45 > id: 330
+18:13:45 > 9  -  1
+18:13:45 > dato entrada    : 2635 -- 
+18:13:45 > cantidad   : 1 -- 
+18:13:45 > dato entrada    : 2634 -- 
+18:13:45 > cantidad   : 1 -- 
+18:13:45 > dato entrada    : 2633 -- 
+18:13:45 > cantidad   : 1 -- 
+18:13:45 > dato entrada    : 2632 -- 
+18:13:45 > cantidad   : 1 -- 
+18:13:45 > dato entrada    : 2631 -- 
+18:13:45 > cantidad   : 1 -- 
+18:13:45 > dato entrada    : 2630 -- 
+18:13:45 > cantidad   : 1 -- 
+18:13:45 > dato entrada    : 2629 -- 
+18:13:45 > cantidad   : 1 -- 
+18:13:45 > dato entrada    : 2628 -- 
+18:13:45 > cantidad   : 1 -- 
+18:13:45 > dato entrada    : 2627 -- 
+18:13:45 > cantidad   : 1 -- 
+18:13:45 > mongo_se: 51783c37c8437ee72e00006b
+18:13:45 > estado_migracion: 2
+18:13:45 > id_mongo de seccion 51783c37c8437ee72e00006b
+18:13:45 > paso: 330
+18:13:51 > id: 329
+18:13:51 > 9  -  2
+18:13:51 > paso: 329
+18:13:52 > id: 329
+18:13:52 > 9  -  0
+18:13:52 > paso: 329
+18:13:54 > id: 329
+18:13:54 > 9  -  1
+18:13:54 > dato entrada    : 2626 -- 
+18:13:54 > cantidad   : 1 -- 
+18:13:54 > dato entrada    : 2625 -- 
+18:13:54 > cantidad   : 1 -- 
+18:13:54 > dato entrada    : 2624 -- 
+18:13:54 > cantidad   : 1 -- 
+18:13:54 > dato entrada    : 2623 -- 
+18:13:54 > cantidad   : 1 -- 
+18:13:54 > dato entrada    : 2622 -- 
+18:13:54 > cantidad   : 1 -- 
+18:13:54 > dato entrada    : 2621 -- 
+18:13:54 > cantidad   : 1 -- 
+18:13:54 > dato entrada    : 2620 -- 
+18:13:54 > cantidad   : 1 -- 
+18:13:54 > dato entrada    : 2619 -- 
+18:13:54 > cantidad   : 1 -- 
+18:13:54 > dato entrada    : 2618 -- 
+18:13:54 > cantidad   : 1 -- 
+18:13:54 > mongo_se: 51783c37c8437ee72e00006c
+18:13:54 > estado_migracion: 2
+18:13:54 > id_mongo de seccion 51783c37c8437ee72e00006c
+18:13:54 > paso: 329
+18:13:55 > id: 349
+18:13:55 > 9  -  2
+18:13:55 > paso: 349
+18:13:59 > id: 349
+18:13:59 > 9  -  0
+18:13:59 > paso: 349
+18:14:01 > id: 349
+18:14:01 > 9  -  1
+18:14:01 > dato entrada    : 2786 -- 
+18:14:01 > cantidad   : 1 -- 
+18:14:01 > mongo_se: 51783c3bc8437ee72e000117
+18:14:01 > estado_migracion: 2
+18:14:01 > id_mongo de seccion 51783c3bc8437ee72e000117
+18:14:01 > dato entrada    : 2787 -- 
+18:14:01 > cantidad   : 1 -- 
+18:14:01 > dato entrada    : 2788 -- 
+18:14:01 > cantidad   : 1 -- 
+18:14:01 > dato entrada    : 2789 -- 
+18:14:01 > cantidad   : 1 -- 
+18:14:01 > dato entrada    : 2790 -- 
+18:14:01 > cantidad   : 1 -- 
+18:14:01 > dato entrada    : 2791 -- 
+18:14:01 > cantidad   : 1 -- 
+18:14:01 > dato entrada    : 2792 -- 
+18:14:01 > cantidad   : 1 -- 
+18:14:01 > dato entrada    : 2793 -- 
+18:14:01 > cantidad   : 1 -- 
+18:14:01 > dato entrada    : 2794 -- 
+18:14:01 > cantidad   : 1 -- 
+18:14:01 > paso: 349
+18:14:06 > id: 299
+18:14:06 > 9  -  2
+18:14:06 > paso: 299
+18:14:07 > id: 299
+18:14:07 > 9  -  0
+18:14:07 > paso: 299
+18:14:11 > id: 299
+18:14:11 > 9  -  1
+18:14:11 > dato entrada    : 2380 -- 
+18:14:11 > cantidad   : 1 -- 
+18:14:11 > mongo_se: 51783c3ac8437ee72e0000ef
+18:14:11 > estado_migracion: 2
+18:14:11 > id_mongo de seccion 51783c3ac8437ee72e0000ef
+18:14:11 > dato entrada    : 2379 -- 
+18:14:11 > cantidad   : 1 -- 
+18:14:11 > dato entrada    : 2378 -- 
+18:14:11 > cantidad   : 1 -- 
+18:14:11 > dato entrada    : 2377 -- 
+18:14:11 > cantidad   : 1 -- 
+18:14:11 > mongo_se: 51783c3ac8437ee72e0000f1
+18:14:11 > estado_migracion: 2
+18:14:11 > id_mongo de seccion 51783c3ac8437ee72e0000f1
+18:14:11 > dato entrada    : 2376 -- 
+18:14:11 > cantidad   : 1 -- 
+18:14:11 > dato entrada    : 2375 -- 
+18:14:11 > cantidad   : 1 -- 
+18:14:11 > mongo_se: 51783c3ac8437ee72e0000f2
+18:14:11 > estado_migracion: 2
+18:14:11 > id_mongo de seccion 51783c3ac8437ee72e0000f2
+18:14:11 > dato entrada    : 2374 -- 
+18:14:11 > cantidad   : 1 -- 
+18:14:11 > dato entrada    : 2373 -- 
+18:14:11 > cantidad   : 1 -- 
+18:14:11 > mongo_se: 51783c3ac8437ee72e0000f3
+18:14:11 > estado_migracion: 2
+18:14:11 > id_mongo de seccion 51783c3ac8437ee72e0000f3
+18:14:11 > dato entrada    : 2372 -- 
+18:14:11 > cantidad   : 1 -- 
+18:14:11 > mongo_se: 51783c3ac8437ee72e0000f4
+18:14:11 > estado_migracion: 2
+18:14:11 > id_mongo de seccion 51783c3ac8437ee72e0000f4
+18:14:11 > dato entrada    : 2954 -- 
+18:14:11 > cantidad   : 1 -- 
+18:14:11 > paso: 299
+18:14:33 > id: 401
+18:14:33 > 9  -  2
+18:14:33 > paso: 401
+18:15:03 > id: 329
+18:15:03 > 9  -  2
+18:15:03 > paso: 329
+18:15:05 > id: 329
+18:15:05 > 9  -  0
+18:15:05 > paso: 329
+18:15:07 > id: 329
+18:15:07 > 9  -  1
+18:15:07 > dato entrada    : 2626 -- 
+18:15:07 > cantidad   : 1 -- 
+18:15:07 > dato entrada    : 2625 -- 
+18:15:07 > cantidad   : 1 -- 
+18:15:07 > dato entrada    : 2624 -- 
+18:15:07 > cantidad   : 1 -- 
+18:15:07 > dato entrada    : 2623 -- 
+18:15:07 > cantidad   : 1 -- 
+18:15:07 > dato entrada    : 2622 -- 
+18:15:07 > cantidad   : 1 -- 
+18:15:07 > dato entrada    : 2621 -- 
+18:15:07 > cantidad   : 1 -- 
+18:15:07 > dato entrada    : 2620 -- 
+18:15:07 > cantidad   : 1 -- 
+18:15:07 > dato entrada    : 2619 -- 
+18:15:07 > cantidad   : 1 -- 
+18:15:07 > dato entrada    : 2618 -- 
+18:15:07 > cantidad   : 1 -- 
+18:15:07 > mongo_se: 51783c37c8437ee72e00006c
+18:15:07 > estado_migracion: 2
+18:15:07 > id_mongo de seccion 51783c37c8437ee72e00006c
+18:15:07 > paso: 329
+18:15:10 > id: 299
+18:15:10 > 9  -  2
+18:15:10 > paso: 299
+18:15:12 > id: 299
+18:15:12 > 9  -  0
+18:15:12 > paso: 299
+18:15:13 > id: 299
+18:15:13 > 9  -  1
+18:15:13 > dato entrada    : 2380 -- 
+18:15:13 > cantidad   : 1 -- 
+18:15:13 > mongo_se: 51783c3ac8437ee72e0000ef
+18:15:13 > estado_migracion: 2
+18:15:13 > id_mongo de seccion 51783c3ac8437ee72e0000ef
+18:15:13 > dato entrada    : 2379 -- 
+18:15:13 > cantidad   : 1 -- 
+18:15:13 > dato entrada    : 2378 -- 
+18:15:13 > cantidad   : 1 -- 
+18:15:13 > dato entrada    : 2377 -- 
+18:15:13 > cantidad   : 1 -- 
+18:15:13 > mongo_se: 51783c3ac8437ee72e0000f1
+18:15:13 > estado_migracion: 2
+18:15:13 > id_mongo de seccion 51783c3ac8437ee72e0000f1
+18:15:13 > dato entrada    : 2376 -- 
+18:15:13 > cantidad   : 1 -- 
+18:15:13 > dato entrada    : 2375 -- 
+18:15:13 > cantidad   : 1 -- 
+18:15:13 > mongo_se: 51783c3ac8437ee72e0000f2
+18:15:13 > estado_migracion: 2
+18:15:13 > id_mongo de seccion 51783c3ac8437ee72e0000f2
+18:15:13 > dato entrada    : 2374 -- 
+18:15:13 > cantidad   : 1 -- 
+18:15:13 > dato entrada    : 2373 -- 
+18:15:13 > cantidad   : 1 -- 
+18:15:13 > mongo_se: 51783c3ac8437ee72e0000f3
+18:15:13 > estado_migracion: 2
+18:15:13 > id_mongo de seccion 51783c3ac8437ee72e0000f3
+18:15:14 > dato entrada    : 2372 -- 
+18:15:14 > cantidad   : 1 -- 
+18:15:14 > mongo_se: 51783c3ac8437ee72e0000f4
+18:15:14 > estado_migracion: 2
+18:15:14 > id_mongo de seccion 51783c3ac8437ee72e0000f4
+18:15:14 > dato entrada    : 2954 -- 
+18:15:14 > cantidad   : 1 -- 
+18:15:14 > paso: 299
+18:15:16 > id: 320
+18:15:16 > 9  -  2
+18:15:16 > paso: 320
+18:15:17 > id: 320
+18:15:17 > 9  -  0
+18:15:17 > paso: 320
+18:15:19 > id: 320
+18:15:19 > 9  -  1
+18:15:19 > dato entrada    : 2551 -- 
+18:15:19 > cantidad   : 1 -- 
+18:15:19 > mongo_se: 51783c37c8437ee72e00008c
+18:15:19 > estado_migracion: 2
+18:15:19 > id_mongo de seccion 51783c37c8437ee72e00008c
+18:15:19 > dato entrada    : 2550 -- 
+18:15:19 > cantidad   : 1 -- 
+18:15:19 > dato entrada    : 2549 -- 
+18:15:19 > cantidad   : 1 -- 
+18:15:19 > dato entrada    : 2548 -- 
+18:15:19 > cantidad   : 1 -- 
+18:15:19 > mongo_se: 51783c38c8437ee72e00008e
+18:15:19 > estado_migracion: 2
+18:15:19 > id_mongo de seccion 51783c38c8437ee72e00008e
+18:15:19 > dato entrada    : 2547 -- 
+18:15:19 > cantidad   : 1 -- 
+18:15:19 > dato entrada    : 2546 -- 
+18:15:19 > cantidad   : 1 -- 
+18:15:19 > dato entrada    : 2545 -- 
+18:15:19 > cantidad   : 1 -- 
+18:15:19 > dato entrada    : 2544 -- 
+18:15:19 > cantidad   : 1 -- 
+18:15:19 > mongo_se: 51783c38c8437ee72e00008f
+18:15:19 > estado_migracion: 2
+18:15:19 > id_mongo de seccion 51783c38c8437ee72e00008f
+18:15:19 > dato entrada    : 2543 -- 
+18:15:19 > cantidad   : 1 -- 
+18:15:19 > mongo_se: 51783c38c8437ee72e000090
+18:15:19 > estado_migracion: 2
+18:15:19 > id_mongo de seccion 51783c38c8437ee72e000090
+18:15:19 > paso: 320
+18:15:21 > id: 341
+18:15:21 > 9  -  2
+18:15:21 > paso: 341
+18:15:23 > id: 341
+18:15:23 > 9  -  0
+18:15:23 > paso: 341
+18:15:24 > id: 341
+18:15:24 > 9  -  1
+18:15:24 > dato entrada    : 2717 -- 
+18:15:24 > cantidad   : 1 -- 
+18:15:24 > mongo_se: 51783c3ac8437ee72e0000fc
+18:15:24 > estado_migracion: 2
+18:15:24 > id_mongo de seccion 51783c3ac8437ee72e0000fc
+18:15:24 > dato entrada    : 2718 -- 
+18:15:24 > cantidad   : 1 -- 
+18:15:24 > mongo_se: 51783c3ac8437ee72e0000fd
+18:15:24 > estado_migracion: 2
+18:15:24 > id_mongo de seccion 51783c3ac8437ee72e0000fd
+18:15:24 > dato entrada    : 2719 -- 
+18:15:24 > cantidad   : 1 -- 
+18:15:24 > dato entrada    : 2720 -- 
+18:15:24 > cantidad   : 1 -- 
+18:15:24 > dato entrada    : 2721 -- 
+18:15:24 > cantidad   : 1 -- 
+18:15:24 > dato entrada    : 2722 -- 
+18:15:24 > cantidad   : 1 -- 
+18:15:24 > mongo_se: 51783c3ac8437ee72e0000fe
+18:15:24 > estado_migracion: 2
+18:15:24 > id_mongo de seccion 51783c3ac8437ee72e0000fe
+18:15:24 > dato entrada    : 2723 -- 
+18:15:24 > cantidad   : 1 -- 
+18:15:24 > dato entrada    : 2724 -- 
+18:15:24 > cantidad   : 1 -- 
+18:15:24 > dato entrada    : 2725 -- 
+18:15:24 > cantidad   : 1 -- 
+18:15:24 > mongo_se: 51783c3ac8437ee72e000100
+18:15:24 > estado_migracion: 2
+18:15:24 > id_mongo de seccion 51783c3ac8437ee72e000100
+18:15:24 > paso: 341
+18:15:27 > id: 331
+18:15:27 > 9  -  2
+18:15:27 > paso: 331
+18:15:30 > id: 331
+18:15:30 > 9  -  0
+18:15:30 > paso: 331
+18:15:31 > id: 331
+18:15:31 > 9  -  1
+18:15:31 > dato entrada    : 2644 -- 
+18:15:31 > cantidad   : 1 -- 
+18:15:31 > mongo_se: 51783c37c8437ee72e000066
+18:15:31 > estado_migracion: 2
+18:15:31 > id_mongo de seccion 51783c37c8437ee72e000066
+18:15:32 > dato entrada    : 2643 -- 
+18:15:32 > cantidad   : 1 -- 
+18:15:32 > dato entrada    : 2642 -- 
+18:15:32 > cantidad   : 1 -- 
+18:15:32 > dato entrada    : 2641 -- 
+18:15:32 > cantidad   : 1 -- 
+18:15:32 > mongo_se: 51783c37c8437ee72e000068
+18:15:32 > estado_migracion: 2
+18:15:32 > id_mongo de seccion 51783c37c8437ee72e000068
+18:15:32 > dato entrada    : 2640 -- 
+18:15:32 > cantidad   : 1 -- 
+18:15:32 > dato entrada    : 2639 -- 
+18:15:32 > cantidad   : 1 -- 
+18:15:32 > dato entrada    : 2638 -- 
+18:15:32 > cantidad   : 1 -- 
+18:15:32 > dato entrada    : 2637 -- 
+18:15:32 > cantidad   : 1 -- 
+18:15:32 > mongo_se: 51783c37c8437ee72e000069
+18:15:32 > estado_migracion: 2
+18:15:32 > id_mongo de seccion 51783c37c8437ee72e000069
+18:15:32 > dato entrada    : 2636 -- 
+18:15:32 > cantidad   : 1 -- 
+18:15:32 > mongo_se: 51783c37c8437ee72e00006a
+18:15:32 > estado_migracion: 2
+18:15:32 > id_mongo de seccion 51783c37c8437ee72e00006a
+18:15:32 > paso: 331
+18:15:34 > id: 345
+18:15:34 > 9  -  2
+18:15:34 > paso: 345
+18:15:36 > id: 345
+18:15:36 > 9  -  0
+18:15:36 > paso: 345
+18:15:38 > id: 345
+18:15:38 > 9  -  1
+18:15:38 > dato entrada    : 2752 -- 
+18:15:38 > cantidad   : 1 -- 
+18:15:38 > mongo_se: 51783c3ac8437ee72e000107
+18:15:38 > estado_migracion: 2
+18:15:38 > id_mongo de seccion 51783c3ac8437ee72e000107
+18:15:38 > dato entrada    : 2753 -- 
+18:15:38 > cantidad   : 1 -- 
+18:15:38 > mongo_se: 51783c3ac8437ee72e000108
+18:15:38 > estado_migracion: 2
+18:15:38 > id_mongo de seccion 51783c3ac8437ee72e000108
+18:15:38 > dato entrada    : 2754 -- 
+18:15:38 > cantidad   : 1 -- 
+18:15:38 > dato entrada    : 2755 -- 
+18:15:38 > cantidad   : 1 -- 
+18:15:38 > dato entrada    : 2756 -- 
+18:15:38 > cantidad   : 1 -- 
+18:15:38 > dato entrada    : 2757 -- 
+18:15:38 > cantidad   : 1 -- 
+18:15:38 > mongo_se: 51783c3ac8437ee72e000109
+18:15:38 > estado_migracion: 2
+18:15:38 > id_mongo de seccion 51783c3ac8437ee72e000109
+18:15:38 > dato entrada    : 2758 -- 
+18:15:38 > cantidad   : 1 -- 
+18:15:38 > dato entrada    : 2759 -- 
+18:15:38 > cantidad   : 1 -- 
+18:15:38 > dato entrada    : 2760 -- 
+18:15:38 > cantidad   : 1 -- 
+18:15:38 > mongo_se: 51783c3ac8437ee72e00010b
+18:15:38 > estado_migracion: 2
+18:15:38 > id_mongo de seccion 51783c3ac8437ee72e00010b
+18:15:38 > dato entrada    : 3190 -- 
+18:15:38 > cantidad   : 1 -- 
+18:15:38 > paso: 345
+19:30:15 > id: 343
+19:30:15 > 9  -  2
+19:30:15 > paso: 343
+19:30:18 > id: 343
+19:30:18 > 9  -  0
+19:30:18 > paso: 343
+19:30:20 > id: 343
+19:30:20 > 9  -  1
+19:30:20 > dato entrada    : 2734 -- 
+19:30:20 > cantidad   : 1 -- 
+19:30:20 > mongo_se: 51783c3ac8437ee72e000105
+19:30:20 > estado_migracion: 2
+19:30:20 > id_mongo de seccion 51783c3ac8437ee72e000105
+19:30:20 > dato entrada    : 2735 -- 
+19:30:20 > cantidad   : 1 -- 
+19:30:20 > dato entrada    : 2736 -- 
+19:30:20 > cantidad   : 1 -- 
+19:30:20 > dato entrada    : 2737 -- 
+19:30:20 > cantidad   : 1 -- 
+19:30:20 > dato entrada    : 2738 -- 
+19:30:20 > cantidad   : 1 -- 
+19:30:20 > dato entrada    : 2739 -- 
+19:30:20 > cantidad   : 1 -- 
+19:30:20 > dato entrada    : 2740 -- 
+19:30:20 > cantidad   : 1 -- 
+19:30:20 > dato entrada    : 2741 -- 
+19:30:20 > cantidad   : 1 -- 
+19:30:20 > dato entrada    : 2742 -- 
+19:30:20 > cantidad   : 1 -- 
+19:30:20 > paso: 343
+19:31:03 > id: 343
+19:31:03 > 9  -  2
+19:31:03 > paso: 343
+19:32:32 > id: 343
+19:32:32 > 9  -  0
+19:32:32 > paso: 343
+19:32:39 > id: 343
+19:32:39 > 9  -  1
+19:32:39 > dato entrada    : 2734 -- 
+19:32:39 > cantidad   : 1 -- 
+19:32:39 > mongo_se: 51783c3ac8437ee72e000105
+19:32:39 > estado_migracion: 2
+19:32:39 > id_mongo de seccion 51783c3ac8437ee72e000105
+19:32:40 > dato entrada    : 2735 -- 
+19:32:40 > cantidad   : 1 -- 
+19:32:40 > dato entrada    : 2736 -- 
+19:32:40 > cantidad   : 1 -- 
+19:32:40 > dato entrada    : 2737 -- 
+19:32:40 > cantidad   : 1 -- 
+19:32:40 > dato entrada    : 2738 -- 
+19:32:40 > cantidad   : 1 -- 
+19:32:40 > dato entrada    : 2739 -- 
+19:32:40 > cantidad   : 1 -- 
+19:32:40 > dato entrada    : 2740 -- 
+19:32:40 > cantidad   : 1 -- 
+19:32:40 > dato entrada    : 2741 -- 
+19:32:40 > cantidad   : 1 -- 
+19:32:40 > dato entrada    : 2742 -- 
+19:32:40 > cantidad   : 1 -- 
+19:32:40 > paso: 343
+19:33:11 > id: 343
+19:33:11 > 9  -  2
+19:33:11 > paso: 343
+19:34:05 > id: 343
+19:34:05 > 9  -  0
+19:34:05 > paso: 343
+19:34:11 > id: 343
+19:34:11 > 9  -  1
+19:34:11 > dato entrada    : 2734 -- 
+19:34:11 > cantidad   : 1 -- 
+19:34:11 > mongo_se: 51783c3ac8437ee72e000105
+19:34:11 > estado_migracion: 2
+19:34:11 > id_mongo de seccion 51783c3ac8437ee72e000105
+19:34:11 > dato entrada    : 2735 -- 
+19:34:11 > cantidad   : 1 -- 
+19:34:11 > dato entrada    : 2736 -- 
+19:34:11 > cantidad   : 1 -- 
+19:34:11 > dato entrada    : 2737 -- 
+19:34:11 > cantidad   : 1 -- 
+19:34:11 > dato entrada    : 2738 -- 
+19:34:11 > cantidad   : 1 -- 
+19:34:11 > dato entrada    : 2739 -- 
+19:34:11 > cantidad   : 1 -- 
+19:34:11 > dato entrada    : 2740 -- 
+19:34:11 > cantidad   : 1 -- 
+19:34:11 > dato entrada    : 2741 -- 
+19:34:11 > cantidad   : 1 -- 
+19:34:11 > dato entrada    : 2742 -- 
+19:34:11 > cantidad   : 1 -- 
+19:34:11 > paso: 343
+19:38:28 > id: 343
+19:38:28 > 9  -  2
+19:38:28 > paso: 343
+19:38:30 > id: 343
+19:38:30 > 9  -  0
+19:38:30 > paso: 343
+19:38:32 > id: 343
+19:38:32 > 9  -  1
+19:38:32 > dato entrada    : 2734 -- 
+19:38:32 > cantidad   : 1 -- 
+19:38:32 > mongo_se: 51783c3ac8437ee72e000105
+19:38:32 > estado_migracion: 2
+19:38:32 > id_mongo de seccion 51783c3ac8437ee72e000105
+19:38:32 > dato entrada    : 2735 -- 
+19:38:32 > cantidad   : 1 -- 
+19:38:32 > dato entrada    : 2736 -- 
+19:38:32 > cantidad   : 1 -- 
+19:38:32 > dato entrada    : 2737 -- 
+19:38:32 > cantidad   : 1 -- 
+19:38:32 > dato entrada    : 2738 -- 
+19:38:32 > cantidad   : 1 -- 
+19:38:32 > dato entrada    : 2739 -- 
+19:38:32 > cantidad   : 1 -- 
+19:38:32 > dato entrada    : 2740 -- 
+19:38:32 > cantidad   : 1 -- 
+19:38:32 > dato entrada    : 2741 -- 
+19:38:32 > cantidad   : 1 -- 
+19:38:32 > dato entrada    : 2742 -- 
+19:38:32 > cantidad   : 1 -- 
+19:38:32 > paso: 343
+=======
 20:09:42 > dato entrada    : 3225 -- 
 20:09:42 > cantidad   : 1 -- 
 20:09:42 > mongo_se: 0
@@ -40,9 +1241,13 @@
 20:27:59 > id: 398
 20:27:59 > 9  -  2
 20:27:59 > paso: 398
+<<<<<<< HEAD
 21:07:29 > dato entrada    : 3233 -- 
 21:07:29 > cantidad   : 1 -- 
 21:07:29 > mongo_se: 0
 21:07:29 > estado_migracion: 0
 21:07:29 > id_mongo: 518abe91a68b69fa1d000000
 21:07:29 > id_mongo de seccion 518abe91a68b69fa1d000000
+=======
+>>>>>>> 5f2059e0178b7eb352a5183517623bf22604200c
+>>>>>>> c3ae83635a815acb6b21a5411175bdd547f8ceda

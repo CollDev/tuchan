@@ -46,9 +46,10 @@ class Migracion_lib extends MX_Controller {
         $this->url = $this->config->item('migracion:url');
         $this->filtro = $this->config->item('migracion:filtro');
         $this->pagina = $this->config->item('migracion:paginas');
+        $this->load->library('procesos_lib');
     }
 
-    /**
+    /** 
      * Método para inciar la migración listando canales y llamando otros metodos
      * @author Johnny Huamani <johnny1402@gmail.com>
      * @return boolean
@@ -127,8 +128,10 @@ class Migracion_lib extends MX_Controller {
                         $objBeanVideo->horario_transmision_fin = '00:00:00';
                         $objBeanVideo->ubicacion = '';
                         $objBeanVideo->id_mongo = NULL;
-                        $objBeanVideo->estado = 2;
-                        $objBeanVideo->estado_liquid = 0;
+
+                        $objBeanVideo->estado = 1;
+                        $objBeanVideo->estado_liquid = 6;
+                        
                         $objBeanVideo->fecha_registro = date("Y-m-d H:i:s");
                         $objBeanVideo->usuario_registro = $user_id;
                         $objBeanVideo->fecha_actualizacion = date("Y-m-d H:i:s");
@@ -156,6 +159,7 @@ class Migracion_lib extends MX_Controller {
                         $this->registrar_detalle_maestro($objBeanVideoSaved);
                         //guardamos las imagenes de cada video
                         $this->guardar_imagenes($objBeanVideoSaved->id, $objVideo->thumbs);
+                        $this->procesos_lib->curlProcesoVideosXId($objBeanVideoSaved->id);
                         $contador++;
                     }
                 }
