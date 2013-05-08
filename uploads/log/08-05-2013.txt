@@ -1,0 +1,16 @@
+16:01:18 > dato entrada    : 3187 -- 
+16:01:18 > cantidad   : 1 -- 
+16:01:26 > dato entrada    : 3187 -- 
+16:01:26 > cantidad   : 1 -- 
+16:01:31 > dato entrada    : 3187 -- 
+16:01:31 > cantidad   : 1 -- 
+16:01:31 > mongo_se: 0
+16:01:31 > estado_migracion: 9
+16:01:31 > id_mongo: 518a76dba68b69b110000001
+16:01:31 > id_mongo de seccion 518a76dba68b69b110000001
+16:21:45 > id: 400
+16:21:45 > 9  -  2
+16:21:45 > paso: 400
+16:21:51 > id: 400
+16:21:51 > 9  -  0
+16:21:51 > paso: 400
