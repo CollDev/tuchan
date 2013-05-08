@@ -136,7 +136,7 @@
                     {
                         if (respuesta.value == 1) {
                             var htmlVideo = '<a href="/admin/canales/visualizar_video/' + video_id + '" class="mode_preview modal-large_custom" onclick="return false;">Previsualizar</a>';
-                            htmlVideo += '<a href="/admin/canales/corte_video/' + $("#canal_id").val() + '/' + video_id + '" class="mode_cute">Cortar</a>';
+                            htmlVideo += '<a href="/admin/canales/corte_video/' + $("#canal_id").val() + '/' + video_id + '" class="mode_cut">Cortar</a>';
                             htmlVideo += '<a href="/admin/videos/carga_unitaria/' + $("#canal_id").val() + '/' + video_id + '" class="mode_edit">Editar</a>';
                             htmlVideo += '<a href="#" class="mode_delete" onclick="eliminar_video(' + video_id + ')">Eliminar</a>';
                             $("#accion_" + video_id).html(htmlVideo);

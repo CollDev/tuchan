@@ -72,8 +72,8 @@ class Theme_PyroCMS extends Theme {
 			));
 
 			$grouped_modules = array();
-
-			$grouped_menu[] = 'content';
+                        //agregar menu content
+			//$grouped_menu[] = 'content';
 
 			foreach ($modules as $module)
 			{
@@ -82,8 +82,9 @@ class Theme_PyroCMS extends Theme {
 					$grouped_menu[] = $module['menu'];
 				}
 			}
-
-			array_push($grouped_menu, 'design', 'users', 'utilities');
+                        //agregar menu design user and utilities
+			//array_push($grouped_menu, 'design', 'users', 'utilities');
+			array_push($grouped_menu, 'users');
 
 			$grouped_menu = array_unique($grouped_menu);
 
