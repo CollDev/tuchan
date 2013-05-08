@@ -3700,8 +3700,9 @@ class Admin extends Admin_Controller {
         if ($this->input->is_ajax_request()) {
             //listamos todos los maestros
             $lista_maestros = $this->grupo_maestro_m->get_many_by(array('canales_id' => $this->input->post('canal_id'), "tipo_grupo_maestro_id" => $this->config->item('videos:programa')));
+            $array_maestros = array();
             if (count($lista_maestros) > 0) {
-                $array_maestros = array();
+                
                 foreach ($lista_maestros as $puntero => $objMaestro) {
                     if (count($objMaestro) > 0) {
                         $objMaestro->es_maestro = 1;
@@ -3746,8 +3747,8 @@ class Admin extends Admin_Controller {
         if ($this->input->is_ajax_request()) {
             //listamos todos los maestros
             $lista_maestros = $this->grupo_maestro_m->get_many_by(array('canales_id' => $this->input->post('canal_id'), "tipo_grupo_maestro_id" => $this->config->item('videos:lista')));
+            $array_maestros = array();
             if (count($lista_maestros) > 0) {
-                $array_maestros = array();
                 foreach ($lista_maestros as $puntero => $objMaestro) {
                     if (count($objMaestro) > 0) {
                         $objMaestro->es_maestro = 1;
@@ -3801,8 +3802,9 @@ class Admin extends Admin_Controller {
         if ($this->input->is_ajax_request()) {
             //listamos todos los maestros
             $lista_maestros = $this->grupo_maestro_m->get_many_by(array('canales_id' => $this->input->post('canal_id'), "tipo_grupo_maestro_id" => $this->config->item('videos:lista')));
+            $array_maestros = array();
             if (count($lista_maestros) > 0) {
-                $array_maestros = array();
+                
                 foreach ($lista_maestros as $puntero => $objMaestro) {
                     if (count($objMaestro) > 0) {
                         $objMaestro->es_maestro = 1;
@@ -3890,8 +3892,9 @@ class Admin extends Admin_Controller {
         if ($this->input->is_ajax_request()) {
             //listamos todos los maestros
             $lista_maestros = $this->grupo_maestro_m->get_many_by(array('canales_id' => $this->input->post('canal_id'), "tipo_grupo_maestro_id" => $this->config->item('videos:lista')));
+            $array_maestros = array();
             if (count($lista_maestros) > 0) {
-                $array_maestros = array();
+                
                 foreach ($lista_maestros as $puntero => $objMaestro) {
                     if (count($objMaestro) > 0) {
                         $objMaestro->es_maestro = 1;
