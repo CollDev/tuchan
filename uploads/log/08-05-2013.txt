@@ -1241,4 +1241,13 @@
 20:27:59 > id: 398
 20:27:59 > 9  -  2
 20:27:59 > paso: 398
+<<<<<<< HEAD
+21:07:29 > dato entrada    : 3233 -- 
+21:07:29 > cantidad   : 1 -- 
+21:07:29 > mongo_se: 0
+21:07:29 > estado_migracion: 0
+21:07:29 > id_mongo: 518abe91a68b69fa1d000000
+21:07:29 > id_mongo de seccion 518abe91a68b69fa1d000000
+=======
 >>>>>>> 5f2059e0178b7eb352a5183517623bf22604200c
+>>>>>>> c3ae83635a815acb6b21a5411175bdd547f8ceda
