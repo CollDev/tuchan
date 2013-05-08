@@ -45,6 +45,7 @@ class Migracion_lib extends MX_Controller {
         //$this->config->load('videos/uploads');
         $this->url = $this->config->item('migracion:url');
         $this->filtro = $this->config->item('migracion:filtro');
+        $this->pagina = $this->config->item('migracion:paginas');
     }
 
     /**
@@ -79,9 +80,9 @@ class Migracion_lib extends MX_Controller {
             $data = @simplexml_load_file($ruta_api);
             if ($data) {
                 $cantidad+= $this->obtener_objeto_bean_video($data, $objCanal);
-                //echo $cantidad;
+            } else {
+                break;
             }
-            break;
         }
         return $cantidad;
     }
@@ -99,73 +100,76 @@ class Migracion_lib extends MX_Controller {
         $contador = 0;
         foreach ($lista_videos as $puntero => $objVideo) {
             if (property_exists($objVideo, 'files')) {
-                $objFile = $this->obtenerFile($objVideo->files);
-                $oVideo = $this->videos_m->like('codigo', $objFile->id, 'none')->get_by(array());
-                if (count($oVideo) > 0) {//el video ya se encuentra registrado
-                } else { // es un video que no se encuentra en nuestra BD
-                    $objBeanVideo = new stdClass();
-                    $objBeanVideo->id = NULL;
-                    $objBeanVideo->tipo_videos_id = $this->config->item('videos:normal');
-                    $objBeanVideo->categorias_id = $this->config->item('categoria:modas');
-                    $objBeanVideo->usuarios_id = $user_id;
-                    $objBeanVideo->canales_id = $objCanal->id;
-                    $objBeanVideo->nid = NULL;
-                    $objBeanVideo->titulo = $this->format_title($objVideo->title);
-                    $objBeanVideo->alias = '';
-                    $objBeanVideo->descripcion = '';
-                    $objBeanVideo->fragmento = 0;
-                    $objBeanVideo->codigo = $this->generar_codigo($objFile->id);
-                    $objBeanVideo->reproducciones = 0;
-                    $objVideoInfo = $objFile->videoInfo;
-                    $objBeanVideo->duracion = $this->formatSeconds($objVideoInfo->duration / 1000); //number_format($this->getStamp($objFile->duration), 2);
-                    $objBeanVideo->fecha_publicacion_inicio = '0000-00-00 00:00:00';
-                    $objBeanVideo->fecha_publicacion_fin = '0000-00-00 00:00:00';
-                    $objBeanVideo->fecha_transmision = '00:00:00';
-                    $objBeanVideo->horario_transmision_inicio = '00:00:00';
-                    $objBeanVideo->horario_transmision_fin = '00:00:00';
-                    $objBeanVideo->ubicacion = '';
-                    $objBeanVideo->id_mongo = NULL;
-                    $objBeanVideo->estado = 1;
-                    $objBeanVideo->estado_liquid = 0;
-                    $objBeanVideo->fecha_registro = date("Y-m-d H:i:s");
-                    $objBeanVideo->usuario_registro = $user_id;
-                    $objBeanVideo->fecha_actualizacion = date("Y-m-d H:i:s");
-                    $objBeanVideo->usuario_actualizacion = $user_id;
-                    $objBeanVideo->estado_migracion = $this->config->item('migracion:nuevo');
-                    $objBeanVideo->fecha_migracion = date("Y-m-d H:i:s");
-                    $objBeanVideo->fecha_migracion_actualizacion = date("Y-m-d H:i:s");
-                    $objBeanVideo->estado_migracion_sphinx_tit = 0;
-                    $objBeanVideo->fecha_migracion_sphinx_tit = '0000-00-00 00:00:00';
-                    $objBeanVideo->fecha_migracion_actualizacion_sphinx_tit = '0000-00-00 00:00:00';
-                    $objBeanVideo->estado_migracion_sphinx_des = NULL;
-                    $objBeanVideo->fecha_migracion_sphinx_des = '0000-00-00 00:00:00';
-                    $objBeanVideo->fecha_migracion_actualizacion_sphinx_des = '0000-00-00 00:00:00';
-                    $objBeanVideo->valorizacion = 0;
-                    $objBeanVideo->comentarios = 0;
-                    $objBeanVideo->ruta = $this->generar_ruta_video($objVideo, $objVideo->thumbs, $objFile);
-                    $objBeanVideo->padre = NULL;
-                    $objBeanVideo->estado_migracion_sphinx = 0;
-                    $objBeanVideo->fecha_migracion_sphinx = '0000-00-00 00:00:00';
-                    $objBeanVideo->fecha_migracion_actualizacion_sphinx = '0000-00-00 00:00:00';
-                    $objBeanVideo->procedencia = $this->config->item('procedencia:migracion');
-                    //$this->vd($objBeanVideo);
-                    $objBeanVideoSaved = $this->videos_m->save($objBeanVideo);
-                    //registramos el detalle de grupo maestro
-                    $this->registrar_detalle_maestro($objBeanVideoSaved);
-                    //guardamos las imagenes de cada video
-                    $this->guardar_imagenes($objBeanVideoSaved->id, $objVideo->thumbs);
-                    $contador++;
+                if ($objVideo->published) {
+                    $objFile = $this->obtenerFile($objVideo->files);
+                    $oVideo = $this->videos_m->like('codigo', $objFile->id, 'none')->get_by(array());
+                    if (count($oVideo) > 0) {//el video ya se encuentra registrado
+                    } else { // es un video que no se encuentra en nuestra BD
+                        $objBeanVideo = new stdClass();
+                        $objBeanVideo->id = NULL;
+                        $objBeanVideo->tipo_videos_id = $this->config->item('videos:normal');
+                        $objBeanVideo->categorias_id = $this->config->item('categoria:modas');
+                        $objBeanVideo->usuarios_id = $user_id;
+                        $objBeanVideo->canales_id = $objCanal->id;
+                        $objBeanVideo->nid = NULL;
+                        $objBeanVideo->titulo = $this->format_title($objVideo->title);
+                        $objBeanVideo->alias = '';
+                        $objBeanVideo->descripcion = '';
+                        $objBeanVideo->fragmento = 0;
+                        $objBeanVideo->codigo = $this->generar_codigo($objFile->id);
+                        $objBeanVideo->reproducciones = 0;
+                        $objVideoInfo = $objFile->videoInfo;
+                        $objBeanVideo->duracion = $this->formatSeconds($objVideoInfo->duration / 1000); //number_format($this->getStamp($objFile->duration), 2);
+                        $objBeanVideo->fecha_publicacion_inicio = '0000-00-00 00:00:00';
+                        $objBeanVideo->fecha_publicacion_fin = '0000-00-00 00:00:00';
+                        $objBeanVideo->fecha_transmision = '00:00:00';
+                        $objBeanVideo->horario_transmision_inicio = '00:00:00';
+                        $objBeanVideo->horario_transmision_fin = '00:00:00';
+                        $objBeanVideo->ubicacion = '';
+                        $objBeanVideo->id_mongo = NULL;
+                        $objBeanVideo->estado = 1;
+                        $objBeanVideo->estado_liquid = 0;
+                        $objBeanVideo->fecha_registro = date("Y-m-d H:i:s");
+                        $objBeanVideo->usuario_registro = $user_id;
+                        $objBeanVideo->fecha_actualizacion = date("Y-m-d H:i:s");
+                        $objBeanVideo->usuario_actualizacion = $user_id;
+                        $objBeanVideo->estado_migracion = $this->config->item('migracion:nuevo');
+                        $objBeanVideo->fecha_migracion = date("Y-m-d H:i:s");
+                        $objBeanVideo->fecha_migracion_actualizacion = date("Y-m-d H:i:s");
+                        $objBeanVideo->estado_migracion_sphinx_tit = 0;
+                        $objBeanVideo->fecha_migracion_sphinx_tit = '0000-00-00 00:00:00';
+                        $objBeanVideo->fecha_migracion_actualizacion_sphinx_tit = '0000-00-00 00:00:00';
+                        $objBeanVideo->estado_migracion_sphinx_des = NULL;
+                        $objBeanVideo->fecha_migracion_sphinx_des = '0000-00-00 00:00:00';
+                        $objBeanVideo->fecha_migracion_actualizacion_sphinx_des = '0000-00-00 00:00:00';
+                        $objBeanVideo->valorizacion = 0;
+                        $objBeanVideo->comentarios = 0;
+                        $objBeanVideo->ruta = $this->generar_ruta_video($objVideo, $objVideo->thumbs, $objFile);
+                        $objBeanVideo->padre = NULL;
+                        $objBeanVideo->estado_migracion_sphinx = 0;
+                        $objBeanVideo->fecha_migracion_sphinx = '0000-00-00 00:00:00';
+                        $objBeanVideo->fecha_migracion_actualizacion_sphinx = '0000-00-00 00:00:00';
+                        $objBeanVideo->procedencia = $this->config->item('procedencia:migracion');
+                        //$this->vd($objBeanVideo);
+                        $objBeanVideoSaved = $this->videos_m->save($objBeanVideo);
+                        //registramos el detalle de grupo maestro
+                        $this->registrar_detalle_maestro($objBeanVideoSaved);
+                        //guardamos las imagenes de cada video
+                        $this->guardar_imagenes($objBeanVideoSaved->id, $objVideo->thumbs);
+                        $contador++;
+                    }
                 }
             }
         }
         return $contador;
     }
+
     /**
      * Método para registrar la relación de videos con un maestro
      * @author Johnny Huamani <johnny1402@gmail.com>
      * @param object $objBeanVideo
      */
-    private function registrar_detalle_maestro($objBeanVideo){
+    private function registrar_detalle_maestro($objBeanVideo) {
         $user_id = (int) $this->session->userdata('user_id');
         $objBeanGrupoDetalle = new stdClass();
         $objBeanGrupoDetalle->id = NULL;
@@ -234,10 +238,28 @@ class Migracion_lib extends MX_Controller {
         $tipoImagen = $this->tipo_imagen_m->listType();
         if (count($tipoImagen) > 0) {
             foreach ($tipoImagen as $puntero => $objTipoImage) {
-                if ($objTipoImage->ancho == $objThumbnail->width && $objTipoImage->alto == $objThumbnail->height) {
+                if ($this->obtenerTipo($objTipoImage, $objThumbnail)) {
                     $returnValue = $objTipoImage->id;
                 }
+//                if ($objTipoImage->ancho == $objThumbnail->width && $objTipoImage->alto == $objThumbnail->height) {
+//                    $returnValue = $objTipoImage->id;
+//                }
             }
+        }
+        return $returnValue;
+    }
+
+    /**
+     * Método para obtener el tipo con un margen de error
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param object $objTipoImage
+     * @param object $objThumbnail
+     * @return boolean
+     */
+    private function obtenerTipo($objTipoImage, $objThumbnail) {
+        $returnValue = false;
+        if ($objThumbnail->width <= ($objTipoImage->ancho + $this->config->item('migracion:margen_error_imagen')) && $objThumbnail->width >= $objTipoImage->ancho && $objThumbnail->height <= ($objTipoImage->alto + $this->config->item('migracion:margen_error_imagen')) && $objThumbnail->height >= $objTipoImage->alto) {
+            $returnValue = true;
         }
         return $returnValue;
     }
@@ -326,9 +348,9 @@ class Migracion_lib extends MX_Controller {
         $returValue = $title;
         if (is_object($title)) {
             $title = (array) $title;
-            if(count($title)>0){
+            if (count($title) > 0) {
                 $returValue = $title[0];
-            }else{
+            } else {
                 $returValue = '';
             }
         }
