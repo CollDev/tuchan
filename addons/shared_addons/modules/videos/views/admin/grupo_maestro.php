@@ -144,7 +144,7 @@ else:
                 <div class="input"><?php echo form_input('tematicas', $objMaestro->tematicas, 'id="tematicas"') ?></div>
                 <br/></br>
                 <!-- tags personajes -->
-                <label for="personajes"><?php echo lang('videos:etiquetas_personajes_label'); ?><span class="required">*</span></label>
+                <label for="personajes"><?php echo lang('videos:etiquetas_personajes_label'); ?></label>
                 <div class="input"><?php echo form_input('personajes', $objMaestro->personajes, 'id="personajes"') ?></div>        
             </div>
             <div class="main_opt">
@@ -232,6 +232,7 @@ else:
                             onComplete: function(file, response) {
                                 btn_firma.text('Cambiar Imagen');
                                 respuesta = $.parseJSON(response);
+                                console.log(respuesta);
                                 if (respuesta.respuesta == 'done') {
 <?php if ($objMaestro->id > 0): ?>
                                         saveImages(respuesta);
@@ -244,7 +245,9 @@ else:
                                     //console.log(respuesta);
                                 }
                                 else {
-                                    alert(respuesta.mensaje);
+                                    $('#loaderAjax').hide();
+                                    //alert(respuesta.mensaje);
+                                    showMessage('error', respuesta.mensaje, 2000, '');
                                 }
 
                                 this.enable();
@@ -397,7 +400,7 @@ else:
                             editorText2 = editorText2.replace(/(&nbsp;)*/g, "");
                             if (editorText.length > 0 && editorText2.length > 0) {
                                 if (values['tematicas'].length > 0) {
-                                    if (values['personajes'].length > 0) {
+                                    if (values['personajes'].length >= 0) {
                                         if (nombre_imagen.length > 0) {
                                             if (values['categoria'].length > 0) {
                                                 if (values['tipo_grupo'] == '1') {

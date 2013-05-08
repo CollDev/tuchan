@@ -47,13 +47,13 @@
                                 $link = '<a href="/admin/canales/previsualizar_portada/" target ="_blank" class="mode_preview modal-large">' . lang('global:preview') . '</a>';
                                 $link.='<a href="#" class="link_portada mode_publish" onclick="publicar_portada(' . $post->id . ',\'portada\');return false;">Publicar</a>';
                                 $link.='<a href="#" class="link_portada mode_edit">Editar</a>';
-                                $link.='<a href="#" class="link_portada mode_delete" onclick="eliminar_portada(' . $post->id . ',\'portada\');return false;">Eliminar</a>';
+                                //$link.='<a href="#" class="link_portada mode_delete" onclick="eliminar_portada(' . $post->id . ',\'portada\');return false;">Eliminar</a>';
                                 $link.='<a href="#" class="link_portada mode_add" onclick="agregar_seccion(' . $post->id . ');return false;">Añadir sección</a>';
                                 break;
                             case $this->config->item('estado:publicado'):
                                 $link = '<a href="/admin/canales/previsualizar_portada/" target ="_blank" class="mode_preview modal-large">' . lang('global:preview') . '</a>';
                                 $link.='<a href="#" class="link_portada mode_edit">Editar</a>';
-                                $link.='<a href="#" class="link_portada mode_delete"  onclick="eliminar_portada(' . $post->id . ',\'portada\');return false;">Eliminar</a>';
+                                //$link.='<a href="#" class="link_portada mode_delete"  onclick="eliminar_portada(' . $post->id . ',\'portada\');return false;">Eliminar</a>';
                                 $link.='<a href="#" class="link_portada mode_add" onclick="agregar_seccion(' . $post->id . ');return false;">Añadir sección</a>';
                                 break;
                             case $this->config->item('estado:eliminado'):
@@ -179,7 +179,7 @@
                                 htmlButton += '<a href="/admin/canales/previsualizar_portada/" target ="_blank" class="modal-large mode_preview">Previsualizar</a>';
                                 htmlButton += '<a href="#" onclick="publicar_portada(' + portada_id + ', \'portada\');return false;" class="link_portada mode_publish">Publicar</a>';
                                 htmlButton += '<a href="#" class="link_portada mode_edit" onclick="return false;">Editar</a>';
-                                htmlButton += '<a href="#" class="link_portada mode_delete" onclick="eliminar_portada(' + portada_id + ',\'portada\');return false;">Eliminar</a>';
+                                //htmlButton += '<a href="#" class="link_portada mode_delete" onclick="eliminar_portada(' + portada_id + ',\'portada\');return false;">Eliminar</a>';
                                 htmlButton += '<a href="#" class="link_portada mode_add" onclick="agregar_seccion(' + portada_id + ');return false;">Añadir sección</a>';
                                 $("#" + tipo + "_boton_" + portada_id).html(htmlButton);
                                 $('.link_portada').click(function(e) {
@@ -211,7 +211,7 @@
                                 var htmlButton = '';
                                 htmlButton += '<a href="/admin/canales/previsualizar_portada/" target ="_blank" class="modal-large mode_preview">Previsualizar</a>';
                                 htmlButton += '<a href="#" onclick="return false;" class="link_portada mode_edit">Editar</a>';
-                                htmlButton += '<a href="#" onclick="eliminar_portada(' + portada_id + ',\'portada\');return false;" class="link_portada mode_delete">Eliminar</a>';
+                                //htmlButton += '<a href="#" onclick="eliminar_portada(' + portada_id + ',\'portada\');return false;" class="link_portada mode_delete">Eliminar</a>';
                                 htmlButton += '<a href="#" class="link_portada mode_add" onclick="agregar_seccion(' + portada_id + ');return false;">Añadir sección</a>';
                                 $("#" + tipo + "_boton_" + portada_id).html(htmlButton);
                                 $('.link_portada').click(function(e) {

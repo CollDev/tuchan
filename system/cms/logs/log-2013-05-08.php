@@ -155,3 +155,13 @@ ERROR - 2013-05-08 21:23:05 --> Severity: Notice  --> Trying to get property of 
 ERROR - 2013-05-08 21:23:05 --> Severity: Notice  --> Trying to get property of non-object /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/controllers/admin.php 4721
 ERROR - 2013-05-08 21:23:05 --> Severity: Notice  --> Trying to get property of non-object /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/controllers/admin.php 4721
 ERROR - 2013-05-08 21:23:05 --> Severity: Notice  --> Trying to get property of non-object /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/controllers/admin.php 4721
+ERROR - 2013-05-08 21:23:25 --> Severity: Notice  --> Trying to get property of non-object /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/controllers/admin.php 4721
+ERROR - 2013-05-08 21:23:25 --> Severity: Notice  --> Trying to get property of non-object /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/controllers/admin.php 4721
+ERROR - 2013-05-08 21:23:25 --> Severity: Notice  --> Trying to get property of non-object /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/controllers/admin.php 4721
+ERROR - 2013-05-08 21:23:25 --> Severity: Notice  --> Trying to get property of non-object /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/controllers/admin.php 4721
+ERROR - 2013-05-08 21:23:25 --> Severity: Notice  --> Trying to get property of non-object /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/controllers/admin.php 4721
+ERROR - 2013-05-08 21:23:25 --> Severity: Notice  --> Trying to get property of non-object /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/controllers/admin.php 4721
+ERROR - 2013-05-08 21:23:25 --> Severity: Notice  --> Trying to get property of non-object /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/controllers/admin.php 4721
+ERROR - 2013-05-08 21:23:25 --> Severity: Notice  --> Trying to get property of non-object /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/controllers/admin.php 4721
+ERROR - 2013-05-08 21:23:25 --> Severity: Notice  --> Trying to get property of non-object /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/controllers/admin.php 4721
+ERROR - 2013-05-08 21:23:25 --> Severity: Notice  --> Trying to get property of non-object /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/controllers/admin.php 4721

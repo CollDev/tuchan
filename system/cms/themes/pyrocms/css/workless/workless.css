@@ -1767,6 +1767,10 @@ background: url(../../img/remove_icon.png) no-repeat top center !important;
 background: url(../../img/add_icon.png) no-repeat top center !important;
 }
 
+.mode_add_section{
+background: url(../../img/new_icon.png) no-repeat top center !important;
+}
+
  
  
 @media print {

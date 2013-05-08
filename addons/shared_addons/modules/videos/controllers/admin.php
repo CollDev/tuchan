@@ -37,6 +37,7 @@ class Admin extends Admin_Controller {
         $this->load->library('image_lib');
         $this->load->library('imagenes_lib');
         $this->load->library('procesos_lib');
+        $this->load->library('portadas_lib');
         $this->load->library('migracion_lib');
 
 //        ci()->load->model('videos_mp');
@@ -1668,14 +1669,14 @@ class Admin extends Admin_Controller {
         $archivo = $_FILES['userfile']['name'];
         // Tamaño de la imagen
         $imageSize = getimagesize($_FILES['userfile']['tmp_name']);
-
+        
         // Verificamos la extensión del archivo independiente del tipo mime
         $extension = explode('.', $_FILES['userfile']['name']);
         $num = count($extension) - 1;
         // Creamos el nombre del archivo dependiendo la opción
         $imgFile = time() . '.' . $extension[$num];
         // Verificamos el tamaño válido para las fotos
-        if ($imageSize[0] >= $this->config->item('videos:minWidth') && $imageSize[1] >= $this->config->item('videos:minHeight') && ($extension[$num] == 'jpg' || $extension[$num] == 'png')) {
+        if ($imageSize[0] >= $this->config->item('imagen:minWidth') && $imageSize[1] >= $this->config->item('imagen:minHeight') && ($extension[$num] == 'jpg' || $extension[$num] == 'png')) {
             $pasaImgSize = true;
         }
         // Verificamos el status de las dimensiones de la imagen a publicar mediante nuestro jQuery para fotos

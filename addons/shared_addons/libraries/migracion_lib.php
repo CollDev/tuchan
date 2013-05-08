@@ -128,8 +128,10 @@ class Migracion_lib extends MX_Controller {
                         $objBeanVideo->horario_transmision_fin = '00:00:00';
                         $objBeanVideo->ubicacion = '';
                         $objBeanVideo->id_mongo = NULL;
+
                         $objBeanVideo->estado = 1;
                         $objBeanVideo->estado_liquid = 6;
+                        
                         $objBeanVideo->fecha_registro = date("Y-m-d H:i:s");
                         $objBeanVideo->usuario_registro = $user_id;
                         $objBeanVideo->fecha_actualizacion = date("Y-m-d H:i:s");
