@@ -1410,7 +1410,7 @@ class Procesos_lib extends MX_Controller {
 
         foreach ($video as $value) {
                 
-            if ($value->estado == 2) {
+            if ($value->estado == 1) {
                 $datovideo = $this->canal_mp->queryProcedure(4, $value->id);
                 $objmongo['id'] = $value->id;
                 $objmongo['canal'] = ($datovideo[0]->xcanal);
