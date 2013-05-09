@@ -213,7 +213,24 @@ class Migracion_lib extends MX_Controller {
                 foreach ($arrayTag as $puntero => $tag) {
                     $aTag = $this->tags_m->like('nombre', $tag, 'none')->get_many_by(array("tipo_tags_id" => "1"));
                     if (count($aTag) > 0) {
-                        
+                        $objTagExistente = $this->tags_m->like('nombre', $tag, 'none')->get_by(array("tipo_tags_id" => "1"));
+                        //verificamos si la relacion existe
+                        $objVideoTag = $this->video_tags_m->get_by(array("tags_id" => $objTagExistente->id, "videos_id" => $video_id));
+                        if (count($objVideoTag) == 0) {
+                            //registramos la relacion de tag con el video
+                            $objBeanVideoTag = new stdClass();
+                            $objBeanVideoTag->tags_id = $objTagExistente->id;
+                            $objBeanVideoTag->videos_id = $video_id;
+                            $objBeanVideoTag->estado = 1;
+                            $objBeanVideoTag->fecha_registro = date("Y-m-d H:i:s");
+                            $objBeanVideoTag->usuario_registro = $user_id;
+                            $objBeanVideoTag->fecha_actualizacion = date("Y-m-d H:i:s");
+                            $objBeanVideoTag->usuario_actualizacion = $user_id;
+                            $objBeanVideoTag->estado_migracion_sphinx = 0;
+                            $objBeanVideoTag->fecha_migracion_sphinx = date("Y-m-d H:i:s");
+                            $objBeanVideoTag->fecha_migracion_actualizacion_sphinx = date("Y-m-d H:i:s");
+                            $objBeanVideoTagSaved = $this->video_tags_m->saveVideoTags($objBeanVideoTag);
+                        }
                     } else {
                         $objBeanTag = new stdClass();
                         $objBeanTag->id = NULL;
