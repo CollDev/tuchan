@@ -8,7 +8,7 @@ class Liquid {
     function postXML($url, $post) {
          // ERROR_LIQUID: 
             Log::erroLog("postXML - url: " . $url);
-            Log::erroLog("postXML - Post : " . print_r($post));
+            //Log::erroLog("postXML - Post : " . print_r($post));
         
         try {
            
