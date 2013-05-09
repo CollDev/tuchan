@@ -384,7 +384,7 @@ class Portadas_lib extends MX_Controller {
                     $objBeanPortada->estado_migracion = $this->config->item('migracion:actualizado');
                     $objBeanPortada->fecha_migracion = '0000-00-00 00:00:00';
                     $objBeanPortada->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
-                    $objBeanPortadaSaved = $this->portada_m > save($objBeanPortada);
+                    $objBeanPortadaSaved = $this->portada_m->save($objBeanPortada);
                     //generamos tipo de secciones
                     $arraySecciones = $this->tipo_secciones_m->get_many_by(array());
                     foreach ($arraySecciones as $puntero => $oS) {
