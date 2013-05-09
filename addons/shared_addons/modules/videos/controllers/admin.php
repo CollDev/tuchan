@@ -4790,6 +4790,7 @@ class Admin extends Admin_Controller {
      */
     public function eliminar_video_importacion($maestro_id= 474){
         if($maestro_id > 0){
+            $objMaestro = $this->grupo_maestro_m->get($maestro_id);
             $arrayIdVideo = array();
             $lista_video = $this->grupo_detalle_m->get_many_by(array("grupo_maestro_padre"=>$maestro_id));
             if(count($lista_video)>0){
@@ -4804,7 +4805,6 @@ class Admin extends Admin_Controller {
                     }
                 }
             }
-            $objMaestro = $this->grupo_maestro_m->get($maestro_id);
             echo "Los videos del maestro ".$maestro_id." =>".$objMaestro->nombre." se eliminaron";
         }
     }
