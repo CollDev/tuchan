@@ -985,35 +985,40 @@ class Procesos_lib extends MX_Controller {
                 
                 $urltemp = "";
                 
-                if (!empty($idtemp)) {
+                if (!empty($idtemp)) {  
                     $resquery3 = $this->micanal_mp->queryProcedure(4, $idtemp);
                     $row3 = $resquery3;
 
-                    $arrtemp["canal"] = ($row3[0]->xcanal);
+                    $arrtemp["canal"] = $row3[0]->xcanal;
                     $arrtemp["fecha"] = $row3[0]->xfechatransmision;
-                    $arrtemp["coleccion"] = ($row3[0]->xcoleccion);
-                    $arrtemp["programa"] = ($row3[0]->xprograma);
-                    $arrtemp["lista_reproduccion"] = ($row3[0]->xlistareproduccionalias);
+                    $arrtemp["coleccion"] = $row3[0]->xcoleccion;
+                    $arrtemp["programa"] = $row3[0]->xprograma;
+                    $arrtemp["lista_reproduccion"] = $row3[0]->xlistareproduccionalias  ;
                     $arrtemp["duracion"] = $row3[0]->xduracion;
                     $arrtemp["categoria"] = $row3[0]->xcategoria;
-                    $arrtemp["descripcion"] = (strip_tags($row3[0]->xdescripcion));
-                    $arrtemp["reproducciones"] = ($row3[0]->xvi_rep);
-                    $arrtemp["comentarios"] = ($row3[0]->xvi_com);
-                    $arrtemp["valoracion"] = ($row3[0]->xvi_val);
-
+                    $arrtemp["descripcion"] = strip_tags($row3[0]->xdescripcion);
+                    $arrtemp["reproducciones"] = $row3[0]->xvi_rep;
+                    $arrtemp["comentarios"] = $row3[0]->xvi_com;
+                    $arrtemp["valoracion"] = $row3[0]->xvi_val;
+                    $arrtemp["peso"] = $value2->peso;
                     
                     if ($value2->tipo_secciones_id == 1 && $value2->tipo_portadas_id == 5) {
                         $urltemp = "programa/" . $row3[0]->xprogramaalias;
                     } elseif ($value2->tipo_secciones_id == 2 && $value2->tipo_portadas_id == 5) {
                         $urltemp = "programa/" . $row3[0]->xprogramaalias;
                     } else {
-
-                        if ($row3[0]->xfechatransmision == $row3[0]->xlistareproduccionalias) {
-                            $urltemp = $row3[0]->xprogramaalias . "/" . $row3[0]->xfechatransmision . "-" . $row3[0]->xvideoalias;
-                        } else {
-                            $urltemp = $row3[0]->xprogramaalias . "/" . $row3[0]->xlistareproduccionalias . "/" . $row3[0]->xfechatransmision . "-" . $row3[0]->xvideoalias;
-                        }
-                    }                   
+                        if(!empty($row3[0]->xprogramaalias)){    
+                            if ($row3[0]->xfechatransmision == $row3[0]->xlistareproduccionalias) {
+                                $urltemp = $row3[0]->xprogramaalias . "/" . $row3[0]->xfechatransmision . "-" . $row3[0]->xvideoalias;
+                            } else {
+                                $urltemp = $row3[0]->xprogramaalias . "/" . $row3[0]->xlistareproduccionalias . "/" . $row3[0]->xfechatransmision . "-" . $row3[0]->xvideoalias;
+                            }
+                        }else{
+                                $urltemp ="video" . "/" . $row3[0]->xfechatransmision . "-" . $row3[0]->xvideoalias;                        
+                                error_log($urltemp. "Paso aqui ");
+                        }                            
+                    }                                                            
+                    
                 }
                 
                 $arrtemp["url"] = $urltemp;
@@ -1322,7 +1327,7 @@ class Procesos_lib extends MX_Controller {
                     
 
                     if ($value->estado == 1) {
-                        if (empty($value->id_mongo)) {
+                        if (!($this->canal_mp->existe_id($value->id_mongo))) {
                             $id_mongo = $this->canal_mp->setItemCollection($objmongo);
                             $this->canal_mp->updateIdMongoCanales($value->id, $id_mongo);
                             $this->canal_mp->updateEstadoMigracionCanales($value->id);
@@ -1444,7 +1449,7 @@ class Procesos_lib extends MX_Controller {
                 $objmongo['valoracion'] = $datovideo[0]->xvi_val;
                 $objmongo['estado'] = "1";
                 
-                if($datovideo[0]->xprogramaalias != NULL){    
+                if(!empty($datovideo[0]->xprogramaalias)){    
                     if ($datovideo[0]->xfechatransmision == $datovideo[0]->xlistareproduccion) {
                         $urltemp = $datovideo[0]->xprogramaalias . "/" . $datovideo[0]->xfechatransmision . "-" . $datovideo[0]->xvideoalias; //  2. micanal.pe/[programa]/[fecha]-[video]-id [ nombre de lista es igual a la fecha de transmisi?n de los videos.                      
                     } else {
@@ -1512,7 +1517,7 @@ class Procesos_lib extends MX_Controller {
             }
 
             $tags = $this->video_tags_mp->getTagsVideosXId($id);
-            print_r($tags);
+           //  print_r($tags);
 
             $clienteSOAP = new SoapClient($this->config->item('motor') ."/". EC_CLIENTE_SOAP);
             //$clienteSOAP = new SoapClient('http://192.168.1.35/sphinx/busqueda.wsdl');
@@ -1570,9 +1575,9 @@ class Procesos_lib extends MX_Controller {
     
     public function actualizarSecciones6789() {
         Log::erroLog("_actualizarVisualizacion");
-        $this->_actualizarVisualizacion();
+        //$this->_actualizarVisualizacion();
         Log::erroLog("_actualizarComentariosValorizacion");
-        $this->_actualizarComentariosValorizacion();
+        //$this->_actualizarComentariosValorizacion();
         Log::erroLog("_actualizarSecciones6789");
         $this->_actualizarSecciones6789();
     }
