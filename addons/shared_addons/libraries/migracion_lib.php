@@ -160,7 +160,7 @@ class Migracion_lib extends MX_Controller {
                         $this->registrar_detalle_maestro($objBeanVideoSaved);
                         //guardamos las imagenes de cada video
                         $this->guardar_imagenes($objBeanVideoSaved->id, $objVideo->thumbs);
-                        $this->procesos_lib->curlProcesoVideosXId($objBeanVideoSaved->id);
+                        $this->procesos_lib->actualizarVideosXId($objBeanVideoSaved->id);
                         $contador++;
                     }
                 }

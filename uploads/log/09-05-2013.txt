@@ -1,0 +1,2370 @@
+00:08:29 > entro a _obtenerImagesUrlVideosXId
+00:08:29 > url obtener datos: http://api.liquidplatform.com/2.0/medias/ec5286bb932a534ab91477da1874a736?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:08:29 > url get http://api.liquidplatform.com/2.0/medias/ec5286bb932a534ab91477da1874a736?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:08:29 > get entro error liquid titulo
+00:08:31 > http_code: 404
+00:08:31 > content_type: 
+00:08:31 > curl_errno: 22
+00:08:31 >  no paso get
+00:08:31 > Response obtener datos
+00:08:31 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=2954
+00:08:36 > entro a _obtenerImagesUrlVideosXId
+00:08:36 > url obtener datos: http://api.liquidplatform.com/2.0/medias/fc0d126fbb7a1686314f55e63425525e?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:08:36 > url get http://api.liquidplatform.com/2.0/medias/fc0d126fbb7a1686314f55e63425525e?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:08:36 > get entro error liquid titulo
+00:08:36 > http_code: 404
+00:08:36 > content_type: 
+00:08:36 > curl_errno: 22
+00:08:36 >  no paso get
+00:08:36 > Response obtener datos
+00:08:36 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=2955
+00:08:37 > entro a _obtenerImagesUrlVideosXId
+00:08:37 > url obtener datos: http://api.liquidplatform.com/2.0/medias/1feb18e05b9deb0360fad7bd5d0d2727?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:08:37 > url get http://api.liquidplatform.com/2.0/medias/1feb18e05b9deb0360fad7bd5d0d2727?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:08:37 > get entro error liquid titulo
+00:08:38 > http_code: 404
+00:08:38 > content_type: 
+00:08:38 > curl_errno: 22
+00:08:38 >  no paso get
+00:08:38 > Response obtener datos
+00:08:38 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=2956
+00:08:39 > entro a _obtenerImagesUrlVideosXId
+00:08:39 > url obtener datos: http://api.liquidplatform.com/2.0/medias/28682e73272eea5385f3936a36012450?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:08:39 > url get http://api.liquidplatform.com/2.0/medias/28682e73272eea5385f3936a36012450?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:08:39 > get entro error liquid titulo
+00:08:41 > http_code: 404
+00:08:41 > content_type: 
+00:08:41 > curl_errno: 22
+00:08:41 >  no paso get
+00:08:41 > Response obtener datos
+00:08:41 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=2957
+00:08:42 > entro a _obtenerImagesUrlVideosXId
+00:08:42 > url obtener datos: http://api.liquidplatform.com/2.0/medias/4fbe7e70290d6728f14fa9bbda8b4038?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:08:42 > url get http://api.liquidplatform.com/2.0/medias/4fbe7e70290d6728f14fa9bbda8b4038?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:08:42 > get entro error liquid titulo
+00:08:44 > http_code: 404
+00:08:44 > content_type: 
+00:08:44 > curl_errno: 22
+00:08:44 >  no paso get
+00:08:44 > Response obtener datos
+00:08:44 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=2958
+00:08:45 > entro a _obtenerImagesUrlVideosXId
+00:08:45 > url obtener datos: http://api.liquidplatform.com/2.0/medias/98347a6c7537d2a41558eeaa5f261841?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:08:45 > url get http://api.liquidplatform.com/2.0/medias/98347a6c7537d2a41558eeaa5f261841?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:08:45 > get entro error liquid titulo
+00:08:45 > http_code: 404
+00:08:45 > content_type: 
+00:08:45 > curl_errno: 22
+00:08:45 >  no paso get
+00:08:45 > Response obtener datos
+00:08:45 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=2959
+00:08:48 > entro a _obtenerImagesUrlVideosXId
+00:08:48 > url obtener datos: http://api.liquidplatform.com/2.0/medias/182fdace1d9a7228b53b94bf3dc307fe?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:08:48 > url get http://api.liquidplatform.com/2.0/medias/182fdace1d9a7228b53b94bf3dc307fe?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:08:48 > get entro error liquid titulo
+00:08:48 > http_code: 404
+00:08:48 > content_type: 
+00:08:48 > curl_errno: 22
+00:08:48 >  no paso get
+00:08:48 > Response obtener datos
+00:08:48 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=2960
+00:08:49 > entro a _obtenerImagesUrlVideosXId
+00:08:49 > url obtener datos: http://api.liquidplatform.com/2.0/medias/33b13dcb0a71352120a3d1d10b99c721?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:08:49 > url get http://api.liquidplatform.com/2.0/medias/33b13dcb0a71352120a3d1d10b99c721?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:08:49 > get entro error liquid titulo
+00:08:50 > http_code: 404
+00:08:50 > content_type: 
+00:08:50 > curl_errno: 22
+00:08:50 >  no paso get
+00:08:50 > Response obtener datos
+00:08:50 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=2961
+00:08:51 > entro a _obtenerImagesUrlVideosXId
+00:08:51 > url obtener datos: http://api.liquidplatform.com/2.0/medias/4dad531b2c2cd188aa329404841e5c02?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:08:51 > url get http://api.liquidplatform.com/2.0/medias/4dad531b2c2cd188aa329404841e5c02?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:08:51 > get entro error liquid titulo
+00:08:51 > http_code: 404
+00:08:51 > content_type: 
+00:08:51 > curl_errno: 22
+00:08:51 >  no paso get
+00:08:51 > Response obtener datos
+00:08:51 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=2962
+00:08:52 > entro a _obtenerImagesUrlVideosXId
+00:08:52 > url obtener datos: http://api.liquidplatform.com/2.0/medias/c883af63fa893f8f102bd296760d21d3?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:08:52 > url get http://api.liquidplatform.com/2.0/medias/c883af63fa893f8f102bd296760d21d3?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:08:52 > get entro error liquid titulo
+00:08:53 > http_code: 404
+00:08:53 > content_type: 
+00:08:53 > curl_errno: 22
+00:08:53 >  no paso get
+00:08:53 > Response obtener datos
+00:08:53 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=2963
+00:08:54 > entro a _obtenerImagesUrlVideosXId
+00:08:54 > url obtener datos: http://api.liquidplatform.com/2.0/medias/dc0c8334a1bab06e34fe4deeb793eae0?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:08:54 > url get http://api.liquidplatform.com/2.0/medias/dc0c8334a1bab06e34fe4deeb793eae0?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:08:54 > get entro error liquid titulo
+00:08:54 > http_code: 404
+00:08:54 > content_type: 
+00:08:54 > curl_errno: 22
+00:08:54 >  no paso get
+00:08:54 > Response obtener datos
+00:08:54 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=2964
+00:08:56 > entro a _obtenerImagesUrlVideosXId
+00:08:56 > url obtener datos: http://api.liquidplatform.com/2.0/medias/7d13b119a3bb73c85e7f95fa9786bc03?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:08:56 > url get http://api.liquidplatform.com/2.0/medias/7d13b119a3bb73c85e7f95fa9786bc03?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:08:56 > get entro error liquid titulo
+00:08:58 > http_code: 404
+00:08:58 > content_type: 
+00:08:58 > curl_errno: 22
+00:08:58 >  no paso get
+00:08:58 > Response obtener datos
+00:08:58 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=2965
+00:08:59 > entro a _obtenerImagesUrlVideosXId
+00:08:59 > url obtener datos: http://api.liquidplatform.com/2.0/medias/3a45bfc1547d7ac46133b26b20c1f092?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:08:59 > url get http://api.liquidplatform.com/2.0/medias/3a45bfc1547d7ac46133b26b20c1f092?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:08:59 > get entro error liquid titulo
+00:09:00 > http_code: 404
+00:09:00 > content_type: 
+00:09:00 > curl_errno: 22
+00:09:00 >  no paso get
+00:09:00 > Response obtener datos
+00:09:00 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=2966
+00:09:01 > entro a _obtenerImagesUrlVideosXId
+00:09:01 > url obtener datos: http://api.liquidplatform.com/2.0/medias/685cea563376e630326d79592554201a?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:09:01 > url get http://api.liquidplatform.com/2.0/medias/685cea563376e630326d79592554201a?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:09:01 > get entro error liquid titulo
+00:09:01 > http_code: 404
+00:09:01 > content_type: 
+00:09:01 > curl_errno: 22
+00:09:01 >  no paso get
+00:09:01 > Response obtener datos
+00:09:01 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=2967
+00:09:03 > entro a _obtenerImagesUrlVideosXId
+00:09:03 > url obtener datos: http://api.liquidplatform.com/2.0/medias/e4c0d78498ce438f101dc97ec3486d9d?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:09:03 > url get http://api.liquidplatform.com/2.0/medias/e4c0d78498ce438f101dc97ec3486d9d?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:09:03 > get entro error liquid titulo
+00:09:04 > http_code: 404
+00:09:04 > content_type: 
+00:09:04 > curl_errno: 22
+00:09:04 >  no paso get
+00:09:04 > Response obtener datos
+00:09:04 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=2968
+00:09:05 > entro a _obtenerImagesUrlVideosXId
+00:09:05 > url obtener datos: http://api.liquidplatform.com/2.0/medias/fe8ae22e7cc878343f7f99b5c79d0340?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:09:05 > url get http://api.liquidplatform.com/2.0/medias/fe8ae22e7cc878343f7f99b5c79d0340?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:09:05 > get entro error liquid titulo
+00:09:06 > http_code: 404
+00:09:06 > content_type: 
+00:09:06 > curl_errno: 22
+00:09:06 >  no paso get
+00:09:06 > Response obtener datos
+00:09:06 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=2969
+00:09:07 > entro a _obtenerImagesUrlVideosXId
+00:09:07 > url obtener datos: http://api.liquidplatform.com/2.0/medias/3ab431281d5082e9fee99250a66a9426?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:09:07 > url get http://api.liquidplatform.com/2.0/medias/3ab431281d5082e9fee99250a66a9426?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:09:07 > get entro error liquid titulo
+00:09:07 > http_code: 404
+00:09:07 > content_type: 
+00:09:07 > curl_errno: 22
+00:09:07 >  no paso get
+00:09:07 > Response obtener datos
+00:09:07 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=2970
+00:09:08 > entro a _obtenerImagesUrlVideosXId
+00:09:08 > url obtener datos: http://api.liquidplatform.com/2.0/medias/1280e6bbf0fd5fa5a060afbc024e48bd?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:09:08 > url get http://api.liquidplatform.com/2.0/medias/1280e6bbf0fd5fa5a060afbc024e48bd?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:09:08 > get entro error liquid titulo
+00:09:09 > http_code: 404
+00:09:09 > content_type: 
+00:09:09 > curl_errno: 22
+00:09:09 >  no paso get
+00:09:09 > Response obtener datos
+00:09:09 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=2971
+00:09:11 > entro a _obtenerImagesUrlVideosXId
+00:09:11 > url obtener datos: http://api.liquidplatform.com/2.0/medias/4f411aca16e6e39ecc9b6281824b8009?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:09:11 > url get http://api.liquidplatform.com/2.0/medias/4f411aca16e6e39ecc9b6281824b8009?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:09:11 > get entro error liquid titulo
+00:09:12 > http_code: 404
+00:09:12 > content_type: 
+00:09:12 > curl_errno: 22
+00:09:12 >  no paso get
+00:09:12 > Response obtener datos
+00:09:12 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=2972
+00:09:13 > entro a _obtenerImagesUrlVideosXId
+00:09:13 > url obtener datos: http://api.liquidplatform.com/2.0/medias/3684dcadfa803f667dccac23f15f20ef?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:09:13 > url get http://api.liquidplatform.com/2.0/medias/3684dcadfa803f667dccac23f15f20ef?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:09:13 > get entro error liquid titulo
+00:09:13 > http_code: 404
+00:09:13 > content_type: 
+00:09:13 > curl_errno: 22
+00:09:13 >  no paso get
+00:09:13 > Response obtener datos
+00:09:13 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=2973
+00:09:14 > entro a _obtenerImagesUrlVideosXId
+00:09:14 > url obtener datos: http://api.liquidplatform.com/2.0/medias/d5c52a070aad7c869c8a9b8a5f175a82?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:09:14 > url get http://api.liquidplatform.com/2.0/medias/d5c52a070aad7c869c8a9b8a5f175a82?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:09:14 > get entro error liquid titulo
+00:09:14 > http_code: 404
+00:09:14 > content_type: 
+00:09:14 > curl_errno: 22
+00:09:14 >  no paso get
+00:09:14 > Response obtener datos
+00:09:14 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=2974
+00:09:16 > entro a _obtenerImagesUrlVideosXId
+00:09:16 > url obtener datos: http://api.liquidplatform.com/2.0/medias/c6b7c0b53aac07bad1ba54f995d6c10f?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:09:16 > url get http://api.liquidplatform.com/2.0/medias/c6b7c0b53aac07bad1ba54f995d6c10f?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:09:16 > get entro error liquid titulo
+00:09:16 > http_code: 404
+00:09:16 > content_type: 
+00:09:16 > curl_errno: 22
+00:09:16 >  no paso get
+00:09:16 > Response obtener datos
+00:09:16 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=2975
+00:09:19 > entro a _obtenerImagesUrlVideosXId
+00:09:19 > url obtener datos: http://api.liquidplatform.com/2.0/medias/7af55c6beb7a89d949d66a8e3ea20ba8?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:09:19 > url get http://api.liquidplatform.com/2.0/medias/7af55c6beb7a89d949d66a8e3ea20ba8?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:09:19 > get entro error liquid titulo
+00:09:20 > http_code: 404
+00:09:20 > content_type: 
+00:09:20 > curl_errno: 22
+00:09:20 >  no paso get
+00:09:20 > Response obtener datos
+00:09:20 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=2976
+00:09:21 > entro a _obtenerImagesUrlVideosXId
+00:09:21 > url obtener datos: http://api.liquidplatform.com/2.0/medias/b9afbe134acac30ac6ac6d6d47fb823c?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:09:21 > url get http://api.liquidplatform.com/2.0/medias/b9afbe134acac30ac6ac6d6d47fb823c?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:09:21 > get entro error liquid titulo
+00:09:21 > http_code: 404
+00:09:21 > content_type: 
+00:09:21 > curl_errno: 22
+00:09:21 >  no paso get
+00:09:21 > Response obtener datos
+00:09:21 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=2977
+00:09:23 > entro a _obtenerImagesUrlVideosXId
+00:09:23 > url obtener datos: http://api.liquidplatform.com/2.0/medias/2dcebecf0e1462863ba7ccd456e9ae82?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:09:23 > url get http://api.liquidplatform.com/2.0/medias/2dcebecf0e1462863ba7ccd456e9ae82?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:09:23 > get entro error liquid titulo
+00:09:24 > http_code: 404
+00:09:24 > content_type: 
+00:09:24 > curl_errno: 22
+00:09:24 >  no paso get
+00:09:24 > Response obtener datos
+00:09:24 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=2978
+00:09:27 > entro a _obtenerImagesUrlVideosXId
+00:09:27 > url obtener datos: http://api.liquidplatform.com/2.0/medias/af65f43cb6956da9cca6961d86f29714?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:09:27 > url get http://api.liquidplatform.com/2.0/medias/af65f43cb6956da9cca6961d86f29714?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:09:27 > get entro error liquid titulo
+00:09:27 > http_code: 404
+00:09:27 > content_type: 
+00:09:27 > curl_errno: 22
+00:09:27 >  no paso get
+00:09:27 > Response obtener datos
+00:09:27 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=2979
+00:09:29 > entro a _obtenerImagesUrlVideosXId
+00:09:29 > url obtener datos: http://api.liquidplatform.com/2.0/medias/e9f88e104a89bd83646053ba82905021?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:09:29 > url get http://api.liquidplatform.com/2.0/medias/e9f88e104a89bd83646053ba82905021?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:09:29 > get entro error liquid titulo
+00:09:29 > http_code: 404
+00:09:29 > content_type: 
+00:09:29 > curl_errno: 22
+00:09:29 >  no paso get
+00:09:29 > Response obtener datos
+00:09:29 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=2980
+00:09:30 > entro a _obtenerImagesUrlVideosXId
+00:09:30 > url obtener datos: http://api.liquidplatform.com/2.0/medias/2104f6cb45a68f77f183a02a9f26cad4?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:09:30 > url get http://api.liquidplatform.com/2.0/medias/2104f6cb45a68f77f183a02a9f26cad4?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:09:30 > get entro error liquid titulo
+00:09:31 > http_code: 404
+00:09:31 > content_type: 
+00:09:31 > curl_errno: 22
+00:09:31 >  no paso get
+00:09:31 > Response obtener datos
+00:09:31 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=2981
+00:09:35 > entro a _obtenerImagesUrlVideosXId
+00:09:35 > url obtener datos: http://api.liquidplatform.com/2.0/medias/2cb8d4ce63030241cd8b378f452ee6c5?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:09:35 > url get http://api.liquidplatform.com/2.0/medias/2cb8d4ce63030241cd8b378f452ee6c5?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:09:35 > get entro error liquid titulo
+00:09:36 > http_code: 404
+00:09:36 > content_type: 
+00:09:36 > curl_errno: 22
+00:09:36 >  no paso get
+00:09:36 > Response obtener datos
+00:09:36 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=2982
+00:09:37 > entro a _obtenerImagesUrlVideosXId
+00:09:37 > url obtener datos: http://api.liquidplatform.com/2.0/medias/ab93cc384b339f496d46a72e56c846f1?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:09:37 > url get http://api.liquidplatform.com/2.0/medias/ab93cc384b339f496d46a72e56c846f1?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:09:37 > get entro error liquid titulo
+00:09:38 > http_code: 404
+00:09:38 > content_type: 
+00:09:38 > curl_errno: 22
+00:09:38 >  no paso get
+00:09:38 > Response obtener datos
+00:09:38 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=2983
+00:09:41 > entro a _obtenerImagesUrlVideosXId
+00:09:41 > url obtener datos: http://api.liquidplatform.com/2.0/medias/80e517464160b84c37c639d8f8e127c8?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:09:41 > url get http://api.liquidplatform.com/2.0/medias/80e517464160b84c37c639d8f8e127c8?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:09:41 > get entro error liquid titulo
+00:09:41 > http_code: 404
+00:09:41 > content_type: 
+00:09:41 > curl_errno: 22
+00:09:41 >  no paso get
+00:09:41 > Response obtener datos
+00:09:41 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=2984
+00:09:43 > entro a _obtenerImagesUrlVideosXId
+00:09:43 > url obtener datos: http://api.liquidplatform.com/2.0/medias/e6dfb6e2ce9dcb79cceecf793ce120b2?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:09:43 > url get http://api.liquidplatform.com/2.0/medias/e6dfb6e2ce9dcb79cceecf793ce120b2?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:09:43 > get entro error liquid titulo
+00:09:43 > http_code: 404
+00:09:43 > content_type: 
+00:09:43 > curl_errno: 22
+00:09:43 >  no paso get
+00:09:43 > Response obtener datos
+00:09:43 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=2985
+00:09:45 > entro a _obtenerImagesUrlVideosXId
+00:09:45 > url obtener datos: http://api.liquidplatform.com/2.0/medias/41193053ff7e729a541e124cc0c29733?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:09:45 > url get http://api.liquidplatform.com/2.0/medias/41193053ff7e729a541e124cc0c29733?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:09:45 > get entro error liquid titulo
+00:09:45 > http_code: 404
+00:09:45 > content_type: 
+00:09:45 > curl_errno: 22
+00:09:45 >  no paso get
+00:09:45 > Response obtener datos
+00:09:45 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=2986
+00:09:49 > entro a _obtenerImagesUrlVideosXId
+00:09:49 > url obtener datos: http://api.liquidplatform.com/2.0/medias/2efef99bc1a79faf9ab7c355ca0f7efb?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:09:49 > url get http://api.liquidplatform.com/2.0/medias/2efef99bc1a79faf9ab7c355ca0f7efb?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:09:49 > get entro error liquid titulo
+00:09:50 > http_code: 404
+00:09:50 > content_type: 
+00:09:50 > curl_errno: 22
+00:09:50 >  no paso get
+00:09:50 > Response obtener datos
+00:09:50 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=2987
+00:09:56 > entro a _obtenerImagesUrlVideosXId
+00:09:56 > url obtener datos: http://api.liquidplatform.com/2.0/medias/2696ee97a436b62b2788278fda0883ad?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:09:56 > url get http://api.liquidplatform.com/2.0/medias/2696ee97a436b62b2788278fda0883ad?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:09:56 > get entro error liquid titulo
+00:09:57 > http_code: 404
+00:09:57 > content_type: 
+00:09:57 > curl_errno: 22
+00:09:57 >  no paso get
+00:09:57 > Response obtener datos
+00:09:57 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=2988
+00:10:01 > entro a _obtenerImagesUrlVideosXId
+00:10:01 > url obtener datos: http://api.liquidplatform.com/2.0/medias/b5cdf9499f9928f55a35a057a1703afe?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:10:01 > url get http://api.liquidplatform.com/2.0/medias/b5cdf9499f9928f55a35a057a1703afe?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:10:01 > get entro error liquid titulo
+00:10:02 > http_code: 404
+00:10:02 > content_type: 
+00:10:02 > curl_errno: 22
+00:10:02 >  no paso get
+00:10:02 > Response obtener datos
+00:10:02 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=2989
+00:10:05 > entro a _obtenerImagesUrlVideosXId
+00:10:05 > url obtener datos: http://api.liquidplatform.com/2.0/medias/980566db7acc8ea32d5d618bd55c6d88?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:10:05 > url get http://api.liquidplatform.com/2.0/medias/980566db7acc8ea32d5d618bd55c6d88?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:10:05 > get entro error liquid titulo
+00:10:07 > http_code: 404
+00:10:07 > content_type: 
+00:10:07 > curl_errno: 22
+00:10:07 >  no paso get
+00:10:07 > Response obtener datos
+00:10:07 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=2990
+00:10:08 > entro a _obtenerImagesUrlVideosXId
+00:10:08 > url obtener datos: http://api.liquidplatform.com/2.0/medias/d806df18a79da1492e0085371f977421?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:10:08 > url get http://api.liquidplatform.com/2.0/medias/d806df18a79da1492e0085371f977421?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:10:08 > get entro error liquid titulo
+00:10:08 > http_code: 404
+00:10:08 > content_type: 
+00:10:08 > curl_errno: 22
+00:10:08 >  no paso get
+00:10:08 > Response obtener datos
+00:10:08 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=2991
+00:10:10 > entro a _obtenerImagesUrlVideosXId
+00:10:10 > url obtener datos: http://api.liquidplatform.com/2.0/medias/ed6bdd0319c50cab1881c187242874e6?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:10:10 > url get http://api.liquidplatform.com/2.0/medias/ed6bdd0319c50cab1881c187242874e6?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:10:10 > get entro error liquid titulo
+00:10:11 > http_code: 404
+00:10:11 > content_type: 
+00:10:11 > curl_errno: 22
+00:10:11 >  no paso get
+00:10:11 > Response obtener datos
+00:10:11 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=2992
+00:10:14 > entro a _obtenerImagesUrlVideosXId
+00:10:14 > url obtener datos: http://api.liquidplatform.com/2.0/medias/c3f0dbf914b2233e021c811d8e0e867e?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:10:14 > url get http://api.liquidplatform.com/2.0/medias/c3f0dbf914b2233e021c811d8e0e867e?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:10:14 > get entro error liquid titulo
+00:10:15 > http_code: 404
+00:10:15 > content_type: 
+00:10:15 > curl_errno: 22
+00:10:15 >  no paso get
+00:10:15 > Response obtener datos
+00:10:15 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=2993
+00:10:16 > entro a _obtenerImagesUrlVideosXId
+00:10:16 > url obtener datos: http://api.liquidplatform.com/2.0/medias/ba00296c99500146d85b9f6de82c491a?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:10:16 > url get http://api.liquidplatform.com/2.0/medias/ba00296c99500146d85b9f6de82c491a?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:10:16 > get entro error liquid titulo
+00:10:17 > http_code: 404
+00:10:17 > content_type: 
+00:10:17 > curl_errno: 22
+00:10:17 >  no paso get
+00:10:17 > Response obtener datos
+00:10:17 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=2994
+00:10:18 > entro a _obtenerImagesUrlVideosXId
+00:10:18 > url obtener datos: http://api.liquidplatform.com/2.0/medias/eca9f84fc8fb9ee7568d5fb202ba1c45?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:10:18 > url get http://api.liquidplatform.com/2.0/medias/eca9f84fc8fb9ee7568d5fb202ba1c45?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:10:18 > get entro error liquid titulo
+00:10:20 > http_code: 404
+00:10:20 > content_type: 
+00:10:20 > curl_errno: 22
+00:10:20 >  no paso get
+00:10:20 > Response obtener datos
+00:10:20 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=2995
+00:10:22 > entro a _obtenerImagesUrlVideosXId
+00:10:22 > url obtener datos: http://api.liquidplatform.com/2.0/medias/6b29f1c6dfc0d36ed44bc00efb52ee43?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:10:22 > url get http://api.liquidplatform.com/2.0/medias/6b29f1c6dfc0d36ed44bc00efb52ee43?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:10:22 > get entro error liquid titulo
+00:10:22 > http_code: 404
+00:10:22 > content_type: 
+00:10:22 > curl_errno: 22
+00:10:22 >  no paso get
+00:10:22 > Response obtener datos
+00:10:22 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=2996
+00:10:23 > entro a _obtenerImagesUrlVideosXId
+00:10:23 > url obtener datos: http://api.liquidplatform.com/2.0/medias/991cdf1957c18269400c742ec8939a60?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:10:23 > url get http://api.liquidplatform.com/2.0/medias/991cdf1957c18269400c742ec8939a60?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:10:23 > get entro error liquid titulo
+00:10:24 > http_code: 404
+00:10:24 > content_type: 
+00:10:24 > curl_errno: 22
+00:10:24 >  no paso get
+00:10:24 > Response obtener datos
+00:10:24 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=2997
+00:10:25 > entro a _obtenerImagesUrlVideosXId
+00:10:25 > url obtener datos: http://api.liquidplatform.com/2.0/medias/b506fffe226f5e574458c24160714218?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:10:25 > url get http://api.liquidplatform.com/2.0/medias/b506fffe226f5e574458c24160714218?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:10:25 > get entro error liquid titulo
+00:10:26 > http_code: 404
+00:10:26 > content_type: 
+00:10:26 > curl_errno: 22
+00:10:26 >  no paso get
+00:10:26 > Response obtener datos
+00:10:26 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=2998
+00:10:28 > entro a _obtenerImagesUrlVideosXId
+00:10:28 > url obtener datos: http://api.liquidplatform.com/2.0/medias/485eec3e614e36f20b521cfdc1b2c8f5?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:10:28 > url get http://api.liquidplatform.com/2.0/medias/485eec3e614e36f20b521cfdc1b2c8f5?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:10:28 > get entro error liquid titulo
+00:10:29 > http_code: 404
+00:10:29 > content_type: 
+00:10:29 > curl_errno: 22
+00:10:29 >  no paso get
+00:10:29 > Response obtener datos
+00:10:29 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=2999
+00:10:30 > entro a _obtenerImagesUrlVideosXId
+00:10:30 > url obtener datos: http://api.liquidplatform.com/2.0/medias/e5ed5c8bf8ecd0fb33d6c6668cefebd6?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:10:30 > url get http://api.liquidplatform.com/2.0/medias/e5ed5c8bf8ecd0fb33d6c6668cefebd6?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:10:30 > get entro error liquid titulo
+00:10:30 > http_code: 404
+00:10:30 > content_type: 
+00:10:30 > curl_errno: 22
+00:10:30 >  no paso get
+00:10:30 > Response obtener datos
+00:10:30 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=3000
+00:10:31 > entro a _obtenerImagesUrlVideosXId
+00:10:31 > url obtener datos: http://api.liquidplatform.com/2.0/medias/1e8a66044b5abec14fe06dec4c1d3ed7?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:10:31 > url get http://api.liquidplatform.com/2.0/medias/1e8a66044b5abec14fe06dec4c1d3ed7?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:10:31 > get entro error liquid titulo
+00:10:33 > http_code: 404
+00:10:33 > content_type: 
+00:10:33 > curl_errno: 22
+00:10:33 >  no paso get
+00:10:33 > Response obtener datos
+00:10:33 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=3001
+00:10:34 > entro a _obtenerImagesUrlVideosXId
+00:10:34 > url obtener datos: http://api.liquidplatform.com/2.0/medias/eff7ad97a91d7ff693ca1b2e3148405d?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:10:34 > url get http://api.liquidplatform.com/2.0/medias/eff7ad97a91d7ff693ca1b2e3148405d?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:10:34 > get entro error liquid titulo
+00:10:35 > http_code: 404
+00:10:35 > content_type: 
+00:10:35 > curl_errno: 22
+00:10:35 >  no paso get
+00:10:35 > Response obtener datos
+00:10:35 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=3002
+00:10:37 > entro a _obtenerImagesUrlVideosXId
+00:10:37 > url obtener datos: http://api.liquidplatform.com/2.0/medias/740e164fdaed32c640aa59c2747abd19?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:10:37 > url get http://api.liquidplatform.com/2.0/medias/740e164fdaed32c640aa59c2747abd19?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:10:37 > get entro error liquid titulo
+00:10:37 > http_code: 404
+00:10:37 > content_type: 
+00:10:37 > curl_errno: 22
+00:10:37 >  no paso get
+00:10:37 > Response obtener datos
+00:10:37 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=3003
+00:10:45 > entro a _obtenerImagesUrlVideosXId
+00:10:45 > url obtener datos: http://api.liquidplatform.com/2.0/medias/e9ce8c3f39dff10d6997aea4a0719cac?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:10:45 > url get http://api.liquidplatform.com/2.0/medias/e9ce8c3f39dff10d6997aea4a0719cac?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:10:45 > get entro error liquid titulo
+00:10:46 > http_code: 404
+00:10:46 > content_type: 
+00:10:46 > curl_errno: 22
+00:10:46 >  no paso get
+00:10:46 > Response obtener datos
+00:10:46 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=3004
+00:10:53 > entro a _obtenerImagesUrlVideosXId
+00:10:53 > url obtener datos: http://api.liquidplatform.com/2.0/medias/51cf093f9d1f5ba2d9909269ca1111cc?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:10:53 > url get http://api.liquidplatform.com/2.0/medias/51cf093f9d1f5ba2d9909269ca1111cc?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:10:53 > get entro error liquid titulo
+00:10:53 > http_code: 404
+00:10:53 > content_type: 
+00:10:53 > curl_errno: 22
+00:10:53 >  no paso get
+00:10:53 > Response obtener datos
+00:10:53 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=3005
+00:11:01 > entro a _obtenerImagesUrlVideosXId
+00:11:01 > url obtener datos: http://api.liquidplatform.com/2.0/medias/30e640833a0dcce8c974d71f48bf5293?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:11:01 > url get http://api.liquidplatform.com/2.0/medias/30e640833a0dcce8c974d71f48bf5293?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:11:01 > get entro error liquid titulo
+00:11:01 > http_code: 404
+00:11:01 > content_type: 
+00:11:01 > curl_errno: 22
+00:11:01 >  no paso get
+00:11:01 > Response obtener datos
+00:11:01 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=3006
+00:11:06 > entro a _obtenerImagesUrlVideosXId
+00:11:06 > url obtener datos: http://api.liquidplatform.com/2.0/medias/9c9890da19660fc78e3f5028d742e87f?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:11:06 > url get http://api.liquidplatform.com/2.0/medias/9c9890da19660fc78e3f5028d742e87f?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:11:06 > get entro error liquid titulo
+00:11:07 > http_code: 404
+00:11:07 > content_type: 
+00:11:07 > curl_errno: 22
+00:11:07 >  no paso get
+00:11:07 > Response obtener datos
+00:11:07 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=3007
+00:11:13 > entro a _obtenerImagesUrlVideosXId
+00:11:13 > url obtener datos: http://api.liquidplatform.com/2.0/medias/27dc2f85e8ba083573a8862ee8c99351?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:11:13 > url get http://api.liquidplatform.com/2.0/medias/27dc2f85e8ba083573a8862ee8c99351?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:11:13 > get entro error liquid titulo
+00:11:14 > http_code: 404
+00:11:14 > content_type: 
+00:11:14 > curl_errno: 22
+00:11:14 >  no paso get
+00:11:14 > Response obtener datos
+00:11:14 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=3008
+00:11:20 > entro a _obtenerImagesUrlVideosXId
+00:11:20 > url obtener datos: http://api.liquidplatform.com/2.0/medias/0692cde92ebc46f17ce9e9f6ab752eb4?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:11:20 > url get http://api.liquidplatform.com/2.0/medias/0692cde92ebc46f17ce9e9f6ab752eb4?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:11:20 > get entro error liquid titulo
+00:11:20 > http_code: 404
+00:11:20 > content_type: 
+00:11:20 > curl_errno: 22
+00:11:20 >  no paso get
+00:11:20 > Response obtener datos
+00:11:20 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=3009
+00:11:27 > entro a _obtenerImagesUrlVideosXId
+00:11:27 > url obtener datos: http://api.liquidplatform.com/2.0/medias/a909b2e75c661f25a8787888dd4af64d?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:11:27 > url get http://api.liquidplatform.com/2.0/medias/a909b2e75c661f25a8787888dd4af64d?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:11:27 > get entro error liquid titulo
+00:11:27 > http_code: 404
+00:11:27 > content_type: 
+00:11:27 > curl_errno: 22
+00:11:27 >  no paso get
+00:11:27 > Response obtener datos
+00:11:27 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=3010
+00:11:33 > entro a _obtenerImagesUrlVideosXId
+00:11:33 > url obtener datos: http://api.liquidplatform.com/2.0/medias/1a21c29c2a6642bfb2f8d4834a2ba7b3?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:11:33 > url get http://api.liquidplatform.com/2.0/medias/1a21c29c2a6642bfb2f8d4834a2ba7b3?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:11:33 > get entro error liquid titulo
+00:11:34 > http_code: 404
+00:11:34 > content_type: 
+00:11:34 > curl_errno: 22
+00:11:34 >  no paso get
+00:11:34 > Response obtener datos
+00:11:34 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=3011
+00:11:41 > entro a _obtenerImagesUrlVideosXId
+00:11:41 > url obtener datos: http://api.liquidplatform.com/2.0/medias/7593ec1623b29e300840380f8a9d6146?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:11:41 > url get http://api.liquidplatform.com/2.0/medias/7593ec1623b29e300840380f8a9d6146?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:11:41 > get entro error liquid titulo
+00:11:42 > http_code: 404
+00:11:42 > content_type: 
+00:11:42 > curl_errno: 22
+00:11:42 >  no paso get
+00:11:42 > Response obtener datos
+00:11:42 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=3012
+00:27:42 > entro a _obtenerImagesUrlVideosXId
+00:27:42 > url obtener datos: http://api.liquidplatform.com/2.0/medias/ec5286bb932a534ab91477da1874a736?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:42 > url get http://api.liquidplatform.com/2.0/medias/ec5286bb932a534ab91477da1874a736?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:42 > get entro error liquid titulo
+00:27:43 > http_code: 404
+00:27:43 > content_type: 
+00:27:43 > curl_errno: 22
+00:27:43 >  no paso get
+00:27:43 > Response obtener datos
+00:27:43 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3013
+00:27:43 > entro a _obtenerImagesUrlVideosXId
+00:27:43 > url obtener datos: http://api.liquidplatform.com/2.0/medias/fc0d126fbb7a1686314f55e63425525e?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:43 > url get http://api.liquidplatform.com/2.0/medias/fc0d126fbb7a1686314f55e63425525e?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:43 > get entro error liquid titulo
+00:27:44 > http_code: 404
+00:27:44 > content_type: 
+00:27:44 > curl_errno: 22
+00:27:44 >  no paso get
+00:27:44 > Response obtener datos
+00:27:44 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3014
+00:27:44 > entro a _obtenerImagesUrlVideosXId
+00:27:44 > url obtener datos: http://api.liquidplatform.com/2.0/medias/1feb18e05b9deb0360fad7bd5d0d2727?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:44 > url get http://api.liquidplatform.com/2.0/medias/1feb18e05b9deb0360fad7bd5d0d2727?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:44 > get entro error liquid titulo
+00:27:44 > http_code: 404
+00:27:44 > content_type: 
+00:27:44 > curl_errno: 22
+00:27:44 >  no paso get
+00:27:44 > Response obtener datos
+00:27:44 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3015
+00:27:44 > entro a _obtenerImagesUrlVideosXId
+00:27:44 > url obtener datos: http://api.liquidplatform.com/2.0/medias/28682e73272eea5385f3936a36012450?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:44 > url get http://api.liquidplatform.com/2.0/medias/28682e73272eea5385f3936a36012450?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:44 > get entro error liquid titulo
+00:27:44 > http_code: 404
+00:27:44 > content_type: 
+00:27:44 > curl_errno: 22
+00:27:44 >  no paso get
+00:27:44 > Response obtener datos
+00:27:44 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3016
+00:27:44 > entro a _obtenerImagesUrlVideosXId
+00:27:44 > url obtener datos: http://api.liquidplatform.com/2.0/medias/4fbe7e70290d6728f14fa9bbda8b4038?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:44 > url get http://api.liquidplatform.com/2.0/medias/4fbe7e70290d6728f14fa9bbda8b4038?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:44 > get entro error liquid titulo
+00:27:44 > http_code: 404
+00:27:44 > content_type: 
+00:27:44 > curl_errno: 22
+00:27:44 >  no paso get
+00:27:44 > Response obtener datos
+00:27:44 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3017
+00:27:44 > entro a _obtenerImagesUrlVideosXId
+00:27:44 > url obtener datos: http://api.liquidplatform.com/2.0/medias/98347a6c7537d2a41558eeaa5f261841?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:44 > url get http://api.liquidplatform.com/2.0/medias/98347a6c7537d2a41558eeaa5f261841?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:44 > get entro error liquid titulo
+00:27:45 > http_code: 404
+00:27:45 > content_type: 
+00:27:45 > curl_errno: 22
+00:27:45 >  no paso get
+00:27:45 > Response obtener datos
+00:27:45 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3018
+00:27:45 > entro a _obtenerImagesUrlVideosXId
+00:27:45 > url obtener datos: http://api.liquidplatform.com/2.0/medias/182fdace1d9a7228b53b94bf3dc307fe?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:45 > url get http://api.liquidplatform.com/2.0/medias/182fdace1d9a7228b53b94bf3dc307fe?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:45 > get entro error liquid titulo
+00:27:45 > http_code: 404
+00:27:45 > content_type: 
+00:27:45 > curl_errno: 22
+00:27:45 >  no paso get
+00:27:45 > Response obtener datos
+00:27:45 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3019
+00:27:45 > entro a _obtenerImagesUrlVideosXId
+00:27:45 > url obtener datos: http://api.liquidplatform.com/2.0/medias/33b13dcb0a71352120a3d1d10b99c721?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:45 > url get http://api.liquidplatform.com/2.0/medias/33b13dcb0a71352120a3d1d10b99c721?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:45 > get entro error liquid titulo
+00:27:45 > http_code: 404
+00:27:45 > content_type: 
+00:27:45 > curl_errno: 22
+00:27:45 >  no paso get
+00:27:45 > Response obtener datos
+00:27:45 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3020
+00:27:45 > entro a _obtenerImagesUrlVideosXId
+00:27:45 > url obtener datos: http://api.liquidplatform.com/2.0/medias/4dad531b2c2cd188aa329404841e5c02?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:45 > url get http://api.liquidplatform.com/2.0/medias/4dad531b2c2cd188aa329404841e5c02?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:45 > get entro error liquid titulo
+00:27:46 > http_code: 404
+00:27:46 > content_type: 
+00:27:46 > curl_errno: 22
+00:27:46 >  no paso get
+00:27:46 > Response obtener datos
+00:27:46 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3021
+00:27:46 > entro a _obtenerImagesUrlVideosXId
+00:27:46 > url obtener datos: http://api.liquidplatform.com/2.0/medias/c883af63fa893f8f102bd296760d21d3?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:46 > url get http://api.liquidplatform.com/2.0/medias/c883af63fa893f8f102bd296760d21d3?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:46 > get entro error liquid titulo
+00:27:46 > http_code: 404
+00:27:46 > content_type: 
+00:27:46 > curl_errno: 22
+00:27:46 >  no paso get
+00:27:46 > Response obtener datos
+00:27:46 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3022
+00:27:46 > entro a _obtenerImagesUrlVideosXId
+00:27:46 > url obtener datos: http://api.liquidplatform.com/2.0/medias/dc0c8334a1bab06e34fe4deeb793eae0?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:46 > url get http://api.liquidplatform.com/2.0/medias/dc0c8334a1bab06e34fe4deeb793eae0?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:46 > get entro error liquid titulo
+00:27:46 > http_code: 404
+00:27:46 > content_type: 
+00:27:46 > curl_errno: 22
+00:27:46 >  no paso get
+00:27:46 > Response obtener datos
+00:27:46 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3023
+00:27:46 > entro a _obtenerImagesUrlVideosXId
+00:27:46 > url obtener datos: http://api.liquidplatform.com/2.0/medias/7d13b119a3bb73c85e7f95fa9786bc03?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:46 > url get http://api.liquidplatform.com/2.0/medias/7d13b119a3bb73c85e7f95fa9786bc03?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:46 > get entro error liquid titulo
+00:27:46 > http_code: 404
+00:27:46 > content_type: 
+00:27:46 > curl_errno: 22
+00:27:46 >  no paso get
+00:27:46 > Response obtener datos
+00:27:46 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3024
+00:27:46 > entro a _obtenerImagesUrlVideosXId
+00:27:46 > url obtener datos: http://api.liquidplatform.com/2.0/medias/3a45bfc1547d7ac46133b26b20c1f092?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:46 > url get http://api.liquidplatform.com/2.0/medias/3a45bfc1547d7ac46133b26b20c1f092?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:46 > get entro error liquid titulo
+00:27:47 > http_code: 404
+00:27:47 > content_type: 
+00:27:47 > curl_errno: 22
+00:27:47 >  no paso get
+00:27:47 > Response obtener datos
+00:27:47 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3025
+00:27:47 > entro a _obtenerImagesUrlVideosXId
+00:27:47 > url obtener datos: http://api.liquidplatform.com/2.0/medias/685cea563376e630326d79592554201a?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:47 > url get http://api.liquidplatform.com/2.0/medias/685cea563376e630326d79592554201a?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:47 > get entro error liquid titulo
+00:27:47 > http_code: 404
+00:27:47 > content_type: 
+00:27:47 > curl_errno: 22
+00:27:47 >  no paso get
+00:27:47 > Response obtener datos
+00:27:47 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3026
+00:27:47 > entro a _obtenerImagesUrlVideosXId
+00:27:47 > url obtener datos: http://api.liquidplatform.com/2.0/medias/e4c0d78498ce438f101dc97ec3486d9d?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:47 > url get http://api.liquidplatform.com/2.0/medias/e4c0d78498ce438f101dc97ec3486d9d?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:47 > get entro error liquid titulo
+00:27:47 > http_code: 404
+00:27:47 > content_type: 
+00:27:47 > curl_errno: 22
+00:27:47 >  no paso get
+00:27:47 > Response obtener datos
+00:27:47 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3027
+00:27:47 > entro a _obtenerImagesUrlVideosXId
+00:27:47 > url obtener datos: http://api.liquidplatform.com/2.0/medias/fe8ae22e7cc878343f7f99b5c79d0340?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:47 > url get http://api.liquidplatform.com/2.0/medias/fe8ae22e7cc878343f7f99b5c79d0340?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:47 > get entro error liquid titulo
+00:27:48 > http_code: 404
+00:27:48 > content_type: 
+00:27:48 > curl_errno: 22
+00:27:48 >  no paso get
+00:27:48 > Response obtener datos
+00:27:48 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3028
+00:27:48 > entro a _obtenerImagesUrlVideosXId
+00:27:48 > url obtener datos: http://api.liquidplatform.com/2.0/medias/3ab431281d5082e9fee99250a66a9426?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:48 > url get http://api.liquidplatform.com/2.0/medias/3ab431281d5082e9fee99250a66a9426?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:48 > get entro error liquid titulo
+00:27:48 > http_code: 404
+00:27:48 > content_type: 
+00:27:48 > curl_errno: 22
+00:27:48 >  no paso get
+00:27:48 > Response obtener datos
+00:27:48 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3029
+00:27:48 > entro a _obtenerImagesUrlVideosXId
+00:27:48 > url obtener datos: http://api.liquidplatform.com/2.0/medias/1280e6bbf0fd5fa5a060afbc024e48bd?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:48 > url get http://api.liquidplatform.com/2.0/medias/1280e6bbf0fd5fa5a060afbc024e48bd?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:48 > get entro error liquid titulo
+00:27:48 > http_code: 404
+00:27:48 > content_type: 
+00:27:48 > curl_errno: 22
+00:27:48 >  no paso get
+00:27:48 > Response obtener datos
+00:27:48 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3030
+00:27:48 > entro a _obtenerImagesUrlVideosXId
+00:27:48 > url obtener datos: http://api.liquidplatform.com/2.0/medias/4f411aca16e6e39ecc9b6281824b8009?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:48 > url get http://api.liquidplatform.com/2.0/medias/4f411aca16e6e39ecc9b6281824b8009?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:48 > get entro error liquid titulo
+00:27:49 > http_code: 404
+00:27:49 > content_type: 
+00:27:49 > curl_errno: 22
+00:27:49 >  no paso get
+00:27:49 > Response obtener datos
+00:27:49 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3031
+00:27:49 > entro a _obtenerImagesUrlVideosXId
+00:27:49 > url obtener datos: http://api.liquidplatform.com/2.0/medias/3684dcadfa803f667dccac23f15f20ef?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:49 > url get http://api.liquidplatform.com/2.0/medias/3684dcadfa803f667dccac23f15f20ef?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:49 > get entro error liquid titulo
+00:27:49 > http_code: 404
+00:27:49 > content_type: 
+00:27:49 > curl_errno: 22
+00:27:49 >  no paso get
+00:27:49 > Response obtener datos
+00:27:49 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3032
+00:27:49 > entro a _obtenerImagesUrlVideosXId
+00:27:49 > url obtener datos: http://api.liquidplatform.com/2.0/medias/d5c52a070aad7c869c8a9b8a5f175a82?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:49 > url get http://api.liquidplatform.com/2.0/medias/d5c52a070aad7c869c8a9b8a5f175a82?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:49 > get entro error liquid titulo
+00:27:49 > http_code: 404
+00:27:49 > content_type: 
+00:27:49 > curl_errno: 22
+00:27:49 >  no paso get
+00:27:49 > Response obtener datos
+00:27:49 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3033
+00:27:49 > entro a _obtenerImagesUrlVideosXId
+00:27:49 > url obtener datos: http://api.liquidplatform.com/2.0/medias/c6b7c0b53aac07bad1ba54f995d6c10f?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:49 > url get http://api.liquidplatform.com/2.0/medias/c6b7c0b53aac07bad1ba54f995d6c10f?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:49 > get entro error liquid titulo
+00:27:49 > http_code: 404
+00:27:49 > content_type: 
+00:27:49 > curl_errno: 22
+00:27:49 >  no paso get
+00:27:49 > Response obtener datos
+00:27:49 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3034
+00:27:49 > entro a _obtenerImagesUrlVideosXId
+00:27:49 > url obtener datos: http://api.liquidplatform.com/2.0/medias/7af55c6beb7a89d949d66a8e3ea20ba8?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:49 > url get http://api.liquidplatform.com/2.0/medias/7af55c6beb7a89d949d66a8e3ea20ba8?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:49 > get entro error liquid titulo
+00:27:50 > http_code: 404
+00:27:50 > content_type: 
+00:27:50 > curl_errno: 22
+00:27:50 >  no paso get
+00:27:50 > Response obtener datos
+00:27:50 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3035
+00:27:50 > entro a _obtenerImagesUrlVideosXId
+00:27:50 > url obtener datos: http://api.liquidplatform.com/2.0/medias/b9afbe134acac30ac6ac6d6d47fb823c?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:50 > url get http://api.liquidplatform.com/2.0/medias/b9afbe134acac30ac6ac6d6d47fb823c?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:50 > get entro error liquid titulo
+00:27:50 > http_code: 404
+00:27:50 > content_type: 
+00:27:50 > curl_errno: 22
+00:27:50 >  no paso get
+00:27:50 > Response obtener datos
+00:27:50 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3036
+00:27:50 > entro a _obtenerImagesUrlVideosXId
+00:27:50 > url obtener datos: http://api.liquidplatform.com/2.0/medias/2dcebecf0e1462863ba7ccd456e9ae82?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:50 > url get http://api.liquidplatform.com/2.0/medias/2dcebecf0e1462863ba7ccd456e9ae82?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:50 > get entro error liquid titulo
+00:27:50 > http_code: 404
+00:27:50 > content_type: 
+00:27:50 > curl_errno: 22
+00:27:50 >  no paso get
+00:27:50 > Response obtener datos
+00:27:50 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3037
+00:27:50 > entro a _obtenerImagesUrlVideosXId
+00:27:50 > url obtener datos: http://api.liquidplatform.com/2.0/medias/af65f43cb6956da9cca6961d86f29714?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:50 > url get http://api.liquidplatform.com/2.0/medias/af65f43cb6956da9cca6961d86f29714?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:50 > get entro error liquid titulo
+00:27:51 > http_code: 404
+00:27:51 > content_type: 
+00:27:51 > curl_errno: 22
+00:27:51 >  no paso get
+00:27:51 > Response obtener datos
+00:27:51 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3038
+00:27:51 > entro a _obtenerImagesUrlVideosXId
+00:27:51 > url obtener datos: http://api.liquidplatform.com/2.0/medias/e9f88e104a89bd83646053ba82905021?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:51 > url get http://api.liquidplatform.com/2.0/medias/e9f88e104a89bd83646053ba82905021?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:51 > get entro error liquid titulo
+00:27:51 > http_code: 404
+00:27:51 > content_type: 
+00:27:51 > curl_errno: 22
+00:27:51 >  no paso get
+00:27:51 > Response obtener datos
+00:27:51 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3039
+00:27:51 > entro a _obtenerImagesUrlVideosXId
+00:27:51 > url obtener datos: http://api.liquidplatform.com/2.0/medias/2104f6cb45a68f77f183a02a9f26cad4?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:51 > url get http://api.liquidplatform.com/2.0/medias/2104f6cb45a68f77f183a02a9f26cad4?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:51 > get entro error liquid titulo
+00:27:51 > http_code: 404
+00:27:51 > content_type: 
+00:27:51 > curl_errno: 22
+00:27:51 >  no paso get
+00:27:51 > Response obtener datos
+00:27:51 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3040
+00:27:51 > entro a _obtenerImagesUrlVideosXId
+00:27:51 > url obtener datos: http://api.liquidplatform.com/2.0/medias/2cb8d4ce63030241cd8b378f452ee6c5?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:51 > url get http://api.liquidplatform.com/2.0/medias/2cb8d4ce63030241cd8b378f452ee6c5?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:51 > get entro error liquid titulo
+00:27:52 > http_code: 404
+00:27:52 > content_type: 
+00:27:52 > curl_errno: 22
+00:27:52 >  no paso get
+00:27:52 > Response obtener datos
+00:27:52 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3041
+00:27:52 > entro a _obtenerImagesUrlVideosXId
+00:27:52 > url obtener datos: http://api.liquidplatform.com/2.0/medias/ab93cc384b339f496d46a72e56c846f1?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:52 > url get http://api.liquidplatform.com/2.0/medias/ab93cc384b339f496d46a72e56c846f1?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:52 > get entro error liquid titulo
+00:27:52 > http_code: 404
+00:27:52 > content_type: 
+00:27:52 > curl_errno: 22
+00:27:52 >  no paso get
+00:27:52 > Response obtener datos
+00:27:52 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3042
+00:27:52 > entro a _obtenerImagesUrlVideosXId
+00:27:52 > url obtener datos: http://api.liquidplatform.com/2.0/medias/80e517464160b84c37c639d8f8e127c8?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:52 > url get http://api.liquidplatform.com/2.0/medias/80e517464160b84c37c639d8f8e127c8?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:52 > get entro error liquid titulo
+00:27:52 > http_code: 404
+00:27:52 > content_type: 
+00:27:52 > curl_errno: 22
+00:27:52 >  no paso get
+00:27:52 > Response obtener datos
+00:27:52 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3043
+00:27:52 > entro a _obtenerImagesUrlVideosXId
+00:27:52 > url obtener datos: http://api.liquidplatform.com/2.0/medias/e6dfb6e2ce9dcb79cceecf793ce120b2?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:52 > url get http://api.liquidplatform.com/2.0/medias/e6dfb6e2ce9dcb79cceecf793ce120b2?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:52 > get entro error liquid titulo
+00:27:52 > http_code: 404
+00:27:52 > content_type: 
+00:27:52 > curl_errno: 22
+00:27:52 >  no paso get
+00:27:52 > Response obtener datos
+00:27:52 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3044
+00:27:52 > entro a _obtenerImagesUrlVideosXId
+00:27:52 > url obtener datos: http://api.liquidplatform.com/2.0/medias/41193053ff7e729a541e124cc0c29733?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:52 > url get http://api.liquidplatform.com/2.0/medias/41193053ff7e729a541e124cc0c29733?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:52 > get entro error liquid titulo
+00:27:53 > http_code: 404
+00:27:53 > content_type: 
+00:27:53 > curl_errno: 22
+00:27:53 >  no paso get
+00:27:53 > Response obtener datos
+00:27:53 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3045
+00:27:53 > entro a _obtenerImagesUrlVideosXId
+00:27:53 > url obtener datos: http://api.liquidplatform.com/2.0/medias/2efef99bc1a79faf9ab7c355ca0f7efb?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:53 > url get http://api.liquidplatform.com/2.0/medias/2efef99bc1a79faf9ab7c355ca0f7efb?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:53 > get entro error liquid titulo
+00:27:53 > http_code: 404
+00:27:53 > content_type: 
+00:27:53 > curl_errno: 22
+00:27:53 >  no paso get
+00:27:53 > Response obtener datos
+00:27:53 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3046
+00:27:53 > entro a _obtenerImagesUrlVideosXId
+00:27:53 > url obtener datos: http://api.liquidplatform.com/2.0/medias/2696ee97a436b62b2788278fda0883ad?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:53 > url get http://api.liquidplatform.com/2.0/medias/2696ee97a436b62b2788278fda0883ad?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:53 > get entro error liquid titulo
+00:27:53 > http_code: 404
+00:27:53 > content_type: 
+00:27:53 > curl_errno: 22
+00:27:53 >  no paso get
+00:27:53 > Response obtener datos
+00:27:53 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3047
+00:27:53 > entro a _obtenerImagesUrlVideosXId
+00:27:53 > url obtener datos: http://api.liquidplatform.com/2.0/medias/b5cdf9499f9928f55a35a057a1703afe?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:53 > url get http://api.liquidplatform.com/2.0/medias/b5cdf9499f9928f55a35a057a1703afe?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:53 > get entro error liquid titulo
+00:27:54 > http_code: 404
+00:27:54 > content_type: 
+00:27:54 > curl_errno: 22
+00:27:54 >  no paso get
+00:27:54 > Response obtener datos
+00:27:54 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3048
+00:27:54 > entro a _obtenerImagesUrlVideosXId
+00:27:54 > url obtener datos: http://api.liquidplatform.com/2.0/medias/980566db7acc8ea32d5d618bd55c6d88?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:54 > url get http://api.liquidplatform.com/2.0/medias/980566db7acc8ea32d5d618bd55c6d88?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:54 > get entro error liquid titulo
+00:27:54 > http_code: 404
+00:27:54 > content_type: 
+00:27:54 > curl_errno: 22
+00:27:54 >  no paso get
+00:27:54 > Response obtener datos
+00:27:54 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3049
+00:27:54 > entro a _obtenerImagesUrlVideosXId
+00:27:54 > url obtener datos: http://api.liquidplatform.com/2.0/medias/d806df18a79da1492e0085371f977421?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:54 > url get http://api.liquidplatform.com/2.0/medias/d806df18a79da1492e0085371f977421?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:54 > get entro error liquid titulo
+00:27:54 > http_code: 404
+00:27:54 > content_type: 
+00:27:54 > curl_errno: 22
+00:27:54 >  no paso get
+00:27:54 > Response obtener datos
+00:27:54 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3050
+00:27:54 > entro a _obtenerImagesUrlVideosXId
+00:27:54 > url obtener datos: http://api.liquidplatform.com/2.0/medias/ed6bdd0319c50cab1881c187242874e6?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:54 > url get http://api.liquidplatform.com/2.0/medias/ed6bdd0319c50cab1881c187242874e6?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:54 > get entro error liquid titulo
+00:27:54 > http_code: 404
+00:27:54 > content_type: 
+00:27:54 > curl_errno: 22
+00:27:54 >  no paso get
+00:27:54 > Response obtener datos
+00:27:54 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3051
+00:27:54 > entro a _obtenerImagesUrlVideosXId
+00:27:54 > url obtener datos: http://api.liquidplatform.com/2.0/medias/c3f0dbf914b2233e021c811d8e0e867e?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:54 > url get http://api.liquidplatform.com/2.0/medias/c3f0dbf914b2233e021c811d8e0e867e?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:54 > get entro error liquid titulo
+00:27:55 > http_code: 404
+00:27:55 > content_type: 
+00:27:55 > curl_errno: 22
+00:27:55 >  no paso get
+00:27:55 > Response obtener datos
+00:27:55 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3052
+00:27:55 > entro a _obtenerImagesUrlVideosXId
+00:27:55 > url obtener datos: http://api.liquidplatform.com/2.0/medias/ba00296c99500146d85b9f6de82c491a?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:55 > url get http://api.liquidplatform.com/2.0/medias/ba00296c99500146d85b9f6de82c491a?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:55 > get entro error liquid titulo
+00:27:55 > http_code: 404
+00:27:55 > content_type: 
+00:27:55 > curl_errno: 22
+00:27:55 >  no paso get
+00:27:55 > Response obtener datos
+00:27:55 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3053
+00:27:55 > entro a _obtenerImagesUrlVideosXId
+00:27:55 > url obtener datos: http://api.liquidplatform.com/2.0/medias/eca9f84fc8fb9ee7568d5fb202ba1c45?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:55 > url get http://api.liquidplatform.com/2.0/medias/eca9f84fc8fb9ee7568d5fb202ba1c45?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:55 > get entro error liquid titulo
+00:27:55 > http_code: 404
+00:27:55 > content_type: 
+00:27:55 > curl_errno: 22
+00:27:55 >  no paso get
+00:27:55 > Response obtener datos
+00:27:55 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3054
+00:27:55 > entro a _obtenerImagesUrlVideosXId
+00:27:55 > url obtener datos: http://api.liquidplatform.com/2.0/medias/6b29f1c6dfc0d36ed44bc00efb52ee43?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:55 > url get http://api.liquidplatform.com/2.0/medias/6b29f1c6dfc0d36ed44bc00efb52ee43?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:55 > get entro error liquid titulo
+00:27:56 > http_code: 404
+00:27:56 > content_type: 
+00:27:56 > curl_errno: 22
+00:27:56 >  no paso get
+00:27:56 > Response obtener datos
+00:27:56 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3055
+00:27:56 > entro a _obtenerImagesUrlVideosXId
+00:27:56 > url obtener datos: http://api.liquidplatform.com/2.0/medias/991cdf1957c18269400c742ec8939a60?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:56 > url get http://api.liquidplatform.com/2.0/medias/991cdf1957c18269400c742ec8939a60?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:56 > get entro error liquid titulo
+00:27:56 > http_code: 404
+00:27:56 > content_type: 
+00:27:56 > curl_errno: 22
+00:27:56 >  no paso get
+00:27:56 > Response obtener datos
+00:27:56 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3056
+00:27:56 > entro a _obtenerImagesUrlVideosXId
+00:27:56 > url obtener datos: http://api.liquidplatform.com/2.0/medias/b506fffe226f5e574458c24160714218?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:56 > url get http://api.liquidplatform.com/2.0/medias/b506fffe226f5e574458c24160714218?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:56 > get entro error liquid titulo
+00:27:56 > http_code: 404
+00:27:56 > content_type: 
+00:27:56 > curl_errno: 22
+00:27:56 >  no paso get
+00:27:56 > Response obtener datos
+00:27:56 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3057
+00:27:56 > entro a _obtenerImagesUrlVideosXId
+00:27:56 > url obtener datos: http://api.liquidplatform.com/2.0/medias/485eec3e614e36f20b521cfdc1b2c8f5?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:56 > url get http://api.liquidplatform.com/2.0/medias/485eec3e614e36f20b521cfdc1b2c8f5?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:56 > get entro error liquid titulo
+00:27:56 > http_code: 404
+00:27:56 > content_type: 
+00:27:56 > curl_errno: 22
+00:27:56 >  no paso get
+00:27:56 > Response obtener datos
+00:27:56 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3058
+00:27:56 > entro a _obtenerImagesUrlVideosXId
+00:27:56 > url obtener datos: http://api.liquidplatform.com/2.0/medias/e5ed5c8bf8ecd0fb33d6c6668cefebd6?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:56 > url get http://api.liquidplatform.com/2.0/medias/e5ed5c8bf8ecd0fb33d6c6668cefebd6?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:56 > get entro error liquid titulo
+00:27:57 > http_code: 404
+00:27:57 > content_type: 
+00:27:57 > curl_errno: 22
+00:27:57 >  no paso get
+00:27:57 > Response obtener datos
+00:27:57 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3059
+00:27:57 > entro a _obtenerImagesUrlVideosXId
+00:27:57 > url obtener datos: http://api.liquidplatform.com/2.0/medias/1e8a66044b5abec14fe06dec4c1d3ed7?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:57 > url get http://api.liquidplatform.com/2.0/medias/1e8a66044b5abec14fe06dec4c1d3ed7?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:57 > get entro error liquid titulo
+00:27:57 > http_code: 404
+00:27:57 > content_type: 
+00:27:57 > curl_errno: 22
+00:27:57 >  no paso get
+00:27:57 > Response obtener datos
+00:27:57 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3060
+00:27:57 > entro a _obtenerImagesUrlVideosXId
+00:27:57 > url obtener datos: http://api.liquidplatform.com/2.0/medias/eff7ad97a91d7ff693ca1b2e3148405d?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:57 > url get http://api.liquidplatform.com/2.0/medias/eff7ad97a91d7ff693ca1b2e3148405d?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:57 > get entro error liquid titulo
+00:27:57 > http_code: 404
+00:27:57 > content_type: 
+00:27:57 > curl_errno: 22
+00:27:57 >  no paso get
+00:27:57 > Response obtener datos
+00:27:57 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3061
+00:27:57 > entro a _obtenerImagesUrlVideosXId
+00:27:57 > url obtener datos: http://api.liquidplatform.com/2.0/medias/740e164fdaed32c640aa59c2747abd19?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:57 > url get http://api.liquidplatform.com/2.0/medias/740e164fdaed32c640aa59c2747abd19?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:27:57 > get entro error liquid titulo
+00:27:58 > http_code: 404
+00:27:58 > content_type: 
+00:27:58 > curl_errno: 22
+00:27:58 >  no paso get
+00:27:58 > Response obtener datos
+00:27:58 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3062
+00:28:02 > entro a _obtenerImagesUrlVideosXId
+00:28:02 > url obtener datos: http://api.liquidplatform.com/2.0/medias/e9ce8c3f39dff10d6997aea4a0719cac?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:28:02 > url get http://api.liquidplatform.com/2.0/medias/e9ce8c3f39dff10d6997aea4a0719cac?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:28:02 > get entro error liquid titulo
+00:28:02 > http_code: 404
+00:28:02 > content_type: 
+00:28:02 > curl_errno: 22
+00:28:02 >  no paso get
+00:28:02 > Response obtener datos
+00:28:02 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3063
+00:28:06 > entro a _obtenerImagesUrlVideosXId
+00:28:06 > url obtener datos: http://api.liquidplatform.com/2.0/medias/51cf093f9d1f5ba2d9909269ca1111cc?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:28:06 > url get http://api.liquidplatform.com/2.0/medias/51cf093f9d1f5ba2d9909269ca1111cc?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:28:06 > get entro error liquid titulo
+00:28:06 > http_code: 404
+00:28:06 > content_type: 
+00:28:06 > curl_errno: 22
+00:28:06 >  no paso get
+00:28:06 > Response obtener datos
+00:28:06 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3064
+00:28:10 > entro a _obtenerImagesUrlVideosXId
+00:28:10 > url obtener datos: http://api.liquidplatform.com/2.0/medias/30e640833a0dcce8c974d71f48bf5293?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:28:10 > url get http://api.liquidplatform.com/2.0/medias/30e640833a0dcce8c974d71f48bf5293?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:28:10 > get entro error liquid titulo
+00:28:11 > http_code: 404
+00:28:11 > content_type: 
+00:28:11 > curl_errno: 22
+00:28:11 >  no paso get
+00:28:11 > Response obtener datos
+00:28:11 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3065
+00:28:15 > entro a _obtenerImagesUrlVideosXId
+00:28:15 > url obtener datos: http://api.liquidplatform.com/2.0/medias/9c9890da19660fc78e3f5028d742e87f?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:28:15 > url get http://api.liquidplatform.com/2.0/medias/9c9890da19660fc78e3f5028d742e87f?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:28:15 > get entro error liquid titulo
+00:28:15 > http_code: 404
+00:28:15 > content_type: 
+00:28:15 > curl_errno: 22
+00:28:15 >  no paso get
+00:28:15 > Response obtener datos
+00:28:15 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3066
+00:28:19 > entro a _obtenerImagesUrlVideosXId
+00:28:19 > url obtener datos: http://api.liquidplatform.com/2.0/medias/27dc2f85e8ba083573a8862ee8c99351?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:28:19 > url get http://api.liquidplatform.com/2.0/medias/27dc2f85e8ba083573a8862ee8c99351?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:28:19 > get entro error liquid titulo
+00:28:20 > http_code: 404
+00:28:20 > content_type: 
+00:28:20 > curl_errno: 22
+00:28:20 >  no paso get
+00:28:20 > Response obtener datos
+00:28:20 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3067
+00:28:26 > entro a _obtenerImagesUrlVideosXId
+00:28:26 > url obtener datos: http://api.liquidplatform.com/2.0/medias/0692cde92ebc46f17ce9e9f6ab752eb4?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:28:26 > url get http://api.liquidplatform.com/2.0/medias/0692cde92ebc46f17ce9e9f6ab752eb4?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:28:26 > get entro error liquid titulo
+00:28:27 > http_code: 404
+00:28:27 > content_type: 
+00:28:27 > curl_errno: 22
+00:28:27 >  no paso get
+00:28:27 > Response obtener datos
+00:28:27 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3068
+00:28:35 > entro a _obtenerImagesUrlVideosXId
+00:28:35 > url obtener datos: http://api.liquidplatform.com/2.0/medias/a909b2e75c661f25a8787888dd4af64d?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:28:35 > url get http://api.liquidplatform.com/2.0/medias/a909b2e75c661f25a8787888dd4af64d?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:28:35 > get entro error liquid titulo
+00:28:36 > http_code: 404
+00:28:36 > content_type: 
+00:28:36 > curl_errno: 22
+00:28:36 >  no paso get
+00:28:36 > Response obtener datos
+00:28:36 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3069
+00:28:40 > entro a _obtenerImagesUrlVideosXId
+00:28:40 > url obtener datos: http://api.liquidplatform.com/2.0/medias/1a21c29c2a6642bfb2f8d4834a2ba7b3?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:28:40 > url get http://api.liquidplatform.com/2.0/medias/1a21c29c2a6642bfb2f8d4834a2ba7b3?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:28:40 > get entro error liquid titulo
+00:28:40 > http_code: 404
+00:28:40 > content_type: 
+00:28:40 > curl_errno: 22
+00:28:40 >  no paso get
+00:28:40 > Response obtener datos
+00:28:40 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3070
+00:28:44 > entro a _obtenerImagesUrlVideosXId
+00:28:44 > url obtener datos: http://api.liquidplatform.com/2.0/medias/7593ec1623b29e300840380f8a9d6146?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:28:44 > url get http://api.liquidplatform.com/2.0/medias/7593ec1623b29e300840380f8a9d6146?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:28:44 > get entro error liquid titulo
+00:28:45 > http_code: 404
+00:28:45 > content_type: 
+00:28:45 > curl_errno: 22
+00:28:45 >  no paso get
+00:28:45 > Response obtener datos
+00:28:45 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3071
+00:30:47 > entro a _obtenerImagesUrlVideosXId
+00:30:47 > url obtener datos: http://api.liquidplatform.com/2.0/medias/ec5286bb932a534ab91477da1874a736?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:47 > url get http://api.liquidplatform.com/2.0/medias/ec5286bb932a534ab91477da1874a736?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:47 > get entro error liquid titulo
+00:30:48 > http_code: 404
+00:30:48 > content_type: 
+00:30:48 > curl_errno: 22
+00:30:48 >  no paso get
+00:30:48 > Response obtener datos
+00:30:48 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3072
+00:30:48 > entro a _obtenerImagesUrlVideosXId
+00:30:48 > url obtener datos: http://api.liquidplatform.com/2.0/medias/fc0d126fbb7a1686314f55e63425525e?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:48 > url get http://api.liquidplatform.com/2.0/medias/fc0d126fbb7a1686314f55e63425525e?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:48 > get entro error liquid titulo
+00:30:48 > http_code: 404
+00:30:48 > content_type: 
+00:30:48 > curl_errno: 22
+00:30:48 >  no paso get
+00:30:48 > Response obtener datos
+00:30:48 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3073
+00:30:48 > entro a _obtenerImagesUrlVideosXId
+00:30:48 > url obtener datos: http://api.liquidplatform.com/2.0/medias/1feb18e05b9deb0360fad7bd5d0d2727?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:48 > url get http://api.liquidplatform.com/2.0/medias/1feb18e05b9deb0360fad7bd5d0d2727?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:48 > get entro error liquid titulo
+00:30:49 > http_code: 404
+00:30:49 > content_type: 
+00:30:49 > curl_errno: 22
+00:30:49 >  no paso get
+00:30:49 > Response obtener datos
+00:30:49 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3074
+00:30:49 > entro a _obtenerImagesUrlVideosXId
+00:30:49 > url obtener datos: http://api.liquidplatform.com/2.0/medias/28682e73272eea5385f3936a36012450?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:49 > url get http://api.liquidplatform.com/2.0/medias/28682e73272eea5385f3936a36012450?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:49 > get entro error liquid titulo
+00:30:49 > http_code: 404
+00:30:49 > content_type: 
+00:30:49 > curl_errno: 22
+00:30:49 >  no paso get
+00:30:49 > Response obtener datos
+00:30:49 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3075
+00:30:49 > entro a _obtenerImagesUrlVideosXId
+00:30:49 > url obtener datos: http://api.liquidplatform.com/2.0/medias/4fbe7e70290d6728f14fa9bbda8b4038?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:49 > url get http://api.liquidplatform.com/2.0/medias/4fbe7e70290d6728f14fa9bbda8b4038?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:49 > get entro error liquid titulo
+00:30:49 > http_code: 404
+00:30:49 > content_type: 
+00:30:49 > curl_errno: 22
+00:30:49 >  no paso get
+00:30:49 > Response obtener datos
+00:30:49 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3076
+00:30:49 > entro a _obtenerImagesUrlVideosXId
+00:30:49 > url obtener datos: http://api.liquidplatform.com/2.0/medias/98347a6c7537d2a41558eeaa5f261841?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:49 > url get http://api.liquidplatform.com/2.0/medias/98347a6c7537d2a41558eeaa5f261841?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:49 > get entro error liquid titulo
+00:30:50 > http_code: 404
+00:30:50 > content_type: 
+00:30:50 > curl_errno: 22
+00:30:50 >  no paso get
+00:30:50 > Response obtener datos
+00:30:50 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3077
+00:30:50 > entro a _obtenerImagesUrlVideosXId
+00:30:50 > url obtener datos: http://api.liquidplatform.com/2.0/medias/182fdace1d9a7228b53b94bf3dc307fe?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:50 > url get http://api.liquidplatform.com/2.0/medias/182fdace1d9a7228b53b94bf3dc307fe?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:50 > get entro error liquid titulo
+00:30:50 > http_code: 404
+00:30:50 > content_type: 
+00:30:50 > curl_errno: 22
+00:30:50 >  no paso get
+00:30:50 > Response obtener datos
+00:30:50 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3078
+00:30:50 > entro a _obtenerImagesUrlVideosXId
+00:30:50 > url obtener datos: http://api.liquidplatform.com/2.0/medias/33b13dcb0a71352120a3d1d10b99c721?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:50 > url get http://api.liquidplatform.com/2.0/medias/33b13dcb0a71352120a3d1d10b99c721?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:50 > get entro error liquid titulo
+00:30:50 > http_code: 404
+00:30:50 > content_type: 
+00:30:50 > curl_errno: 22
+00:30:50 >  no paso get
+00:30:50 > Response obtener datos
+00:30:50 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3079
+00:30:50 > entro a _obtenerImagesUrlVideosXId
+00:30:50 > url obtener datos: http://api.liquidplatform.com/2.0/medias/4dad531b2c2cd188aa329404841e5c02?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:50 > url get http://api.liquidplatform.com/2.0/medias/4dad531b2c2cd188aa329404841e5c02?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:50 > get entro error liquid titulo
+00:30:51 > http_code: 404
+00:30:51 > content_type: 
+00:30:51 > curl_errno: 22
+00:30:51 >  no paso get
+00:30:51 > Response obtener datos
+00:30:51 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3080
+00:30:51 > entro a _obtenerImagesUrlVideosXId
+00:30:51 > url obtener datos: http://api.liquidplatform.com/2.0/medias/c883af63fa893f8f102bd296760d21d3?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:51 > url get http://api.liquidplatform.com/2.0/medias/c883af63fa893f8f102bd296760d21d3?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:51 > get entro error liquid titulo
+00:30:51 > http_code: 404
+00:30:51 > content_type: 
+00:30:51 > curl_errno: 22
+00:30:51 >  no paso get
+00:30:51 > Response obtener datos
+00:30:51 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3081
+00:30:51 > entro a _obtenerImagesUrlVideosXId
+00:30:51 > url obtener datos: http://api.liquidplatform.com/2.0/medias/dc0c8334a1bab06e34fe4deeb793eae0?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:51 > url get http://api.liquidplatform.com/2.0/medias/dc0c8334a1bab06e34fe4deeb793eae0?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:51 > get entro error liquid titulo
+00:30:51 > http_code: 404
+00:30:51 > content_type: 
+00:30:51 > curl_errno: 22
+00:30:51 >  no paso get
+00:30:51 > Response obtener datos
+00:30:51 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3082
+00:30:51 > entro a _obtenerImagesUrlVideosXId
+00:30:51 > url obtener datos: http://api.liquidplatform.com/2.0/medias/7d13b119a3bb73c85e7f95fa9786bc03?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:51 > url get http://api.liquidplatform.com/2.0/medias/7d13b119a3bb73c85e7f95fa9786bc03?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:51 > get entro error liquid titulo
+00:30:52 > http_code: 404
+00:30:52 > content_type: 
+00:30:52 > curl_errno: 22
+00:30:52 >  no paso get
+00:30:52 > Response obtener datos
+00:30:52 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3083
+00:30:52 > entro a _obtenerImagesUrlVideosXId
+00:30:52 > url obtener datos: http://api.liquidplatform.com/2.0/medias/3a45bfc1547d7ac46133b26b20c1f092?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:52 > url get http://api.liquidplatform.com/2.0/medias/3a45bfc1547d7ac46133b26b20c1f092?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:52 > get entro error liquid titulo
+00:30:52 > http_code: 404
+00:30:52 > content_type: 
+00:30:52 > curl_errno: 22
+00:30:52 >  no paso get
+00:30:52 > Response obtener datos
+00:30:52 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3084
+00:30:52 > entro a _obtenerImagesUrlVideosXId
+00:30:52 > url obtener datos: http://api.liquidplatform.com/2.0/medias/685cea563376e630326d79592554201a?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:52 > url get http://api.liquidplatform.com/2.0/medias/685cea563376e630326d79592554201a?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:52 > get entro error liquid titulo
+00:30:52 > http_code: 404
+00:30:52 > content_type: 
+00:30:52 > curl_errno: 22
+00:30:52 >  no paso get
+00:30:52 > Response obtener datos
+00:30:52 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3085
+00:30:52 > entro a _obtenerImagesUrlVideosXId
+00:30:52 > url obtener datos: http://api.liquidplatform.com/2.0/medias/e4c0d78498ce438f101dc97ec3486d9d?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:52 > url get http://api.liquidplatform.com/2.0/medias/e4c0d78498ce438f101dc97ec3486d9d?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:52 > get entro error liquid titulo
+00:30:53 > http_code: 404
+00:30:53 > content_type: 
+00:30:53 > curl_errno: 22
+00:30:53 >  no paso get
+00:30:53 > Response obtener datos
+00:30:53 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3086
+00:30:53 > entro a _obtenerImagesUrlVideosXId
+00:30:53 > url obtener datos: http://api.liquidplatform.com/2.0/medias/fe8ae22e7cc878343f7f99b5c79d0340?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:53 > url get http://api.liquidplatform.com/2.0/medias/fe8ae22e7cc878343f7f99b5c79d0340?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:53 > get entro error liquid titulo
+00:30:53 > http_code: 404
+00:30:53 > content_type: 
+00:30:53 > curl_errno: 22
+00:30:53 >  no paso get
+00:30:53 > Response obtener datos
+00:30:53 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3087
+00:30:53 > entro a _obtenerImagesUrlVideosXId
+00:30:53 > url obtener datos: http://api.liquidplatform.com/2.0/medias/3ab431281d5082e9fee99250a66a9426?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:53 > url get http://api.liquidplatform.com/2.0/medias/3ab431281d5082e9fee99250a66a9426?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:53 > get entro error liquid titulo
+00:30:53 > http_code: 404
+00:30:53 > content_type: 
+00:30:53 > curl_errno: 22
+00:30:53 >  no paso get
+00:30:53 > Response obtener datos
+00:30:53 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3088
+00:30:53 > entro a _obtenerImagesUrlVideosXId
+00:30:53 > url obtener datos: http://api.liquidplatform.com/2.0/medias/1280e6bbf0fd5fa5a060afbc024e48bd?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:53 > url get http://api.liquidplatform.com/2.0/medias/1280e6bbf0fd5fa5a060afbc024e48bd?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:53 > get entro error liquid titulo
+00:30:53 > http_code: 404
+00:30:53 > content_type: 
+00:30:53 > curl_errno: 22
+00:30:53 >  no paso get
+00:30:53 > Response obtener datos
+00:30:53 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3089
+00:30:53 > entro a _obtenerImagesUrlVideosXId
+00:30:53 > url obtener datos: http://api.liquidplatform.com/2.0/medias/4f411aca16e6e39ecc9b6281824b8009?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:53 > url get http://api.liquidplatform.com/2.0/medias/4f411aca16e6e39ecc9b6281824b8009?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:53 > get entro error liquid titulo
+00:30:54 > http_code: 404
+00:30:54 > content_type: 
+00:30:54 > curl_errno: 22
+00:30:54 >  no paso get
+00:30:54 > Response obtener datos
+00:30:54 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3090
+00:30:54 > entro a _obtenerImagesUrlVideosXId
+00:30:54 > url obtener datos: http://api.liquidplatform.com/2.0/medias/3684dcadfa803f667dccac23f15f20ef?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:54 > url get http://api.liquidplatform.com/2.0/medias/3684dcadfa803f667dccac23f15f20ef?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:54 > get entro error liquid titulo
+00:30:54 > http_code: 404
+00:30:54 > content_type: 
+00:30:54 > curl_errno: 22
+00:30:54 >  no paso get
+00:30:54 > Response obtener datos
+00:30:54 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3091
+00:30:54 > entro a _obtenerImagesUrlVideosXId
+00:30:54 > url obtener datos: http://api.liquidplatform.com/2.0/medias/d5c52a070aad7c869c8a9b8a5f175a82?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:54 > url get http://api.liquidplatform.com/2.0/medias/d5c52a070aad7c869c8a9b8a5f175a82?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:54 > get entro error liquid titulo
+00:30:54 > http_code: 404
+00:30:54 > content_type: 
+00:30:54 > curl_errno: 22
+00:30:54 >  no paso get
+00:30:54 > Response obtener datos
+00:30:54 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3092
+00:30:54 > entro a _obtenerImagesUrlVideosXId
+00:30:54 > url obtener datos: http://api.liquidplatform.com/2.0/medias/c6b7c0b53aac07bad1ba54f995d6c10f?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:54 > url get http://api.liquidplatform.com/2.0/medias/c6b7c0b53aac07bad1ba54f995d6c10f?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:54 > get entro error liquid titulo
+00:30:55 > http_code: 404
+00:30:55 > content_type: 
+00:30:55 > curl_errno: 22
+00:30:55 >  no paso get
+00:30:55 > Response obtener datos
+00:30:55 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3093
+00:30:55 > entro a _obtenerImagesUrlVideosXId
+00:30:55 > url obtener datos: http://api.liquidplatform.com/2.0/medias/7af55c6beb7a89d949d66a8e3ea20ba8?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:55 > url get http://api.liquidplatform.com/2.0/medias/7af55c6beb7a89d949d66a8e3ea20ba8?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:55 > get entro error liquid titulo
+00:30:55 > http_code: 404
+00:30:55 > content_type: 
+00:30:55 > curl_errno: 22
+00:30:55 >  no paso get
+00:30:55 > Response obtener datos
+00:30:55 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3094
+00:30:55 > entro a _obtenerImagesUrlVideosXId
+00:30:55 > url obtener datos: http://api.liquidplatform.com/2.0/medias/b9afbe134acac30ac6ac6d6d47fb823c?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:55 > url get http://api.liquidplatform.com/2.0/medias/b9afbe134acac30ac6ac6d6d47fb823c?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:55 > get entro error liquid titulo
+00:30:55 > http_code: 404
+00:30:55 > content_type: 
+00:30:55 > curl_errno: 22
+00:30:55 >  no paso get
+00:30:55 > Response obtener datos
+00:30:55 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3095
+00:30:55 > entro a _obtenerImagesUrlVideosXId
+00:30:55 > url obtener datos: http://api.liquidplatform.com/2.0/medias/2dcebecf0e1462863ba7ccd456e9ae82?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:55 > url get http://api.liquidplatform.com/2.0/medias/2dcebecf0e1462863ba7ccd456e9ae82?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:55 > get entro error liquid titulo
+00:30:56 > http_code: 404
+00:30:56 > content_type: 
+00:30:56 > curl_errno: 22
+00:30:56 >  no paso get
+00:30:56 > Response obtener datos
+00:30:56 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3096
+00:30:56 > entro a _obtenerImagesUrlVideosXId
+00:30:56 > url obtener datos: http://api.liquidplatform.com/2.0/medias/af65f43cb6956da9cca6961d86f29714?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:56 > url get http://api.liquidplatform.com/2.0/medias/af65f43cb6956da9cca6961d86f29714?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:56 > get entro error liquid titulo
+00:30:56 > http_code: 404
+00:30:56 > content_type: 
+00:30:56 > curl_errno: 22
+00:30:56 >  no paso get
+00:30:56 > Response obtener datos
+00:30:56 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3097
+00:30:56 > entro a _obtenerImagesUrlVideosXId
+00:30:56 > url obtener datos: http://api.liquidplatform.com/2.0/medias/e9f88e104a89bd83646053ba82905021?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:56 > url get http://api.liquidplatform.com/2.0/medias/e9f88e104a89bd83646053ba82905021?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:56 > get entro error liquid titulo
+00:30:57 > http_code: 404
+00:30:57 > content_type: 
+00:30:57 > curl_errno: 22
+00:30:57 >  no paso get
+00:30:57 > Response obtener datos
+00:30:57 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3098
+00:30:57 > entro a _obtenerImagesUrlVideosXId
+00:30:57 > url obtener datos: http://api.liquidplatform.com/2.0/medias/2104f6cb45a68f77f183a02a9f26cad4?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:57 > url get http://api.liquidplatform.com/2.0/medias/2104f6cb45a68f77f183a02a9f26cad4?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:57 > get entro error liquid titulo
+00:30:57 > http_code: 404
+00:30:57 > content_type: 
+00:30:57 > curl_errno: 22
+00:30:57 >  no paso get
+00:30:57 > Response obtener datos
+00:30:57 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3099
+00:30:57 > entro a _obtenerImagesUrlVideosXId
+00:30:57 > url obtener datos: http://api.liquidplatform.com/2.0/medias/2cb8d4ce63030241cd8b378f452ee6c5?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:57 > url get http://api.liquidplatform.com/2.0/medias/2cb8d4ce63030241cd8b378f452ee6c5?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:57 > get entro error liquid titulo
+00:30:57 > http_code: 404
+00:30:57 > content_type: 
+00:30:57 > curl_errno: 22
+00:30:57 >  no paso get
+00:30:57 > Response obtener datos
+00:30:57 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3100
+00:30:57 > entro a _obtenerImagesUrlVideosXId
+00:30:57 > url obtener datos: http://api.liquidplatform.com/2.0/medias/ab93cc384b339f496d46a72e56c846f1?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:57 > url get http://api.liquidplatform.com/2.0/medias/ab93cc384b339f496d46a72e56c846f1?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:57 > get entro error liquid titulo
+00:30:58 > http_code: 404
+00:30:58 > content_type: 
+00:30:58 > curl_errno: 22
+00:30:58 >  no paso get
+00:30:58 > Response obtener datos
+00:30:58 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3101
+00:30:58 > entro a _obtenerImagesUrlVideosXId
+00:30:58 > url obtener datos: http://api.liquidplatform.com/2.0/medias/80e517464160b84c37c639d8f8e127c8?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:58 > url get http://api.liquidplatform.com/2.0/medias/80e517464160b84c37c639d8f8e127c8?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:58 > get entro error liquid titulo
+00:30:58 > http_code: 404
+00:30:58 > content_type: 
+00:30:58 > curl_errno: 22
+00:30:58 >  no paso get
+00:30:58 > Response obtener datos
+00:30:58 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3102
+00:30:58 > entro a _obtenerImagesUrlVideosXId
+00:30:58 > url obtener datos: http://api.liquidplatform.com/2.0/medias/e6dfb6e2ce9dcb79cceecf793ce120b2?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:58 > url get http://api.liquidplatform.com/2.0/medias/e6dfb6e2ce9dcb79cceecf793ce120b2?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:58 > get entro error liquid titulo
+00:30:58 > http_code: 404
+00:30:58 > content_type: 
+00:30:58 > curl_errno: 22
+00:30:58 >  no paso get
+00:30:58 > Response obtener datos
+00:30:58 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3103
+00:30:58 > entro a _obtenerImagesUrlVideosXId
+00:30:58 > url obtener datos: http://api.liquidplatform.com/2.0/medias/41193053ff7e729a541e124cc0c29733?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:58 > url get http://api.liquidplatform.com/2.0/medias/41193053ff7e729a541e124cc0c29733?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:58 > get entro error liquid titulo
+00:30:58 > http_code: 404
+00:30:58 > content_type: 
+00:30:58 > curl_errno: 22
+00:30:58 >  no paso get
+00:30:58 > Response obtener datos
+00:30:58 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3104
+00:30:58 > entro a _obtenerImagesUrlVideosXId
+00:30:58 > url obtener datos: http://api.liquidplatform.com/2.0/medias/2efef99bc1a79faf9ab7c355ca0f7efb?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:58 > url get http://api.liquidplatform.com/2.0/medias/2efef99bc1a79faf9ab7c355ca0f7efb?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:58 > get entro error liquid titulo
+00:30:59 > http_code: 404
+00:30:59 > content_type: 
+00:30:59 > curl_errno: 22
+00:30:59 >  no paso get
+00:30:59 > Response obtener datos
+00:30:59 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3105
+00:30:59 > entro a _obtenerImagesUrlVideosXId
+00:30:59 > url obtener datos: http://api.liquidplatform.com/2.0/medias/2696ee97a436b62b2788278fda0883ad?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:59 > url get http://api.liquidplatform.com/2.0/medias/2696ee97a436b62b2788278fda0883ad?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:59 > get entro error liquid titulo
+00:30:59 > http_code: 404
+00:30:59 > content_type: 
+00:30:59 > curl_errno: 22
+00:30:59 >  no paso get
+00:30:59 > Response obtener datos
+00:30:59 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3106
+00:30:59 > entro a _obtenerImagesUrlVideosXId
+00:30:59 > url obtener datos: http://api.liquidplatform.com/2.0/medias/b5cdf9499f9928f55a35a057a1703afe?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:59 > url get http://api.liquidplatform.com/2.0/medias/b5cdf9499f9928f55a35a057a1703afe?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:59 > get entro error liquid titulo
+00:30:59 > http_code: 404
+00:30:59 > content_type: 
+00:30:59 > curl_errno: 22
+00:30:59 >  no paso get
+00:30:59 > Response obtener datos
+00:30:59 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3107
+00:30:59 > entro a _obtenerImagesUrlVideosXId
+00:30:59 > url obtener datos: http://api.liquidplatform.com/2.0/medias/980566db7acc8ea32d5d618bd55c6d88?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:59 > url get http://api.liquidplatform.com/2.0/medias/980566db7acc8ea32d5d618bd55c6d88?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:30:59 > get entro error liquid titulo
+00:31:00 > http_code: 404
+00:31:00 > content_type: 
+00:31:00 > curl_errno: 22
+00:31:00 >  no paso get
+00:31:00 > Response obtener datos
+00:31:00 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3108
+00:31:00 > entro a _obtenerImagesUrlVideosXId
+00:31:00 > url obtener datos: http://api.liquidplatform.com/2.0/medias/d806df18a79da1492e0085371f977421?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:31:00 > url get http://api.liquidplatform.com/2.0/medias/d806df18a79da1492e0085371f977421?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:31:00 > get entro error liquid titulo
+00:31:00 > http_code: 404
+00:31:00 > content_type: 
+00:31:00 > curl_errno: 22
+00:31:00 >  no paso get
+00:31:00 > Response obtener datos
+00:31:00 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3109
+00:31:00 > entro a _obtenerImagesUrlVideosXId
+00:31:00 > url obtener datos: http://api.liquidplatform.com/2.0/medias/ed6bdd0319c50cab1881c187242874e6?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:31:00 > url get http://api.liquidplatform.com/2.0/medias/ed6bdd0319c50cab1881c187242874e6?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:31:00 > get entro error liquid titulo
+00:31:00 > http_code: 404
+00:31:00 > content_type: 
+00:31:00 > curl_errno: 22
+00:31:00 >  no paso get
+00:31:00 > Response obtener datos
+00:31:00 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3110
+00:31:00 > entro a _obtenerImagesUrlVideosXId
+00:31:00 > url obtener datos: http://api.liquidplatform.com/2.0/medias/c3f0dbf914b2233e021c811d8e0e867e?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:31:00 > url get http://api.liquidplatform.com/2.0/medias/c3f0dbf914b2233e021c811d8e0e867e?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:31:00 > get entro error liquid titulo
+00:31:00 > http_code: 404
+00:31:00 > content_type: 
+00:31:00 > curl_errno: 22
+00:31:00 >  no paso get
+00:31:00 > Response obtener datos
+00:31:00 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3111
+00:31:00 > entro a _obtenerImagesUrlVideosXId
+00:31:00 > url obtener datos: http://api.liquidplatform.com/2.0/medias/ba00296c99500146d85b9f6de82c491a?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:31:00 > url get http://api.liquidplatform.com/2.0/medias/ba00296c99500146d85b9f6de82c491a?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:31:00 > get entro error liquid titulo
+00:31:01 > http_code: 404
+00:31:01 > content_type: 
+00:31:01 > curl_errno: 22
+00:31:01 >  no paso get
+00:31:01 > Response obtener datos
+00:31:01 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3112
+00:31:01 > entro a _obtenerImagesUrlVideosXId
+00:31:01 > url obtener datos: http://api.liquidplatform.com/2.0/medias/eca9f84fc8fb9ee7568d5fb202ba1c45?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:31:01 > url get http://api.liquidplatform.com/2.0/medias/eca9f84fc8fb9ee7568d5fb202ba1c45?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:31:01 > get entro error liquid titulo
+00:31:01 > http_code: 404
+00:31:01 > content_type: 
+00:31:01 > curl_errno: 22
+00:31:01 >  no paso get
+00:31:01 > Response obtener datos
+00:31:01 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3113
+00:31:01 > entro a _obtenerImagesUrlVideosXId
+00:31:01 > url obtener datos: http://api.liquidplatform.com/2.0/medias/6b29f1c6dfc0d36ed44bc00efb52ee43?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:31:01 > url get http://api.liquidplatform.com/2.0/medias/6b29f1c6dfc0d36ed44bc00efb52ee43?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:31:01 > get entro error liquid titulo
+00:31:01 > http_code: 404
+00:31:01 > content_type: 
+00:31:01 > curl_errno: 22
+00:31:01 >  no paso get
+00:31:01 > Response obtener datos
+00:31:01 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3114
+00:31:01 > entro a _obtenerImagesUrlVideosXId
+00:31:01 > url obtener datos: http://api.liquidplatform.com/2.0/medias/991cdf1957c18269400c742ec8939a60?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:31:01 > url get http://api.liquidplatform.com/2.0/medias/991cdf1957c18269400c742ec8939a60?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:31:01 > get entro error liquid titulo
+00:31:02 > http_code: 404
+00:31:02 > content_type: 
+00:31:02 > curl_errno: 22
+00:31:02 >  no paso get
+00:31:02 > Response obtener datos
+00:31:02 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3115
+00:31:02 > entro a _obtenerImagesUrlVideosXId
+00:31:02 > url obtener datos: http://api.liquidplatform.com/2.0/medias/b506fffe226f5e574458c24160714218?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:31:02 > url get http://api.liquidplatform.com/2.0/medias/b506fffe226f5e574458c24160714218?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:31:02 > get entro error liquid titulo
+00:31:02 > http_code: 404
+00:31:02 > content_type: 
+00:31:02 > curl_errno: 22
+00:31:02 >  no paso get
+00:31:02 > Response obtener datos
+00:31:02 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3116
+00:31:02 > entro a _obtenerImagesUrlVideosXId
+00:31:02 > url obtener datos: http://api.liquidplatform.com/2.0/medias/485eec3e614e36f20b521cfdc1b2c8f5?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:31:02 > url get http://api.liquidplatform.com/2.0/medias/485eec3e614e36f20b521cfdc1b2c8f5?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:31:02 > get entro error liquid titulo
+00:31:02 > http_code: 404
+00:31:02 > content_type: 
+00:31:02 > curl_errno: 22
+00:31:02 >  no paso get
+00:31:02 > Response obtener datos
+00:31:02 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3117
+00:31:02 > entro a _obtenerImagesUrlVideosXId
+00:31:02 > url obtener datos: http://api.liquidplatform.com/2.0/medias/e5ed5c8bf8ecd0fb33d6c6668cefebd6?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:31:02 > url get http://api.liquidplatform.com/2.0/medias/e5ed5c8bf8ecd0fb33d6c6668cefebd6?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:31:02 > get entro error liquid titulo
+00:31:02 > http_code: 404
+00:31:02 > content_type: 
+00:31:02 > curl_errno: 22
+00:31:02 >  no paso get
+00:31:02 > Response obtener datos
+00:31:02 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3118
+00:31:02 > entro a _obtenerImagesUrlVideosXId
+00:31:02 > url obtener datos: http://api.liquidplatform.com/2.0/medias/1e8a66044b5abec14fe06dec4c1d3ed7?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:31:02 > url get http://api.liquidplatform.com/2.0/medias/1e8a66044b5abec14fe06dec4c1d3ed7?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:31:02 > get entro error liquid titulo
+00:31:03 > http_code: 404
+00:31:03 > content_type: 
+00:31:03 > curl_errno: 22
+00:31:03 >  no paso get
+00:31:03 > Response obtener datos
+00:31:03 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3119
+00:31:03 > entro a _obtenerImagesUrlVideosXId
+00:31:03 > url obtener datos: http://api.liquidplatform.com/2.0/medias/eff7ad97a91d7ff693ca1b2e3148405d?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:31:03 > url get http://api.liquidplatform.com/2.0/medias/eff7ad97a91d7ff693ca1b2e3148405d?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:31:03 > get entro error liquid titulo
+00:31:03 > http_code: 404
+00:31:03 > content_type: 
+00:31:03 > curl_errno: 22
+00:31:03 >  no paso get
+00:31:03 > Response obtener datos
+00:31:03 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3120
+00:31:03 > entro a _obtenerImagesUrlVideosXId
+00:31:03 > url obtener datos: http://api.liquidplatform.com/2.0/medias/740e164fdaed32c640aa59c2747abd19?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:31:03 > url get http://api.liquidplatform.com/2.0/medias/740e164fdaed32c640aa59c2747abd19?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:31:03 > get entro error liquid titulo
+00:31:03 > http_code: 404
+00:31:03 > content_type: 
+00:31:03 > curl_errno: 22
+00:31:03 >  no paso get
+00:31:03 > Response obtener datos
+00:31:03 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3121
+00:31:05 > entro a _obtenerImagesUrlVideosXId
+00:31:05 > url obtener datos: http://api.liquidplatform.com/2.0/medias/e9ce8c3f39dff10d6997aea4a0719cac?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:31:05 > url get http://api.liquidplatform.com/2.0/medias/e9ce8c3f39dff10d6997aea4a0719cac?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:31:05 > get entro error liquid titulo
+00:31:05 > http_code: 404
+00:31:05 > content_type: 
+00:31:05 > curl_errno: 22
+00:31:05 >  no paso get
+00:31:05 > Response obtener datos
+00:31:05 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3122
+00:31:07 > entro a _obtenerImagesUrlVideosXId
+00:31:07 > url obtener datos: http://api.liquidplatform.com/2.0/medias/51cf093f9d1f5ba2d9909269ca1111cc?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:31:07 > url get http://api.liquidplatform.com/2.0/medias/51cf093f9d1f5ba2d9909269ca1111cc?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:31:07 > get entro error liquid titulo
+00:31:07 > http_code: 404
+00:31:07 > content_type: 
+00:31:07 > curl_errno: 22
+00:31:07 >  no paso get
+00:31:07 > Response obtener datos
+00:31:07 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3123
+00:31:09 > entro a _obtenerImagesUrlVideosXId
+00:31:09 > url obtener datos: http://api.liquidplatform.com/2.0/medias/30e640833a0dcce8c974d71f48bf5293?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:31:09 > url get http://api.liquidplatform.com/2.0/medias/30e640833a0dcce8c974d71f48bf5293?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:31:09 > get entro error liquid titulo
+00:31:10 > http_code: 404
+00:31:10 > content_type: 
+00:31:10 > curl_errno: 22
+00:31:10 >  no paso get
+00:31:10 > Response obtener datos
+00:31:10 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3124
+00:31:13 > entro a _obtenerImagesUrlVideosXId
+00:31:13 > url obtener datos: http://api.liquidplatform.com/2.0/medias/9c9890da19660fc78e3f5028d742e87f?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:31:13 > url get http://api.liquidplatform.com/2.0/medias/9c9890da19660fc78e3f5028d742e87f?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:31:13 > get entro error liquid titulo
+00:31:13 > http_code: 404
+00:31:13 > content_type: 
+00:31:13 > curl_errno: 22
+00:31:13 >  no paso get
+00:31:13 > Response obtener datos
+00:31:13 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3125
+00:31:17 > entro a _obtenerImagesUrlVideosXId
+00:31:17 > url obtener datos: http://api.liquidplatform.com/2.0/medias/27dc2f85e8ba083573a8862ee8c99351?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:31:17 > url get http://api.liquidplatform.com/2.0/medias/27dc2f85e8ba083573a8862ee8c99351?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:31:17 > get entro error liquid titulo
+00:31:19 > http_code: 404
+00:31:19 > content_type: 
+00:31:19 > curl_errno: 22
+00:31:19 >  no paso get
+00:31:19 > Response obtener datos
+00:31:19 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3126
+00:31:25 > entro a _obtenerImagesUrlVideosXId
+00:31:25 > url obtener datos: http://api.liquidplatform.com/2.0/medias/0692cde92ebc46f17ce9e9f6ab752eb4?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:31:25 > url get http://api.liquidplatform.com/2.0/medias/0692cde92ebc46f17ce9e9f6ab752eb4?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:31:25 > get entro error liquid titulo
+00:31:26 > http_code: 404
+00:31:26 > content_type: 
+00:31:26 > curl_errno: 22
+00:31:26 >  no paso get
+00:31:26 > Response obtener datos
+00:31:26 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3127
+00:31:28 > entro a _obtenerImagesUrlVideosXId
+00:31:28 > url obtener datos: http://api.liquidplatform.com/2.0/medias/a909b2e75c661f25a8787888dd4af64d?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:31:28 > url get http://api.liquidplatform.com/2.0/medias/a909b2e75c661f25a8787888dd4af64d?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:31:28 > get entro error liquid titulo
+00:31:28 > http_code: 404
+00:31:28 > content_type: 
+00:31:28 > curl_errno: 22
+00:31:28 >  no paso get
+00:31:28 > Response obtener datos
+00:31:28 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3128
+00:31:30 > entro a _obtenerImagesUrlVideosXId
+00:31:30 > url obtener datos: http://api.liquidplatform.com/2.0/medias/1a21c29c2a6642bfb2f8d4834a2ba7b3?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:31:30 > url get http://api.liquidplatform.com/2.0/medias/1a21c29c2a6642bfb2f8d4834a2ba7b3?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:31:30 > get entro error liquid titulo
+00:31:30 > http_code: 404
+00:31:30 > content_type: 
+00:31:30 > curl_errno: 22
+00:31:30 >  no paso get
+00:31:30 > Response obtener datos
+00:31:30 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3129
+00:31:32 > entro a _obtenerImagesUrlVideosXId
+00:31:32 > url obtener datos: http://api.liquidplatform.com/2.0/medias/7593ec1623b29e300840380f8a9d6146?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:31:32 > url get http://api.liquidplatform.com/2.0/medias/7593ec1623b29e300840380f8a9d6146?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:31:32 > get entro error liquid titulo
+00:31:32 > http_code: 404
+00:31:32 > content_type: 
+00:31:32 > curl_errno: 22
+00:31:32 >  no paso get
+00:31:32 > Response obtener datos
+00:31:32 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3130
+00:34:59 > dato entrada    : 2627 -- 
+00:34:59 > cantidad   : 1 -- 
+00:34:59 > mongo_se: 51783c37c8437ee72e00006b
+00:34:59 > estado_migracion: 2
+00:34:59 > id_mongo de seccion 51783c37c8437ee72e00006b
+00:37:57 > entro a _obtenerImagesUrlVideosXId
+00:37:57 > url obtener datos: http://api.liquidplatform.com/2.0/medias/ec5286bb932a534ab91477da1874a736?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:37:57 > url get http://api.liquidplatform.com/2.0/medias/ec5286bb932a534ab91477da1874a736?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:37:57 > get entro error liquid titulo
+00:37:58 > http_code: 404
+00:37:58 > content_type: 
+00:37:58 > curl_errno: 22
+00:37:58 >  no paso get
+00:37:58 > Response obtener datos
+00:37:58 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3131
+00:37:58 > entro a _obtenerImagesUrlVideosXId
+00:37:58 > url obtener datos: http://api.liquidplatform.com/2.0/medias/fc0d126fbb7a1686314f55e63425525e?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:37:58 > url get http://api.liquidplatform.com/2.0/medias/fc0d126fbb7a1686314f55e63425525e?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:37:58 > get entro error liquid titulo
+00:37:58 > http_code: 404
+00:37:58 > content_type: 
+00:37:58 > curl_errno: 22
+00:37:58 >  no paso get
+00:37:58 > Response obtener datos
+00:37:58 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3132
+00:37:58 > entro a _obtenerImagesUrlVideosXId
+00:37:58 > url obtener datos: http://api.liquidplatform.com/2.0/medias/1feb18e05b9deb0360fad7bd5d0d2727?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:37:58 > url get http://api.liquidplatform.com/2.0/medias/1feb18e05b9deb0360fad7bd5d0d2727?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:37:58 > get entro error liquid titulo
+00:38:00 > http_code: 404
+00:38:00 > content_type: 
+00:38:00 > curl_errno: 22
+00:38:00 >  no paso get
+00:38:00 > Response obtener datos
+00:38:00 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3133
+00:38:00 > entro a _obtenerImagesUrlVideosXId
+00:38:00 > url obtener datos: http://api.liquidplatform.com/2.0/medias/28682e73272eea5385f3936a36012450?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:00 > url get http://api.liquidplatform.com/2.0/medias/28682e73272eea5385f3936a36012450?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:00 > get entro error liquid titulo
+00:38:00 > http_code: 404
+00:38:00 > content_type: 
+00:38:00 > curl_errno: 22
+00:38:00 >  no paso get
+00:38:00 > Response obtener datos
+00:38:00 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3134
+00:38:00 > entro a _obtenerImagesUrlVideosXId
+00:38:00 > url obtener datos: http://api.liquidplatform.com/2.0/medias/4fbe7e70290d6728f14fa9bbda8b4038?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:00 > url get http://api.liquidplatform.com/2.0/medias/4fbe7e70290d6728f14fa9bbda8b4038?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:00 > get entro error liquid titulo
+00:38:01 > http_code: 404
+00:38:01 > content_type: 
+00:38:01 > curl_errno: 22
+00:38:01 >  no paso get
+00:38:01 > Response obtener datos
+00:38:01 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3135
+00:38:01 > entro a _obtenerImagesUrlVideosXId
+00:38:01 > url obtener datos: http://api.liquidplatform.com/2.0/medias/98347a6c7537d2a41558eeaa5f261841?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:01 > url get http://api.liquidplatform.com/2.0/medias/98347a6c7537d2a41558eeaa5f261841?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:01 > get entro error liquid titulo
+00:38:01 > http_code: 404
+00:38:01 > content_type: 
+00:38:01 > curl_errno: 22
+00:38:01 >  no paso get
+00:38:01 > Response obtener datos
+00:38:01 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3136
+00:38:01 > entro a _obtenerImagesUrlVideosXId
+00:38:01 > url obtener datos: http://api.liquidplatform.com/2.0/medias/182fdace1d9a7228b53b94bf3dc307fe?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:01 > url get http://api.liquidplatform.com/2.0/medias/182fdace1d9a7228b53b94bf3dc307fe?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:01 > get entro error liquid titulo
+00:38:01 > http_code: 404
+00:38:01 > content_type: 
+00:38:01 > curl_errno: 22
+00:38:01 >  no paso get
+00:38:01 > Response obtener datos
+00:38:01 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3137
+00:38:01 > entro a _obtenerImagesUrlVideosXId
+00:38:01 > url obtener datos: http://api.liquidplatform.com/2.0/medias/33b13dcb0a71352120a3d1d10b99c721?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:01 > url get http://api.liquidplatform.com/2.0/medias/33b13dcb0a71352120a3d1d10b99c721?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:01 > get entro error liquid titulo
+00:38:01 > http_code: 404
+00:38:01 > content_type: 
+00:38:01 > curl_errno: 22
+00:38:01 >  no paso get
+00:38:01 > Response obtener datos
+00:38:01 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3138
+00:38:01 > entro a _obtenerImagesUrlVideosXId
+00:38:01 > url obtener datos: http://api.liquidplatform.com/2.0/medias/4dad531b2c2cd188aa329404841e5c02?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:01 > url get http://api.liquidplatform.com/2.0/medias/4dad531b2c2cd188aa329404841e5c02?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:01 > get entro error liquid titulo
+00:38:02 > http_code: 404
+00:38:02 > content_type: 
+00:38:02 > curl_errno: 22
+00:38:02 >  no paso get
+00:38:02 > Response obtener datos
+00:38:02 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3139
+00:38:02 > entro a _obtenerImagesUrlVideosXId
+00:38:02 > url obtener datos: http://api.liquidplatform.com/2.0/medias/c883af63fa893f8f102bd296760d21d3?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:02 > url get http://api.liquidplatform.com/2.0/medias/c883af63fa893f8f102bd296760d21d3?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:02 > get entro error liquid titulo
+00:38:02 > http_code: 404
+00:38:02 > content_type: 
+00:38:02 > curl_errno: 22
+00:38:02 >  no paso get
+00:38:02 > Response obtener datos
+00:38:02 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3140
+00:38:02 > entro a _obtenerImagesUrlVideosXId
+00:38:02 > url obtener datos: http://api.liquidplatform.com/2.0/medias/dc0c8334a1bab06e34fe4deeb793eae0?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:02 > url get http://api.liquidplatform.com/2.0/medias/dc0c8334a1bab06e34fe4deeb793eae0?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:02 > get entro error liquid titulo
+00:38:02 > http_code: 404
+00:38:02 > content_type: 
+00:38:02 > curl_errno: 22
+00:38:02 >  no paso get
+00:38:02 > Response obtener datos
+00:38:02 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3141
+00:38:02 > entro a _obtenerImagesUrlVideosXId
+00:38:02 > url obtener datos: http://api.liquidplatform.com/2.0/medias/7d13b119a3bb73c85e7f95fa9786bc03?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:02 > url get http://api.liquidplatform.com/2.0/medias/7d13b119a3bb73c85e7f95fa9786bc03?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:02 > get entro error liquid titulo
+00:38:03 > http_code: 404
+00:38:03 > content_type: 
+00:38:03 > curl_errno: 22
+00:38:03 >  no paso get
+00:38:03 > Response obtener datos
+00:38:03 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3142
+00:38:03 > entro a _obtenerImagesUrlVideosXId
+00:38:03 > url obtener datos: http://api.liquidplatform.com/2.0/medias/3a45bfc1547d7ac46133b26b20c1f092?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:03 > url get http://api.liquidplatform.com/2.0/medias/3a45bfc1547d7ac46133b26b20c1f092?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:03 > get entro error liquid titulo
+00:38:03 > http_code: 404
+00:38:03 > content_type: 
+00:38:03 > curl_errno: 22
+00:38:03 >  no paso get
+00:38:03 > Response obtener datos
+00:38:03 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3143
+00:38:03 > entro a _obtenerImagesUrlVideosXId
+00:38:03 > url obtener datos: http://api.liquidplatform.com/2.0/medias/685cea563376e630326d79592554201a?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:03 > url get http://api.liquidplatform.com/2.0/medias/685cea563376e630326d79592554201a?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:03 > get entro error liquid titulo
+00:38:03 > http_code: 404
+00:38:03 > content_type: 
+00:38:03 > curl_errno: 22
+00:38:03 >  no paso get
+00:38:03 > Response obtener datos
+00:38:03 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3144
+00:38:03 > entro a _obtenerImagesUrlVideosXId
+00:38:03 > url obtener datos: http://api.liquidplatform.com/2.0/medias/e4c0d78498ce438f101dc97ec3486d9d?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:03 > url get http://api.liquidplatform.com/2.0/medias/e4c0d78498ce438f101dc97ec3486d9d?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:03 > get entro error liquid titulo
+00:38:04 > http_code: 404
+00:38:04 > content_type: 
+00:38:04 > curl_errno: 22
+00:38:04 >  no paso get
+00:38:04 > Response obtener datos
+00:38:04 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3145
+00:38:04 > entro a _obtenerImagesUrlVideosXId
+00:38:04 > url obtener datos: http://api.liquidplatform.com/2.0/medias/fe8ae22e7cc878343f7f99b5c79d0340?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:04 > url get http://api.liquidplatform.com/2.0/medias/fe8ae22e7cc878343f7f99b5c79d0340?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:04 > get entro error liquid titulo
+00:38:04 > http_code: 404
+00:38:04 > content_type: 
+00:38:04 > curl_errno: 22
+00:38:04 >  no paso get
+00:38:04 > Response obtener datos
+00:38:04 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3146
+00:38:04 > entro a _obtenerImagesUrlVideosXId
+00:38:04 > url obtener datos: http://api.liquidplatform.com/2.0/medias/3ab431281d5082e9fee99250a66a9426?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:04 > url get http://api.liquidplatform.com/2.0/medias/3ab431281d5082e9fee99250a66a9426?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:04 > get entro error liquid titulo
+00:38:04 > http_code: 404
+00:38:04 > content_type: 
+00:38:04 > curl_errno: 22
+00:38:04 >  no paso get
+00:38:04 > Response obtener datos
+00:38:04 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3147
+00:38:04 > entro a _obtenerImagesUrlVideosXId
+00:38:04 > url obtener datos: http://api.liquidplatform.com/2.0/medias/1280e6bbf0fd5fa5a060afbc024e48bd?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:04 > url get http://api.liquidplatform.com/2.0/medias/1280e6bbf0fd5fa5a060afbc024e48bd?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:04 > get entro error liquid titulo
+00:38:05 > http_code: 404
+00:38:05 > content_type: 
+00:38:05 > curl_errno: 22
+00:38:05 >  no paso get
+00:38:05 > Response obtener datos
+00:38:05 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3148
+00:38:05 > entro a _obtenerImagesUrlVideosXId
+00:38:05 > url obtener datos: http://api.liquidplatform.com/2.0/medias/4f411aca16e6e39ecc9b6281824b8009?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:05 > url get http://api.liquidplatform.com/2.0/medias/4f411aca16e6e39ecc9b6281824b8009?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:05 > get entro error liquid titulo
+00:38:05 > http_code: 404
+00:38:05 > content_type: 
+00:38:05 > curl_errno: 22
+00:38:05 >  no paso get
+00:38:05 > Response obtener datos
+00:38:05 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3149
+00:38:05 > entro a _obtenerImagesUrlVideosXId
+00:38:05 > url obtener datos: http://api.liquidplatform.com/2.0/medias/3684dcadfa803f667dccac23f15f20ef?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:05 > url get http://api.liquidplatform.com/2.0/medias/3684dcadfa803f667dccac23f15f20ef?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:05 > get entro error liquid titulo
+00:38:05 > http_code: 404
+00:38:05 > content_type: 
+00:38:05 > curl_errno: 22
+00:38:05 >  no paso get
+00:38:05 > Response obtener datos
+00:38:05 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3150
+00:38:05 > entro a _obtenerImagesUrlVideosXId
+00:38:05 > url obtener datos: http://api.liquidplatform.com/2.0/medias/d5c52a070aad7c869c8a9b8a5f175a82?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:05 > url get http://api.liquidplatform.com/2.0/medias/d5c52a070aad7c869c8a9b8a5f175a82?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:05 > get entro error liquid titulo
+00:38:05 > http_code: 404
+00:38:05 > content_type: 
+00:38:05 > curl_errno: 22
+00:38:05 >  no paso get
+00:38:05 > Response obtener datos
+00:38:05 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3151
+00:38:05 > entro a _obtenerImagesUrlVideosXId
+00:38:05 > url obtener datos: http://api.liquidplatform.com/2.0/medias/c6b7c0b53aac07bad1ba54f995d6c10f?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:05 > url get http://api.liquidplatform.com/2.0/medias/c6b7c0b53aac07bad1ba54f995d6c10f?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:05 > get entro error liquid titulo
+00:38:06 > http_code: 404
+00:38:06 > content_type: 
+00:38:06 > curl_errno: 22
+00:38:06 >  no paso get
+00:38:06 > Response obtener datos
+00:38:06 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3152
+00:38:06 > entro a _obtenerImagesUrlVideosXId
+00:38:06 > url obtener datos: http://api.liquidplatform.com/2.0/medias/7af55c6beb7a89d949d66a8e3ea20ba8?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:06 > url get http://api.liquidplatform.com/2.0/medias/7af55c6beb7a89d949d66a8e3ea20ba8?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:06 > get entro error liquid titulo
+00:38:06 > http_code: 404
+00:38:06 > content_type: 
+00:38:06 > curl_errno: 22
+00:38:06 >  no paso get
+00:38:06 > Response obtener datos
+00:38:06 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3153
+00:38:06 > entro a _obtenerImagesUrlVideosXId
+00:38:06 > url obtener datos: http://api.liquidplatform.com/2.0/medias/b9afbe134acac30ac6ac6d6d47fb823c?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:06 > url get http://api.liquidplatform.com/2.0/medias/b9afbe134acac30ac6ac6d6d47fb823c?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:06 > get entro error liquid titulo
+00:38:06 > http_code: 404
+00:38:06 > content_type: 
+00:38:06 > curl_errno: 22
+00:38:06 >  no paso get
+00:38:06 > Response obtener datos
+00:38:06 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3154
+00:38:06 > entro a _obtenerImagesUrlVideosXId
+00:38:06 > url obtener datos: http://api.liquidplatform.com/2.0/medias/2dcebecf0e1462863ba7ccd456e9ae82?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:06 > url get http://api.liquidplatform.com/2.0/medias/2dcebecf0e1462863ba7ccd456e9ae82?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:06 > get entro error liquid titulo
+00:38:07 > http_code: 404
+00:38:07 > content_type: 
+00:38:07 > curl_errno: 22
+00:38:07 >  no paso get
+00:38:07 > Response obtener datos
+00:38:07 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3155
+00:38:07 > entro a _obtenerImagesUrlVideosXId
+00:38:07 > url obtener datos: http://api.liquidplatform.com/2.0/medias/af65f43cb6956da9cca6961d86f29714?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:07 > url get http://api.liquidplatform.com/2.0/medias/af65f43cb6956da9cca6961d86f29714?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:07 > get entro error liquid titulo
+00:38:07 > http_code: 404
+00:38:07 > content_type: 
+00:38:07 > curl_errno: 22
+00:38:07 >  no paso get
+00:38:07 > Response obtener datos
+00:38:07 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3156
+00:38:07 > entro a _obtenerImagesUrlVideosXId
+00:38:07 > url obtener datos: http://api.liquidplatform.com/2.0/medias/e9f88e104a89bd83646053ba82905021?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:07 > url get http://api.liquidplatform.com/2.0/medias/e9f88e104a89bd83646053ba82905021?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:07 > get entro error liquid titulo
+00:38:07 > http_code: 404
+00:38:07 > content_type: 
+00:38:07 > curl_errno: 22
+00:38:07 >  no paso get
+00:38:07 > Response obtener datos
+00:38:07 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3157
+00:38:07 > entro a _obtenerImagesUrlVideosXId
+00:38:07 > url obtener datos: http://api.liquidplatform.com/2.0/medias/2104f6cb45a68f77f183a02a9f26cad4?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:07 > url get http://api.liquidplatform.com/2.0/medias/2104f6cb45a68f77f183a02a9f26cad4?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:07 > get entro error liquid titulo
+00:38:08 > http_code: 404
+00:38:08 > content_type: 
+00:38:08 > curl_errno: 22
+00:38:08 >  no paso get
+00:38:08 > Response obtener datos
+00:38:08 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3158
+00:38:08 > entro a _obtenerImagesUrlVideosXId
+00:38:08 > url obtener datos: http://api.liquidplatform.com/2.0/medias/2cb8d4ce63030241cd8b378f452ee6c5?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:08 > url get http://api.liquidplatform.com/2.0/medias/2cb8d4ce63030241cd8b378f452ee6c5?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:08 > get entro error liquid titulo
+00:38:08 > http_code: 404
+00:38:08 > content_type: 
+00:38:08 > curl_errno: 22
+00:38:08 >  no paso get
+00:38:08 > Response obtener datos
+00:38:08 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3159
+00:38:08 > entro a _obtenerImagesUrlVideosXId
+00:38:08 > url obtener datos: http://api.liquidplatform.com/2.0/medias/ab93cc384b339f496d46a72e56c846f1?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:08 > url get http://api.liquidplatform.com/2.0/medias/ab93cc384b339f496d46a72e56c846f1?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:08 > get entro error liquid titulo
+00:38:08 > http_code: 404
+00:38:08 > content_type: 
+00:38:08 > curl_errno: 22
+00:38:08 >  no paso get
+00:38:08 > Response obtener datos
+00:38:08 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3160
+00:38:08 > entro a _obtenerImagesUrlVideosXId
+00:38:08 > url obtener datos: http://api.liquidplatform.com/2.0/medias/80e517464160b84c37c639d8f8e127c8?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:08 > url get http://api.liquidplatform.com/2.0/medias/80e517464160b84c37c639d8f8e127c8?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:08 > get entro error liquid titulo
+00:38:09 > http_code: 404
+00:38:09 > content_type: 
+00:38:09 > curl_errno: 22
+00:38:09 >  no paso get
+00:38:09 > Response obtener datos
+00:38:09 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3161
+00:38:09 > entro a _obtenerImagesUrlVideosXId
+00:38:09 > url obtener datos: http://api.liquidplatform.com/2.0/medias/e6dfb6e2ce9dcb79cceecf793ce120b2?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:09 > url get http://api.liquidplatform.com/2.0/medias/e6dfb6e2ce9dcb79cceecf793ce120b2?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:09 > get entro error liquid titulo
+00:38:09 > http_code: 404
+00:38:09 > content_type: 
+00:38:09 > curl_errno: 22
+00:38:09 >  no paso get
+00:38:09 > Response obtener datos
+00:38:09 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3162
+00:38:09 > entro a _obtenerImagesUrlVideosXId
+00:38:09 > url obtener datos: http://api.liquidplatform.com/2.0/medias/41193053ff7e729a541e124cc0c29733?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:09 > url get http://api.liquidplatform.com/2.0/medias/41193053ff7e729a541e124cc0c29733?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:09 > get entro error liquid titulo
+00:38:09 > http_code: 404
+00:38:09 > content_type: 
+00:38:09 > curl_errno: 22
+00:38:09 >  no paso get
+00:38:09 > Response obtener datos
+00:38:09 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3163
+00:38:09 > entro a _obtenerImagesUrlVideosXId
+00:38:09 > url obtener datos: http://api.liquidplatform.com/2.0/medias/2efef99bc1a79faf9ab7c355ca0f7efb?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:09 > url get http://api.liquidplatform.com/2.0/medias/2efef99bc1a79faf9ab7c355ca0f7efb?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:09 > get entro error liquid titulo
+00:38:10 > http_code: 404
+00:38:10 > content_type: 
+00:38:10 > curl_errno: 22
+00:38:10 >  no paso get
+00:38:10 > Response obtener datos
+00:38:10 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3164
+00:38:10 > entro a _obtenerImagesUrlVideosXId
+00:38:10 > url obtener datos: http://api.liquidplatform.com/2.0/medias/2696ee97a436b62b2788278fda0883ad?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:10 > url get http://api.liquidplatform.com/2.0/medias/2696ee97a436b62b2788278fda0883ad?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:10 > get entro error liquid titulo
+00:38:10 > http_code: 404
+00:38:10 > content_type: 
+00:38:10 > curl_errno: 22
+00:38:10 >  no paso get
+00:38:10 > Response obtener datos
+00:38:10 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3165
+00:38:10 > entro a _obtenerImagesUrlVideosXId
+00:38:10 > url obtener datos: http://api.liquidplatform.com/2.0/medias/b5cdf9499f9928f55a35a057a1703afe?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:10 > url get http://api.liquidplatform.com/2.0/medias/b5cdf9499f9928f55a35a057a1703afe?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:10 > get entro error liquid titulo
+00:38:10 > http_code: 404
+00:38:10 > content_type: 
+00:38:10 > curl_errno: 22
+00:38:10 >  no paso get
+00:38:10 > Response obtener datos
+00:38:10 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3166
+00:38:10 > entro a _obtenerImagesUrlVideosXId
+00:38:10 > url obtener datos: http://api.liquidplatform.com/2.0/medias/980566db7acc8ea32d5d618bd55c6d88?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:10 > url get http://api.liquidplatform.com/2.0/medias/980566db7acc8ea32d5d618bd55c6d88?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:10 > get entro error liquid titulo
+00:38:11 > http_code: 404
+00:38:11 > content_type: 
+00:38:11 > curl_errno: 22
+00:38:11 >  no paso get
+00:38:11 > Response obtener datos
+00:38:11 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3167
+00:38:11 > entro a _obtenerImagesUrlVideosXId
+00:38:11 > url obtener datos: http://api.liquidplatform.com/2.0/medias/d806df18a79da1492e0085371f977421?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:11 > url get http://api.liquidplatform.com/2.0/medias/d806df18a79da1492e0085371f977421?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:11 > get entro error liquid titulo
+00:38:11 > http_code: 404
+00:38:11 > content_type: 
+00:38:11 > curl_errno: 22
+00:38:11 >  no paso get
+00:38:11 > Response obtener datos
+00:38:11 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3168
+00:38:11 > entro a _obtenerImagesUrlVideosXId
+00:38:11 > url obtener datos: http://api.liquidplatform.com/2.0/medias/ed6bdd0319c50cab1881c187242874e6?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:11 > url get http://api.liquidplatform.com/2.0/medias/ed6bdd0319c50cab1881c187242874e6?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:11 > get entro error liquid titulo
+00:38:11 > http_code: 404
+00:38:11 > content_type: 
+00:38:11 > curl_errno: 22
+00:38:11 >  no paso get
+00:38:11 > Response obtener datos
+00:38:11 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3169
+00:38:11 > entro a _obtenerImagesUrlVideosXId
+00:38:11 > url obtener datos: http://api.liquidplatform.com/2.0/medias/c3f0dbf914b2233e021c811d8e0e867e?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:11 > url get http://api.liquidplatform.com/2.0/medias/c3f0dbf914b2233e021c811d8e0e867e?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:11 > get entro error liquid titulo
+00:38:14 > http_code: 404
+00:38:14 > content_type: 
+00:38:14 > curl_errno: 22
+00:38:14 >  no paso get
+00:38:14 > Response obtener datos
+00:38:14 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3170
+00:38:14 > entro a _obtenerImagesUrlVideosXId
+00:38:14 > url obtener datos: http://api.liquidplatform.com/2.0/medias/ba00296c99500146d85b9f6de82c491a?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:14 > url get http://api.liquidplatform.com/2.0/medias/ba00296c99500146d85b9f6de82c491a?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:14 > get entro error liquid titulo
+00:38:14 > http_code: 404
+00:38:14 > content_type: 
+00:38:14 > curl_errno: 22
+00:38:14 >  no paso get
+00:38:14 > Response obtener datos
+00:38:14 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3171
+00:38:14 > entro a _obtenerImagesUrlVideosXId
+00:38:14 > url obtener datos: http://api.liquidplatform.com/2.0/medias/eca9f84fc8fb9ee7568d5fb202ba1c45?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:14 > url get http://api.liquidplatform.com/2.0/medias/eca9f84fc8fb9ee7568d5fb202ba1c45?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:14 > get entro error liquid titulo
+00:38:14 > http_code: 404
+00:38:14 > content_type: 
+00:38:14 > curl_errno: 22
+00:38:14 >  no paso get
+00:38:14 > Response obtener datos
+00:38:14 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3172
+00:38:14 > entro a _obtenerImagesUrlVideosXId
+00:38:14 > url obtener datos: http://api.liquidplatform.com/2.0/medias/6b29f1c6dfc0d36ed44bc00efb52ee43?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:14 > url get http://api.liquidplatform.com/2.0/medias/6b29f1c6dfc0d36ed44bc00efb52ee43?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:14 > get entro error liquid titulo
+00:38:15 > http_code: 404
+00:38:15 > content_type: 
+00:38:15 > curl_errno: 22
+00:38:15 >  no paso get
+00:38:15 > Response obtener datos
+00:38:15 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3173
+00:38:15 > entro a _obtenerImagesUrlVideosXId
+00:38:15 > url obtener datos: http://api.liquidplatform.com/2.0/medias/991cdf1957c18269400c742ec8939a60?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:15 > url get http://api.liquidplatform.com/2.0/medias/991cdf1957c18269400c742ec8939a60?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:15 > get entro error liquid titulo
+00:38:15 > http_code: 404
+00:38:15 > content_type: 
+00:38:15 > curl_errno: 22
+00:38:15 >  no paso get
+00:38:15 > Response obtener datos
+00:38:15 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3174
+00:38:15 > entro a _obtenerImagesUrlVideosXId
+00:38:15 > url obtener datos: http://api.liquidplatform.com/2.0/medias/b506fffe226f5e574458c24160714218?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:15 > url get http://api.liquidplatform.com/2.0/medias/b506fffe226f5e574458c24160714218?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:15 > get entro error liquid titulo
+00:38:15 > http_code: 404
+00:38:15 > content_type: 
+00:38:15 > curl_errno: 22
+00:38:15 >  no paso get
+00:38:15 > Response obtener datos
+00:38:15 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3175
+00:38:15 > entro a _obtenerImagesUrlVideosXId
+00:38:15 > url obtener datos: http://api.liquidplatform.com/2.0/medias/485eec3e614e36f20b521cfdc1b2c8f5?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:15 > url get http://api.liquidplatform.com/2.0/medias/485eec3e614e36f20b521cfdc1b2c8f5?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:15 > get entro error liquid titulo
+00:38:16 > http_code: 404
+00:38:16 > content_type: 
+00:38:16 > curl_errno: 22
+00:38:16 >  no paso get
+00:38:16 > Response obtener datos
+00:38:16 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3176
+00:38:16 > entro a _obtenerImagesUrlVideosXId
+00:38:16 > url obtener datos: http://api.liquidplatform.com/2.0/medias/e5ed5c8bf8ecd0fb33d6c6668cefebd6?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:16 > url get http://api.liquidplatform.com/2.0/medias/e5ed5c8bf8ecd0fb33d6c6668cefebd6?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:16 > get entro error liquid titulo
+00:38:16 > http_code: 404
+00:38:16 > content_type: 
+00:38:16 > curl_errno: 22
+00:38:16 >  no paso get
+00:38:16 > Response obtener datos
+00:38:16 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3177
+00:38:16 > entro a _obtenerImagesUrlVideosXId
+00:38:16 > url obtener datos: http://api.liquidplatform.com/2.0/medias/1e8a66044b5abec14fe06dec4c1d3ed7?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:16 > url get http://api.liquidplatform.com/2.0/medias/1e8a66044b5abec14fe06dec4c1d3ed7?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:16 > get entro error liquid titulo
+00:38:16 > http_code: 404
+00:38:16 > content_type: 
+00:38:16 > curl_errno: 22
+00:38:16 >  no paso get
+00:38:16 > Response obtener datos
+00:38:16 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3178
+00:38:16 > entro a _obtenerImagesUrlVideosXId
+00:38:16 > url obtener datos: http://api.liquidplatform.com/2.0/medias/eff7ad97a91d7ff693ca1b2e3148405d?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:16 > url get http://api.liquidplatform.com/2.0/medias/eff7ad97a91d7ff693ca1b2e3148405d?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:16 > get entro error liquid titulo
+00:38:17 > http_code: 404
+00:38:17 > content_type: 
+00:38:17 > curl_errno: 22
+00:38:17 >  no paso get
+00:38:17 > Response obtener datos
+00:38:17 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3179
+00:38:17 > entro a _obtenerImagesUrlVideosXId
+00:38:17 > url obtener datos: http://api.liquidplatform.com/2.0/medias/740e164fdaed32c640aa59c2747abd19?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:17 > url get http://api.liquidplatform.com/2.0/medias/740e164fdaed32c640aa59c2747abd19?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:17 > get entro error liquid titulo
+00:38:17 > http_code: 404
+00:38:17 > content_type: 
+00:38:17 > curl_errno: 22
+00:38:17 >  no paso get
+00:38:17 > Response obtener datos
+00:38:17 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3180
+00:38:21 > entro a _obtenerImagesUrlVideosXId
+00:38:21 > url obtener datos: http://api.liquidplatform.com/2.0/medias/e9ce8c3f39dff10d6997aea4a0719cac?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:21 > url get http://api.liquidplatform.com/2.0/medias/e9ce8c3f39dff10d6997aea4a0719cac?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:21 > get entro error liquid titulo
+00:38:22 > http_code: 404
+00:38:22 > content_type: 
+00:38:22 > curl_errno: 22
+00:38:22 >  no paso get
+00:38:22 > Response obtener datos
+00:38:22 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3181
+00:38:26 > entro a _obtenerImagesUrlVideosXId
+00:38:26 > url obtener datos: http://api.liquidplatform.com/2.0/medias/51cf093f9d1f5ba2d9909269ca1111cc?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:26 > url get http://api.liquidplatform.com/2.0/medias/51cf093f9d1f5ba2d9909269ca1111cc?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:26 > get entro error liquid titulo
+00:38:27 > http_code: 404
+00:38:27 > content_type: 
+00:38:27 > curl_errno: 22
+00:38:27 >  no paso get
+00:38:27 > Response obtener datos
+00:38:27 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3182
+00:38:31 > entro a _obtenerImagesUrlVideosXId
+00:38:31 > url obtener datos: http://api.liquidplatform.com/2.0/medias/30e640833a0dcce8c974d71f48bf5293?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:31 > url get http://api.liquidplatform.com/2.0/medias/30e640833a0dcce8c974d71f48bf5293?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:31 > get entro error liquid titulo
+00:38:31 > http_code: 404
+00:38:31 > content_type: 
+00:38:31 > curl_errno: 22
+00:38:31 >  no paso get
+00:38:31 > Response obtener datos
+00:38:31 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3183
+00:38:35 > entro a _obtenerImagesUrlVideosXId
+00:38:35 > url obtener datos: http://api.liquidplatform.com/2.0/medias/9c9890da19660fc78e3f5028d742e87f?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:35 > url get http://api.liquidplatform.com/2.0/medias/9c9890da19660fc78e3f5028d742e87f?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:35 > get entro error liquid titulo
+00:38:35 > http_code: 404
+00:38:35 > content_type: 
+00:38:35 > curl_errno: 22
+00:38:35 >  no paso get
+00:38:35 > Response obtener datos
+00:38:35 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3184
+00:38:41 > entro a _obtenerImagesUrlVideosXId
+00:38:41 > url obtener datos: http://api.liquidplatform.com/2.0/medias/27dc2f85e8ba083573a8862ee8c99351?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:41 > url get http://api.liquidplatform.com/2.0/medias/27dc2f85e8ba083573a8862ee8c99351?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:41 > get entro error liquid titulo
+00:38:41 > http_code: 404
+00:38:41 > content_type: 
+00:38:41 > curl_errno: 22
+00:38:41 >  no paso get
+00:38:41 > Response obtener datos
+00:38:41 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3185
+00:38:45 > entro a _obtenerImagesUrlVideosXId
+00:38:45 > url obtener datos: http://api.liquidplatform.com/2.0/medias/0692cde92ebc46f17ce9e9f6ab752eb4?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:45 > url get http://api.liquidplatform.com/2.0/medias/0692cde92ebc46f17ce9e9f6ab752eb4?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:45 > get entro error liquid titulo
+00:38:45 > http_code: 404
+00:38:45 > content_type: 
+00:38:45 > curl_errno: 22
+00:38:45 >  no paso get
+00:38:45 > Response obtener datos
+00:38:45 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3186
+00:38:49 > entro a _obtenerImagesUrlVideosXId
+00:38:49 > url obtener datos: http://api.liquidplatform.com/2.0/medias/a909b2e75c661f25a8787888dd4af64d?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:49 > url get http://api.liquidplatform.com/2.0/medias/a909b2e75c661f25a8787888dd4af64d?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:49 > get entro error liquid titulo
+00:38:50 > http_code: 404
+00:38:50 > content_type: 
+00:38:50 > curl_errno: 22
+00:38:50 >  no paso get
+00:38:50 > Response obtener datos
+00:38:50 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3187
+00:38:54 > entro a _obtenerImagesUrlVideosXId
+00:38:54 > url obtener datos: http://api.liquidplatform.com/2.0/medias/1a21c29c2a6642bfb2f8d4834a2ba7b3?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:54 > url get http://api.liquidplatform.com/2.0/medias/1a21c29c2a6642bfb2f8d4834a2ba7b3?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:54 > get entro error liquid titulo
+00:38:55 > http_code: 404
+00:38:55 > content_type: 
+00:38:55 > curl_errno: 22
+00:38:55 >  no paso get
+00:38:55 > Response obtener datos
+00:38:55 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3188
+00:38:59 > entro a _obtenerImagesUrlVideosXId
+00:38:59 > url obtener datos: http://api.liquidplatform.com/2.0/medias/7593ec1623b29e300840380f8a9d6146?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:59 > url get http://api.liquidplatform.com/2.0/medias/7593ec1623b29e300840380f8a9d6146?key=373047f3e9b34148edff26d218e591b0&filter=id;thumbs;files;published
+00:38:59 > get entro error liquid titulo
+00:38:59 > http_code: 404
+00:38:59 > content_type: 
+00:38:59 > curl_errno: 22
+00:38:59 >  no paso get
+00:38:59 > Response obtener datos
+00:38:59 > query setEstadosVideos  update default_cms_videos set estado=1,estado_liquid =6 where id=3189
+01:16:50 > dato entrada    : 2627 -- 
+01:16:50 > cantidad   : 1 -- 
+01:16:50 > mongo_se: 51783c37c8437ee72e00006b
+01:16:50 > estado_migracion: 2
+01:16:50 > id_mongo de seccion 51783c37c8437ee72e00006b
