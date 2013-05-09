@@ -76,6 +76,8 @@ class Grupo_maestro_m extends MY_Model {
                     'horario_transmision_inicio' => $objBeanMaestro->horario_transmision_inicio,
                     'horario_transmision_fin' => $objBeanMaestro->horario_transmision_inicio
         ));
+        //disparamos la funcion para registrar en las portadas y secciones
+        $this->portadas_lib->agregar_maestro($objBeanMaestro->id);
         return $objBeanMaestro;
     }
     

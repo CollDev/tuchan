@@ -239,7 +239,7 @@ class Procesos_lib extends MX_Controller {
         if (count($resultado) > 0) {
             foreach ($resultado as $value) {
                 
-             error_log("dentro de " . $value->id);
+             //error_log("dentro de " . $value->id);
 
                 $mediaarr = Liquid::obtenerDatosMedia($value);
                 
@@ -250,7 +250,7 @@ class Procesos_lib extends MX_Controller {
                         $duracion = ($duracion/1000);                       
                         $this->videos_mp->setDuracionVideos($value->id, $duracion);
                     }
-                    error_log("duracion : " . $duracion);
+                    //error_log("duracion : " . $duracion);
                 }
                               
                 if(empty($value->ruta)) {
@@ -260,7 +260,7 @@ class Procesos_lib extends MX_Controller {
                     }
                 }
                 
-                error_log("ruta splitter". $value->rutasplitter);
+                //error_log("ruta splitter". $value->rutasplitter);
                 
                 if(empty($value->rutasplitter)) {
                     $urlvideo = Liquid::getUrlVideoLiquidRaw($mediaarr);
@@ -302,7 +302,7 @@ class Procesos_lib extends MX_Controller {
                 }
 
                 if ( (!empty($value->ruta) || !empty($urlvideo) || !empty($duracion) ) && ($value->imag != 0 || !empty($datos["imagen"]))){
-                    $this->videos_mp->setEstadosVideos($value->id, 2, 6);
+                    $this->videos_mp->setEstadosVideos($value->id, 1, 6);
                 }
             }
         }
@@ -1038,7 +1038,7 @@ class Procesos_lib extends MX_Controller {
 
 
         $mongoid = new MongoId($id_mongo);
-        error_log("mongo_id: " . $mongoid);
+        //error_log("mongo_id: " . $mongoid);
         $this->micanal_mp->SetItemCollectionUpdate(array("item" => $item), array('_id' => $mongoid));
     }
 
@@ -1276,7 +1276,7 @@ class Procesos_lib extends MX_Controller {
     }
     
     public function generarGrupoMaestroXId($tgm,$id){   
-        error_log($tgm,$id);
+        //error_log($tgm,$id);
         switch ($tgm) {
                 case 3;
                     $this->_generarProgramasXId($id);
@@ -1301,7 +1301,7 @@ class Procesos_lib extends MX_Controller {
         if (count($canal) > 0) {
 
             foreach ($canal as $value) {
-                error_log("estado: " . $value->estado . " >> ". $value->estado_migracion );
+                //error_log("estado: " . $value->estado . " >> ". $value->estado_migracion );
                 
                 if (($value->estado_migracion == 0 or $value->estado_migracion == 9 ) && $value->estado == 1) {
 
@@ -1350,14 +1350,14 @@ class Procesos_lib extends MX_Controller {
 //    
 //    private function _generarProgramasXId($id){
 //        
-//        error_log("id: " . $id);
+//        //error_log("id: " . $id);
 //        
 //        $programa= $this->grupo_maestros_mp->getProgramasXId($id);
 //
 //        if (count($programa) > 0) {
 //
 //            foreach ($programa as $value) {
-//                error_log("estado: " . $value->estado . " >> ". $value->estado_migracion );
+//                //error_log("estado: " . $value->estado . " >> ". $value->estado_migracion );
 //                
 //                if (($value->estado_migracion == 0 or $value->estado_migracion == 9 ) && $value->estado == 1) {
 //
@@ -1410,7 +1410,7 @@ class Procesos_lib extends MX_Controller {
 
         foreach ($video as $value) {
                 
-            if ($value->estado == 2) {
+            if ($value->estado == 1) {
                 $datovideo = $this->canal_mp->queryProcedure(4, $value->id);
                 $objmongo['id'] = $value->id;
                 $objmongo['canal'] = ($datovideo[0]->xcanal);
@@ -1418,8 +1418,8 @@ class Procesos_lib extends MX_Controller {
                 $objmongo['programa'] = ($datovideo[0]->xprograma);
                 $objmongo['programa_alias'] = $datovideo[0]->xprogramaalias;
                 $objmongo['fecha'] = date("d-m-Y", strtotime($datovideo[0]->xfechatransmision));
-//                $objmongo['etiquetas'] = explode(",", $value->etiquetas);
-//                $objmongo['logo'] = PATH_ELEMENTOS . $value->imagen;
+                $objmongo['etiquetas'] = explode(",", $value->etiquetas);
+                $objmongo['logo'] = PATH_ELEMENTOS . $value->imagen;
                 $objmongo['nombre'] = $datovideo[0]->xvideo;
                 $objmongo['descripcion'] = (strip_tags($datovideo[0]->xdescripcion));
 
@@ -1443,11 +1443,15 @@ class Procesos_lib extends MX_Controller {
 
                 $objmongo['valoracion'] = $datovideo[0]->xvi_val;
                 $objmongo['estado'] = "1";
-
-                if ($datovideo[0]->xfechatransmision == $datovideo[0]->xlistareproduccion) {
-                    $urltemp = $datovideo[0]->xprogramaalias . "/" . $datovideo[0]->xfechatransmision . "-" . $datovideo[0]->xvideoalias; //  2. micanal.pe/[programa]/[fecha]-[video]-id [ nombre de lista es igual a la fecha de transmisi?n de los videos.                      
-                } else {
-                    $urltemp = $datovideo[0]->xprogramaalias . "/" . $datovideo[0]->xlistareproduccionalias . "/" . $datovideo[0]->xfechatransmision . "-" . $datovideo[0]->xvideoalias; //  1. micanal.pe/[programa]/[lista]/[fecha]-[video]-id                        
+                
+                if($datovideo[0]->xprogramaalias != NULL){    
+                    if ($datovideo[0]->xfechatransmision == $datovideo[0]->xlistareproduccion) {
+                        $urltemp = $datovideo[0]->xprogramaalias . "/" . $datovideo[0]->xfechatransmision . "-" . $datovideo[0]->xvideoalias; //  2. micanal.pe/[programa]/[fecha]-[video]-id [ nombre de lista es igual a la fecha de transmisi?n de los videos.                      
+                    } else {
+                        $urltemp = $datovideo[0]->xprogramaalias . "/" . $datovideo[0]->xlistareproduccionalias . "/" . $datovideo[0]->xfechatransmision . "-" . $datovideo[0]->xvideoalias; //  1. micanal.pe/[programa]/[lista]/[fecha]-[video]-id                        
+                    }              
+                }else{
+                        $urltemp ="video" . "/" . $datovideo[0]->xfechatransmision . "-" . $datovideo[0]->xvideoalias;                        
                 }
 
                 $objmongo['url'] = $urltemp;
@@ -1556,6 +1560,11 @@ class Procesos_lib extends MX_Controller {
             $this->_obtenerImagesUrlVideosXId($value->id);
             $this->_generarVideosXId($value->id);                   
        }               
+    }
+    
+    public function  actualizarVideosXId($id){       
+        $this->_obtenerImagesUrlVideosXId($id);
+        $this->_generarVideosXId($id);                   
     }
     
     

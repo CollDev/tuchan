@@ -74,7 +74,7 @@
                             <?php echo anchor('/admin/videos/corte_video/' . $canal->id . '/' . $video->id . '/', lang('global:cortar'), 'class="mode_cut"'); ?>
                         <?php endif; ?>
                         <?php if($video->estado == $this->config->item('video:borrador')): ?>
-                            <?php echo anchor('#', lang('global:publish_label'), 'class="mode_publish" onclick="publicar_video(' . $video->id . ');return false;"'); ?>
+                            <?php echo anchor('#', lang('publish_label'), 'class="mode_publish" onclick="publicar_video(' . $video->id . ');return false;"'); ?>
                         <?php endif; ?>
                         <?php echo anchor('/admin/videos/carga_unitaria/' . $canal->id . '/' . $video->id . '/', lang('global:edit'), 'class="mode_edit"'); ?>
                         <?php echo anchor('#', lang('global:delete'), 'onclick="eliminar_video(' . $video->id . ');return false;" class="mode_delete"'); ?>

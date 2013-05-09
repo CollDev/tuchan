@@ -234,15 +234,15 @@ class Videos_m extends MY_Model {
         if ($video_id > 0) {
             if ($video_update > 0) {
                 $query = "SELECT * FROM " . $this->_table . " WHERE id = '" . $video_id . "' AND id NOT IN (" . $video_update . ") AND upper(titulo) like '" . strtoupper($title) . "' AND canales_id =" . $canal_id;
-                //error_log("1111".$query);
+                ////error_log("1111".$query);
             } else {
                 $query = "SELECT * FROM " . $this->_table . " WHERE id= '" . $video_id . "' AND upper(titulo) like '" . strtoupper($title) . "' AND canales_id =" . $canal_id;
                 //$query="SELECT * FROM ".$this->_table." WHERE id NOT IN (".$video_id.") AND upper(titulo) like '".  strtoupper($title)."' AND canales_id =".$canal_id;
-                //error_log("2222".$query);
+                ////error_log("2222".$query);
             }
         } else {
             $query = "SELECT * FROM " . $this->_table . " WHERE upper(titulo) like '" . strtoupper($title) . "' AND canales_id =" . $canal_id;
-            //error_log("3333".$query);
+            ////error_log("3333".$query);
         }
         $result = $this->db->query($query)->result();
         if (count($result) > 0) {

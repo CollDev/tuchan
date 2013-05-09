@@ -42,6 +42,8 @@ class Migracion_lib extends MX_Controller {
         $this->load->model('videos/videos_m');
         $this->load->model('videos/imagen_m');
         $this->load->model('videos/tipo_imagen_m');
+        $this->load->model('videos/tags_m');
+        $this->load->model('videos/video_tags_m');
         //$this->config->load('videos/uploads');
         $this->url = $this->config->item('migracion:url');
         $this->filtro = $this->config->item('migracion:filtro');
@@ -49,7 +51,7 @@ class Migracion_lib extends MX_Controller {
         $this->load->library('procesos_lib');
     }
 
-    /** 
+    /**
      * Método para inciar la migración listando canales y llamando otros metodos
      * @author Johnny Huamani <johnny1402@gmail.com>
      * @return boolean
@@ -79,6 +81,8 @@ class Migracion_lib extends MX_Controller {
         for ($indice = 0; $indice < $this->pagina; $indice++) {
             $ruta_api = $this->generarApi($objCanal, $indice);
             $data = @simplexml_load_file($ruta_api);
+            //$this->vd($data);
+            /// die();
             if ($data) {
                 $cantidad+= $this->obtener_objeto_bean_video($data, $objCanal);
             } else {
@@ -103,7 +107,8 @@ class Migracion_lib extends MX_Controller {
             if (property_exists($objVideo, 'files')) {
                 if ($objVideo->published) {
                     $objFile = $this->obtenerFile($objVideo->files);
-                    $oVideo = $this->videos_m->like('codigo', $objFile->id, 'none')->get_by(array());
+                    //$oVideo = $this->videos_m->like('codigo', $objFile->id, 'none')->get_by(array());
+                    $oVideo = $this->videos_m->like('codigo', $objVideo->id, 'none')->get_by(array());
                     if (count($oVideo) > 0) {//el video ya se encuentra registrado
                     } else { // es un video que no se encuentra en nuestra BD
                         $objBeanVideo = new stdClass();
@@ -115,26 +120,26 @@ class Migracion_lib extends MX_Controller {
                         $objBeanVideo->nid = NULL;
                         $objBeanVideo->titulo = $this->format_title($objVideo->title);
                         $objBeanVideo->alias = '';
-                        $objBeanVideo->descripcion = '';
+                        $objBeanVideo->descripcion = $this->format_descripcion($objVideo->description);
                         $objBeanVideo->fragmento = 0;
-                        $objBeanVideo->codigo = $this->generar_codigo($objFile->id);
+                        $objBeanVideo->codigo = $this->generar_codigo($objVideo->id);
                         $objBeanVideo->reproducciones = 0;
                         $objVideoInfo = $objFile->videoInfo;
                         $objBeanVideo->duracion = $this->formatSeconds($objVideoInfo->duration / 1000); //number_format($this->getStamp($objFile->duration), 2);
                         $objBeanVideo->fecha_publicacion_inicio = '0000-00-00 00:00:00';
                         $objBeanVideo->fecha_publicacion_fin = '0000-00-00 00:00:00';
-                        $objBeanVideo->fecha_transmision = '00:00:00';
+                        $objBeanVideo->fecha_transmision = date("Y-m-d", strtotime($objVideo->postDate));
                         $objBeanVideo->horario_transmision_inicio = '00:00:00';
                         $objBeanVideo->horario_transmision_fin = '00:00:00';
                         $objBeanVideo->ubicacion = '';
                         $objBeanVideo->id_mongo = NULL;
 
-                        $objBeanVideo->estado = 1;
+                        $objBeanVideo->estado = 2;
                         $objBeanVideo->estado_liquid = 6;
-                        
-                        $objBeanVideo->fecha_registro = date("Y-m-d H:i:s");
+
+                        $objBeanVideo->fecha_registro = date("Y-m-d H:i:s", strtotime($objVideo->postDate)); //date("Y-m-d H:i:s");
                         $objBeanVideo->usuario_registro = $user_id;
-                        $objBeanVideo->fecha_actualizacion = date("Y-m-d H:i:s");
+                        $objBeanVideo->fecha_actualizacion = date("Y-m-d H:i:s", strtotime($objVideo->postDate));
                         $objBeanVideo->usuario_actualizacion = $user_id;
                         $objBeanVideo->estado_migracion = $this->config->item('migracion:nuevo');
                         $objBeanVideo->fecha_migracion = date("Y-m-d H:i:s");
@@ -153,13 +158,14 @@ class Migracion_lib extends MX_Controller {
                         $objBeanVideo->fecha_migracion_sphinx = '0000-00-00 00:00:00';
                         $objBeanVideo->fecha_migracion_actualizacion_sphinx = '0000-00-00 00:00:00';
                         $objBeanVideo->procedencia = $this->config->item('procedencia:migracion');
-                        //$this->vd($objBeanVideo);
                         $objBeanVideoSaved = $this->videos_m->save($objBeanVideo);
                         //registramos el detalle de grupo maestro
                         $this->registrar_detalle_maestro($objBeanVideoSaved);
                         //guardamos las imagenes de cada video
                         $this->guardar_imagenes($objBeanVideoSaved->id, $objVideo->thumbs);
-                        $this->procesos_lib->curlProcesoVideosXId($objBeanVideoSaved->id);
+                        //guardamos los tags x video
+                        $this->registrar_tags($objBeanVideoSaved->id, $objVideo->tags);
+                        $this->procesos_lib->actualizarVideosXId($objBeanVideoSaved->id);
                         $contador++;
                     }
                 }
@@ -191,6 +197,76 @@ class Migracion_lib extends MX_Controller {
         $objBeanGrupoDetalle->fecha_migracion = '0000-00-00 00:00:00';
         $objBeanGrupoDetalle->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
         $objBeanGrupoDetalleSaved = $this->grupo_detalle_m->saveMaestroDetalle($objBeanGrupoDetalle);
+    }
+
+    /**
+     * Método para registrar tags x video
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param int $video_id
+     * @param object $objTags
+     */
+    private function registrar_tags($video_id, $objTags) {
+        if (property_exists($objTags, 'tag')) {
+            $user_id = (int) $this->session->userdata('user_id');
+            $arrayTag = (array) $objTags->tag;
+            if (count($arrayTag) > 0) {
+                foreach ($arrayTag as $puntero => $tag) {
+                    $aTag = $this->tags_m->like('nombre', $tag, 'none')->get_many_by(array("tipo_tags_id" => "1"));
+                    if (count($aTag) > 0) {
+                        $objTagExistente = $this->tags_m->like('nombre', $tag, 'none')->get_by(array("tipo_tags_id" => "1"));
+                        //verificamos si la relacion existe
+                        $objVideoTag = $this->video_tags_m->get_by(array("tags_id" => $objTagExistente->id, "videos_id" => $video_id));
+                        if (count($objVideoTag) == 0) {
+                            //registramos la relacion de tag con el video
+                            $objBeanVideoTag = new stdClass();
+                            $objBeanVideoTag->tags_id = $objTagExistente->id;
+                            $objBeanVideoTag->videos_id = $video_id;
+                            $objBeanVideoTag->estado = 1;
+                            $objBeanVideoTag->fecha_registro = date("Y-m-d H:i:s");
+                            $objBeanVideoTag->usuario_registro = $user_id;
+                            $objBeanVideoTag->fecha_actualizacion = date("Y-m-d H:i:s");
+                            $objBeanVideoTag->usuario_actualizacion = $user_id;
+                            $objBeanVideoTag->estado_migracion_sphinx = 0;
+                            $objBeanVideoTag->fecha_migracion_sphinx = date("Y-m-d H:i:s");
+                            $objBeanVideoTag->fecha_migracion_actualizacion_sphinx = date("Y-m-d H:i:s");
+                            $objBeanVideoTagSaved = $this->video_tags_m->saveVideoTags($objBeanVideoTag);
+                        }
+                    } else {
+                        $objBeanTag = new stdClass();
+                        $objBeanTag->id = NULL;
+                        $objBeanTag->tipo_tags_id = 1;
+                        $objBeanTag->nombre = $tag;
+                        $objBeanTag->descripcion = $tag;
+                        $objBeanTag->alias = $tag;
+                        $objBeanTag->estado = 1;
+                        $objBeanTag->fecha_registro = date("Y-m-d H:i:s");
+                        $objBeanTag->usuario_registro = $user_id;
+                        $objBeanTag->fecha_actualizacion = date("Y-m-d H:i:s");
+                        $objBeanTag->usuario_actualizacion = $user_id;
+                        $objBeanTag->estado_migracion = 0;
+                        $objBeanTag->fecha_migracion = '0000-00-00 00:00:00';
+                        $objBeanTag->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
+                        $objBeanTag->estado_migracion_sphinx = 0;
+                        $objBeanTag->fecha_migracion_sphinx = date("Y-m-d H:i:s");
+                        $objBeanTag->fecha_migracion_actualizacion_sphinx = '0000-00-00 00:00:00';
+                        $objBeanTagSaved = $this->tags_m->saveTag($objBeanTag);
+                        //registramos la relacion de tag con el video
+                        $objBeanVideoTag = new stdClass();
+                        $objBeanVideoTag->tags_id = $objBeanTagSaved->id;
+                        $objBeanVideoTag->videos_id = $video_id;
+                        $objBeanVideoTag->estado = 1;
+                        $objBeanVideoTag->fecha_registro = date("Y-m-d H:i:s");
+                        $objBeanVideoTag->usuario_registro = $user_id;
+                        $objBeanVideoTag->fecha_actualizacion = date("Y-m-d H:i:s");
+                        $objBeanVideoTag->usuario_actualizacion = $user_id;
+                        $objBeanVideoTag->estado_migracion_sphinx = 0;
+                        $objBeanVideoTag->fecha_migracion_sphinx = date("Y-m-d H:i:s");
+                        $objBeanVideoTag->fecha_migracion_actualizacion_sphinx = date("Y-m-d H:i:s");
+                        $objBeanVideoTagSaved = $this->video_tags_m->saveVideoTags($objBeanVideoTag);
+                    }
+                }
+            }
+        }
     }
 
     /**
@@ -362,6 +438,25 @@ class Migracion_lib extends MX_Controller {
     }
 
     /**
+     * Método para formatear la descripcion del video
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param object $descripcion
+     * @return string
+     */
+    private function format_descripcion($descripcion) {
+        $returValue = $descripcion;
+        if (is_object($descripcion)) {
+            $descripcion = (array) $descripcion;
+            if (count($descripcion) > 0) {
+                $returValue = $descripcion[0];
+            } else {
+                $returValue = '';
+            }
+        }
+        return $returValue;
+    }
+
+    /**
      * Método para obtener un objeto file del video correcto
      * @author Johnny Huamani <johnny1402@gmail.com>
      * @param arrayObject $objColeccionArchivos
@@ -394,8 +489,8 @@ class Migracion_lib extends MX_Controller {
      */
     private function generarApi($objCanal, $pagina = 0) {
         $returnValue = '';
-        //$returnValue = $this->url . $objCanal->apikey . '&first=' . $pagina . '&' . $this->filtro;
-        $returnValue = $this->url . $objCanal->apikey . '&first=' . $pagina;
+        $returnValue = $this->url . $objCanal->apikey . '&first=' . $pagina . '&' . $this->filtro;
+        //$returnValue = $this->url . $objCanal->apikey . '&first=' . $pagina;
         //echo $returnValue;
         return $returnValue;
     }

@@ -149,4 +149,18 @@ class Videos_mp extends CI_Model {
         $query = "SELECT id_mongo FROM default_cms_videos WHERE padre = " . $id;
         return $this->db->query($query)->result();
     }
+    
+    function getShowProcedure() {
+
+        $query = "SHOW PROCEDURE STATUS";
+        return $this->db->query($query)->result();
+    }
+       
+    function getShowFunction() {
+
+        $query = "SHOW FUNCTION STATUS";
+        return $this->db->query($query)->result();
+    }
+    
+     
 }
