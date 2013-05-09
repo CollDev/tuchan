@@ -1418,8 +1418,8 @@ class Procesos_lib extends MX_Controller {
                 $objmongo['programa'] = ($datovideo[0]->xprograma);
                 $objmongo['programa_alias'] = $datovideo[0]->xprogramaalias;
                 $objmongo['fecha'] = date("d-m-Y", strtotime($datovideo[0]->xfechatransmision));
-//                $objmongo['etiquetas'] = explode(",", $value->etiquetas);
-//                $objmongo['logo'] = PATH_ELEMENTOS . $value->imagen;
+                $objmongo['etiquetas'] = explode(",", $value->etiquetas);
+                $objmongo['logo'] = PATH_ELEMENTOS . $value->imagen;
                 $objmongo['nombre'] = $datovideo[0]->xvideo;
                 $objmongo['descripcion'] = (strip_tags($datovideo[0]->xdescripcion));
 
