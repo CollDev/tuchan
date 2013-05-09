@@ -1284,7 +1284,7 @@ class Admin extends Admin_Controller {
             $objBeanSeccion->reglas_id = NULL;
             $objBeanSeccion->categorias_id = NULL;
             $objBeanSeccion->tags_id = NULL;
-            $objBeanSeccion->peso = $this->obtenerPesoSeccionPortada($objPortada->id);
+            $objBeanSeccion->peso = $this->obtenerPesoSeccionPortada($objPortada->id, $this->config->item('seccion:coleccion'));
             $objBeanSeccion->id_mongo = NULL;
             $objBeanSeccion->estado = $this->config->item('estado:borrador');
             $objBeanSeccion->templates_id = $this->config->item('template:8items');
@@ -1314,7 +1314,7 @@ class Admin extends Admin_Controller {
             $objBeanSeccion->reglas_id = NULL;
             $objBeanSeccion->categorias_id = NULL;
             $objBeanSeccion->tags_id = NULL;
-            $objBeanSeccion->peso = $this->obtenerPesoSeccionPortada($objPortada->id);
+            $objBeanSeccion->peso = $this->obtenerPesoSeccionPortada($objPortada->id, $this->config->item('seccion:coleccion'));
             $objBeanSeccion->id_mongo = NULL;
             $objBeanSeccion->estado = $this->config->item('estado:borrador');
             $objBeanSeccion->templates_id = $this->config->item('template:8items');
@@ -1330,17 +1330,35 @@ class Admin extends Admin_Controller {
         }
     }
 
-    private function obtenerPesoSeccionPortada($portada_id) {
-        $peso = 1;
+    private function obtenerPesoSeccionPortada($portada_id, $tipo_seccion = 1) {
+        if ($tipo_seccion == $this->config->item('seccion:coleccion')) {
+            $returnPeso = 3;
+        } else {
+            $returnPeso = 1;
+        }
         $secciones = $this->secciones_m->order_by('peso', 'ASC')->get_many_by(array("portadas_id" => $portada_id));
         if (count($secciones) > 0) {
-            $nuevo_peso = 2;
+            if ($tipo_seccion == $this->config->item('seccion:coleccion')) {
+                $nuevo_peso = 1;
+            } else {
+                $nuevo_peso = 2;
+            }
             foreach ($secciones as $puntero => $objSeccion) {
-                $this->secciones_m->update($objSeccion->id, array("peso" => $nuevo_peso, "estado_migracion" => $this->config->item('migracion:actualizado')));
-                $nuevo_peso++;
+                if ($tipo_seccion == $this->config->item('seccion:coleccion')) {
+                    if ($nuevo_peso == 3) {
+                        $nuevo_peso = $nuevo_peso + 1;
+                    }
+                    $this->secciones_m->update($objSeccion->id, array("peso" => $nuevo_peso, "estado_migracion" => $this->config->item('migracion:actualizado')));
+                    if ($nuevo_peso != 3) {
+                        $nuevo_peso++;
+                    }
+                } else {
+                    $this->secciones_m->update($objSeccion->id, array("peso" => $nuevo_peso, "estado_migracion" => $this->config->item('migracion:actualizado')));
+                    $nuevo_peso++;
+                }
             }
         }
-        return $peso;
+        return $returnPeso;
     }
 
     public function existNameMaestro($nombre_maestro, $tipo_grupo_maestro_id, $post) {
@@ -2505,7 +2523,12 @@ class Admin extends Admin_Controller {
         }
         if ($id_type == 0) {
             if ($this->videos_m->existVideo($post['titulo'], $canal_id, $video_id)) {
-                $returnValue = true;
+                $objVideo2 = $this->videos_m->like('titulo', $post['titulo'], 'none')->get_by(array());
+                if (count($objVideo2) > 0) {
+                    if ($objVideo2->id != $video_id) {
+                        $returnValue = true;
+                    }
+                }
             }
         } else {
             if ($id_type > 0) {
@@ -4783,29 +4806,30 @@ class Admin extends Admin_Controller {
             }
         }
     }
+
     /**
      * Método para eliminar los videos por cada coleccion desde la URL
      * @author Johnny Huamani <johnny1402@gmail.com>
      * @param int $maestro_id
      */
-    public function eliminar_video_importacion($maestro_id= 474){
-        if($maestro_id > 0){
+    public function eliminar_video_importacion($maestro_id = 474) {
+        if ($maestro_id > 0) {
             $objMaestro = $this->grupo_maestro_m->get($maestro_id);
             $arrayIdVideo = array();
-            $lista_video = $this->grupo_detalle_m->get_many_by(array("grupo_maestro_padre"=>$maestro_id));
-            if(count($lista_video)>0){
-                foreach($lista_video as $puntero=>$objDetalleMaestro){
+            $lista_video = $this->grupo_detalle_m->get_many_by(array("grupo_maestro_padre" => $maestro_id));
+            if (count($lista_video) > 0) {
+                foreach ($lista_video as $puntero => $objDetalleMaestro) {
                     array_push($arrayIdVideo, $objDetalleMaestro->video_id);
                     $this->grupo_detalle_m->delete($objDetalleMaestro->id);
                 }
                 //eliminamos los videos
-                if(count($arrayIdVideo)>0){
-                    foreach ($arrayIdVideo as $index=>$video_id){
+                if (count($arrayIdVideo) > 0) {
+                    foreach ($arrayIdVideo as $index => $video_id) {
                         $this->videos_m->delete($video_id);
                     }
                 }
             }
-            echo "Los videos del maestro ".$maestro_id." =>".$objMaestro->nombre." se eliminaron";
+            echo "Los videos del maestro " . $maestro_id . " =>" . $objMaestro->nombre . " se eliminaron";
         }
     }
 
