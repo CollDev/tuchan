@@ -128,7 +128,7 @@ class Migracion_lib extends MX_Controller {
                         $objBeanVideo->duracion = $this->formatSeconds($objVideoInfo->duration / 1000); //number_format($this->getStamp($objFile->duration), 2);
                         $objBeanVideo->fecha_publicacion_inicio = '0000-00-00 00:00:00';
                         $objBeanVideo->fecha_publicacion_fin = '0000-00-00 00:00:00';
-                        $objBeanVideo->fecha_transmision = '00:00:00';
+                        $objBeanVideo->fecha_transmision = date("Y-m-d", strtotime($objVideo->postDate));
                         $objBeanVideo->horario_transmision_inicio = '00:00:00';
                         $objBeanVideo->horario_transmision_fin = '00:00:00';
                         $objBeanVideo->ubicacion = '';
@@ -139,7 +139,7 @@ class Migracion_lib extends MX_Controller {
 
                         $objBeanVideo->fecha_registro = date("Y-m-d H:i:s", strtotime($objVideo->postDate)); //date("Y-m-d H:i:s");
                         $objBeanVideo->usuario_registro = $user_id;
-                        $objBeanVideo->fecha_actualizacion = date("Y-m-d H:i:s");
+                        $objBeanVideo->fecha_actualizacion = date("Y-m-d H:i:s", strtotime($objVideo->postDate));
                         $objBeanVideo->usuario_actualizacion = $user_id;
                         $objBeanVideo->estado_migracion = $this->config->item('migracion:nuevo');
                         $objBeanVideo->fecha_migracion = date("Y-m-d H:i:s");
