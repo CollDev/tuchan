@@ -4804,7 +4804,8 @@ class Admin extends Admin_Controller {
                     }
                 }
             }
-            
+            $objMaestro = $this->grupo_maestro_m->get($maestro_id);
+            echo "Los videos del maestro ".$maestro_id." =>".$objMaestro->nombre." se eliminaron";
         }
     }
 
