@@ -15,7 +15,7 @@ class Canales_mp extends CI_Model {
     public function getCanalesXId($id) {
         $query = "SELECT ca.*,im.imagen,im.procedencia FROM ". $this->_table . " ca 
             INNER JOIN ". $this->_table_imagenes . " im ON ca.id=im.canales_id 
-            AND im.tipo_imagen_id=5 and ca.id=".$id;
+            AND im.tipo_imagen_id=5 and im.estado = 1 and ca.id=".$id;
         return $this->db->query($query)->result();
     }
 
