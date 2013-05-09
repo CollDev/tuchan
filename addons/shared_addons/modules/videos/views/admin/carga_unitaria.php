@@ -481,7 +481,7 @@
                     var hini = $.trim($("#hora_trans_ini").val());
                     var hora_valida = true;
                     if (hfin.length > 0 && hini.length > 0) {
-                        if (hfin > hini) {
+                        if (hfin > hini || (hfin =='00:00:00' && hini=='00:00:00')) {
                             hora_valida = true;
                         } else {
                             hora_valida = false;
@@ -519,7 +519,8 @@
                                                             //var repite = $("#existe_fragmento").val();
                                                             //console.log(repite);
                                                             if (true) {
-<?php if ($objBeanForm->video_id > 0) { ?>
+                                                                <?php //if ($objBeanForm->video_id > 0) { ?>
+                                                                if($("#video_id").val() > 0){
                                                                     var serializedData = $('#frm').serialize();
                                                                     //var post_url = "/admin/videos/save_maestro/"+values['txt_'+type_video]+"/"+values['canal_id']+"/"+values['categoria']+"/"+type_video;
                                                                     var post_url = "/admin/videos/updateVideo/" + values['canal_id'] + "/" + values['video_id'];
@@ -538,10 +539,12 @@
                                                                             }
                                                                         } //end success
                                                                     }); //end AJAX                                                    
-<?php } else { ?>
+                                                                <?php //} else { ?>
+                                                                }else{
                                                                     //$('#frm').submit();
                                                                     existeFragmento();
-<?php } ?>
+                                                                <?php //} ?>
+                                                                    }
                                                             } else {
                                                                 showMessage('error', '<?php echo lang('videos:fragment_exist') ?>', 2000, '');
                                                             }
