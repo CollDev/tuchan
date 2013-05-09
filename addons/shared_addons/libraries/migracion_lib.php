@@ -137,7 +137,7 @@ class Migracion_lib extends MX_Controller {
                         $objBeanVideo->estado = 2;
                         $objBeanVideo->estado_liquid = 6;
 
-                        $objBeanVideo->fecha_registro = date("Y-m-d H:i:s", strtotime($objVideo->postDate));//date("Y-m-d H:i:s");
+                        $objBeanVideo->fecha_registro = date("Y-m-d H:i:s", strtotime($objVideo->postDate)); //date("Y-m-d H:i:s");
                         $objBeanVideo->usuario_registro = $user_id;
                         $objBeanVideo->fecha_actualizacion = date("Y-m-d H:i:s");
                         $objBeanVideo->usuario_actualizacion = $user_id;
@@ -211,8 +211,9 @@ class Migracion_lib extends MX_Controller {
             $arrayTag = (array) $objTags->tag;
             if (count($arrayTag) > 0) {
                 foreach ($arrayTag as $puntero => $tag) {
-                    $aTag = $this->tags_m->like('nombre', $tag, 'none')->get_many_by(array("tipo_tags_id"=>"1"));
+                    $aTag = $this->tags_m->like('nombre', $tag, 'none')->get_many_by(array("tipo_tags_id" => "1"));
                     if (count($aTag) > 0) {
+                        
                     } else {
                         $objBeanTag = new stdClass();
                         $objBeanTag->id = NULL;
@@ -245,7 +246,6 @@ class Migracion_lib extends MX_Controller {
                         $objBeanVideoTag->fecha_migracion_sphinx = date("Y-m-d H:i:s");
                         $objBeanVideoTag->fecha_migracion_actualizacion_sphinx = date("Y-m-d H:i:s");
                         $objBeanVideoTagSaved = $this->video_tags_m->saveVideoTags($objBeanVideoTag);
-                        
                     }
                 }
             }
@@ -419,6 +419,7 @@ class Migracion_lib extends MX_Controller {
         }
         return $returValue;
     }
+
     /**
      * Método para formatear la descripcion del video
      * @author Johnny Huamani <johnny1402@gmail.com>
