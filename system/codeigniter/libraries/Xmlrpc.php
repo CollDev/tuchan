@@ -382,7 +382,7 @@ class XML_RPC_Client extends CI_Xmlrpc
 
 		if ( ! is_resource($fp))
 		{
-			//error_log($this->xmlrpcstr['http_error']);
+			error_log($this->xmlrpcstr['http_error']);
 			$r = new XML_RPC_Response(0, $this->xmlrpcerr['http_error'],$this->xmlrpcstr['http_error']);
 			return $r;
 		}
@@ -404,7 +404,7 @@ class XML_RPC_Client extends CI_Xmlrpc
 
 		if ( ! fputs($fp, $op, strlen($op)))
 		{
-			//error_log($this->xmlrpcstr['http_error']);
+			error_log($this->xmlrpcstr['http_error']);
 			$r = new XML_RPC_Response(0, $this->xmlrpcerr['http_error'], $this->xmlrpcstr['http_error']);
 			return $r;
 		}
@@ -449,7 +449,7 @@ class XML_RPC_Response
 		else if ( ! is_object($val))
 		{
 			// programmer error, not an object
-			//error_log("Invalid type '" . gettype($val) . "' (value: $val) passed to XML_RPC_Response.  Defaulting to empty value.");
+			error_log("Invalid type '" . gettype($val) . "' (value: $val) passed to XML_RPC_Response.  Defaulting to empty value.");
 			$this->val = new XML_RPC_Values();
 		}
 		else
@@ -668,7 +668,7 @@ class XML_RPC_Message extends CI_Xmlrpc
 
 		if ($data === '')
 		{
-			//error_log($this->xmlrpcstr['no_data']);
+			error_log($this->xmlrpcstr['no_data']);
 			$r = new XML_RPC_Response(0, $this->xmlrpcerr['no_data'], $this->xmlrpcstr['no_data']);
 			return $r;
 		}
@@ -732,7 +732,7 @@ class XML_RPC_Message extends CI_Xmlrpc
 			$errstr = sprintf('XML error: %s at line %d',
 					xml_error_string(xml_get_error_code($parser)),
 					xml_get_current_line_number($parser));
-			////error_log($errstr);
+			error_log($errstr);
 			$r = new XML_RPC_Response(0, $this->xmlrpcerr['invalid_return'], $this->xmlrpcstr['invalid_return']);
 			xml_parser_free($parser);
 			return $r;

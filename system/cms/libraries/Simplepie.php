@@ -8443,12 +8443,12 @@ class SimplePie_Misc
 			}
 
 			$log_error = true;
-			if (!function_exists('//error_log'))
+			if (!function_exists('error_log'))
 			{
 				$log_error = false;
 			}
 
-			$log_file = @ini_get('//error_log');
+			$log_file = @ini_get('error_log');
 			if (!empty($log_file) && ('syslog' != $log_file) && !@is_writable($log_file))
 			{
 				$log_error = false;
