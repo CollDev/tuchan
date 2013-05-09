@@ -42,8 +42,8 @@ for (var i=0; i < 2; i++)
     } 
     else {
         //include 'system/cms/config/config.php';
-        //error_log(print_r($config,true));
-        //error_log(print_r($this->config->item('path:video'),true));
+        ////error_log(print_r($config,true));
+        ////error_log(print_r($this->config->item('path:video'),true));
         ////id unico
         $idUniq = uniqid();
         $ext = @end(explode('.', $_FILES['video']['name']));

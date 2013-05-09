@@ -214,7 +214,7 @@ class Liquid {
     function obtenerDatosMedia($datos) {
 
         $url = APIURL . "/medias/" . $datos->codigo . "?key=" . $datos->apikey . "&filter=id;thumbs;files;published";
-        error_log($url);
+        //error_log($url);
         
         Log::erroLog("url obtener datos: " . $url);
         
@@ -419,7 +419,7 @@ class Liquid {
     }
     
     function getDurationLiquid($mediaarr){
-        error_log("entro duration");
+        //error_log("entro duration");
         $duration=0;
                        
         if (count($mediaarr["files"]) > 0) {
@@ -428,7 +428,7 @@ class Liquid {
                 if (isset($value["id"])){ 
                         
                     if(!empty($value["videoInfo"]["duration"])){                        
-                        error_log("duracion 2 ->" . $value["videoInfo"]);
+                        //error_log("duracion 2 ->" . $value["videoInfo"]);
                          $duration = $value["videoInfo"]["duration"];                         
                          break;
                      }                         
@@ -437,7 +437,7 @@ class Liquid {
                     foreach ($value as $value2) {
                         
                     if(!empty($value2["videoInfo"]["duration"])){
-                        error_log("duracion 2->" . $value2["videoInfo"]["duration"]);
+                        //error_log("duracion 2->" . $value2["videoInfo"]["duration"]);
                          $duration = $value2["videoInfo"]["duration"];
                          break 2;
                      } 

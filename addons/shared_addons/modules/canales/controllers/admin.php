@@ -1251,7 +1251,7 @@ class Admin extends Admin_Controller {
                     }
                     $returnValue = $this->_obtenerMaestrosPrograma($tipo_grupo_maestro, $objMaestro->id);
 //                    if($objMaestro != NULL){
-//                        error_log('--->'.print_r($returnValue, true));
+//                        //error_log('--->'.print_r($returnValue, true));
 //                    }                    
                 }
             }
