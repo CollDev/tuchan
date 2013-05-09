@@ -165,7 +165,7 @@ class Migracion_lib extends MX_Controller {
                         $this->guardar_imagenes($objBeanVideoSaved->id, $objVideo->thumbs);
                         //guardamos los tags x video
                         $this->registrar_tags($objBeanVideoSaved->id, $objVideo->tags);
-                        $this->procesos_lib->curlProcesoVideosXId($objBeanVideoSaved->id);
+                        $this->procesos_lib->actualizarVideosXId($objBeanVideoSaved->id);
                         $contador++;
                     }
                 }

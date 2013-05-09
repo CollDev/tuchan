@@ -302,7 +302,7 @@ class Procesos_lib extends MX_Controller {
                 }
 
                 if ( (!empty($value->ruta) || !empty($urlvideo) || !empty($duracion) ) && ($value->imag != 0 || !empty($datos["imagen"]))){
-                    $this->videos_mp->setEstadosVideos($value->id, 2, 6);
+                    $this->videos_mp->setEstadosVideos($value->id, 1, 6);
                 }
             }
         }
@@ -1556,6 +1556,11 @@ class Procesos_lib extends MX_Controller {
             $this->_obtenerImagesUrlVideosXId($value->id);
             $this->_generarVideosXId($value->id);                   
        }               
+    }
+    
+    public function  actualizarVideosXId($id){       
+        $this->_obtenerImagesUrlVideosXId($id);
+        $this->_generarVideosXId($id);                   
     }
     
     
