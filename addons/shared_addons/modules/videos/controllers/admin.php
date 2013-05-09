@@ -4783,6 +4783,31 @@ class Admin extends Admin_Controller {
             }
         }
     }
+    /**
+     * Método para eliminar los videos por cada coleccion desde la URL
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param int $maestro_id
+     */
+    public function eliminar_video_importacion($maestro_id= 474){
+        if($maestro_id > 0){
+            $arrayIdVideo = array();
+            $lista_video = $this->grupo_detalle_m->get_many_by(array("grupo_maestro_padre"=>$maestro_id));
+            if(count($lista_video)>0){
+                foreach($lista_video as $puntero=>$objDetalleMaestro){
+                    array_push($arrayIdVideo, $objDetalleMaestro->video_id);
+                    $this->grupo_detalle_m->delete($objDetalleMaestro->id);
+                }
+                //eliminamos los videos
+                if(count($arrayIdVideo)>0){
+                    foreach ($arrayIdVideo as $index=>$video_id){
+                        $this->videos_m->delete($video_id);
+                    }
+                }
+            }
+            $objMaestro = $this->grupo_maestro_m->get($maestro_id);
+            echo "Los videos del maestro ".$maestro_id." =>".$objMaestro->nombre." se eliminaron";
+        }
+    }
 
 }
 
