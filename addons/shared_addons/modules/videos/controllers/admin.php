@@ -2487,6 +2487,15 @@ class Admin extends Admin_Controller {
 
     public function active_imagen($canal_id, $video_id, $imagen_id) {
         $this->imagen_m->desactivarImagenes($imagen_id, $video_id);
+        //vamos  generar un disparador para actualizar las imagenes con la libreria portada
+//        $lista_actualizar = $this->imagen_m->where_in('tipo_imagen_id', array('1', '2', '3', '4'))->get_many_by(array("videos_id" => $video_id));
+//        if (count($lista_actualizar) > 0) {
+//            foreach ($lista_actualizar as $puntero => $objImagen) {
+//                //actualizamos la imagen en la portada
+//                $this->portadas_lib->actualizar_imagen($objImagen->id);
+//            }
+//        }
+        //fin del algoritmos para disparar
         if ($this->imagen_m->tieneHijos($imagen_id)) {
             $coleccionHijos = $this->imagen_m->getImagen(array("imagen_padre" => $imagen_id));
             foreach ($coleccionHijos as $index => $objImg) {
@@ -3241,6 +3250,15 @@ class Admin extends Admin_Controller {
     public function active_imagen_maestro($maestro_id, $imagen_id) {
         if ($this->input->is_ajax_request()) {
             $this->imagen_m->desactivarImagenesMaestro($maestro_id);
+            //vamos  generar un disparador para actualizar las imagenes con la libreria portada
+//            $lista_actualizar = $this->imagen_m->where_in('tipo_imagen_id', array('1', '2', '3', '4'))->get_many_by(array("grupo_maestros_id" => $maestro_id));
+//            if (count($lista_actualizar) > 0) {
+//                foreach ($lista_actualizar as $puntero => $objImagen) {
+//                    //actualizamos la imagen en la portada
+//                    $this->portadas_lib->actualizar_imagen($objImagen->id);
+//                }
+//            }
+            //fin del algoritmos para disparar            
             if ($this->imagen_m->tieneHijos($imagen_id)) {
                 $coleccionHijos = $this->imagen_m->getImagen(array("imagen_padre" => $imagen_id));
                 foreach ($coleccionHijos as $index => $objImg) {
@@ -3459,7 +3477,7 @@ class Admin extends Admin_Controller {
                         }
                         //disparamos la funcion para registrar en las portadas y secciones
                         $this->portadas_lib->agregar_maestro($objBeanMaestroSaved->id);
-                        
+
                         $returnValue = 0;
                     } else {
                         $returnValue = 2; //no se encontró en los temporales

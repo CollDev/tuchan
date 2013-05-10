@@ -86,7 +86,10 @@ class Imagen_m extends MY_Model {
     }
 
     public function activarImagen($objBeanImagen) {
-        return parent::update($objBeanImagen->id, array('estado' => $objBeanImagen->estado));
+        parent::update($objBeanImagen->id, array('estado' => $objBeanImagen->estado));
+        //actualizamos la imagen en la portada
+        $this->portadas_lib->actualizar_imagen($objBeanImagen->id);
+        return true;
     }
 
     public function tieneHijos($imagen_id) {
