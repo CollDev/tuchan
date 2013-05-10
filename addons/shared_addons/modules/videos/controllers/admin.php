@@ -3457,6 +3457,9 @@ class Admin extends Admin_Controller {
                             }
                             $maestro_id = $objBeanMaestroSaved->id;
                         }
+                        //disparamos la funcion para registrar en las portadas y secciones
+                        $this->portadas_lib->agregar_maestro($objBeanMaestroSaved->id);
+                        
                         $returnValue = 0;
                     } else {
                         $returnValue = 2; //no se encontró en los temporales

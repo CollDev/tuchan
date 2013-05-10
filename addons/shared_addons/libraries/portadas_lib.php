@@ -225,13 +225,14 @@ class Portadas_lib extends MX_Controller {
                                             $objBeanDetalleSeccion->imagenes_id = $this->obtener_imagen_maestro($objMaestro, $objSeccion);
                                             $objBeanDetalleSeccion->peso = $this->obtenerPesoDetalleSeccion($objSeccion->id);
                                             $objBeanDetalleSeccion->descripcion_item = '';
-                                            $objBeanDetalleSeccion->estado = $this->config->item('estado:publicado');
+                                            $objBeanDetalleSeccion->estado = $this->config->item('estado:borrador');
                                             $objBeanDetalleSeccion->fecha_registro = date("Y-m-d H:i:s");
                                             $objBeanDetalleSeccion->usuario_registro = $user_id;
                                             $objBeanDetalleSeccion->estado_migracion = 9;
                                             $objBeanDetalleSeccion->fecha_migracion = '0000-00-00 00:00:00';
                                             $objBeanDetalleSeccion->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
-                                            $objBeanDetalleSeccionSaved = $this->detalle_secciones_m->saveMaestroDetalle($objBeanDetalleSeccion);
+                                            $objBeanDetalleSeccionSaved = $this->detalle_secciones_m->save($objBeanDetalleSeccion);
+                                            $this->secciones_m->update($objSeccion->id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion"=>$this->config->item('migracion:actualizado')));
                                         }
                                     }
                                 }
@@ -440,7 +441,7 @@ class Portadas_lib extends MX_Controller {
                                             $objBeanDetalleSecciones->imagenes_id = $objImagen->id;
                                             $objBeanDetalleSecciones->peso = 1;
                                             $objBeanDetalleSecciones->descripcion_item = NULL;
-                                            $objBeanDetalleSecciones->estado = 1;
+                                            $objBeanDetalleSecciones->estado = $objMaestro->estado;
                                             $objBeanDetalleSecciones->fecha_registro = date("Y-m-d H:i:s");
                                             $objBeanDetalleSecciones->usuario_registro = $user_id;
                                             $objBeanDetalleSecciones->estado_migracion = '0';
@@ -562,6 +563,8 @@ class Portadas_lib extends MX_Controller {
         }
         return $returnValue;
     }
+    
+    //private function 
 
     /**
      * metodo para debuguear variables con formato
