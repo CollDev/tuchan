@@ -1261,7 +1261,7 @@ class Admin extends Admin_Controller {
                 //disparamos la funcion para registrar en las portadas y secciones
                 $this->portadas_lib->agregar_maestro($objBeanMaestroSaved->id);
                 //procesos de Christian
-                $this->procesos_lib->generarGrupoMaestroXId($objBeanMaestroSaved->tipo_grupo_maestro_id, $objBeanMaestroSaved->id);
+                //$this->procesos_lib->generarGrupoMaestroXId($objBeanMaestroSaved->tipo_grupo_maestro_id, $objBeanMaestroSaved->id);
 
                 $returnValue = array();
                 $returnValue[$objBeanMaestroSaved->id] = $objBeanMaestroSaved->nombre;
