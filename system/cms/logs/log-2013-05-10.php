@@ -1149,3 +1149,1376 @@ ERROR - 2013-05-10 03:29:51 --> Severity: Notice  --> Undefined index: files /ho
 ERROR - 2013-05-10 03:29:51 --> Severity: Notice  --> Undefined index: thumbs /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
 ERROR - 2013-05-10 03:29:51 --> Severity: Notice  --> Undefined index: files /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
 ERROR - 2013-05-10 03:29:51 --> Severity: Notice  --> Undefined index: thumbs /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 269
+ERROR - 2013-05-10 12:41:28 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:20 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:21 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:21 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:22 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:22 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:23 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:23 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:24 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:24 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:25 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:25 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:27 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:27 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:27 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:28 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:28 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:29 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:30 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:30 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:30 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:31 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:31 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:32 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:33 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:33 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:33 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:34 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:34 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:35 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:35 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:36 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:36 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:37 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:37 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:38 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:39 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:39 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:39 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:40 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:40 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:41 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:41 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:42 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:42 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:43 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:43 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:44 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:44 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:45 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:45 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:46 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:46 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:47 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:47 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:48 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:48 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:49 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:49 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:51 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:51 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:52 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:52 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:53 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:53 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:53 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:54 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:54 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:55 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:55 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:56 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:57 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:57 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:58 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:58 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:59 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:44:59 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:00 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:00 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:01 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:01 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:03 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:03 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:04 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:04 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:05 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:05 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:05 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:06 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:06 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:07 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:07 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:08 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:08 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:09 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:09 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:10 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:10 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:11 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:11 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:12 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:12 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:13 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:13 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:15 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:16 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:17 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:17 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:18 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:18 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:19 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:19 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:20 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:20 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:21 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:21 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:22 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:22 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:23 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:23 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:24 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:24 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:25 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:25 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:25 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:26 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:28 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:28 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:29 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:29 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:30 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:30 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:31 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:31 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:32 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:32 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:32 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:33 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:33 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:34 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:34 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:35 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:35 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:36 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:36 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:37 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:37 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:38 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:38 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:39 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:40 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:41 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:41 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:42 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:42 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:43 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:43 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:44 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:44 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:45 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:45 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:46 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:46 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:47 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:47 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:48 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:48 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:49 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:49 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:50 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:50 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:51 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:51 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:53 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:53 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:54 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:54 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:55 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:55 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:56 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:56 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:57 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:57 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:58 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:58 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:59 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:45:59 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:00 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:00 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:01 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:01 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:02 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:02 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:03 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:05 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:05 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:06 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:06 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:07 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:07 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:08 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:08 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:09 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:09 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:10 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:10 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:11 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:11 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:12 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:13 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:13 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:14 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:15 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:16 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:17 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:18 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:18 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:19 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:20 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:21 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:21 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:22 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:23 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:23 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:24 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:24 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:25 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:25 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:26 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:27 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:27 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:28 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:28 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:29 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:30 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:30 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:31 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:31 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:32 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:32 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:33 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:33 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:34 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:34 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:35 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:35 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:36 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:36 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:37 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:37 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:38 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:38 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:39 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:40 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:40 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:41 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:42 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:42 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:42 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:43 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:43 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:44 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:44 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:45 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:45 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:46 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:46 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:47 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:47 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:48 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:48 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:49 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:49 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:49 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:50 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:50 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:51 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:51 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:53 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:54 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:55 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:55 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:56 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:57 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:57 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:58 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:58 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:59 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:46:59 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:00 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:00 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:01 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:01 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:02 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:02 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:03 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:03 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:04 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:04 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:05 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:06 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:06 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:07 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:07 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:08 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:08 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:09 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:10 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:10 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:11 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:11 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:12 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:12 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:13 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:13 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:14 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:15 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:15 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:16 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:16 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:17 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:17 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:18 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:18 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:19 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:19 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:20 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:20 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:21 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:21 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:22 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:22 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:23 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:23 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:24 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:24 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:25 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:25 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:26 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:26 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:27 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:27 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:28 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:29 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:29 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:30 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:30 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:31 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:31 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:32 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:32 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:33 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:33 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:34 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:34 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:35 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:35 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:36 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:36 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:37 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:37 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:38 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:39 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:39 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:40 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:40 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:41 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:42 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:43 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:43 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:44 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:44 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:45 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:45 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:46 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:46 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:46 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:47 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:48 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:48 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:48 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:49 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:51 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:52 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:53 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:53 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:54 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:55 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:56 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:56 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:56 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:57 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:57 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:58 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:58 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:59 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:47:59 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:00 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:00 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:01 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:01 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:02 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:02 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:03 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:03 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:04 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:04 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:05 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:06 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:07 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:07 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:08 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:08 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:09 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:09 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:10 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:10 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:11 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:11 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:12 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:12 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:13 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:13 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:14 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:14 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:15 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:15 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:16 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:16 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:17 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:19 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:19 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:20 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:21 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:22 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:22 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:23 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:23 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:24 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:24 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:25 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:25 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:25 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:26 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:26 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:27 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:27 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:28 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:28 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:29 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:29 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:30 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:31 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:32 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:32 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:33 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:33 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:34 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:35 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:35 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:35 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:36 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:36 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:37 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:38 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:38 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:39 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:39 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:40 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:41 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:41 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:41 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:42 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:43 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:44 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:44 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:45 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:45 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:46 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:46 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:47 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:47 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:48 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:48 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:49 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:49 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:50 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:50 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:51 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:51 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:52 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:52 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:53 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:53 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:54 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:54 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:55 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:55 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:56 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:57 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:57 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:57 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:58 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:58 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:59 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:48:59 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:00 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:00 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:01 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:01 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:02 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:02 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:03 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:04 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:04 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:05 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:05 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:05 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:06 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:06 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:07 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:08 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:08 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:09 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:09 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:10 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:10 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:11 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:11 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:12 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:12 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:13 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:13 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:14 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:14 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:14 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:15 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:16 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:16 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:17 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:17 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:18 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:18 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:19 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:19 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:20 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:21 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:21 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:22 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:22 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:23 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:23 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:24 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:24 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:24 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:25 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:25 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:26 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:26 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:27 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:27 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:28 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:28 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:29 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:30 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:31 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:31 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:32 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:32 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:33 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:33 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:33 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:34 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:34 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:35 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:35 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:36 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:36 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:37 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:37 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:38 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:38 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:39 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:39 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:40 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:40 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:41 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:41 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:42 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:42 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:43 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:43 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:44 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:45 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:45 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:46 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:46 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:47 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:47 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:48 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:48 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:50 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:50 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:51 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:51 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:52 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:52 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:53 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:53 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:54 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:54 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:55 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:55 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:56 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:56 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:57 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:57 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:58 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:58 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:59 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:49:59 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:00 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:00 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:01 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:01 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:02 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:02 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:03 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:03 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:05 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:05 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:06 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:06 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:07 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:07 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:08 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:08 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:09 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:09 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:10 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:10 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:11 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:11 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:12 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:12 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:13 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:13 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:14 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:14 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:15 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:15 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:16 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:16 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:17 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:18 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:18 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:19 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:20 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:21 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:21 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:22 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:22 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:23 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:23 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:23 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:24 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:24 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:25 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:25 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:26 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:26 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:27 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:27 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:29 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:30 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:30 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:31 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:31 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:32 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:32 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:33 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:33 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:34 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:34 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:34 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:35 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:35 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:36 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:36 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:37 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:37 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:38 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:38 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:39 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:39 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:40 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:40 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:41 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:42 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:42 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:43 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:43 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:44 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:44 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:45 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:45 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:46 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:46 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:47 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:47 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:48 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:48 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:49 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:49 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:50 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:50 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:51 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:51 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:52 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:52 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:54 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:54 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:55 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:55 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:56 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:56 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:57 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:58 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:58 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:59 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:50:59 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:00 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:00 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:01 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:01 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:01 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:02 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:02 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:03 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:03 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:04 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:04 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:05 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:05 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:06 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:08 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:08 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:09 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:09 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:10 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:11 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:11 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:12 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:12 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:13 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:13 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:14 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:14 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:14 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:15 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:15 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:16 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:16 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:17 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:18 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:18 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:19 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:19 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:21 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:21 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:21 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:22 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:23 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:23 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:23 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:24 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:24 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:25 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:25 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:26 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:26 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:27 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:27 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:28 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:28 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:29 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:29 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:30 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:30 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:31 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:31 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:33 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:33 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:34 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:34 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:35 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:35 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:36 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:36 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:37 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:37 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:38 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:38 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:39 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:40 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:40 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:41 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:41 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:42 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:42 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:43 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:43 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:43 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:45 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:46 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:46 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:47 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:47 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:47 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:48 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:48 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:49 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:49 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:50 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:50 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:51 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:51 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:52 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:52 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:53 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:53 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:54 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:54 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:55 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:55 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:56 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:56 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:58 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:59 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:51:59 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:00 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:00 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:01 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:01 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:01 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:02 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:02 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:03 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:03 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:04 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:04 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:05 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:05 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:06 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:06 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:07 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:07 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:08 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:08 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:09 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:10 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:11 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:11 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:12 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:12 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:13 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:14 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:15 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:15 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:16 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:16 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:17 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:17 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:18 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:18 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:18 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:19 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:19 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:20 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:21 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:22 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:23 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:23 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:24 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:24 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:25 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:25 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:26 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:27 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:27 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:28 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:28 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:29 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:29 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:30 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:30 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:31 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:31 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:32 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:32 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:33 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:34 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:35 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 12:52:35 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 12:52:35 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 12:52:35 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 12:52:35 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 12:52:35 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 12:52:35 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 12:52:35 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 12:52:35 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 12:52:35 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 12:52:35 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:35 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 12:52:35 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 12:52:35 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 12:52:35 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 12:52:35 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 12:52:35 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 12:52:35 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 12:52:35 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 12:52:35 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 12:52:35 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 12:52:35 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:36 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 12:52:36 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 12:52:36 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 12:52:36 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 12:52:36 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 12:52:36 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 12:52:36 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 12:52:36 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 12:52:36 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 12:52:36 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 12:52:36 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:36 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 12:52:36 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 12:52:36 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 12:52:36 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 12:52:36 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 12:52:36 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 12:52:36 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 12:52:36 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 12:52:36 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 12:52:36 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 12:52:36 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:37 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 12:52:37 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 12:52:37 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 12:52:37 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 12:52:37 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 12:52:37 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 12:52:37 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 12:52:37 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 12:52:37 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 12:52:37 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 12:52:37 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:37 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 12:52:37 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 12:52:37 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 12:52:37 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 12:52:37 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 12:52:37 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 12:52:37 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 12:52:37 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 12:52:37 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 12:52:37 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 12:52:37 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:38 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 12:52:38 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 12:52:38 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 12:52:38 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 12:52:38 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 12:52:38 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 12:52:38 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 12:52:38 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 12:52:38 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 12:52:38 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 12:52:38 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:38 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 12:52:38 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 12:52:38 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 12:52:38 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 12:52:38 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 12:52:38 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 12:52:38 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 12:52:38 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 12:52:38 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 12:52:38 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 12:52:38 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:39 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 12:52:39 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 12:52:39 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 12:52:39 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 12:52:39 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 12:52:39 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 12:52:39 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 12:52:39 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 12:52:39 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 12:52:39 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 12:52:39 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:39 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 12:52:39 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 12:52:39 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 12:52:39 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 12:52:39 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 12:52:39 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 12:52:39 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 12:52:39 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 12:52:39 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 12:52:39 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 12:52:39 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:40 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 12:52:40 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 12:52:40 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 12:52:40 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 12:52:40 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 12:52:40 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 12:52:40 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 12:52:40 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 12:52:40 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 12:52:40 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 12:52:40 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:40 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 12:52:40 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 12:52:40 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 12:52:40 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 12:52:40 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 12:52:40 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 12:52:40 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 12:52:40 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 12:52:40 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 12:52:40 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 12:52:40 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:41 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 12:52:41 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 12:52:41 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 12:52:41 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 12:52:41 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 12:52:41 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 12:52:41 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 12:52:41 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 12:52:41 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 12:52:41 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 12:52:41 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:41 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 12:52:41 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 12:52:41 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 12:52:41 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 12:52:41 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 12:52:41 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 12:52:41 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 12:52:41 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 12:52:41 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 12:52:41 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 12:52:41 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:42 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:42 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:43 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:43 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:44 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:44 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:45 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:45 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:46 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:47 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:47 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:48 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:48 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:49 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:49 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:50 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:50 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:51 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:51 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:52 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:52 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:53 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:53 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:54 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:52:54 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:53:01 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:53:01 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:53:02 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:53:03 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:53:03 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:53:04 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:53:14 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:53:15 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:53:15 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:53:16 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:53:16 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 12:53:17 --> Severity: Notice  --> Undefined variable: mongo_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 1479
+ERROR - 2013-05-10 13:13:38 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 13:13:38 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 13:13:38 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:13:38 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:13:38 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:13:38 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 13:13:38 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 13:13:38 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:13:38 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:13:38 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:13:38 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 13:13:38 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 13:13:38 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:13:38 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:13:38 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:13:38 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 13:13:38 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 13:13:38 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:13:38 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:13:38 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:13:38 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 13:13:38 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 13:13:38 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:13:38 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:13:38 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:13:38 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 13:13:38 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 13:13:38 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:13:38 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:13:38 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:13:39 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 13:13:39 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 13:13:39 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:13:39 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:13:39 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:13:39 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 13:13:39 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 13:13:39 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:13:39 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:13:39 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:13:39 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 13:13:39 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 13:13:39 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:13:39 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:13:39 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:13:39 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 13:13:39 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 13:13:39 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:13:39 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:13:39 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:13:40 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 13:13:40 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 13:13:40 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:13:40 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:13:40 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:13:40 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 13:13:40 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 13:13:40 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:13:40 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:13:40 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:13:40 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 13:13:40 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 13:13:40 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:13:40 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:13:40 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:13:40 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 13:13:40 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 13:13:40 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:13:40 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:13:40 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:13:40 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 13:13:40 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 13:13:40 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:13:40 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:13:40 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:13:40 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 13:13:40 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 13:13:40 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:13:40 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:13:40 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:13:41 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 13:13:41 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 13:13:41 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:13:41 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:13:41 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:13:41 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 13:13:41 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 13:13:41 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:13:41 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:13:41 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:13:41 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 13:13:41 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 13:13:41 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:13:41 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:13:41 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:13:41 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 13:13:41 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 13:13:41 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:13:41 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:13:41 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:13:41 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 13:13:41 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 13:13:41 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:13:41 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:13:41 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:13:41 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 13:13:41 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 13:13:41 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:13:41 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:13:41 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:13:42 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 13:13:42 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 13:13:42 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:13:42 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:13:42 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:13:42 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 13:13:42 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 13:13:42 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:13:42 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:13:42 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:13:42 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 13:13:42 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 13:13:42 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:13:42 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:13:42 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:13:42 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 13:13:42 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 13:13:42 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:13:42 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:13:42 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:13:43 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 13:13:43 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 13:13:43 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:13:43 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:13:43 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:13:43 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 13:13:43 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 13:13:43 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:13:43 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:13:43 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:34:00 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 13:34:00 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 13:34:00 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:34:00 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:34:00 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:34:00 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 13:34:00 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 13:34:00 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:34:00 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:34:00 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:34:01 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 13:34:01 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 13:34:01 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:34:01 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:34:01 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:34:01 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 13:34:01 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 13:34:01 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:34:01 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:34:01 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:34:01 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 13:34:01 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 13:34:01 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:34:01 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:34:01 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:34:01 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 13:34:01 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 13:34:01 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:34:01 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:34:01 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:34:02 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 13:34:02 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 13:34:02 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:34:02 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:34:02 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:34:02 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 13:34:02 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 13:34:02 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:34:02 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:34:02 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:34:02 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 13:34:02 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 13:34:02 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:34:02 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:34:02 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:34:02 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 13:34:02 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 13:34:02 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:34:02 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:34:02 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:34:03 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 13:34:03 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 13:34:03 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:34:03 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:34:03 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:34:03 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 13:34:03 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 13:34:03 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:34:03 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:34:03 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:34:03 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 13:34:03 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 13:34:03 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:34:03 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:34:03 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:34:03 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 13:34:03 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 13:34:03 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:34:03 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:34:03 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:34:04 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 13:34:04 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 13:34:04 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:34:04 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:34:04 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:34:04 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 13:34:04 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 13:34:04 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:34:04 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:34:04 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:34:04 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 13:34:04 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 13:34:04 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:34:04 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:34:04 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:34:04 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 13:34:04 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 13:34:04 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:34:04 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:34:04 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:34:04 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 13:34:04 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 13:34:04 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:34:04 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:34:04 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:34:04 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 13:34:04 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 13:34:04 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:34:04 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:34:04 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:34:05 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 13:34:05 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 13:34:05 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:34:05 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:34:05 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:34:05 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 13:34:05 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 13:34:05 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:34:05 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:34:05 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:34:05 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 13:34:05 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 13:34:05 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:34:05 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:34:05 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:34:05 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 13:34:05 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 13:34:05 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:34:05 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:34:05 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:34:06 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 13:34:06 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 13:34:06 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:34:06 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:34:06 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:34:06 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 13:34:06 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 13:34:06 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:34:06 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:34:06 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:34:07 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 13:34:07 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 357
+ERROR - 2013-05-10 13:34:07 --> Severity: Warning  --> Illegal string offset 'thumbs' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:34:07 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:34:07 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 358
+ERROR - 2013-05-10 13:34:07 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 13:34:07 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 374
+ERROR - 2013-05-10 13:34:07 --> Severity: Warning  --> Illegal string offset 'files' /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:34:07 --> Severity: Notice  --> Uninitialized string offset: 0 /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375
+ERROR - 2013-05-10 13:34:07 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 375

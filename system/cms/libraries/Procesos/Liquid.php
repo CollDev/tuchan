@@ -262,11 +262,11 @@ class Liquid {
         
     }
 
-    function getimagenesLiquid($mediaarr) {
+    function getimagenesLiquid($mediaarr = array()) {
         $arrimg = array(1 => 146, 2 => 197, 3 => 304);
         $result = array();
 
-        if (count($mediaarr["thumbs"]) > 0) {
+        if (!empty($mediaarr["thumbs"])) {
             foreach ($mediaarr["thumbs"] as $value) {
                 if (isset($value["url"])) {
                     $retorno = array_search($value["height"], $arrimg);
@@ -298,8 +298,8 @@ class Liquid {
         }
     }
 
-    function getUrlVideoLiquidRawLite($mediaarr) {
-        if (count($mediaarr["thumbs"]) > 0) {
+    function getUrlVideoLiquidRawLite($mediaarr = array()) {
+        if (!empty($mediaarr["thumbs"])) {
             foreach ($mediaarr["thumbs"] as $value) {
 
                 if (isset($value["url"])) {
@@ -316,7 +316,7 @@ class Liquid {
             }
         }
 
-        if (count($mediaarr["files"]) > 0) {
+        if (!empty($mediaarr["files"])) {
             foreach ($mediaarr["files"] as $value) {
 
                 // print_r($value);
@@ -353,8 +353,8 @@ class Liquid {
         }
     }
 
-    function getUrlVideoLiquidRaw($mediaarr) {
-            if (count($mediaarr["thumbs"]) > 0) {
+    function getUrlVideoLiquidRaw($mediaarr = array()) {
+            if (!empty($mediaarr["thumbs"])) {
             foreach ($mediaarr["thumbs"] as $value) {
 
                 if (isset($value["url"])) {
@@ -371,7 +371,7 @@ class Liquid {
             }
         }
 
-        if (count($mediaarr["files"]) > 0) {
+        if (!empty($mediaarr["files"])) {
             foreach ($mediaarr["files"] as $value) {
 
                 // print_r($value);
@@ -418,11 +418,11 @@ class Liquid {
         return $this->getUrlVideoLiquidRawLite($mediarr);
     }
     
-    function getDurationLiquid($mediaarr){
+    function getDurationLiquid($mediaarr = array()){
         //error_log("entro duration");
         $duration=0;
                        
-        if (count($mediaarr["files"]) > 0) {
+        if (!empty($mediaarr["files"])) {
             foreach ($mediaarr["files"] as $value) {
 
                 if (isset($value["id"])){ 

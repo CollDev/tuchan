@@ -302,7 +302,7 @@ class Procesos_lib extends MX_Controller {
                 }
 
                 if ( (!empty($value->ruta) || !empty($urlvideo) || !empty($duracion) ) && ($value->imag != 0 || !empty($datos["imagen"]))){
-                    $this->videos_mp->setEstadosVideos($value->id, 1, 6);
+                    $this->videos_mp->setEstadosVideos($value->id, 2, 6);
                 }
             }
         }
@@ -1415,7 +1415,7 @@ class Procesos_lib extends MX_Controller {
 
         foreach ($video as $value) {
                 
-            if ($value->estado == 1) {
+            if ($value->estado == 1 || $value->estado ==2 ) {
                 $datovideo = $this->canal_mp->queryProcedure(4, $value->id);
                 $objmongo['id'] = $value->id;
                 $objmongo['canal'] = ($datovideo[0]->xcanal);
@@ -1447,7 +1447,7 @@ class Procesos_lib extends MX_Controller {
                 $objmongo['apikey'] = $datovideo[0]->xapikey;
 
                 $objmongo['valoracion'] = $datovideo[0]->xvi_val;
-                $objmongo['estado'] = "1";
+                $objmongo['estado'] = $value->estado;
                 
                 if(!empty($datovideo[0]->xprogramaalias)){    
                     if ($datovideo[0]->xfechatransmision == $datovideo[0]->xlistareproduccion) {
@@ -1468,7 +1468,7 @@ class Procesos_lib extends MX_Controller {
                     $mongo_id = $this->canal_mp->setItemCollection($objmongo);
                     $this->canal_mp->updateIdMongoVideos($value->id, $mongo_id);
                     $this->canal_mp->updateEstadoMigracionVideos($value->id);
-                } elseif ($value->estado_migracion == 9) {
+                } else { //if ($value->estado_migracion == 9)
                     $mongo_id = $value->id_mongo;
                     $MongoId = array("_id" => new MongoId($value->id_mongo));
                     $this->canal_mp->setItemCollectionUpdate($objmongo, $MongoId);
@@ -1520,8 +1520,8 @@ class Procesos_lib extends MX_Controller {
             $tags = $this->video_tags_mp->getTagsVideosXId($id);
            //  print_r($tags);
 
-            $clienteSOAP = new SoapClient($this->config->item('motor') ."/". EC_CLIENTE_SOAP);
-            //$clienteSOAP = new SoapClient('http://192.168.1.35/sphinx/busqueda.wsdl');
+            //$clienteSOAP = new SoapClient($this->config->item('motor') ."/". EC_CLIENTE_SOAP);
+            $clienteSOAP = new SoapClient('http://192.168.1.35/sphinx/busqueda.wsdl');
             
 
             $parametros = array();
