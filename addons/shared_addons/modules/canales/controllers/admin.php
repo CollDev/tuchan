@@ -49,6 +49,7 @@ class Admin extends Admin_Controller {
         $this->load->model('secciones_m');
         $this->load->model('portada_secciones_m');
         $this->load->model('detalle_secciones_m');
+        $this->load->model('papelera_m');
         $this->load->library('imagenes_lib');
         $this->load->library('procesos_lib');
         $this->load->library('portadas_lib');
@@ -4678,7 +4679,7 @@ class Admin extends Admin_Controller {
             $objUsuarioCanal = $this->usuario_grupo_canales_m->get_by(array("user_id" => $this->current_user->id, "estado" => $this->config->item('estado:publicado')));
             $canal_id = $objUsuarioCanal->canal_id;
         }
-        $base_where = array("canales_id" => $canal_id, "estado" => $this->config->item('estado:eliminado'));
+        $base_where = array("canales_id" => $canal_id, "estado" => $this->config->item('video:eliminado'));
 
         //$programme_id = 0;
         $keyword = '';
@@ -4686,26 +4687,30 @@ class Admin extends Admin_Controller {
             $keyword = $this->input->post('f_keywords');
 
         if ($this->input->post('f_programa'))
-            $base_where['nombre'] = $this->input->post('f_programa');
+            $base_where['titulo'] = $this->input->post('f_programa');
 
         // Create pagination links
         if (strlen(trim($keyword)) > 0) {
-            $total_rows = $this->grupo_maestro_m->like('nombre', $keyword)->count_by($base_where);
+            $total_rows = $this->papelera_m->like('titulo', $keyword)->count_by($base_where);
         } else {
-            $total_rows = $this->grupo_maestro_m->count_by($base_where);
+            $total_rows = $this->papelera_m->count_by($base_where);
         }
         $pagination = create_pagination('admin/canales/papelera/' . $canal_id . '/index/', $total_rows, 10, 6);
         if (strlen(trim($keyword)) > 0) {
             // Using this data, get the relevant results
-            $objColeccionMaestro = $this->grupo_maestro_m->like('nombre', $keyword)->order_by('fecha_registro', 'DESC')->limit($pagination['limit'])->get_many_by($base_where);
+            $objColeccionMaestro = $this->papelera_m->like('titulo', $keyword)->order_by('fecha_registro', 'DESC')->limit($pagination['limit'])->get_many_by($base_where);
         } else {
-            $objColeccionMaestro = $this->grupo_maestro_m->order_by('fecha_registro', 'DESC')->limit($pagination['limit'])->get_many_by($base_where);
+            $objColeccionMaestro = $this->papelera_m->order_by('fecha_registro', 'DESC')->limit($pagination['limit'])->get_many_by($base_where);
         }
 
         //obtenemos la imagen
         if (count($objColeccionMaestro) > 0) {
             foreach ($objColeccionMaestro as $puntero => $objMaestro) {
-                $objImagen = $this->imagen_m->get_by(array("estado" => $this->config->item('estado:publicado'), "grupo_maestros_id" => $objMaestro->id, "tipo_imagen_id" => $this->config->item('imagen:small')));
+                if($objMaestro->maestros == 'maestro'){
+                    $objImagen = $this->imagen_m->get_by(array("estado" => $this->config->item('estado:publicado'), "grupo_maestros_id" => $objMaestro->id, "tipo_imagen_id" => $this->config->item('imagen:small')));
+                }else{
+                    $objImagen = $this->imagen_m->get_by(array("estado" => $this->config->item('estado:publicado'), "videos_id" => $objMaestro->id, "tipo_imagen_id" => $this->config->item('imagen:small')));
+                }
                 if (count($objImagen) > 0) {
                     if ($objImagen->procedencia == '1') {
                         $objMaestro->imagen = $objImagen->imagen;
@@ -4741,10 +4746,12 @@ class Admin extends Admin_Controller {
      * @param int $id
      * @param string $tipo
      */
-    public function resturar($id, $tipo) {
+    public function restaurar($id, $tipo) {
         if ($this->input->is_ajax_request()) {
             if ($tipo == 'maestro') {
                 $this->grupo_maestro_m->update($id, array("estado" => $this->config->item('estado:borrador')));
+            }else{
+                $this->videos_m->update($id, array("estado"=>$this->config->item('video:borrador')));
             }
             echo json_encode(array("value" => "1"));
         }

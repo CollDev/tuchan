@@ -40,10 +40,10 @@
         }); //end AJAX              
     }
 
-    function restaurar_maestro(id) {
+    function restaurar_maestro(id, tipo) {
         jConfirm("Seguro que deseas restaurar este Item?", "Papelera", function(r) {
             if (r) {
-                var post_url = "/admin/canales/resturar/" + id+"/maestro";
+                var post_url = "/admin/canales/restaurar/" + id+"/"+tipo;
                 $.ajax({
                     type: "POST",
                     url: post_url,
@@ -52,7 +52,7 @@
                     success: function(respuesta)
                     {
                         if(respuesta.value == 1){
-                            $("#item_"+id).empty();
+                            $("#"+tipo+"_"+id).empty();
                         }
                     } //end success
                 }); //end AJAX   
