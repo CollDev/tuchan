@@ -533,7 +533,8 @@
                                                                         {
                                                                             //console.log(returnValue.value);
                                                                             if (returnValue.value == '0') {
-                                                                                showMessage('exit', '<?php echo lang('videos:edit_video_success') ?>', 1000, '');
+                                                                                 var url = "admin/canales/videos/" + values['canal_id'];
+                                                                                showMessage('exit', '<?php echo lang('videos:edit_video_success') ?>', 1000, url);
                                                                             } else {
                                                                                 showMessage('error', '<?php echo lang('videos:fragment_exist') ?>', 2000, '');
                                                                             }
