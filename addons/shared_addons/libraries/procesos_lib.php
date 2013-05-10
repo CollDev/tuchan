@@ -1407,7 +1407,7 @@ class Procesos_lib extends MX_Controller {
 //        
 //    }
 
-    private function    _generarVideosXId($id) {
+    private function  _generarVideosXId($id) {
 
         $video = $this->videos_mp->getVideosxId($id);
         //$video = $this->videos_mp->getVideosxIdConKey($id);
@@ -1463,7 +1463,8 @@ class Procesos_lib extends MX_Controller {
                 //$objmongo['padre'] = $arrlistarepro['idmongo'];
                 $objmongo['nivel'] = "4";
 
-                if ($value->estado_migracion == 0) {
+                if (!($this->canal_mp->existe_id($value->id_mongo))) {
+                    echo "entro ";
                     $mongo_id = $this->canal_mp->setItemCollection($objmongo);
                     $this->canal_mp->updateIdMongoVideos($value->id, $mongo_id);
                     $this->canal_mp->updateEstadoMigracionVideos($value->id);
