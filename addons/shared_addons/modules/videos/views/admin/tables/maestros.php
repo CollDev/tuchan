@@ -360,6 +360,8 @@
                                 e.stopPropagation();
                                 //Your Code here(For example a call to your function)
                             });
+                        }else{
+                            showMessage('error', 'No es posible publicar. No tiene videos publicados', 2000, '');
                         }
                     } //end success
                 }); //end AJAX   

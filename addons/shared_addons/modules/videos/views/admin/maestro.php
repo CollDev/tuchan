@@ -40,4 +40,38 @@
             } //end success
         }); //end AJAX         
     });
+    function showMessage(type, message, duration, pathurl) {
+        if (type == 'error') {
+            jError(
+                    message,
+                    {
+                        autoHide: true, // added in v2.0
+                        TimeShown: duration,
+                        HorizontalPosition: 'center',
+                        VerticalPosition: 'top',
+                        onCompleted: function() { // added in v2.0
+                            //alert('jNofity is completed !');
+                        }
+                    }
+            );
+        } else {
+            if (type == 'exit') {
+                jSuccess(
+                        message,
+                        {
+                            autoHide: true, // added in v2.0
+                            TimeShown: duration,
+                            HorizontalPosition: 'center',
+                            VerticalPosition: 'top',
+                            onCompleted: function() { // added in v2.0
+                                if (pathurl.length > 0) {
+                                    $(location).attr('href', '<?php echo BASE_URL; ?>' + pathurl);
+                                    //window.location('<?php echo BASE_URL; ?>'+pathurl);
+                                }
+                            }
+                        }
+                );
+            }
+        }
+    }
 </script>
