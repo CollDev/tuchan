@@ -594,6 +594,45 @@ class Portadas_lib extends MX_Controller {
     }
 
     /**
+     * Método para actualizar las imagenes en las secciones
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param int $imagen_id
+     */
+    public function actualizar_imagen($imagen_id) {
+        if ($imagen_id > 0) {
+            $objImagen = $this->imagen_m->get($imagen_id);
+            if (count($objImagen) > 0) {
+                if ($objImagen->grupo_maestros_id > 0) {
+                    $detalle_secciones = $this->detalle_secciones_m->get_many_by(array("grupo_maestros_id" => $objImagen->grupo_maestros_id));
+                    if (count($detalle_secciones) > 0) {
+                        foreach ($detalle_secciones as $puntero => $objDetalleSeccion) {
+                            $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagen" => $objImagen->id));
+                        }
+                    }
+                } else {
+                    if ($objImagen->videos_id > 0) {
+                        $detalle_secciones = $this->detalle_secciones_m->get_many_by(array("videos_id" => $objImagen->videos_id));
+                        if (count($detalle_secciones) > 0) {
+                            foreach ($detalle_secciones as $puntero => $objDetalleSeccion) {
+                                $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagen" => $objImagen->id));
+                            }
+                        }
+                    } else {
+                        if ($objImagen->canales_id > 0) {
+                            $detalle_secciones = $this->detalle_secciones_m->get_many_by(array("canaless_id" => $objImagen->videos_id));
+                            if (count($detalle_secciones) > 0) {
+                                foreach ($detalle_secciones as $puntero => $objDetalleSeccion) {
+                                    $this->detalle_secciones_m->update($objDetalleSeccion->id, array("canaless_id" => $objImagen->id));
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /**
      * metodo para debuguear variables con formato
      * @author Johnny Huamani <johnny1402@gmail.com>
      * @param undefined $var
