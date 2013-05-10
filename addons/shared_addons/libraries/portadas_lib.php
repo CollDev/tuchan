@@ -619,7 +619,7 @@ class Portadas_lib extends MX_Controller {
                         }
                     } else {
                         if ($objImagen->canales_id > 0) {
-                            $detalle_secciones = $this->detalle_secciones_m->get_many_by(array("canales_id" => $objImagen->videos_id));
+                            $detalle_secciones = $this->detalle_secciones_m->get_many_by(array("canales_id" => $objImagen->canales_id));
                             if (count($detalle_secciones) > 0) {
                                 foreach ($detalle_secciones as $puntero => $objDetalleSeccion) {
                                     $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id));
