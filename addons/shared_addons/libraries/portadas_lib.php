@@ -225,14 +225,14 @@ class Portadas_lib extends MX_Controller {
                                             $objBeanDetalleSeccion->imagenes_id = $this->obtener_imagen_maestro($objMaestro, $objSeccion);
                                             $objBeanDetalleSeccion->peso = $this->obtenerPesoDetalleSeccion($objSeccion->id);
                                             $objBeanDetalleSeccion->descripcion_item = '';
-                                            $objBeanDetalleSeccion->estado = $this->config->item('estado:borrador');
+                                            $objBeanDetalleSeccion->estado = $objMaestro->estado;
                                             $objBeanDetalleSeccion->fecha_registro = date("Y-m-d H:i:s");
                                             $objBeanDetalleSeccion->usuario_registro = $user_id;
                                             $objBeanDetalleSeccion->estado_migracion = 9;
                                             $objBeanDetalleSeccion->fecha_migracion = '0000-00-00 00:00:00';
                                             $objBeanDetalleSeccion->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
                                             $objBeanDetalleSeccionSaved = $this->detalle_secciones_m->save($objBeanDetalleSeccion);
-                                            $this->secciones_m->update($objSeccion->id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion"=>$this->config->item('migracion:actualizado')));
+                                            $this->secciones_m->update($objSeccion->id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
                                         }
                                     }
                                 }
@@ -243,6 +243,8 @@ class Portadas_lib extends MX_Controller {
                 }
                 //}
             }
+            //parseamos todas las portadas y actualizamo estados
+            $this->parsear_portadas();
         }
     }
 
@@ -254,7 +256,7 @@ class Portadas_lib extends MX_Controller {
      */
     private function obtenerPesoDetalleSeccion($seccion_id) {
         $returnValue = 1;
-        $resultado = $this->detalle_secciones_m->order_by('peso', 'DESC')->get_by(array("secciones_id" => $seccion_id));
+        $resultado = $this->detalle_secciones_m->order_by('peso', 'DESC')->get_many_by(array("secciones_id" => $seccion_id));
         if (count($resultado) > 0) {
             $peso = 2;
             foreach ($resultado as $puntero => $objDetalleSeccion) {
@@ -563,8 +565,72 @@ class Portadas_lib extends MX_Controller {
         }
         return $returnValue;
     }
-    
-    //private function 
+
+    /**
+     * Método para recorrer todas las portadas, secciones y detalles
+     * ir actualizando los estados
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     */
+    private function parsear_portadas() {
+        $lista_portadas = $this->portada_m->get_many_by(array());
+        if (count($lista_portadas) > 0) {
+            foreach ($lista_portadas as $puntero => $objPortada) {
+                $lista_secciones = $this->secciones_m->get_many_by(array("portadas_id" => $objPortada->id));
+                if (count($lista_secciones) > 0) {
+                    foreach ($lista_secciones as $index => $objSeccion) {
+                        $detalle_seccion = $this->detalle_secciones_m->get_many_by(array("secciones_id" => $objSeccion->id, "estado" => $this->config->item('estado:publicado')));
+                        if (count($detalle_seccion) > 1) {
+                            $this->secciones_m->update($objSeccion->id, array("estado" => $this->config->item('estado:publicado')));
+                        }
+                    }
+                }
+                //recorremos las portadas para actualizarlas
+                $objsecciones = $this->secciones_m->get_many_by(array("portadas_id" => $objPortada->id, "estado" => $this->config->item('estado:publicado')));
+                if (count($objsecciones) > 0) {
+                    $this->portada_m->update($objPortada->id, array("estado" => $this->config->item('estado:publicado')));
+                }
+            }
+        }
+    }
+
+    /**
+     * Método para actualizar las imagenes en las secciones
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param int $imagen_id
+     */
+    public function actualizar_imagen($imagen_id) {
+        if ($imagen_id > 0) {
+            $objImagen = $this->imagen_m->get($imagen_id);
+            if (count($objImagen) > 0) {
+                if ($objImagen->grupo_maestros_id > 0) {
+                    $detalle_secciones = $this->detalle_secciones_m->get_many_by(array("grupo_maestros_id" => $objImagen->grupo_maestros_id));
+                    if (count($detalle_secciones) > 0) {
+                        foreach ($detalle_secciones as $puntero => $objDetalleSeccion) {
+                            $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id));
+                        }
+                    }
+                } else {
+                    if ($objImagen->videos_id > 0) {
+                        $detalle_secciones = $this->detalle_secciones_m->get_many_by(array("videos_id" => $objImagen->videos_id));
+                        if (count($detalle_secciones) > 0) {
+                            foreach ($detalle_secciones as $puntero => $objDetalleSeccion) {
+                                $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id));
+                            }
+                        }
+                    } else {
+                        if ($objImagen->canales_id > 0) {
+                            $detalle_secciones = $this->detalle_secciones_m->get_many_by(array("canales_id" => $objImagen->videos_id));
+                            if (count($detalle_secciones) > 0) {
+                                foreach ($detalle_secciones as $puntero => $objDetalleSeccion) {
+                                    $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id));
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 
     /**
      * metodo para debuguear variables con formato
