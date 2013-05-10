@@ -1942,10 +1942,14 @@ class Admin extends Admin_Controller {
 
             foreach ($arrayDetalleSeccion as $index => $objDetalleSeccion) {
                 $objImagen = $this->imagen_m->get($objDetalleSeccion->imagenes_id);
-                if ($objImagen->procedencia == '0') {
-                    $objDetalleSeccion->imagen = $this->config->item('protocolo:http') . $this->config->item('server:elemento') . '/' . $objImagen->imagen;
-                } else {
-                    $objDetalleSeccion->imagen = $objImagen->imagen;
+                if (count($objImagen) > 0) {
+                    if ($objImagen->procedencia == '0') {
+                        $objDetalleSeccion->imagen = $this->config->item('protocolo:http') . $this->config->item('server:elemento') . '/' . $objImagen->imagen;
+                    } else {
+                        $objDetalleSeccion->imagen = $objImagen->imagen;
+                    }
+                }else{
+                    $objDetalleSeccion->imagen = $this->config->item('url:default_imagen').'no_video.jpg';
                 }
                 //nombre del Item
                 $objDetalleSeccion->nombre = '';
@@ -3702,7 +3706,7 @@ class Admin extends Admin_Controller {
             $lista_maestros = $this->grupo_maestro_m->get_many_by(array('canales_id' => $this->input->post('canal_id'), "tipo_grupo_maestro_id" => $this->config->item('videos:programa')));
             $array_maestros = array();
             if (count($lista_maestros) > 0) {
-                
+
                 foreach ($lista_maestros as $puntero => $objMaestro) {
                     if (count($objMaestro) > 0) {
                         $objMaestro->es_maestro = 1;
@@ -3804,7 +3808,7 @@ class Admin extends Admin_Controller {
             $lista_maestros = $this->grupo_maestro_m->get_many_by(array('canales_id' => $this->input->post('canal_id'), "tipo_grupo_maestro_id" => $this->config->item('videos:lista')));
             $array_maestros = array();
             if (count($lista_maestros) > 0) {
-                
+
                 foreach ($lista_maestros as $puntero => $objMaestro) {
                     if (count($objMaestro) > 0) {
                         $objMaestro->es_maestro = 1;
@@ -3894,7 +3898,7 @@ class Admin extends Admin_Controller {
             $lista_maestros = $this->grupo_maestro_m->get_many_by(array('canales_id' => $this->input->post('canal_id'), "tipo_grupo_maestro_id" => $this->config->item('videos:lista')));
             $array_maestros = array();
             if (count($lista_maestros) > 0) {
-                
+
                 foreach ($lista_maestros as $puntero => $objMaestro) {
                     if (count($objMaestro) > 0) {
                         $objMaestro->es_maestro = 1;
@@ -4767,7 +4771,7 @@ class Admin extends Admin_Controller {
         if ($this->input->is_ajax_request()) {
             $this->videos_m->update($video_id, array("estado" => $this->config->item('video:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
             echo json_encode(array("value" => "1"));
-        }        
+        }
     }
 
 }
