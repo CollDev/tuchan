@@ -30,28 +30,14 @@
         </tfoot>
         <tbody>                
             <?php foreach ($maestros as $video) : ?>
-                <tr id="item_<?php echo $video->id; ?>">
+                <tr id="<?php echo $video->maestros; ?>_<?php echo $video->id; ?>">
                     <td><?php echo form_checkbox('action_to[]', $video->id); ?></td>
                     <td class="collapse"><img style="width: 100px;" src="<?php echo $video->imagen ?>" border="0"></img></td>
-                    <td class="collapse"><?php echo $video->nombre; ?></td>
-                    <td class="collapse"><?php echo lang('maestro:' . $video->tipo_grupo_maestro_id . '_maestro'); ?></td>
-                    <?php
-                    switch ($video->estado) :
-                        case '0':
-                            $estado = lang('estado:0_estado');
-                            break;
-                        case '1':
-                            $estado = lang('estado:1_estado');
-                            break;
-                        case '2':
-                            $estado = lang('estado:2_estado');
-                            break;
-                    endswitch;
-                    ?>
-                    <td class="collapse" id="video_<?php echo $video->id; ?>"><?php echo $estado ?></td>
-
+                    <td class="collapse"><?php echo $video->titulo; ?></td>
+                    <td class="collapse"><?php echo lang('maestro:' . $video->tipo_maestro . '_maestro'); ?></td>
+                    <td class="collapse" id="video_<?php echo $video->id; ?>"><?php echo lang('estado:'.($video->estado-1).'_estado') ?></td>
                     <td>
-                        <?php echo anchor('#', lang('global:edit'), 'class="mode_restore" onclick="restaurar_maestro(' . $video->id . ');return false;"'); ?>
+                        <?php echo anchor('#', lang('global:edit'), 'class="mode_restore" onclick="restaurar_maestro(' . $video->id . ', \''.$video->maestros.'\');return false;"'); ?>
                     </td>
                 </tr>
             <?php endforeach; ?>
