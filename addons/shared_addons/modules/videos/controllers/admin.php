@@ -62,6 +62,9 @@ class Admin extends Admin_Controller {
             $this->videos_m->update($objBeanVideo->id, array("estado_liquid" => $this->config->item('liquid:mp4')));
         }
         rename($path_video_old, $path_video_new);
+        //lanzamos la libreria para registrar el video en las portadas
+        $this->portadas_lib->agregar_video($objBeanVideo->id);
+        
         $this->procesos_lib->curlProcesoVideosXId($objBeanVideo->id);
 
         return $returnValue;
@@ -2435,7 +2438,10 @@ class Admin extends Admin_Controller {
 //                $datos["ruta"] = $result[0]->ruta;
 //
 //                Proceso::corte_Video($datos);
-
+//                
+                 //lanzamos la libreria para registrar el video en las portadas
+                $this->portadas_lib->agregar_video($objvideotemp->id);
+                
                 $this->procesos_lib->curlCorteVideoXId($video_id, $objvideotemp->id, $this->input->post('ini_corte'), $this->input->post('dur_corte'));
                 echo json_encode(array("value" => '0'));
             }
