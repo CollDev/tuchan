@@ -1315,8 +1315,15 @@ class Procesos_lib extends MX_Controller {
                     $objmongo['descripcion'] =strip_tags($value->descripcion);
                     $objmongo['url'] = $value->alias;
                     
-                    if($value->procedencia == 0){                        
-                        $objmongo['imagen'] = $this->config->item('protocolo:http').$this->config->item('server:elemento')."/".$value->imagen;    
+//                    
+//                    if($value->procedencia == 0){                        
+//                        $objmongo['imagen'] = $this->config->item('protocolo:http').$this->config->item('server:elemento')."/".$value->imagen;    
+//                    }
+                    
+                    $imagenes  =$this->imagenes_mp->getImagenesCanalesXId($id);                 
+                    
+                    foreach ($imagenes as $value2) {
+                        $objmongo[$value2->nombre] = $this->config->item('protocolo:http').$this->config->item('server:elemento')."/".$value2->imagen;
                     }
                                                        
                     $objmongo['estado'] = $value->estado;
@@ -1324,7 +1331,9 @@ class Procesos_lib extends MX_Controller {
                     $objmongo['nivel'] = "0";
                     $objmongo['apikey'] = $value->apikey;
                     $objmongo['playerkey'] = $value->playerkey;
+                    $objmongo['canal_cv'] = $value->canal_cv;
                     
+                    error_log($value->canal_cv);
 
                     if ($value->estado == 1) {
                         if (!($this->canal_mp->existe_id($value->id_mongo))) {
