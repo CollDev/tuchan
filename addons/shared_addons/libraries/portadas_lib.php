@@ -79,7 +79,7 @@ class Portadas_lib extends MX_Controller {
                                         $objBeanDetalleSeccion->peso = $this->obtenerPesoDetalleSeccion($objSeccion->id);
                                         $objBeanDetalleSeccion->descripcion_item = '';
                                         $estado_video = $objVideo->estado - 1;
-                                        if($estado_video < 0){
+                                        if ($estado_video < 0) {
                                             $estado_video = 0;
                                         }
                                         $objBeanDetalleSeccion->estado = $estado_video;
@@ -632,7 +632,7 @@ class Portadas_lib extends MX_Controller {
      * @param object $objSeccion
      * @return int
      */
-    private function obtener_imagen_maestro($objeto, $objSeccion, $tipo='maestro') {
+    private function obtener_imagen_maestro($objeto, $objSeccion, $tipo = 'maestro') {
         $returnValue = 0;
         switch ($objSeccion->tipo_secciones_id) {
             case $this->config->item('seccion:destacado'):
@@ -642,9 +642,9 @@ class Portadas_lib extends MX_Controller {
                 $tipo_imagen = $this->config->item('imagen:small');
                 break;
         }
-        if($tipo == 'maestro'){
+        if ($tipo == 'maestro') {
             $objImagen = $this->imagen_m->get_by(array("estado" => $this->config->item('estado:publicado'), "grupo_maestros_id" => $objeto->id, "tipo_imagen_id" => $tipo_imagen));
-        }else{
+        } else {
             $objImagen = $this->imagen_m->get_by(array("estado" => $this->config->item('estado:publicado'), "videos_id" => $objeto->id, "tipo_imagen_id" => $tipo_imagen));
         }
         if (count($objImagen) > 0) {
@@ -749,7 +749,7 @@ class Portadas_lib extends MX_Controller {
                 //recorremos las portadas para actualizarlas
                 $objsecciones = $this->secciones_m->get_many_by(array("portadas_id" => $objPortada->id, "estado" => $this->config->item('estado:publicado')));
                 if (count($objsecciones) > 0) {
-                    $this->portada_m->update($objPortada->id, array("estado" => $this->config->item('estado:publicado')));
+                    $this->portada_m->update($objPortada->id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
                 }
             }
         }
@@ -768,7 +768,16 @@ class Portadas_lib extends MX_Controller {
                     $detalle_secciones = $this->detalle_secciones_m->get_many_by(array("grupo_maestros_id" => $objImagen->grupo_maestros_id));
                     if (count($detalle_secciones) > 0) {
                         foreach ($detalle_secciones as $puntero => $objDetalleSeccion) {
-                            $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id));
+                            $objSeccion = $this->secciones_m->get_by(array($objDetalleSeccion->secciones_id));
+                            if (count($objSeccion) > 0) {
+                                if ($objSeccion->tipo_secciones_id == $this->config->item('seccion:destacado')) {
+                                    if ($objImagen->tipo_imagen_id == $this->config->item('imagen:extralarge')) {
+                                        $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id));
+                                    }
+                                } else {
+                                    $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id));
+                                }
+                            }
                         }
                     }
                 } else {
@@ -776,7 +785,16 @@ class Portadas_lib extends MX_Controller {
                         $detalle_secciones = $this->detalle_secciones_m->get_many_by(array("videos_id" => $objImagen->videos_id));
                         if (count($detalle_secciones) > 0) {
                             foreach ($detalle_secciones as $puntero => $objDetalleSeccion) {
-                                $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id));
+                                $objSeccion = $this->secciones_m->get_by(array($objDetalleSeccion->secciones_id));
+                                if (count($objSeccion) > 0) {
+                                    if ($objSeccion->tipo_secciones_id == $this->config->item('seccion:destacado')) {
+                                        if ($objImagen->tipo_imagen_id == $this->config->item('imagen:extralarge')) {
+                                            $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id));
+                                        }
+                                    } else {
+                                        $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id));
+                                    }
+                                }
                             }
                         }
                     } else {
@@ -784,7 +802,16 @@ class Portadas_lib extends MX_Controller {
                             $detalle_secciones = $this->detalle_secciones_m->get_many_by(array("canales_id" => $objImagen->canales_id));
                             if (count($detalle_secciones) > 0) {
                                 foreach ($detalle_secciones as $puntero => $objDetalleSeccion) {
-                                    $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id));
+                                    $objSeccion = $this->secciones_m->get_by(array($objDetalleSeccion->secciones_id));
+                                    if (count($objSeccion) > 0) {
+                                        if ($objSeccion->tipo_secciones_id == $this->config->item('seccion:destacado')) {
+                                            if ($objImagen->tipo_imagen_id == $this->config->item('imagen:extralarge')) {
+                                                $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id));
+                                            }
+                                        } else {
+                                            $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id));
+                                        }
+                                    }
                                 }
                             }
                         }
