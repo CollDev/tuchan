@@ -3168,6 +3168,9 @@ class Admin extends Admin_Controller {
 
     public function publicar_canal($canal_id) {
         if ($this->input->is_ajax_request()) {
+            //verificamos q al menos un maestro esté publicado para activarlo
+            $lista_maestros_publicados = $this->videos_m->get_many_by(array("canales_id"=>$canal_id,"estado"=>$this->config->item('video:publicado')));
+            if(count($lista_maestros_publicados)>0){
             $this->canales_m->update($canal_id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
             //eliminamos la portada del canal
             $objPortada = $this->portada_m->get_by(array("tipo_portadas_id" => $this->config->item('portada:canal'), "origen_id" => $canal_id));
@@ -3176,6 +3179,9 @@ class Admin extends Admin_Controller {
             }
             $this->procesos_lib->generarCanalesXId($canal_id);
             echo json_encode(array("value" => "1"));
+            }else{
+                echo json_encode(array("value" => "0"));//no tiene maestros activos
+            }
         }
     }
 

@@ -141,6 +141,8 @@
                                 htmlButton += '<a href="#" onclick="eliminar(' + canal_id + ',\'canal\');return false;" class="mode_delete">Eliminar</a>';
                                 htmlButton += '<a href="/admin/canales/portada/' + canal_id + '" class="mode_front">Portada</a>';
                                 $("#" + tipo + "_boton_" + canal_id).html(htmlButton);
+                            }else{
+                                showMessage('error', 'No se puede publicar. No tiene videos publicados', 2000, '');
                             }
                         } //end success
                     }); //end AJAX   

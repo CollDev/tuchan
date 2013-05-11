@@ -27,6 +27,43 @@ class Portadas_lib extends MX_Controller {
     }
 
     /**
+     * Método para agregar video a su respectiva sección
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param int $video_id
+     */
+    public function agregar_video($video_id) {
+        if ($video_id > 0) {
+            $objVideo = $this->videos_m->get($video_id);
+            if (count($objVideo) > 0) {
+                //verificamos si no tiene relacion en la tabla maestro detalle
+                $obj_coleccion_relacion = $this->grupo_detalle_m->get_by(array("video_id" => $video_id));
+                if (count($obj_coleccion_relacion) > 0) {
+                    if ($obj_coleccion_relacion->tipo_grupo_maestros_id == $this->config->item('videos:programa')) {
+                        //registramos en la portada del programa
+                        $lista_portadas = $this->portada_m->get_many_by(array("origen_id" => $obj_coleccion_relacion->grupo_maestro_padre, "tipo_portadas_id" => $this->config->item('portada:programa')));
+                    } else {
+                        $oPrograma = $this->obtener_maestro_programa($obj_coleccion_relacion->grupo_maestro_padre);
+                        if (count($oPrograma) > 0) {
+                            //registramos en la portada del programa
+                            $lista_portadas = $this->portada_m->get_many_by(array("origen_id" => $oPrograma->id, "tipo_portadas_id" => $this->config->item('portada:programa')));
+                        } else {
+                            //registramos en la portada del canal
+                            $lista_portadas = $this->portada_m->get_many_by(array("canales_id" => $objVideo->canales_id, "origen_id" => $objVideo->canales_id, "tipo_portadas_id" => $this->config->item('portada:canal')));
+                        }
+                    }
+                } else {
+                    //registramos en la portada del canal
+                    $lista_portadas = $this->portada_m->get_many_by(array("canales_id" => $objVideo->canales_id, "origen_id" => $objVideo->canales_id, "tipo_portadas_id" => $this->config->item('portada:canal')));
+                }
+            }
+        }
+    }
+    
+    private function obtener_maestro_programa($maestro_id){
+        
+    }
+
+    /**
      * Método para actualizar videos en las portadas, secciones y detalle secciones
      * Modificaremos los estado del video para que sea compatible con los estados de portada
      * @author Johnny Huamani <johnny1402@gmail.com>
@@ -174,6 +211,25 @@ class Portadas_lib extends MX_Controller {
     }
 
     /**
+     * Método para obtener el programa del maestro
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param object $objMaestroDetalle
+     * @return array
+     */
+    private function obtener_programa($objMaestroDetalle) {
+        $returnValue = array();
+        if ($objMaestroDetalle->grupo_maestro_padre != NULL) {
+            if ($objMaestroDetalle->tipo_grupo_maestros_id == $this->config->item('videos:programa')) {
+                $objMaestroPrograma = $this->grupo_maestro_m->get($objMaestroDetalle->grupo_maestro_padre);
+                if (count($objMaestroPrograma) > 0) {
+                    $returnValue = $objMaestroPrograma;
+                }
+            }
+        }
+        return $returnValue;
+    }
+
+    /**
      * Método para agregar los maestros al detalle de secciones
      * @author Johnny Huamani <johnny1402@gmail.com>
      * @param int $maestro_id
@@ -194,10 +250,17 @@ class Portadas_lib extends MX_Controller {
                 //verificamos si su superior es un programa o un canal
                 //si es un canal registramos en la portada del canal
                 //si es un programa registramos en la portada programa
-                $objMaestroPadre = $this->grupo_detalle_m->get_by(array("grupo_maestro_id" => $maestro_id));
-                if (count($objMaestroPadre) > 0) {
-                    //rgistramos en la portada del programa
-                    $lista_portadas = $this->portada_m->get_many_by(array("origen_id" => $objMaestro->canales_id, "tipo_portadas_id" => $this->config->item('portada:programa')));
+                $objMaestroDetalle = $this->grupo_detalle_m->get_by(array("grupo_maestro_id" => $maestro_id));
+                if (count($objMaestroDetalle) > 0) {
+                    $objPrograma_agregar = $this->obtener_programa($objMaestroDetalle);
+                    if (count($objPrograma_agregar) > 0) {
+
+                        //registramos en la portada del programa
+                        $lista_portadas = $this->portada_m->get_many_by(array("origen_id" => $objPrograma_agregar->id, "tipo_portadas_id" => $this->config->item('portada:programa')));
+                    } else {
+                        //registramos en la portada del canal
+                        $lista_portadas = $this->portada_m->get_many_by(array("canales_id" => $objMaestro->canales_id, "origen_id" => $objMaestro->canales_id, "tipo_portadas_id" => $this->config->item('portada:canal')));
+                    }
                 } else {
                     //registramos en la portada del canal
                     $lista_portadas = $this->portada_m->get_many_by(array("canales_id" => $objMaestro->canales_id, "origen_id" => $objMaestro->canales_id, "tipo_portadas_id" => $this->config->item('portada:canal')));
@@ -211,30 +274,31 @@ class Portadas_lib extends MX_Controller {
                         if (count($tipo_seccion) > 0) {
                             $secciones_portada = $this->secciones_m->where_in('tipo_secciones_id', $tipo_seccion)->get_many_by(array("portadas_id" => $objPortada->id));
                             if (count($secciones_portada) > 0) {
+
                                 foreach ($secciones_portada as $index => $objSeccion) {
-                                    if ($this->obtener_imagen_maestro($objMaestro, $objSeccion) > 0) {
-                                        $detalle_seccion = $this->detalle_secciones_m->get_many_by(array("secciones_id" => $objSeccion->id, "grupo_maestros_id" => $objMaestro->id));
-                                        if (count($detalle_seccion) == 0) {
-                                            //registramos el programa en esta seccion
-                                            $objBeanDetalleSeccion = new stdClass();
-                                            $objBeanDetalleSeccion->id = NULL;
-                                            $objBeanDetalleSeccion->secciones_id = $objSeccion->id;
-                                            $objBeanDetalleSeccion->videos_id = NULL;
-                                            $objBeanDetalleSeccion->grupo_maestros_id = $objMaestro->id;
-                                            $objBeanDetalleSeccion->canales_id = NULL;
-                                            $objBeanDetalleSeccion->imagenes_id = $this->obtener_imagen_maestro($objMaestro, $objSeccion);
-                                            $objBeanDetalleSeccion->peso = $this->obtenerPesoDetalleSeccion($objSeccion->id);
-                                            $objBeanDetalleSeccion->descripcion_item = '';
-                                            $objBeanDetalleSeccion->estado = $objMaestro->estado;
-                                            $objBeanDetalleSeccion->fecha_registro = date("Y-m-d H:i:s");
-                                            $objBeanDetalleSeccion->usuario_registro = $user_id;
-                                            $objBeanDetalleSeccion->estado_migracion = 9;
-                                            $objBeanDetalleSeccion->fecha_migracion = '0000-00-00 00:00:00';
-                                            $objBeanDetalleSeccion->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
-                                            $objBeanDetalleSeccionSaved = $this->detalle_secciones_m->save($objBeanDetalleSeccion);
-                                            $this->secciones_m->update($objSeccion->id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
-                                        }
+                                    //if ($this->obtener_imagen_maestro($objMaestro, $objSeccion) > 0) {
+                                    $detalle_seccion = $this->detalle_secciones_m->get_many_by(array("secciones_id" => $objSeccion->id, "grupo_maestros_id" => $objMaestro->id));
+                                    if (count($detalle_seccion) == 0) {
+                                        //registramos el programa en esta seccion
+                                        $objBeanDetalleSeccion = new stdClass();
+                                        $objBeanDetalleSeccion->id = NULL;
+                                        $objBeanDetalleSeccion->secciones_id = $objSeccion->id;
+                                        $objBeanDetalleSeccion->videos_id = NULL;
+                                        $objBeanDetalleSeccion->grupo_maestros_id = $objMaestro->id;
+                                        $objBeanDetalleSeccion->canales_id = NULL;
+                                        $objBeanDetalleSeccion->imagenes_id = $this->obtener_imagen_maestro($objMaestro, $objSeccion);
+                                        $objBeanDetalleSeccion->peso = $this->obtenerPesoDetalleSeccion($objSeccion->id);
+                                        $objBeanDetalleSeccion->descripcion_item = '';
+                                        $objBeanDetalleSeccion->estado = $objMaestro->estado;
+                                        $objBeanDetalleSeccion->fecha_registro = date("Y-m-d H:i:s");
+                                        $objBeanDetalleSeccion->usuario_registro = $user_id;
+                                        $objBeanDetalleSeccion->estado_migracion = 9;
+                                        $objBeanDetalleSeccion->fecha_migracion = '0000-00-00 00:00:00';
+                                        $objBeanDetalleSeccion->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
+                                        $objBeanDetalleSeccionSaved = $this->detalle_secciones_m->save($objBeanDetalleSeccion);
+                                        $this->secciones_m->update($objSeccion->id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
                                     }
+                                    //}
                                 }
                             }
                             //
@@ -244,7 +308,7 @@ class Portadas_lib extends MX_Controller {
                 //}
             }
             //parseamos todas las portadas y actualizamo estados
-            $this->parsear_portadas();
+            $this->parsear_portadas($objMaestro->canales_id);
         }
     }
 
@@ -569,10 +633,11 @@ class Portadas_lib extends MX_Controller {
     /**
      * Método para recorrer todas las portadas, secciones y detalles
      * ir actualizando los estados
+     * @param int $canales_id
      * @author Johnny Huamani <johnny1402@gmail.com>
      */
-    private function parsear_portadas() {
-        $lista_portadas = $this->portada_m->get_many_by(array());
+    private function parsear_portadas($canales_id) {
+        $lista_portadas = $this->portada_m->get_many_by(array("canales_id" => $canales_id));
         if (count($lista_portadas) > 0) {
             foreach ($lista_portadas as $puntero => $objPortada) {
                 $lista_secciones = $this->secciones_m->get_many_by(array("portadas_id" => $objPortada->id));
@@ -619,7 +684,7 @@ class Portadas_lib extends MX_Controller {
                         }
                     } else {
                         if ($objImagen->canales_id > 0) {
-                            $detalle_secciones = $this->detalle_secciones_m->get_many_by(array("canales_id" => $objImagen->videos_id));
+                            $detalle_secciones = $this->detalle_secciones_m->get_many_by(array("canales_id" => $objImagen->canales_id));
                             if (count($detalle_secciones) > 0) {
                                 foreach ($detalle_secciones as $puntero => $objDetalleSeccion) {
                                     $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id));
