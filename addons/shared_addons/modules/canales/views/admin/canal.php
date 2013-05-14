@@ -191,12 +191,14 @@
                 );
                 echo form_input($playerkey);
                 ?>
+                <input type="hidden" id="apikey_original" name="apikey_original" value="<?php echo $objCanal->apikey; ?>" />
+                <input type="hidden" id="playerkey_original" name="playerkey_original" value="<?php echo $objCanal->playerkey; ?>" />                
             </div>
             <?php
-            else:
-                ?>
-        <input type="hidden" id="apikey" name="apikey" value="<?php echo $objCanal->apikey; ?>" />
-        <input type="hidden" id="playerkey" name="playerkey" value="<?php echo $objCanal->playerkey; ?>" />
+        else:
+            ?>
+            <input type="hidden" id="apikey" name="apikey" value="<?php echo $objCanal->apikey; ?>" />
+            <input type="hidden" id="playerkey" name="playerkey" value="<?php echo $objCanal->playerkey; ?>" />
         <?php
         endif;
         ?>
@@ -228,14 +230,33 @@
             if (canal_id > 0) {
                 var apikey = $("#apikey").val();
                 var playerkey = $("#playerkey").val();
-                //var apikey = 'apikey';
-                //var playerkey = 'playerkey';
+                var apikey_original = $("#apikey_original").val();
+                var playerkey_original = $("#playerkey_original").val();
             } else {
                 var apikey = $("#apikey").val();
                 var playerkey = $("#playerkey").val();
-                //var apikey = 'apikey';
-                //var playerkey = 'playerkey';
+                var apikey_original = $("#apikey_original").val();
+                var playerkey_original = $("#playerkey_original").val();
             }
+            //vemos si x lo menos uno de los keys fue modificado
+            var api_modificado = 0;
+            if (apikey != apikey_original && playerkey != playerkey_original) {
+                api_modificado = 1; // ambos fueron modificados
+            } else {
+                if (apikey == apikey_original && playerkey != playerkey_original) {
+                    api_modificado = 2; //solo se modificó el playerkey
+                } else {
+                    if (apikey != apikey_original && playerkey == playerkey_original) {
+                        api_modificado = 3; // solo se modificó el apikey
+                    }
+                }
+            }
+            
+            var mensaje = 'Seguro que deseas guardar los cambios del video?'
+            if(api_modificado > 0){
+                mensaje = 'Seguro deseas guardar los cambios en los APIKEY';
+            }
+
             var editorText = CKEDITOR.instances.descripcion.getData();
             $('<input>').attr({
                 type: 'hidden',
@@ -245,91 +266,97 @@
             }).appendTo('#frmCanal');
             //validamos el nombre del canal
             var titulo = $.trim($("#nombre").val());
-            if (titulo.length > 0) {
-                //validamos el ckeditor
-                var editorText = CKEDITOR.instances.descripcion.getData();
-                editorText = $.trim(editorText);
-                var regex = /(<([^>]+)>)/ig;
-                var editorText2 = editorText.replace(regex, "");
-                editorText2 = $.trim(editorText2);
-                editorText2 = editorText2.replace(/(&nbsp;)*/g, "");
-                if (editorText.length > 0 && editorText2.length > 0) {
-                    //validamos si selecciono una imagen de portada
-                    if (canal_id > 0) {
-                        var imagen_portada = '--';
-                    } else {
-                        var imagen_portada = $.trim($("#imagen_portada").val());
-                    }
-                    if (imagen_portada.length > 0) {
-                        //validamo si selecciono un logotipo
-                        var imagen_logotipo = $.trim($("#imagen_logotipo").val());
-                        if (imagen_logotipo.length > 0) {
-                            //validamos si selecciono una imagen iso
-                            var imagen_isotipo = $.trim($("#imagen_isotipo").val());
-                            if (imagen_isotipo.length > 0) {
-                                //vaidamos el apikey
-                                if (apikey.length > 0) {
-                                    if (values['tipo_canal'] > 0) {
-                                        //validamos el playerkey
-                                        if (playerkey.length > 0) {
-                                            //$('#loader').show();
-                                            loading('#loading');
-                                            var serializedData = $('#frmCanal').serialize();
-                                            //var post_url = "/admin/videos/save_maestro/"+values['txt_'+type_video]+"/"+values['canal_id']+"/"+values['categoria']+"/"+type_video;
-                                            var post_url = "/admin/canales/registrar_canal/" + values['canal_id'];
-                                            $.ajax({
-                                                type: "POST",
-                                                url: post_url,
-                                                dataType: 'json',
-                                                data: serializedData,
-                                                success: function(respuesta) //we're calling the response json array 'cities'
-                                                {
-                                                    //$('#loader').hide();
-                                                    if (respuesta.value == '1') {
-                                                        showMessage('error', '<?php echo lang('canales:not_found_imagen_in_server') ?>', 2000, '');//no se encontro la imagen portada en el servidor
-                                                    } else {
-                                                        if (respuesta.value == '2') {
-                                                            showMessage('error', '<?php echo lang('canales:not_found_logo_in_server') ?>', 2000, '');//no se encontro el logotipo en el servidor
-                                                        } else {
-                                                            if (respuesta.value == '3') {
-                                                                showMessage('error', '<?php echo lang('canales:not_found_iso_in_server') ?>', 2000, '');//no se encontro el logotipo en el servidor
+            //if(api_modificado > 0){
+            jConfirm(mensaje, "Editar canal", function(r) {
+                if (r) {
+                    // }
+                    if (titulo.length > 0) {
+                        //validamos el ckeditor
+                        var editorText = CKEDITOR.instances.descripcion.getData();
+                        editorText = $.trim(editorText);
+                        var regex = /(<([^>]+)>)/ig;
+                        var editorText2 = editorText.replace(regex, "");
+                        editorText2 = $.trim(editorText2);
+                        editorText2 = editorText2.replace(/(&nbsp;)*/g, "");
+                        if (editorText.length > 0 && editorText2.length > 0) {
+                            //validamos si selecciono una imagen de portada
+                            if (canal_id > 0) {
+                                var imagen_portada = '--';
+                            } else {
+                                var imagen_portada = $.trim($("#imagen_portada").val());
+                            }
+                            if (imagen_portada.length > 0) {
+                                //validamo si selecciono un logotipo
+                                var imagen_logotipo = $.trim($("#imagen_logotipo").val());
+                                if (imagen_logotipo.length > 0) {
+                                    //validamos si selecciono una imagen iso
+                                    var imagen_isotipo = $.trim($("#imagen_isotipo").val());
+                                    if (imagen_isotipo.length > 0) {
+                                        //vaidamos el apikey
+                                        if (apikey.length > 0) {
+                                            if (values['tipo_canal'] > 0) {
+                                                //validamos el playerkey
+                                                if (playerkey.length > 0) {
+                                                    //$('#loader').show();
+                                                    loading('#loading');
+                                                    var serializedData = $('#frmCanal').serialize();
+                                                    //var post_url = "/admin/videos/save_maestro/"+values['txt_'+type_video]+"/"+values['canal_id']+"/"+values['categoria']+"/"+type_video;
+                                                    var post_url = "/admin/canales/registrar_canal/" + values['canal_id'];
+                                                    $.ajax({
+                                                        type: "POST",
+                                                        url: post_url,
+                                                        dataType: 'json',
+                                                        data: serializedData,
+                                                        success: function(respuesta) //we're calling the response json array 'cities'
+                                                        {
+                                                            //$('#loader').hide();
+                                                            if (respuesta.value == '1') {
+                                                                showMessage('error', '<?php echo lang('canales:not_found_imagen_in_server') ?>', 2000, '');//no se encontro la imagen portada en el servidor
                                                             } else {
-                                                                if (respuesta.value == '4') {
-                                                                    showMessage('error', '<?php echo lang('canales:exist_canal') ?>', 2000, '');//no se encontro el logotipo en el servidor 
+                                                                if (respuesta.value == '2') {
+                                                                    showMessage('error', '<?php echo lang('canales:not_found_logo_in_server') ?>', 2000, '');//no se encontro el logotipo en el servidor
                                                                 } else {
-                                                                    var url = "admin/canales";
-                                                                    //showMessage('exit', '<?php //echo lang('canales:success_saved')   ?>', 2000, '');//no se encontro el logotipo en el servidor 
-                                                                    $(location).attr('href', '<?php echo BASE_URL; ?>' + url);
+                                                                    if (respuesta.value == '3') {
+                                                                        showMessage('error', '<?php echo lang('canales:not_found_iso_in_server') ?>', 2000, '');//no se encontro el logotipo en el servidor
+                                                                    } else {
+                                                                        if (respuesta.value == '4') {
+                                                                            showMessage('error', '<?php echo lang('canales:exist_canal') ?>', 2000, '');//no se encontro el logotipo en el servidor 
+                                                                        } else {
+                                                                            var url = "admin/canales";
+                                                                            //showMessage('exit', '<?php //echo lang('canales:success_saved')    ?>', 2000, '');//no se encontro el logotipo en el servidor 
+                                                                            $(location).attr('href', '<?php echo BASE_URL; ?>' + url);
+                                                                        }
+                                                                    }
                                                                 }
                                                             }
-                                                        }
-                                                    }
-                                                } //end success
-                                            }); //end AJAX                                        
+                                                        } //end success
+                                                    }); //end AJAX                                        
+                                                } else {
+                                                    showMessage('error', '<?php echo lang('canales:require_tipo_canal') ?>', 2000, '');
+                                                }
+                                            } else {
+                                                showMessage('error', '<?php echo lang('canales:require_playerkey') ?>', 2000, '');
+                                            }
                                         } else {
-                                            showMessage('error', '<?php echo lang('canales:require_tipo_canal') ?>', 2000, '');
+                                            showMessage('error', '<?php echo lang('canales:require_apikey') ?>', 2000, '');
                                         }
                                     } else {
-                                        showMessage('error', '<?php echo lang('canales:require_playerkey') ?>', 2000, '');
+                                        showMessage('error', '<?php echo lang('canales:require_iso') ?>', 2000, '');
                                     }
                                 } else {
-                                    showMessage('error', '<?php echo lang('canales:require_apikey') ?>', 2000, '');
+                                    showMessage('error', '<?php echo lang('canales:require_logo') ?>', 2000, '');
                                 }
                             } else {
-                                showMessage('error', '<?php echo lang('canales:require_iso') ?>', 2000, '');
+                                showMessage('error', '<?php echo lang('canales:require_image_portada') ?>', 2000, '');
                             }
                         } else {
-                            showMessage('error', '<?php echo lang('canales:require_logo') ?>', 2000, '');
+                            showMessage('error', '<?php echo lang('canales:require_description') ?>', 2000, '');
                         }
                     } else {
-                        showMessage('error', '<?php echo lang('canales:require_image_portada') ?>', 2000, '');
+                        showMessage('error', '<?php echo lang('videos:require_title') ?>', 2000, '');
                     }
-                } else {
-                    showMessage('error', '<?php echo lang('canales:require_description') ?>', 2000, '');
                 }
-            } else {
-                showMessage('error', '<?php echo lang('videos:require_title') ?>', 2000, '');
-            }
+            });
         }
 
         function showMessage(type, message, duration, pathurl) {
@@ -411,12 +438,12 @@
             //if (code == 8) return true;
             //var AllowRegex = /^[\ba-zA-Z\s-]$/;
             //console.log(code);
-            if(code == 32 || code == 8){
+            if (code == 32 || code == 8) {
                 return true;
-            }else{
+            } else {
                 var AllowRegex = /^[0-9A-Za-z]+$/;
                 if (AllowRegex.test(character))
-                    return true;                
+                    return true;
             }
             return false;
         }
@@ -635,7 +662,7 @@
 <?php } ?>
         });
     </script>
-    <input type="hidden" name="imagen_portada" id="imagen_portada" value="<?php //echo $objCanal->imgen_portada;   ?>" />
+    <input type="hidden" name="imagen_portada" id="imagen_portada" value="<?php //echo $objCanal->imgen_portada;    ?>" />
     <input type="hidden" name="imagen_logotipo" id="imagen_logotipo" value="<?php echo $objCanal->imagen_logotipo; ?>" />
     <input type="hidden" name="update_logotipo" id="update_logotipo" value="0" />
     <input type="hidden" name="imagen_isotipo" id="imagen_isotipo" value="<?php echo $objCanal->imagen_isotipo; ?>" />

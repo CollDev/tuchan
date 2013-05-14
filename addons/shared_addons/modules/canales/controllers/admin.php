@@ -660,6 +660,8 @@ class Admin extends Admin_Controller {
                 ->append_metadata($this->load->view('fragments/wysiwyg', array(), TRUE))
                 ->append_js('module::jquery.ddslick.min.js')
                 ->set('objCanal', $objBeanCanal)
+                ->append_js('module::jquery.alerts.js')
+                ->append_css('module::jquery.alerts.css')                
                 ->set('tipo_canales', $listaTipoCanal)
                 ->set('nombre_canal', 'nombre ...');
         $this->template->build('admin/canal');
