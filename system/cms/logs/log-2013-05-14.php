@@ -104,3 +104,22 @@ ERROR - 2013-05-14 21:28:08 --> Query error: Data too long for column 'descripci
 ERROR - 2013-05-14 21:30:14 --> Query error: Data too long for column 'descripcion' at row 1
 ERROR - 2013-05-14 21:31:21 --> Query error: Data too long for column 'descripcion' at row 1
 ERROR - 2013-05-14 21:32:23 --> Query error: Data too long for column 'descripcion' at row 1
+ERROR - 2013-05-14 22:11:26 --> Query error: Unknown column '0' in 'where clause'
+ERROR - 2013-05-14 22:12:51 --> Query error: Unknown column '0' in 'where clause'
+ERROR - 2013-05-14 22:14:18 --> Query error: Unknown column '0' in 'where clause'
+ERROR - 2013-05-14 22:14:37 --> Query error: Unknown column '0' in 'where clause'
+ERROR - 2013-05-14 22:20:18 --> Query error: Unknown column '0' in 'where clause'
+ERROR - 2013-05-14 22:20:24 --> Query error: Unknown column '0' in 'where clause'
+ERROR - 2013-05-14 22:21:12 --> Query error: Unknown column '0' in 'where clause'
+ERROR - 2013-05-14 22:21:16 --> Query error: Unknown column '0' in 'where clause'
+ERROR - 2013-05-14 22:21:18 --> Query error: Unknown column '0' in 'where clause'
+ERROR - 2013-05-14 22:21:21 --> Query error: Unknown column '0' in 'where clause'
+ERROR - 2013-05-14 22:21:23 --> Query error: Unknown column '0' in 'where clause'
+ERROR - 2013-05-14 22:51:24 --> Severity: Warning  --> mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given /home/user/Escritorio/adminmicanal/system/codeigniter/database/drivers/mysqli/mysqli_result.php 46
+ERROR - 2013-05-14 22:51:24 --> Severity: Warning  --> mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given /home/user/Escritorio/adminmicanal/system/codeigniter/database/drivers/mysqli/mysqli_result.php 46
+ERROR - 2013-05-14 22:59:48 --> Severity: Warning  --> mysqli_connect(): (HY000/2003): Can't connect to MySQL server on '10.203.31.139' (110) /home/user/Escritorio/adminmicanal/system/codeigniter/database/drivers/mysqli/mysqli_driver.php 75
+ERROR - 2013-05-14 22:59:48 --> Unable to connect to the database
+ERROR - 2013-05-14 23:00:08 --> Severity: Warning  --> mysqli_connect(): (HY000/2003): Can't connect to MySQL server on '10.203.31.139' (110) /home/user/Escritorio/adminmicanal/system/codeigniter/database/drivers/mysqli/mysqli_driver.php 75
+ERROR - 2013-05-14 23:00:08 --> Unable to connect to the database
+ERROR - 2013-05-14 23:00:28 --> Severity: Warning  --> mysqli_connect(): (HY000/2003): Can't connect to MySQL server on '10.203.31.139' (110) /home/user/Escritorio/adminmicanal/system/codeigniter/database/drivers/mysqli/mysqli_driver.php 75
+ERROR - 2013-05-14 23:00:28 --> Unable to connect to the database
