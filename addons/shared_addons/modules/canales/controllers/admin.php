@@ -177,10 +177,10 @@ class Admin extends Admin_Controller {
             } else {
                 $estado_cambiado = $this->input->post('f_estado');
             }
-            $base_where = array("v"=>"v", "canales_id" => $canal_id, "estado" => $estado_cambiado);
+            $base_where = array("v" => "v", "canales_id" => $canal_id, "estado" => $estado_cambiado);
             $estados_video_listar = array();
         } else {
-            $base_where = array("v"=>"v", "canales_id" => $canal_id);
+            $base_where = array("v" => "v", "canales_id" => $canal_id);
             //estados de los videos a listar
             $estados_video_listar = array($this->config->item('video:codificando'), $this->config->item('video:borrador'), $this->config->item('video:publicado'));
         }
@@ -190,7 +190,7 @@ class Admin extends Admin_Controller {
             $keyword = $this->input->post('f_keywords');
 
         if ($this->input->post('f_programa'))
-            //$base_where['tercer_padre'] = $this->input->post('f_programa');
+        //$base_where['tercer_padre'] = $this->input->post('f_programa');
             $base_where['gm3'] = $this->input->post('f_programa');
 
         // Create pagination links
@@ -216,22 +216,22 @@ class Admin extends Admin_Controller {
             }
         }
         //corregimos  el listado para maestros y programas
-        /*if (count($listVideo) > 0) {
-            foreach ($listVideo as $puntero => $oResultVideo) {
-                if (strlen(trim($oResultVideo->programa)) == 0) {
-                    $oResultVideo->programa = $this->_getNamePrograma($oResultVideo->id);
-                    $objImagen = $this->obtenerImagenVideo($oResultVideo->id);
-                    $oResultVideo->procedencia = $objImagen->procedencia;
-                    $oResultVideo->imagen = $objImagen->imagen;
-                    $listVideo[$puntero] = $oResultVideo;
-                } else {
-                    $objImagen = $this->obtenerImagenVideo($oResultVideo->id);
-                    $oResultVideo->procedencia = $objImagen->procedencia;
-                    $oResultVideo->imagen = $objImagen->imagen;
-                    $listVideo[$puntero] = $oResultVideo;
-                }
-            }
-        }*/
+        /* if (count($listVideo) > 0) {
+          foreach ($listVideo as $puntero => $oResultVideo) {
+          if (strlen(trim($oResultVideo->programa)) == 0) {
+          $oResultVideo->programa = $this->_getNamePrograma($oResultVideo->id);
+          $objImagen = $this->obtenerImagenVideo($oResultVideo->id);
+          $oResultVideo->procedencia = $objImagen->procedencia;
+          $oResultVideo->imagen = $objImagen->imagen;
+          $listVideo[$puntero] = $oResultVideo;
+          } else {
+          $objImagen = $this->obtenerImagenVideo($oResultVideo->id);
+          $oResultVideo->procedencia = $objImagen->procedencia;
+          $oResultVideo->imagen = $objImagen->imagen;
+          $listVideo[$puntero] = $oResultVideo;
+          }
+          }
+          } */
         // Obtiene datos del canal
         $canal = $this->canales_m->get($canal_id);
         $logo_canal = $this->imagenes_m->getLogo(array('canales_id' => $canal_id,
@@ -661,7 +661,7 @@ class Admin extends Admin_Controller {
                 ->append_js('module::jquery.ddslick.min.js')
                 ->set('objCanal', $objBeanCanal)
                 ->append_js('module::jquery.alerts.js')
-                ->append_css('module::jquery.alerts.css')                
+                ->append_css('module::jquery.alerts.css')
                 ->set('tipo_canales', $listaTipoCanal)
                 ->set('nombre_canal', 'nombre ...');
         $this->template->build('admin/canal');
@@ -1954,8 +1954,8 @@ class Admin extends Admin_Controller {
                     } else {
                         $objDetalleSeccion->imagen = $objImagen->imagen;
                     }
-                }else{
-                    $objDetalleSeccion->imagen = $this->config->item('url:default_imagen').'no_video.jpg';
+                } else {
+                    $objDetalleSeccion->imagen = $this->config->item('url:default_imagen') . 'no_video.jpg';
                 }
                 //nombre del Item
                 $objDetalleSeccion->nombre = '';
@@ -3171,27 +3171,34 @@ class Admin extends Admin_Controller {
         }
     }
 
+    /**
+     * Método para publicar un canal a traves de ajax
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param type $canal_id
+     * @return json
+     */
     public function publicar_canal($canal_id) {
         if ($this->input->is_ajax_request()) {
             //verificamos q al menos un maestro esté publicado para activarlo
-            $lista_maestros_publicados = $this->videos_m->get_many_by(array("canales_id"=>$canal_id,"estado"=>$this->config->item('video:publicado')));
-            if(count($lista_maestros_publicados)>0){
-            $this->canales_m->update($canal_id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
-            //eliminamos la portada del canal
-            $objPortada = $this->portada_m->get_by(array("tipo_portadas_id" => $this->config->item('portada:canal'), "origen_id" => $canal_id));
-            if (count($objPortada) > 0) {
-                $this->portada_m->update($objPortada->id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
-            }
-            $this->procesos_lib->generarCanalesXId($canal_id);
-            echo json_encode(array("value" => "1"));
-            }else{
-                echo json_encode(array("value" => "0"));//no tiene maestros activos
+            $lista_maestros_publicados = $this->videos_m->get_many_by(array("canales_id" => $canal_id, "estado" => $this->config->item('video:publicado')));
+            if (count($lista_maestros_publicados) > 0) {
+                $this->canales_m->update($canal_id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                //eliminamos la portada del canal
+                $objPortada = $this->portada_m->get_by(array("tipo_portadas_id" => $this->config->item('portada:canal'), "origen_id" => $canal_id));
+                if (count($objPortada) > 0) {
+                    $this->portada_m->update($objPortada->id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                }
+                $this->procesos_lib->generarCanalesXId($canal_id);
+                echo json_encode(array("value" => "1"));
+            } else {
+                echo json_encode(array("value" => "0")); //no tiene maestros activos
             }
         }
     }
 
     /**
      * metodo para llamar al archivo previsualizar_canal.php para la vista previa
+     * @author Johnny Huamani <johnny1402@gmail.com>
      */
     public function previsualizar_canal($canal_id) {
         $objCanal = $this->canales_m->get($canal_id);
@@ -3217,6 +3224,7 @@ class Admin extends Admin_Controller {
 
     /**
      * metodo para llamar al archivo previsualizar_portada.php para la vista previa
+     * @author Johnny Huamani <johnny1402@gmail.com>
      */
     public function previsualizar_portada() {
         $this->template
@@ -3224,6 +3232,12 @@ class Admin extends Admin_Controller {
                 ->build('admin/previsualizar_portada');
     }
 
+    /**
+     * Método para eliminar una portada a traves de ajax
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param int $portada_id
+     * @return json
+     */
     public function eliminar_portada($portada_id) {
         if ($this->input->is_ajax_request()) {
             $this->portada_m->update($portada_id, array("estado" => $this->config->item('estado:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
@@ -3518,7 +3532,7 @@ class Admin extends Admin_Controller {
                         if ($this->maestroAgregadoSeccion($maestro_id, $seccion_id, 0)) {
                             $objDetalleSeccion = $this->detalle_secciones_m->get_by(array("grupo_maestros_id" => $maestro_id, "secciones_id" => $seccion_id));
                             $peso = $this->obtenerPeso($seccion_id);
-                            $this->detalle_secciones_m->update($objDetalleSeccion->id, array("peso" => $peso, "estado" => "1", "estado_migracion" => $this->config->item('migracion:actualizado')));
+                            $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id, "peso" => $peso, "estado" => "1", "estado_migracion" => $this->config->item('migracion:actualizado')));
                             $returnValue = 0;
                         } else {
                             $objBeanDetalleSeccion = new stdClass();
@@ -3543,11 +3557,12 @@ class Admin extends Admin_Controller {
                 }
             } else {
                 $objImagen = $this->obtenerImagenMaestro($maestro_id, $seccion_id);
+                //error_log(print_r($objImagen,true));
                 if (count($objImagen) > 0) {
                     if ($this->maestroAgregadoSeccion($maestro_id, $seccion_id, 0)) {
                         $objDetalleSeccion = $this->detalle_secciones_m->get_by(array("grupo_maestros_id" => $maestro_id, "secciones_id" => $seccion_id));
                         $peso = $this->obtenerPeso($seccion_id);
-                        $this->detalle_secciones_m->update($objDetalleSeccion->id, array("peso" => $peso, "estado" => "1", "estado_migracion" => $this->config->item('migracion:actualizado')));
+                        $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id, "peso" => $peso, "estado" => "1", "estado_migracion" => $this->config->item('migracion:actualizado')));
                         $returnValue = 0;
                     } else {
                         $objBeanDetalleSeccion = new stdClass();
@@ -3588,7 +3603,7 @@ class Admin extends Admin_Controller {
                                 $returnValue = $this->imagen_m->get_by(array("videos_id" => $maestro_id, "tipo_imagen_id" => $this->config->item('imagen:extralarge'), "estado" => "1"));
                             } else {
                                 $returnValue = $this->imagen_m->get_by(array("grupo_maestros_id" => $maestro_id, "tipo_imagen_id" => $this->config->item('imagen:extralarge'), "estado" => "1"));
-                            }
+                                 }
                         }
                         break;
                     case $this->config->item('template:destacado'):
@@ -4645,6 +4660,9 @@ class Admin extends Admin_Controller {
                             } else {
                                 $objDetalleSeccion->imagen = $this->config->item('url:portada');
                             }
+                            //obtenemos el titulo del item de detalle de seccion
+                            $objDetalleSeccion->objMaestro = $this->grupo_maestro_m->get($objDetalleSeccion->grupo_maestros_id);
+                            $detalle_seccion[$index] = $objDetalleSeccion;
                         }
                     }
                     $objSeccion->detalle_seccion = $detalle_seccion;
@@ -4717,9 +4735,9 @@ class Admin extends Admin_Controller {
         //obtenemos la imagen
         if (count($objColeccionMaestro) > 0) {
             foreach ($objColeccionMaestro as $puntero => $objMaestro) {
-                if($objMaestro->maestros == 'maestro'){
+                if ($objMaestro->maestros == 'maestro') {
                     $objImagen = $this->imagen_m->get_by(array("estado" => $this->config->item('estado:publicado'), "grupo_maestros_id" => $objMaestro->id, "tipo_imagen_id" => $this->config->item('imagen:small')));
-                }else{
+                } else {
                     $objImagen = $this->imagen_m->get_by(array("estado" => $this->config->item('estado:publicado'), "videos_id" => $objMaestro->id, "tipo_imagen_id" => $this->config->item('imagen:small')));
                 }
                 if (count($objImagen) > 0) {
@@ -4761,8 +4779,8 @@ class Admin extends Admin_Controller {
         if ($this->input->is_ajax_request()) {
             if ($tipo == 'maestro') {
                 $this->grupo_maestro_m->update($id, array("estado" => $this->config->item('estado:borrador')));
-            }else{
-                $this->videos_m->update($id, array("estado"=>$this->config->item('video:borrador')));
+            } else {
+                $this->videos_m->update($id, array("estado" => $this->config->item('video:borrador')));
             }
             echo json_encode(array("value" => "1"));
         }
@@ -4789,6 +4807,38 @@ class Admin extends Admin_Controller {
         if ($this->input->is_ajax_request()) {
             $this->videos_m->update($video_id, array("estado" => $this->config->item('video:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
             echo json_encode(array("value" => "1"));
+        }
+    }
+
+    /**
+     * Método que se ejecutará desde el navegador para corregir las imagenes
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     */
+    public function corregir_imagenes() {
+        $detalle_secciones = $this->detalle_secciones_m->get_many_by(array());
+        if (count($detalle_secciones) > 0) {
+            foreach ($detalle_secciones as $puntero => $objDetalleSeccion) {
+                if ($objDetalleSeccion->grupo_maestros_id > 0) {
+                    $objImagen = $this->obtenerImagenMaestro($objDetalleSeccion->grupo_maestros_id, $objDetalleSeccion->secciones_id);
+                    if (count($objImagen) > 0) {
+                        $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id, "estado_migracion" => $this->config->item('migracion:actualizado')));
+                    }
+                } else {
+                    if ($objDetalleSeccion->videos_id > 0) {
+                        $objImagen = $this->obtenerImagenMaestro($objDetalleSeccion->videos_id, $objDetalleSeccion->secciones_id, 'video');
+                        if (count($objImagen) > 0) {
+                            $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id, "estado_migracion" => $this->config->item('migracion:actualizado')));
+                        }
+                    } else {
+                        if ($objDetalleSeccion->canales_id > 0) {
+                            $objImagen = $this->obtenerImagenMaestro($objDetalleSeccion->canales_id, $objDetalleSeccion->secciones_id, 'canal');
+                            if (count($objImagen) > 0) {
+                                $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id, "estado_migracion" => $this->config->item('migracion:actualizado')));
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 

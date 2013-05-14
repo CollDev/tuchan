@@ -72,17 +72,6 @@
 </table>
 <input type="hidden" name="ultimo" id="ultimo" value="<?php echo $ultimo->id; ?>" />
 <input type="hidden" name="primer" id="primer" value="<?php echo $primer->id; ?>" />
-<div style="width:100%;">
-    <div  style=" float: left; width: 50%; text-align: left;">
-        <a href="#" onclick="guardarSeccion();
-                    return false;" class="btn orange" type="button"><?php echo lang('buttons.save'); ?></a>    
-           <?php echo anchor('/admin/canales/vista_previa/', lang('buttons.preview'), array('target' => '_blank', 'class' => 'btn orange modal-large')); ?>
-    </div>
-    <div style="float: right; width: 50%; text-align: right;">
-        <?php echo form_dropdown('template', $templates, $objSeccion->templates_id); ?>            
-    </div>
-    <div style="clear: both;"></div>
-</div>
 <p>
     &nbsp;
 </p>
