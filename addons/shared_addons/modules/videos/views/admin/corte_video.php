@@ -5,7 +5,8 @@
         echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
         /*    echo anchor('admin/videos/carga_masiva/' . $canal->id, 'Carga masiva', array('class' => ''));
           echo '&nbsp;&nbsp;|&nbsp;&nbsp;'; */
-        echo anchor('admin/videos/maestro/' . $canal->id, 'Organizar videos', array('class' => ''));
+        //echo anchor('admin/videos/maestro/' . $canal->id, 'Organizar videos', array('class' => ''));
+        echo anchor('admin/videos/organizar/' . $canal->id, 'Organizar videos', array('class' => ''));
         echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
         echo anchor('admin/canales/portada/' . $canal->id, 'Portadas', array('class' => ''));
         ?>        
