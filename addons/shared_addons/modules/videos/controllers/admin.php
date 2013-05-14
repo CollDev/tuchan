@@ -5024,9 +5024,20 @@ class Admin extends Admin_Controller {
         if ($this->input->post('f_keywords')) {
             $keyword = $this->input->post('f_keywords');
         }
+        if ($this->input->post('f_estado')) {
+            if ($this->input->post('f_estado') == '4') {
+                $estado_cambiado = $this->config->item('video:codificando');
+            } else {
+                $estado_cambiado = $this->input->post('f_estado');
+            }
+            $estados_video_listar = array($estado_cambiado);
+        } else {
+            $estados_video_listar = array($this->config->item('video:codificando'), $this->config->item('video:borrador'), $this->config->item('video:publicado'));
+        }
+        //$base_where = array("v"=>"v", "canales_id" => $canal_id, "estado" => $estado_cambiado);
+        //$estados_video_listar
         //estados de los programas a listar
-        $estados_video_listar = array($this->config->item('video:codificando'), $this->config->item('video:borrador'), $this->config->item('video:publicado'));
-        error_log(print_r($estados_video_listar,true));
+//        $estados_video_listar = array($this->config->item('video:codificando'), $this->config->item('video:borrador'), $this->config->item('video:publicado'));
         if ($programa_id > 0) {
             $objMaestro = $this->grupo_maestro_m->get($programa_id);
             if (count($objMaestro) > 0) {
@@ -5035,16 +5046,16 @@ class Admin extends Admin_Controller {
                         $base_where = array("gm3" => $programa_id);
                         // Create pagination links
                         if (strlen(trim($keyword)) > 0) {
-                            $total_rows = $this->vw_programa_m->where_in('estado',$estados_video_listar)->like('nombre', $keyword)->count_by($base_where);
+                            $total_rows = $this->vw_programa_m->where_in('estado', $estados_video_listar)->like('nombre', $keyword)->count_by($base_where);
                         } else {
-                            $total_rows = $this->vw_programa_m->where_in('estado',$estados_video_listar)->count_by($base_where);
+                            $total_rows = $this->vw_programa_m->where_in('estado', $estados_video_listar)->count_by($base_where);
                         }
                         $pagination = create_pagination('admin/videos/organizar/' . $canal_id . '/' . $programa_id . '/' . $tipo . '/index', $total_rows, 10, 8);
                         if (strlen(trim($keyword)) > 0) {
                             // Using this data, get the relevant results
-                            $lista_programas = $this->vw_programa_m->where_in('estado',$estados_video_listar)->like('nombre', $keyword)->limit($pagination['limit'])->get_many_by($base_where);
+                            $lista_programas = $this->vw_programa_m->where_in('estado', $estados_video_listar)->like('nombre', $keyword)->limit($pagination['limit'])->get_many_by($base_where);
                         } else {
-                            $lista_programas = $this->vw_programa_m->where_in('estado',$estados_video_listar)->limit($pagination['limit'])->get_many_by($base_where);
+                            $lista_programas = $this->vw_programa_m->where_in('estado', $estados_video_listar)->limit($pagination['limit'])->get_many_by($base_where);
                         }
                         //$breadcrumb.= $objMaestro->nombre;
                         $breadcrumb.= $this->generarBreadcrumb($objMaestro, $tipo);
@@ -5053,16 +5064,16 @@ class Admin extends Admin_Controller {
                         $base_where = array("gm2" => $programa_id);
                         // Create pagination links
                         if (strlen(trim($keyword)) > 0) {
-                            $total_rows = $this->vw_coleccion_m->where_in('estado',$estados_video_listar)->like('nombre', $keyword)->count_by($base_where);
+                            $total_rows = $this->vw_coleccion_m->where_in('estado', $estados_video_listar)->like('nombre', $keyword)->count_by($base_where);
                         } else {
-                            $total_rows = $this->vw_coleccion_m->where_in('estado',$estados_video_listar)->count_by($base_where);
+                            $total_rows = $this->vw_coleccion_m->where_in('estado', $estados_video_listar)->count_by($base_where);
                         }
                         $pagination = create_pagination('admin/videos/organizar/' . $canal_id . '/' . $programa_id . '/' . $tipo . '/index', $total_rows, 10, 8);
                         if (strlen(trim($keyword)) > 0) {
                             // Using this data, get the relevant results
-                            $lista_programas = $this->vw_coleccion_m->where_in('estado',$estados_video_listar)->like('nombre', $keyword)->limit($pagination['limit'])->get_many_by($base_where);
+                            $lista_programas = $this->vw_coleccion_m->where_in('estado', $estados_video_listar)->like('nombre', $keyword)->limit($pagination['limit'])->get_many_by($base_where);
                         } else {
-                            $lista_programas = $this->vw_coleccion_m->where_in('estado',$estados_video_listar)->limit($pagination['limit'])->get_many_by($base_where);
+                            $lista_programas = $this->vw_coleccion_m->where_in('estado', $estados_video_listar)->limit($pagination['limit'])->get_many_by($base_where);
                         }
                         $breadcrumb.=$this->generarBreadcrumb($objMaestro, $tipo);
                         break;
@@ -5070,16 +5081,16 @@ class Admin extends Admin_Controller {
                         $base_where = array("gm1" => $programa_id);
                         // Create pagination links
                         if (strlen(trim($keyword)) > 0) {
-                            $total_rows = $this->vw_lista_m->where_in('estado',$estados_video_listar)->like('nombre', $keyword)->count_by($base_where);
+                            $total_rows = $this->vw_lista_m->where_in('estado', $estados_video_listar)->like('nombre', $keyword)->count_by($base_where);
                         } else {
-                            $total_rows = $this->vw_lista_m->where_in('estado',$estados_video_listar)->count_by($base_where);
+                            $total_rows = $this->vw_lista_m->where_in('estado', $estados_video_listar)->count_by($base_where);
                         }
                         $pagination = create_pagination('admin/videos/organizar/' . $canal_id . '/' . $programa_id . '/' . $tipo . '/index', $total_rows, 10, 8);
                         if (strlen(trim($keyword)) > 0) {
                             // Using this data, get the relevant results
-                            $lista_programas = $this->vw_lista_m->where_in('estado',$estados_video_listar)->like('nombre', $keyword)->limit($pagination['limit'])->get_many_by($base_where);
+                            $lista_programas = $this->vw_lista_m->where_in('estado', $estados_video_listar)->like('nombre', $keyword)->limit($pagination['limit'])->get_many_by($base_where);
                         } else {
-                            $lista_programas = $this->vw_lista_m->where_in('estado',$estados_video_listar)->limit($pagination['limit'])->get_many_by($base_where);
+                            $lista_programas = $this->vw_lista_m->where_in('estado', $estados_video_listar)->limit($pagination['limit'])->get_many_by($base_where);
                         }
                         $breadcrumb.=$this->generarBreadcrumb($objMaestro, $tipo);
                         break;
@@ -5089,21 +5100,21 @@ class Admin extends Admin_Controller {
             $base_where = array("canales_id" => $canal_id);
             // Create pagination links
             if (strlen(trim($keyword)) > 0) {
-                $total_rows = $this->vw_organizar_m->where_in('estado',$estados_video_listar)->like('nombre', $keyword)->count_by($base_where);
+                $total_rows = $this->vw_organizar_m->where_in('estado', $estados_video_listar)->like('nombre', $keyword)->count_by($base_where);
             } else {
-                $total_rows = $this->vw_organizar_m->where_in('estado',$estados_video_listar)->count_by($base_where);
+                $total_rows = $this->vw_organizar_m->where_in('estado', $estados_video_listar)->count_by($base_where);
             }
             //$total_rows = $this->vw_organizar_m->count_by($base_where);
             $pagination = create_pagination('admin/videos/organizar/' . $canal_id . '/index', $total_rows, 10, 6);
             if (strlen(trim($keyword)) > 0) {
                 // Using this data, get the relevant results
-                $lista_programas = $this->vw_organizar_m->where_in('estado',$estados_video_listar)->like('nombre', $keyword)->limit($pagination['limit'])->get_many_by($base_where);
+                $lista_programas = $this->vw_organizar_m->where_in('estado', $estados_video_listar)->like('nombre', $keyword)->limit($pagination['limit'])->get_many_by($base_where);
             } else {
-                $lista_programas = $this->vw_organizar_m->where_in('estado',$estados_video_listar)->limit($pagination['limit'])->get_many_by($base_where);
+                $lista_programas = $this->vw_organizar_m->where_in('estado', $estados_video_listar)->limit($pagination['limit'])->get_many_by($base_where);
             }
             //$lista_programas = $this->vw_organizar_m->limit($pagination['limit'])->get_many_by($base_where);
         }
-
+        $estados = array("4" => "Codificando", $this->config->item('video:borrador') => "Borrador", $this->config->item('video:publicado') => "Publicado", $this->config->item('video:eliminado') => "Eliminado");
         $this->input->is_ajax_request() and $this->template->set_layout(FALSE);
         $this->template
                 ->title($this->module_details['name'])
@@ -5114,6 +5125,7 @@ class Admin extends Admin_Controller {
                 ->set_partial('organizar_videos', 'admin/tables/organizar_videos')
                 ->set('lista_programas', $lista_programas)
                 ->set('pagination', $pagination)
+                ->set('estados', $estados)
                 ->set('breadcrumb', $breadcrumb)
                 ->set('canal_id', $canal_id);
         $this->input->is_ajax_request() ? $this->template->build('admin/tables/organizar_videos') : $this->template->build('admin/organizar');
