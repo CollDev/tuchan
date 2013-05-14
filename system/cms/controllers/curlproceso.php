@@ -84,5 +84,13 @@ class curlProceso extends MX_Controller {
     public function getMaestroDetalles(){
         $this->procesos_lib->getMaestroDetalles();
     }
+    
+    public function getMaestroDetallesXId($id){
+        $this->procesos_lib->getMaestroDetallesXId($id);        
+    }
+    
+    public function deleteMaestroDetallesXId($id){
+        $this->procesos_lib->deleteMaestroDetallesXId($id);        
+    }
 }
 ?>

@@ -19,5 +19,14 @@ class Grupo_Maestros_mp extends CI_Model {
         return $this->db->query($query)->result();        
     }
     
+    function getMaestroDetallesXId($id){
+        $query = "SELECT * FROM default_cms_grupo_detalles WHERE  grupo_maestro_id =".$id;  
+        return $this->db->query($query)->result();     
+    }
+    
+    function deleteMaestroDetallesXId($id){
+         $query = "detele default_cms_grupo_detalles WHERE  id =".$id;  
+        return $this->db->query($query);     
+    }
         
 }    
