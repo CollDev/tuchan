@@ -1,7 +1,7 @@
 DROP TABLE IF EXISTS default_vw_coleccion;
 
- DROP VIEW IF EXISTS default_vw_coleccion ;
- DROP TABLE IF EXISTS default_vw_coleccion ;
+DROP VIEW IF EXISTS default_vw_coleccion ;
+DROP TABLE IF EXISTS default_vw_coleccion ;
 
  CREATE TABLE  default_vw_coleccion(
  v varchar(1) ,
