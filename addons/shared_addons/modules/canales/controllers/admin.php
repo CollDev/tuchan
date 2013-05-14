@@ -3260,15 +3260,41 @@ class Admin extends Admin_Controller {
                     }
                 }
                 //obtenemos el titulo y descripcion del item
-                if($detalle_secciones->grupo_maestros_id > 0){
+                if ($detalle_secciones->grupo_maestros_id > 0) {
                     $objMaestro = $this->grupo_maestro_m->get($detalle_secciones->grupo_maestros_id);
-                    if(count($objMaestro)>0){
+                    if (count($objMaestro) > 0) {
                         $objSeccionDestacado->titulo = $objMaestro->nombre;
+                    }
+                } else {
+                    if ($detalle_secciones->videos_id > 0) {
+                        $objVideo = $this->videos_m->get($detalle_secciones->videos_id);
+                        if (count($objVideo) > 0) {
+                            $objSeccionDestacado->titulo = $objVideo->titulo;
+                        }
+                    } else {
+                        if ($detalle_secciones->canales_id > 0) {
+                            $objCanal = $this->canales_m->get($detalle_secciones->videos_id);
+                            if (count($objCanal) > 0) {
+                                $objSeccionDestacado->titulo = $objCanal->titulo;
+                            }
+                        } else {
+                            if ($detalle_secciones->imagenes_id > 0) {
+                                $oImagen = $this->imagen_m->get($detalle_secciones->imagenes_id);
+                                if (count($oImagen) > 0) {
+                                    if ($oImagen->grupo_maestros_id > 0) {
+                                        $objMaestro = $this->grupo_maestro_m->get($oImagen->grupo_maestros_id);
+                                        if (count($objMaestro) > 0) {
+                                            $objSeccionDestacado->titulo = $objMaestro->nombre;
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
             $returnValue = $objSeccionDestacado;
-        }else{
+        } else {
             $objDestacadoPortada = new stdClass();
             $objDestacadoPortada->imagen = $this->config->item('url:default_imagen') . 'no_video.jpg';
             $objDestacadoPortada->titulo = '';

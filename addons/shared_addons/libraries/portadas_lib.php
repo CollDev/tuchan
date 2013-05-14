@@ -771,7 +771,7 @@ class Portadas_lib extends MX_Controller {
                     $canal_id = $objMaestro->canales_id;
                     if (count($detalle_secciones) > 0) {
                         foreach ($detalle_secciones as $puntero => $objDetalleSeccion) {
-                            $objSeccion = $this->secciones_m->get_by(array($objDetalleSeccion->secciones_id));
+                            $objSeccion = $this->secciones_m->get_by(array("id"=>$objDetalleSeccion->secciones_id));
                             if (count($objSeccion) > 0) {
                                 if ($objSeccion->tipo_secciones_id == $this->config->item('seccion:destacado')) {
                                     if ($objImagen->tipo_imagen_id == $this->config->item('imagen:extralarge')) {
@@ -794,7 +794,7 @@ class Portadas_lib extends MX_Controller {
                         }
                         if (count($detalle_secciones) > 0) {
                             foreach ($detalle_secciones as $puntero => $objDetalleSeccion) {
-                                $objSeccion = $this->secciones_m->get_by(array($objDetalleSeccion->secciones_id));
+                                $objSeccion = $this->secciones_m->get_by(array("id"=>$objDetalleSeccion->secciones_id));
                                 if (count($objSeccion) > 0) {
                                     if ($objSeccion->tipo_secciones_id == $this->config->item('seccion:destacado')) {
                                         if ($objImagen->tipo_imagen_id == $this->config->item('imagen:extralarge')) {
@@ -813,7 +813,7 @@ class Portadas_lib extends MX_Controller {
                             $canal_id = $objCanal->id;
                             if (count($detalle_secciones) > 0) {
                                 foreach ($detalle_secciones as $puntero => $objDetalleSeccion) {
-                                    $objSeccion = $this->secciones_m->get_by(array($objDetalleSeccion->secciones_id));
+                                    $objSeccion = $this->secciones_m->get_by(array("id"=>$objDetalleSeccion->secciones_id));
                                     if (count($objSeccion) > 0) {
                                         if ($objSeccion->tipo_secciones_id == $this->config->item('seccion:destacado')) {
                                             if ($objImagen->tipo_imagen_id == $this->config->item('imagen:extralarge')) {
