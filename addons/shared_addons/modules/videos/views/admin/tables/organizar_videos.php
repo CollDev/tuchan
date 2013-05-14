@@ -48,7 +48,7 @@
                             <?php endif; ?>
                             
                     <td><?php echo lang('tipo:' . $objPrograma->tipo_grupo . '_maestro') ?></td>
-                    <td ><?php echo lang('estado:' . ($objPrograma->estado - 1) . '_estado'); ?></td>
+                    <td id="estado_<?php echo $objPrograma->v ?>_<?php echo $objPrograma->id ?>"><?php echo lang('estado:' . ($objPrograma->estado - 1) . '_estado'); ?></td>
                     <?php 
                     $htmlAcciones ='';
                     if(($objPrograma->estado-1) == $this->config->item('estado:publicado')){
@@ -56,9 +56,10 @@
                             $htmlAcciones = anchor('/admin/videos/grupo_maestro/'.$canal_id.'/'.$objPrograma->id, lang('global:edit'), 'class="mode_edit"');
                         }else{
                             $htmlAcciones = anchor('/admin/videos/carga_unitaria/'.$canal_id.'/'.$objPrograma->id, lang('global:edit'), 'class="mode_edit"');
+                            //$htmlAcciones.= anchor('/admin/canales/visualizar_video/' . $objPrograma->id, lang('global:preview'), 'class="mode_preview modal-large_custom" onclick="return false;"');
                         }
                         $htmlAcciones.= anchor('#', lang('global:delete'), 'class="mode_delete" onclick="eliminar('.$objPrograma->id.',\''.$objPrograma->v.'\');return false;"');
-                        $htmlAcciones.= anchor('#', lang('global:preview'), 'class="mode_preview"');
+                        //$htmlAcciones.= anchor('#', lang('global:preview'), 'class="mode_preview"');
                     }else{
                         if(($objPrograma->estado-1) == $this->config->item('estado:borrador')){
                         if($objPrograma->v == 'm'){
@@ -66,12 +67,12 @@
                         }else{
                             $htmlAcciones = anchor('/admin/videos/carga_unitaria/'.$canal_id.'/'.$objPrograma->id, lang('global:edit'), 'class="mode_edit"');
                         }
-                        $htmlAcciones.= anchor('#', lang('global:preview'), 'class="mode_publish"');                            
+                        $htmlAcciones.= anchor('#', lang('publish_label'), 'class="mode_publish" onclick="publicar('.$objPrograma->id.',\''.$objPrograma->v.'\');return false;"');                            
                         $htmlAcciones.= anchor('#', lang('global:delete'), 'class="mode_delete" onclick="eliminar('.$objPrograma->id.',\''.$objPrograma->v.'\');return false;"');
                         }
                     }
                     ?>
-                    <td><?php echo $htmlAcciones; ?></td>
+                    <td id="acciones_<?php echo $objPrograma->v ?>_<?php echo $objPrograma->id ?>"><?php echo $htmlAcciones; ?></td>
                 </tr>
             <?php endforeach; ?>
         <?php endif; ?>

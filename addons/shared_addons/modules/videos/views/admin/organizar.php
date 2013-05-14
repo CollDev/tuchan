@@ -72,9 +72,9 @@
         jConfirm("Seguro que deseas eliminar este Item?", "Organizar videos", function(r) {
             if (r) {
                 var tipo_item = tipo;
-                if(tipo == 'v'){
+                if (tipo == 'v') {
                     tipo = 'video';
-                }else{
+                } else {
                     tipo = 'maestro';
                 }
                 if (tipo == 'video') {
@@ -97,6 +97,49 @@
                             //htmlButton+='<button class="btn blue" onclick="publicar(' +maestro_id+ ', \''+tipo+'\');return false;">Publicar</button>';
                             //htmlButton = '<a href="#" class="mode mode_restore" onclick="restablecer(' + maestro_id + ', \'' + tipo + '\');return false;">Restablecer</a>';
                             //$("#" + tipo + "_boton_" + maestro_id).html(htmlButton);
+                        }
+                    } //end success
+                }); //end AJAX   
+            }
+        });
+    }
+
+    function publicar(maestro_id, tipo) {
+        jConfirm("Seguro que deseas publicar este Item?", "Organizar videos", function(r) {
+            if (r) {
+                var tipo_item = tipo;
+                if (tipo == 'v') {
+                    tipo = 'video';
+                } else {
+                    tipo = 'maestro';
+                }
+                if (tipo == 'video') {
+                    var post_url = "/admin/videos/publicar_video/" + maestro_id;
+                } else {
+                    var post_url = "/admin/videos/publicar_maestro/" + maestro_id;
+                }
+                $.ajax({
+                    type: "POST",
+                    url: post_url,
+                    dataType: 'json',
+                    //data: indexOrder,
+                    success: function(respuesta)
+                    {
+                        if (respuesta.value == 1) {
+                            //location.reload();
+                            $("#estado_" + tipo_item + "_" + maestro_id).empty();
+                            $("#estado_" + tipo_item + "_" + maestro_id).html('Publicado');
+                            var htmlButton = '';
+                            if (tipo_item == 'v') {
+                                var url = 'admin/videos/carga_unitaria/<?php echo $canal_id ?>/' + maestro_id;
+                            } else {
+                                var url = 'admin/videos/grupo_maestro/<?php echo $canal_id ?>/' + maestro_id;
+                            }
+                            htmlButton += '<a href="#" class="mode mode_edit" onclick="editar(\'' + url + '\');return false;">Editar</a>';
+                            htmlButton += '<a href="#" class="mode mode_delete" onclick="eliminar(' + maestro_id + ', \'' + tipo_item + '\');return false;">Eliminar</a>';
+                            $("#acciones_" + tipo_item + "_" + maestro_id).html(htmlButton);
+                        } else {
+                            showMessage('error', 'No es posible publicar. No tiene videos publicados', 2000, '');
                         }
                     } //end success
                 }); //end AJAX   
