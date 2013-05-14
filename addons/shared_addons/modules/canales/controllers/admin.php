@@ -29,6 +29,7 @@ class Admin extends Admin_Controller {
         $this->load->model('tipo_portada_m');
         $this->load->model('tipo_secciones_m');
         $this->load->model('vw_video_m');
+        $this->load->model('vw_maestro_video_m');
         $this->load->model('usuario_grupo_canales_m');
         $this->load->model('videos/videos_m');
         $this->load->model('videos/tipo_imagen_m');
@@ -176,10 +177,10 @@ class Admin extends Admin_Controller {
             } else {
                 $estado_cambiado = $this->input->post('f_estado');
             }
-            $base_where = array("canales_id" => $canal_id, "estado" => $estado_cambiado);
+            $base_where = array("v"=>"v", "canales_id" => $canal_id, "estado" => $estado_cambiado);
             $estados_video_listar = array();
         } else {
-            $base_where = array("canales_id" => $canal_id);
+            $base_where = array("v"=>"v", "canales_id" => $canal_id);
             //estados de los videos a listar
             $estados_video_listar = array($this->config->item('video:codificando'), $this->config->item('video:borrador'), $this->config->item('video:publicado'));
         }
@@ -189,31 +190,33 @@ class Admin extends Admin_Controller {
             $keyword = $this->input->post('f_keywords');
 
         if ($this->input->post('f_programa'))
-            $base_where['tercer_padre'] = $this->input->post('f_programa');
+            //$base_where['tercer_padre'] = $this->input->post('f_programa');
+            $base_where['gm3'] = $this->input->post('f_programa');
 
         // Create pagination links
         if (strlen(trim($keyword)) > 0) {
-            $total_rows = $this->vw_video_m->like('titulo', $keyword)->count_by($base_where);
+            //$total_rows = $this->vw_video_m->like('titulo', $keyword)->count_by($base_where);
+            $total_rows = $this->vw_maestro_video_m->like('nombre', $keyword)->count_by($base_where);
         } else {
             if (count($estados_video_listar) > 0) {
-                $total_rows = $this->vw_video_m->where_in('estado', $estados_video_listar)->count_by($base_where);
+                $total_rows = $this->vw_maestro_video_m->where_in('estado', $estados_video_listar)->count_by($base_where);
             } else {
-                $total_rows = $this->vw_video_m->count_by($base_where);
+                $total_rows = $this->vw_maestro_video_m->count_by($base_where);
             }
         }
         $pagination = create_pagination('admin/canales/videos/' . $canal_id . '/index/', $total_rows, 10, 6);
         if (strlen(trim($keyword)) > 0) {
             // Using this data, get the relevant results
-            $listVideo = $this->vw_video_m->like('titulo', $keyword)->order_by('fecha_registro', 'DESC')->limit($pagination['limit'])->get_many_by($base_where);
+            $listVideo = $this->vw_maestro_video_m->like('nombre', $keyword)->order_by('fecha_registro', 'DESC')->limit($pagination['limit'])->get_many_by($base_where);
         } else {
             if (count($estados_video_listar) > 0) {
-                $listVideo = $this->vw_video_m->where_in('estado', $estados_video_listar)->order_by('fecha_registro', 'DESC')->limit($pagination['limit'])->get_many_by($base_where);
+                $listVideo = $this->vw_maestro_video_m->where_in('estado', $estados_video_listar)->order_by('fecha_registro', 'DESC')->limit($pagination['limit'])->get_many_by($base_where);
             } else {
-                $listVideo = $this->vw_video_m->order_by('fecha_registro', 'DESC')->limit($pagination['limit'])->get_many_by($base_where);
+                $listVideo = $this->vw_maestro_video_m->order_by('fecha_registro', 'DESC')->limit($pagination['limit'])->get_many_by($base_where);
             }
         }
         //corregimos  el listado para maestros y programas
-        if (count($listVideo) > 0) {
+        /*if (count($listVideo) > 0) {
             foreach ($listVideo as $puntero => $oResultVideo) {
                 if (strlen(trim($oResultVideo->programa)) == 0) {
                     $oResultVideo->programa = $this->_getNamePrograma($oResultVideo->id);
@@ -228,7 +231,7 @@ class Admin extends Admin_Controller {
                     $listVideo[$puntero] = $oResultVideo;
                 }
             }
-        }
+        }*/
         // Obtiene datos del canal
         $canal = $this->canales_m->get($canal_id);
         $logo_canal = $this->imagenes_m->getLogo(array('canales_id' => $canal_id,

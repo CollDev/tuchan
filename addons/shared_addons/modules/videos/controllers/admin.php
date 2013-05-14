@@ -32,6 +32,10 @@ class Admin extends Admin_Controller {
         $this->load->model('tags_m');
         $this->load->model('video_tags_m');
         $this->load->model('grupo_maestro_tag_m');
+        $this->load->model('vw_organizar_m');
+        $this->load->model('vw_programa_m');
+        $this->load->model('vw_coleccion_m');
+        $this->load->model('vw_lista_m');
         $this->lang->load('videos');
         $this->config->load('videos/uploads');
         $this->load->library('image_lib');
@@ -62,6 +66,9 @@ class Admin extends Admin_Controller {
             $this->videos_m->update($objBeanVideo->id, array("estado_liquid" => $this->config->item('liquid:mp4')));
         }
         rename($path_video_old, $path_video_new);
+        //lanzamos la libreria para registrar el video en las portadas
+        $this->portadas_lib->agregar_video($objBeanVideo->id);
+
         $this->procesos_lib->curlProcesoVideosXId($objBeanVideo->id);
 
         return $returnValue;
@@ -2435,6 +2442,9 @@ class Admin extends Admin_Controller {
 //                $datos["ruta"] = $result[0]->ruta;
 //
 //                Proceso::corte_Video($datos);
+//                
+                //lanzamos la libreria para registrar el video en las portadas
+                $this->portadas_lib->agregar_video($objvideotemp->id);
 
                 $this->procesos_lib->curlCorteVideoXId($video_id, $objvideotemp->id, $this->input->post('ini_corte'), $this->input->post('dur_corte'));
                 echo json_encode(array("value" => '0'));
@@ -5001,6 +5011,251 @@ class Admin extends Admin_Controller {
             }
             echo "Los videos del maestro " . $maestro_id . " =>" . $objMaestro->nombre . " se eliminaron";
         }
+    }
+
+    /**
+     * Método para listar y organizar videos 
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param int $canal_id 
+     */
+    public function organizar($canal_id, $programa_id = 0, $tipo = 3) {
+        $keyword = '';
+        $breadcrumb = '';
+        if ($this->input->post('f_keywords')) {
+            $keyword = $this->input->post('f_keywords');
+        }
+        if ($this->input->post('f_estado')) {
+            if ($this->input->post('f_estado') == '4') {
+                $estado_cambiado = $this->config->item('video:codificando');
+            } else {
+                $estado_cambiado = $this->input->post('f_estado');
+            }
+            $estados_video_listar = array($estado_cambiado);
+        } else {
+            $estados_video_listar = array($this->config->item('video:codificando'), $this->config->item('video:borrador'), $this->config->item('video:publicado'));
+        }
+        //$base_where = array("v"=>"v", "canales_id" => $canal_id, "estado" => $estado_cambiado);
+        //$estados_video_listar
+        //estados de los programas a listar
+//        $estados_video_listar = array($this->config->item('video:codificando'), $this->config->item('video:borrador'), $this->config->item('video:publicado'));
+        if ($programa_id > 0) {
+            $objMaestro = $this->grupo_maestro_m->get($programa_id);
+            if (count($objMaestro) > 0) {
+                switch ($tipo) {
+                    case $this->config->item('videos:programa'):
+                        $base_where = array("gm3" => $programa_id);
+                        // Create pagination links
+                        if (strlen(trim($keyword)) > 0) {
+                            $total_rows = $this->vw_programa_m->where_in('estado', $estados_video_listar)->like('nombre', $keyword)->count_by($base_where);
+                        } else {
+                            $total_rows = $this->vw_programa_m->where_in('estado', $estados_video_listar)->count_by($base_where);
+                        }
+                        $pagination = create_pagination('admin/videos/organizar/' . $canal_id . '/' . $programa_id . '/' . $tipo . '/index', $total_rows, 10, 8);
+                        if (strlen(trim($keyword)) > 0) {
+                            // Using this data, get the relevant results
+                            $lista_programas = $this->vw_programa_m->where_in('estado', $estados_video_listar)->like('nombre', $keyword)->limit($pagination['limit'])->get_many_by($base_where);
+                        } else {
+                            $lista_programas = $this->vw_programa_m->where_in('estado', $estados_video_listar)->limit($pagination['limit'])->get_many_by($base_where);
+                        }
+                        //$breadcrumb.= $objMaestro->nombre;
+                        $breadcrumb.= $this->generarBreadcrumb($objMaestro, $tipo);
+                        break;
+                    case $this->config->item('videos:coleccion'):
+                        $base_where = array("gm2" => $programa_id);
+                        // Create pagination links
+                        if (strlen(trim($keyword)) > 0) {
+                            $total_rows = $this->vw_coleccion_m->where_in('estado', $estados_video_listar)->like('nombre', $keyword)->count_by($base_where);
+                        } else {
+                            $total_rows = $this->vw_coleccion_m->where_in('estado', $estados_video_listar)->count_by($base_where);
+                        }
+                        $pagination = create_pagination('admin/videos/organizar/' . $canal_id . '/' . $programa_id . '/' . $tipo . '/index', $total_rows, 10, 8);
+                        if (strlen(trim($keyword)) > 0) {
+                            // Using this data, get the relevant results
+                            $lista_programas = $this->vw_coleccion_m->where_in('estado', $estados_video_listar)->like('nombre', $keyword)->limit($pagination['limit'])->get_many_by($base_where);
+                        } else {
+                            $lista_programas = $this->vw_coleccion_m->where_in('estado', $estados_video_listar)->limit($pagination['limit'])->get_many_by($base_where);
+                        }
+                        $breadcrumb.=$this->generarBreadcrumb($objMaestro, $tipo);
+                        break;
+                    case $this->config->item('videos:lista'):
+                        $base_where = array("gm1" => $programa_id);
+                        // Create pagination links
+                        if (strlen(trim($keyword)) > 0) {
+                            $total_rows = $this->vw_lista_m->where_in('estado', $estados_video_listar)->like('nombre', $keyword)->count_by($base_where);
+                        } else {
+                            $total_rows = $this->vw_lista_m->where_in('estado', $estados_video_listar)->count_by($base_where);
+                        }
+                        $pagination = create_pagination('admin/videos/organizar/' . $canal_id . '/' . $programa_id . '/' . $tipo . '/index', $total_rows, 10, 8);
+                        if (strlen(trim($keyword)) > 0) {
+                            // Using this data, get the relevant results
+                            $lista_programas = $this->vw_lista_m->where_in('estado', $estados_video_listar)->like('nombre', $keyword)->limit($pagination['limit'])->get_many_by($base_where);
+                        } else {
+                            $lista_programas = $this->vw_lista_m->where_in('estado', $estados_video_listar)->limit($pagination['limit'])->get_many_by($base_where);
+                        }
+                        $breadcrumb.=$this->generarBreadcrumb($objMaestro, $tipo);
+                        break;
+                }
+            }
+        } else {
+            $base_where = array("canales_id" => $canal_id);
+            // Create pagination links
+            if (strlen(trim($keyword)) > 0) {
+                $total_rows = $this->vw_organizar_m->where_in('estado', $estados_video_listar)->like('nombre', $keyword)->count_by($base_where);
+            } else {
+                $total_rows = $this->vw_organizar_m->where_in('estado', $estados_video_listar)->count_by($base_where);
+            }
+            //$total_rows = $this->vw_organizar_m->count_by($base_where);
+            $pagination = create_pagination('admin/videos/organizar/' . $canal_id . '/index', $total_rows, 10, 6);
+            if (strlen(trim($keyword)) > 0) {
+                // Using this data, get the relevant results
+                $lista_programas = $this->vw_organizar_m->where_in('estado', $estados_video_listar)->like('nombre', $keyword)->limit($pagination['limit'])->get_many_by($base_where);
+            } else {
+                $lista_programas = $this->vw_organizar_m->where_in('estado', $estados_video_listar)->limit($pagination['limit'])->get_many_by($base_where);
+            }
+            //$lista_programas = $this->vw_organizar_m->limit($pagination['limit'])->get_many_by($base_where);
+        }
+        $estados = array("4" => "Codificando", $this->config->item('video:borrador') => "Borrador", $this->config->item('video:publicado') => "Publicado", $this->config->item('video:eliminado') => "Eliminado");
+        $this->input->is_ajax_request() and $this->template->set_layout(FALSE);
+        $this->template
+                ->title($this->module_details['name'])
+                ->append_js('admin/filter.js')
+                ->set_partial('filters', 'admin/partials/filters')
+                ->append_js('module::jquery.alerts.js')
+                ->append_css('module::jquery.alerts.css')
+                ->set_partial('organizar_videos', 'admin/tables/organizar_videos')
+                ->set('lista_programas', $lista_programas)
+                ->set('pagination', $pagination)
+                ->set('estados', $estados)
+                ->set('breadcrumb', $breadcrumb)
+                ->set('canal_id', $canal_id);
+        $this->input->is_ajax_request() ? $this->template->build('admin/tables/organizar_videos') : $this->template->build('admin/organizar');
+    }
+
+    /**
+     * Método para generar el breadcrumb
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param object $objMaestro
+     * @return string
+     */
+    private function generarBreadcrumb($objMaestro, $tipo) {
+        $returnValue = '';
+        if ($tipo > 0) {
+            if ($objMaestro->tipo_grupo_maestro_id == $this->config->item('videos:coleccion')) {
+                $programa = $this->obtener_programa_x_coleccion($objMaestro->id);
+                $objCanal = $this->canales_m->get($objMaestro->canales_id);
+                $returnValue.=anchor('/admin/videos/organizar/' . $objMaestro->canales_id, $objCanal->nombre);
+                $returnValue.=' > ';
+                if (count($programa) > 0) {
+                    $returnValue.=anchor('/admin/videos/organizar/' . $programa->canales_id . '/' . $programa->id . '/' . $programa->tipo_grupo_maestro_id, $programa->nombre);
+                    $returnValue.=' > ';
+                    $returnValue.= $objMaestro->nombre;
+                } else {
+
+                    $returnValue.=' > ';
+                    $returnValue.= $objMaestro->nombre;
+                }
+            } else {
+                if ($objMaestro->tipo_grupo_maestro_id == $this->config->item('videos:lista')) {
+                    $programa = $this->obtener_programa_x_lista($objMaestro->id);
+                    $objCanal = $this->canales_m->get($objMaestro->canales_id);
+                    $returnValue.=anchor('/admin/videos/organizar/' . $objMaestro->canales_id, $objCanal->nombre);
+                    $returnValue.=' > ';
+                    if (count($programa) > 0) {
+                        $returnValue.=anchor('/admin/videos/organizar/' . $programa->canales_id . '/' . $programa->id . '/' . $programa->tipo_grupo_maestro_id, $programa->nombre);
+                        $returnValue.=' > ';
+                        //obtenemos la coleccion de la lista
+                        $objColeccion = $this->obtener_coleccion_x_lista($objMaestro->id);
+                        if (count($objColeccion) > 0) {
+                            $returnValue.=anchor('/admin/videos/organizar/' . $objColeccion->canales_id . '/' . $objColeccion->id . '/' . $objColeccion->tipo_grupo_maestro_id, $objColeccion->nombre);
+                            $returnValue.=' > ';
+                        }
+                        $returnValue.= $objMaestro->nombre;
+                    } else {
+                        //obtenemos la coleccion de la lista
+                        $objColeccion = $this->obtener_coleccion_x_lista($objMaestro->id);
+                        if (count($objColeccion) > 0) {
+                            $returnValue.=anchor('/admin/videos/organizar/' . $objColeccion->canales_id . '/' . $objColeccion->id . '/' . $objColeccion->tipo_grupo_maestro_id, $objColeccion->nombre);
+                            $returnValue.=' > ';
+                        }
+                        $returnValue.= $objMaestro->nombre;
+                    }
+                } else {
+                    if ($objMaestro->tipo_grupo_maestro_id == $this->config->item('videos:programa')) {
+                        $objCanal = $this->canales_m->get($objMaestro->canales_id);
+                        $returnValue.=anchor('/admin/videos/organizar/' . $objMaestro->canales_id, $objCanal->nombre);
+                        $returnValue.=' > ';
+                        $returnValue.= $objMaestro->nombre;
+                    }
+                }
+            }
+        }
+        return $returnValue;
+    }
+
+    /**
+     * Método para obtener el objeto maestro de una coleccion
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param int $colecion_id
+     * @return array
+     */
+    private function obtener_programa_x_coleccion($colecion_id) {
+        $returnValue = array();
+        $objDetalle = $this->grupo_detalle_m->get_by(array("grupo_maestro_id" => $colecion_id, "tipo_grupo_maestros_id" => $this->config->item('videos:programa')));
+        if (count($objDetalle) > 0) {
+            $objMaestro = $this->grupo_maestro_m->get($objDetalle->grupo_maestro_padre);
+            if (count($objMaestro) > 0) {
+                $returnValue = $objMaestro;
+            }
+        }
+        return $objMaestro;
+    }
+
+    /**
+     * Método para obtener el programa de una lista
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param int $lista_id
+     * @return array
+     */
+    private function obtener_programa_x_lista($lista_id) {
+        $returnValue = array();
+        //primero obtenemos su coleccion
+        $objDetalle = $this->grupo_detalle_m->get_by(array("grupo_maestro_id" => $lista_id, "tipo_grupo_maestros_id" => $this->config->item('videos:coleccion')));
+        if (count($objDetalle) > 0) {
+            //tiene una coleccion
+            $objMaestro = $this->obtener_programa_x_coleccion($objDetalle->grupo_maestro_padre);
+            if (count($objMaestro) > 0) {
+                $returnValue = $objMaestro;
+            }
+        } else {
+            //no tiene coleccion
+            //quizás tenga un maestro de tipo programa
+            $objDetalle = $this->grupo_detalle_m->get_by(array("grupo_maestro_id" => $lista_id, "tipo_grupo_maestros_id" => $this->config->item('videos:programa')));
+            if (count($objDetalle) > 0) {
+                $objMaestro = $this->grupo_detalle_m->get($objDetalle->grupo_maestro_padre);
+                if (count($objMaestro) > 0) {
+                    $returnValue = $objMaestro;
+                }
+            }
+        }
+        return $returnValue;
+    }
+
+    /**
+     * Método para obtener el objeto coleccion de una lista
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param int $lista_id
+     * @return array
+     */
+    private function obtener_coleccion_x_lista($lista_id) {
+        $returnValue = array();
+        $objDetalle = $this->grupo_detalle_m->get_by(array("grupo_maestro_id" => $lista_id, "tipo_grupo_maestros_id" => $this->config->item('videos:coleccion')));
+        if (count($objDetalle) > 0) {
+            $objMaestro = $this->grupo_maestro_m->get($objDetalle->grupo_maestro_padre);
+            if (count($objMaestro) > 0) {
+                $returnValue = $objMaestro;
+            }
+        }
+        return $returnValue;
     }
 
 }

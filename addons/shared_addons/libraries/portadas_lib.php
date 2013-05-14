@@ -34,6 +34,7 @@ class Portadas_lib extends MX_Controller {
     public function agregar_video($video_id) {
         if ($video_id > 0) {
             $objVideo = $this->videos_m->get($video_id);
+            $user_id = (int) $this->session->userdata('user_id');
             if (count($objVideo) > 0) {
                 //verificamos si no tiene relacion en la tabla maestro detalle
                 $obj_coleccion_relacion = $this->grupo_detalle_m->get_by(array("video_id" => $video_id));
@@ -55,12 +56,86 @@ class Portadas_lib extends MX_Controller {
                     //registramos en la portada del canal
                     $lista_portadas = $this->portada_m->get_many_by(array("canales_id" => $objVideo->canales_id, "origen_id" => $objVideo->canales_id, "tipo_portadas_id" => $this->config->item('portada:canal')));
                 }
+                // registramos en la portada el video
+                if (count($lista_portadas) > 0) {
+                    foreach ($lista_portadas as $puntero => $objPortada) {
+                        $tipo_seccion = $this->obtener_array_tipo_seccion($objPortada);
+                        if (count($tipo_seccion) > 0) {
+                            $secciones_portada = $this->secciones_m->where_in('tipo_secciones_id', $tipo_seccion)->get_many_by(array("portadas_id" => $objPortada->id));
+                            if (count($secciones_portada) > 0) {
+
+                                foreach ($secciones_portada as $index => $objSeccion) {
+                                    //if ($this->obtener_imagen_maestro($objMaestro, $objSeccion) > 0) {
+                                    $detalle_seccion = $this->detalle_secciones_m->get_many_by(array("secciones_id" => $objSeccion->id, "videos_id" => $video_id));
+                                    if (count($detalle_seccion) == 0) {
+                                        //registramos el programa en esta seccion
+                                        $objBeanDetalleSeccion = new stdClass();
+                                        $objBeanDetalleSeccion->id = NULL;
+                                        $objBeanDetalleSeccion->secciones_id = $objSeccion->id;
+                                        $objBeanDetalleSeccion->videos_id = $video_id;
+                                        $objBeanDetalleSeccion->grupo_maestros_id = NULL;
+                                        $objBeanDetalleSeccion->canales_id = NULL;
+                                        $objBeanDetalleSeccion->imagenes_id = $this->obtener_imagen_maestro($objVideo, $objSeccion, 'video');
+                                        $objBeanDetalleSeccion->peso = $this->obtenerPesoDetalleSeccion($objSeccion->id);
+                                        $objBeanDetalleSeccion->descripcion_item = '';
+                                        $estado_video = $objVideo->estado - 1;
+                                        if ($estado_video < 0) {
+                                            $estado_video = 0;
+                                        }
+                                        $objBeanDetalleSeccion->estado = $estado_video;
+                                        $objBeanDetalleSeccion->fecha_registro = date("Y-m-d H:i:s");
+                                        $objBeanDetalleSeccion->usuario_registro = $user_id;
+                                        $objBeanDetalleSeccion->estado_migracion = 9;
+                                        $objBeanDetalleSeccion->fecha_migracion = '0000-00-00 00:00:00';
+                                        $objBeanDetalleSeccion->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
+                                        $objBeanDetalleSeccionSaved = $this->detalle_secciones_m->save($objBeanDetalleSeccion);
+                                        $this->secciones_m->update($objSeccion->id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                    }
+                                    //}
+                                }
+                            }
+                            //
+                        }
+                    }
+                }
             }
         }
     }
-    
-    private function obtener_maestro_programa($maestro_id){
-        
+
+    /**
+     * Método para obtener el maestro si lo tuviera
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param int $maestro_id
+     * @return array
+     */
+    private function obtener_maestro_programa($maestro_id) {
+        $returnValue = array();
+        if ($maestro_id > 0) {
+            $objMaestro = $this->grupo_maestro_m->get($maestro_id);
+            if (count($objMaestro) > 0) {
+                if ($objMaestro->tipo_grupo_maestro_id == $this->config->item('videos:programa')) {
+                    $returnValue = $objMaestro;
+                } else {
+                    if ($objMaestro->tipo_grupo_maestro_id == $this->config->item('videos:coleccion')) {
+                        $objRelacion = $this->grupo_detalle_m->get_by(array("grupo_maestro_id" => $objMaestro->id, "tipo_grupo_maestros_id" => $this->config->item('videos:programa')));
+                        if (count($objRelacion) > 0) {
+                            $returnValue = $this->grupo_maestro_m->get($objRelacion->grupo_maestro_padre);
+                        }
+                    } else {
+                        if ($objMaestro->tipo_grupo_maestro_id == $this->config->item('videos:lista')) {
+                            $objRelacionColeccion = $this->grupo_detalle_m->get_by(array("grupo_maestro_id" => $objMaestro->id, "tipo_grupo_maestros_id" => $this->config->item('videos:coleccion')));
+                            if (count($objRelacionColeccion) > 0) {
+                                $objRelacionPrograma = $this->grupo_detalle_m->get_by(array("grupo_maestro_id" => $objRelacionColeccion->grupo_maestro_padre, "tipo_grupo_maestros_id" => $this->config->item('videos:programa')));
+                                if (count($objRelacionPrograma) > 0) {
+                                    $returnValue = $this->grupo_maestro_m->get($objRelacionPrograma->grupo_maestro_padre);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return $returnValue;
     }
 
     /**
@@ -557,7 +632,7 @@ class Portadas_lib extends MX_Controller {
      * @param object $objSeccion
      * @return int
      */
-    private function obtener_imagen_maestro($objMaestro, $objSeccion) {
+    private function obtener_imagen_maestro($objeto, $objSeccion, $tipo = 'maestro') {
         $returnValue = 0;
         switch ($objSeccion->tipo_secciones_id) {
             case $this->config->item('seccion:destacado'):
@@ -567,7 +642,11 @@ class Portadas_lib extends MX_Controller {
                 $tipo_imagen = $this->config->item('imagen:small');
                 break;
         }
-        $objImagen = $this->imagen_m->get_by(array("estado" => $this->config->item('estado:publicado'), "grupo_maestros_id" => $objMaestro->id, "tipo_imagen_id" => $tipo_imagen));
+        if ($tipo == 'maestro') {
+            $objImagen = $this->imagen_m->get_by(array("estado" => $this->config->item('estado:publicado'), "grupo_maestros_id" => $objeto->id, "tipo_imagen_id" => $tipo_imagen));
+        } else {
+            $objImagen = $this->imagen_m->get_by(array("estado" => $this->config->item('estado:publicado'), "videos_id" => $objeto->id, "tipo_imagen_id" => $tipo_imagen));
+        }
         if (count($objImagen) > 0) {
             $returnValue = $objImagen->id;
         }
@@ -581,46 +660,64 @@ class Portadas_lib extends MX_Controller {
      * @param object $objMaestro
      * @return array 
      */
-    private function obtener_array_tipo_seccion($objPortada, $objMaestro) {
+    private function obtener_array_tipo_seccion($objPortada, $objMaestro = NULL) {
         //recolectamos tipo de secciones para este tipo
         $returnValue = array();
-        if ($objMaestro->tipo_grupo_maestro_id == $this->config->item('videos:programa')) {// para maestros de tipo programa
+        if ($objMaestro == NULL) {// es un video
             if ($objPortada->tipo_portadas_id == $this->config->item('portada:principal')) {
                 array_push($returnValue, $this->config->item('seccion:destacado'));
                 array_push($returnValue, $this->config->item('seccion:programa'));
             } else {
                 if ($objPortada->tipo_portadas_id == $this->config->item('portada:canal')) {
                     array_push($returnValue, $this->config->item('seccion:destacado'));
-                    array_push($returnValue, $this->config->item('seccion:programa'));
+                    array_push($returnValue, $this->config->item('seccion:coleccion'));
+                    array_push($returnValue, $this->config->item('seccion:video'));
                 } else {
                     if ($objPortada->tipo_portadas_id == $this->config->item('portada:programa')) {
-                        array_push($returnValue, $this->config->item('seccion:destacado'));
+                        array_push($returnValue, $this->config->item('seccion:coleccion'));
+                        array_push($returnValue, $this->config->item('seccion:video'));
                     }
                 }
             }
-        } else {
-            if ($objMaestro->tipo_grupo_maestro_id == $this->config->item('videos:coleccion')) {
+        } else {// es un maestro
+            if ($objMaestro->tipo_grupo_maestro_id == $this->config->item('videos:programa')) {// para maestros de tipo programa
                 if ($objPortada->tipo_portadas_id == $this->config->item('portada:principal')) {
                     array_push($returnValue, $this->config->item('seccion:destacado'));
+                    array_push($returnValue, $this->config->item('seccion:programa'));
                 } else {
                     if ($objPortada->tipo_portadas_id == $this->config->item('portada:canal')) {
                         array_push($returnValue, $this->config->item('seccion:destacado'));
+                        array_push($returnValue, $this->config->item('seccion:programa'));
+                    } else {
+                        if ($objPortada->tipo_portadas_id == $this->config->item('portada:programa')) {
+                            array_push($returnValue, $this->config->item('seccion:destacado'));
+                        }
                     }
                 }
             } else {
-                if ($objMaestro->tipo_grupo_maestro_id == $this->config->item('videos:lista')) {
+                if ($objMaestro->tipo_grupo_maestro_id == $this->config->item('videos:coleccion')) {
                     if ($objPortada->tipo_portadas_id == $this->config->item('portada:principal')) {
                         array_push($returnValue, $this->config->item('seccion:destacado'));
-                        array_push($returnValue, $this->config->item('seccion:programa'));
                     } else {
                         if ($objPortada->tipo_portadas_id == $this->config->item('portada:canal')) {
                             array_push($returnValue, $this->config->item('seccion:destacado'));
-                            array_push($returnValue, $this->config->item('seccion:coleccion'));
-                            array_push($returnValue, $this->config->item('seccion:lista'));
+                        }
+                    }
+                } else {
+                    if ($objMaestro->tipo_grupo_maestro_id == $this->config->item('videos:lista')) {
+                        if ($objPortada->tipo_portadas_id == $this->config->item('portada:principal')) {
+                            array_push($returnValue, $this->config->item('seccion:destacado'));
+                            array_push($returnValue, $this->config->item('seccion:programa'));
                         } else {
-                            if ($objPortada->tipo_portadas_id == $this->config->item('portada:programa')) {
+                            if ($objPortada->tipo_portadas_id == $this->config->item('portada:canal')) {
+                                array_push($returnValue, $this->config->item('seccion:destacado'));
                                 array_push($returnValue, $this->config->item('seccion:coleccion'));
                                 array_push($returnValue, $this->config->item('seccion:lista'));
+                            } else {
+                                if ($objPortada->tipo_portadas_id == $this->config->item('portada:programa')) {
+                                    array_push($returnValue, $this->config->item('seccion:coleccion'));
+                                    array_push($returnValue, $this->config->item('seccion:lista'));
+                                }
                             }
                         }
                     }
@@ -652,7 +749,7 @@ class Portadas_lib extends MX_Controller {
                 //recorremos las portadas para actualizarlas
                 $objsecciones = $this->secciones_m->get_many_by(array("portadas_id" => $objPortada->id, "estado" => $this->config->item('estado:publicado')));
                 if (count($objsecciones) > 0) {
-                    $this->portada_m->update($objPortada->id, array("estado" => $this->config->item('estado:publicado')));
+                    $this->portada_m->update($objPortada->id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
                 }
             }
         }
@@ -665,33 +762,75 @@ class Portadas_lib extends MX_Controller {
      */
     public function actualizar_imagen($imagen_id) {
         if ($imagen_id > 0) {
+            $canal_id = 0;
             $objImagen = $this->imagen_m->get($imagen_id);
             if (count($objImagen) > 0) {
                 if ($objImagen->grupo_maestros_id > 0) {
                     $detalle_secciones = $this->detalle_secciones_m->get_many_by(array("grupo_maestros_id" => $objImagen->grupo_maestros_id));
+                    $objMaestro = $this->grupo_maestro_m->get($objImagen->grupo_maestros_id);
+                    $canal_id = $objMaestro->canales_id;
                     if (count($detalle_secciones) > 0) {
                         foreach ($detalle_secciones as $puntero => $objDetalleSeccion) {
-                            $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id));
+                            $objSeccion = $this->secciones_m->get_by(array($objDetalleSeccion->secciones_id));
+                            if (count($objSeccion) > 0) {
+                                if ($objSeccion->tipo_secciones_id == $this->config->item('seccion:destacado')) {
+                                    if ($objImagen->tipo_imagen_id == $this->config->item('imagen:extralarge')) {
+                                        $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id, "estado"=>$objMaestro->estado, "estado_migracion"=>$this->config->item('migracion:actualizado')));
+                                    }
+                                } else {
+                                    $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id, "estado"=>$objMaestro->estado, "estado_migracion"=>$this->config->item('migracion:actualizado')));
+                                }
+                            }
                         }
                     }
                 } else {
                     if ($objImagen->videos_id > 0) {
                         $detalle_secciones = $this->detalle_secciones_m->get_many_by(array("videos_id" => $objImagen->videos_id));
+                        $objVideo = $this->videos_m->get($objImagen->videos_id);
+                        $canal_id = $objVideo->canales_id;
+                        $estado_video = $objVideo->estado-1;
+                        if($estado_video < 0){
+                            $estado_video = 0;
+                        }
                         if (count($detalle_secciones) > 0) {
                             foreach ($detalle_secciones as $puntero => $objDetalleSeccion) {
-                                $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id));
+                                $objSeccion = $this->secciones_m->get_by(array($objDetalleSeccion->secciones_id));
+                                if (count($objSeccion) > 0) {
+                                    if ($objSeccion->tipo_secciones_id == $this->config->item('seccion:destacado')) {
+                                        if ($objImagen->tipo_imagen_id == $this->config->item('imagen:extralarge')) {
+                                            $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id, "estado"=>$estado_video, "estado_migracion"=>$this->config->item('migracion:actualizado')));
+                                        }
+                                    } else {
+                                        $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id, "estado"=>$estado_video, "estado_migracion"=>$this->config->item('migracion:actualizado')));
+                                    }
+                                }
                             }
                         }
                     } else {
                         if ($objImagen->canales_id > 0) {
                             $detalle_secciones = $this->detalle_secciones_m->get_many_by(array("canales_id" => $objImagen->canales_id));
+                            $objCanal = $this->canales_m->get($objImagen->canales_id);
+                            $canal_id = $objCanal->id;
                             if (count($detalle_secciones) > 0) {
                                 foreach ($detalle_secciones as $puntero => $objDetalleSeccion) {
-                                    $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id));
+                                    $objSeccion = $this->secciones_m->get_by(array($objDetalleSeccion->secciones_id));
+                                    if (count($objSeccion) > 0) {
+                                        if ($objSeccion->tipo_secciones_id == $this->config->item('seccion:destacado')) {
+                                            if ($objImagen->tipo_imagen_id == $this->config->item('imagen:extralarge')) {
+                                                $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id, "estado"=>$objCanal->estado, "estado_migracion"=>$this->config->item('migracion:actualizado')));
+                                            }
+                                        } else {
+                                            $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id, "estado"=>$objCanal->estado, "estado_migracion"=>$this->config->item('migracion:actualizado')));
+                                        }
+                                    }
                                 }
                             }
                         }
                     }
+                }
+                //parseamos todas las portadas para actualizarlas
+                if($canal_id > 0){
+                    $this->parsear_portadas($canal_id);
                 }
             }
         }

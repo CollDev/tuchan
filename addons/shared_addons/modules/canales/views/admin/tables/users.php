@@ -44,9 +44,9 @@
                     <?php else: ?>
                         <td class="collapse"><img style="width: 100px;" src="<?php echo $this->config->item('url:default_imagen') . 'no_video.jpg'; ?>" border="0"></img></td>
                     <?php endif; ?>
-                    <td class="collapse"><input type="hidden" name="codvideo_<?php echo $video->id ?>" id="codvideo_<?php echo $video->id ?>" value="<?php echo $video->id ?>" /><?php echo $video->titulo; ?></td>
-                    <td class="collapse"><?php echo $video->nombre_categoria; ?></td>
-                    <td class="collapse"><?php echo $video->programa; ?></td>
+                    <td class="collapse"><input type="hidden" name="codvideo_<?php echo $video->id ?>" id="codvideo_<?php echo $video->id ?>" value="<?php echo $video->id ?>" /><?php echo $video->nombre; ?></td>
+                    <td class="collapse"><?php echo $video->categoria; ?></td>
+                    <td class="collapse"><?php echo $video->gm3_nom; ?></td>
                     <td class="collapse"><?php echo $video->fecha_registro; ?></td>
                     <td class="collapse"><?php echo $video->fecha_transmision; ?></td>
                     <?php

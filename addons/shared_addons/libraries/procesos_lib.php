@@ -24,6 +24,7 @@ class Procesos_lib extends MX_Controller {
         $this->load->library("Procesos/liquid");
         $this->load->library("Procesos/ffmpeg");
         $this->load->library("Procesos/log");
+        $this->load->library('portadas_lib');
     }
 
     public function index() {
@@ -293,9 +294,13 @@ class Procesos_lib extends MX_Controller {
 
                             if ($imagenpadre == NULL) {
                                 $imagenpadre = $this->imagenes_mp->setImagenVideos($datos);
+                                //registra en las portadas
+                                $this->portadas_lib->actualizar_imagen($imagenpadre);
                                 Log::erroLog("id imagen padre: " . $datos["imagen_padre"]);
                             } else {
-                                $this->imagenes_mp->setImagenVideos($datos);
+                                $video_hijo_id = $this->imagenes_mp->setImagenVideos($datos);
+                                //registra en las portadas
+                                $this->portadas_lib->actualizar_imagen($video_hijo_id);
                             }
                         }
                     }
