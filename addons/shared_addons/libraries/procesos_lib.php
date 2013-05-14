@@ -1638,7 +1638,7 @@ class Procesos_lib extends MX_Controller {
             echo "<table border=1><tr><td>id</td><td>grupo_maestro_id</td><td>cant</td>";
 
             foreach ($videos as $value) {
-                echo "<tr><td></td><td>" . $value->grupo_maestro_id . "</td><td>" . $value->cant . "</td></tr>";
+                echo "<tr><td>".$value->id."</td><td>" . $value->grupo_maestro_id . "</td><td>" . $value->cant . "</td></tr>";
             }
             echo "</table>";
     }
