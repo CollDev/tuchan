@@ -9,7 +9,7 @@ class Canales_mp extends CI_Model {
     protected $_table_videos = 'default_cms_videos';
 
     public function getCanales() {
-        $query = "select * from " . $this->_table;
+        $query = "select * from " . $this->_table . " where apikey is not null and playerkey is not null";
         return $this->db->query($query)->result();
     }
     

@@ -1599,7 +1599,7 @@ class Procesos_lib extends MX_Controller {
     
     public function  actualizarVideosXId($id){ 
         //error_log ("id: ". $id );
-        //$this->_obtenerImagesUrlVideosXId($id);
+        $this->_obtenerImagesUrlVideosXId($id);
         $this->_generarVideosXId($id);                   
     }
     
