@@ -3532,7 +3532,7 @@ class Admin extends Admin_Controller {
                         if ($this->maestroAgregadoSeccion($maestro_id, $seccion_id, 0)) {
                             $objDetalleSeccion = $this->detalle_secciones_m->get_by(array("grupo_maestros_id" => $maestro_id, "secciones_id" => $seccion_id));
                             $peso = $this->obtenerPeso($seccion_id);
-                            $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id"=>$objImagen->id, "peso" => $peso, "estado" => "1", "estado_migracion" => $this->config->item('migracion:actualizado')));
+                            $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id, "peso" => $peso, "estado" => "1", "estado_migracion" => $this->config->item('migracion:actualizado')));
                             $returnValue = 0;
                         } else {
                             $objBeanDetalleSeccion = new stdClass();
@@ -3557,12 +3557,12 @@ class Admin extends Admin_Controller {
                 }
             } else {
                 $objImagen = $this->obtenerImagenMaestro($maestro_id, $seccion_id);
-                
+                //error_log(print_r($objImagen,true));
                 if (count($objImagen) > 0) {
                     if ($this->maestroAgregadoSeccion($maestro_id, $seccion_id, 0)) {
                         $objDetalleSeccion = $this->detalle_secciones_m->get_by(array("grupo_maestros_id" => $maestro_id, "secciones_id" => $seccion_id));
                         $peso = $this->obtenerPeso($seccion_id);
-                        $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id"=>$objImagen->id ,"peso" => $peso, "estado" => "1", "estado_migracion" => $this->config->item('migracion:actualizado')));
+                        $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id, "peso" => $peso, "estado" => "1", "estado_migracion" => $this->config->item('migracion:actualizado')));
                         $returnValue = 0;
                     } else {
                         $objBeanDetalleSeccion = new stdClass();
@@ -3603,7 +3603,7 @@ class Admin extends Admin_Controller {
                                 $returnValue = $this->imagen_m->get_by(array("videos_id" => $maestro_id, "tipo_imagen_id" => $this->config->item('imagen:extralarge'), "estado" => "1"));
                             } else {
                                 $returnValue = $this->imagen_m->get_by(array("grupo_maestros_id" => $maestro_id, "tipo_imagen_id" => $this->config->item('imagen:extralarge'), "estado" => "1"));
-                            }
+                                 }
                         }
                         break;
                     case $this->config->item('template:destacado'):
@@ -4807,6 +4807,38 @@ class Admin extends Admin_Controller {
         if ($this->input->is_ajax_request()) {
             $this->videos_m->update($video_id, array("estado" => $this->config->item('video:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
             echo json_encode(array("value" => "1"));
+        }
+    }
+
+    /**
+     * Método que se ejecutará desde el navegador para corregir las imagenes
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     */
+    public function corregir_imagenes() {
+        $detalle_secciones = $this->detalle_secciones_m->get_many_by(array());
+        if (count($detalle_secciones) > 0) {
+            foreach ($detalle_secciones as $puntero => $objDetalleSeccion) {
+                if ($objDetalleSeccion->grupo_maestros_id > 0) {
+                    $objImagen = $this->obtenerImagenMaestro($objDetalleSeccion->grupo_maestros_id, $objDetalleSeccion->secciones_id);
+                    if (count($objImagen) > 0) {
+                        $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id, "estado_migracion" => $this->config->item('migracion:actualizado')));
+                    }
+                } else {
+                    if ($objDetalleSeccion->videos_id > 0) {
+                        $objImagen = $this->obtenerImagenMaestro($objDetalleSeccion->videos_id, $objDetalleSeccion->secciones_id, 'video');
+                        if (count($objImagen) > 0) {
+                            $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id, "estado_migracion" => $this->config->item('migracion:actualizado')));
+                        }
+                    } else {
+                        if ($objDetalleSeccion->canales_id > 0) {
+                            $objImagen = $this->obtenerImagenMaestro($objDetalleSeccion->canales_id, $objDetalleSeccion->secciones_id, 'canal');
+                            if (count($objImagen) > 0) {
+                                $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id, "estado_migracion" => $this->config->item('migracion:actualizado')));
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 
