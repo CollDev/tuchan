@@ -51,6 +51,12 @@ $lang['maestro:2_maestro'] =  'Colección';
 $lang['maestro:3_maestro'] =  'Programa';
 $lang['maestro:4_maestro'] =  'Video';
 
+//tipo maestro
+$lang['tipo:1_maestro'] =  'Lista de reproducción';
+$lang['tipo:2_maestro'] =  'Colección';
+$lang['tipo:3_maestro'] =  'Programa';
+$lang['tipo:0_maestro'] =  'Video';
+
 // mensajes
 $lang['videos:publish_success']        = 'El video "%s" ha sido publicado.';
 $lang['videos:mass_publish_success']   = 'Los videos "%s" han sido publicados.';

@@ -37,13 +37,13 @@
             <?php foreach ($lista_videos as $video) : ?>
                 <tr id="item_<?php echo $video->id; ?>">
                     <td><?php echo form_checkbox('action_to[]', $video->id); ?></td>
-                    <?php //if ($video->procedencia == '0'): ?>
-                        <!--<td class="collapse"><img style="width: 100px;" src="<?php //echo $video->imagen ?>" border="0"></img></td>-->
-                    <?php //elseif ($video->procedencia == '1'): ?>
-<!--                        <td class="collapse"><img style="width: 100px;" src="<?php //echo $this->config->item('servidor:elemento') . $video->imagen ?>" border="0"></img></td>-->
-                    <?php //else: ?>
+                    <?php if ($video->procedencia == '0'): ?>
+                        <td class="collapse"><img style="width: 100px;" src="<?php echo $video->imagen ?>" border="0"></img></td>
+                    <?php elseif ($video->procedencia == '1'): ?>
+                        <td class="collapse"><img style="width: 100px;" src="<?php echo $this->config->item('servidor:elemento') . $video->imagen ?>" border="0"></img></td>
+                    <?php else: ?>
                         <td class="collapse"><img style="width: 100px;" src="<?php echo $this->config->item('url:default_imagen') . 'no_video.jpg'; ?>" border="0"></img></td>
-                    <?php //endif; ?>
+                    <?php endif; ?>
                     <td class="collapse"><input type="hidden" name="codvideo_<?php echo $video->id ?>" id="codvideo_<?php echo $video->id ?>" value="<?php echo $video->id ?>" /><?php echo $video->nombre; ?></td>
                     <td class="collapse"><?php echo $video->categoria; ?></td>
                     <td class="collapse"><?php echo $video->gm3_nom; ?></td>
