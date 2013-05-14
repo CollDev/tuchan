@@ -40,7 +40,13 @@
                     <?php else: ?>
                         <td class="collapse"><img style="width: 100px; height: 80px;" src="<?php echo $this->config->item('url:default_imagen') . 'no_video.jpg'; ?>" border="0"></img></td>
                     <?php endif; ?>
-                        <td><?php echo anchor('/admin/videos/organizar/'.$canal_id.'/'.$objPrograma->id.'/'.$objPrograma->tipo_grupo, $objPrograma->nombre) ?></td>
+                        <td>
+                            <?php if($objPrograma->tipo_grupo > 0): ?>
+                                <?php echo anchor('/admin/videos/organizar/'.$canal_id.'/'.$objPrograma->id.'/'.$objPrograma->tipo_grupo, $objPrograma->nombre) ?></td>
+                            <?php else: ?>
+                                <?php echo $objPrograma->nombre ?>
+                            <?php endif; ?>
+                            
                     <td><?php echo lang('tipo:' . $objPrograma->tipo_grupo . '_maestro') ?></td>
                     <td ><?php echo lang('estado:' . ($objPrograma->estado - 1) . '_estado'); ?></td>
                     <?php 
