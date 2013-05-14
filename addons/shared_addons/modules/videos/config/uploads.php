@@ -39,6 +39,8 @@ $config['video:eliminado'] = '3';
 //estado de migración
 $config['migracion:nuevo'] = '0';
 $config['migracion:actualizado'] = '9';
+$config['sphinx:actualizar'] = '9';
+$config['sphinx:nuevo'] = '0';
 
 //estados de los videos en el flujo de upload
 $config['status:codificando'] = '0';

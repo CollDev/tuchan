@@ -96,7 +96,8 @@ class Canales_m extends MY_Model {
             "playerkey"=>$objBeanCanal->playerkey,
             "fecha_actualizacion"=>$objBeanCanal->fecha_actualizacion,
             "usuario_actualizacion"=>$objBeanCanal->usuario_actualizacion,
-            "estado_migracion"=>$objBeanCanal->estado_migracion));
+            "estado_migracion"=>$objBeanCanal->estado_migracion,
+            "estado_migracion_sphinx"=>$objBeanCanal->estado_migracion_sphinx));
     }
 
 }

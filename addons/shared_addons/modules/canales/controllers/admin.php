@@ -729,8 +729,8 @@ class Admin extends Admin_Controller {
                 $objBeanCanal->playerkey = $this->input->post('playerkey');
                 $objBeanCanal->fecha_actualizacion = date("Y-m-d H:i:s");
                 $objBeanCanal->usuario_actualizacion = $user_id;
-                $objBeanCanal->estado_migracion = 9;
-
+                $objBeanCanal->estado_migracion = $this->config->item('migracion:actualizado');
+                $objBeanCanal->estado_migracion_sphinx = $this->config->item('sphinx:actualizar');
 
 
                 $this->canales_m->actualizar($objBeanCanal);
@@ -3226,10 +3226,55 @@ class Admin extends Admin_Controller {
      * metodo para llamar al archivo previsualizar_portada.php para la vista previa
      * @author Johnny Huamani <johnny1402@gmail.com>
      */
-    public function previsualizar_portada() {
+    public function previsualizar_portada($portada_id) {
+        $objDestacado = $this->obtener_destacado_programa($portada_id);
         $this->template
                 ->set_layout('modal', 'admin')
+                ->set('objDestacado', $objDestacado)
                 ->build('admin/previsualizar_portada');
+    }
+
+    /**
+     * Método para obtener el objeto destacado
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param int $portada_id
+     * @return array
+     */
+    private function obtener_destacado_programa($portada_id) {
+        $returnValue = array();
+        $objSeccionDestacado = $this->secciones_m->get_by(array("portadas_id" => $portada_id, "tipo_secciones_id" => $this->config->item('seccion:destacado')));
+        if (count($objSeccionDestacado) > 0) {
+            $detalle_secciones = $this->detalle_secciones_m->get_by(array("secciones_id" => $objSeccionDestacado->id));
+            if (count($detalle_secciones) > 0) {
+                //obtenemos la imagen a visualizar
+                $objImagen = $this->imagen_m->get($detalle_secciones->imagenes_id);
+                if (count($objImagen) > 0) {
+                    if ($objImagen->procedencia == 1) {
+                        $objSeccionDestacado->imagen = $objImagen->imagen;
+                    } else {
+                        if ($objImagen->procedencia == 0) {
+                            $objSeccionDestacado->imagen = $this->config->item('protocolo:http') . $this->config->item('server:elemento') . '/' . $objImagen->imagen;
+                        } else {
+                            $objSeccionDestacado->imagen = $this->config->item('url:default_imagen') . 'no_video.jpg';
+                        }
+                    }
+                }
+                //obtenemos el titulo y descripcion del item
+                if($detalle_secciones->grupo_maestros_id > 0){
+                    $objMaestro = $this->grupo_maestro_m->get($detalle_secciones->grupo_maestros_id);
+                    if(count($objMaestro)>0){
+                        $objSeccionDestacado->titulo = $objMaestro->nombre;
+                    }
+                }
+            }
+            $returnValue = $objSeccionDestacado;
+        }else{
+            $objDestacadoPortada = new stdClass();
+            $objDestacadoPortada->imagen = $this->config->item('url:default_imagen') . 'no_video.jpg';
+            $objDestacadoPortada->titulo = '';
+            $returnValue = $objDestacadoPortada;
+        }
+        return $returnValue;
     }
 
     /**
@@ -3603,7 +3648,7 @@ class Admin extends Admin_Controller {
                                 $returnValue = $this->imagen_m->get_by(array("videos_id" => $maestro_id, "tipo_imagen_id" => $this->config->item('imagen:extralarge'), "estado" => "1"));
                             } else {
                                 $returnValue = $this->imagen_m->get_by(array("grupo_maestros_id" => $maestro_id, "tipo_imagen_id" => $this->config->item('imagen:extralarge'), "estado" => "1"));
-                                 }
+                            }
                         }
                         break;
                     case $this->config->item('template:destacado'):
