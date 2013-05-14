@@ -14,9 +14,10 @@ class Grupo_Maestros_mp extends CI_Model {
         return $this->db->query($query)->result();  
     }
     
-    function getColeccionesXId($id){
-        
+    function getMaestroDetalles(){
+        $query = "SELECT grupo_maestro_id , COUNT(grupo_maestro_padre)  AS 'cant' FROM default_cms_grupo_detalles GROUP BY grupo_maestro_id ORDER BY cant DESC";
+        return $this->db->query($query)->result();        
     }
     
-
+        
 }    

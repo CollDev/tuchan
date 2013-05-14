@@ -1632,6 +1632,17 @@ class Procesos_lib extends MX_Controller {
         echo "</table>";
     }
 
+    public function getMaestroDetalles(){
+            $videos = $this->grupo_maestros_mp->getMaestroDetalles();
+
+            echo "<table border=1><tr><td>id</td><td>grupo_maestro_id</td><td>cant</td>";
+
+            foreach ($videos as $value) {
+                echo "<tr><td></td><td>" . $value->grupo_maestro_id . "</td><td>" . $value->cant . "</td></tr>";
+            }
+            echo "</table>";
+    }
+        
     public function datosVideos($id) {
         print_r($this->canal_mp->queryProcedure(4, $id));
     }
