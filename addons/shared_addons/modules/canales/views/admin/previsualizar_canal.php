@@ -27,7 +27,14 @@
                                                                     <div class="layer_info">
                                                                         <div class="data_info down_place4">
                                                                             <span class="span_text2"></span>
-                                                                            <h5>Solamente Milagros</h5>
+                                                                            <h5>
+                                                                                <?php
+                                                                                    $objMaestro = $objDetalleSeccion->objMaestro;
+                                                                                    if(count($objMaestro)>0){
+                                                                                        echo $objMaestro->nombre;
+                                                                                    }
+                                                                                ?>
+                                                                            </h5>
                                                                             <span class="span_text2"></span>
                                                                         </div>
                                                                     </div>
