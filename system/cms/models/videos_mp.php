@@ -22,7 +22,7 @@ class Videos_mp extends CI_Model {
     }
 
     public function getVideosActivos() {
-        $query = "select id,id_mongo from " . $this->_table . " WHERE ruta is not null ";
+        $query = "select id,id_mongo from " . $this->_table . " WHERE canales_id = 8 ";
         return $this->db->query($query)->result();
     }
 

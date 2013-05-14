@@ -202,5 +202,17 @@ class MiCanal_mp extends CI_Model {
        return $this->mongo_db->delete_where($this->_tabla,$id_mongo);
          
     }
+    
+    public function existe_id_mongo($id)
+    {
+        $id_mongo = new MongoId($id);
+        $result = $this->mongo_db->get_where($this->_tabla, array('_id' => $id_mongo));
+        
+        if (count($result) > 0) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    }
 
 }

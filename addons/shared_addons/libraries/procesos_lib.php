@@ -232,7 +232,7 @@ class Procesos_lib extends MX_Controller {
     protected function _obtenerImagesUrlVideosXId($id) {
            
 
-        Log::erroLog("entro a _obtenerImagesUrlVideosXId");
+        Log::erroLog("entro a _obtenerImagesUrlVideosXId:  " . $id);
 
         $resultado = $this->videos_mp->getVideosObtenerDatosXId($id);
 
@@ -927,12 +927,12 @@ class Procesos_lib extends MX_Controller {
 
                     $id_mongo = "";
 
-                    if (empty($value->mongo_se)) {
-                        $id_mongo = $this->micanal_mp->SetItemCollection($objmongo);
-                        Log::erroLog("id_mongo: " . $id_mongo);
+                    
+                    if (!($this->micanal_mp->existe_id_mongo($value->mongo_se))) {
+                        $id_mongo = $this->micanal_mp->SetItemCollection($objmongo);                        
                         $this->micanal_mp->updateIdMongoSecciones($value->id, $id_mongo);
                         $this->secciones_mp->updateEstadoMigracionSeccion($value->id);
-                    } else { //if ($value->estado_migracion == 9 || $value->estado_migracion == 2)
+                    } else { 
                         $id_mongo = $value->mongo_se;
                         $mongoid = new MongoId($id_mongo);
                         $this->micanal_mp->SetItemCollectionUpdate($objmongo, array('_id' => $mongoid));
@@ -944,15 +944,12 @@ class Procesos_lib extends MX_Controller {
 
                     $this->_generarDetalleSeccionesMiCanalXSeccionId($value->id, $id_mongo);
 
-                    //$this->_generarDetalleSeccionesMiCanalXSeccionId($value->id,$value->mongo_se);
-
                     unset($array);
                     unset($objmongo);
                 } elseif ($value->estado == 2) {
 
                     $id_mongo = new MongoId($value->mongo_se);
-                    $this->micanal_mp->setItemCollectionUpdate(array("estado" => "0"), array('_id' => $id_mongo));
-                    //$this->conexionmongodb->SetItemCollectionDelete(array('_id' => $id_mongo));
+                    $this->micanal_mp->setItemCollectionUpdate(array("estado" => "0"), array('_id' => $id_mongo));                   
                     $this->secciones_mp->updateEstadoMigracionSeccionActualizacion($value->id);
                     $this->_generarDetalleSeccionesMiCanalXSeccionId($value->id, $id_mongo);
                 }
@@ -962,7 +959,8 @@ class Procesos_lib extends MX_Controller {
 
     private function _generarDetalleSeccionesMiCanalXSeccionId($id, $id_mongo) {
 
-        //echo "seccion_id" . $value->id . "; mongo:" . $value->id_mongo . "\n";
+        error_log("seccion_id" . $id . "; mongo:" . $id_mongo);
+        
         $resquery2 = $this->micanal_mp->queryMysql(4, $id);
 
         $item = array();
@@ -1332,11 +1330,12 @@ class Procesos_lib extends MX_Controller {
                     $objmongo['apikey'] = $value->apikey;
                     $objmongo['playerkey'] = $value->playerkey;
                     $objmongo['canal_cv'] = $value->canal_cv;
+                    $objmongo['canal_cs'] = $value->canal_cs;
                     
                     error_log($value->canal_cv);
 
                     if ($value->estado == 1) {
-                        if (!($this->canal_mp->existe_id($value->id_mongo))) {
+                        if (!($this->canal_mp->existe_id_mongo($value->id_mongo))) {
                             $id_mongo = $this->canal_mp->setItemCollection($objmongo);
                             $this->canal_mp->updateIdMongoCanales($value->id, $id_mongo);
                             $this->canal_mp->updateEstadoMigracionCanales($value->id);
@@ -1417,12 +1416,14 @@ class Procesos_lib extends MX_Controller {
 //    }
 
     private function  _generarVideosXId($id) {
-
+                
         $video = $this->videos_mp->getVideosxId($id);
         //$video = $this->videos_mp->getVideosxIdConKey($id);
         //print_r($videosactivos);
-
-        foreach ($video as $value) {
+        
+        if(count($video)>0){
+            foreach ($video as $value) {
+           
                 
             if ($value->estado == 1 || $value->estado ==2 ) {
                 $datovideo = $this->canal_mp->queryProcedure(4, $value->id);
@@ -1458,6 +1459,8 @@ class Procesos_lib extends MX_Controller {
                 $objmongo['valoracion'] = $datovideo[0]->xvi_val;
                 $objmongo['estado'] = $value->estado;
                 
+                error_log($datovideo[0]->xprogramaalias);
+                
                 if(!empty($datovideo[0]->xprogramaalias)){    
                     if ($datovideo[0]->xfechatransmision == $datovideo[0]->xlistareproduccion) {
                         $urltemp = $datovideo[0]->xprogramaalias . "/" . $datovideo[0]->xfechatransmision . "-" . $datovideo[0]->xvideoalias; //  2. micanal.pe/[programa]/[fecha]-[video]-id [ nombre de lista es igual a la fecha de transmisi?n de los videos.                      
@@ -1472,7 +1475,7 @@ class Procesos_lib extends MX_Controller {
                 //$objmongo['padre'] = $arrlistarepro['idmongo'];
                 $objmongo['nivel'] = "4";
 
-                if (!($this->canal_mp->existe_id($value->id_mongo))) {
+                if (!($this->canal_mp->existe_id_mongo($value->id_mongo))) {
                     echo "entro ";
                     $mongo_id = $this->canal_mp->setItemCollection($objmongo);
                     $this->canal_mp->updateIdMongoVideos($value->id, $mongo_id);
@@ -1484,9 +1487,9 @@ class Procesos_lib extends MX_Controller {
                     $this->canal_mp->updateEstadoMigracionVideosActualizacion($value->id);
                 }
 
-                if ($value->estado_migracion == 0 || $value->estado_migracion == 9) {
+                //if ($value->estado_migracion == 0 || $value->estado_migracion == 9) {
                     $this->_generarDetalleVideosXId($value->id, $mongo_id);
-                }
+                //}
 
                 unset($objmongo);
             } else {
@@ -1494,6 +1497,14 @@ class Procesos_lib extends MX_Controller {
                 $this->canal_mp->setItemCollectionUpdate(array("estado" => "0"), array('_id' => $id_mongo));
             }
         }
+    }  else {
+         if($this->canal_mp->existe_id($id)){
+             $this->canal_mp->setItemCollectionDelete($id);
+         }        
+    }
+        
+
+        
     }
 
     public function generarDetalleVideosXId($id, $mongo_id) {
@@ -1501,10 +1512,14 @@ class Procesos_lib extends MX_Controller {
     }
 
     private function _generarDetalleVideosXId($id, $mongo_id) {
+        
+        error_log("CASA: ". $id ."=>".$mongo_id);
 
         $MongoId = array("_id" => new MongoId($mongo_id));
 
         if (!empty($id)) {
+            
+            $arrimagen = array();
 
             $imagenes = $this->imagenes_mp->getImagenesVideos($id);
 
@@ -1538,7 +1553,7 @@ class Procesos_lib extends MX_Controller {
             $parametros["estado"] = array(1);
             $parametros["peso_videos"] = array("titulo" => 15, "descripcion" => 5, "tags" => 80);
             
-
+            
             $this->resultado = $clienteSOAP->BusquedaRelacionado(json_encode($parametros), $tags[0]->tags);
                   
             $resultado = json_decode($this->resultado);
@@ -1577,17 +1592,18 @@ class Procesos_lib extends MX_Controller {
        }               
     }
     
-    public function  actualizarVideosXId($id){       
-        $this->_obtenerImagesUrlVideosXId($id);
+    public function  actualizarVideosXId($id){ 
+        //error_log ("id: ". $id );
+        //$this->_obtenerImagesUrlVideosXId($id);
         $this->_generarVideosXId($id);                   
     }
     
     
     public function actualizarSecciones6789() {
         Log::erroLog("_actualizarVisualizacion");
-        //$this->_actualizarVisualizacion();
+        $this->_actualizarVisualizacion();
         Log::erroLog("_actualizarComentariosValorizacion");
-        //$this->_actualizarComentariosValorizacion();
+        $this->_actualizarComentariosValorizacion();
         Log::erroLog("_actualizarSecciones6789");
         $this->_actualizarSecciones6789();
     }
