@@ -1472,7 +1472,7 @@ class Procesos_lib extends MX_Controller {
                 $objmongo['apikey'] = $datovideo[0]->xapikey;
 
                 $objmongo['valoracion'] = $datovideo[0]->xvi_val;
-                $objmongo['estado'] = $value->estado;
+                $objmongo['estado'] = ($value->estado==2)?"1":"0";
                 
                 //error_log($datovideo[0]->xprogramaalias);
                 

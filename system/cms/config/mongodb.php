@@ -16,18 +16,23 @@
  * ['mongo_host_db_flag']   If running in auth mode and the user does not have global read/write then set this to true
  */
 
-
+/*
 $config['mongo_host'] = '192.168.1.35';
 $config['mongo_port'] = 27017;
 $config['mongo_db'] = 'micanal_pre';    
+<<<<<<< HEAD
 
+=======
+*/
+>>>>>>> 075853ff9dd76d14e5be4354b065c5708b4ff2bc
 
 // El Comercio
-/*
+
+
 $config['mongo_host'] = '10.203.31.139';
 $config['mongo_db'] = 'micanaldevmdb';
 $config['mongo_port'] = 27017;
-*/
+
     
 /*
 $config['mongo_user'] = '';
