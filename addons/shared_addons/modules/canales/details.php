@@ -19,9 +19,11 @@ class Module_Canales extends Module
             $opc_canales =  array(
                 'name' => array(
                     'es' => 'Canal',
+                    'en' => 'Canal'
                 ),
                 'description' => array(
                     'es' => 'Videos',
+                    'en' => 'Videos'
                 ),
                 'frontend' => false,
                 'backend' => true,
@@ -34,9 +36,11 @@ class Module_Canales extends Module
             $opc_canales =  array(
                 'name' => array(
                     'es' => 'Canales',
+                    'en' => 'Canales'
                 ),
                 'description' => array(
                     'es' => 'Canales de televisión.',
+                    'en' => 'Canales de televisión.'
                 ),
                 'frontend' => false,
                 'backend' => true,

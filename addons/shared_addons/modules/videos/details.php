@@ -16,9 +16,11 @@ class Module_Videos extends Module
         $opc_canales =  array(
                 'name' => array(
                     'es' => 'Videos',
+                    'en' => 'Videos'
                 ),
                 'description' => array(
                     'es' => 'Carga de Videos',
+                    'en' => 'Carga de Videos'
                 ),
                 'frontend' => false,
                 'backend' => true,

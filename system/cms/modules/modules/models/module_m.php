@@ -66,10 +66,10 @@ class Module_m extends MY_Model
 			{
 				return FALSE;
 			}
-
+                        if(isset($info['name']['en'])){
 			$name = ! isset($info['name'][CURRENT_LANGUAGE]) ? $info['name']['en'] : $info['name'][CURRENT_LANGUAGE];
 			$description = ! isset($info['description'][CURRENT_LANGUAGE]) ? $info['description']['en'] : $info['description'][CURRENT_LANGUAGE];
-
+                        }
 			return array(
 				'name' => $name,
 				'slug' => $row->slug,
@@ -139,9 +139,10 @@ class Module_m extends MY_Model
 			
 			list($class, $location) = $module;
 			$info = $class->info();
-                            $name = ! isset($info['name'][CURRENT_LANGUAGE]) ? $info['name']['es'] : $info['name'][CURRENT_LANGUAGE];
-                            $description = ! isset($info['description'][CURRENT_LANGUAGE]) ? $info['description']['es'] : $info['description'][CURRENT_LANGUAGE];
-                        
+                        if(isset($info['name']['en'])){
+                            $name = ! isset($info['name'][CURRENT_LANGUAGE]) ? $info['name']['en'] : $info['name'][CURRENT_LANGUAGE];
+                            $description = ! isset($info['description'][CURRENT_LANGUAGE]) ? $info['description']['en'] : $info['description'][CURRENT_LANGUAGE];
+                        }
 			
 
 			$module = array(
