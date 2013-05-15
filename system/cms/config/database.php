@@ -32,12 +32,12 @@
 */
  
 // Development
-
+/*
 $db[PYRO_DEVELOPMENT] = array(
 	'hostname'		=> 	'192.168.1.35', //'10.203.31.139'
 	'username'		=> 	'root',//'micanalcmsdev',
 	'password'		=> 	'123',//'joh2Yeyeimaeb4',
-	'database'		=> 	'pyro_admin5',//micanalcmsdevdb',
+	'database'		=> 	'pyro_admin3',//micanalcmsdevdb',
 	'dbdriver' 		=> 	'mysqli',
 	'dbprefix' 		=>	'',
 	'active_r' 		=>	TRUE,
@@ -51,12 +51,12 @@ $db[PYRO_DEVELOPMENT] = array(
 	// 'Tough love': Forces strict mode to test your app for best compatibility
 	'stricton' 		=> TRUE,
 );
-
+*/
 
 // configuracion para EC
 
 // El Comercio
-/*
+
 $db[PYRO_DEVELOPMENT] = array(
 	'hostname'		=> 	'10.203.31.139',
 	'username'		=> 	'micanalcmsdev',
@@ -75,7 +75,6 @@ $db[PYRO_DEVELOPMENT] = array(
 	// 'Tough love': Forces strict mode to test your app for best compatibility
 	'stricton' 		=> TRUE,	'stricton' 		=> TRUE,
 );
-*/
 
 
 // Staging

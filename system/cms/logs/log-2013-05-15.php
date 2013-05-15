@@ -479,3 +479,11 @@ ERROR - 2013-05-15 21:38:57 --> Severity: Warning  --> mysqli_connect(): (HY000/
 ERROR - 2013-05-15 21:38:57 --> Unable to connect to the database
 ERROR - 2013-05-15 21:46:06 --> Severity: Warning  --> mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given /home/user/Escritorio/adminmicanal/system/codeigniter/database/drivers/mysqli/mysqli_result.php 46
 ERROR - 2013-05-15 21:46:06 --> Severity: Warning  --> mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given /home/user/Escritorio/adminmicanal/system/codeigniter/database/drivers/mysqli/mysqli_result.php 46
+ERROR - 2013-05-15 22:23:19 --> Severity: Warning  --> mysqli_connect(): (HY000/2003): Can't connect to MySQL server on '10.203.31.139' (110) /home/user/Escritorio/adminmicanal/system/codeigniter/database/drivers/mysqli/mysqli_driver.php 75
+ERROR - 2013-05-15 22:23:19 --> Unable to connect to the database
+ERROR - 2013-05-15 22:24:23 --> Severity: Warning  --> mysqli_connect(): (HY000/2003): Can't connect to MySQL server on '10.203.31.139' (110) /home/user/Escritorio/adminmicanal/system/codeigniter/database/drivers/mysqli/mysqli_driver.php 75
+ERROR - 2013-05-15 22:24:23 --> Unable to connect to the database
+ERROR - 2013-05-15 23:28:49 --> Severity: Warning  --> mysqli_connect(): (HY000/2003): Can't connect to MySQL server on '10.203.31.139' (110) /home/user/Escritorio/adminmicanal/system/codeigniter/database/drivers/mysqli/mysqli_driver.php 75
+ERROR - 2013-05-15 23:28:49 --> Unable to connect to the database
+ERROR - 2013-05-15 23:29:09 --> Severity: Warning  --> mysqli_connect(): (HY000/2003): Can't connect to MySQL server on '10.203.31.139' (110) /home/user/Escritorio/adminmicanal/system/codeigniter/database/drivers/mysqli/mysqli_driver.php 75
+ERROR - 2013-05-15 23:29:09 --> Unable to connect to the database

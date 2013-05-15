@@ -6,7 +6,7 @@ if (!defined('BASEPATH'))     exit('No direct script access allowed');
 class Liquid {
 
     function postXML($url, $post) {
-          POST_XML: 
+         // POST_XML: 
             Log::erroLog("postXML - url: " . $url);
             //Log::erroLog("postXML - Post : " . print_r($post));
         
@@ -43,7 +43,7 @@ class Liquid {
                 sleep(5);
                 Log::erroLog("no paso publish");
                 
-                goto POST_XML;
+               // goto POST_XML;
             }          
         } catch (Exception $exc) {
             return FALSE;
@@ -53,7 +53,7 @@ class Liquid {
 
     function getXml($url) {
         try {
-            GET_XML:
+           // GET_XML:
             
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL,$url);
@@ -83,7 +83,7 @@ class Liquid {
                  sleep(5);
                  Log::erroLog(" no paso get");
                  
-                 goto GET_XML;
+               //     goto GET_XML;
             }          
 
         } catch (Exception $exc) {
