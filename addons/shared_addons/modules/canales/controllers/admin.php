@@ -4865,6 +4865,7 @@ class Admin extends Admin_Controller {
     public function eliminar_video($video_id) {
         if ($this->input->is_ajax_request()) {
             $this->videos_m->update($video_id, array("estado" => $this->config->item('video:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+            $this->procesos_lib->desactivarVideosXId($video_id);
             echo json_encode(array("value" => "1"));
         }
     }
@@ -4877,6 +4878,7 @@ class Admin extends Admin_Controller {
     public function publicar_video($video_id) {
         if ($this->input->is_ajax_request()) {
             $this->videos_m->update($video_id, array("estado" => $this->config->item('video:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+            $this->procesos_lib->activarVideosXId($video_id);
             echo json_encode(array("value" => "1"));
         }
     }
