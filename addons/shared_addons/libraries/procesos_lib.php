@@ -972,7 +972,7 @@ class Procesos_lib extends MX_Controller {
 
     private function _generarDetalleSeccionesMiCanalXSeccionId($id, $id_mongo) {
 
-        error_log("seccion_id" . $id . "; mongo:" . $id_mongo);
+        //error_log("seccion_id" . $id . "; mongo:" . $id_mongo);
         
         $resquery2 = $this->micanal_mp->queryMysql(4, $id);
 
@@ -990,8 +990,8 @@ class Procesos_lib extends MX_Controller {
                     $idtemp = "1," . $value2->grupo_maestros_id;
                 } elseif (empty($value2->grupo_maestros_id) && !empty($value2->videos_id)) {
                     $idtemp = "2," . $value2->videos_id;
-                } else {
-                    $idtemp = FALSE;
+                } elseif(empty($value2->grupo_maestros_id) && empty($value2->videos_id)) {
+                     $idtemp = "3," . $value2->canales_id;
                 }
                 
                 $urltemp = "";
@@ -1013,7 +1013,9 @@ class Procesos_lib extends MX_Controller {
                     $arrtemp["valoracion"] = $row3[0]->xvi_val;
                     $arrtemp["peso"] = $value2->peso;
                     
-                    if ($value2->tipo_secciones_id == 1 && $value2->tipo_portadas_id == 5) {
+                    if(!empty($value2->canales_id)){
+                        $urltemp = "canal/" . $row3[0]->xcanalalias;
+                    }elseif ($value2->tipo_secciones_id == 1 && $value2->tipo_portadas_id == 5) {
                         $urltemp = "programa/" . $row3[0]->xprogramaalias;
                     } elseif ($value2->tipo_secciones_id == 2 && $value2->tipo_portadas_id == 5) {
                         $urltemp = "programa/" . $row3[0]->xprogramaalias;
@@ -1026,7 +1028,7 @@ class Procesos_lib extends MX_Controller {
                             }
                         }else{
                                 $urltemp ="video" . "/" . $row3[0]->xfechatransmision . "-" . $row3[0]->xvideoalias;                        
-                                error_log($urltemp. "Paso aqui ");
+                               // error_log($urltemp. "Paso aqui ");
                         }                            
                     }                                                            
                     
@@ -1472,7 +1474,7 @@ class Procesos_lib extends MX_Controller {
                 $objmongo['valoracion'] = $datovideo[0]->xvi_val;
                 $objmongo['estado'] = $value->estado;
                 
-                error_log($datovideo[0]->xprogramaalias);
+                //error_log($datovideo[0]->xprogramaalias);
                 
                 if(!empty($datovideo[0]->xprogramaalias)){    
                     if ($datovideo[0]->xfechatransmision == $datovideo[0]->xlistareproduccion) {

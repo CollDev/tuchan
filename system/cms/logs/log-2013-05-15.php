@@ -462,3 +462,14 @@ ERROR - 2013-05-15 16:11:06 --> Severity: Notice  --> Undefined index: es /home/
 ERROR - 2013-05-15 16:11:06 --> Severity: Notice  --> Undefined index: es /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
 ERROR - 2013-05-15 16:11:06 --> Severity: Notice  --> Undefined index: es /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 142
 ERROR - 2013-05-15 16:11:06 --> Severity: Notice  --> Undefined index: es /home/user/Escritorio/adminmicanal/system/cms/modules/modules/models/module_m.php 143
+ERROR - 2013-05-15 16:17:06 --> Severity: Warning  --> mysqli_connect(): (HY000/2003): Can't connect to MySQL server on '10.203.31.139' (110) /home/user/Escritorio/adminmicanal/system/codeigniter/database/drivers/mysqli/mysqli_driver.php 75
+ERROR - 2013-05-15 16:17:06 --> Unable to connect to the database
+ERROR - 2013-05-15 17:58:51 --> Query error: FUNCTION pyro_admin5.fu_aliaspa does not exist
+ERROR - 2013-05-15 18:10:36 --> Severity: Warning  --> mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given /home/user/Escritorio/adminmicanal/system/codeigniter/database/drivers/mysqli/mysqli_result.php 46
+ERROR - 2013-05-15 18:10:36 --> Severity: Warning  --> mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given /home/user/Escritorio/adminmicanal/system/codeigniter/database/drivers/mysqli/mysqli_result.php 46
+ERROR - 2013-05-15 19:42:44 --> Severity: Warning  --> mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given /home/user/Escritorio/adminmicanal/system/codeigniter/database/drivers/mysqli/mysqli_result.php 46
+ERROR - 2013-05-15 19:42:44 --> Severity: Warning  --> mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given /home/user/Escritorio/adminmicanal/system/codeigniter/database/drivers/mysqli/mysqli_result.php 46
+ERROR - 2013-05-15 20:17:34 --> Severity: Warning  --> mysqli_connect(): (HY000/2003): Can't connect to MySQL server on '10.203.31.139' (110) /home/user/Escritorio/adminmicanal/system/codeigniter/database/drivers/mysqli/mysqli_driver.php 75
+ERROR - 2013-05-15 20:17:34 --> Unable to connect to the database
+ERROR - 2013-05-15 20:18:37 --> Severity: Warning  --> mysqli_connect(): (HY000/2003): Can't connect to MySQL server on '10.203.31.139' (110) /home/user/Escritorio/adminmicanal/system/codeigniter/database/drivers/mysqli/mysqli_driver.php 75
+ERROR - 2013-05-15 20:18:37 --> Unable to connect to the database
