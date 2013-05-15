@@ -750,6 +750,18 @@ class Procesos_lib extends MX_Controller {
         }
     }
 
+    
+    public function actualizarPortadasMiCanal(){
+        $portadas = $this->portadas_mp->getPortadas();
+        
+        print_r($portadas);
+        
+        foreach ($portadas as $value) {
+            $this->_generarPortadasMiCanalXId($value->id);
+        }
+        
+    }
+    
     public function actualizarPortadasMiCanalXId($id) {
         Log::erroLog("id: " . $id);
         $this->_generarPortadasMiCanalXId($id);
@@ -764,7 +776,7 @@ class Procesos_lib extends MX_Controller {
             foreach ($resquery as $value) {
                 Log::erroLog($value->estado_migracion . "  -  " . $value->estado);
 
-                if (($value->estado_migracion == 0 or $value->estado_migracion == 9 ) && $value->estado == 1) {
+                if ($value->estado == 1) {
 
                     $array = array();
 
