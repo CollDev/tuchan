@@ -190,7 +190,8 @@ class Videos_m extends MY_Model {
                     'estado_migracion' => $objBeanVideo->estado_migracion,
                     'estado_migracion_sphinx_tit' => $objBeanVideo->estado_migracion_sphinx_tit,
                     'estado_migracion_sphinx_des' => $objBeanVideo->estado_migracion_sphinx_des,
-                    'padre' => $objBeanVideo->padre
+                    'padre' => $objBeanVideo->padre,
+                    'estado_migracion_sphinx' => $objBeanVideo->estado_migracion_sphinx
         ));
         $objBeanVideo->alias = $objBeanVideo->alias . '-' . $objBeanVideo->id;
         parent::update($objBeanVideo->id, array('alias' => $objBeanVideo->alias));
@@ -216,7 +217,9 @@ class Videos_m extends MY_Model {
             'ubicacion' => $objBeanVideo->ubicacion,
             'fecha_actualizacion' => $objBeanVideo->fecha_actualizacion,
             'usuario_actualizacion' => $objBeanVideo->usuario_actualizacion,
-            'padre' => $objBeanVideo->padre
+            'padre' => $objBeanVideo->padre,
+            'estado_migracion' => $objBeanVideo->estado_migracion,
+            'estado_migracion_sphinx' => $objBeanVideo->estado_migracion_sphinx
         ));
         //disaramos un proceso de la libreria portadas para actualizar estados de maestros en las portadas y secciones
         $this->portadas_lib->actualizar_video($objBeanVideo->id);

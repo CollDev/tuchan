@@ -63,7 +63,7 @@ class Admin extends Admin_Controller {
         } else {
             //$path_video_new = FCPATH . 'uploads/videos/' . $objBeanVideo->id . '.' . $this->config->item('extension:mp4'); // . $ext;
             $path_video_new = $this->config->item('path:video') . $objBeanVideo->id . '.' . $this->config->item('extension:mp4'); // . $ext;
-            $this->videos_m->update($objBeanVideo->id, array("estado_liquid" => $this->config->item('liquid:mp4')));
+            $this->videos_m->update($objBeanVideo->id, array("estado_migracion_sphinx"=>$this->config->item('sphinx:actualizar'), "estado_migracion"=>$this->config->item('migracion:actualizado'),"estado_liquid" => $this->config->item('liquid:mp4')));
         }
         rename($path_video_old, $path_video_new);
         //lanzamos la libreria para registrar el video en las portadas
@@ -366,6 +366,7 @@ class Admin extends Admin_Controller {
                         $objBeanVideo->estado_migracion_sphinx_tit = 0; //
                         $objBeanVideo->estado_migracion_sphinx_des = 0;
                         $objBeanVideo->padre = 0;
+                        $objBeanVideo->estado_migracion_sphinx = $this->config->item('sphinx:nuevo');
                         $objBeanVideoSaved = $this->videos_m->save_video($objBeanVideo);
                         //giardamos los tags de tematica y personajes
                         $this->_saveTagsTematicaPersonajes($objBeanVideoSaved, $this->input->post());
@@ -646,6 +647,7 @@ class Admin extends Admin_Controller {
                         //$objBeanVideo->fecha_migracion_actualizacion_sphinx_tit ='';
                         $objBeanVideo->estado_migracion_sphinx_des = 0;
                         $objBeanVideo->padre = 0;
+                        $objBeanVideo->estado_migracion_sphinx = $this->config->item('sphinx:nuevo');
                         //$objBeanVideo->fecha_migracion_sphinx_des ='';
                         //$objBeanVideo->fecha_migracion_actualizacion_sphinx_des ='';
                         $objBeanVideo = $this->videos_m->save_video($objBeanVideo);
@@ -1246,6 +1248,9 @@ class Admin extends Admin_Controller {
                 $objBeanMaestro->fecha_transmision_fin = date("Y-m-d H:i:s");
                 $objBeanMaestro->horario_transmision_inicio = date("H:i:s");
                 $objBeanMaestro->horario_transmision_fin = date("H:i:s");
+                $objBeanMaestro->estado_migracion_sphinx = $this->config->item('sphinx:nuevo');
+                $objBeanMaestro->fecha_migracion_sphinx = '0000-00-00 00:00:00';
+                $objBeanMaestro->fecha_migracion_actualizacion_sphinx = '0000-00-00 00:00:00';
                 $objBeanMaestroSaved = $this->grupo_maestro_m->save_maestro($objBeanMaestro);
                 //guardar en el detalle de maestros en caso de guardarse como hijo
                 $this->_saveMaestroDetalle($this->input->post(), $objBeanMaestroSaved);
@@ -2360,6 +2365,8 @@ class Admin extends Admin_Controller {
                 $objBeanVideo->fecha_actualizacion = date("Y-m-d H:i:s");
                 $objBeanVideo->usuario_actualizacion = $user_id;
                 $objBeanVideo->padre = $this->input->post('padre');
+                $objBeanVideo->estado_migracion = $this->config->item('migracion:actualizado');
+                $objBeanVideo->estado_migracion_sphinx = $this->config->item('sphinx:actualizar');
                 $this->videos_m->update_video($objBeanVideo);
 
                 $this->_saveTagsTematicaPersonajes($objBeanVideo, $this->input->post());
@@ -2415,6 +2422,7 @@ class Admin extends Admin_Controller {
 
                 $objBeanVideo->estado = 0;
                 $objBeanVideo->padre = $video_id;
+                $objBeanVideo->estado_migracion_sphinx = $this->config->item('sphinx:nuevo');
 
                 // print_r($objBeanVideo);
 
@@ -3399,7 +3407,8 @@ class Admin extends Admin_Controller {
                         "fecha_actualizacion" => $objBeanMaestro->fecha_actualizacion, "usuario_actualizacion" => $objBeanMaestro->usuario_actualizacion,
                         "estado_migracion" => $objBeanMaestro->estado_migracion,
                         "fecha_transmision_inicio" => $objBeanMaestro->fecha_transmision_inicio, "fecha_transmision_fin" => $objBeanMaestro->fecha_transmision_fin,
-                        "horario_transmision_inicio" => $objBeanMaestro->horario_transmision_inicio, "horario_transmision_fin" => $objBeanMaestro->horario_transmision_fin));
+                        "horario_transmision_inicio" => $objBeanMaestro->horario_transmision_inicio, "horario_transmision_fin" => $objBeanMaestro->horario_transmision_fin,
+                        "estado_migracion_sphinx"=>$this->config->item('sphinx:actualizar')));
                     $returnValue = 0;
                     $this->guardarTagsMaestro($objBeanMaestro, $this->input->post());
                     $maestro_id = $this->input->post('maestro_id');
@@ -3432,6 +3441,9 @@ class Admin extends Admin_Controller {
                     $objBeanMaestro->fecha_transmision_fin = date("Y-m-d H:i:s", strtotime($this->input->post('fec_pub_fin')));
                     $objBeanMaestro->horario_transmision_inicio = date("H:i:s", strtotime($this->input->post('horario_transmision_inicio')));
                     $objBeanMaestro->horario_transmision_fin = date("H:i:s", strtotime($this->input->post('horario_transmision_fin')));
+                    $objBeanMaestro->estado_migracion_sphinx = $this->config->item('sphinx:actualizar');
+                    $objBeanMaestro->fecha_migracion_sphinx = '0000-00-00 00:00:00';
+                    $objBeanMaestro->fecha_migracion_actualizacion_sphinx = '0000-00-00 00:00:00';
                     /* $this->vd($objBeanMaestro);
                       die(); */
                     $objBeanMaestroSaved = $this->grupo_maestro_m->save_maestro($objBeanMaestro);
@@ -4593,7 +4605,7 @@ class Admin extends Admin_Controller {
 
     public function eliminar_maestro($maestro_id) {
         if ($this->input->is_ajax_request()) {
-            $this->grupo_maestro_m->update($maestro_id, array("estado" => $this->config->item('estado:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+            $this->grupo_maestro_m->update($maestro_id, array("estado_migracion_sphinx"=>$this->config->item('sphinx:actualizar'), "estado" => $this->config->item('estado:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
             //eliminamos la portada si es maestro de tipo programa
             $this->cambiarEstadoPortada($maestro_id, $this->config->item('estado:eliminado'));
             echo json_encode(array("value" => "1"));
@@ -4602,7 +4614,7 @@ class Admin extends Admin_Controller {
 
     public function restablecer_maestro($maestro_id) {
         if ($this->input->is_ajax_request()) {
-            $this->grupo_maestro_m->update($maestro_id, array("estado" => $this->config->item('estado:borrador'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+            $this->grupo_maestro_m->update($maestro_id, array("estado_migracion_sphinx"=>$this->config->item('sphinx:actualizar'), "estado" => $this->config->item('estado:borrador'), "estado_migracion" => $this->config->item('migracion:actualizado')));
             //eliminamos la portada si es maestro de tipo programa
             $this->cambiarEstadoPortada($maestro_id, $this->config->item('estado:borrador'));
             echo json_encode(array("value" => "1"));
@@ -4618,7 +4630,7 @@ class Admin extends Admin_Controller {
     public function publicar_maestro($maestro_id) {
         if ($this->input->is_ajax_request()) {
             if ($this->tiene_videos_publicado($maestro_id)) {
-                $this->grupo_maestro_m->update($maestro_id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                $this->grupo_maestro_m->update($maestro_id, array("estado_migracion_sphinx"=>$this->config->item('sphinx:actualizar') ,"estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
                 //eliminamos la portada si es maestro de tipo programa
                 $this->cambiarEstadoPortada($maestro_id, $this->config->item('estado:publicado'));
                 echo json_encode(array("value" => "1"));
@@ -4767,7 +4779,7 @@ class Admin extends Admin_Controller {
 
     public function eliminar_video($video_id) {
         if ($this->input->is_ajax_request()) {
-            $this->videos_m->update($video_id, array("estado" => $this->config->item('estado:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+            $this->videos_m->update($video_id, array("estado_migracion_sphinx"=>$this->config->item('sphinx:actualizar'),"estado" => $this->config->item('estado:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
             //eliminamos la portada si es maestro de tipo programa
             $this->cambiarEstadoPortada($video_id, $this->config->item('estado:eliminado'), 0);
             echo json_encode(array("value" => "1"));
@@ -4776,7 +4788,7 @@ class Admin extends Admin_Controller {
 
     public function restablecer_video($video_id) {
         if ($this->input->is_ajax_request()) {
-            $this->videos_m->update($video_id, array("estado" => $this->config->item('estado:borrador'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+            $this->videos_m->update($video_id, array("estado_migracion_sphinx"=>$this->config->item('sphinx:actualizar'), "estado" => $this->config->item('estado:borrador'), "estado_migracion" => $this->config->item('migracion:actualizado')));
             //eliminamos la portada si es maestro de tipo programa
             $this->cambiarEstadoPortada($video_id, $this->config->item('estado:borrador'), 0);
             echo json_encode(array("value" => "1"));
@@ -4785,7 +4797,7 @@ class Admin extends Admin_Controller {
 
     public function publicar_video($video_id) {
         if ($this->input->is_ajax_request()) {
-            $this->videos_m->update($video_id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+            $this->videos_m->update($video_id, array("estado_migracion_sphinx"=>$this->config->item('sphinx:actualizar'), "estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
             //eliminamos la portada si es maestro de tipo programa
             $this->cambiarEstadoPortada($video_id, $this->config->item('estado:publicado'), 0);
             echo json_encode(array("value" => "1"));

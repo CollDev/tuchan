@@ -817,6 +817,7 @@ class Admin extends Admin_Controller {
                             $objBeanCanal->estado_migracion = '0';
                             $objBeanCanal->fecha_migracion = '0000-00-00 00:00:00';
                             $objBeanCanal->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
+                            $objBeanCanal->estado_migracion_sphinx = $this->config->item('sphinx:nuevo');
                             $objBeanCanalSaved = $this->canales_m->save($objBeanCanal);
                             $this->procesos_lib->generarCanalesXId($objBeanCanal->id);
 
@@ -855,9 +856,9 @@ class Admin extends Admin_Controller {
         $user_id = (int) $this->session->userdata('user_id');
         $objBeanUsuarioGrupoCanal = new stdClass();
         $objBeanUsuarioGrupoCanal->canal_id = $canal_id;
-        $objBeanUsuarioGrupoCanal->user_id = '3';
+        $objBeanUsuarioGrupoCanal->user_id = $user_id;
         $objBeanUsuarioGrupoCanal->group_id = $this->config->item('grupo:administrador-canales');
-        $objBeanUsuarioGrupoCanal->estado = '1';
+        $objBeanUsuarioGrupoCanal->estado = $this->config->item('estado:publicado');
         $objBeanUsuarioGrupoCanal->fecha_registro = date("Y-m-d H:i:s");
         $objBeanUsuarioGrupoCanal->usuario_registro = $user_id;
         $objBeanUsuarioGrupoCanal->fecha_actualizacion = date("Y-m-d H:i:s");
@@ -3148,7 +3149,7 @@ class Admin extends Admin_Controller {
 
     public function eliminar_canal($canal_id) {
         if ($this->input->is_ajax_request()) {
-            $this->canales_m->update($canal_id, array("estado" => $this->config->item('estado:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+            $this->canales_m->update($canal_id, array("estado_migracion_sphinx"=>$this->config->item('sphinx:actualizar'),"estado" => $this->config->item('estado:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
             //eliminamos la portada del canal
             $objPortada = $this->portada_m->get_by(array("tipo_portadas_id" => $this->config->item('portada:canal'), "origen_id" => $canal_id));
             if (count($objPortada) > 0) {
@@ -3161,7 +3162,7 @@ class Admin extends Admin_Controller {
 
     public function restablecer_canal($canal_id) {
         if ($this->input->is_ajax_request()) {
-            $this->canales_m->update($canal_id, array("estado" => $this->config->item('estado:borrador'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+            $this->canales_m->update($canal_id, array("estado_migracion_sphinx"=>$this->config->item('sphinx:actualizar'),"estado" => $this->config->item('estado:borrador'), "estado_migracion" => $this->config->item('migracion:actualizado')));
             //eliminamos la portada del canal
             $objPortada = $this->portada_m->get_by(array("tipo_portadas_id" => $this->config->item('portada:canal'), "origen_id" => $canal_id));
             if (count($objPortada) > 0) {
@@ -3182,7 +3183,7 @@ class Admin extends Admin_Controller {
             //verificamos q al menos un maestro esté publicado para activarlo
             $lista_maestros_publicados = $this->videos_m->get_many_by(array("canales_id" => $canal_id, "estado" => $this->config->item('video:publicado')));
             if (count($lista_maestros_publicados) > 0) {
-                $this->canales_m->update($canal_id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                $this->canales_m->update($canal_id, array("estado_migracion_sphinx"=>$this->config->item('sphinx:actualizar') ,"estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
                 //eliminamos la portada del canal
                 $objPortada = $this->portada_m->get_by(array("tipo_portadas_id" => $this->config->item('portada:canal'), "origen_id" => $canal_id));
                 if (count($objPortada) > 0) {
@@ -5362,9 +5363,9 @@ class Admin extends Admin_Controller {
     public function restaurar($id, $tipo) {
         if ($this->input->is_ajax_request()) {
             if ($tipo == 'maestro') {
-                $this->grupo_maestro_m->update($id, array("estado" => $this->config->item('estado:borrador')));
+                $this->grupo_maestro_m->update($id, array("estado_migracion_sphinx"=>$this->config->item('sphinx:actualizar'),"estado_migracion"=>$this->config->item('migracion:actualizado'),"estado" => $this->config->item('estado:borrador')));
             } else {
-                $this->videos_m->update($id, array("estado" => $this->config->item('video:borrador')));
+                $this->videos_m->update($id, array("estado_migracion_sphinx"=>$this->config->item('sphinx:actualizar'),"estado_migracion"=>$this->config->item('migracion:actualizado'), "estado" => $this->config->item('video:borrador')));
             }
             echo json_encode(array("value" => "1"));
         }
@@ -5377,7 +5378,7 @@ class Admin extends Admin_Controller {
      */
     public function eliminar_video($video_id) {
         if ($this->input->is_ajax_request()) {
-            $this->videos_m->update($video_id, array("estado" => $this->config->item('video:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+            $this->videos_m->update($video_id, array("estado_migracion_sphinx"=>$this->config->item('sphinx:actualizar'),"estado" => $this->config->item('video:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
             $this->procesos_lib->desactivarVideosXId($video_id);
             echo json_encode(array("value" => "1"));
         }
@@ -5390,7 +5391,7 @@ class Admin extends Admin_Controller {
      */
     public function publicar_video($video_id) {
         if ($this->input->is_ajax_request()) {
-            $this->videos_m->update($video_id, array("estado" => $this->config->item('video:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+            $this->videos_m->update($video_id, array("estado_migracion_sphinx"=>$this->config->item('sphinx:actualizar'),"estado" => $this->config->item('video:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
             $this->procesos_lib->activarVideosXId($video_id);
             echo json_encode(array("value" => "1"));
         }

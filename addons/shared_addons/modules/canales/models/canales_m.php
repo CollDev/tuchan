@@ -82,7 +82,8 @@ class Canales_m extends MY_Model {
                 'usuario_actualizacion' => $objBeanCanal->usuario_actualizacion,
                 'estado_migracion' => $objBeanCanal->estado_migracion,
                 'fecha_migracion' => $objBeanCanal->fecha_migracion,
-                'fecha_migracion_actualizacion' => $objBeanCanal->fecha_migracion_actualizacion
+                'fecha_migracion_actualizacion' => $objBeanCanal->fecha_migracion_actualizacion,
+                'estado_migracion_sphinx' => $objBeanCanal->estado_migracion_sphinx
         ));
         return $objBeanCanal;           
     }
