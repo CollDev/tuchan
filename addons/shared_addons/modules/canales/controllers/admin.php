@@ -3250,7 +3250,7 @@ class Admin extends Admin_Controller {
      */
     private function obtener_secciones_personalizadas($portada_id) {
         $returnValue = array();
-        $tipo_secciones = array('6','7','8','9','10');
+        $tipo_secciones = array('6', '7', '8', '9', '10');
         $objSeccionColeccion = $this->secciones_m->where_in('tipo_secciones_id', $tipo_secciones)->get_many_by(array("estado" => $this->config->item('estado:publicado'), "portadas_id" => $portada_id));
         if (count($objSeccionColeccion) > 0) {
             foreach ($objSeccionColeccion as $puntero => $objSeccion) {
@@ -3365,9 +3365,13 @@ class Admin extends Admin_Controller {
      * @author Johnny Huamani <johnny1402@gmail.com>
      * @param int $portada_id
      */
-    private function obtener_colecciones_portada_programa($portada_id) {
+    private function obtener_colecciones_portada_programa($portada_id, $secciones_id = 0) {
         $returnValue = array();
-        $objSeccionColeccion = $this->secciones_m->get_many_by(array("estado" => $this->config->item('estado:publicado'), "portadas_id" => $portada_id, "tipo_secciones_id" => $this->config->item('seccion:coleccion')));
+        if ($secciones_id > 0) {
+            $objSeccionColeccion = $this->secciones_m->get_many_by(array("id" => $secciones_id, "estado" => $this->config->item('estado:publicado'), "portadas_id" => $portada_id, "tipo_secciones_id" => $this->config->item('seccion:coleccion')));
+        } else {
+            $objSeccionColeccion = $this->secciones_m->get_many_by(array("estado" => $this->config->item('estado:publicado'), "portadas_id" => $portada_id, "tipo_secciones_id" => $this->config->item('seccion:coleccion')));
+        }
         if (count($objSeccionColeccion) > 0) {
             foreach ($objSeccionColeccion as $puntero => $objSeccion) {
                 $detalle_secciones = $this->detalle_secciones_m->get_many_by(array("secciones_id" => $objSeccion->id));
@@ -3487,6 +3491,12 @@ class Admin extends Admin_Controller {
         }
     }
 
+    /**
+     * Método para publicar una portada x su ID
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param type $portada_id
+     * @return json
+     */
     public function publicar_portada($portada_id) {
         if ($this->input->is_ajax_request()) {
             $this->portada_m->update($portada_id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
@@ -3494,12 +3504,351 @@ class Admin extends Admin_Controller {
         }
     }
 
-    public function previsualizar_seccion() {
+    /**
+     * Método para mostrar la vista previa de una seccion
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param int $seccion_id
+     */
+    public function previsualizar_seccion($seccion_id) {
+        $objSeccion = $this->secciones_m->get($seccion_id);
+        $objPortada = $this->portada_m->get($objSeccion->portadas_id);
+        $objCanal = $this->canales_m->get($objPortada->canales_id);
+        $html = '';
+        if ($objPortada->tipo_portadas_id == $this->config->item('portada:canal')) {
+            switch ($objSeccion->tipo_secciones_id) {
+                case $this->config->item('seccion:destacado'):
+                    $html.=$this->obtener_html_seccion_portada_canal($objCanal, $objSeccion);
+                    break;
+                case $this->config->item('seccion:programa'):
+                    $html.=$this->obtener_html_programa_portada_canal($seccion_id);
+                    break;
+                case $this->config->item('seccion:coleccion'):
+                    $html.=$this->obtener_html_coleccion_portada_programa($objPortada->id, $seccion_id);
+                    break;
+                default:
+                    $html.=$this->obtener_html_seccion($seccion_id);
+                    break;
+            }
+        } else {
+            switch ($objSeccion->tipo_secciones_id) {
+                case $this->config->item('seccion:destacado'):
+                    $html.=$this->obtener_html_seccion_portada_programa($objPortada->id);
+                    break;
+                case $this->config->item('seccion:coleccion'):
+                    $html.=$this->obtener_html_coleccion_portada_programa($objPortada->id, $seccion_id);
+                    break;
+                default:
+                    $html.=$this->obtener_html_seccion($seccion_id);
+                    break;
+            }
+        }
         $this->template
                 ->set_layout('modal', 'admin')
+                ->set('html', $html)
                 ->build('admin/previsualizar_seccion');
     }
 
+    /**
+     * Método para obtener el HTML de una vista previa de una seccion
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param int $seccion_id
+     * @return string
+     */
+    private function obtener_html_seccion($seccion_id) {
+        $html = '';
+        $detalle_secciones = $this->detalle_secciones_m->get_many_by(array("secciones_id" => $seccion_id));
+        $html.='<div class="sli_item">
+                        <!-- ENCABEZADO -->
+                        <div class="head_section mc_column mc_columnA mc_mbottom hd_sli">
+                            <div class="bkg_col02 hsection">
+
+                                <h4>vista previa de la seccion</h4>           
+
+                                <!--<div class="options_section">
+                                    <span class="options_left"></span>
+                                    <span class="options_center"><a href="#">+popular del d&#237;a</a></span>
+                                    <span class="options_right"></span>-->
+
+                                <div class="controls-slider">
+                                    <div class="hidden_links">
+                                        <span class="back_link"></span>
+                                        <span class="forward_link"></span>
+                                    </div>
+                                    <a href="#" class="back_linker_small">Siguiente</a>
+                                    <a href="#" class="forward_linker_small">Anterior</a>
+                                </div>
+                            </div>
+                        </div>  
+                        <div class="mc_column mc_columnA bd_sli">
+                            <ul class="sli_ver">';
+        if (count($detalle_secciones) > 0) {
+            foreach ($detalle_secciones as $indice => $objDetalleSeccion) {
+                //obtenemos la imagen a visualizar
+                $objImagen = $this->imagen_m->get($objDetalleSeccion->imagenes_id);
+                if (count($objImagen) > 0) {
+                    if ($objImagen->procedencia == 1) {
+                        $objDetalleSeccion->imagen = $objImagen->imagen;
+                    } else {
+                        if ($objImagen->procedencia == 0) {
+                            $objDetalleSeccion->imagen = $this->config->item('protocolo:http') . $this->config->item('server:elemento') . '/' . $objImagen->imagen;
+                        } else {
+                            $objDetalleSeccion->imagen = $this->config->item('url:default_imagen') . 'no_video.jpg';
+                        }
+                    }
+                }
+                $html.='<li class="str_C">
+                                            <div class="mc_column mc_columnD mc_mbottom mc_mright">
+                                                <div>
+                                                    <a href="#">
+                                                        <img src="' . $objDetalleSeccion->imagen . '" alt=""/>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </li>';
+            }
+        }
+        $html.='</ul>
+                        </div>   
+                    </div>';
+        return $html;
+    }
+
+    /**
+     * Método para obtener el html de la vista previa de las colecciones
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param object $portada_id
+     * @param object $seccion_id
+     * @return string
+     */
+    private function obtener_html_coleccion_portada_programa($portada_id, $seccion_id) {
+        $coleccion = $this->obtener_colecciones_portada_programa($portada_id, $seccion_id);
+        $html = '';
+        if (count($coleccion) > 0) {
+            foreach ($coleccion as $puntero => $arrayImagen) {
+
+                $html.= '<div class="sli_item">
+                        <!-- ENCABEZADO -->
+                        <div class="head_section mc_column mc_columnA mc_mbottom hd_sli">
+                            <div class="bkg_col02 hsection">
+                                <h4>Temporada</h4>           
+                                <div class="controls-slider">
+                                    <div class="hidden_links">
+                                        <span class="back_link"></span>
+                                        <span class="forward_link"></span>
+                                    </div>
+                                    <a href="#" class="back_linker_small">Siguiente</a>
+                                    <a href="#" class="forward_linker_small">Anterior</a>
+                                </div>
+                            </div>
+                        </div>  
+                        <div class="mc_column mc_columnA bd_sli">
+                            <ul class="sli_ver">';
+                if (count($arrayImagen) > 0) {
+                    foreach ($arrayImagen as $indice => $imagen) {
+                        $html.='<li class="str_C">
+                                            <div class="mc_column mc_columnD mc_mbottom mc_mright">
+                                                <div>
+                                                    <a href="#">
+                                                        <img src="' . $imagen . '" alt=""/>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </li>';
+                    }
+                }
+
+                $html.='</ul>
+                        </div>   
+                    </div>';
+            }
+        }
+
+        return $html;
+    }
+
+    /**
+     * Método para obtener el html de la vista previa de un programa
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param type $secciones_id
+     * @return string
+     */
+    private function obtener_html_programa_portada_canal($secciones_id) {
+        $detalle_secciones = $this->detalle_secciones_m->get_many_by(array("secciones_id" => $secciones_id));
+        $html = '';
+        $html.='<div class="sli_item_">
+                        <div class="head_section mc_column mc_columnA mc_mbottom">
+                            <div class="bkg_col02 hsection">
+                                <h4>PROGRAMA</h4>               
+                            </div>
+                        </div>
+                        <div class="mc_column mc_columnA head_section mbottom str_E">';
+        if (count($detalle_secciones) > 0) {
+            foreach ($detalle_secciones as $indice => $objDetalleSeccion) {
+                //obtenemos la imagen a visualizar
+                $objImagen = $this->imagen_m->get($objDetalleSeccion->imagenes_id);
+                if (count($objImagen) > 0) {
+                    if ($objImagen->procedencia == 1) {
+                        $objDetalleSeccion->imagen = $objImagen->imagen;
+                    } else {
+                        if ($objImagen->procedencia == 0) {
+                            $objDetalleSeccion->imagen = $this->config->item('protocolo:http') . $this->config->item('server:elemento') . '/' . $objImagen->imagen;
+                        } else {
+                            $objDetalleSeccion->imagen = $this->config->item('url:default_imagen') . 'no_video.jpg';
+                        }
+                    }
+                }
+                $html.='<div class="mc_column mc_columnD mc_mbottom mc_mright">
+                                        <a href="#">
+                                            <div class="content_section2">
+                                                <div class="mc_column layer_content">
+                                                    <img src="' . $objDetalleSeccion->imagen . '" alt="">
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>  ';
+            }
+        }
+        $html.='</div>
+                    </div>';
+
+        return $html;
+    }
+
+    /**
+     * Método para obtener la vista de un destacado de programa
+     * Johnny Huamani <johnny1402@gmail.com>
+     * @param int $objCanal
+     * @return string
+     */
+    private function obtener_html_seccion_portada_programa($portada_id) {
+        $objDestacado = $this->obtener_destacado_programa($portada_id);
+        $html = '<div class="mc_column mc_columnA mc_mbottom">
+                <div class="flexslider">
+                    <ul class="slides">           
+                        <li>
+                            <div class="content_section3">
+                                <div class="layer_content">                        
+                                       <img src="' . $objDestacado->imagen . '" title="" alt="">
+                                        <div class="mode_fade">
+                                            <a href="#">
+                                            <div class="layer_info">
+                                                <div class="data_info down_place4">
+                                                    <span class="span_text2"></span> 
+                                                    <h5>' . $objDestacado->titulo . '</h5>
+                                                    <span class="span_text2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore</span>
+                                                </div>
+                                            </div>
+                                            </a> 
+                                        </div>                     
+                                </div>
+                            </div>
+                        </li>
+                     </ul>
+                </div> 
+        </div>';
+        return $html;
+    }
+
+    /**
+     * Método para generar la vista de un destacado canal
+     * Johnny Huamani <johnny1402@gmail.com>
+     * @param object $objCanal
+     * @param object $objSeccion
+     * @return string
+     */
+    private function obtener_html_seccion_portada_canal($objCanal, $objSeccion) {
+        $objDetalleSeccion = $this->detalle_secciones_m->get_by(array("secciones_id" => $objSeccion->id));
+        //obtenemos la imagen a visualizar
+        $objImagen = $this->imagen_m->get($objDetalleSeccion->imagenes_id);
+        if (count($objImagen) > 0) {
+            if ($objImagen->procedencia == 1) {
+                $objDetalleSeccion->imagen = $objImagen->imagen;
+            } else {
+                if ($objImagen->procedencia == 0) {
+                    $objDetalleSeccion->imagen = $this->config->item('protocolo:http') . $this->config->item('server:elemento') . '/' . $objImagen->imagen;
+                } else {
+                    $objDetalleSeccion->imagen = $this->config->item('url:default_imagen') . 'no_video.jpg';
+                }
+            }
+        }
+        $html = '<div class="mc_column mc_columnA ">
+            <div class="mc_column mc_columnE mc_mbottom  mc_mright">  
+                <div class="mc_colum mc_columnA player_video_main3">
+                    <div class="flexslider">
+                        <ul class="slides">
+                            <li>
+                                <div class="content_section3">
+                                    <div class="layer_content">
+                                        <img src="' . $objDetalleSeccion->imagen . '" title="" alt="">
+                                        <div class="mode_fade">
+                                            <a href="#">
+                                                <div class="layer_info">
+                                                    <div class="data_info down_place4">
+                                                        <span class="span_text2"></span>
+                                                        <h5>
+                                                            titulo
+                                                        </h5>
+                                                        <span class="span_text2"></span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="mode_fade">
+                                            <a href="#">
+                                                <div class="layer_info">
+                                                    <div class="data_info down_place4">
+                                                        <span class="span_text2"></span> 
+                                                        <h5>titulo</h5>
+                                                        <span class="span_text2"></span>
+                                                    </div>
+                                                </div>
+
+                                            </a> 
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="mc_column mc_columnF">
+                <div class="mc_column canal_data">
+                    <div class="mc_column item_canal_logo">
+                        <img src="" title="' . $objCanal->descripcion . '" alt="' . $objCanal->descripcion . '"> 
+                    </div>
+                    <div class="mc_column item_canal_desc">
+                        ' . $objCanal->descripcion . '
+                    </div>         
+                </div>
+                <div class="mc_column canal_info">
+                    <div class="mc_column item_canal_text1">
+                        <a class="suscript_link3 linker_btn3 tcol08 " href="#"><span class="suscript_left2"></span><span class="suscript_center2  size08 tol00">suscribirse</span><span class="suscript_right2"></span></a>
+                        <a class="suscript_link3 linker_btn3 tcol08 "><span class="suscript_number  size08 tol00">125879</span></a>
+                    </div>
+                    <div class="mc_column item_canal_text2">
+                        <span>151 videos</span>
+                    </div>
+                    <div class="mc_column item_canal_text2">
+                        <span>1,443 seguidores</span>
+                    </div>
+                    <div class="mc_column item_canal_text2">
+                        <span>Favoritos</span>
+                    </div>        
+                </div>
+            </div>
+        </div>';
+        return $html;
+    }
+
+    /**
+     * Método para eliminar una seccione a traves de su ID
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param int $seccion_id
+     * @return json
+     */
     public function eliminar_seccion($seccion_id) {
         if ($this->input->is_ajax_request()) {
             $this->secciones_m->update($seccion_id, array("estado" => $this->config->item('estado:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));

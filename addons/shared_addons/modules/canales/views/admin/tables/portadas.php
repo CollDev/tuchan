@@ -88,18 +88,18 @@
                     foreach ($coleccion_seccion as $indice => $objSeccion):
                         switch ($objSeccion->estado) {
                             case $this->config->item('estado:borrador'):
-                                $acciones = '<a href="/admin/canales/previsualizar_seccion/" target ="_blank" class="mode_preview modal-large">Previsualizar</a>';
+                                $acciones = '<a href="/admin/canales/previsualizar_seccion/' . $objSeccion->id . '" target ="_blank" class="mode_preview modal-large">Previsualizar</a>';
                                 $acciones.= '<a href="#" onclick="publicar_seccion(' . $objSeccion->id . ', \'seccion\');return false;" class="mode_publish">Publicar</a>';
                                 $acciones.= '<a title="Editar" href="admin/canales/seccion/' . $post->canales_id . '/' . $objSeccion->id . '" class="mode_edit">Editar</a>';
                                 $acciones.= '<a href="#" onclick="eliminar_seccion(' . $objSeccion->id . ', \'seccion\');return false;" class="mode_delete">Eliminar</a>';
                                 break;
                             case $this->config->item('estado:publicado'):
-                                $acciones = '<a href="/admin/canales/previsualizar_seccion/" target ="_blank" class="modal-large mode_preview">Previsualizar</a>';
+                                $acciones = '<a href="/admin/canales/previsualizar_seccion/' . $objSeccion->id . '" target ="_blank" class="modal-large mode_preview">Previsualizar</a>';
                                 $acciones.= '<a title="Editar" href="admin/canales/seccion/' . $post->canales_id . '/' . $objSeccion->id . '" class="mode_edit">Editar</a>';
                                 $acciones.= '<a href="#" onclick="eliminar_seccion(' . $objSeccion->id . ', \'seccion\');return false;" class="mode_delete">Eliminar</a>';
                                 break;
                             case $this->config->item('estado:eliminado') :
-                                $acciones = '<a href="/admin/canales/previsualizar_seccion/" target ="_blank" class="modal-large mode_preview">Previsualizar</a>';
+                                $acciones = '<a href="/admin/canales/previsualizar_seccion/' . $objSeccion->id . '" target ="_blank" class="modal-large mode_preview">Previsualizar</a>';
                                 $acciones.= '<a href="#" onclick="restablecer_seccion(' . $objSeccion->id . ', \'seccion\');return false;" class="mode_restore">Restablecer</a>';
                                 break;
                         }
