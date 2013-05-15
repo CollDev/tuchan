@@ -3228,10 +3228,174 @@ class Admin extends Admin_Controller {
      */
     public function previsualizar_portada($portada_id) {
         $objDestacado = $this->obtener_destacado_programa($portada_id);
+        $arrayColeccion = $this->obtener_colecciones_portada_programa($portada_id);
+        $lista = $this->obtener_lista_portada_programa($portada_id);
+        $video = $this->obtener_video_portada_programa($portada_id);
+        $personalizado = $this->obtener_secciones_personalizadas($portada_id);
         $this->template
                 ->set_layout('modal', 'admin')
                 ->set('objDestacado', $objDestacado)
+                ->set('coleccion', $arrayColeccion)
+                ->set('lista', $lista)
+                ->set('video', $video)
+                ->set('personalizado', $personalizado)
                 ->build('admin/previsualizar_portada');
+    }
+
+    /**
+     * Método para obtener las imagenes de las secciones personalizadas
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param int $portadas_id
+     * @return array
+     */
+    private function obtener_secciones_personalizadas($portada_id) {
+        $returnValue = array();
+        $tipo_secciones = array('6','7','8','9','10');
+        $objSeccionColeccion = $this->secciones_m->where_in('tipo_secciones_id', $tipo_secciones)->get_many_by(array("estado" => $this->config->item('estado:publicado'), "portadas_id" => $portada_id));
+        if (count($objSeccionColeccion) > 0) {
+            foreach ($objSeccionColeccion as $puntero => $objSeccion) {
+                $detalle_secciones = $this->detalle_secciones_m->get_many_by(array("secciones_id" => $objSeccion->id));
+                if (count($detalle_secciones) > 0) {
+                    $array_detalle_secciones = array();
+                    foreach ($detalle_secciones as $index => $objDetalleSeccion) {
+                        //obtenemos la imagen a visualizar
+                        $objImagen = $this->imagen_m->get($objDetalleSeccion->imagenes_id);
+                        if (count($objImagen) > 0) {
+                            if ($objImagen->procedencia == 1) {
+                                $imagen = $objImagen->imagen;
+                            } else {
+                                if ($objImagen->procedencia == 0) {
+                                    $imagen = $this->config->item('protocolo:http') . $this->config->item('server:elemento') . '/' . $objImagen->imagen;
+                                } else {
+                                    $imagen = $this->config->item('url:default_imagen') . 'no_video.jpg';
+                                }
+                            }
+                        }
+                        //haces push a la imagen de esta seccion
+                        array_push($array_detalle_secciones, $imagen);
+                    }
+                }
+                //hacemos push al array de retorno
+                array_push($returnValue, $array_detalle_secciones);
+            }
+        }
+        return $returnValue;
+    }
+
+    /**
+     * Método para obtener las imagenes de la seccion video
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param int $portada_id
+     * @return array
+     */
+    private function obtener_video_portada_programa($portada_id) {
+        $returnValue = array();
+        $objSeccionLista = $this->secciones_m->get_many_by(array("estado" => $this->config->item('estado:publicado'), "portadas_id" => $portada_id, "tipo_secciones_id" => $this->config->item('seccion:video')));
+        if (count($objSeccionLista) > 0) {
+            foreach ($objSeccionLista as $puntero => $objSeccion) {
+                $detalle_secciones = $this->detalle_secciones_m->get_many_by(array("secciones_id" => $objSeccion->id));
+                if (count($detalle_secciones) > 0) {
+                    $array_detalle_secciones = array();
+                    foreach ($detalle_secciones as $index => $objDetalleSeccion) {
+                        //obtenemos la imagen a visualizar
+                        $objImagen = $this->imagen_m->get($objDetalleSeccion->imagenes_id);
+                        if (count($objImagen) > 0) {
+                            if ($objImagen->procedencia == 1) {
+                                $imagen = $objImagen->imagen;
+                            } else {
+                                if ($objImagen->procedencia == 0) {
+                                    $imagen = $this->config->item('protocolo:http') . $this->config->item('server:elemento') . '/' . $objImagen->imagen;
+                                } else {
+                                    $imagen = $this->config->item('url:default_imagen') . 'no_video.jpg';
+                                }
+                            }
+                        }
+                        //haces push a la imagen de esta seccion
+                        array_push($array_detalle_secciones, $imagen);
+                    }
+                }
+                //hacemos push al array de retorno
+                array_push($returnValue, $array_detalle_secciones);
+            }
+        }
+        return $returnValue;
+    }
+
+    /**
+     * Método para obtener las imagenes de la seccion lista
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param int $portada_id
+     * @return array
+     */
+    private function obtener_lista_portada_programa($portada_id) {
+        $returnValue = array();
+        $objSeccionLista = $this->secciones_m->get_many_by(array("estado" => $this->config->item('estado:publicado'), "portadas_id" => $portada_id, "tipo_secciones_id" => $this->config->item('seccion:lista')));
+        if (count($objSeccionLista) > 0) {
+            foreach ($objSeccionLista as $puntero => $objSeccion) {
+                $detalle_secciones = $this->detalle_secciones_m->get_many_by(array("secciones_id" => $objSeccion->id));
+                if (count($detalle_secciones) > 0) {
+                    $array_detalle_secciones = array();
+                    foreach ($detalle_secciones as $index => $objDetalleSeccion) {
+                        //obtenemos la imagen a visualizar
+                        $objImagen = $this->imagen_m->get($objDetalleSeccion->imagenes_id);
+                        if (count($objImagen) > 0) {
+                            if ($objImagen->procedencia == 1) {
+                                $imagen = $objImagen->imagen;
+                            } else {
+                                if ($objImagen->procedencia == 0) {
+                                    $imagen = $this->config->item('protocolo:http') . $this->config->item('server:elemento') . '/' . $objImagen->imagen;
+                                } else {
+                                    $imagen = $this->config->item('url:default_imagen') . 'no_video.jpg';
+                                }
+                            }
+                        }
+                        //haces push a la imagen de esta seccion
+                        array_push($array_detalle_secciones, $imagen);
+                    }
+                }
+                //hacemos push al array de retorno
+                array_push($returnValue, $array_detalle_secciones);
+            }
+        }
+        return $returnValue;
+    }
+
+    /**
+     * Método para listar las colecciones de los programas
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param int $portada_id
+     */
+    private function obtener_colecciones_portada_programa($portada_id) {
+        $returnValue = array();
+        $objSeccionColeccion = $this->secciones_m->get_many_by(array("estado" => $this->config->item('estado:publicado'), "portadas_id" => $portada_id, "tipo_secciones_id" => $this->config->item('seccion:coleccion')));
+        if (count($objSeccionColeccion) > 0) {
+            foreach ($objSeccionColeccion as $puntero => $objSeccion) {
+                $detalle_secciones = $this->detalle_secciones_m->get_many_by(array("secciones_id" => $objSeccion->id));
+                if (count($detalle_secciones) > 0) {
+                    $array_detalle_secciones = array();
+                    foreach ($detalle_secciones as $index => $objDetalleSeccion) {
+                        //obtenemos la imagen a visualizar
+                        $objImagen = $this->imagen_m->get($objDetalleSeccion->imagenes_id);
+                        if (count($objImagen) > 0) {
+                            if ($objImagen->procedencia == 1) {
+                                $imagen = $objImagen->imagen;
+                            } else {
+                                if ($objImagen->procedencia == 0) {
+                                    $imagen = $this->config->item('protocolo:http') . $this->config->item('server:elemento') . '/' . $objImagen->imagen;
+                                } else {
+                                    $imagen = $this->config->item('url:default_imagen') . 'no_video.jpg';
+                                }
+                            }
+                        }
+                        //haces push a la imagen de esta seccion
+                        array_push($array_detalle_secciones, $imagen);
+                    }
+                }
+                //hacemos push al array de retorno
+                array_push($returnValue, $array_detalle_secciones);
+            }
+        }
+        return $returnValue;
     }
 
     /**
