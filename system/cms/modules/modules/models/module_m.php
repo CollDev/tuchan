@@ -139,9 +139,10 @@ class Module_m extends MY_Model
 			
 			list($class, $location) = $module;
 			$info = $class->info();
+                            $name = ! isset($info['name'][CURRENT_LANGUAGE]) ? $info['name']['es'] : $info['name'][CURRENT_LANGUAGE];
+                            $description = ! isset($info['description'][CURRENT_LANGUAGE]) ? $info['description']['es'] : $info['description'][CURRENT_LANGUAGE];
+                        
 			
-			$name = ! isset($info['name'][CURRENT_LANGUAGE]) ? $info['name']['en'] : $info['name'][CURRENT_LANGUAGE];
-			$description = ! isset($info['description'][CURRENT_LANGUAGE]) ? $info['description']['en'] : $info['description'][CURRENT_LANGUAGE];
 
 			$module = array(
 				'name'				=> $name,
