@@ -615,6 +615,7 @@
                         }); //end AJAX             
                     }
                     function agregarCanalASeccion(canal_padre, canal_item, seccion_id) {
+                    console.log(canal_item);
                         var post_url = "/admin/canales/agregarCanalASeccion/" + canal_item + '/' + seccion_id;
                         $.ajax({
                             type: "POST",
