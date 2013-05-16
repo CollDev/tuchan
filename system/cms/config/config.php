@@ -395,7 +395,7 @@ $config['modules_locations'] = array(
 );
 
 //servidor elemento
-$config['server:elemento'] = 'pre.e.micanal.e3.pe';
+$config['server:elemento'] = 'pre.e.micanal.e4.pe';
 $config['url:elemento'] = 'http://pre.e3.pe/index.php/api/v1';
 $config['apikey:elemento'] = '590ee43e919b1f4baa2125a424f03cd160ff8901';
 $config['mensaje:elemento'] = 'cms.micanal.pe';
