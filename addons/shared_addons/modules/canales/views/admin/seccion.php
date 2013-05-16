@@ -575,6 +575,9 @@
                     }
 
                     function agregarMaestroASeccion(canal_id, maestro_id, seccion_id) {
+                        $("#div_" + maestro_id).empty();
+                        var html = '<a href="#" id="agregado" name="agregado" class="btn silver" onclick="return false;">Agregado</a>';
+                        $("#div_" + maestro_id).html(html);
                         var post_url = "/admin/canales/agregarMaestroASeccion/" + maestro_id + '/' + seccion_id;
                         $.ajax({
                             type: "POST",
@@ -595,6 +598,9 @@
                         }); //end AJAX             
                     }
                     function agregarVideoASeccion(canal_id, video_id, seccion_id) {
+                        $("#div_" + video_id).empty();
+                        var html = '<a href="#" id="agregado" name="agregado" class="btn silver" onclick="return false;">Agregado</a>';
+                        $("#div_" + video_id).html(html);
                         var post_url = "/admin/canales/agregarVideoASeccion/" + video_id + '/' + seccion_id;
                         $.ajax({
                             type: "POST",
@@ -615,7 +621,10 @@
                         }); //end AJAX             
                     }
                     function agregarCanalASeccion(canal_padre, canal_item, seccion_id) {
-                    console.log(canal_item);
+                        $("#div_" + canal_item).empty();
+                        var html = '<a href="#" id="agregado" name="agregado" class="btn silver" onclick="return false;">Agregado</a>';
+                        $("#div_" + canal_item).html(html);
+                        console.log(canal_item);
                         var post_url = "/admin/canales/agregarCanalASeccion/" + canal_item + '/' + seccion_id;
                         $.ajax({
                             type: "POST",
@@ -941,16 +950,16 @@
                             } //end success
                         }); //end AJAX         
                     }
-                    
-                    function agregar_descripcion(detalle_seccion_id){
-                        var html = '<textarea id="descripcion_texto_'+detalle_seccion_id+'" nombre="descripcion_texto_'+detalle_seccion_id+'"></textarea>';
-                        var boton = '<a href="#" class="btn blue" onclick="quitar_descripcion('+detalle_seccion_id+'); return false;">Quitar descripción</a>';
-                        $("#descripcion_"+detalle_seccion_id).html(html);
-                        $("#boton_"+detalle_seccion_id).html(boton); 
+
+                    function agregar_descripcion(detalle_seccion_id) {
+                        var html = '<textarea id="descripcion_texto_' + detalle_seccion_id + '" nombre="descripcion_texto_' + detalle_seccion_id + '"></textarea>';
+                        var boton = '<a href="#" class="btn blue" onclick="quitar_descripcion(' + detalle_seccion_id + '); return false;">Quitar descripción</a>';
+                        $("#descripcion_" + detalle_seccion_id).html(html);
+                        $("#boton_" + detalle_seccion_id).html(boton);
                     }
-                    
-                    function quitar_descripcion(detalle_seccion_id){
-                     var post_url = "/admin/canales/obtener_descripcion_detalle_seccion/" + detalle_seccion_id;
+
+                    function quitar_descripcion(detalle_seccion_id) {
+                        var post_url = "/admin/canales/obtener_descripcion_detalle_seccion/" + detalle_seccion_id;
                         $.ajax({
                             type: "POST",
                             url: post_url,
@@ -959,11 +968,16 @@
                             success: function(respuesta)
                             {
                                 var html = respuesta.value;
-                                $("#descripcion_"+detalle_seccion_id).html(html);
+                                $("#descripcion_" + detalle_seccion_id).html(html);
                             } //end success
                         }); //end AJAX                          
-                        var boton = '<a href="#" class="btn blue" onclick="agregar_descripcion('+detalle_seccion_id+'); return false;">Agregar descripción</a>';
-                        $("#boton_"+detalle_seccion_id).html(boton);                        
+                        var boton = '<a href="#" class="btn blue" onclick="agregar_descripcion(' + detalle_seccion_id + '); return false;">Agregar descripción</a>';
+                        $("#boton_" + detalle_seccion_id).html(boton);
+                    }
+
+                    function deshabilitar_boton(id) {
+                        var htmlAgregado = '<a href="#" id="agregado" name="agregado" class="btn silver" onclick="return false;">Agregado</a>';
+                        $("#div_" + id).html(htmlAgregado);
                     }
     </script>
 </section>
