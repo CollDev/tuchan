@@ -439,7 +439,8 @@ jQuery(function($) {
 	}
 
 	$(document).ajaxError(function(e, jqxhr, settings, exception) {
-		pyro.add_notification($('<div class="alert error">'+exception+'</div>'));
+		//pyro.add_notification($('<div class="alert error">'+exception+'</div>'));
+		pyro.add_notification($(''));
 	});
 
 	$(document).ready(function() {
