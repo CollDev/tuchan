@@ -1907,9 +1907,12 @@ class Admin extends Admin_Controller {
           $this->template->build('admin/seccion');
 
           } else { */
+        $this->input->is_ajax_request() and $this->template->set_layout(FALSE);
         $this->template
                 ->title($this->module_details['name'])
                 ->append_js('module::jquery.tablednd.js')
+                ->append_js('admin/filter.js')
+                ->set_partial('filters', 'admin/partials/filters')
                 ->append_js('module::jquery.alerts.js')
                 ->append_js('module::smartpaginator.js')
                 ->append_css('module::smartpaginator.css')
