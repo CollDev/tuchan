@@ -590,7 +590,7 @@ class Procesos_lib extends MX_Controller {
                         if (count($datos2) == 1) {
                             $array["canal_des"] = $datos2[0]->canal_des;
                             $array["canal_cv"] = $datos2[0]->canal_cv;
-                            $array["canal_img"] = PATH_ELEMENTOS . $datos2[0]->canal_img;
+                            $array["canal_img"] = $this->config->item('protocolo:http').$this->config->item('server:elemento')."/" . $datos2[0]->canal_img;
                         }
                     }
 
@@ -726,7 +726,7 @@ class Procesos_lib extends MX_Controller {
                     }
                     $arrtemp["url"] = $urltemp;
                     if ($value2->procedencia == 0) {
-                        $arrtemp["imagen"] = PATH_ELEMENTOS . $value2->imagen;
+                        $arrtemp["imagen"] = $this->config->item('protocolo:http').$this->config->item('server:elemento')."/" . $value2->imagen;
                     } else {
                         $arrtemp["imagen"] = $value2->imagen;
                     }
@@ -905,7 +905,7 @@ class Procesos_lib extends MX_Controller {
                         if (count($datos2) == 1) {
                             $array["canal_des"] = $datos2[0]->canal_des;
                             $array["canal_cv"] = $datos2[0]->canal_cv;
-                            $array["canal_img"] = PATH_ELEMENTOS . $datos2[0]->canal_img;
+                            $array["canal_img"] = $this->config->item('protocolo:http').$this->config->item('server:elemento')."/". $datos2[0]->canal_img;
                         }
                     }                    
 
@@ -1037,7 +1037,7 @@ class Procesos_lib extends MX_Controller {
                 $arrtemp["url"] = $urltemp;
 
                 if ($value2->procedencia == 0) {
-                    $arrtemp["imagen"] = PATH_ELEMENTOS . $value2->imagen;
+                    $arrtemp["imagen"] = $this->config->item('protocolo:http').$this->config->item('server:elemento')."/" . $value2->imagen;
                 } else {
                     $arrtemp["imagen"] = $value2->imagen;
                 }
@@ -1206,7 +1206,7 @@ class Procesos_lib extends MX_Controller {
                 $objmongo['programa_alias'] = $datovideo[0]->xprogramaalias;
                 $objmongo['fecha'] = date("d-m-Y", strtotime($datovideo[0]->xfechatransmision));
                 $objmongo['etiquetas'] = explode(",", $value->etiquetas);
-                $objmongo['logo'] = PATH_ELEMENTOS . $value->imagen;
+                $objmongo['logo'] = $this->config->item('protocolo:http').$this->config->item('server:elemento')."/" . $value->imagen;
                 $objmongo['nombre'] = $datovideo[0]->xvideo;
                 $objmongo['descripcion'] = (strip_tags($datovideo[0]->xdescripcion));
 
@@ -1269,7 +1269,7 @@ class Procesos_lib extends MX_Controller {
 
                 foreach ($imagenes as $rowx) {
                     if ($rowx->procedencia == 0) {
-                        $arrimagen[$rowx->ancho . "x" . $rowx->alto] = PATH_ELEMENTOS . $rowx->imagen;
+                        $arrimagen[$rowx->ancho . "x" . $rowx->alto] = $this->config->item('protocolo:http').$this->config->item('server:elemento')."/" . $rowx->imagen;
                     } else {
                         $arrimagen[$rowx->ancho . "x" . $rowx->alto] = $rowx->imagen;
                     }
@@ -1449,7 +1449,7 @@ class Procesos_lib extends MX_Controller {
                 $objmongo['programa_alias'] = $datovideo[0]->xprogramaalias;
                 $objmongo['fecha'] = date("d-m-Y", strtotime($datovideo[0]->xfechatransmision));
                 $objmongo['etiquetas'] = explode(",", $value->etiquetas);
-                $objmongo['logo'] = PATH_ELEMENTOS . $value->imagen;
+                $objmongo['logo'] = $this->config->item('protocolo:http').$this->config->item('server:elemento')."/" . $value->imagen;
                 $objmongo['nombre'] = $datovideo[0]->xvideo;
                 $objmongo['descripcion'] = (strip_tags($datovideo[0]->xdescripcion));
 
@@ -1540,7 +1540,7 @@ class Procesos_lib extends MX_Controller {
 
             foreach ($imagenes as $rowx) {
                 if ($rowx->procedencia == 0) {
-                    $arrimagen[$rowx->ancho . "x" . $rowx->alto] = PATH_ELEMENTOS . $rowx->imagen;
+                    $arrimagen[$rowx->ancho . "x" . $rowx->alto] = $this->config->item('protocolo:http').$this->config->item('server:elemento')."/" . $rowx->imagen;
                 } else {
                     $arrimagen[$rowx->ancho . "x" . $rowx->alto] = $rowx->imagen;
                 }
@@ -1559,8 +1559,8 @@ class Procesos_lib extends MX_Controller {
             $tags = $this->video_tags_mp->getTagsVideosXId($id);
            //  print_r($tags);
 
-            //$clienteSOAP = new SoapClient($this->config->item('motor') ."/". EC_CLIENTE_SOAP);
-            $clienteSOAP = new SoapClient('http://192.168.1.35/sphinx/busqueda.wsdl');
+            $clienteSOAP = new SoapClient($this->config->item('motor') ."/". EC_CLIENTE_SOAP);
+            
             
 
             $parametros = array();

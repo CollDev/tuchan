@@ -427,7 +427,6 @@ $config['migracion:margen_error_imagen'] = '20';
 
 
 $config['motor'] = 'http://dev.micanal.pe';
-//$config['motor'] = 'http://ci.micanal.dev';
 
 
 /* End of file config.php */
