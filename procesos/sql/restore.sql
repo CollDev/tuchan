@@ -1,3 +1,6 @@
+
+
+
 DROP TABLE IF EXISTS `{prefix}profiles`;
 
 CREATE TABLE `{prefix}profiles` (
