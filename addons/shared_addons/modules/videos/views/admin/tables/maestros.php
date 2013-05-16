@@ -175,18 +175,24 @@
                                                             <td><div id="video_<?php echo $objVideo->id; ?>"><?php echo $objVideo->estado; ?></div></td>
                                                             <?php
                                                             switch ($objVideo->estado_id):
-                                                                case $this->config->item('estado:borrador'):
+                                                                case $this->config->item('video:codificando'):
                                                                     $u = 'admin/videos/carga_unitaria/' . $objVideo->canales_id . '/' . $objVideo->id;
                                                                     $link = '<a href="#" class="mode mode_edit" onclick="editar(\'' . $u . '\');return false;">Editar</a>';
                                                                     $link.= '<a href="#" class="mode mode_delete" onclick="eliminar(' . $objVideo->id . ', \'video\');return false;">Eliminar</a>';
                                                                     $link.= '<a href="#" class="mode mode_publish" onclick="publicar(' . $objVideo->id . ', \'video\');return false;">Publicar</a>';
                                                                     break;
-                                                                case $this->config->item('estado:publicado'):
+                                                                case $this->config->item('video:borrador'):
+                                                                    $u = 'admin/videos/carga_unitaria/' . $objVideo->canales_id . '/' . $objVideo->id;
+                                                                    $link = '<a href="#" class="mode mode_edit" onclick="editar(\'' . $u . '\');return false;">Editar</a>';
+                                                                    $link.= '<a href="#" class="mode mode_delete" onclick="eliminar(' . $objVideo->id . ', \'video\');return false;">Eliminar</a>';
+                                                                    $link.= '<a href="#" class="mode mode_publish" onclick="publicar(' . $objVideo->id . ', \'video\');return false;">Publicar</a>';
+                                                                    break;
+                                                                case $this->config->item('video:publicado'):
                                                                     $u = 'admin/videos/carga_unitaria/' . $objVideo->canales_id . '/' . $objVideo->id;
                                                                     $link = '<a href="#" class="mode mode_edit" onclick="editar(\'' . $u . '\');return false;">Editar</a>';
                                                                     $link.= '<a href="#" class="mode mode_delete btnEliminar" onclick="eliminar(' . $objVideo->id . ', \'video\');return false;">Eliminar</a>';
                                                                     break;
-                                                                case $this->config->item('estado:eliminado'):
+                                                                case $this->config->item('video:eliminado'):
                                                                     $u = 'admin/videos/carga_unitaria/' . $objVideo->canales_id . '/' . $objVideo->id;
                                                                     //$link.= '<button class="btn blue" onclick="publicar(' . $objColeccion->id . ', \'video\');return false;">Publicar</button>';
                                                                     $link = '<a href="#" class="mode mode_restore" onclick="restablecer(' . $objVideo->id . ', \'video\');return false;">Restablecer</a>';
@@ -354,6 +360,8 @@
                                 e.stopPropagation();
                                 //Your Code here(For example a call to your function)
                             });
+                        }else{
+                            showMessage('error', 'No es posible publicar. No tiene videos publicados', 2000, '');
                         }
                     } //end success
                 }); //end AJAX   

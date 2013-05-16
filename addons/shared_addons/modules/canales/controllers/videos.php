@@ -34,6 +34,10 @@ class Videos extends Admin_Controller
                 $this->load->model('videos/grupo_maestro_m');
                 $this->load->model('videos/tipo_maestro_m');                
 	}
+        
+        public function test(){
+            
+        }
 
 	/**
 	 * Index method, lists all canales

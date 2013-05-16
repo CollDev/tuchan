@@ -18,6 +18,13 @@ $config['videos:programa'] = '3';
 $config['videos:coleccion'] = '2';
 $config['videos:lista'] = '1';
 
+//tipo de videos
+$config['videos:normal'] = '1';
+$config['videos:premium'] = '2';
+
+//categorias
+$config['categoria:modas'] = '13';
+
 //estados de los grupo maestros
 $config['estado:borrador'] = '0';
 $config['estado:publicado'] = '1';
@@ -32,6 +39,8 @@ $config['video:eliminado'] = '3';
 //estado de migración
 $config['migracion:nuevo'] = '0';
 $config['migracion:actualizado'] = '9';
+$config['sphinx:actualizar'] = '9';
+$config['sphinx:nuevo'] = '0';
 
 //estados de los videos en el flujo de upload
 $config['status:codificando'] = '0';
@@ -62,6 +71,7 @@ $config['imagen:formatos'] = 'jpg|png|jpeg';
 //procedencia
 $config['procedencia:liquid'] = '1';
 $config['procedencia:elemento'] = '0';
+$config['procedencia:migracion'] = '1';
 
 //tipos de tag
 $config['tag:tematicas'] = '1';
@@ -115,3 +125,11 @@ $config['video:verificar'] = '1';
 
 //submenus
 $config['submenu:carga_unitaria'] = 'Subir video';
+
+//Migración
+//$config['migracion:no_canal'] = '1';
+//$config['migracion:programa'] = '492';
+//$config['migracion:coleccion'] = '497';
+$config['migracion:programa'] = '473';
+$config['migracion:coleccion'] = '474';
+

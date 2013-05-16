@@ -45,11 +45,12 @@ class MiCanal_mp extends CI_Model {
 
     public function queryProcedure($option, $id) {
         switch ($option) {
-            case '4':
-                $query = "";
-                $query = "call sp_obtenerdatos(" . $id . ")";
-                //echo $query."<br>";                
+            case '1':
+                $query = "call sp_llenartiposeccion6789";                                
                 break;
+            case '4':
+                $query = "call sp_obtenerdatos(" . $id . ")";
+                break;            
         }
 
 //         $objresult=$this->db->query($query);
@@ -77,12 +78,6 @@ class MiCanal_mp extends CI_Model {
 
                 break;
 
-//            case '3':
-//                $query = "SELECT ds.videos_id,ds.grupo_maestros_id,ds.imagenes_id,ds.peso,im.imagen,im.procedencia
-//                            FROM " . $this->_table_detalle_secciones . " ds
-//                            INNER JOIN " . $this->_table_imagenes . " im ON im.id=ds.imagenes_id
-//                            WHERE secciones_id=" . $id . " and ds.estado=1  ORDER BY peso asc ";
-//                break;
 
             case '3' :
                 $query = "SELECT se.id,se.id_mongo,se.tipo_secciones_id,po.tipo_portadas_id
@@ -94,7 +89,7 @@ class MiCanal_mp extends CI_Model {
 
 
             case '4':
-                $query = "SELECT se.tipo_secciones_id,po.tipo_portadas_id,ds.id,ds.videos_id,ds.grupo_maestros_id,ds.imagenes_id,ds.peso,im.imagen,im.procedencia,ds.estado,ds.estado_migracion
+                $query = "SELECT se.tipo_secciones_id,po.tipo_portadas_id,ds.id,ds.descripcion_item,ds.videos_id,ds.grupo_maestros_id,ds.canales_id,ds.imagenes_id,ds.peso,im.imagen,im.procedencia,ds.estado,ds.estado_migracion
                             FROM default_cms_detalle_secciones ds
                             INNER JOIN default_cms_imagenes im ON im.id=ds.imagenes_id
                             INNER JOIN default_cms_secciones se ON ds.secciones_id=se.id
@@ -206,6 +201,18 @@ class MiCanal_mp extends CI_Model {
     public function SetItemCollectionDelete($id_mongo) {
        return $this->mongo_db->delete_where($this->_tabla,$id_mongo);
          
+    }
+    
+    public function existe_id_mongo($id)
+    {
+        $id_mongo = new MongoId($id);
+        $result = $this->mongo_db->get_where($this->_tabla, array('_id' => $id_mongo));
+        
+        if (count($result) > 0) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
     }
 
 }

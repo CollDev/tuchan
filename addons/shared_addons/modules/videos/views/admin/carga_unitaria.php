@@ -3,15 +3,21 @@
     .bar{background-color:#b4f5b4;width:0%;height:20px;border-radius:3px}
     .percent{position:absolute;display:inline-block;top:3px;left:48%}</style>
 <section class="title">
-    <?php
-    echo anchor('admin/videos/carga_unitaria/' . $canal->id, $this->config->item('submenu:carga_unitaria'), array('class' => ''));
-    echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
-    /*    echo anchor('admin/videos/carga_masiva/' . $canal->id, 'Carga masiva', array('class' => ''));
-      echo '&nbsp;&nbsp;|&nbsp;&nbsp;'; */
-    echo anchor('admin/videos/maestro/' . $canal->id, 'Organizar videos', array('class' => ''));
-    echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
-    echo anchor('admin/canales/portada/' . $canal->id, 'Portadas', array('class' => ''));
-    ?>
+    <div style ="float: left;">
+        <?php
+        echo anchor('admin/videos/carga_unitaria/' . $canal->id, $this->config->item('submenu:carga_unitaria'), array('class' => ''));
+        echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
+        /*    echo anchor('admin/videos/carga_masiva/' . $canal->id, 'Carga masiva', array('class' => ''));
+          echo '&nbsp;&nbsp;|&nbsp;&nbsp;'; */
+        //echo anchor('admin/videos/maestro/' . $canal->id, 'Organizar videos', array('class' => ''));
+        echo anchor('admin/videos/organizar/' . $canal->id, 'Organizar videos', array('class' => ''));
+        echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
+        echo anchor('admin/canales/portada/' . $canal->id, 'Portadas', array('class' => ''));
+        ?>        
+    </div>
+    <div style="float: right;">
+        <?php echo anchor('admin/canales/papelera/' . $canal->id, 'Papelera', array('class' => '')); ?>
+    </div>     
 </section>
 
 <section class="item">
@@ -89,7 +95,7 @@
                 <?php if ($objBeanForm->video_id > 0) : ?>
                     <?php if ($objBeanForm->estado == ESTADO_PUBLICADO) : ?>
                         <div class="embed_video">
-                            <textarea class="embed_content" readonly="readonly">[iframe width="560" height="315" src="<?php echo MOTOR . 'embed/' . $objBeanForm->video_id ?>" frameborder="0" allowfullscreen][/iframe]</textarea>
+                            <textarea class="embed_content" readonly="readonly">[iframe width="560" height="315" src="<?php echo $this->config->item('motor') . 'embed/' . $objBeanForm->video_id ?>" frameborder="0" allowfullscreen][/iframe]</textarea>
                         </div>
                         <script>
                             if ($('.embed_content').length == 1) {
@@ -109,7 +115,7 @@
 
                 <?php if ($objBeanForm->video_id > 0) { ?>
                     <!-- imagen -->
-    <!--                    <label for="imagen"><?php //echo lang('videos:avatar');    ?></label>-->
+    <!--                    <label for="imagen"><?php //echo lang('videos:avatar');       ?></label>-->
                     <?php
 //                    $imagen = array('name' => 'addImage', 'id' => 'addImage', 'type' => 'hidden', 'value' => 'Agrega nuevas imagenes a tu video');
 //                    echo '<div style="float:left;">' . form_input($imagen) . '</div>';
@@ -289,10 +295,10 @@
 
                 <!-- tipo -->
                 <!--        <br /><br />
-                        <label for="tipo"><?php //echo lang('videos:tipo_label');     ?></label>
+                        <label for="tipo"><?php //echo lang('videos:tipo_label');        ?></label>
                 <?php //echo form_error('tipo'); ?><br/>
                 <?php //echo form_dropdown('tipo', $tipo, $objBeanForm->tipo); ?> -->
-                <input type="hidden" name="tipo" id="tipo" value="<?php echo $objBeanForm->tipo; ?>" >
+                <input type="hidden" name="int_tipo_video" id="int_tipo_video" value="<?php echo $objBeanForm->tipo; ?>" >
 
 
                 <!-- tags personajes -->
@@ -311,7 +317,7 @@
                 </div>
                 <!-- fecha de publicación -->
                 <br/><br/>
-        <!--        <label for="fecha_publicacion"><?php //echo lang('videos:fecha_publicacion_label');      ?></label>-->
+        <!--        <label for="fecha_publicacion"><?php //echo lang('videos:fecha_publicacion_label');         ?></label>-->
                 <?php //echo lang('videos:inicio'); ?>
                 <?php
                 $fec_pub_ini = array(
@@ -337,7 +343,7 @@
                 ?>
 
                 <!-- ubicacion -->
-        <!--        <label><?php //echo lang('videos:ubicacion_label');      ?></label>-->
+        <!--        <label><?php //echo lang('videos:ubicacion_label');         ?></label>-->
                 <?php
                 $ubicacion = array(
                     'type' => 'hidden',
@@ -355,7 +361,7 @@
                 <!--<a href="javascript:document.frm.submit();" class="btn orange" type="button">Guardar</a>-->
                 <div id="btnSave" style="float: left; padding-right: 10px;">
                     <a href="javascript:saveVideo();" class="btn orange" type="button"><?php echo lang('buttons.save'); ?></a>
-                    <!--<a href="javascript:saveVideo();" class="btn orange" type="button"><?php //echo lang('buttons.save'); ?></a>-->
+                    <!--<a href="javascript:saveVideo();" class="btn orange" type="button"><?php //echo lang('buttons.save');    ?></a>-->
                 </div>
                 <div  style="float: left;">
                     <?php
@@ -415,7 +421,7 @@
                         if (data.errorValue == '0') {
                             $("#btnSave").html('<a href="#" class="btn silver" onclick="return false;" type="button"><?php echo lang('buttons.save'); ?></a>');
                             $('#frm').submit();
-						   //$("#btnSave").find("a").attr("disabled","false");
+                            //$("#btnSave").find("a").attr("disabled","false");
                         } else {
                             showMessage('error', '<?php echo lang('videos:fragment_exist') ?>', 2000, '');
                         }
@@ -458,7 +464,6 @@
                     $.each($('#frm').serializeArray(), function(i, field) {
                         values[field.name] = field.value;
                     });
-
                     var editorText = CKEDITOR.instances.descripcion.getData();
                     $('<input>').attr({
                         type: 'hidden',
@@ -471,88 +476,111 @@
                     var inputfile = $("#video").val();
                     values['tematicas'] = $.trim(values['tematicas']);
                     values['personajes'] = $.trim(values['personajes']);
-                    if (titulo.length > 0) {
-                        //validamos el input file
-                        if (inputfile.length > 0) {
-                            //verificamos si el formato del archivo es valido
-                            var arrayFile = inputfile.split('.');
-                            var ext = arrayFile[arrayFile.length - 1];
-                            if ((ext && /^(mp4|mpg|flv|avi|wmv)$/.test(ext))) {
-                                //validamos el ckeditor
-                                var editorText = CKEDITOR.instances.descripcion.getData();
-                                editorText = $.trim(editorText);
-                                var regex = /(<([^>]+)>)/ig;
-                                var editorText2 = editorText.replace(regex, "");
-                                editorText2 = $.trim(editorText2);
-                                editorText2 = editorText2.replace(/(&nbsp;)*/g, "");
-                                if (editorText.length > 0 && editorText2.length > 0) {
-                                    //validamos que este seleccionada una categoria
-                                    if (values['categoria'] > 0) {
-                                        //validamos tematicas
-                                        if (values['tematicas'].length > 0) {
-                                            //validamos personajes
-                                            if (values['personajes'].length > 0) {
-                                                //validamos el tipo de video
-                                                if (values['tipo'] > 0) {
-                                                    //validamos la fuente del video
-                                                    if (values['fuente'] > 0) {
-                                                        //var repite = $("#existe_fragmento").val();
-                                                        //console.log(repite);
-                                                        if (true) {
-<?php if ($objBeanForm->video_id > 0) { ?>
-                                                                var serializedData = $('#frm').serialize();
-                                                                //var post_url = "/admin/videos/save_maestro/"+values['txt_'+type_video]+"/"+values['canal_id']+"/"+values['categoria']+"/"+type_video;
-                                                                var post_url = "/admin/videos/updateVideo/" + values['canal_id'] + "/" + values['video_id'];
-                                                                $.ajax({
-                                                                    type: "POST",
-                                                                    url: post_url,
-                                                                    dataType: 'json',
-                                                                    data: serializedData,
-                                                                    success: function(returnValue) //we're calling the response json array 'cities'
-                                                                    {
-                                                                        //console.log(returnValue.value);
-                                                                        if (returnValue.value == '0') {
-                                                                            showMessage('exit', '<?php echo lang('videos:edit_video_success') ?>', 1000, '');
-                                                                        } else {
-                                                                            showMessage('error', '<?php echo lang('videos:fragment_exist') ?>', 2000, '');
-                                                                        }
-                                                                    } //end success
-                                                                }); //end AJAX                                                    
-<?php } else { ?>
-                                                                //$('#frm').submit();
-                                                                existeFragmento();
-<?php } ?>
+                    values['hora_trans_fin'] = $.trim(values['hora_trans_fin']);
+                    values['hora_trans_ini'] = $.trim(values['hora_trans_ini']);
+                    var hfin = $.trim($("#hora_trans_fin").val());
+                    var hini = $.trim($("#hora_trans_ini").val());
+                    var hora_valida = true;
+                    if (hfin.length > 0 && hini.length > 0) {
+                        if (hfin > hini || (hfin =='00:00:00' && hini=='00:00:00')) {
+                            hora_valida = true;
+                        } else {
+                            hora_valida = false;
+                        }
+                    } else {
+                        hora_valida = true;
+                    }
+
+                    if (hora_valida) {
+                        if (titulo.length > 0) {
+                            //validamos el input file
+                            if (inputfile.length > 0) {
+                                //verificamos si el formato del archivo es valido
+                                var arrayFile = inputfile.split('.');
+                                var ext = arrayFile[arrayFile.length - 1];
+                                if ((ext && /^(mp4|mpg|flv|avi|wmv)$/.test(ext))) {
+                                    //validamos el ckeditor
+                                    var editorText = CKEDITOR.instances.descripcion.getData();
+                                    editorText = $.trim(editorText);
+                                    var regex = /(<([^>]+)>)/ig;
+                                    var editorText2 = editorText.replace(regex, "");
+                                    editorText2 = $.trim(editorText2);
+                                    editorText2 = editorText2.replace(/(&nbsp;)*/g, "");
+                                    if (editorText.length > 0 && editorText2.length > 0) {
+                                        //validamos que este seleccionada una categoria
+                                        if (values['categoria'] > 0) {
+                                            //validamos tematicas
+                                            if (values['tematicas'].length > 0) {
+                                                //validamos personajes
+                                                if (values['personajes'].length > 0) {
+                                                    //validamos el tipo de video
+                                                    if (values['int_tipo_video'] > 0) {
+                                                        //validamos la fuente del video
+                                                        if (values['fuente'] > 0) {
+                                                            //var repite = $("#existe_fragmento").val();
+                                                            //console.log(repite);
+                                                            if (true) {
+                                                                <?php //if ($objBeanForm->video_id > 0) { ?>
+                                                                if($("#video_id").val() > 0){
+                                                                    var serializedData = $('#frm').serialize();
+                                                                    //var post_url = "/admin/videos/save_maestro/"+values['txt_'+type_video]+"/"+values['canal_id']+"/"+values['categoria']+"/"+type_video;
+                                                                    var post_url = "/admin/videos/updateVideo/" + values['canal_id'] + "/" + values['video_id'];
+                                                                    $.ajax({
+                                                                        type: "POST",
+                                                                        url: post_url,
+                                                                        dataType: 'json',
+                                                                        data: serializedData,
+                                                                        success: function(returnValue) //we're calling the response json array 'cities'
+                                                                        {
+                                                                            //console.log(returnValue.value);
+                                                                            if (returnValue.value == '0') {
+                                                                                 var url = "admin/canales/videos/" + values['canal_id'];
+                                                                                showMessage('exit', '<?php echo lang('videos:edit_video_success') ?>', 1000, url);
+                                                                            } else {
+                                                                                showMessage('error', '<?php echo lang('videos:fragment_exist') ?>', 2000, '');
+                                                                            }
+                                                                        } //end success
+                                                                    }); //end AJAX                                                    
+                                                                <?php //} else { ?>
+                                                                }else{
+                                                                    //$('#frm').submit();
+                                                                    existeFragmento();
+                                                                <?php //} ?>
+                                                                    }
+                                                            } else {
+                                                                showMessage('error', '<?php echo lang('videos:fragment_exist') ?>', 2000, '');
+                                                            }
                                                         } else {
-                                                            showMessage('error', '<?php echo lang('videos:fragment_exist') ?>', 2000, '');
+                                                            showMessage('error', '<?php echo lang('videos:require_source') ?>', 2000, '');
                                                         }
                                                     } else {
-                                                        showMessage('error', '<?php echo lang('videos:require_source') ?>', 2000, '');
+                                                        showMessage('error', '<?php echo lang('videos:require_type') ?>', 2000, '');
                                                     }
                                                 } else {
-                                                    showMessage('error', '<?php echo lang('videos:require_type') ?>', 2000, '');
+                                                    showMessage('error', '<?php echo lang('videos:require_personajes') ?>', 2000, '');
                                                 }
                                             } else {
-                                                showMessage('error', '<?php echo lang('videos:require_personajes') ?>', 2000, '');
+                                                showMessage('error', '<?php echo lang('videos:require_tematicas') ?>', 2000, '');
                                             }
                                         } else {
-                                            showMessage('error', '<?php echo lang('videos:require_tematicas') ?>', 2000, '');
+                                            showMessage('error', '<?php echo lang('videos:require_category') ?>', 2000, '');
                                         }
                                     } else {
-                                        showMessage('error', '<?php echo lang('videos:require_category') ?>', 2000, '');
+                                        showMessage('error', '<?php echo lang('videos:require_description') ?>', 2000, '');
                                     }
+                                    //aquí enviamos el mensaje de validación del formato del archivo
                                 } else {
-                                    showMessage('error', '<?php echo lang('videos:require_description') ?>', 2000, '');
+                                    showMessage('error', '<?php echo lang('videos:format_invalid') ?>', 2000, '');
                                 }
-                                //aquí enviamos el mensaje de validación del formato del archivo
                             } else {
-                                showMessage('error', '<?php echo lang('videos:format_invalid') ?>', 2000, '');
+                                showMessage('error', '<?php echo lang('videos:require_video') ?>', 2000, '');
                             }
-                        } else {
-                            showMessage('error', '<?php echo lang('videos:require_video') ?>', 2000, '');
-                        }
 
+                        } else {
+                            showMessage('error', '<?php echo lang('videos:require_title') ?>', 2000, '');
+                        }
                     } else {
-                        showMessage('error', '<?php echo lang('videos:require_title') ?>', 2000, '');
+                        showMessage('error', 'La hora fin de la transmisión no debe ser menor a la hora inicial', 2000, '');
                     }
                 }
                 /**
@@ -660,15 +688,6 @@
                 }
 
                 $(document).ready(function() {
-					/*$("#btnSave").find("a").attr('disabled', true);
-					$("#btnSave").find("a").click(function(e) {
-					  e.preventDefault();
-					  $('#frm').submit();
-					  $("#btnSave").find("a").attr('disabled', true);
-					});*/
-					
-					
-					
                     mostrar_titulo();
 <?php if ($objBeanForm->video_id > 0) { ?>
                         //Dropdown plugin data
@@ -684,8 +703,6 @@
                                 activeImageVideo(data['selectedData'].value);
                             }
                         });
-                        //var ind = $("indiceImage").val();
-                        //$('#listaImagenes').ddslick('select', {index: ind });
 <?php } ?>
                 });
                 //SETTING CONFIG SPANISH
@@ -705,22 +722,6 @@
                     $('#personajes').tagsInput({
                         autocomplete_url: 'admin/videos/personajes'
                     });
-
-                    //show the progress bar only if a file field was clicked
-                    /*var show_bar = 0;
-                     $('input[type="file"]').click(function() {
-                     show_bar = 1;
-                     });
-                     //show iframe on form submit
-                     $("#frm").submit(function() {
-                     if (show_bar === 1) {
-                     function set() {
-                     $('#upload_frame').attr('src', 'upload_frame.php?up_id=<?php //echo $up_id;   ?>');
-                     }
-                     setTimeout(set);
-                     }
-                     });*/
-
                     $.datepicker.regional['es'] = {
                         closeText: 'Cerrar',
                         prevText: '&#x3c;Ant',
@@ -817,10 +818,6 @@
                                 respuesta = $.parseJSON(response);
                                 if (respuesta.respuesta == 'done') {
                                     saveImages(respuesta);
-                                    //$('#fotografia').removeAttr('scr');
-                                    //$('#fotografia').attr('src','images/' + respuesta.fileName);
-                                    //$('#loaderAjax').show();
-                                    // alert(respuesta.mensaje);
                                 }
                                 else {
                                     alert(respuesta.mensaje);
@@ -831,12 +828,6 @@
                         });
 
 <?php } ?>
-
-                    //tags para tematicas
-                    /* $("#tematicas").select2({
-                     tags:["red", "green", "blue"],
-                     width:400
-                     });*/
 
                 });
 
@@ -916,9 +907,9 @@
                              });
                              if (resultado) {
                              var url = "admin/canales/videos/" + values['canal_id'];
-                             showMessage('exit', '<?php //echo lang('videos:add_video_success')   ?>', 2000, url);
+                             showMessage('exit', '<?php //echo lang('videos:add_video_success')      ?>', 2000, url);
                              } else {
-                             showMessage('error', '<?php //echo lang('videos:not_found_video')   ?>', 2000, '');
+                             showMessage('error', '<?php //echo lang('videos:not_found_video')      ?>', 2000, '');
                              }*/
                         } //end success
                     }); //end AJAX

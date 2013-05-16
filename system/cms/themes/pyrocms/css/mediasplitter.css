@@ -1,7 +1,9 @@
 body { font-family: tahoma, arial; font-size: 12px;}
 
-.mediasplitter { width: 450px; background: #EEE; padding: 10px 20px 10px; border-radius: 3px; border: solid 1px #DDD;  } 
-.mediasplitter-player { margin: 1em 0; max-height: 300px !important}
+.mediasplitter { width: 450px; background: #DDD; padding: 0 10px; border-radius: 3px; border: solid 1px #DCDCDC; text-shadow: 0 1px white;  } 
+.mediasplitter-wrapp { display: none;}
+.mediasplitter-show .mediasplitter-wrapp { display: block;}
+.mediasplitter-player { margin: 10px 0;}
 .mediasplitter-slider.horizontal { width: 100%;  }
 .mediasplitter .opaque { color: #888; }
 .mediasplitter-time { float:right;}

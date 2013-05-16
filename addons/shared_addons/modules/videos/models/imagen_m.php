@@ -86,7 +86,10 @@ class Imagen_m extends MY_Model {
     }
 
     public function activarImagen($objBeanImagen) {
-        return parent::update($objBeanImagen->id, array('estado' => $objBeanImagen->estado));
+        parent::update($objBeanImagen->id, array('estado' => $objBeanImagen->estado));
+        //actualizamos la imagen en la portada
+        $this->portadas_lib->actualizar_imagen($objBeanImagen->id);
+        return true;
     }
 
     public function tieneHijos($imagen_id) {
@@ -134,6 +137,18 @@ class Imagen_m extends MY_Model {
         }
         $result = $this->db->query($query);
         return $result;
+    }
+
+    public function deshabilitar($canal_id, $tipo) {
+        $query = "UPDATE " . $this->_table . " SET estado = '0' WHERE canales_id =" . $canal_id . " AND tipo_imagen_id IN (" . $tipo . ")";
+        $result = $this->db->query($query);
+        return $result;
+    }
+
+    public function update($id, $array) {
+        parent::update($id, $array);
+        //actualizamos la imagen en la portada
+        $this->portadas_lib->actualizar_imagen($id);
     }
 
 }

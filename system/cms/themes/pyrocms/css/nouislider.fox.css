@@ -70,7 +70,7 @@
 	}
 	.noUiSlider div {
 		height: 18px;
-		width: 8px;
+		width: 4px;
 		border: solid 1px #3A6A8F;
 		/*border-radius: 3px;*/
 		background: #1AA7AC;
@@ -84,7 +84,7 @@
 		height: 6px;
 	}
 	.noUiSlider.horizontal div {
-		margin: -7px 0 0 -4px;
+		margin: -7px 0 0 -2px;
 	}
 	.noUiSlider.vertical {
 		width: 10px;

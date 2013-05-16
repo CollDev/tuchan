@@ -72,7 +72,12 @@ class Grupo_maestro_m extends MY_Model {
                     'fecha_migracion_actualizacion' => $objBeanMaestro->fecha_migracion_actualizacion,
                     'comentarios' => $objBeanMaestro->comentarios,
                     'fecha_transmision_inicio' => $objBeanMaestro->fecha_transmision_inicio,
-                    'fecha_transmision_fin' => $objBeanMaestro->fecha_transmision_inicio
+                    'fecha_transmision_fin' => $objBeanMaestro->fecha_transmision_inicio,
+                    'horario_transmision_inicio' => $objBeanMaestro->horario_transmision_inicio,
+                    'horario_transmision_fin' => $objBeanMaestro->horario_transmision_inicio,
+                    'estado_migracion_sphinx' => $objBeanMaestro->estado_migracion_sphinx,
+                    'fecha_migracion_sphinx' => $objBeanMaestro->fecha_migracion_sphinx,
+                    'fecha_migracion_actualizacion_sphinx' => $objBeanMaestro->fecha_migracion_actualizacion_sphinx
         ));
         return $objBeanMaestro;
     }
@@ -105,5 +110,13 @@ class Grupo_maestro_m extends MY_Model {
         print_r($var);
         echo"</pre>";
     }
+    
+    public function update($id, $array){
+        parent::update($id, $array);
+        //disaramos un proceso de la libreria portadas para actualizar estados de maestros en las portadas y secciones
+        $this->portadas_lib->actualizar_maestro($id);
+        
+        //$this->procesos_lib->actualizarDetalleSecciones();
+    }    
 
 }

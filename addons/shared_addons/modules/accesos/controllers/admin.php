@@ -22,7 +22,8 @@ class Admin extends Admin_Controller
         $this->load->model('canales/canales_m');        
         $this->load->model('canales/usuario_group_canales_m');        
         $this->lang->load('canales/canales');
-        $this->lang->load('accesos');        
+        $this->lang->load('accesos');
+        $this->config->load('videos/uploads');
     }
 
     /**
@@ -46,7 +47,9 @@ class Admin extends Admin_Controller
             $this->form_validation->set_rules('default[]', 'Predeterminado', 'required');            
 
             // Lista de canales
-            $canales = $this->canales_m->getCanales();   
+            //$canales = $this->canales_m->getCanales();   
+            //$canales = $this->canales_m->get_many_by(array("estado"=>$this->config->item('estado:publicado')));   
+            $canales = $this->canales_m->get_many_by(array());   
                         
             // Datos del usuario seleccionado
             $data_usuario = $this->ion_auth->get_user($id);

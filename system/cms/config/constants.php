@@ -121,7 +121,11 @@ define("PATH_ELEMENTOS", "http://dev.e.micanal.e3.pe/");
 define('APIURL', 'http://api.liquidplatform.com/2.0');
 define('WEBURL', 'http://webtv.liquidplatform.com/2.0/uploadMedia');
 
-define('MOTOR', 'http://dev.micanal.pe/');
+//define('MOTOR', 'http://dev.micanal.pe/');
+
+
+// Buscador
+define('EC_CLIENTE_SOAP', 'busca/busqueda.wsdl');
 
 define('TIME_LIMIT',3500);
 /*

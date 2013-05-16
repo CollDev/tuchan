@@ -116,14 +116,42 @@ class Canal_mp extends CI_Model {
         $this->mongo_db->where($where)->set($set)->update($this->_tabla);        
     }
 
-    public function setItemCollectionDelete($objmongo) {
-        //$this->mongo_db->delete($this->_tabla, $objmongo, array());
-         $this->mongo_db->delete($this->_tabla)->where($id_mongo);
-        
+    public function setItemCollectionDelete($id) {
+         $this->mongo_db->delete_where($this->_tabla,array("id"=>$id));       
     }
 
     public function getItemCollection($id_mongo) {
         return $this->mongo_db->delete_where($this->_tabla,$id_mongo);
     }
 
+    /**
+     * Verifica si existe el video
+     * @param int $video_id
+     * @return boolean
+     */
+    public function existe_id_mongo($id)
+    {
+        $id_mongo = new MongoId($id);
+        $result = $this->mongo_db->get_where($this->_tabla, array('_id' => $id_mongo));
+        
+        if (count($result) > 0) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    }
+/**
+     * Verifica si existe el video
+     * @param int $video_id
+     * @return boolean
+     */
+    public function existe_id($id)
+    {       
+        $result = $this->mongo_db->get_where($this->_tabla, array('id' => $id));        
+        if (count($result) > 0) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    }    
 }

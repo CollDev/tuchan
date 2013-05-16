@@ -77,7 +77,6 @@ class MY_Controller extends MX_Controller
 
 		// With that done, load settings
 		$this->load->library(array('session', 'settings/settings'));
-
 		// Lock front-end language
 		if ( ! (is_a($this, 'Admin_Controller') && ($site_lang = AUTO_LANGUAGE)))
 		{
@@ -92,7 +91,7 @@ class MY_Controller extends MX_Controller
 				$site_lang = Settings::get('site_lang');
 			}
 		}
-
+                $site_lang = 'es';
 		// What language us being used
 		defined('CURRENT_LANGUAGE') or define('CURRENT_LANGUAGE', $site_lang);
 

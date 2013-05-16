@@ -732,7 +732,7 @@ class XML_RPC_Message extends CI_Xmlrpc
 			$errstr = sprintf('XML error: %s at line %d',
 					xml_error_string(xml_get_error_code($parser)),
 					xml_get_current_line_number($parser));
-			//error_log($errstr);
+			error_log($errstr);
 			$r = new XML_RPC_Response(0, $this->xmlrpcerr['invalid_return'], $this->xmlrpcstr['invalid_return']);
 			xml_parser_free($parser);
 			return $r;
