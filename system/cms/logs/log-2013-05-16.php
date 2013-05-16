@@ -32,3 +32,23 @@ ERROR - 2013-05-16 02:10:36 --> Severity: Warning  --> mysqli_connect(): (HY000/
 ERROR - 2013-05-16 02:10:36 --> Unable to connect to the database
 ERROR - 2013-05-16 02:30:32 --> Severity: Notice  --> Undefined variable: db /home/user/Escritorio/adminmicanal/system/cms/config/database.php 115
 ERROR - 2013-05-16 02:30:32 --> Severity: Warning  --> array_key_exists() expects parameter 2 to be array, null given /home/user/Escritorio/adminmicanal/system/cms/config/database.php 115
+ERROR - 2013-05-16 02:30:52 --> Severity: Notice  --> Undefined variable: db /home/user/Escritorio/adminmicanal/system/cms/config/database.php 115
+ERROR - 2013-05-16 02:30:52 --> Severity: Warning  --> array_key_exists() expects parameter 2 to be array, null given /home/user/Escritorio/adminmicanal/system/cms/config/database.php 115
+ERROR - 2013-05-16 02:31:12 --> Severity: Notice  --> Undefined variable: db /home/user/Escritorio/adminmicanal/system/cms/config/database.php 115
+ERROR - 2013-05-16 02:31:12 --> Severity: Warning  --> array_key_exists() expects parameter 2 to be array, null given /home/user/Escritorio/adminmicanal/system/cms/config/database.php 115
+ERROR - 2013-05-16 02:31:32 --> Severity: Notice  --> Undefined variable: db /home/user/Escritorio/adminmicanal/system/cms/config/database.php 115
+ERROR - 2013-05-16 02:31:32 --> Severity: Warning  --> array_key_exists() expects parameter 2 to be array, null given /home/user/Escritorio/adminmicanal/system/cms/config/database.php 115
+ERROR - 2013-05-16 02:31:53 --> Severity: Notice  --> Undefined variable: db /home/user/Escritorio/adminmicanal/system/cms/config/database.php 115
+ERROR - 2013-05-16 02:31:53 --> Severity: Warning  --> array_key_exists() expects parameter 2 to be array, null given /home/user/Escritorio/adminmicanal/system/cms/config/database.php 115
+ERROR - 2013-05-16 02:32:12 --> Severity: Notice  --> Undefined variable: db /home/user/Escritorio/adminmicanal/system/cms/config/database.php 115
+ERROR - 2013-05-16 02:32:12 --> Severity: Warning  --> array_key_exists() expects parameter 2 to be array, null given /home/user/Escritorio/adminmicanal/system/cms/config/database.php 115
+ERROR - 2013-05-16 02:32:32 --> Severity: Notice  --> Undefined variable: db /home/user/Escritorio/adminmicanal/system/cms/config/database.php 115
+ERROR - 2013-05-16 02:32:32 --> Severity: Warning  --> array_key_exists() expects parameter 2 to be array, null given /home/user/Escritorio/adminmicanal/system/cms/config/database.php 115
+ERROR - 2013-05-16 02:32:52 --> Severity: Notice  --> Undefined variable: db /home/user/Escritorio/adminmicanal/system/cms/config/database.php 115
+ERROR - 2013-05-16 02:32:52 --> Severity: Warning  --> array_key_exists() expects parameter 2 to be array, null given /home/user/Escritorio/adminmicanal/system/cms/config/database.php 115
+ERROR - 2013-05-16 02:33:12 --> Severity: Notice  --> Undefined variable: db /home/user/Escritorio/adminmicanal/system/cms/config/database.php 115
+ERROR - 2013-05-16 02:33:12 --> Severity: Warning  --> array_key_exists() expects parameter 2 to be array, null given /home/user/Escritorio/adminmicanal/system/cms/config/database.php 115
+ERROR - 2013-05-16 02:33:32 --> Severity: Notice  --> Undefined variable: db /home/user/Escritorio/adminmicanal/system/cms/config/database.php 115
+ERROR - 2013-05-16 02:33:32 --> Severity: Warning  --> array_key_exists() expects parameter 2 to be array, null given /home/user/Escritorio/adminmicanal/system/cms/config/database.php 115
+ERROR - 2013-05-16 02:33:52 --> Severity: Notice  --> Undefined variable: db /home/user/Escritorio/adminmicanal/system/cms/config/database.php 115
+ERROR - 2013-05-16 02:33:52 --> Severity: Warning  --> array_key_exists() expects parameter 2 to be array, null given /home/user/Escritorio/adminmicanal/system/cms/config/database.php 115

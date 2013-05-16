@@ -56,7 +56,7 @@ $db[PYRO_DEVELOPMENT] = array(
 // configuracion para EC
 
 // El Comercio
-/*
+
 $db[PYRO_DEVELOPMENT] = array(
 	'hostname'		=> 	'10.203.31.139',
 	'username'		=> 	'micanalcmsdev',
@@ -75,7 +75,7 @@ $db[PYRO_DEVELOPMENT] = array(
 	// 'Tough love': Forces strict mode to test your app for best compatibility
 	'stricton' 		=> TRUE,	'stricton' 		=> TRUE,
 );
-*/
+
 // Staging
 /*
 $db[PYRO_STAGING] = array(
