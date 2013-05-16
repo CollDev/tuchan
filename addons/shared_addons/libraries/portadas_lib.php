@@ -752,7 +752,7 @@ class Portadas_lib extends MX_Controller {
                 if (count($lista_secciones) > 0) {
                     foreach ($lista_secciones as $index => $objSeccion) {
                         $detalle_seccion = $this->detalle_secciones_m->get_many_by(array("secciones_id" => $objSeccion->id, "estado" => $this->config->item('estado:publicado')));
-                        if (count($detalle_seccion) > 1) {
+                        if (count($detalle_seccion) > 0) {
                             $this->secciones_m->update($objSeccion->id, array("estado" => $this->config->item('estado:publicado')));
                         }
                     }

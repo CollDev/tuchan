@@ -941,5 +941,29 @@
                             } //end success
                         }); //end AJAX         
                     }
+                    
+                    function agregar_descripcion(detalle_seccion_id){
+                        var html = '<textarea id="descripcion_texto_'+detalle_seccion_id+'" nombre="descripcion_texto_'+detalle_seccion_id+'"></textarea>';
+                        var boton = '<a href="#" class="btn blue" onclick="quitar_descripcion('+detalle_seccion_id+'); return false;">Quitar descripción</a>';
+                        $("#descripcion_"+detalle_seccion_id).html(html);
+                        $("#boton_"+detalle_seccion_id).html(boton); 
+                    }
+                    
+                    function quitar_descripcion(detalle_seccion_id){
+                     var post_url = "/admin/canales/obtener_descripcion_detalle_seccion/" + detalle_seccion_id;
+                        $.ajax({
+                            type: "POST",
+                            url: post_url,
+                            dataType: 'json',
+                            //data: serializedData,
+                            success: function(respuesta)
+                            {
+                                var html = respuesta.value;
+                                $("#descripcion_"+detalle_seccion_id).html(html);
+                            } //end success
+                        }); //end AJAX                          
+                        var boton = '<a href="#" class="btn blue" onclick="agregar_descripcion('+detalle_seccion_id+'); return false;">Agregar descripción</a>';
+                        $("#boton_"+detalle_seccion_id).html(boton);                        
+                    }
     </script>
 </section>
