@@ -1007,7 +1007,7 @@ class Procesos_lib extends MX_Controller {
                     $arrtemp["lista_reproduccion"] = $row3[0]->xlistareproduccionalias  ;
                     $arrtemp["duracion"] = $row3[0]->xduracion;
                     $arrtemp["categoria"] = $row3[0]->xcategoria;
-                    $arrtemp["descripcion"] = strip_tags($row3[0]->xdescripcion);
+                    $arrtemp["descripcion"] =(!empty($value2->descripcion_item))?  strip_tags($value2->descripcion_item):strip_tags($row3[0]->xdescripcion);
                     $arrtemp["reproducciones"] = $row3[0]->xvi_rep;
                     $arrtemp["comentarios"] = $row3[0]->xvi_com;
                     $arrtemp["valoracion"] = $row3[0]->xvi_val;
