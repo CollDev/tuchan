@@ -59,10 +59,12 @@
                     </td>
                     <td><?php echo $objDetalleSeccion->tipo; ?></td>
                     <td><div style="float: left;"><input class="numeric" type="text" name="peso_<?php echo $objDetalleSeccion->id; ?>" id="peso_<?php echo $objDetalleSeccion->id; ?>" size="2" value="<?php echo $objDetalleSeccion->peso; ?>" /></div><div style="float: left;" id="img_<?php echo $objDetalleSeccion->id; ?>"><?php echo $img; ?></div></td>
-                    <td><a href="#" class="btn red" onclick="quitarDetalleSeccion(<?php echo $objDetalleSeccion->id; ?>, <?php echo $canal_id; ?>, <?php echo $objSeccion->id; ?>);
-                                    return false;">Quitar</a>
+                    <td>
+                        <div style="float: left;">
+                            <a href="#" class="btn red" onclick="quitarDetalleSeccion(<?php echo $objDetalleSeccion->id; ?>, <?php echo $canal_id; ?>, <?php echo $objSeccion->id; ?>);return false;">Quitar</a>
+                        </div>
                            <?php if ($agregar_descripcion): ?>
-                        <div id="boton_<?php echo $objDetalleSeccion->id ?>">
+                        <div style="float:left;" id="boton_<?php echo $objDetalleSeccion->id ?>">
                             <a href="#" class="btn blue" onclick="agregar_descripcion(<?php echo $objDetalleSeccion->id ?>); return false;">Agregar descripción</a>
                         </div>
                         <?php endif; ?>

@@ -826,7 +826,9 @@ class Portadas_lib extends MX_Controller {
                                         $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id, "estado" => $objMaestro->estado, "estado_migracion" => $this->config->item('migracion:actualizado')));
                                     }
                                 } else {
-                                    $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id, "estado" => $objMaestro->estado, "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                    if ($objImagen->tipo_imagen_id == $this->config->item('imagen:small')) {
+                                        $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id, "estado" => $objMaestro->estado, "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                    }
                                 }
                             }
                         }
