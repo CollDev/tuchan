@@ -5607,6 +5607,18 @@ class Admin extends Admin_Controller {
         }
     }
 
+    /**
+     * Método para guardar el la descripcion de un detalle seccion
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param int $detalle_seccion_id
+     */
+    public function guardar_descripcion($detalle_seccion_id) {
+        if ($this->input->is_ajax_request()) {
+            error_log(print_r($this->input->post(),true));
+            echo json_encode(array("value"=>"1", "texto"=>$this->input->post('descripcion_detalle')));
+        }
+    }
+
 }
 
 /* End of file admin.php */

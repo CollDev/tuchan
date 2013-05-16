@@ -554,7 +554,7 @@
                         if ($("#canal_id").val() == 0) {
                             $('#loaderAjax').hide();
                             $("#imagen_portada").val(respuestas.image);
-                            var htmlImg = '<img src="uploads/temp/' + respuestas.image + '" title="' + respuestas.image + '" style="width:570px;" />';
+                            var htmlImg = '<img src="<?php echo $this->config->item('url:temp') ?>' + respuestas.image + '" title="' + respuestas.image + '" style="width:570px;" />';
                             $("#previewImagen").html(htmlImg);
                         } else {
                             saveImages(respuestas);
