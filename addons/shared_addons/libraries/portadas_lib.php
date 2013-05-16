@@ -148,6 +148,17 @@ class Portadas_lib extends MX_Controller {
         if ($video_id > 0) {
             $objVideo = $this->videos_m->get($video_id);
             //modificamos el estado de video para que sea compatible con los estados de portada
+            if ($objVideo->estado == $this->config->item('video:codificando') || $objVideo->estado == $this->config->item('video:borrador')) {
+                $objVideo->estado = $this->config->item('estado:borrador');
+            } else {
+                if ($objVideo->estado == $this->config->item('video:publicado')) {
+                    $objVideo->estado = $this->config->item('estado:publicado');
+                } else {
+                    if ($objVideo->estado == $this->config->item('video:eliminado')) {
+                        $objVideo->estado = $this->config->item('estado:eliminado');
+                    }
+                }
+            }
             $objVideo->estado = $objVideo->estado + 1;
             if (count($objVideo) > 0) {
                 //listamos todos los detalles secciones que contengan este video
@@ -771,14 +782,14 @@ class Portadas_lib extends MX_Controller {
                     $canal_id = $objMaestro->canales_id;
                     if (count($detalle_secciones) > 0) {
                         foreach ($detalle_secciones as $puntero => $objDetalleSeccion) {
-                            $objSeccion = $this->secciones_m->get_by(array("id"=>$objDetalleSeccion->secciones_id));
+                            $objSeccion = $this->secciones_m->get_by(array("id" => $objDetalleSeccion->secciones_id));
                             if (count($objSeccion) > 0) {
                                 if ($objSeccion->tipo_secciones_id == $this->config->item('seccion:destacado')) {
                                     if ($objImagen->tipo_imagen_id == $this->config->item('imagen:extralarge')) {
-                                        $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id, "estado"=>$objMaestro->estado, "estado_migracion"=>$this->config->item('migracion:actualizado')));
+                                        $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id, "estado" => $objMaestro->estado, "estado_migracion" => $this->config->item('migracion:actualizado')));
                                     }
                                 } else {
-                                    $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id, "estado"=>$objMaestro->estado, "estado_migracion"=>$this->config->item('migracion:actualizado')));
+                                    $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id, "estado" => $objMaestro->estado, "estado_migracion" => $this->config->item('migracion:actualizado')));
                                 }
                             }
                         }
@@ -788,20 +799,20 @@ class Portadas_lib extends MX_Controller {
                         $detalle_secciones = $this->detalle_secciones_m->get_many_by(array("videos_id" => $objImagen->videos_id));
                         $objVideo = $this->videos_m->get($objImagen->videos_id);
                         $canal_id = $objVideo->canales_id;
-                        $estado_video = $objVideo->estado-1;
-                        if($estado_video < 0){
+                        $estado_video = $objVideo->estado - 1;
+                        if ($estado_video < 0) {
                             $estado_video = 0;
                         }
                         if (count($detalle_secciones) > 0) {
                             foreach ($detalle_secciones as $puntero => $objDetalleSeccion) {
-                                $objSeccion = $this->secciones_m->get_by(array("id"=>$objDetalleSeccion->secciones_id));
+                                $objSeccion = $this->secciones_m->get_by(array("id" => $objDetalleSeccion->secciones_id));
                                 if (count($objSeccion) > 0) {
                                     if ($objSeccion->tipo_secciones_id == $this->config->item('seccion:destacado')) {
                                         if ($objImagen->tipo_imagen_id == $this->config->item('imagen:extralarge')) {
-                                            $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id, "estado"=>$estado_video, "estado_migracion"=>$this->config->item('migracion:actualizado')));
+                                            $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id, "estado" => $estado_video, "estado_migracion" => $this->config->item('migracion:actualizado')));
                                         }
                                     } else {
-                                        $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id, "estado"=>$estado_video, "estado_migracion"=>$this->config->item('migracion:actualizado')));
+                                        $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id, "estado" => $estado_video, "estado_migracion" => $this->config->item('migracion:actualizado')));
                                     }
                                 }
                             }
@@ -813,14 +824,14 @@ class Portadas_lib extends MX_Controller {
                             $canal_id = $objCanal->id;
                             if (count($detalle_secciones) > 0) {
                                 foreach ($detalle_secciones as $puntero => $objDetalleSeccion) {
-                                    $objSeccion = $this->secciones_m->get_by(array("id"=>$objDetalleSeccion->secciones_id));
+                                    $objSeccion = $this->secciones_m->get_by(array("id" => $objDetalleSeccion->secciones_id));
                                     if (count($objSeccion) > 0) {
                                         if ($objSeccion->tipo_secciones_id == $this->config->item('seccion:destacado')) {
                                             if ($objImagen->tipo_imagen_id == $this->config->item('imagen:extralarge')) {
-                                                $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id, "estado"=>$objCanal->estado, "estado_migracion"=>$this->config->item('migracion:actualizado')));
+                                                $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id, "estado" => $objCanal->estado, "estado_migracion" => $this->config->item('migracion:actualizado')));
                                             }
                                         } else {
-                                            $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id, "estado"=>$objCanal->estado, "estado_migracion"=>$this->config->item('migracion:actualizado')));
+                                            $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id, "estado" => $objCanal->estado, "estado_migracion" => $this->config->item('migracion:actualizado')));
                                         }
                                     }
                                 }
@@ -829,7 +840,7 @@ class Portadas_lib extends MX_Controller {
                     }
                 }
                 //parseamos todas las portadas para actualizarlas
-                if($canal_id > 0){
+                if ($canal_id > 0) {
                     $this->parsear_portadas($canal_id);
                 }
             }
