@@ -3430,7 +3430,7 @@ class Admin extends Admin_Controller {
                     $objBeanMaestro->cantidad_suscriptores = 0;
                     $objBeanMaestro->peso = $this->_obtenerPesoMaestro($this->input->post());
                     $objBeanMaestro->id_mongo = NULL;
-                    $objBeanMaestro->estado = $this->config->item('estado:borrador');
+                    $objBeanMaestro->estado = $this->config->item('estado:publicado');
                     $objBeanMaestro->fecha_registro = date("Y-m-d H:i:s");
                     $objBeanMaestro->usuario_registro = $user_id;
                     $objBeanMaestro->estado_migracion = 0;

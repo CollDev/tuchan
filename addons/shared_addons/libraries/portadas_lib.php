@@ -340,7 +340,6 @@ class Portadas_lib extends MX_Controller {
                 if (count($objMaestroDetalle) > 0) {
                     $objPrograma_agregar = $this->obtener_programa($objMaestroDetalle);
                     if (count($objPrograma_agregar) > 0) {
-
                         //registramos en la portada del programa
                         $lista_portadas = $this->portada_m->get_many_by(array("origen_id" => $objPrograma_agregar->id, "tipo_portadas_id" => $this->config->item('portada:programa')));
                     } else {
@@ -391,6 +390,44 @@ class Portadas_lib extends MX_Controller {
                         }
                     }
                 }
+                //buscamos el portada del canal y lo agregamos como un item
+                //if ($es_programa) {
+                    $objPortadaCanal = $this->portada_m->get_by(array("origen_id" => $objMaestro->canales_id, "tipo_portadas_id" => $this->config->item('portada:canal')));
+                    error_log(print_r($objPortadaCanal, true));
+                    if (count($objPortadaCanal) > 0) {
+                        $tipo_seccion = $this->obtener_array_tipo_seccion($objPortadaCanal, $objMaestro);
+                        error_log(print_r($tipo_seccion, true));
+                        if (count($tipo_seccion) > 0) {
+                            $secciones_portada = $this->secciones_m->where_in('tipo_secciones_id', $tipo_seccion)->get_many_by(array("portadas_id" => $objPortadaCanal->id));
+                            if (count($secciones_portada) > 0) {
+                                foreach ($secciones_portada as $index => $objSeccion) {
+                                    //if ($this->obtener_imagen_maestro($objMaestro, $objSeccion) > 0) {
+                                    $detalle_seccion = $this->detalle_secciones_m->get_many_by(array("secciones_id" => $objSeccion->id, "grupo_maestros_id" => $objMaestro->id));
+                                    if (count($detalle_seccion) == 0) {
+                                        //registramos el programa en esta seccion
+                                        $objBeanDetalleSeccion = new stdClass();
+                                        $objBeanDetalleSeccion->id = NULL;
+                                        $objBeanDetalleSeccion->secciones_id = $objSeccion->id;
+                                        $objBeanDetalleSeccion->videos_id = NULL;
+                                        $objBeanDetalleSeccion->grupo_maestros_id = $objMaestro->id;
+                                        $objBeanDetalleSeccion->canales_id = NULL;
+                                        $objBeanDetalleSeccion->imagenes_id = $this->obtener_imagen_maestro($objMaestro, $objSeccion);
+                                        $objBeanDetalleSeccion->peso = $this->obtenerPesoDetalleSeccion($objSeccion->id);
+                                        $objBeanDetalleSeccion->descripcion_item = '';
+                                        $objBeanDetalleSeccion->estado = $objMaestro->estado;
+                                        $objBeanDetalleSeccion->fecha_registro = date("Y-m-d H:i:s");
+                                        $objBeanDetalleSeccion->usuario_registro = $user_id;
+                                        $objBeanDetalleSeccion->estado_migracion = 9;
+                                        $objBeanDetalleSeccion->fecha_migracion = '0000-00-00 00:00:00';
+                                        $objBeanDetalleSeccion->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
+                                        $objBeanDetalleSeccionSaved = $this->detalle_secciones_m->save($objBeanDetalleSeccion);
+                                        $this->secciones_m->update($objSeccion->id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                    }
+                                    //}
+                                }
+                            }
+                        }
+                    }
                 //}
             }
             //parseamos todas las portadas y actualizamo estados
