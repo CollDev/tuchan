@@ -1,7 +1,9 @@
 
-DROP TABLE IF EXISTS `{PREFIX}profiles`;
 
-CREATE TABLE `{PREFIX}profiles` (
+
+DROP TABLE IF EXISTS `{prefix}profiles`;
+
+CREATE TABLE `{prefix}profiles` (
   `id` int(9) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) unsigned NOT NULL,
   `display_name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
@@ -22,13 +24,13 @@ CREATE TABLE `{PREFIX}profiles` (
   `updated_on` int(11) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-/*Table structure for table `{PREFIX}users` */
+/*Table structure for table `{prefix}users` */
 
-DROP TABLE IF EXISTS `{PREFIX}users`;
+DROP TABLE IF EXISTS `{prefix}users`;
 
-CREATE TABLE `{PREFIX}users` (
+CREATE TABLE `{prefix}users` (
   `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
   `email` varchar(60) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `password` varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -45,6 +47,8 @@ CREATE TABLE `{PREFIX}users` (
   PRIMARY KEY (`id`),
   KEY `email` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Registered User Information';
+
+
 
 /*Table structure for table `core_settings` */
 
@@ -76,7 +80,7 @@ CREATE TABLE `core_sites` (
   UNIQUE KEY `Unique domain` (`domain`),
   KEY `ref` (`ref`),
   KEY `domain` (`domain`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Table structure for table `core_users` */
 
@@ -98,7 +102,7 @@ CREATE TABLE `core_users` (
   `remember_code` varchar(40) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Super User Information';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Super User Information';
 
 /*Table structure for table `default_blog` */
 
@@ -124,7 +128,7 @@ CREATE TABLE `default_blog` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `unique_title` (`title`),
   KEY `category_id` (`category_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Table structure for table `default_blog_categories` */
 
@@ -138,7 +142,7 @@ CREATE TABLE `default_blog_categories` (
   UNIQUE KEY `unique_slug` (`slug`),
   UNIQUE KEY `unique_title` (`title`),
   KEY `slug` (`slug`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Table structure for table `default_ci_sessions` */
 
@@ -159,48 +163,48 @@ CREATE TABLE `default_ci_sessions` (
 DROP TABLE IF EXISTS `default_cms_canales`;
 
 CREATE TABLE `default_cms_canales` (
-  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID del Canal',
-  `tipo_canales_id` int(11) NOT NULL COMMENT 'ID del Tipo de Canal',
-  `alias` varchar(128) DEFAULT NULL COMMENT 'Etiqueta del Canal utilizado para el SEO',
-  `nombre` varchar(128) DEFAULT NULL COMMENT 'Nombre o Razon Social del Canal',
-  `descripcion` text COMMENT 'Descripcion del Canal',
-  `apikey` varchar(40) DEFAULT NULL COMMENT 'Api que permite diferenciar los videos de cada Canal(Portal dentro de LIQUID)',
-  `playerkey` varchar(40) DEFAULT NULL COMMENT 'Api que permite leer los videos de un determinado canal(portal dentro de LIQUID)',
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `tipo_canales_id` int(11) NOT NULL,
+  `alias` varchar(128) DEFAULT NULL,
+  `nombre` varchar(128) DEFAULT NULL,
+  `descripcion` text,
+  `apikey` varchar(40) DEFAULT NULL,
+  `playerkey` varchar(40) DEFAULT NULL,
   `id_mongo` varchar(25) DEFAULT NULL,
   `cantidad_suscriptores` int(11) DEFAULT NULL,
-  `estado` tinyint(4) DEFAULT '0' COMMENT 'Estado del canal: 0 = Borrador - 1 = Publicado - 2 = Eliminado',
-  `fecha_registro` datetime DEFAULT NULL COMMENT 'Fecha y Hora del Registro del Canal',
-  `usuario_registro` int(11) DEFAULT NULL COMMENT 'ID Usuario que registra el Canal',
-  `fecha_actualizacion` datetime DEFAULT NULL COMMENT 'Fecha y Hora de la Ultima actualización del registro del Canal',
-  `usuario_actualizacion` int(11) DEFAULT NULL COMMENT 'ID del Ultimo Usuario que modifica el registro del Canal.',
-  `estado_migracion` tinyint(4) DEFAULT '0' COMMENT 'Estado de la migración a MongoDB:\\n0 = Registro Nuevo (por migrar)\\n1 = Proceso (migrando)\\n2 = Migrado\\n\\nAdicionalmente para cuando se modifique un registro, el CMS graba un status 9, y el proceso lo re-tomará para migrarlo al MongoDB.\\n9 = Registro Actualiza /* comment truncated */',
-  `fecha_migracion` datetime DEFAULT NULL COMMENT 'Fecha y Hora de la migración por primera vez (registros nuevos)\\n',
-  `fecha_migracion_actualizacion` datetime DEFAULT NULL COMMENT 'Fecha y Hora de la migración de la ultima actualización, es decir, cuando un registro se actualiza se graba el status = 9, y el proceso lo re-toma para migrar al MongoDB',
+  `estado` tinyint(4) DEFAULT '0',
+  `fecha_registro` datetime DEFAULT NULL,
+  `usuario_registro` int(11) DEFAULT NULL,
+  `fecha_actualizacion` datetime DEFAULT NULL,
+  `usuario_actualizacion` int(11) DEFAULT NULL,
+  `estado_migracion` tinyint(4) DEFAULT '0',
+  `fecha_migracion` datetime DEFAULT NULL,
+  `fecha_migracion_actualizacion` datetime DEFAULT NULL,
   `estado_migracion_sphinx` tinyint(4) DEFAULT NULL,
   `fecha_migracion_sphinx` datetime DEFAULT NULL,
   `fecha_migracion_actualizacion_sphinx` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=47 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 /*Table structure for table `default_cms_categorias` */
 
 DROP TABLE IF EXISTS `default_cms_categorias`;
 
 CREATE TABLE `default_cms_categorias` (
-  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID de la Categoria',
-  `nombre` varchar(45) DEFAULT NULL COMMENT 'Nombre de la Categoria',
-  `alias` varchar(64) DEFAULT NULL COMMENT 'Etiqueta de la Categoria utilizado para el SEO',
-  `estado` tinyint(4) DEFAULT '0' COMMENT 'Status de la Categoria:\\n1 = Activo\\n0 = Inactivo',
-  `fecha_registro` datetime DEFAULT NULL COMMENT 'Fecha y Hora del Registro de la Categoria',
-  `usuario_registro` int(11) DEFAULT NULL COMMENT 'ID Usuario que registra la Categoría',
-  `fecha_actualizacion` datetime DEFAULT NULL COMMENT 'Fecha y Hora de la Ultima actualización del registro de la Categoría',
-  `usuario_actualizacion` int(11) DEFAULT NULL COMMENT 'ID del Ultimo Usuario que modifica el registro de la Categoría.',
-  `estado_migracion` tinyint(4) DEFAULT '0' COMMENT 'Status de la migración a MongoDB:\\n0 = Registro Nuevo (por migrar)\\n1 = Proceso (migrando)\\n2 = Migrado\\n\\nAdicionalmente para cuando se modifique un registro, el CMS graba un status 9, y el proceso lo re-tomará para migrarlo al MongoDB.\\n9 = Registro Actualiza /* comment truncated */',
-  `fecha_migracion` datetime DEFAULT NULL COMMENT 'Fecha y Hora de la migración por primera vez (registros nuevos)',
-  `fecha_migracion_actualizacion` datetime DEFAULT NULL COMMENT 'Fecha y Hora de la migración de la ultima actualización, es decir, cuando un registro se actualiza se graba el status = 9, y el proceso lo re-toma para migrar al MongoDB',
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(45) DEFAULT NULL,
+  `alias` varchar(64) DEFAULT NULL,
+  `estado` tinyint(4) DEFAULT '0',
+  `fecha_registro` datetime DEFAULT NULL,
+  `usuario_registro` int(11) DEFAULT NULL,
+  `fecha_actualizacion` datetime DEFAULT NULL,
+  `usuario_actualizacion` int(11) DEFAULT NULL,
+  `estado_migracion` tinyint(4) DEFAULT '0',
+  `fecha_migracion` datetime DEFAULT NULL,
+  `fecha_migracion_actualizacion` datetime DEFAULT NULL,
   `categorias_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 /*Table structure for table `default_cms_comentarios` */
 
@@ -224,8 +228,8 @@ CREATE TABLE `default_cms_detalle_secciones` (
   `grupo_maestros_id` int(11) DEFAULT NULL,
   `canales_id` int(11) DEFAULT NULL,
   `imagenes_id` int(11) DEFAULT NULL,
-  `peso` int(11) DEFAULT NULL COMMENT 'Orden de presentacion de los Item en una seccion',
-  `descripcion_item` varchar(150) DEFAULT NULL COMMENT 'Descripcion por cada item(descripcion sobre el titulo)',
+  `peso` int(11) DEFAULT NULL,
+  `descripcion_item` varchar(150) DEFAULT NULL,
   `estado` tinyint(4) DEFAULT NULL,
   `fecha_registro` datetime DEFAULT NULL,
   `usuario_registro` int(11) DEFAULT NULL,
@@ -236,7 +240,7 @@ CREATE TABLE `default_cms_detalle_secciones` (
   KEY `fk_seccion_regla_default_cms_videos1_idx` (`videos_id`),
   KEY `fk_seccion_regla_default_cms_grupo_maestros1_idx` (`grupo_maestros_id`),
   KEY `fk_default_cms_detalle_secciones_default_cms_imagenes1_idx` (`imagenes_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=129730 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 /*Table structure for table `default_cms_grupo_detalles` */
 
@@ -261,7 +265,7 @@ CREATE TABLE `default_cms_grupo_detalles` (
   KEY `fk_grupo_detalle_grupo_maestro1_idx` (`grupo_maestro_id`),
   KEY `fk_grupo_detalle_video1_idx` (`video_id`),
   KEY `fk_grupo_detalle_grupo_maestro2_idx` (`grupo_maestro_padre`)
-) ENGINE=MyISAM AUTO_INCREMENT=3352 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 /*Table structure for table `default_cms_grupo_maestro_tags` */
 
@@ -295,7 +299,7 @@ CREATE TABLE `default_cms_grupo_maestros` (
   `canales_id` int(11) NOT NULL,
   `categorias_id` int(11) DEFAULT NULL,
   `cantidad_suscriptores` int(11) DEFAULT NULL,
-  `peso` int(11) DEFAULT NULL COMMENT 'Indica el orden de presentacion del grupo\\n Ejemplo: Colecciones\\n1 = Temporada 1\\n2 = Temporada 2',
+  `peso` int(11) DEFAULT NULL,
   `id_mongo` varchar(25) DEFAULT NULL,
   `estado` tinyint(4) DEFAULT NULL,
   `fecha_registro` datetime DEFAULT NULL,
@@ -317,7 +321,7 @@ CREATE TABLE `default_cms_grupo_maestros` (
   KEY `fk_grupo_maestro_tipo_grupo_maestro1_idx` (`tipo_grupo_maestro_id`),
   KEY `fk_default_cms_grupo_maestros_default_cms_canales1_idx` (`canales_id`),
   KEY `fk_default_cms_grupo_maestros_default_cms_categorias1_idx` (`categorias_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=549 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 /*Table structure for table `default_cms_imagenes` */
 
@@ -346,7 +350,7 @@ CREATE TABLE `default_cms_imagenes` (
   KEY `fk_default_cms_imagenes_default_cms_grupo_maestros1_idx` (`grupo_maestros_id`),
   KEY `fk_default_cms_imagenes_default_cms_tipo_imagen1_idx` (`tipo_imagen_id`),
   KEY `fk_default_cms_imagenes_default_cms_canales1_idx` (`canales_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=8994 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 /*Table structure for table `default_cms_portadas` */
 
@@ -356,7 +360,7 @@ CREATE TABLE `default_cms_portadas` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `canales_id` int(11) DEFAULT NULL,
   `nombre` varchar(45) DEFAULT NULL,
-  `descripcion` varchar(150) DEFAULT NULL COMMENT 'Portada Principal\\nInterna Canal 4\\nInterna Ficha de Video\\nInterna Programa\\n',
+  `descripcion` varchar(150) DEFAULT NULL,
   `tipo_portadas_id` int(11) NOT NULL,
   `origen_id` int(11) DEFAULT NULL,
   `estado` tinyint(4) DEFAULT NULL,
@@ -370,7 +374,7 @@ CREATE TABLE `default_cms_portadas` (
   `fecha_migracion_actualizacion` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_portada_tipo_portadas1_idx` (`tipo_portadas_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=425 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 /*Table structure for table `default_cms_reglas` */
 
@@ -379,7 +383,7 @@ DROP TABLE IF EXISTS `default_cms_reglas`;
 CREATE TABLE `default_cms_reglas` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) DEFAULT NULL,
-  `descripcion` varchar(45) DEFAULT NULL COMMENT 'Por ejemplo:\\nCantidad de reproducciones\\nCantidad de Comentarios\\nCantidad de like\\nRecientes\\nEtc.',
+  `descripcion` varchar(45) DEFAULT NULL,
   `estado` tinyint(4) DEFAULT NULL,
   `fecha_registro` datetime DEFAULT NULL,
   `usuario_registro` int(11) DEFAULT NULL,
@@ -393,14 +397,14 @@ CREATE TABLE `default_cms_reglas` (
 DROP TABLE IF EXISTS `default_cms_roles`;
 
 CREATE TABLE `default_cms_roles` (
-  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID Rol del usuario',
-  `nombre` varchar(45) DEFAULT NULL COMMENT 'Nombre del Rol',
-  `descripcion` varchar(45) DEFAULT NULL COMMENT 'Descripcion del Rol',
-  `estado` tinyint(4) DEFAULT '0' COMMENT 'Status del Rol:\\n1 = Activo\\n0 = Inactivo',
-  `fecha_registro` datetime DEFAULT NULL COMMENT 'Fecha y hora del registro del Rol\\n',
-  `usuario_registro` int(11) DEFAULT NULL COMMENT 'ID Usuario que registra el Rol\\n',
-  `fecha_actualizacion` datetime DEFAULT NULL COMMENT 'Fecha y Hora de la Ultima actualización del registro del Rol\\n',
-  `usuario_actualizacion` int(11) DEFAULT NULL COMMENT 'ID del Ultimo Usuario que modifica el registro del Rol.\\n',
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(45) DEFAULT NULL,
+  `descripcion` varchar(45) DEFAULT NULL,
+  `estado` tinyint(4) DEFAULT '0',
+  `fecha_registro` datetime DEFAULT NULL,
+  `usuario_registro` int(11) DEFAULT NULL,
+  `fecha_actualizacion` datetime DEFAULT NULL,
+  `usuario_actualizacion` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -409,10 +413,10 @@ CREATE TABLE `default_cms_roles` (
 DROP TABLE IF EXISTS `default_cms_secciones`;
 
 CREATE TABLE `default_cms_secciones` (
-  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID de la Seccion del Motor\\n',
-  `nombre` varchar(45) DEFAULT NULL COMMENT 'Nombre de la Seccion\\n',
-  `descripcion` varchar(45) DEFAULT NULL COMMENT 'Descripcion de la Seccion',
-  `tipo` tinyint(4) DEFAULT NULL COMMENT 'Forma en la que se alimenta el contenido de una seccion:\\n0=Automatica\\n1=Manual\\n',
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(45) DEFAULT NULL,
+  `descripcion` varchar(45) DEFAULT NULL,
+  `tipo` tinyint(4) DEFAULT NULL,
   `portadas_id` int(11) DEFAULT NULL,
   `tipo_secciones_id` int(11) DEFAULT NULL,
   `reglas_id` int(11) DEFAULT NULL,
@@ -420,18 +424,18 @@ CREATE TABLE `default_cms_secciones` (
   `tags_id` int(11) DEFAULT NULL,
   `peso` int(11) DEFAULT NULL,
   `id_mongo` varchar(25) DEFAULT NULL,
-  `estado` tinyint(4) DEFAULT '0' COMMENT 'Estados de la Sección:\\n1 = Activo\\n0 = Inactivo',
+  `estado` tinyint(4) DEFAULT '0',
   `templates_id` int(11) DEFAULT NULL,
-  `fecha_registro` datetime DEFAULT NULL COMMENT 'Fecha y hora del registro de la Seccion',
-  `usuario_registro` int(11) DEFAULT NULL COMMENT 'ID Usuario que registra la Seccion',
-  `fecha_actualizacion` datetime DEFAULT NULL COMMENT 'Fecha y Hora de la Ultima actualización del registro de la Seccion',
-  `usuario_actualizacion` int(11) DEFAULT NULL COMMENT 'ID del Ultimo Usuario que modifica el registro de la Seccion.',
+  `fecha_registro` datetime DEFAULT NULL,
+  `usuario_registro` int(11) DEFAULT NULL,
+  `fecha_actualizacion` datetime DEFAULT NULL,
+  `usuario_actualizacion` int(11) DEFAULT NULL,
   `estado_migracion` tinyint(4) DEFAULT NULL,
   `fecha_migracion` datetime DEFAULT NULL,
   `fecha_migracion_actualizacion` datetime DEFAULT NULL,
   `grupo_maestros_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3396 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 /*Table structure for table `default_cms_tags` */
 
@@ -448,15 +452,15 @@ CREATE TABLE `default_cms_tags` (
   `usuario_registro` int(11) DEFAULT NULL,
   `fecha_actualizacion` datetime DEFAULT NULL,
   `usuario_actualizacion` int(11) DEFAULT NULL,
-  `estado_migracion` tinyint(4) DEFAULT '0' COMMENT '\\"Status de la migración a MongoDB:\\n0 = Registro Nuevo (por migrar)\\n1 = Proceso (migrando)\\n2 = Migrado\\n\\nAdicionalmente para cuando se modifique un registro, el CMS graba un status 9, y el proceso lo re-tomará para migrarlo al MongoDB.\\n9 = Registro Actualiz /* comment truncated */',
-  `fecha_migracion` datetime DEFAULT NULL COMMENT 'Fecha y Hora de la migración por primera vez (registros nuevos)',
-  `fecha_migracion_actualizacion` datetime DEFAULT NULL COMMENT 'Fecha y Hora de la migración de la ultima actualización, es decir, cuando un registro se actualiza se graba el status = 9, y el proceso lo re-toma para migrar al MongoDB	',
+  `estado_migracion` tinyint(4) DEFAULT '0',
+  `fecha_migracion` datetime DEFAULT NULL,
+  `fecha_migracion_actualizacion` datetime DEFAULT NULL,
   `estado_migracion_sphinx` tinyint(4) DEFAULT NULL,
   `fecha_migracion_sphinx` datetime DEFAULT NULL,
   `fecha_migracion_actualizacion_sphinx` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_tags_tipo_tag1_idx` (`tipo_tags_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=483 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 /*Table structure for table `default_cms_templates` */
 
@@ -471,23 +475,23 @@ CREATE TABLE `default_cms_templates` (
   `fecha_actualizacion` datetime DEFAULT NULL,
   `usuario_actualizacion` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 /*Table structure for table `default_cms_tipo_canales` */
 
 DROP TABLE IF EXISTS `default_cms_tipo_canales`;
 
 CREATE TABLE `default_cms_tipo_canales` (
-  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID del Tipo de Canal',
-  `nombre` varchar(45) DEFAULT NULL COMMENT 'Nombre del Tipo de Canal. Por ejemplo:\\n* Canal de TV\\n* Empresa Editora\\n* Emisora Radial\\n* Emisora Internet\\n* Otros',
-  `descripcion` varchar(45) DEFAULT NULL COMMENT 'Descripción del Tipo de Canal',
-  `estado` tinyint(4) DEFAULT '0' COMMENT 'Estados del Tipo de Canal:\\n1 = Activo\\n0 = Inactivo\\n',
-  `fecha_registro` datetime DEFAULT NULL COMMENT 'Fecha y Hora del Registro del Tipo de Canal\\n',
-  `usuario_registro` int(11) DEFAULT NULL COMMENT 'ID Usuario que registra el Tipo de Canal',
-  `fecha_actualizacion` datetime DEFAULT NULL COMMENT 'Fecha y Hora de la Ultima actualización del registro del Tipo de Canal\\n',
-  `usuario_actualizacion` int(11) DEFAULT NULL COMMENT 'ID del Ultimo Usuario que modifica el registro del Tipo de Canal.\\n',
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(45) DEFAULT NULL,
+  `descripcion` varchar(45) DEFAULT NULL,
+  `estado` tinyint(4) DEFAULT '0',
+  `fecha_registro` datetime DEFAULT NULL,
+  `usuario_registro` int(11) DEFAULT NULL,
+  `fecha_actualizacion` datetime DEFAULT NULL,
+  `usuario_actualizacion` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 /*Table structure for table `default_cms_tipo_grupo_maestros` */
 
@@ -496,14 +500,14 @@ DROP TABLE IF EXISTS `default_cms_tipo_grupo_maestros`;
 CREATE TABLE `default_cms_tipo_grupo_maestros` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(100) DEFAULT NULL,
-  `descripcion` varchar(500) DEFAULT NULL COMMENT '0 = Video\\n---------------------------------\\n1 = Lista de Reproduccion\\n2 = Coleccion\\n3 = Programa\\n4 = Canal',
+  `descripcion` varchar(500) DEFAULT NULL,
   `estado` tinyint(4) DEFAULT NULL,
   `fecha_registro` datetime DEFAULT NULL,
   `usuario_registro` int(11) DEFAULT NULL,
   `fecha_actualizacion` datetime DEFAULT NULL,
   `usuario_actualizacion` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 /*Table structure for table `default_cms_tipo_imagen` */
 
@@ -511,8 +515,8 @@ DROP TABLE IF EXISTS `default_cms_tipo_imagen`;
 
 CREATE TABLE `default_cms_tipo_imagen` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(45) DEFAULT NULL COMMENT 'Small\\nMedium\\nLarge\\nXL',
-  `descripcion` varchar(45) DEFAULT NULL COMMENT 'Pendiente- Determinar las dimensiones de las imagenes',
+  `nombre` varchar(45) DEFAULT NULL,
+  `descripcion` varchar(45) DEFAULT NULL,
   `fecha_registro` datetime DEFAULT NULL,
   `usuario_registro` int(11) DEFAULT NULL,
   `fecha_actualizacion` datetime DEFAULT NULL,
@@ -520,7 +524,7 @@ CREATE TABLE `default_cms_tipo_imagen` (
   `alto` int(11) DEFAULT NULL,
   `ancho` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 /*Table structure for table `default_cms_tipo_portadas` */
 
@@ -528,7 +532,7 @@ DROP TABLE IF EXISTS `default_cms_tipo_portadas`;
 
 CREATE TABLE `default_cms_tipo_portadas` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(45) DEFAULT NULL COMMENT 'principal\\ncategoria\\ntag\\nprograma',
+  `nombre` varchar(45) DEFAULT NULL,
   `descripcion` varchar(45) DEFAULT NULL,
   `estado` tinyint(4) DEFAULT NULL,
   `fecha_registro` datetime DEFAULT NULL,
@@ -537,7 +541,7 @@ CREATE TABLE `default_cms_tipo_portadas` (
   `usuario_actualizacion` int(11) DEFAULT NULL,
   `id_mongo` varchar(25) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 /*Table structure for table `default_cms_tipo_secciones` */
 
@@ -552,7 +556,7 @@ CREATE TABLE `default_cms_tipo_secciones` (
   `fecha_actualizacion` datetime DEFAULT NULL,
   `usuario_actualizacion` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Table structure for table `default_cms_tipo_tags` */
 
@@ -560,7 +564,7 @@ DROP TABLE IF EXISTS `default_cms_tipo_tags`;
 
 CREATE TABLE `default_cms_tipo_tags` (
   `id` int(11) NOT NULL,
-  `nombre` varchar(45) DEFAULT NULL COMMENT 'Tematico\\nPersonaje',
+  `nombre` varchar(45) DEFAULT NULL,
   `descripcion` varchar(45) DEFAULT NULL,
   `estado` tinyint(4) DEFAULT NULL,
   `fecha_registro` datetime DEFAULT NULL,
@@ -576,15 +580,15 @@ DROP TABLE IF EXISTS `default_cms_tipo_videos`;
 
 CREATE TABLE `default_cms_tipo_videos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(45) DEFAULT NULL COMMENT 'Normal\\nPremium',
+  `nombre` varchar(45) DEFAULT NULL,
   `descripcion` varchar(50) DEFAULT NULL,
-  `estado` tinyint(4) DEFAULT '0' COMMENT '1 = Activo\\n0 = Inactivo',
+  `estado` tinyint(4) DEFAULT '0',
   `fecha_registro` datetime DEFAULT NULL,
   `usuario_registro` int(11) DEFAULT NULL,
   `fecha_actualizacion` datetime DEFAULT NULL,
   `usuario_actualizacion` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 /*Table structure for table `default_cms_usuario_group_canales` */
 
@@ -611,22 +615,22 @@ CREATE TABLE `default_cms_usuario_group_canales` (
 DROP TABLE IF EXISTS `default_cms_usuarios`;
 
 CREATE TABLE `default_cms_usuarios` (
-  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID de Usuario',
-  `rol_id` int(11) NOT NULL COMMENT 'ID del Rol que desempeña un Usuario',
-  `nombres` varchar(64) DEFAULT NULL COMMENT 'Nombres del Usuario',
-  `apellidos` varchar(64) DEFAULT NULL COMMENT 'Apellidos del Usuario',
-  `direccion` varchar(128) DEFAULT NULL COMMENT 'Direccion del usuario',
-  `telefono1` varchar(16) DEFAULT NULL COMMENT 'Telefono del usuario',
-  `telefono2` varchar(16) DEFAULT NULL COMMENT 'Telefono del usuario',
-  `dni` varchar(12) DEFAULT NULL COMMENT 'Nro de documento del Usuario o DNI',
-  `email` varchar(128) DEFAULT NULL COMMENT 'e-mail del Usuario',
-  `usuario` varchar(10) DEFAULT NULL COMMENT 'Codigo de Identificación del Usuario en el Sistema (CMS)',
-  `password` varchar(32) DEFAULT NULL COMMENT 'Clave del Usuario dentro del Sistema CMS',
-  `estado` tinyint(4) DEFAULT '0' COMMENT 'Estados del Usuario:\\n1 = Activo\\n0 = Inactivo',
-  `fecha_registro` datetime DEFAULT NULL COMMENT 'Fecha y hora del registro del Usuario\\n',
-  `usuario_registro` int(11) DEFAULT NULL COMMENT 'ID Usuario que registra al Usuario\\n',
-  `fecha_actualizacion` datetime DEFAULT NULL COMMENT 'Fecha y Hora de la Ultima actualización del registro del Usuario\\n',
-  `usuario_actualizacion` int(11) DEFAULT NULL COMMENT 'ID del Ultimo Usuario que modifica el registro del Usuario.\\n',
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `rol_id` int(11) NOT NULL,
+  `nombres` varchar(64) DEFAULT NULL,
+  `apellidos` varchar(64) DEFAULT NULL,
+  `direccion` varchar(128) DEFAULT NULL,
+  `telefono1` varchar(16) DEFAULT NULL,
+  `telefono2` varchar(16) DEFAULT NULL,
+  `dni` varchar(12) DEFAULT NULL,
+  `email` varchar(128) DEFAULT NULL,
+  `usuario` varchar(10) DEFAULT NULL,
+  `password` varchar(32) DEFAULT NULL,
+  `estado` tinyint(4) DEFAULT '0',
+  `fecha_registro` datetime DEFAULT NULL,
+  `usuario_registro` int(11) DEFAULT NULL,
+  `fecha_actualizacion` datetime DEFAULT NULL,
+  `usuario_actualizacion` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -667,18 +671,18 @@ CREATE TABLE `default_cms_video_tags` (
 DROP TABLE IF EXISTS `default_cms_videos`;
 
 CREATE TABLE `default_cms_videos` (
-  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID del Video',
-  `tipo_videos_id` int(11) NOT NULL COMMENT 'ID del Tipo de Video',
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `tipo_videos_id` int(11) NOT NULL,
   `categorias_id` int(11) NOT NULL,
   `usuarios_id` int(11) NOT NULL,
   `canales_id` int(11) NOT NULL,
-  `nid` int(11) DEFAULT NULL COMMENT 'ID del VIDEO retornado por LIQUID',
-  `titulo` varchar(150) DEFAULT NULL COMMENT 'Titulo del Video',
-  `alias` varchar(150) DEFAULT NULL COMMENT 'Etiqueta del Portal utilizado para el SEO',
-  `descripcion` varchar(500) DEFAULT NULL COMMENT 'Descripcion del Video',
+  `nid` int(11) DEFAULT NULL,
+  `titulo` varchar(150) DEFAULT NULL,
+  `alias` varchar(150) DEFAULT NULL,
+  `descripcion` varchar(500) DEFAULT NULL,
   `fragmento` tinyint(4) DEFAULT NULL,
-  `codigo` varchar(100) DEFAULT NULL COMMENT 'CODIGO para la visualizacion DEL VIDEO retornado por LIQUID',
-  `reproducciones` decimal(10,0) DEFAULT NULL COMMENT 'Nro de reproducciones del video en LIQUID',
+  `codigo` varchar(100) DEFAULT NULL,
+  `reproducciones` decimal(10,0) DEFAULT NULL,
   `duracion` time DEFAULT NULL,
   `fecha_publicacion_inicio` datetime DEFAULT NULL,
   `fecha_publicacion_fin` datetime DEFAULT NULL,
@@ -687,21 +691,21 @@ CREATE TABLE `default_cms_videos` (
   `horario_transmision_fin` time DEFAULT NULL,
   `ubicacion` varchar(100) DEFAULT NULL,
   `id_mongo` varchar(25) DEFAULT NULL,
-  `estado` tinyint(4) DEFAULT '0' COMMENT 'Estado de Publicación del Video: 0 = codificando - 1 = borrador - 2 = publicado - 3 = eliminado',
-  `estado_liquid` tinyint(4) DEFAULT '0' COMMENT 'Estado del proceso de carga del servidor de Mi Canal hacia el repositorio de Liquid\\n0 = Nuevo\\n1 = Codificando\\n2 = Codificado\\n3 = Subiendo\\n4 = Borrador\\n5 = Activo\\n6 = Publicado',
-  `fecha_registro` datetime DEFAULT NULL COMMENT 'Fecha y hora del registro del Video\\n',
-  `usuario_registro` int(11) DEFAULT NULL COMMENT 'ID Usuario que registra el Video\\n',
-  `fecha_actualizacion` datetime DEFAULT NULL COMMENT 'Fecha y Hora de la Ultima actualización del registro del Video\\n',
-  `usuario_actualizacion` int(11) DEFAULT NULL COMMENT 'ID del Ultimo Usuario que modifica el registro del VIdeo.\\n',
-  `estado_migracion` tinyint(4) DEFAULT '0' COMMENT '\\"Status de la migración a MongoDB:\\n0 = Registro Nuevo (por migrar)\\n1 = Proceso (migrando)\\n2 = Migrado\\n\\nAdicionalmente para cuando se modifique un registro, el CMS graba un status 9, y el proceso lo re-tomará para migrarlo al MongoDB.\\n9 = Registro Actualiz /* comment truncated */',
-  `fecha_migracion` datetime DEFAULT NULL COMMENT 'Fecha y Hora de la migración por primera vez (registros nuevos)\\n',
-  `fecha_migracion_actualizacion` datetime DEFAULT NULL COMMENT 'Fecha y Hora de la migración de la ultima actualización, es decir, cuando un registro se actualiza se graba el status = 9, y el proceso lo re-toma para migrar al MongoDB					',
-  `estado_migracion_sphinx_tit` tinyint(4) DEFAULT '0' COMMENT '\\"Status de la migración a Sphinx:\\n0 = Registro Nuevo (por migrar)\\n1 = Proceso (migrando)\\n2 = Migrado\\n\\nAdicionalmente para cuando se modifique un registro, el CMS graba un status 9, y el proceso lo re-tomará para migrarlo al Sphinx.\\n9 = Registro Actualizad /* comment truncated */',
-  `fecha_migracion_sphinx_tit` datetime DEFAULT NULL COMMENT 'Fecha y Hora de la migración por primera vez (registros nuevos)',
-  `fecha_migracion_actualizacion_sphinx_tit` datetime DEFAULT NULL COMMENT 'Fecha y Hora de la migración de la ultima actualización, es decir, cuando un registro se actualiza se graba el status = 9, y el proceso lo re-toma para migrar al Sphinx	',
-  `estado_migracion_sphinx_des` tinyint(4) DEFAULT '0' COMMENT '\\"Status de la migración a Sphinx:\\n0 = Registro Nuevo (por migrar)\\n1 = Proceso (migrando)\\n2 = Migrado\\n\\nAdicionalmente para cuando se modifique un registro, el CMS graba un status 9, y el proceso lo re-tomará para migrarlo al Sphinx.\\n9 = Registro Actualizad /* comment truncated */',
-  `fecha_migracion_sphinx_des` datetime DEFAULT NULL COMMENT 'Fecha y Hora de la migración por primera vez (registros nuevos)',
-  `fecha_migracion_actualizacion_sphinx_des` datetime DEFAULT NULL COMMENT 'Fecha y Hora de la migración de la ultima actualización, es decir, cuando un registro se actualiza se graba el status = 9, y el proceso lo re-toma para migrar al Sphinx	',
+  `estado` tinyint(4) DEFAULT '0',
+  `estado_liquid` tinyint(4) DEFAULT '0',
+  `fecha_registro` datetime DEFAULT NULL,
+  `usuario_registro` int(11) DEFAULT NULL,
+  `fecha_actualizacion` datetime DEFAULT NULL,
+  `usuario_actualizacion` int(11) DEFAULT NULL,
+  `estado_migracion` tinyint(4) DEFAULT '0',
+  `fecha_migracion` datetime DEFAULT NULL,
+  `fecha_migracion_actualizacion` datetime DEFAULT NULL,
+  `estado_migracion_sphinx_tit` tinyint(4) DEFAULT '0',
+  `fecha_migracion_sphinx_tit` datetime DEFAULT NULL,
+  `fecha_migracion_actualizacion_sphinx_tit` datetime DEFAULT NULL,
+  `estado_migracion_sphinx_des` tinyint(4) DEFAULT '0',
+  `fecha_migracion_sphinx_des` datetime DEFAULT NULL,
+  `fecha_migracion_actualizacion_sphinx_des` datetime DEFAULT NULL,
   `valorizacion` int(11) DEFAULT '0',
   `comentarios` int(11) DEFAULT '0',
   `ruta` varchar(250) DEFAULT NULL,
@@ -710,7 +714,7 @@ CREATE TABLE `default_cms_videos` (
   `estado_migracion_sphinx` tinyint(4) DEFAULT NULL,
   `fecha_migracion_sphinx` datetime DEFAULT NULL,
   `fecha_migracion_actualizacion_sphinx` datetime DEFAULT NULL,
-  `procedencia` tinyint(4) DEFAULT '0' COMMENT '0 = interno, 1 = externo',
+  `procedencia` tinyint(4) DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `fk_video_tipo-video1_idx` (`tipo_videos_id`),
   KEY `fk_video_usuario1_idx` (`usuarios_id`),
@@ -718,7 +722,7 @@ CREATE TABLE `default_cms_videos` (
   KEY `fk_default_cms_videos_default_cms_canales1_idx` (`canales_id`),
   FULLTEXT KEY `in_codigo` (`codigo`),
   FULLTEXT KEY `in_id_mongo` (`id_mongo`)
-) ENGINE=MyISAM AUTO_INCREMENT=4202 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 /*Table structure for table `default_cms_visitas` */
 
@@ -726,7 +730,7 @@ DROP TABLE IF EXISTS `default_cms_visitas`;
 
 CREATE TABLE `default_cms_visitas` (
   `videos_id` int(11) NOT NULL,
-  `cantidad_visitas` decimal(10,0) DEFAULT NULL COMMENT 'Cantidad de visitas a la Ficha del Video',
+  `cantidad_visitas` decimal(10,0) DEFAULT NULL,
   `fecha_actualizacion` datetime DEFAULT NULL,
   PRIMARY KEY (`videos_id`),
   KEY `fk_visitas_video1_idx` (`videos_id`)
@@ -783,7 +787,7 @@ CREATE TABLE `default_data_field_assignments` (
   `instructions` text COLLATE utf8_unicode_ci,
   `field_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Table structure for table `default_data_fields` */
 
@@ -799,7 +803,7 @@ CREATE TABLE `default_data_fields` (
   `view_options` blob,
   `is_locked` enum('yes','no') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'no',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Table structure for table `default_data_streams` */
 
@@ -816,7 +820,7 @@ CREATE TABLE `default_data_streams` (
   `title_column` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `sorting` enum('title','custom') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'title',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Table structure for table `default_email_templates` */
 
@@ -834,7 +838,7 @@ CREATE TABLE `default_email_templates` (
   `module` varchar(50) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   UNIQUE KEY `slug_lang` (`slug`,`lang`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Table structure for table `default_file_folders` */
 
@@ -881,16 +885,16 @@ CREATE TABLE `default_files` (
 DROP TABLE IF EXISTS `default_groups`;
 
 CREATE TABLE `default_groups` (
-  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID Rol del usuario',
-  `name` varchar(100) DEFAULT NULL COMMENT 'Nombre del Rol',
-  `description` varchar(250) DEFAULT NULL COMMENT 'Descripcion del Rol',
-  `estado` tinyint(4) DEFAULT '0' COMMENT 'Status del Rol:\\n1 = Activo\\n0 = Inactivo',
-  `fecha_registro` datetime DEFAULT NULL COMMENT 'Fecha y hora del registro del Rol\\n',
-  `usuario_registro` int(11) DEFAULT NULL COMMENT 'ID Usuario que registra el Rol\\n',
-  `fecha_actualizacion` datetime DEFAULT NULL COMMENT 'Fecha y Hora de la Ultima actualización del registro del Rol\\n',
-  `usuario_actualizacion` int(11) DEFAULT NULL COMMENT 'ID del Ultimo Usuario que modifica el registro del Rol.\\n',
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) DEFAULT NULL,
+  `description` varchar(250) DEFAULT NULL,
+  `estado` tinyint(4) DEFAULT '0',
+  `fecha_registro` datetime DEFAULT NULL,
+  `usuario_registro` int(11) DEFAULT NULL,
+  `fecha_actualizacion` datetime DEFAULT NULL,
+  `usuario_actualizacion` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 /*Table structure for table `default_keywords` */
 
@@ -900,7 +904,7 @@ CREATE TABLE `default_keywords` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Table structure for table `default_keywords_applied` */
 
@@ -911,7 +915,7 @@ CREATE TABLE `default_keywords_applied` (
   `hash` char(32) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `keyword_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Table structure for table `default_migrations` */
 
@@ -943,7 +947,7 @@ CREATE TABLE `default_modules` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `slug` (`slug`),
   KEY `enabled` (`enabled`)
-) ENGINE=MyISAM AUTO_INCREMENT=53 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Table structure for table `default_navigation_groups` */
 
@@ -955,7 +959,7 @@ CREATE TABLE `default_navigation_groups` (
   `abbrev` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `abbrev` (`abbrev`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Table structure for table `default_navigation_links` */
 
@@ -977,7 +981,7 @@ CREATE TABLE `default_navigation_links` (
   `class` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   KEY `navigation_group_id` (`navigation_group_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Table structure for table `default_page_chunks` */
 
@@ -993,7 +997,7 @@ CREATE TABLE `default_page_chunks` (
   `type` set('html','markdown','wysiwyg-advanced','wysiwyg-simple') COLLATE utf8_unicode_ci NOT NULL,
   `sort` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Table structure for table `default_page_layouts` */
 
@@ -1008,7 +1012,7 @@ CREATE TABLE `default_page_layouts` (
   `theme_layout` varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'default',
   `updated_on` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Table structure for table `default_pages` */
 
@@ -1040,7 +1044,7 @@ CREATE TABLE `default_pages` (
   PRIMARY KEY (`id`),
   KEY `slug` (`slug`),
   KEY `parent_id` (`parent_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Table structure for table `default_permissions` */
 
@@ -1053,7 +1057,7 @@ CREATE TABLE `default_permissions` (
   `roles` text COLLATE utf8_unicode_ci,
   PRIMARY KEY (`id`),
   KEY `group_id` (`group_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=83 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Table structure for table `default_profiles` */
 
@@ -1084,7 +1088,7 @@ CREATE TABLE `default_profiles` (
   `updated_on` int(11) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Table structure for table `default_redirects` */
 
@@ -1136,18 +1140,18 @@ CREATE TABLE `default_theme_options` (
   `is_required` int(1) NOT NULL,
   `theme` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Table structure for table `default_users` */
 
 DROP TABLE IF EXISTS `default_users`;
 
 CREATE TABLE `default_users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID de Usuario',
-  `email` varchar(60) DEFAULT NULL COMMENT 'e-mail del Usuario',
-  `password` varchar(100) DEFAULT NULL COMMENT 'Clave del Usuario dentro del Sistema CMS',
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `email` varchar(60) DEFAULT NULL,
+  `password` varchar(100) DEFAULT NULL,
   `salt` varchar(6) DEFAULT NULL,
-  `group_id` int(11) NOT NULL COMMENT 'ID del Rol que desempeña un Usuario',
+  `group_id` int(11) NOT NULL,
   `ip_address` varchar(16) DEFAULT NULL,
   `active` int(11) DEFAULT NULL,
   `activation_code` varchar(40) DEFAULT NULL,
@@ -1156,19 +1160,19 @@ CREATE TABLE `default_users` (
   `username` varchar(20) DEFAULT NULL,
   `forgotten_password_code` varchar(40) DEFAULT NULL,
   `remember_code` varchar(40) DEFAULT NULL,
-  `nombres` varchar(64) DEFAULT NULL COMMENT 'Nombres del Usuario',
-  `apellidos` varchar(64) DEFAULT NULL COMMENT 'Apellidos del Usuario',
-  `direccion` varchar(128) DEFAULT NULL COMMENT 'Direccion del usuario',
-  `telefono1` varchar(16) DEFAULT NULL COMMENT 'Telefono del usuario',
-  `telefono2` varchar(16) DEFAULT NULL COMMENT 'Telefono del usuario',
-  `dni` varchar(12) DEFAULT NULL COMMENT 'Nro de documento del Usuario o DNI',
-  `estado` tinyint(4) DEFAULT '0' COMMENT 'Estados del Usuario: 1 = Activo 0 = Inactivo',
-  `fecha_registro` datetime DEFAULT NULL COMMENT 'Fecha y hora del registro del Usuario\\n',
-  `usuario_registro` int(11) DEFAULT NULL COMMENT 'ID Usuario que registra al Usuario\\n',
-  `fecha_actualizacion` datetime DEFAULT NULL COMMENT 'Fecha y Hora de la Ultima actualización del registro del Usuario\\n',
-  `usuario_actualizacion` int(11) DEFAULT NULL COMMENT 'ID del Ultimo Usuario que modifica el registro del Usuario.\\n',
+  `nombres` varchar(64) DEFAULT NULL,
+  `apellidos` varchar(64) DEFAULT NULL,
+  `direccion` varchar(128) DEFAULT NULL,
+  `telefono1` varchar(16) DEFAULT NULL,
+  `telefono2` varchar(16) DEFAULT NULL,
+  `dni` varchar(12) DEFAULT NULL,
+  `estado` tinyint(4) DEFAULT '0',
+  `fecha_registro` datetime DEFAULT NULL,
+  `usuario_registro` int(11) DEFAULT NULL,
+  `fecha_actualizacion` datetime DEFAULT NULL,
+  `usuario_actualizacion` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 /*Table structure for table `default_variables` */
 
@@ -1190,7 +1194,7 @@ CREATE TABLE `default_widget_areas` (
   `slug` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `title` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Table structure for table `default_widget_instances` */
 
@@ -1224,7 +1228,8 @@ CREATE TABLE `default_widgets` (
   `order` int(10) NOT NULL DEFAULT '0',
   `updated_on` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
 
 
 insert  into `{PREFIX}profiles`(`id`,`user_id`,`display_name`,`first_name`,`last_name`,`company`,`lang`,`bio`,`dob`,`gender`,`phone`,`mobile`,`address_line1`,`address_line2`,`address_line3`,`postcode`,`website`,`updated_on`) values (1,1,'{DISPLAY-NAME}','{FIRST-NAME}','{LAST-NAME}','','en',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
