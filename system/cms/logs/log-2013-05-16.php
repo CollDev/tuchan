@@ -478,3 +478,54 @@ ERROR - 2013-05-16 16:34:41 --> Severity: Warning  --> mysqli_num_rows() expects
 ERROR - 2013-05-16 16:34:41 --> Severity: Warning  --> mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given /home/user/Escritorio/adminmicanal/system/codeigniter/database/drivers/mysqli/mysqli_result.php 46
 ERROR - 2013-05-16 16:34:41 --> Severity: Warning  --> mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given /home/user/Escritorio/adminmicanal/system/codeigniter/database/drivers/mysqli/mysqli_result.php 46
 ERROR - 2013-05-16 16:34:41 --> Severity: Warning  --> mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given /home/user/Escritorio/adminmicanal/system/codeigniter/database/drivers/mysqli/mysqli_result.php 46
+ERROR - 2013-05-16 21:32:17 --> Severity: Warning  --> Illegal offset type /home/user/Escritorio/adminmicanal/system/cms/libraries/Mongo_db.php 188
+ERROR - 2013-05-16 21:32:17 --> Severity: Warning  --> Illegal offset type /home/user/Escritorio/adminmicanal/system/cms/libraries/Mongo_db.php 188
+ERROR - 2013-05-16 21:32:17 --> Severity: Warning  --> Illegal offset type /home/user/Escritorio/adminmicanal/system/cms/libraries/Mongo_db.php 188
+ERROR - 2013-05-16 21:32:17 --> Severity: Warning  --> Illegal offset type /home/user/Escritorio/adminmicanal/system/cms/libraries/Mongo_db.php 188
+ERROR - 2013-05-16 21:32:17 --> Severity: Warning  --> Illegal offset type /home/user/Escritorio/adminmicanal/system/cms/libraries/Mongo_db.php 188
+ERROR - 2013-05-16 21:32:17 --> Severity: Warning  --> Illegal offset type /home/user/Escritorio/adminmicanal/system/cms/libraries/Mongo_db.php 188
+ERROR - 2013-05-16 21:32:17 --> Severity: Warning  --> Illegal offset type /home/user/Escritorio/adminmicanal/system/cms/libraries/Mongo_db.php 188
+ERROR - 2013-05-16 21:32:17 --> Severity: Warning  --> Illegal offset type /home/user/Escritorio/adminmicanal/system/cms/libraries/Mongo_db.php 188
+ERROR - 2013-05-16 21:37:53 --> Severity: Warning  --> Illegal offset type /home/user/Escritorio/adminmicanal/system/cms/libraries/Mongo_db.php 188
+ERROR - 2013-05-16 21:37:53 --> Severity: Warning  --> Illegal offset type /home/user/Escritorio/adminmicanal/system/cms/libraries/Mongo_db.php 188
+ERROR - 2013-05-16 21:37:53 --> Severity: Warning  --> Illegal offset type /home/user/Escritorio/adminmicanal/system/cms/libraries/Mongo_db.php 188
+ERROR - 2013-05-16 21:37:53 --> Severity: Warning  --> Illegal offset type /home/user/Escritorio/adminmicanal/system/cms/libraries/Mongo_db.php 188
+ERROR - 2013-05-16 21:37:53 --> Severity: Warning  --> Illegal offset type /home/user/Escritorio/adminmicanal/system/cms/libraries/Mongo_db.php 188
+ERROR - 2013-05-16 21:37:53 --> Severity: Warning  --> Illegal offset type /home/user/Escritorio/adminmicanal/system/cms/libraries/Mongo_db.php 188
+ERROR - 2013-05-16 21:37:53 --> Severity: Warning  --> Illegal offset type /home/user/Escritorio/adminmicanal/system/cms/libraries/Mongo_db.php 188
+ERROR - 2013-05-16 21:37:53 --> Severity: Warning  --> Illegal offset type /home/user/Escritorio/adminmicanal/system/cms/libraries/Mongo_db.php 188
+ERROR - 2013-05-16 21:37:53 --> Severity: Warning  --> Illegal offset type /home/user/Escritorio/adminmicanal/system/cms/libraries/Mongo_db.php 188
+ERROR - 2013-05-16 22:03:54 --> Severity: Warning  --> Illegal offset type /home/user/Escritorio/adminmicanal/system/cms/libraries/Mongo_db.php 188
+ERROR - 2013-05-16 22:03:54 --> Severity: Warning  --> Illegal offset type /home/user/Escritorio/adminmicanal/system/cms/libraries/Mongo_db.php 188
+ERROR - 2013-05-16 22:03:54 --> Severity: Warning  --> Illegal offset type /home/user/Escritorio/adminmicanal/system/cms/libraries/Mongo_db.php 188
+ERROR - 2013-05-16 22:03:54 --> Severity: Warning  --> Illegal offset type /home/user/Escritorio/adminmicanal/system/cms/libraries/Mongo_db.php 188
+ERROR - 2013-05-16 22:03:54 --> Severity: Warning  --> Illegal offset type /home/user/Escritorio/adminmicanal/system/cms/libraries/Mongo_db.php 188
+ERROR - 2013-05-16 22:03:54 --> Severity: Warning  --> Illegal offset type /home/user/Escritorio/adminmicanal/system/cms/libraries/Mongo_db.php 188
+ERROR - 2013-05-16 22:03:54 --> Severity: Warning  --> Illegal offset type /home/user/Escritorio/adminmicanal/system/cms/libraries/Mongo_db.php 188
+ERROR - 2013-05-16 22:03:54 --> Severity: Warning  --> Illegal offset type /home/user/Escritorio/adminmicanal/system/cms/libraries/Mongo_db.php 188
+ERROR - 2013-05-16 22:03:54 --> Severity: Warning  --> Illegal offset type /home/user/Escritorio/adminmicanal/system/cms/libraries/Mongo_db.php 188
+ERROR - 2013-05-16 22:03:54 --> Severity: Warning  --> Illegal offset type /home/user/Escritorio/adminmicanal/system/cms/libraries/Mongo_db.php 188
+ERROR - 2013-05-16 22:52:47 --> Severity: Warning  --> Illegal offset type /home/user/Escritorio/adminmicanal/system/cms/libraries/Mongo_db.php 188
+ERROR - 2013-05-16 22:52:47 --> Severity: Warning  --> Illegal offset type /home/user/Escritorio/adminmicanal/system/cms/libraries/Mongo_db.php 188
+ERROR - 2013-05-16 22:52:47 --> Severity: Warning  --> Illegal offset type /home/user/Escritorio/adminmicanal/system/cms/libraries/Mongo_db.php 188
+ERROR - 2013-05-16 22:52:47 --> Severity: Warning  --> Illegal offset type /home/user/Escritorio/adminmicanal/system/cms/libraries/Mongo_db.php 188
+ERROR - 2013-05-16 22:52:47 --> Severity: Warning  --> Illegal offset type /home/user/Escritorio/adminmicanal/system/cms/libraries/Mongo_db.php 188
+ERROR - 2013-05-16 22:52:47 --> Severity: Warning  --> Illegal offset type /home/user/Escritorio/adminmicanal/system/cms/libraries/Mongo_db.php 188
+ERROR - 2013-05-16 23:08:20 --> Severity: Warning  --> Illegal offset type /home/user/Escritorio/adminmicanal/system/cms/libraries/Mongo_db.php 188
+ERROR - 2013-05-16 23:08:20 --> Severity: Warning  --> Illegal offset type /home/user/Escritorio/adminmicanal/system/cms/libraries/Mongo_db.php 188
+ERROR - 2013-05-16 23:08:20 --> Severity: Warning  --> Illegal offset type /home/user/Escritorio/adminmicanal/system/cms/libraries/Mongo_db.php 188
+ERROR - 2013-05-16 23:08:20 --> Severity: Warning  --> Illegal offset type /home/user/Escritorio/adminmicanal/system/cms/libraries/Mongo_db.php 188
+ERROR - 2013-05-16 23:08:20 --> Severity: Warning  --> Illegal offset type /home/user/Escritorio/adminmicanal/system/cms/libraries/Mongo_db.php 188
+ERROR - 2013-05-16 23:08:20 --> Severity: Warning  --> Illegal offset type /home/user/Escritorio/adminmicanal/system/cms/libraries/Mongo_db.php 188
+ERROR - 2013-05-16 23:08:20 --> Severity: Warning  --> Illegal offset type /home/user/Escritorio/adminmicanal/system/cms/libraries/Mongo_db.php 188
+ERROR - 2013-05-16 23:08:20 --> Severity: Warning  --> Illegal offset type /home/user/Escritorio/adminmicanal/system/cms/libraries/Mongo_db.php 188
+ERROR - 2013-05-16 23:08:20 --> Severity: Warning  --> Illegal offset type /home/user/Escritorio/adminmicanal/system/cms/libraries/Mongo_db.php 188
+ERROR - 2013-05-16 23:08:20 --> Severity: Warning  --> Illegal offset type /home/user/Escritorio/adminmicanal/system/cms/libraries/Mongo_db.php 188
+ERROR - 2013-05-16 23:08:20 --> Severity: Warning  --> Illegal offset type /home/user/Escritorio/adminmicanal/system/cms/libraries/Mongo_db.php 188
+ERROR - 2013-05-16 23:08:20 --> Severity: Warning  --> Illegal offset type /home/user/Escritorio/adminmicanal/system/cms/libraries/Mongo_db.php 188
+ERROR - 2013-05-16 23:08:20 --> Severity: Warning  --> Illegal offset type /home/user/Escritorio/adminmicanal/system/cms/libraries/Mongo_db.php 188
+ERROR - 2013-05-16 23:08:20 --> Severity: Warning  --> Illegal offset type /home/user/Escritorio/adminmicanal/system/cms/libraries/Mongo_db.php 188
+ERROR - 2013-05-16 23:08:20 --> Severity: Warning  --> Illegal offset type /home/user/Escritorio/adminmicanal/system/cms/libraries/Mongo_db.php 188
+ERROR - 2013-05-16 23:08:20 --> Severity: Warning  --> Illegal offset type /home/user/Escritorio/adminmicanal/system/cms/libraries/Mongo_db.php 188
+ERROR - 2013-05-16 23:25:47 --> Severity: Notice  --> Undefined variable: db /home/user/Escritorio/adminmicanal/system/cms/config/database.php 116
+ERROR - 2013-05-16 23:25:47 --> Severity: Warning  --> array_key_exists() expects parameter 2 to be array, null given /home/user/Escritorio/adminmicanal/system/cms/config/database.php 116

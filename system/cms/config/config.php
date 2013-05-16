@@ -394,6 +394,8 @@ $config['modules_locations'] = array(
 	SHARED_ADDONPATH.'modules/' => '../../../addons/shared_addons/modules/'
 );
 
+            $config['protocolo:http'] = 'http:\/\/';
+
 //servidor elemento
 $config['server:elemento'] = 'dev.e.micanal.e3.pe';
 $config['url:elemento'] = 'http://dev.e3.pe/index.php/api/v1';

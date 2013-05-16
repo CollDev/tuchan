@@ -137,10 +137,10 @@ class Videos_mp extends CI_Model {
     }
 
     function getVideosPlaylist($id) {
-        $query = "SELECT vi.id_mongo FROM " . $this->_table_grupo_detalles . " gd INNER JOIN " . $this->_table_videos . " vi ON gd.video_id = vi.id 
-            WHERE gd.grupo_maestro_padre = (SELECT gd2.grupo_maestro_padre FROM " . $this->_table_grupo_detalles . " gd2 WHERE video_id=" . $id . ") 
+        $query = "SELECT vi.id,vi.id_mongo FROM " . $this->_table_grupo_detalles . " gd INNER JOIN " . $this->_table_videos . " vi ON gd.video_id = vi.id 
+            WHERE gd.grupo_maestro_padre = (SELECT gd2.grupo_maestro_padre FROM " . $this->_table_grupo_detalles . " gd2 WHERE video_id=" . $id . ") AND vi.id_mongo IS NOT NULL
             ORDER BY vi.fecha_registro DESC";
-
+        
         return $this->db->query($query)->result();
     }
 
