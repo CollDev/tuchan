@@ -1257,7 +1257,6 @@ class Admin extends Admin_Controller {
                         }
                     }
                     $returnValue = $this->_obtenerMaestrosPrograma($tipo_grupo_maestro, $objMaestro->id);
-                 
                 }
             }
         }
@@ -4068,7 +4067,7 @@ class Admin extends Admin_Controller {
                         $this->detalle_secciones_m->save($objBeanDetalleSeccion);
                         //llenamos con sus listas de este programa
                         $lista_programa = $this->obtenerListaPrograma($maestro_id);
-                       
+
                         if (count($lista_programa) > 0) {
                             $array_id_lista = array();
                             foreach ($lista_programa as $puntero => $objLista) {
@@ -5009,7 +5008,7 @@ class Admin extends Admin_Controller {
                 if ($this->canalAgregadoSeccion($canal_item, $seccion_id, 0)) {
                     $objDetalleSeccion = $this->detalle_secciones_m->get_by(array("canales_id" => $canal_item, "secciones_id" => $seccion_id));
                     $peso = $this->obtenerPeso($seccion_id);
-                    $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id"=> $objImagen->id ,"peso" => $peso, "estado" => "1", "estado_migracion" => $this->config->item('migracion:actualizado')));
+                    $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id, "peso" => $peso, "estado" => "1", "estado_migracion" => $this->config->item('migracion:actualizado')));
                     $returnValue = 0;
                 } else {
                     $objBeanDetalleSeccion = new stdClass();
@@ -5447,6 +5446,22 @@ class Admin extends Admin_Controller {
                     }
                 }
             }
+        }
+    }
+
+    /**
+     * Método para obtener la descripcion de una detalle seccion
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param int $detalle_seccion_id
+     */
+    public function obtener_descripcion_detalle_seccion($detalle_seccion_id) {
+        if ($this->input->is_ajax_request()) {
+            $returnValue = '';
+            $objDetalleSeccion = $this->detalle_secciones_m->get($detalle_seccion_id);
+            if (count($objDetalleSeccion) > 0) {
+                $returnValue = $objDetalleSeccion->descripcion_item;
+            }
+            echo json_encode(array("value" => $returnValue));
         }
     }
 
