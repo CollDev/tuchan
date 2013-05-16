@@ -3951,7 +3951,7 @@ class Admin extends Admin_Controller {
                     if ($this->maestroAgregadoSeccion($objMaestro->id, $seccion_id)) {
                         $returnValue.='<td><a href="#" id="agregado" name="agregado" class="btn silver" onclick="return false;">Agregado</a></td>';
                     } else {
-                        $returnValue.='<td><div id="div_' . $objMaestro->id . '"><a href="#" onclick="agregarMaestroASeccion(' . $canal_id . ',' . $objMaestro->id . ', ' . $seccion_id . '); return false;" id="btnAgregar" name="btnAgregar" class="btn green">Agregar</a></div></td>';
+                        $returnValue.='<td><div id="div_' . $objMaestro->id . '"><a href="#" onmousedown="agregarMaestroASeccion(' . $canal_id . ',' . $objMaestro->id . ', ' . $seccion_id . '); return false;" id="btnAgregar" name="btnAgregar" class="btn green">Agregar</a></div></td>';
                     }
                     $returnValue.='</tr>';
                 } else {
@@ -3975,7 +3975,7 @@ class Admin extends Admin_Controller {
                         if ($this->canalAgregadoSeccion($objMaestro->id, $seccion_id)) {
                             $returnValue.='<td><a href="#" id="agregado" name="agregado" class="btn silver" onclick="return false;">Agregado</a></td>';
                         } else {
-                            $returnValue.='<td><div id="div_' . $objMaestro->id . '"><a href="#" onclick="agregarCanalASeccion(' . $canal_id . ',' . $objMaestro->id . ', ' . $seccion_id . '); return false;" id="btnAgregar" name="btnAgregar" class="btn green">Agregar</a></div></td>';
+                            $returnValue.='<td><div id="div_' . $objMaestro->id . '"><a href="#" onmousedown="deshabilitar_boton(' . $canal_id . ');return false;" onclick="agregarCanalASeccion(' . $canal_id . ',' . $objMaestro->id . ', ' . $seccion_id . '); return false;" id="btnAgregar" name="btnAgregar" class="btn green">Agregar</a></div></td>';
                         }
                         $returnValue.='</tr>';
                     } else {
@@ -3998,7 +3998,7 @@ class Admin extends Admin_Controller {
                         if ($this->videoAgregadoSeccion($objMaestro->id, $seccion_id)) {
                             $returnValue.='<td><a href="#" id="agregado" name="agregado" class="btn silver" onclick="return false;">Agregado</a></td>';
                         } else {
-                            $returnValue.='<td><div id="div_' . $objMaestro->id . '"><a href="#" onclick="agregarVideoASeccion(' . $canal_id . ',' . $objMaestro->id . ', ' . $seccion_id . '); return false;" id="btnAgregar" name="btnAgregar" class="btn green">Agregar</a></div></td>';
+                            $returnValue.='<td><div id="div_' . $objMaestro->id . '"><a href="#"  onmousedown="deshabilitar_boton(' . $objMaestro->id . ');return false;" onclick="agregarVideoASeccion(' . $canal_id . ',' . $objMaestro->id . ', ' . $seccion_id . '); return false;" id="btnAgregar" name="btnAgregar" class="btn green">Agregar</a></div></td>';
                         }
                         $returnValue.='</tr>';
                     }
