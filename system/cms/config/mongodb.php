@@ -21,10 +21,6 @@ $config['mongo_host'] = '192.168.1.35';
 $config['mongo_port'] = 27017;
 $config['mongo_db'] = 'micanal_pre';    
 
-<<<<<<< HEAD
-
-=======
->>>>>>> cc8b6ac35b4c17678458f7486e61a5df93c0fc04
 // El Comercio
 /*
 $config['mongo_host'] = '10.203.31.139';
