@@ -952,10 +952,11 @@
                     }
 
                     function agregar_descripcion(detalle_seccion_id) {
-                        var html = '<textarea id="descripcion_texto_' + detalle_seccion_id + '" nombre="descripcion_texto_' + detalle_seccion_id + '"></textarea>';
+                        var html = '<textarea onkeypress="return textonly(event,' + detalle_seccion_id + ');" id="descripcion_texto_' + detalle_seccion_id + '" nombre="descripcion_texto_' + detalle_seccion_id + '"></textarea>';
                         var boton = '<a href="#" class="btn blue" onclick="quitar_descripcion(' + detalle_seccion_id + '); return false;">Quitar descripción</a>';
                         $("#descripcion_" + detalle_seccion_id).html(html);
                         $("#boton_" + detalle_seccion_id).html(boton);
+                        $("#descripcion_texto_" + detalle_seccion_id).focus();
                     }
 
                     function quitar_descripcion(detalle_seccion_id) {
@@ -978,6 +979,61 @@
                     function deshabilitar_boton(id) {
                         var htmlAgregado = '<a href="#" id="agregado" name="agregado" class="btn silver" onclick="return false;">Agregado</a>';
                         $("#div_" + id).html(htmlAgregado);
+                    }
+
+                    function textonly(e, detalle_seccion_id) {
+                        var code;
+                        if (!e)
+                            var e = window.event;
+                        if (e.keyCode)
+                            code = e.keyCode;
+                        else if (e.which)
+                            code = e.which;
+                        var character = String.fromCharCode(code);
+                        //alert('Character was ' + character);
+                        //alert(code);
+                        //if (code == 8) return true;
+                        //var AllowRegex = /^[\ba-zA-Z\s-]$/;
+                        if (code == 32 || code == 8 || code == 27 || code == 13) {
+                            if (code == 13) {
+                                //guardar la descripcion
+                                guardar_descripcion(detalle_seccion_id);
+                            } else {
+                                if (code == 27) {
+                                    //cancelar la nueva descripcion
+                                    quitar_descripcion(detalle_seccion_id);
+                                } else {
+                                    return true;
+                                }
+                            }
+
+                        } else {
+                            var AllowRegex = /^[0-9A-Za-z]+$/;
+                            if (AllowRegex.test(character))
+                                return true;
+                        }
+                        return false;
+                    }
+
+                    function guardar_descripcion(detalle_seccion_id) {
+                        //var serializedData = $('#frmSeccion').serialize();
+
+                        var texto = $("#descripcion_texto_" + detalle_seccion_id).val();
+                        var values = {};
+                        values['descripcion_detalle'] = texto;
+                        console.log(values.serialize());
+                        var post_url = "/admin/canales/guardar_descripcion/" + detalle_seccion_id;
+                        $.ajax({
+                            type: "POST",
+                            url: post_url,
+                            dataType: 'html',
+                            data: 'descripcion_detalle=' + values,
+                            success: function(respuesta)
+                            {
+                                console.log(respuesta);
+                                //$("#resultado").html(respuesta);
+                            } //end success
+                        }); //end AJAX             
                     }
     </script>
 </section>
