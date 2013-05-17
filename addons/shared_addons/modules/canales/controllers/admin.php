@@ -4312,7 +4312,7 @@ class Admin extends Admin_Controller {
                     }
                     $html.='<td>';
                     $html.='<td>' . $objDetalleSeccion->tipo . '</td>';
-                    $html.='<td><div style="float: left;"><input class="numeric" type="text" name="peso_' . $objDetalleSeccion->id . '" id="peso_' . $objDetalleSeccion->id . '" size="2" value="' . $objDetalleSeccion->peso . '" /></div><div style="float: left;" id="img_' . $objDetalleSeccion->id . '">' . $img . '</div></td>';
+                    $html.='<td><div style="float: left;"><input onkeypress="return ordenar_lista_detalle_secciones(event);" type="text" name="peso_' . $objDetalleSeccion->id . '" id="peso_' . $objDetalleSeccion->id . '" size="2" value="' . $objDetalleSeccion->peso . '" /></div><div style="float: left;" id="img_' . $objDetalleSeccion->id . '">' . $img . '</div></td>';
                     $html.='<td>';
                     $html.='<div style="float: left;">';
                     $html.='<a href="#" class="btn red" onclick="quitarDetalleSeccion(' . $objDetalleSeccion->id . ', ' . $canal_id . ', ' . $seccion_id . '); return false;">Quitar</a>';
@@ -5664,12 +5664,12 @@ class Admin extends Admin_Controller {
             
             //iteremos los items para las nuevas ubicaciones
             if(count($array_peso)>0){
-                //error_log(print_r($array_peso, true));
-                //listamos los demas detalle secciones
-                $detalle_secciones_no_seleccionados = $this->detalle_secciones_m->where_not_in('id', $array_peso)->order_by('peso','ASC')->get_many_by(array());
-                error_log(print_r($detalle_secciones_no_seleccionados, true));
+                //iteramos y actualizamos los pesos
+                foreach($array_peso as $detalle_seccion_id=>$peso){
+                    $this->detalle_secciones_m->update($detalle_seccion_id, array("peso"=>$peso,"estado_migracion"=>$this->config->item('migracion:actualizado')));
+                }
             }
-            echo json_encode(array("error"=>"0"));
+            echo json_encode(array("error"=>"0","canal_id"=>$this->input->post('canal_id'), "seccion_id"=>$this->input->post('seccion_id')));
         }
     }
 
