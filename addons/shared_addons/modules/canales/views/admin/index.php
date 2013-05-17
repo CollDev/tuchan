@@ -121,7 +121,7 @@
         }
 
         function publicar(canal_id, tipo) {
-            jConfirm("Seguro que deseas restablecer este Item?", "Maestros", function(r) {
+            jConfirm("Seguro que deseas publicar este Item?", "Maestros", function(r) {
                 if (r) {
                     var post_url = "/admin/canales/publicar_canal/" + canal_id;
                     $.ajax({

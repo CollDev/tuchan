@@ -3058,13 +3058,13 @@ class Admin extends Admin_Controller {
             $objBeanPortada->origen_id = $objMaestro->id;
         }
         $objBeanPortada->tipo_portadas_id = $tipo_portada; //$this->config->item('portada:canal');
-        $objBeanPortada->estado = '0';
+        $objBeanPortada->estado = $this->config->item('estado:borrador');
         $objBeanPortada->fecha_registro = date("Y-m-d H:i:s");
         $objBeanPortada->usuario_registro = $user_id;
         $objBeanPortada->fecha_actualizacion = date("Y-m-d H:i:s");
         $objBeanPortada->usuario_actualizacion = $user_id;
         $objBeanPortada->id_mongo = '0';
-        $objBeanPortada->estado_migracion = '0';
+        $objBeanPortada->estado_migracion = $this->config->item('migracion:nuevo');
         $objBeanPortada->fecha_migracion = '0000-00-00 00:00:00';
         $objBeanPortada->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
         $objBeanPortadaSaved = $this->portada_m->save($objBeanPortada);
@@ -3104,12 +3104,12 @@ class Admin extends Admin_Controller {
                 $objBeanSeccion->tipo_secciones_id = $objTipoSeccion->id;
                 $objBeanSeccion->peso = ($puntero + 1);
                 $objBeanSeccion->id_mongo = '0';
-                $objBeanSeccion->estado = '0';
+                $objBeanSeccion->estado = $this->config->item('estado:borrador');
                 $objBeanSeccion->fecha_registro = date("Y-m-d H:i:s");
                 $objBeanSeccion->usuario_registro = $user_id;
                 $objBeanSeccion->fecha_actualizacion = date("Y-m-d H:i:s");
                 $objBeanSeccion->usuario_actualizacion = $user_id;
-                $objBeanSeccion->estado_migracion = '0';
+                $objBeanSeccion->estado_migracion = $this->config->item('migracion:nuevo');
                 $objBeanSeccion->fecha_migracion = '0000-00-00 00:00:00';
                 $objBeanSeccion->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
                 $objBeanSeccion->grupo_maestros_id = NULL;
@@ -3181,7 +3181,8 @@ class Admin extends Admin_Controller {
     public function publicar_canal($canal_id) {
         if ($this->input->is_ajax_request()) {
             //verificamos q al menos un maestro esté publicado para activarlo
-            $lista_maestros_publicados = $this->videos_m->get_many_by(array("canales_id" => $canal_id, "estado" => $this->config->item('video:publicado')));
+            //$lista_maestros_publicados = $this->videos_m->get_many_by(array("canales_id" => $canal_id, "estado" => $this->config->item('video:publicado')));
+            $lista_maestros_publicados = $this->vw_maestro_video_m->get_many_by(array("v"=>"v","canales_id" => $canal_id, "estado" => $this->config->item('video:publicado')));
             if (count($lista_maestros_publicados) > 0) {
                 $this->canales_m->update($canal_id, array("estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
                 //eliminamos la portada del canal
@@ -5664,6 +5665,9 @@ class Admin extends Admin_Controller {
             //iteremos los items para las nuevas ubicaciones
             if(count($array_peso)>0){
                 //error_log(print_r($array_peso, true));
+                //listamos los demas detalle secciones
+                $detalle_secciones_no_seleccionados = $this->detalle_secciones_m->where_not_in('id', $array_peso)->order_by('peso','ASC')->get_many_by(array());
+                error_log(print_r($detalle_secciones_no_seleccionados, true));
             }
             echo json_encode(array("error"=>"0"));
         }

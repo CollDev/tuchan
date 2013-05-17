@@ -240,21 +240,26 @@
             }
             //vemos si x lo menos uno de los keys fue modificado
             var api_modificado = 0;
-            if (apikey != apikey_original && playerkey != playerkey_original) {
-                api_modificado = 1; // ambos fueron modificados
-            } else {
-                if (apikey == apikey_original && playerkey != playerkey_original) {
-                    api_modificado = 2; //solo se modificó el playerkey
+            if (canal_id > 0) {
+                if (apikey != apikey_original && playerkey != playerkey_original) {
+                    api_modificado = 1; // ambos fueron modificados
                 } else {
-                    if (apikey != apikey_original && playerkey == playerkey_original) {
-                        api_modificado = 3; // solo se modificó el apikey
+                    if (apikey == apikey_original && playerkey != playerkey_original) {
+                        api_modificado = 2; //solo se modificó el playerkey
+                    } else {
+                        if (apikey != apikey_original && playerkey == playerkey_original) {
+                            api_modificado = 3; // solo se modificó el apikey
+                        }
                     }
                 }
             }
-            
-            var mensaje = 'Seguro que deseas guardar los cambios del video?'
-            if(api_modificado > 0){
-                mensaje = 'Seguro deseas guardar los cambios en los APIKEY';
+            if (canal_id > 0) {
+                var mensaje = 'Seguro que deseas guardar los cambios del canal?'
+                if (api_modificado > 0) {
+                    mensaje = 'Seguro deseas guardar los cambios en los APIKEY';
+                }
+            } else {
+                var mensaje = 'Seguro que deseas registrar nuevo canal?'
             }
 
             var editorText = CKEDITOR.instances.descripcion.getData();
@@ -323,7 +328,7 @@
                                                                             showMessage('error', '<?php echo lang('canales:exist_canal') ?>', 2000, '');//no se encontro el logotipo en el servidor 
                                                                         } else {
                                                                             var url = "admin/canales";
-                                                                            //showMessage('exit', '<?php //echo lang('canales:success_saved')    ?>', 2000, '');//no se encontro el logotipo en el servidor 
+                                                                            //showMessage('exit', '<?php //echo lang('canales:success_saved')      ?>', 2000, '');//no se encontro el logotipo en el servidor 
                                                                             $(location).attr('href', '<?php echo BASE_URL; ?>' + url);
                                                                         }
                                                                     }
@@ -662,7 +667,7 @@
 <?php } ?>
         });
     </script>
-    <input type="hidden" name="imagen_portada" id="imagen_portada" value="<?php //echo $objCanal->imgen_portada;    ?>" />
+    <input type="hidden" name="imagen_portada" id="imagen_portada" value="<?php //echo $objCanal->imgen_portada;      ?>" />
     <input type="hidden" name="imagen_logotipo" id="imagen_logotipo" value="<?php echo $objCanal->imagen_logotipo; ?>" />
     <input type="hidden" name="update_logotipo" id="update_logotipo" value="0" />
     <input type="hidden" name="imagen_isotipo" id="imagen_isotipo" value="<?php echo $objCanal->imagen_isotipo; ?>" />
