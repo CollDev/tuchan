@@ -115,7 +115,7 @@
                                 if (event.keyCode == 46 || event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 13) {
                                     var peso = $(".numeric").val();
                                     if (event.keyCode == 13 && peso.length > 0) {
-                                        ordenarLista();
+                                        ordenar_lista_detalle_secciones();
                                     }
                                 }
                                 else {
@@ -323,5 +323,20 @@
 
                                 } //end success
                             }); //end AJAX                  
+                        }
+                        
+                        function ordenar_lista_detalle_secciones(){
+                            var serializedData = $('#frmSeccion').serialize();
+                            var post_url = "/admin/canales/ordenar_lista_detalle_secciones/";
+                            $.ajax({
+                                type: "POST",
+                                url: post_url,
+                                dataType: 'json',
+                                data: serializedData,
+                                success: function(respuesta)
+                                {
+                                    //console.log(respuesta);
+                                } //end success
+                            }); //end AJAX 
                         }
 </script>

@@ -4,9 +4,12 @@
             <td colspan="7">
                 <div class="inner"><?php $this->load->view('admin/partials/pagination'); ?></div>
             </td>
-            <td>    <div style="text-align: right;" >
+            <td>
+                <?php if ($this->session->userdata['group'] == 'admin'): ?>
+                <div style="text-align: right;" >
                     <?php echo anchor('/admin/canales/canal/', lang('canales:new'), 'class="btn blue"') ?>
                 </div>
+                <?php endif; ?>
             </td>            
         </tr>    
     </table>
