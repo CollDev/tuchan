@@ -332,10 +332,10 @@
                                                         } //end success
                                                     }); //end AJAX                                        
                                                 } else {
-                                                    showMessage('error', '<?php echo lang('canales:require_tipo_canal') ?>', 2000, '');
+                                                    showMessage('error', '<?php echo lang('canales:require_playerkey') ?>', 2000, '');
                                                 }
                                             } else {
-                                                showMessage('error', '<?php echo lang('canales:require_playerkey') ?>', 2000, '');
+                                                showMessage('error', '<?php echo lang('canales:require_tipo_canal') ?>', 2000, '');
                                             }
                                         } else {
                                             showMessage('error', '<?php echo lang('canales:require_apikey') ?>', 2000, '');
