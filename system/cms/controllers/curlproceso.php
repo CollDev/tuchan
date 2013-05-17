@@ -111,5 +111,10 @@ class curlProceso extends MX_Controller {
         
     }
     
+    public function getphpinfo(){
+        phpinfo();
+        
+    }
+    
 }
 ?>
