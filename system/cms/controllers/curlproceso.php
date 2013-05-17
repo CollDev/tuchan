@@ -97,5 +97,19 @@ class curlProceso extends MX_Controller {
     public function deleteMaestroDetallesXId($id){
         $this->procesos_lib->deleteMaestroDetallesXId($id);        
     }
+    
+    public function getDB(){
+        echo "<pre>";
+        print_r($this->db);
+        echo "</pre>";
+        
+        echo "********************************************************************";
+        
+        echo "<pre>";
+        print_r($this->config);
+        echo "</pre>";
+        
+    }
+    
 }
 ?>
