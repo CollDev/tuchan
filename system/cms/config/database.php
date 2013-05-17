@@ -56,7 +56,7 @@ $db[PYRO_DEVELOPMENT] = array(
 // configuracion para EC
 
 // El Comercio
-
+/*
 $db[PYRO_DEVELOPMENT] = array(
 	'hostname'		=> 	'10.203.31.139',
 	'username'		=> 	'micanalcmsdev',
@@ -75,7 +75,30 @@ $db[PYRO_DEVELOPMENT] = array(
 	// 'Tough love': Forces strict mode to test your app for best compatibility
 	'stricton' 		=> TRUE,	'stricton' 		=> TRUE,
 );
+*/
 
+
+
+// El Comercio
+
+$db[PYRO_DEVELOPMENT] = array(
+	'hostname'		=> 	'10.203.31.139',
+	'username'		=> 	'micanalcmspre',
+	'password'		=> 	'Iezei5huu3thae',
+	'database'		=> 	'micanalcmspredb',
+	'dbdriver' 		=> 	'mysqli',
+	'dbprefix' 		=>	'',
+	'active_r' 		=>	TRUE,
+	'pconnect' 		=>	FALSE,
+	'db_debug' 		=>	TRUE,
+	'cache_on' 		=>	FALSE,
+	'char_set' 		=>	'utf8',
+	'dbcollat' 		=>	'utf8_unicode_ci',
+	'port' 	 		=>	'3306',
+
+	// 'Tough love': Forces strict mode to test your app for best compatibility
+	'stricton' 		=> TRUE,	'stricton' 		=> TRUE,
+);
 
 // Staging
 /*
