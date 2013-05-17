@@ -653,7 +653,11 @@ class Admin extends Admin_Controller {
             $objBeanCanal->imagen_logotipo = '';
             $objBeanCanal->imagen_isotipo = '';
         }
-        $listaTipoCanal = $this->tipo_canales_m->where_not_in('id',array($this->config->item('tipo_canal:micanal')))->getTipoCanalesDropDown(array(), 'nombre');
+
+        //$listaTipoCanal = $this->tipo_canales_m->where_not_in('id',array($this->config->item('tipo_canal:micanal')))->getTipoCanalesDropDown(array("estado"=>$this->config->item('estado:publicado')), 'nombre');
+        $listaTipoCanal = $this->tipo_canales_m->getTipoCanalesDropDown(array("estado"=>$this->config->item('estado:publicado')), 'nombre');
+
+        
         $this->template
                 ->title($this->module_details['name'])
                 ->append_js('AjaxUpload.2.0.min.js')

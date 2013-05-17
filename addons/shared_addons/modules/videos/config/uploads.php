@@ -133,3 +133,5 @@ $config['submenu:carga_unitaria'] = 'Subir video';
 $config['migracion:programa'] = '473';
 $config['migracion:coleccion'] = '474';
 
+//tipo de canal
+$config['tipo_canal:micanal'] = '5';
