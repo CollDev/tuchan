@@ -23,7 +23,7 @@
         <?php
         $agregar_descripcion = FALSE;
         if ($objSeccion->tipo_secciones_id == $this->config->item('seccion:destacado')) {
-            $agregar_descripcion = FALSE;
+            $agregar_descripcion = TRUE;
         }
         $coleccionDetalle = $objSeccion->detalle;
         if (count($coleccionDetalle) > 0):
@@ -50,7 +50,9 @@
                     <td>
                         <?php if ($agregar_descripcion): ?>
                             <div id="descripcion_<?php echo $objDetalleSeccion->id; ?>">
-
+                                <?php if(strlen(trim($objDetalleSeccion->descripcion_item))>0): ?>
+                                    <?php echo $objDetalleSeccion->descripcion_item; ?>
+                                <?php  endif;?>
                             </div>
                         <?php else: ?>
                             <?php echo $objDetalleSeccion->descripcion_item; ?>

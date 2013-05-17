@@ -49,6 +49,7 @@
         );
         echo form_input($descripcion);
         ?>
+        <input type="hidden" name="txtDescripcion" id="txtDescripcion" value="" />
         <br /><br />
         <div style="width:100%;">
             <div  style=" float: left; width: 50%; text-align: left;">
@@ -952,11 +953,22 @@
                     }
 
                     function agregar_descripcion(detalle_seccion_id) {
-                        var html = '<textarea onkeypress="return textonly(event,' + detalle_seccion_id + ');" id="descripcion_texto_' + detalle_seccion_id + '" nombre="descripcion_texto_' + detalle_seccion_id + '"></textarea>';
-                        var boton = '<a href="#" class="btn blue" onclick="quitar_descripcion(' + detalle_seccion_id + '); return false;">Quitar descripción</a>';
-                        $("#descripcion_" + detalle_seccion_id).html(html);
-                        $("#boton_" + detalle_seccion_id).html(boton);
-                        $("#descripcion_texto_" + detalle_seccion_id).focus();
+                        var post_url = "/admin/canales/obtener_descripcion_detalle_seccion/" + detalle_seccion_id;
+                        $.ajax({
+                            type: "POST",
+                            url: post_url,
+                            dataType: 'json',
+                            //data: serializedData,
+                            success: function(respuesta)
+                            {
+                                var html = '<textarea onkeypress="return textonly(event,' + detalle_seccion_id + ');" id="descripcion_texto_' + detalle_seccion_id + '" nombre="descripcion_texto_' + detalle_seccion_id + '">'+respuesta.value+'</textarea>';
+                                var boton = '<a href="#" class="btn blue" onclick="quitar_descripcion(' + detalle_seccion_id + '); return false;">Quitar descripción</a>';
+                                $("#descripcion_" + detalle_seccion_id).html(html);
+                                $("#boton_" + detalle_seccion_id).html(boton);
+                                $("#descripcion_texto_" + detalle_seccion_id).focus();
+                            } //end success
+                        }); //end AJAX                      
+
                     }
 
                     function quitar_descripcion(detalle_seccion_id) {
@@ -1016,24 +1028,23 @@
                     }
 
                     function guardar_descripcion(detalle_seccion_id) {
-                        //var serializedData = $('#frmSeccion').serialize();
-
                         var texto = $("#descripcion_texto_" + detalle_seccion_id).val();
-                        var values = {};
-                        values['descripcion_detalle'] = texto;
-                        console.log(values.serialize());
+                        $("#txtDescripcion").val(texto);
+                        var serializedData = $('#frmSeccion').serialize();
                         var post_url = "/admin/canales/guardar_descripcion/" + detalle_seccion_id;
                         $.ajax({
                             type: "POST",
                             url: post_url,
-                            dataType: 'html',
-                            data: 'descripcion_detalle=' + values,
+                            dataType: 'json',
+                            data: serializedData,
                             success: function(respuesta)
                             {
-                                console.log(respuesta);
-                                //$("#resultado").html(respuesta);
+                                $("#descripcion_" + detalle_seccion_id).empty();
+                                $("#descripcion_" + detalle_seccion_id).html(respuesta.texto);
+                                var boton = '<a href="#" class="btn blue" onclick="agregar_descripcion(' + detalle_seccion_id + '); return false;">Agregar descripción</a>';
+                                $("#boton_" + detalle_seccion_id).html(boton);
                             } //end success
-                        }); //end AJAX             
+                        }); //end AJAX 
                     }
     </script>
 </section>

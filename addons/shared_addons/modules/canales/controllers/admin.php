@@ -5614,11 +5614,10 @@ class Admin extends Admin_Controller {
      */
     public function guardar_descripcion($detalle_seccion_id) {
         if ($this->input->is_ajax_request()) {
-            error_log(print_r($this->input->post(),true));
-            echo json_encode(array("value"=>"1", "texto"=>$this->input->post('descripcion_detalle')));
+            $this->detalle_secciones_m->update($detalle_seccion_id, array("descripcion_item"=>$this->input->post('txtDescripcion')));
+            echo json_encode(array("value" => "1", "texto" => $this->input->post('txtDescripcion')));
         }
     }
-
 }
 
 /* End of file admin.php */
