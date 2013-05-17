@@ -4283,6 +4283,11 @@ class Admin extends Admin_Controller {
         </tr>
     </thead>
     <tbody id="contenido">';
+            $objSeccion = $this->secciones_m->get($seccion_id);
+            $agregar_descripcion = FALSE;
+            if ($objSeccion->tipo_secciones_id == $this->config->item('seccion:destacado')) {
+                $agregar_descripcion = TRUE;
+            }
             if (count($lista_detalle_seccion) > 0) {
                 foreach ($lista_detalle_seccion as $index => $objDetalleSeccion):
                     if ($primero->peso == $objDetalleSeccion->peso):
@@ -4296,10 +4301,27 @@ class Admin extends Admin_Controller {
                     $html.='<td>' . ($index + 1) . '</td>';
                     $html.='<td><img style="width:100px;" src="' . $objDetalleSeccion->imagen . '" /></td>';
                     $html.='<td>' . $objDetalleSeccion->nombre . '</td>';
-                    $html.='<td>' . $objDetalleSeccion->descripcion_item . '</td>';
+                    $html.='<td>';
+                    if ($agregar_descripcion){
+                        $html.='<div id="descripcion_'.$objDetalleSeccion->id.'">';
+                            $html.=$objDetalleSeccion->descripcion_item;
+                        $html.='</div>';
+                    }else{
+                        $html.=$objDetalleSeccion->descripcion_item;
+                    }
+                    $html.='<td>';
                     $html.='<td>' . $objDetalleSeccion->tipo . '</td>';
                     $html.='<td><div style="float: left;"><input class="numeric" type="text" name="peso_' . $objDetalleSeccion->id . '" id="peso_' . $objDetalleSeccion->id . '" size="2" value="' . $objDetalleSeccion->peso . '" /></div><div style="float: left;" id="img_' . $objDetalleSeccion->id . '">' . $img . '</div></td>';
-                    $html.='<td><a href="#" class="btn red" onclick="quitarDetalleSeccion(' . $objDetalleSeccion->id . ', ' . $canal_id . ', ' . $seccion_id . '); return false;">Quitar</a></td>';
+                    $html.='<td>';
+                    $html.='<div style="float: left;">';
+                        $html.='<a href="#" class="btn red" onclick="quitarDetalleSeccion(' . $objDetalleSeccion->id . ', ' . $canal_id . ', ' . $seccion_id . '); return false;">Quitar</a>';
+                    $html.='</div>';
+                    if ($agregar_descripcion){
+                        $html.='<div style="float:left;" id="boton_'.$objDetalleSeccion->id.'">';
+                            $html.='<a href="#" class="btn blue" onclick="agregar_descripcion('.$objDetalleSeccion->id.'); return false;">Agregar descripción</a>';
+                        $html.='</div>';
+                    }
+                    $html.='</td>';
                     $html.='<td>' . $objDetalleSeccion->id . '</td>';
                     $html.='</tr>';
                 endforeach;
@@ -5614,10 +5636,11 @@ class Admin extends Admin_Controller {
      */
     public function guardar_descripcion($detalle_seccion_id) {
         if ($this->input->is_ajax_request()) {
-            $this->detalle_secciones_m->update($detalle_seccion_id, array("descripcion_item"=>$this->input->post('txtDescripcion')));
+            $this->detalle_secciones_m->update($detalle_seccion_id, array("descripcion_item" => $this->input->post('txtDescripcion')));
             echo json_encode(array("value" => "1", "texto" => $this->input->post('txtDescripcion')));
         }
     }
+
 }
 
 /* End of file admin.php */
