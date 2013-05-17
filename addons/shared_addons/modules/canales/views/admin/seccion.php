@@ -54,7 +54,7 @@
         <div style="width:100%;">
             <div  style=" float: left; width: 50%; text-align: left;">
                 <a href="#" onclick="guardarSeccion();
-                        return false;" class="btn orange" type="button"><?php echo lang('buttons.save'); ?></a>    
+                        return false;" class="btn blue" type="button">Publicar en portada</a>    
                    <?php //echo anchor('/admin/canales/vista_previa/', lang('buttons.preview'), array('target' => '_blank', 'class' => 'btn orange modal-large')); ?>                
             </div>
             <div style="float: right; width: 50%; text-align: right;">
@@ -62,15 +62,25 @@
             </div>
             <div style="clear: both;"></div>
         </div>        
-
         <?php
         echo '<div id="filter-stage">';
         template_partial('secciones');
         echo '</div>';
         ?>
+        <div style="width:100%;">
+            <div  style=" float: left; width: 50%; text-align: left;">
+                <a href="#" onclick="guardarSeccion();
+                        return false;" class="btn blue" type="button">Publicar en portada</a>    
+                   <?php //echo anchor('/admin/canales/vista_previa/', lang('buttons.preview'), array('target' => '_blank', 'class' => 'btn orange modal-large')); ?>                
+            </div>
+            <div style="float: right; width: 50%; text-align: right;">
+                <?php echo form_dropdown('template', $templates, $objSeccion->templates_id); ?>            
+            </div>
+            <div style="clear: both;"></div>
+        </div>
         <input type="hidden" name="canal_id" id="canal_id" value="<?php echo $canal_id; ?>" />
         <input type="hidden" name="portada_id" id="portada_id" value="<?php echo $objSeccion->portadas_id; ?>" />
-        <input type="hidden" name="seccion_id" id="seccion_id" value="<?php echo $objSeccion->id; ?>" />
+        <input type="hidden" name="seccion_id" id="seccion_id" value="<?php echo $objSeccion->id; ?>" />        
     </div>
     <?php echo form_close() ?>
     <script type="text/javascript">

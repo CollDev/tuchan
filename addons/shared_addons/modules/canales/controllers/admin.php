@@ -653,7 +653,7 @@ class Admin extends Admin_Controller {
             $objBeanCanal->imagen_logotipo = '';
             $objBeanCanal->imagen_isotipo = '';
         }
-        $listaTipoCanal = $this->tipo_canales_m->getTipoCanalesDropDown(array(), 'nombre');
+        $listaTipoCanal = $this->tipo_canales_m->where_not_in('id',array($this->config->item('tipo_canal:micanal')))->getTipoCanalesDropDown(array(), 'nombre');
         $this->template
                 ->title($this->module_details['name'])
                 ->append_js('AjaxUpload.2.0.min.js')
@@ -3058,13 +3058,13 @@ class Admin extends Admin_Controller {
             $objBeanPortada->origen_id = $objMaestro->id;
         }
         $objBeanPortada->tipo_portadas_id = $tipo_portada; //$this->config->item('portada:canal');
-        $objBeanPortada->estado = '0';
+        $objBeanPortada->estado = $this->config->item('estado:borrador');
         $objBeanPortada->fecha_registro = date("Y-m-d H:i:s");
         $objBeanPortada->usuario_registro = $user_id;
         $objBeanPortada->fecha_actualizacion = date("Y-m-d H:i:s");
         $objBeanPortada->usuario_actualizacion = $user_id;
         $objBeanPortada->id_mongo = '0';
-        $objBeanPortada->estado_migracion = '0';
+        $objBeanPortada->estado_migracion = $this->config->item('migracion:nuevo');
         $objBeanPortada->fecha_migracion = '0000-00-00 00:00:00';
         $objBeanPortada->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
         $objBeanPortadaSaved = $this->portada_m->save($objBeanPortada);
@@ -3104,12 +3104,12 @@ class Admin extends Admin_Controller {
                 $objBeanSeccion->tipo_secciones_id = $objTipoSeccion->id;
                 $objBeanSeccion->peso = ($puntero + 1);
                 $objBeanSeccion->id_mongo = '0';
-                $objBeanSeccion->estado = '0';
+                $objBeanSeccion->estado = $this->config->item('estado:borrador');
                 $objBeanSeccion->fecha_registro = date("Y-m-d H:i:s");
                 $objBeanSeccion->usuario_registro = $user_id;
                 $objBeanSeccion->fecha_actualizacion = date("Y-m-d H:i:s");
                 $objBeanSeccion->usuario_actualizacion = $user_id;
-                $objBeanSeccion->estado_migracion = '0';
+                $objBeanSeccion->estado_migracion = $this->config->item('migracion:nuevo');
                 $objBeanSeccion->fecha_migracion = '0000-00-00 00:00:00';
                 $objBeanSeccion->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
                 $objBeanSeccion->grupo_maestros_id = NULL;
@@ -3181,7 +3181,8 @@ class Admin extends Admin_Controller {
     public function publicar_canal($canal_id) {
         if ($this->input->is_ajax_request()) {
             //verificamos q al menos un maestro esté publicado para activarlo
-            $lista_maestros_publicados = $this->videos_m->get_many_by(array("canales_id" => $canal_id, "estado" => $this->config->item('video:publicado')));
+            //$lista_maestros_publicados = $this->videos_m->get_many_by(array("canales_id" => $canal_id, "estado" => $this->config->item('video:publicado')));
+            $lista_maestros_publicados = $this->vw_maestro_video_m->get_many_by(array("v"=>"v","canales_id" => $canal_id, "estado" => $this->config->item('video:publicado')));
             if (count($lista_maestros_publicados) > 0) {
                 $this->canales_m->update($canal_id, array("estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
                 //eliminamos la portada del canal
@@ -4302,30 +4303,30 @@ class Admin extends Admin_Controller {
                     $html.='<td><img style="width:100px;" src="' . $objDetalleSeccion->imagen . '" /></td>';
                     $html.='<td>' . $objDetalleSeccion->nombre . '</td>';
                     $html.='<td>';
-                    if ($agregar_descripcion){
-                        $html.='<div id="descripcion_'.$objDetalleSeccion->id.'">';
-                            $html.=$objDetalleSeccion->descripcion_item;
+                    if ($agregar_descripcion) {
+                        $html.='<div id="descripcion_' . $objDetalleSeccion->id . '">';
+                        $html.=$objDetalleSeccion->descripcion_item;
                         $html.='</div>';
-                    }else{
+                    } else {
                         $html.=$objDetalleSeccion->descripcion_item;
                     }
                     $html.='<td>';
                     $html.='<td>' . $objDetalleSeccion->tipo . '</td>';
-                    $html.='<td><div style="float: left;"><input class="numeric" type="text" name="peso_' . $objDetalleSeccion->id . '" id="peso_' . $objDetalleSeccion->id . '" size="2" value="' . $objDetalleSeccion->peso . '" /></div><div style="float: left;" id="img_' . $objDetalleSeccion->id . '">' . $img . '</div></td>';
+                    $html.='<td><div style="float: left;"><input onkeypress="return ordenar_lista_detalle_secciones(event);" type="text" name="peso_' . $objDetalleSeccion->id . '" id="peso_' . $objDetalleSeccion->id . '" size="2" value="' . $objDetalleSeccion->peso . '" /></div><div style="float: left;" id="img_' . $objDetalleSeccion->id . '">' . $img . '</div></td>';
                     $html.='<td>';
                     $html.='<div style="float: left;">';
-                        $html.='<a href="#" class="btn red" onclick="quitarDetalleSeccion(' . $objDetalleSeccion->id . ', ' . $canal_id . ', ' . $seccion_id . '); return false;">Quitar</a>';
+                    $html.='<a href="#" class="btn red" onclick="quitarDetalleSeccion(' . $objDetalleSeccion->id . ', ' . $canal_id . ', ' . $seccion_id . '); return false;">Quitar</a>';
                     $html.='</div>';
-                    if ($agregar_descripcion){
-                        $html.='<div style="float:left;" id="boton_'.$objDetalleSeccion->id.'">';
-                            $html.='<a href="#" class="btn blue" onclick="agregar_descripcion('.$objDetalleSeccion->id.'); return false;">Agregar descripción</a>';
+                    if ($agregar_descripcion) {
+                        $html.='<div style="float:left;" id="boton_' . $objDetalleSeccion->id . '">';
+                        $html.='<a href="#" class="btn blue" onclick="agregar_descripcion(' . $objDetalleSeccion->id . '); return false;">Agregar descripción</a>';
                         $html.='</div>';
                     }
                     $html.='</td>';
                     $html.='<td>' . $objDetalleSeccion->id . '</td>';
                     $html.='</tr>';
                 endforeach;
-            }else {
+            } else {
                 $html.='<tr class="nodrag">
                 <td colspan="8">No hay data</td>
             </tr>';
@@ -5636,8 +5637,39 @@ class Admin extends Admin_Controller {
      */
     public function guardar_descripcion($detalle_seccion_id) {
         if ($this->input->is_ajax_request()) {
-            $this->detalle_secciones_m->update($detalle_seccion_id, array("descripcion_item" => $this->input->post('txtDescripcion')));
+            $this->detalle_secciones_m->update($detalle_seccion_id, array("estado_migracion"=>$this->config->item('migracion:actualizado'),"descripcion_item" => $this->input->post('txtDescripcion')));
             echo json_encode(array("value" => "1", "texto" => $this->input->post('txtDescripcion')));
+        }
+    }
+
+    /**
+     * Método para setear las nuevas posiciones del detalle de secciones
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @return json
+     */
+    public function ordenar_lista_detalle_secciones() {
+        if ($this->input->is_ajax_request()) {
+            $post = $this->input->post();
+            $array_peso = array();
+            if (count($post) > 0) {
+                foreach ($post as $puntero => $item) {
+                    if (!stristr($puntero, 'peso_')) {
+                        unset($post[$puntero]);
+                    }else{
+                        $puntero = substr($puntero, 5);
+                        $array_peso[$puntero] =$item;
+                    }
+                }
+            }
+            
+            //iteremos los items para las nuevas ubicaciones
+            if(count($array_peso)>0){
+                //iteramos y actualizamos los pesos
+                foreach($array_peso as $detalle_seccion_id=>$peso){
+                    $this->detalle_secciones_m->update($detalle_seccion_id, array("peso"=>$peso,"estado_migracion"=>$this->config->item('migracion:actualizado')));
+                }
+            }
+            echo json_encode(array("error"=>"0","canal_id"=>$this->input->post('canal_id'), "seccion_id"=>$this->input->post('seccion_id')));
         }
     }
 
