@@ -326,10 +326,17 @@
                         }
                         
                         function ordenar_lista_detalle_secciones(){
-                            var values = {};
-                            $.each($('#frmSeccion').serializeArray(), function(i, field) {
-                                values[field.name] = field.value;
-                            });
-                            console.log(values);
+                            var serializedData = $('#frmSeccion').serialize();
+                            var post_url = "/admin/canales/ordenar_lista_detalle_secciones/";
+                            $.ajax({
+                                type: "POST",
+                                url: post_url,
+                                dataType: 'json',
+                                data: serializedData,
+                                success: function(respuesta)
+                                {
+                                    //console.log(respuesta);
+                                } //end success
+                            }); //end AJAX 
                         }
 </script>

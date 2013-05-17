@@ -4302,11 +4302,11 @@ class Admin extends Admin_Controller {
                     $html.='<td><img style="width:100px;" src="' . $objDetalleSeccion->imagen . '" /></td>';
                     $html.='<td>' . $objDetalleSeccion->nombre . '</td>';
                     $html.='<td>';
-                    if ($agregar_descripcion){
-                        $html.='<div id="descripcion_'.$objDetalleSeccion->id.'">';
-                            $html.=$objDetalleSeccion->descripcion_item;
+                    if ($agregar_descripcion) {
+                        $html.='<div id="descripcion_' . $objDetalleSeccion->id . '">';
+                        $html.=$objDetalleSeccion->descripcion_item;
                         $html.='</div>';
-                    }else{
+                    } else {
                         $html.=$objDetalleSeccion->descripcion_item;
                     }
                     $html.='<td>';
@@ -4314,18 +4314,18 @@ class Admin extends Admin_Controller {
                     $html.='<td><div style="float: left;"><input class="numeric" type="text" name="peso_' . $objDetalleSeccion->id . '" id="peso_' . $objDetalleSeccion->id . '" size="2" value="' . $objDetalleSeccion->peso . '" /></div><div style="float: left;" id="img_' . $objDetalleSeccion->id . '">' . $img . '</div></td>';
                     $html.='<td>';
                     $html.='<div style="float: left;">';
-                        $html.='<a href="#" class="btn red" onclick="quitarDetalleSeccion(' . $objDetalleSeccion->id . ', ' . $canal_id . ', ' . $seccion_id . '); return false;">Quitar</a>';
+                    $html.='<a href="#" class="btn red" onclick="quitarDetalleSeccion(' . $objDetalleSeccion->id . ', ' . $canal_id . ', ' . $seccion_id . '); return false;">Quitar</a>';
                     $html.='</div>';
-                    if ($agregar_descripcion){
-                        $html.='<div style="float:left;" id="boton_'.$objDetalleSeccion->id.'">';
-                            $html.='<a href="#" class="btn blue" onclick="agregar_descripcion('.$objDetalleSeccion->id.'); return false;">Agregar descripción</a>';
+                    if ($agregar_descripcion) {
+                        $html.='<div style="float:left;" id="boton_' . $objDetalleSeccion->id . '">';
+                        $html.='<a href="#" class="btn blue" onclick="agregar_descripcion(' . $objDetalleSeccion->id . '); return false;">Agregar descripción</a>';
                         $html.='</div>';
                     }
                     $html.='</td>';
                     $html.='<td>' . $objDetalleSeccion->id . '</td>';
                     $html.='</tr>';
                 endforeach;
-            }else {
+            } else {
                 $html.='<tr class="nodrag">
                 <td colspan="8">No hay data</td>
             </tr>';
@@ -5636,8 +5636,36 @@ class Admin extends Admin_Controller {
      */
     public function guardar_descripcion($detalle_seccion_id) {
         if ($this->input->is_ajax_request()) {
-            $this->detalle_secciones_m->update($detalle_seccion_id, array("descripcion_item" => $this->input->post('txtDescripcion')));
+            $this->detalle_secciones_m->update($detalle_seccion_id, array("estado_migracion"=>$this->config->item('migracion:actualizado'),"descripcion_item" => $this->input->post('txtDescripcion')));
             echo json_encode(array("value" => "1", "texto" => $this->input->post('txtDescripcion')));
+        }
+    }
+
+    /**
+     * Método para setear las nuevas posiciones del detalle de secciones
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @return json
+     */
+    public function ordenar_lista_detalle_secciones() {
+        if ($this->input->is_ajax_request()) {
+            $post = $this->input->post();
+            $array_peso = array();
+            if (count($post) > 0) {
+                foreach ($post as $puntero => $item) {
+                    if (!stristr($puntero, 'peso_')) {
+                        unset($post[$puntero]);
+                    }else{
+                        $puntero = substr($puntero, 5);
+                        $array_peso[$puntero] =$item;
+                    }
+                }
+            }
+            
+            //iteremos los items para las nuevas ubicaciones
+            if(count($array_peso)>0){
+                //error_log(print_r($array_peso, true));
+            }
+            echo json_encode(array("error"=>"0"));
         }
     }
 
