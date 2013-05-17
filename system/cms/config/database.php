@@ -97,7 +97,7 @@ $db[PYRO_DEVELOPMENT] = array(
 	'stricton' 		=> TRUE,	'stricton' 		=> TRUE,
 
 );
-  
+   
 
 // Staging
 /*
