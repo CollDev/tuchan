@@ -92,7 +92,7 @@ class Canal_mp extends CI_Model {
     }
 
     function updateIdMongoVideos($id, $id_mongo) {
-        $query = "update " . $this->_table_videos . " set id_mongo='" . $id_mongo . "' where id=" . $id;
+        $query = "update " . $this->_table_videos . " set id_mongo='" . $id_mongo . "' where id='" . $id."'";
         $this->db->query($query);
     }
 
