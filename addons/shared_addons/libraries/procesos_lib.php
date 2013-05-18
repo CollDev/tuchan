@@ -1487,6 +1487,8 @@ class Procesos_lib extends MX_Controller {
                         //echo "entro ";
                          Log::erroLog("entro a nuevo id_mongo ");  
                         $mongo_id = $this->canal_mp->setItemCollection($objmongo);
+                        Log::erroLog("retorno de id_mongo " . $mongo_id);  
+                        
                         $this->canal_mp->updateIdMongoVideos($value->id, $mongo_id);
                         $this->canal_mp->updateEstadoMigracionVideos($value->id);
                     } else { //if ($value->estado_migracion == 9)
@@ -1497,8 +1499,8 @@ class Procesos_lib extends MX_Controller {
                         $this->canal_mp->updateEstadoMigracionVideosActualizacion($value->id);
                     }
                     
-                         Log::erroLog("mongo_id de video " . $mongo_id);  
-
+                         
+Log::erroLog("mongo_id de video " . $mongo_id);  
                     //if ($value->estado_migracion == 0 || $value->estado_migracion == 9) {
                     $this->_generarDetalleVideosXId($value->id, $mongo_id);
                     //}
