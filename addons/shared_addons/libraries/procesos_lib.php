@@ -230,7 +230,7 @@ class Procesos_lib extends MX_Controller {
         }
     }
 
-    protected function _obtenerImagesUrlVideosXId($id) {
+    protected function  _obtenerImagesUrlVideosXId($id) {
 
 
         Log::erroLog("entro a _obtenerImagesUrlVideosXId:  " . $id);
@@ -1484,17 +1484,19 @@ class Procesos_lib extends MX_Controller {
 
                     if (!($this->canal_mp->existe_id_mongo($value->id_mongo))) {
                         //echo "entro ";
+                        error_log("entro a nuevo id_mongo " );  
                         $mongo_id = $this->canal_mp->setItemCollection($objmongo);
                         $this->canal_mp->updateIdMongoVideos($value->id, $mongo_id);
                         $this->canal_mp->updateEstadoMigracionVideos($value->id);
                     } else { //if ($value->estado_migracion == 9)
+                        error_log("entro a cargar id_mongo antiguo " );  
                         $mongo_id = $value->id_mongo;
                         $MongoId = array("_id" => new MongoId($value->id_mongo));
                         $this->canal_mp->setItemCollectionUpdate($objmongo, $MongoId);
                         $this->canal_mp->updateEstadoMigracionVideosActualizacion($value->id);
                     }
                     
-                    error_log("mongo_id de video " . $mongo_id);  
+                        error_log("mongo_id de video " . $mongo_id);  
 
                     //if ($value->estado_migracion == 0 || $value->estado_migracion == 9) {
                     $this->_generarDetalleVideosXId($value->id, $mongo_id);
