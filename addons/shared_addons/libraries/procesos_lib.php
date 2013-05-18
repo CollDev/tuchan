@@ -168,6 +168,19 @@ class Procesos_lib extends MX_Controller {
         $ruta = base_url("curlproceso/verificaVideosLiquidXId/" . $id);
         shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");
     }
+    
+    private function _curlUpdateMongoVideos($id,$mongo_id){
+        Log::erroLog("entro a : curlUpdateMongoVideos" . $id);
+        $ruta = base_url("curlproceso/updateMongoVideos/" . $id."/".$mongo_id);
+        shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");
+    }
+    
+    public function updateMongoVideos($id,$mongo_id){
+        Log::erroLog("UpdateMongoVideos " .$id ." *--* " . $mongo_id);    
+        $this->canal_mp->updateIdMongoVideos($id, $mongo_id);
+        $this->canal_mp->updateEstadoMigracionVideos($id);
+        Log::erroLog("UpdateMongoVideos " .$id ." *--* " . $mongo_id);    
+    }
 
     protected function _convertirVideosXId($id) {
 
@@ -1485,13 +1498,10 @@ class Procesos_lib extends MX_Controller {
 
                     if (!($this->canal_mp->existe_id_mongo($value->id_mongo))) {
                         //echo "entro ";
-                         Log::erroLog("entro a nuevo id_mongo ");  
+                        Log::erroLog("entro a nuevo id_mongo ");  
                         $mongo_id = $this->canal_mp->setItemCollection($objmongo);
                         Log::erroLog("retorno de id_mongo " .$id ." *--* " . $mongo_id);  
-                        
-                        $this->canal_mp->updateIdMongoVideos($id, $mongo_id);
-                         Log::erroLog("retorno de id_mongo " .$id ." *--* " . $mongo_id);  
-                        $this->canal_mp->updateEstadoMigracionVideos($id);
+                        $this->_curlUpdateMongoVideos($id, $mongo_id);
                     } else { //if ($value->estado_migracion == 9)
                          Log::erroLog("entro a cargar id_mongo antiguo " );  
                         $mongo_id = $value->id_mongo;
@@ -1501,7 +1511,7 @@ class Procesos_lib extends MX_Controller {
                     }
                     
                          
-Log::erroLog("mongo_id de video " . $mongo_id);  
+                    Log::erroLog("mongo_id de video " . $mongo_id);  
                     //if ($value->estado_migracion == 0 || $value->estado_migracion == 9) {
                     $this->_generarDetalleVideosXId($value->id, $mongo_id);
                     //}
