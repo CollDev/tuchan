@@ -1483,7 +1483,7 @@ class Procesos_lib extends MX_Controller {
                     $objmongo['nivel'] = "4";
 
                     if (!($this->canal_mp->existe_id_mongo($value->id_mongo))) {
-                        echo "entro ";
+                        //echo "entro ";
                         $mongo_id = $this->canal_mp->setItemCollection($objmongo);
                         $this->canal_mp->updateIdMongoVideos($value->id, $mongo_id);
                         $this->canal_mp->updateEstadoMigracionVideos($value->id);
