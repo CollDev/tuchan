@@ -1494,7 +1494,7 @@ class Procesos_lib extends MX_Controller {
                         $this->canal_mp->updateEstadoMigracionVideosActualizacion($value->id);
                     }
                     
-                                 
+                    error_log("mongo_id de video " . $mongo_id);  
 
                     //if ($value->estado_migracion == 0 || $value->estado_migracion == 9) {
                     $this->_generarDetalleVideosXId($value->id, $mongo_id);
@@ -1613,7 +1613,7 @@ class Procesos_lib extends MX_Controller {
     }
 
     public function actualizarVideosXId($id) {
-        //error_log ("id: ". $id );
+        error_log ("entro a actualizar video : ". $id );
         $this->_obtenerImagesUrlVideosXId($id);
         $this->_generarVideosXId($id);
     }
