@@ -1487,9 +1487,10 @@ class Procesos_lib extends MX_Controller {
                         //echo "entro ";
                          Log::erroLog("entro a nuevo id_mongo ");  
                         $mongo_id = $this->canal_mp->setItemCollection($objmongo);
-                        Log::erroLog("retorno de id_mongo " . $mongo_id);  
+                        Log::erroLog("retorno de id_mongo " .$id ." *--* " . $mongo_id);  
                         
                         $this->canal_mp->updateIdMongoVideos($id, $mongo_id);
+                         Log::erroLog("retorno de id_mongo " .$id ." *--* " . $mongo_id);  
                         $this->canal_mp->updateEstadoMigracionVideos($id);
                     } else { //if ($value->estado_migracion == 9)
                          Log::erroLog("entro a cargar id_mongo antiguo " );  
