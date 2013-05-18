@@ -30,12 +30,12 @@ $config['mongo_port'] = 27017;
 */
 
 // El Comercio  - PRE
-
+    
 $config['mongo_host'] = '10.203.31.139';
 $config['mongo_db'] = 'micanalpredb';
 $config['mongo_port'] = 27017;
 
-    
+
 /*
 $config['mongo_user'] = '';
 $config['mongo_pass'] = '';
