@@ -400,12 +400,12 @@ $config['modules_locations'] = array(
 
 // servidor dev
 /*
-$config['server:elemento'] = 'pre.e.micanal.e3.pe';
+$config['server:elemento'] = 'dev.e.micanal.e3.pe';
 $config['url:elemento'] = 'http://pre.e3.pe/index.php/api/v1';
 $config['apikey:elemento'] = '590ee43e919b1f4baa2125a424f03cd160ff8901';
 $config['mensaje:elemento'] = 'cms.micanal.pe';
-*/ 
-            
+*/
+        
 //servidor pre
 $config['server:elemento'] = 'pre.e.micanal.e3.pe';
 $config['url:elemento'] = 'http://pre.e3.pe/index.php/api/v1';
@@ -419,12 +419,14 @@ $config['path:imagen'] = FCPATH.'uploads/imagenes/';
 $config['path:temp'] = FCPATH.'uploads/temp/';
 $config['path:log'] = FCPATH.'uploads/log/';
 
+
 //url de imagenes predefinidas
 $config['url:default_imagen'] = BASE_URL.'uploads/imagenes/';
 $config['url:temp'] = BASE_URL.'uploads/temp/';
 $config['url:logo'] = BASE_URL.'system/cms/themes/pyrocms/img/image_no_found.png';
 $config['url:iso'] = BASE_URL.'system/cms/themes/pyrocms/img/icon_tv4.png';
 $config['url:portada'] = BASE_URL.'system/cms/themes/pyrocms/img/imagen_portada_default.jpg';
+
 
 //variables de la migracion de canales
 $config['migracion:url'] = 'http://fast.api.liquidplatform.com/2.0/medias/?search=tags:LIFWeek&key=';

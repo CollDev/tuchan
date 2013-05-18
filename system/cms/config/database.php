@@ -95,9 +95,8 @@ $db[PYRO_DEVELOPMENT] = array(
 	'port' 	 		=>	'3306',
 	// 'Tough love': Forces strict mode to test your app for best compatibility
 	'stricton' 		=> TRUE,	'stricton' 		=> TRUE,
-
 );
-   
+
 
 // Staging
 /*
