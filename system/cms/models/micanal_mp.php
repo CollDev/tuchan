@@ -54,24 +54,24 @@ class MiCanal_mp extends CI_Model {
         }
 
       
-        $objresult = $this->db->query($query);
-        echo "id_conn " . $this->db->conn_id;
-        print_r($objresult);
-        
 //        $objresult = $this->db->query($query);
-//        mysqli_next_result($this->db->conn_id);
-//        return $objresult->result();
+//        echo "id_conn " . $this->db->conn_id;
+//        print_r($objresult);
         
-        if(is_object($objresult)){
-            //mysqli_next_result($this->db->conn_id);
-            if(count($objresult->result())>0){
-                $arryresult = $objresult->result();  
-                //mysqli_next_result($this->db->conn_id);
-                $objresult->free_result();            
-                return $arryresult; 
-            }
-            
-        }               
+        $objresult = $this->db->query($query);
+        mysqli_next_result($this->db->conn_id);
+        return $objresult->result();
+        
+//        if(is_object($objresult)){
+//            //mysqli_next_result($this->db->conn_id);
+//            if(count($objresult->result())>0){
+//                $arryresult = $objresult->result();  
+//                //mysqli_next_result($this->db->conn_id);
+//                $objresult->free_result();            
+//                return $arryresult; 
+//            }
+//            
+//        }               
     }
 
     public function queryMysql($option, $id = "") {
