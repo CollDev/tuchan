@@ -80,7 +80,7 @@ $db[PYRO_DEVELOPMENT] = array(
 // El Comercio - PRE
 
 $db[PYRO_DEVELOPMENT] = array(
-	'hostname'		=> 	'101.203.31.139',
+	'hostname'		=> 	'101.203.311.139',
 	'username'		=> 	'micanalcmspre',
 	'password'		=> 	'Iezei5huu3thae',
 	'database'		=> 	'micanalcmspredb',
