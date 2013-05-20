@@ -76,12 +76,35 @@ class MiCanal_mp extends CI_Model {
         
         echo "paso por procedure";
         
-        $conexion = mysql_connect( $this->db->hostname, $this->db->username, $this->db->password);            
-        mysql_select_db($this->db->database, $conexion);
-        $respuesta = mysql_query($query, $conexion);
+        $mysqli = new MySQLI($this->db->hostname, $this->db->username, $this->db->password,$this->db->database);
+        $query = $mysqli->multi_query($query);
         
-        $fila = mysql_fetch_array($respuesta, MYSQL_NUM);
-        print_r($fila);
+        $result = $mysqli->use_result();
+
+        //use the data in the resultset
+        $data = $result->fetch_assoc();
+
+        //free the resultset
+        $result->free();
+
+        //clear the other result(s) from buffer
+        //loop through each result using the next_result() method
+        while ($mysqli->next_result()) {
+        //free each result.
+        $result = $mysqli->use_result();
+        if ($result instanceof mysqli_result) {
+        $result->free();
+        }
+        }      
+        
+        print_r($result);
+        
+//        $conexion = mysql_connect( $this->db->hostname, $this->db->username, $this->db->password);            
+//        mysql_select_db($this->db->database, $conexion);
+//        $respuesta = mysql_query($query, $conexion);
+//        
+//        $fila = mysql_fetch_array($respuesta, MYSQL_NUM);
+//        print_r($fila);
 //        while () {
 //            $tablas[] = $fila[0];
 //        }
