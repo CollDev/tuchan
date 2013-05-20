@@ -61,8 +61,8 @@ class MiCanal_mp extends CI_Model {
         $objresult = $this->db->query($query);
         print_r($objresult);
         
-        if(!empty($objresult->result_object)){
-            mysqli_next_result($this->db->conn_id);
+        if(is_object($objresult)){
+            //mysqli_next_result($this->db->conn_id);
             $arryresult = $objresult->result();          
             $objresult->free_result();            
             return $arryresult;
