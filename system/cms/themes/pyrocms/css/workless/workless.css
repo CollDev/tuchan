@@ -1771,6 +1771,11 @@ background: url(../../img/add_icon.png) no-repeat top center !important;
 background: url(../../img/new_icon.png) no-repeat top center !important;
 }
 
+.mode_access{
+background: url(../../img/access_icon.png) no-repeat top center !important;
+}
+
+
  
  
 @media print {
