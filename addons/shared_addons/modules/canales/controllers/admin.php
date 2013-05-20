@@ -653,11 +653,8 @@ class Admin extends Admin_Controller {
             $objBeanCanal->imagen_logotipo = '';
             $objBeanCanal->imagen_isotipo = '';
         }
-
         //$listaTipoCanal = $this->tipo_canales_m->where_not_in('id',array($this->config->item('tipo_canal:micanal')))->getTipoCanalesDropDown(array("estado"=>$this->config->item('estado:publicado')), 'nombre');
-
-        $listaTipoCanal = $this->tipo_canales_m->getTipoCanalesDropDown(array("estado"=>$this->config->item('estado:publicado')), 'nombre');
-
+        $listaTipoCanal = $this->tipo_canales_m->getTipoCanalesDropDown(array("estado" => $this->config->item('estado:publicado')), 'nombre');
         $this->template
                 ->title($this->module_details['name'])
                 ->append_js('AjaxUpload.2.0.min.js')
@@ -783,7 +780,7 @@ class Admin extends Admin_Controller {
                 }
                 //actualizamos la imagen de portada en el detalle de secciones
                 //$this->actualizarPortadaCanal($canal_id);
-                $this->procesos_lib->generarCanalesXId($objBeanCanal->id);
+                $this->procesos_lib->curlGenerarCanalesXId($objBeanCanal->id);
                 echo json_encode(array("value" => "0"));
             } else {
                 echo json_encode(array("value" => "4")); //ya existe un canal registrado
@@ -823,7 +820,7 @@ class Admin extends Admin_Controller {
                             $objBeanCanal->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
                             $objBeanCanal->estado_migracion_sphinx = $this->config->item('sphinx:nuevo');
                             $objBeanCanalSaved = $this->canales_m->save($objBeanCanal);
-                            $this->procesos_lib->generarCanalesXId($objBeanCanal->id);
+                            $this->procesos_lib->curlGenerarCanalesXId($objBeanCanal->id);
 
                             //guardamos las imagenes
                             $array_images = array($this->config->item('imagen:extralarge') => $this->input->post('imagen_portada'), $this->config->item('imagen:logo') => $this->input->post('imagen_logotipo'), $this->config->item('imagen:iso') => $this->input->post('imagen_isotipo'));
@@ -3160,7 +3157,7 @@ class Admin extends Admin_Controller {
             if (count($objPortada) > 0) {
                 $this->portada_m->update($objPortada->id, array("estado" => $this->config->item('estado:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
             }
-            $this->procesos_lib->generarCanalesXId($canal_id);
+            $this->procesos_lib->curlGenerarCanalesXId($canal_id);
             echo json_encode(array("value" => "1"));
         }
     }
@@ -3195,7 +3192,7 @@ class Admin extends Admin_Controller {
                 if (count($objPortada) > 0) {
                     $this->portada_m->update($objPortada->id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
                 }
-                $this->procesos_lib->generarCanalesXId($canal_id);
+                $this->procesos_lib->curlGenerarCanalesXId($canal_id);
                 echo json_encode(array("value" => "1"));
             } else {
                 echo json_encode(array("value" => "0")); //no tiene maestros activos
@@ -5569,7 +5566,7 @@ class Admin extends Admin_Controller {
     public function eliminar_video($video_id) {
         if ($this->input->is_ajax_request()) {
             $this->videos_m->update($video_id, array("estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado" => $this->config->item('video:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
-            $this->procesos_lib->desactivarVideosXId($video_id);
+            $this->procesos_lib->curlDesactivarVideosXId($video_id);
             echo json_encode(array("value" => "1"));
         }
     }
@@ -5582,7 +5579,7 @@ class Admin extends Admin_Controller {
     public function publicar_video($video_id) {
         if ($this->input->is_ajax_request()) {
             $this->videos_m->update($video_id, array("estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado" => $this->config->item('video:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
-            $this->procesos_lib->activarVideosXId($video_id);
+            $this->procesos_lib->curlActivarVideosXId($video_id);
             echo json_encode(array("value" => "1"));
         }
     }
