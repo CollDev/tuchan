@@ -121,5 +121,11 @@ class curlProceso extends MX_Controller {
         phpinfo();
         
     }
+    
+    public function get(){
+        var_dump(application/database.config);
+    }
+            
+            
 }
 ?>
