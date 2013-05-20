@@ -1008,11 +1008,12 @@ class Procesos_lib extends MX_Controller {
 
                 if (!empty($idtemp)) {
                     $resquery3 = $this->micanal_mp->queryProcedure(4, $idtemp);
-                    
-                    if(count($resquery3)>0){
                     $row3 = $resquery3;
+                    
+                    if(!empty($row3[0]->xcanal)){
+                    
 
-                    $arrtemp["canal"] = $row3[0]->xcanal;
+                    $arrtemp["canal"] =$row3[0]->xcanal ;
                     $arrtemp["fecha"] = $row3[0]->xfechatransmision;
                     $arrtemp["coleccion"] = $row3[0]->xcoleccion;
                     $arrtemp["programa"] = $row3[0]->xprograma;
