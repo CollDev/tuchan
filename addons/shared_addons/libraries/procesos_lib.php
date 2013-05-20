@@ -880,7 +880,7 @@ class Procesos_lib extends MX_Controller {
     
     
     public function curlGenerarSeccionesMiCanalXSeccionId($id){
-        Log::erroLog("ini - curlGenerarCanalesXId: " . $id );
+        Log::erroLog("ini - curlGenerarSeccionesMiCanalXSeccionId: " . $id );
         $ruta = base_url("curlproceso/generarSeccionesMiCanalXSeccionId/" . $id);
         shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");  
     }
