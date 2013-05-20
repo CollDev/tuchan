@@ -54,7 +54,7 @@ class Grupo_maestro_m extends MY_Model {
     public function save_maestro($objBeanMaestro) {
         $objBeanMaestro->id = parent::insert(array(
                     'nombre' => $objBeanMaestro->nombre,
-                    'descripcion' => url_title(strtolower(convert_accented_characters($objBeanMaestro->descripcion))),
+                    'descripcion' => $objBeanMaestro->descripcion,
                     'alias' => url_title(strtolower(convert_accented_characters($objBeanMaestro->alias))),
                     'tipo_grupo_maestro_id' => $objBeanMaestro->tipo_grupo_maestro_id,
                     'canales_id' => $objBeanMaestro->canales_id,
