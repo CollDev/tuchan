@@ -1329,17 +1329,14 @@ class Procesos_lib extends MX_Controller {
             foreach ($canal as $value) {
                  Log::erroLog("_generarCanalesXId : ". $id. "  estado:  ". $value->estado . " >> ". $value->estado_migracion );
 
-                if (($value->estado_migracion == 0 or $value->estado_migracion == 9 ) && $value->estado == 1) {
+                if ( $value->estado == 1) {
 
                     $objmongo = array();
                     $objmongo['canal'] = strip_tags($value->nombre);
                     $objmongo['descripcion'] = strip_tags($value->descripcion);
                     $objmongo['url'] = $value->alias;
 
-//                    
-//                    if($value->procedencia == 0){                        
-//                        $objmongo['imagen'] = "http://".$this->config->item('server:elemento')."/".$value->imagen;    
-//                    }
+
 
                     $imagenes = $this->imagenes_mp->getImagenesCanalesXId($id);
 
