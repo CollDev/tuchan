@@ -37,9 +37,9 @@
 					<td class="collapse"><?php echo format_date($member->created_on); ?></td>
 					<td class="collapse"><?php echo ($member->last_login > 0 ? format_date($member->last_login) : lang('user_never_label')); ?></td>
 					<td class="actions">
-						<?php echo anchor('admin/accesos/index/' . $member->id, lang('global:accesos'), array('class'=>'button edit')); ?>
-						<?php echo anchor('admin/users/edit/' . $member->id, lang('global:edit'), array('class'=>'button edit')); ?>
-						<?php echo anchor('admin/users/delete/' . $member->id, lang('global:delete'), array('class'=>'confirm button delete')); ?>
+						<?php echo anchor('admin/accesos/index/' . $member->id, lang('global:accesos'), array('class'=>'mode_access')); ?>
+						<?php echo anchor('admin/users/edit/' . $member->id, lang('global:edit'), array('class'=>'mode_edit')); ?>
+						<?php echo anchor('admin/users/delete/' . $member->id, lang('global:delete'), array('class'=>'confirm mode_delete')); ?>
 					</td>
 				</tr>
 			<?php endforeach; ?>
