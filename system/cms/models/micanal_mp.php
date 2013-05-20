@@ -76,13 +76,15 @@ class MiCanal_mp extends CI_Model {
         
         echo "paso por procedure";
         
-        $mysqli = new MySQLI($this->db->hostname, $this->db->username, $this->db->password,$this->db->database);
+        $mysqli = new mysqli($this->db->hostname, $this->db->username, $this->db->password,$this->db->database);
         $query = $mysqli->multi_query($query);
         
         $result = $mysqli->use_result();
 
         //use the data in the resultset
         $data = $result->fetch_assoc();
+        
+         print_r($result);
 
         //free the resultset
         $result->free();
