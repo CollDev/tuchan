@@ -1721,7 +1721,7 @@ background:url(../../../img/admin/new_icon.png) no-repeat left center;
 
 
 
-.mode_edit, .mode_delete, .mode_preview,.mode_front,.mode_publish, .mode_restore,.mode_cut, .mode_remove, .mode_add{
+.mode_edit, .mode_delete, .mode_preview,.mode_front,.mode_publish, .mode_restore,.mode_cut, .mode_remove, .mode_add,.mode_access{
 	display:block !important;
 	float:left !important;
 	padding-top: 30px !important;
@@ -1770,6 +1770,11 @@ background: url(../../img/add_icon.png) no-repeat top center !important;
 .mode_add_section{
 background: url(../../img/new_icon.png) no-repeat top center !important;
 }
+
+.mode_access{
+background: url(../../img/access_icon.png) no-repeat top center !important;
+}
+
 
  
  
