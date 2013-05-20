@@ -58,10 +58,10 @@ class MiCanal_mp extends CI_Model {
 //        echo "id_conn " . $this->db->conn_id;
 //        print_r($objresult);
         
-        $objresult = $this->db->query($query);
-        //mysqli_next_result($this->db->conn_id);
-         $objresult->free_result();
-        return $objresult->result();
+//        $objresult = $this->db->query($query);
+//        //mysqli_next_result($this->db->conn_id);
+//         $objresult->free_result();
+//        return $objresult->result();
         
 //        if(is_object($objresult)){
 //            //mysqli_next_result($this->db->conn_id);
@@ -72,7 +72,19 @@ class MiCanal_mp extends CI_Model {
 //                return $arryresult; 
 //            }
 //            
-//        }               
+//        }   
+        $conexion = mysql_connect( $this->db->hostname, $this->db->username, $this->db->password);            
+        mysql_select_db($this->db->database, $conexion);
+        $respuesta = mysql_query($query, $conexion)
+                or die("No se pudo ejecutar la consulta: " . mysql_error());
+        
+        print_r($respuesta);
+//        while ($fila = mysql_fetch_array($respuesta, MYSQL_NUM)) {
+//            $tablas[] = $fila[0];
+//        }
+   
+        
+        
     }
 
     public function queryMysql($option, $id = "") {
