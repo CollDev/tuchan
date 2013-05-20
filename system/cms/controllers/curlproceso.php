@@ -35,6 +35,12 @@ class curlProceso extends MX_Controller {
          Log::erroLog("fin en curl - updateMediaVideosXId".$id);
     }   
     
+    public function updateMongoVideos($id,$mongo_id){
+         Log::erroLog("ini en curl - updateMongoVideos".$id);
+         $this->procesos_lib->updateMongoVideos($id,$mongo_id);
+         Log::erroLog("fin en curl - updateMongoVideos".$id);
+    }
+    
     public function verificaVideosLiquidXId($id){
         $this->procesos_lib->verificaVideosLiquidXId($id);
     }
