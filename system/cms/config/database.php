@@ -98,6 +98,8 @@ $db[PYRO_DEVELOPMENT] = array(
 );
   
 
+
+
 // Check the configuration group in use exists
 if ( ! array_key_exists(ENVIRONMENT, $db))
 {
