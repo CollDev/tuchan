@@ -610,9 +610,13 @@
                     }
                     function agregarVideoASeccion(canal_id, video_id, seccion_id) {
                         $("#div_" + video_id).empty();
+                        console.log(canal_id);
+                        console.log(video_id);
+                        console.log(seccion_id);
                         var html = '<a href="#" id="agregado" name="agregado" class="btn silver" onclick="return false;">Agregado</a>';
                         $("#div_" + video_id).html(html);
                         var post_url = "/admin/canales/agregarVideoASeccion/" + video_id + '/' + seccion_id;
+                        console.log(post_url);
                         $.ajax({
                             type: "POST",
                             url: post_url,

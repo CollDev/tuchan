@@ -2588,6 +2588,7 @@ class Admin extends Admin_Controller {
      */
     public function actualizar_seccion() {
         if ($this->input->is_ajax_request()) {
+            error_log(print_r($this->input->post(),true));
             $user_id = (int) $this->session->userdata('user_id');
             $this->secciones_m->update($this->input->post('seccion_id'), array('nombre' => $this->input->post('nombre'), 'descripcion' => $this->input->post('descripcion'), 'templates_id' => $this->input->post('template'), 'fecha_actualizacion' => date("Y-m-d H:i:s"), 'usuario_actualizacion' => $user_id));
             echo json_encode(array("value" => "1"));
@@ -4294,11 +4295,11 @@ class Admin extends Admin_Controller {
             if (count($lista_detalle_seccion) > 0) {
                 foreach ($lista_detalle_seccion as $index => $objDetalleSeccion):
                     if ($primero->peso == $objDetalleSeccion->peso):
-                        $img = '<img title="Bajar" src="' . $this->config->item('url:default_imagen') . 'down.png" class="bajar"  />';
+                        $img = '<img onclick="bajar(' . $objDetalleSeccion->id . ');return false;" title="Bajar" src="' . $this->config->item('url:default_imagen') . 'down.png" class="bajar"  />';
                     elseif ($ultimo->peso == $objDetalleSeccion->peso):
-                        $img = '<img title="Subir" src="' . $this->config->item('url:default_imagen') . 'up.png" class="subir"  />';
+                        $img = '<img onclick="subir(' . $objDetalleSeccion->id . ');return false;" title="Subir" src="' . $this->config->item('url:default_imagen') . 'up.png" class="subir"  />';
                     else:
-                        $img = '<a href="#" onclick="subir($(this).closest(\'tr\'),' . $objDetalleSeccion->id . ', ' . ($index + 1) . ', ' . $objDetalleSeccion->peso . ');return false;"><img title="Subir" src="' . $this->config->item('url:default_imagen') . 'up.png" class="subir" /></a>' . '<img title="Bajar" src="' . $this->config->item('url:default_imagen') . 'down.png"  class="bajar" />';
+                        $img = '<img onclick="subir(' . $objDetalleSeccion->id . ');return false;" title="Subir" src="' . $this->config->item('url:default_imagen') . 'up.png" class="subir" />' . '<img onclick="bajar(' . $objDetalleSeccion->id . ');return false;" title="Bajar" src="' . $this->config->item('url:default_imagen') . 'down.png"  class="bajar" />';
                     endif;
                     $html.='<tr id="' . $objDetalleSeccion->id . '_' . $objDetalleSeccion->peso . '">';
                     $html.='<td>' . ($index + 1) . '</td>';
@@ -5686,7 +5687,32 @@ class Admin extends Admin_Controller {
             if (count($objDetalleSeccion) > 0) {
                 //obtenemos el objeto detalle del siguiente peso a cambiarse
                 $objDetalleSeccionMayor = $this->agregar_atributos_detalle_seccion($this->detalle_secciones_m->obtener_detalle_seccion_mayor($objDetalleSeccion->secciones_id, $objDetalleSeccion->peso));
-                echo json_encode(array("error" => "0", "mayor" => $objDetalleSeccionMayor, "menor" => $objDetalleSeccion));
+                //cambiamos los pesos de ambos
+                $this->detalle_secciones_m->update($detalle_seccion_id, array("peso" => $objDetalleSeccionMayor->peso));
+                $this->detalle_secciones_m->update($objDetalleSeccionMayor->id, array("peso" => $objDetalleSeccion->peso));
+                //echo json_encode(array("error" => "0", "mayor" => $objDetalleSeccionMayor, "menor" => $objDetalleSeccion));
+                echo json_encode(array("error" => "0", "seccion_id" => $objDetalleSeccion->secciones_id));
+            } else {
+                echo json_encode(array("error" => "1"));
+            }
+        }
+    }
+
+    /**
+     * Método para subir el item de detalle seccion
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param int $detalle_seccion_id
+     */
+    public function subir_detalle_seccion($detalle_seccion_id) {
+        if ($this->input->is_ajax_request()) {
+            $objDetalleSeccion = $this->detalle_secciones_m->get($detalle_seccion_id);
+            if (count($objDetalleSeccion) > 0) {
+                //obtenemos el objeto detalle del anterior peso a cambiarse
+                $objDetalleSeccionMenor = $this->agregar_atributos_detalle_seccion($this->detalle_secciones_m->obtener_detalle_seccion_menor($objDetalleSeccion->secciones_id, $objDetalleSeccion->peso));
+                //cambiamos los pesos de ambos
+                $this->detalle_secciones_m->update($detalle_seccion_id, array("peso" => $objDetalleSeccionMenor->peso));
+                $this->detalle_secciones_m->update($objDetalleSeccionMenor->id, array("peso" => $objDetalleSeccion->peso));
+                echo json_encode(array("error" => "0", "seccion_id" => $objDetalleSeccion->secciones_id));
             } else {
                 echo json_encode(array("error" => "1"));
             }
@@ -5700,8 +5726,8 @@ class Admin extends Admin_Controller {
      * @return object
      */
     private function agregar_atributos_detalle_seccion(&$objDetalleSeccion) {
-        if (count($objDetalleSeccion) > 0) {
-            
+        if (is_array($objDetalleSeccion)) {
+            $objDetalleSeccion = $objDetalleSeccion[0];
         }
         return $objDetalleSeccion;
     }

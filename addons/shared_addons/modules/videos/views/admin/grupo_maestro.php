@@ -232,7 +232,6 @@ else:
                             onComplete: function(file, response) {
                                 btn_firma.text('Cambiar Imagen');
                                 respuesta = $.parseJSON(response);
-                                console.log(respuesta);
                                 if (respuesta.respuesta == 'done') {
 <?php if ($objMaestro->id > 0): ?>
                                         saveImages(respuesta);
@@ -329,28 +328,6 @@ else:
                                     $("#proceso_" + v.tipo_imagen_id).empty();
                                 });
                                 //limpiar
-//                                $('#listaImagenes').ddslick('destroy');
-//                                $("#contenedorImage").empty();
-//                                var htmlN = '<select id="listaImagenes">';
-//                                $.each(returnRespuesta.imagenes, function(k, v) {
-//                                    if (v.estado == '1') {
-//                                        htmlN += '<option selected=\"selected\" value=\"' + v.id + '\" data-imagesrc=\"' + v.path + '\" data-description=\" \"></option>';
-//                                    } else {
-//                                        htmlN += '<option value=\"' + v.id + '\" data-imagesrc=\"' + v.path + '\" data-description=\" \"></option>';
-//                                    }
-//                                });
-//                                htmlN += '</select>';
-//                                $("#contenedorImage").html(htmlN);
-//                                $('#listaImagenes').ddslick({
-//                                    width: 300,
-//                                    imagePosition: "center",
-//                                    selectText: "Seleccione su imagen principal",
-//                                    onSelected: function(data) {
-//                                        //console.log(data);
-//                                        activeImageMaestro(data['selectedData'].value);
-//                                    }
-//                                });
-
                             } //end success
                         }); //end AJAX        
                     }
