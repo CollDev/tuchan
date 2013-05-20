@@ -104,6 +104,7 @@ if ( ! array_key_exists(ENVIRONMENT, $db))
 	show_error(sprintf(lang('error_invalid_db_group'), ENVIRONMENT));
 }
 
+
 // Assign the group to be used
 $active_group = ENVIRONMENT;
 
