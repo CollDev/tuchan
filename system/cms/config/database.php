@@ -56,7 +56,7 @@ $db[PYRO_DEVELOPMENT] = array(
 
 // El Comercio -  DEV
 
-/*
+
 $db[PYRO_DEVELOPMENT] = array(
 	'hostname'		=> 	'10.203.31.139',
 	'username'		=> 	'micanalcmsdev',
@@ -75,10 +75,10 @@ $db[PYRO_DEVELOPMENT] = array(
 	// 'Tough love': Forces strict mode to test your app for best compatibility
 	'stricton' 		=> TRUE,	'stricton' 		=> TRUE,
 );
-*/
+
 
 // El Comercio - PRE
-
+/*
 $db[PYRO_DEVELOPMENT] = array(
 	'hostname'		=> 	'10.203.31.139',
 	'username'		=> 	'micanalcmspre',
@@ -96,42 +96,8 @@ $db[PYRO_DEVELOPMENT] = array(
 	// 'Tough love': Forces strict mode to test your app for best compatibility
 	'stricton' 		=> TRUE,	'stricton' 		=> TRUE,
 );
-    
-// Staging
-/*
-$db[PYRO_STAGING] = array(
-	'hostname'		=> 	'',
-	'username'		=> 	'',
-	'password'		=> 	'',
-	'database'		=> 	'pyrocms',
-	'dbdriver' 		=> 	'mysql',
-	'active_r' 		=>	TRUE,
-	'pconnect' 		=>	FALSE,
-	'db_debug' 		=>	FALSE,
-	'cache_on' 		=>	FALSE,
-	'char_set' 		=>	'utf8',
-	'dbcollat' 		=>	'utf8_unicode_ci',
-	'port' 	 		=>	3306,
-);
+   
 */
-/*
-// Production
-$db[PYRO_PRODUCTION] = array(
-	'hostname'		=> 	'localhost',
-	'username'		=> 	'root',
-	'password'		=> 	'123',
-	'database'		=> 	'pyro_admin',
-	'dbdriver' 		=> 	'mysqli',
-	'active_r' 		=>	TRUE,
-	'pconnect' 		=>	FALSE,
-	'db_debug' 		=>	FALSE,
-	'cache_on' 		=>	FALSE,
-	'char_set' 		=>	'utf8',
-	'dbcollat' 		=>	'utf8_unicode_ci',
-	'port' 	 		=>	'3306',
-);
-*/
-
 // Check the configuration group in use exists
 if ( ! array_key_exists(ENVIRONMENT, $db))
 {
