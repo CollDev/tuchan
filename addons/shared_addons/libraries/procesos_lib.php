@@ -1329,7 +1329,7 @@ class Procesos_lib extends MX_Controller {
             foreach ($canal as $value) {
                  Log::erroLog("_generarCanalesXId : ". $id. "  estado:  ". $value->estado . " >> ". $value->estado_migracion );
 
-                if ( $value->estado == 1) {
+                if ( $value->estado == 2) {
 
                     $objmongo = array();
                     $objmongo['canal'] = strip_tags($value->nombre);
