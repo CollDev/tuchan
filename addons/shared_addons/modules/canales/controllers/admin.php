@@ -654,7 +654,7 @@ class Admin extends Admin_Controller {
             $objBeanCanal->imagen_isotipo = '';
         }
         //$listaTipoCanal = $this->tipo_canales_m->where_not_in('id',array($this->config->item('tipo_canal:micanal')))->getTipoCanalesDropDown(array("estado"=>$this->config->item('estado:publicado')), 'nombre');
-        $listaTipoCanal = $this->tipo_canales_m->getTipoCanalesDropDown(array("estado"=>$this->config->item('estado:publicado')), 'nombre');
+        $listaTipoCanal = $this->tipo_canales_m->getTipoCanalesDropDown(array("estado" => $this->config->item('estado:publicado')), 'nombre');
         $this->template
                 ->title($this->module_details['name'])
                 ->append_js('AjaxUpload.2.0.min.js')
@@ -2000,6 +2000,7 @@ class Admin extends Admin_Controller {
     public function reordenar($seccion_id) {
 
         $arrayIndexOrder = $this->input->post('table-1');
+        error_log(print_r($arrayIndexOrder, true));
         if (count($arrayIndexOrder) > 0) {
             $array_index = array();
             foreach ($arrayIndexOrder as $index => $value) {
@@ -3183,7 +3184,7 @@ class Admin extends Admin_Controller {
         if ($this->input->is_ajax_request()) {
             //verificamos q al menos un maestro esté publicado para activarlo
             //$lista_maestros_publicados = $this->videos_m->get_many_by(array("canales_id" => $canal_id, "estado" => $this->config->item('video:publicado')));
-            $lista_maestros_publicados = $this->vw_maestro_video_m->get_many_by(array("v"=>"v","canales_id" => $canal_id, "estado" => $this->config->item('video:publicado')));
+            $lista_maestros_publicados = $this->vw_maestro_video_m->get_many_by(array("v" => "v", "canales_id" => $canal_id, "estado" => $this->config->item('video:publicado')));
             if (count($lista_maestros_publicados) > 0) {
                 $this->canales_m->update($canal_id, array("estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
                 //eliminamos la portada del canal
@@ -3961,7 +3962,7 @@ class Admin extends Admin_Controller {
                     if ($this->maestroAgregadoSeccion($objMaestro->id, $seccion_id)) {
                         $returnValue.='<td><a href="#" id="agregado" name="agregado" class="btn silver" onclick="return false;">Agregado</a></td>';
                     } else {
-                        $returnValue.='<td><div id="div_' . $objMaestro->id . '"><a href="#" onmousedown="agregarMaestroASeccion(' . $canal_id . ',' . $objMaestro->id . ', ' . $seccion_id . '); return false;" id="btnAgregar" name="btnAgregar" class="btn green">Agregar</a></div></td>';
+                        $returnValue.='<td><div id="div_' . $objMaestro->id . '"><a href="#" onclick="agregarMaestroASeccion(' . $canal_id . ',' . $objMaestro->id . ', ' . $seccion_id . '); return false;" id="btnAgregar" name="btnAgregar" class="btn green">Agregar</a></div></td>';
                     }
                     $returnValue.='</tr>';
                 } else {
@@ -3985,7 +3986,7 @@ class Admin extends Admin_Controller {
                         if ($this->canalAgregadoSeccion($objMaestro->id, $seccion_id)) {
                             $returnValue.='<td><a href="#" id="agregado" name="agregado" class="btn silver" onclick="return false;">Agregado</a></td>';
                         } else {
-                            $returnValue.='<td><div id="div_' . $objMaestro->id . '"><a href="#" onmousedown="deshabilitar_boton(' . $canal_id . ');return false;" onclick="agregarCanalASeccion(' . $canal_id . ',' . $objMaestro->id . ', ' . $seccion_id . '); return false;" id="btnAgregar" name="btnAgregar" class="btn green">Agregar</a></div></td>';
+                            $returnValue.='<td><div id="div_' . $objMaestro->id . '"><a href="#" onclick="agregarCanalASeccion(' . $canal_id . ',' . $objMaestro->id . ', ' . $seccion_id . '); return false;" id="btnAgregar" name="btnAgregar" class="btn green">Agregar</a></div></td>';
                         }
                         $returnValue.='</tr>';
                     } else {
@@ -4008,7 +4009,7 @@ class Admin extends Admin_Controller {
                         if ($this->videoAgregadoSeccion($objMaestro->id, $seccion_id)) {
                             $returnValue.='<td><a href="#" id="agregado" name="agregado" class="btn silver" onclick="return false;">Agregado</a></td>';
                         } else {
-                            $returnValue.='<td><div id="div_' . $objMaestro->id . '"><a href="#"  onmousedown="deshabilitar_boton(' . $objMaestro->id . ');return false;" onclick="agregarVideoASeccion(' . $canal_id . ',' . $objMaestro->id . ', ' . $seccion_id . '); return false;" id="btnAgregar" name="btnAgregar" class="btn green">Agregar</a></div></td>';
+                            $returnValue.='<td><div id="div_' . $objMaestro->id . '"><a href="#" onclick="agregarVideoASeccion(' . $canal_id . ',' . $objMaestro->id . ', ' . $seccion_id . '); return false;" id="btnAgregar" name="btnAgregar" class="btn green">Agregar</a></div></td>';
                         }
                         $returnValue.='</tr>';
                     }
@@ -5638,7 +5639,7 @@ class Admin extends Admin_Controller {
      */
     public function guardar_descripcion($detalle_seccion_id) {
         if ($this->input->is_ajax_request()) {
-            $this->detalle_secciones_m->update($detalle_seccion_id, array("estado_migracion"=>$this->config->item('migracion:actualizado'),"descripcion_item" => $this->input->post('txtDescripcion')));
+            $this->detalle_secciones_m->update($detalle_seccion_id, array("estado_migracion" => $this->config->item('migracion:actualizado'), "descripcion_item" => $this->input->post('txtDescripcion')));
             echo json_encode(array("value" => "1", "texto" => $this->input->post('txtDescripcion')));
         }
     }
@@ -5656,23 +5657,55 @@ class Admin extends Admin_Controller {
                 foreach ($post as $puntero => $item) {
                     if (!stristr($puntero, 'peso_')) {
                         unset($post[$puntero]);
-                    }else{
+                    } else {
                         $puntero = substr($puntero, 5);
-                        $array_peso[$puntero] =$item;
+                        $array_peso[$puntero] = $item;
                     }
                 }
             }
-            
+
             //iteremos los items para las nuevas ubicaciones
-            if(count($array_peso)>0){
+            if (count($array_peso) > 0) {
                 //iteramos y actualizamos los pesos
-                foreach($array_peso as $detalle_seccion_id=>$peso){
-                    $this->detalle_secciones_m->update($detalle_seccion_id, array("peso"=>$peso,"estado_migracion"=>$this->config->item('migracion:actualizado')));
+                foreach ($array_peso as $detalle_seccion_id => $peso) {
+                    $this->detalle_secciones_m->update($detalle_seccion_id, array("peso" => $peso, "estado_migracion" => $this->config->item('migracion:actualizado')));
                 }
             }
-            echo json_encode(array("error"=>"0","canal_id"=>$this->input->post('canal_id'), "seccion_id"=>$this->input->post('seccion_id')));
+            echo json_encode(array("error" => "0", "canal_id" => $this->input->post('canal_id'), "seccion_id" => $this->input->post('seccion_id')));
         }
     }
 
+    /**
+     * Método para bajar una posición al detalle sección
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param int $detalle_seccion_id
+     */
+    public function bajar_detalle_seccion($detalle_seccion_id) {
+        if ($this->input->is_ajax_request()) {
+            $objDetalleSeccion = $this->detalle_secciones_m->get($detalle_seccion_id);
+            if (count($objDetalleSeccion) > 0) {
+                //obtenemos el objeto detalle del siguiente peso a cambiarse
+                $objDetalleSeccionMayor = $this->agregar_atributos_detalle_seccion($this->detalle_secciones_m->obtener_detalle_seccion_mayor($objDetalleSeccion->secciones_id, $objDetalleSeccion->peso));
+                echo json_encode(array("error" => "0", "mayor" => $objDetalleSeccionMayor, "menor" => $objDetalleSeccion));
+            } else {
+                echo json_encode(array("error" => "1"));
+            }
+        }
+    }
+
+    /**
+     * Método para agregar propiedades de imagenes y nombres al detalle seccion
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param object $objDetalleSeccion
+     * @return object
+     */
+    private function agregar_atributos_detalle_seccion(&$objDetalleSeccion) {
+        if (count($objDetalleSeccion) > 0) {
+            
+        }
+        return $objDetalleSeccion;
+    }
+
 }
+
 /* End of file admin.php */
