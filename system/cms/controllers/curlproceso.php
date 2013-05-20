@@ -65,13 +65,11 @@ class curlProceso extends MX_Controller {
     
     public function  generarDetalleVideosXId($id, $mongo_id){
         $this->procesos_lib->generarDetalleVideosXId($id, $mongo_id);
-    }
-            
+    }           
     
     public function actualizarSecciones6789(){
         $this->procesos_lib->actualizarSecciones6789();
-    }
-    
+    }    
     
     public function actualizarPortadasMiCanal(){
         $this->procesos_lib->actualizarPortadasMiCanal();
@@ -85,17 +83,24 @@ class curlProceso extends MX_Controller {
         $this->procesos_lib->actualizarVideosXId($id);
     }
             
-    
-    public function getMaestroDetalles(){
-        $this->procesos_lib->getMaestroDetalles();
+    public  function generarCanalesXId($id){
+        $this->procesos_lib->generarCanalesXId($id);
     }
     
-    public function getMaestroDetallesXId($id){
-        $this->procesos_lib->getMaestroDetallesXId($id);        
+    public function desactivarVideosXId($id){
+        $this->procesos_lib->desactivarVideosXId($id);
     }
     
-    public function deleteMaestroDetallesXId($id){
-        $this->procesos_lib->deleteMaestroDetallesXId($id);        
+    public function activarVideosXId($id){
+        $this->procesos_lib->activarVideosXId($id);
+    }
+    
+    public function generarPortadasMiCanalXId($id){
+        $this->procesos_lib->generarPortadasMiCanalXId($id);
+    }
+    
+    public function generarSeccionesMiCanalXSeccionId($id){
+        $this->procesos_lib->generarSeccionesMiCanalXSeccionId($id);
     }
     
     public function getDB(){

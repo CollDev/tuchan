@@ -36,9 +36,7 @@ class Procesos_lib extends MX_Controller {
     public function curlCorteVideoXId($id_padre, $id_hijo, $inicio, $duracion) {
         Log::erroLog("ini - curlCorteVideo: " . $id_padre . ", hijo " . $id_hijo);
         $ruta = base_url("curlproceso/corteVideoXId/" . $id_padre . "/" . $id_hijo . "/" . $inicio . "/" . $duracion);
-
         shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");
-
         Log::erroLog("fin - curlCorteVideo: " . $id_padre . ", hijo " . $id_hijo);
     }
 
@@ -764,6 +762,16 @@ class Procesos_lib extends MX_Controller {
         $this->_generarPortadasMiCanalXId($id);
         Log::erroLog("paso: " . $id);
     }
+    
+    public function generarPortadasMiCanalXId($id){
+        $this->_generarPortadasMiCanalXId($id);
+    }
+    
+    public function curlGenerarPortadasMiCanalXId($id){
+        Log::erroLog("ini - curlGenerarCanalesXId: " . $id );
+        $ruta = base_url("curlproceso/generarPortadasMiCanalXId/" . $id);
+        shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");                
+    }
 
     private function _generarPortadasMiCanalXId($id) {
         $resquery = $this->portadas_mp->getPortadasXId($id);
@@ -869,7 +877,18 @@ class Procesos_lib extends MX_Controller {
     public function actualizarSeccionesXId($id) {
         $this->_generarSeccionesMiCanalXSeccionId($id);
     }
-
+    
+    
+    public function curlGenerarSeccionesMiCanalXSeccionId($id){
+        Log::erroLog("ini - curlGenerarCanalesXId: " . $id );
+        $ruta = base_url("curlproceso/generarSeccionesMiCanalXSeccionId/" . $id);
+        shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");  
+    }
+         
+    public function generarSeccionesMiCanalXSeccionId($id) {
+        $this->_generarSeccionesMiCanalXSeccionId($id);
+    }
+    
     private function _generarSeccionesMiCanalXSeccionId($id) {
 
         $array = array();
@@ -1304,6 +1323,12 @@ class Procesos_lib extends MX_Controller {
         }
     }
 
+    public function curlGenerarCanalesXId($id){
+        Log::erroLog("ini - curlGenerarCanalesXId: " . $id );
+        $ruta = base_url("curlproceso/generarCanalesXId/" . $id);
+        shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");
+    }
+    
     public function generarCanalesXId($id) {
         $this->_generarCanalesXId($id);
     }
@@ -1612,8 +1637,13 @@ class Procesos_lib extends MX_Controller {
         }
     }
 
+    public function curlActualizarVideosXId($id){
+        Log::erroLog("ini - curlActualizarVideosXId: " . $id );
+        $ruta = base_url("curlproceso/actualizarVideosXId/" . $id);
+        shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");
+    }
+    
     public function actualizarVideosXId($id) {
-        //error_log ("id: ". $id );
         $this->_obtenerImagesUrlVideosXId($id);
         $this->_generarVideosXId($id);
     }
@@ -1625,15 +1655,27 @@ class Procesos_lib extends MX_Controller {
     private function _activarVideosXId($id) {
         $this->canal_mp->setItemCollectionUpdate(array("estado" => "2"), array('id' => $id));
     }
-
+   
+    public function curlActivarVideosXId($id){
+        Log::erroLog("ini - curlDesactivarVideosXId: " . $id );
+        $ruta = base_url("curlproceso/activarVideosXId/" . $id);
+        shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");
+    }
+    
     public function desactivarVideosXId($id) {
         $this->_desactivarVideosXId($id);
     }
 
     private function _desactivarVideosXId($id) {
         $this->canal_mp->setItemCollectionUpdate(array("estado" => "0"), array('id' => $id));
+    }    
+    
+    public function curlDesactivarVideosXId($id){
+        Log::erroLog("ini - curlDesactivarVideosXId: " . $id );
+        $ruta = base_url("curlproceso/desactivarVideosXId/" . $id);
+        shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");
     }
-
+    
     public function actualizarSecciones6789() {
         Log::erroLog("_actualizarVisualizacion");
         $this->_actualizarVisualizacion();
