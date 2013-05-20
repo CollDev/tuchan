@@ -84,7 +84,7 @@ class MiCanal_mp extends CI_Model {
         //use the data in the resultset
         $data = $result->fetch_assoc();
         
-         print_r($result);
+         print_r($data);
 
         //free the resultset
         $result->free();
