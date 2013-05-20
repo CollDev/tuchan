@@ -57,7 +57,7 @@ class MiCanal_mp extends CI_Model {
 //         $resultado=$objresult->result();
 //         $objresult->free_result();
 //         return $resultado;
-
+        echo "id: ". $id;
         $objresult = $this->db->query($query);
         print_r($objresult);
         
