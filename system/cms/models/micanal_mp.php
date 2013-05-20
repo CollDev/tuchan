@@ -53,66 +53,11 @@ class MiCanal_mp extends CI_Model {
                 break;            
         }
 
-      
-//        $objresult = $this->db->query($query);
-//        echo "id_conn " . $this->db->conn_id;
-//        print_r($objresult);
-        
-//        $objresult = $this->db->query($query);
-//        //mysqli_next_result($this->db->conn_id);
-//         $objresult->free_result();
-//        return $objresult->result();
-        
-//        if(is_object($objresult)){
-//            //mysqli_next_result($this->db->conn_id);
-//            if(count($objresult->result())>0){
-//                $arryresult = $objresult->result();  
-//                //mysqli_next_result($this->db->conn_id);
-//                $objresult->free_result();            
-//                return $arryresult; 
-//            }
-//            
-//        }   
-        
-        echo "paso por procedure";
-        
-        $mysqli = new mysqli($this->db->hostname, $this->db->username, $this->db->password,$this->db->database);
-        $query = $mysqli->multi_query($query);
-        
-        $result = $mysqli->use_result();
 
-        //use the data in the resultset
-        $data = $result->fetch_assoc();
-        
-         print_r($data);
-
-        //free the resultset
-        $result->free();
-
-        //clear the other result(s) from buffer
-        //loop through each result using the next_result() method
-        while ($mysqli->next_result()) {
-        //free each result.
-        $result = $mysqli->use_result();
-        if ($result instanceof mysqli_result) {
-        $result->free();
-        }
-        }      
-        
-        print_r($result);
-        
-//        $conexion = mysql_connect( $this->db->hostname, $this->db->username, $this->db->password);            
-//        mysql_select_db($this->db->database, $conexion);
-//        $respuesta = mysql_query($query, $conexion);
-//        
-//        $fila = mysql_fetch_array($respuesta, MYSQL_NUM);
-//        print_r($fila);
-//        while () {
-//            $tablas[] = $fila[0];
-//        }
-   
-        
-        
+        $objresult = $this->db->query($query);
+        //mysqli_next_result($this->db->conn_id);
+         $objresult->free_result();
+        return $objresult->result();        
     }
 
     public function queryMysql($option, $id = "") {
