@@ -1327,7 +1327,7 @@ class Procesos_lib extends MX_Controller {
         if (count($canal) > 0) {
 
             foreach ($canal as $value) {
-                // Log::erroLog("estado: " . $value->estado . " >> ". $value->estado_migracion );
+                 Log::erroLog("_generarCanalesXId : ". $id. "  estado:  ". $value->estado . " >> ". $value->estado_migracion );
 
                 if (($value->estado_migracion == 0 or $value->estado_migracion == 9 ) && $value->estado == 1) {
 
