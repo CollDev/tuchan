@@ -73,6 +73,9 @@ class MiCanal_mp extends CI_Model {
 //            }
 //            
 //        }   
+        
+        echo "paso por procedure";
+        
         $conexion = mysql_connect( $this->db->hostname, $this->db->username, $this->db->password);            
         mysql_select_db($this->db->database, $conexion);
         $respuesta = mysql_query($query, $conexion);
