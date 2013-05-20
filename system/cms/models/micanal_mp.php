@@ -80,8 +80,9 @@ class MiCanal_mp extends CI_Model {
         mysql_select_db($this->db->database, $conexion);
         $respuesta = mysql_query($query, $conexion);
         
-        print_r($respuesta);
-//        while ($fila = mysql_fetch_array($respuesta, MYSQL_NUM)) {
+        $fila = mysql_fetch_array($respuesta, MYSQL_NUM);
+        print_r($fila);
+//        while () {
 //            $tablas[] = $fila[0];
 //        }
    
