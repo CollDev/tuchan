@@ -1371,6 +1371,7 @@ class Procesos_lib extends MX_Controller {
                     print_r($objmongo);
 
                     if (!($this->canal_mp->existe_id_mongo($value->id_mongo))) {
+                        echo " no existe canal";
                         $id_mongo = $this->canal_mp->setItemCollection($objmongo);
                         $this->canal_mp->updateIdMongoCanales($value->id, $id_mongo);
                         $this->canal_mp->updateEstadoMigracionCanales($value->id);
