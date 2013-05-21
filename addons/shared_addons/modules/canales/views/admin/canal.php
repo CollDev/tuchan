@@ -437,7 +437,8 @@
             else if (e.which)
                 code = e.which;
             var character = String.fromCharCode(code);
-            if (code == 32 || code == 8) {
+            console.log(code);
+            if (code == 32 || code == 8 || code == 46 || code == 241 || code == 209) {
                 return true;
             } else {
                 var AllowRegex = /^[0-9A-Za-z]+$/;

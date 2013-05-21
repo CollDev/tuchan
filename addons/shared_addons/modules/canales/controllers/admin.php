@@ -985,9 +985,9 @@ class Admin extends Admin_Controller {
                     $objBeanSeccion->id = NULL;
                     $objBeanSeccion->nombre = ucwords($objTipoSeccion->nombre); // Destacado + nombre del canal
                     if ($objTipoSeccion->id == $this->config->item('seccion:destacado')) {
-                        if($tipo_portada == $this->config->item('portada:canal')){
+                        if ($tipo_portada == $this->config->item('portada:canal')) {
                             $objBeanSeccion->templates_id = $this->config->item('template:destacado_canal');
-                        }else{
+                        } else {
                             $objBeanSeccion->templates_id = $this->config->item('template:destacado');
                         }
                     } else {
@@ -1313,7 +1313,10 @@ class Admin extends Admin_Controller {
         if (count($arrayMaestro) > 0) {
             $arrayObject = array();
             foreach ($arrayMaestro as $id => $value) {
-                array_push($arrayObject, $this->grupo_maestro_m->get($id));
+                $objMaestro = $this->grupo_maestro_m->get($id);
+                if (count($objMaestro) > 0) {
+                    array_push($arrayObject, $objMaestro);
+                }
             }
             $arrayMaestro = $arrayObject;
         }
@@ -2209,9 +2212,9 @@ class Admin extends Admin_Controller {
                                         default: $link = 'buscar_para_micanal(1);';
                                             break;
                                     endswitch;
-                                }else{
+                                }else {
                                     if ($objPortada->tipo_portadas_id == $this->config->item('portada:categoria')) {
-                                       $link = 'buscar_para_destacado_categoria(1);';
+                                        $link = 'buscar_para_destacado_categoria(1);';
                                     }
                                 }
                             }
@@ -3098,7 +3101,7 @@ class Admin extends Admin_Controller {
                     //template:destacado_canal
                     if ($tipo_portada == $this->config->item('portada:canal')) {
                         $objBeanSeccion->templates_id = $this->config->item('template:destacado_canal');
-                    }else{
+                    } else {
                         $objBeanSeccion->templates_id = $this->config->item('template:destacado');
                     }
                 } else {
@@ -3896,7 +3899,7 @@ class Admin extends Admin_Controller {
             }
             $array_maestros = array();
             if (count($lista_maestros) > 0) {
-                
+
                 foreach ($lista_maestros as $puntero => $objMaestro) {
                     if (count($objMaestro) > 0) {
                         $objMaestro->es_maestro = 1;
@@ -5084,7 +5087,7 @@ class Admin extends Admin_Controller {
             echo $returnValue;
         }
     }
-    
+
     public function buscar_para_destacado_categoria($current_page = 1, $paginado = 0) {
         if ($this->input->is_ajax_request()) {
             $array_maestros = array();
@@ -5147,7 +5150,7 @@ class Admin extends Admin_Controller {
             }
             echo $returnValue;
         }
-    }    
+    }
 
     public function buscar_para_destacado_micanal($current_page = 1, $paginado = 0) {
         if ($this->input->is_ajax_request()) {
@@ -5845,6 +5848,36 @@ class Admin extends Admin_Controller {
                     break;
             }
         }
+    }
+
+    public function importacion($canal_id) {
+        $objCanal = $this->canales_m->get($canal_id);
+        $arrayProgramme = $this->grupo_maestro_m->getCollectionDropDown(array('tipo_grupo_maestro_id' => $this->config->item('videos:programa'), 'canales_id' => $canal_id), 'nombre');
+        $arrayColeccionVideo = $this->eliminar_maestros_relacionados($this->grupo_maestro_m->getCollectionDropDown(array('tipo_grupo_maestro_id' => $this->config->item('videos:coleccion'), 'canales_id' => $canal_id), 'nombre'));
+        $arrayList = $this->eliminar_maestros_relacionados($this->grupo_maestro_m->getCollectionDropDown(array('tipo_grupo_maestro_id' => $this->config->item('videos:lista'), 'canales_id' => $canal_id), 'nombre'));
+        //$this->vd($arrayColeccionVideo);
+        $this->template
+                ->title($this->module_details['name'])
+                ->append_js('module::jquery.alerts.js')
+                ->append_css('module::jquery.alerts.css')
+                ->set('programa', $arrayProgramme)
+                ->set('coleccion', $arrayColeccionVideo)
+                ->set('lista', $arrayList)
+                ->set('objCanal', $objCanal);
+        $this->input->is_ajax_request() ? $this->template->build('admin/tables/canales') : $this->template->build('admin/importacion');
+    }
+
+    private function eliminar_maestros_relacionados(&$arrayMaestro) {
+        if (count($arrayMaestro) > 0) {
+            foreach ($arrayMaestro as $master_id => $name_master) {
+                if ($master_id > 0) {
+                    if ($this->_isParentOrChild($master_id)) {
+                        unset($arrayMaestro[$master_id]);
+                    }
+                }
+            }
+        }
+        return $arrayMaestro;
     }
 
 }
