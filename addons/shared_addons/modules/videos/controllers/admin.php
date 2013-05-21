@@ -1991,7 +1991,6 @@ class Admin extends Admin_Controller {
                 unlink($nombre_imagen_original);
             }
         }
-        //////error_log(print_r($arrayImagenes, true));die();
         $parent_id = NULL; //$this->_saveParentImage($canal_id, $video_id,$this->input->post('fileName'));
         if (count($arrayImagenes) > 0) {
             foreach ($arrayImagenes as $index => $nameImage) {
@@ -2104,7 +2103,11 @@ class Admin extends Admin_Controller {
                     $objBeanSeccion->id = NULL;
                     $objBeanSeccion->nombre = ucwords($objTipoSeccion->nombre); // nombre de la seccion es el nombre del tipo de la seccion
                     if ($objTipoSeccion->id == $this->config->item('seccion:destacado')) {
-                        $objBeanSeccion->templates_id = '1';
+                        if($tipo_portada == $this->config->item('portada:canal')){
+                            $objBeanSeccion->templates_id = $this->config->item('template:destacado_canal');
+                        }else{
+                            $objBeanSeccion->templates_id = $this->config->item('template:destacado');
+                        }
                     } else {
                         if ($objTipoSeccion->id == $this->config->item('seccion:programa')) {
                             $objBeanSeccion->templates_id = '6';
@@ -3554,7 +3557,11 @@ class Admin extends Admin_Controller {
                 $objBeanSeccion->id = NULL;
                 $objBeanSeccion->nombre = ucwords($objTipoSeccion->nombre); // nombre de la seccion es el nombre del tipo de la seccion
                 if ($objTipoSeccion->id == $this->config->item('seccion:destacado')) {
-                    $objBeanSeccion->templates_id = '1';
+                    if($tipo_portada == $this->config->item('portada:canal')){
+                        $objBeanSeccion->templates_id = $this->config->item('template:destacado_canal');
+                    }else{
+                        $objBeanSeccion->templates_id = $this->config->item('template:destacado');
+                    }
                 } else {
                     if ($objTipoSeccion->id == $this->config->item('seccion:programa')) {
                         $objBeanSeccion->templates_id = '6';
@@ -3819,8 +3826,6 @@ class Admin extends Admin_Controller {
             $user_id = (int) $this->session->userdata('user_id');
             $arrayTagTematicas = explode(",", $post['tematicas']);
             $arraytagPersonajes = explode(",", $post['personajes']);
-            //////error_log(print_r($arrayTagTematicas,true));
-            //////error_log(print_r($arraytagPersonajes,true));die();
             if (count($arrayTagTematicas) > 0) {
                 foreach ($arrayTagTematicas as $index => $tematica) {
                     $tag_id = 0;
@@ -5156,7 +5161,7 @@ class Admin extends Admin_Controller {
                 $programa = $this->obtener_programa_x_coleccion($objMaestro->id);
                 $objCanal = $this->canales_m->get($objMaestro->canales_id);
                 $returnValue.=anchor('/admin/videos/organizar/' . $objMaestro->canales_id, $objCanal->nombre);
-                $returnValue.=' > ';
+                //$returnValue.=' > ';
                 if (count($programa) > 0) {
                     $returnValue.=anchor('/admin/videos/organizar/' . $programa->canales_id . '/' . $programa->id . '/' . $programa->tipo_grupo_maestro_id, $programa->nombre);
                     $returnValue.=' > ';
@@ -5219,7 +5224,7 @@ class Admin extends Admin_Controller {
                 $returnValue = $objMaestro;
             }
         }
-        return $objMaestro;
+        return $returnValue;
     }
 
     /**

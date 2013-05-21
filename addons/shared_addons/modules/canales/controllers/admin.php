@@ -985,7 +985,11 @@ class Admin extends Admin_Controller {
                     $objBeanSeccion->id = NULL;
                     $objBeanSeccion->nombre = ucwords($objTipoSeccion->nombre); // Destacado + nombre del canal
                     if ($objTipoSeccion->id == $this->config->item('seccion:destacado')) {
-                        $objBeanSeccion->templates_id = '1';
+                        if($tipo_portada == $this->config->item('portada:canal')){
+                            $objBeanSeccion->templates_id = $this->config->item('template:destacado_canal');
+                        }else{
+                            $objBeanSeccion->templates_id = $this->config->item('template:destacado');
+                        }
                     } else {
                         if ($objTipoSeccion->id == $this->config->item('seccion:programa')) {
                             $objBeanSeccion->templates_id = '6';
@@ -2000,7 +2004,6 @@ class Admin extends Admin_Controller {
     public function reordenar($seccion_id) {
 
         $arrayIndexOrder = $this->input->post('table-1');
-        error_log(print_r($arrayIndexOrder, true));
         if (count($arrayIndexOrder) > 0) {
             $array_index = array();
             foreach ($arrayIndexOrder as $index => $value) {
@@ -2206,6 +2209,10 @@ class Admin extends Admin_Controller {
                                         default: $link = 'buscar_para_micanal(1);';
                                             break;
                                     endswitch;
+                                }else{
+                                    if ($objPortada->tipo_portadas_id == $this->config->item('portada:categoria')) {
+                                       $link = 'buscar_para_destacado_categoria(1);';
+                                    }
                                 }
                             }
                         }
@@ -2588,7 +2595,6 @@ class Admin extends Admin_Controller {
      */
     public function actualizar_seccion() {
         if ($this->input->is_ajax_request()) {
-            error_log(print_r($this->input->post(),true));
             $user_id = (int) $this->session->userdata('user_id');
             $this->secciones_m->update($this->input->post('seccion_id'), array('nombre' => $this->input->post('nombre'), 'descripcion' => $this->input->post('descripcion'), 'templates_id' => $this->input->post('template'), 'fecha_actualizacion' => date("Y-m-d H:i:s"), 'usuario_actualizacion' => $user_id));
             echo json_encode(array("value" => "1"));
@@ -3089,7 +3095,12 @@ class Admin extends Admin_Controller {
                 $objBeanSeccion->id = NULL;
                 $objBeanSeccion->nombre = ucwords($objTipoSeccion->nombre); // nombre de la seccion es el nombre del tipo de la seccion
                 if ($objTipoSeccion->id == $this->config->item('seccion:destacado')) {
-                    $objBeanSeccion->templates_id = '1';
+                    //template:destacado_canal
+                    if ($tipo_portada == $this->config->item('portada:canal')) {
+                        $objBeanSeccion->templates_id = $this->config->item('template:destacado_canal');
+                    }else{
+                        $objBeanSeccion->templates_id = $this->config->item('template:destacado');
+                    }
                 } else {
                     if ($objTipoSeccion->id == $this->config->item('seccion:programa')) {
                         $objBeanSeccion->templates_id = '6';
@@ -3883,8 +3894,9 @@ class Admin extends Admin_Controller {
             } else {
                 $lista_maestros = $this->grupo_maestro_m->get_many_by(array('canales_id' => $this->input->post('canal_id')));
             }
+            $array_maestros = array();
             if (count($lista_maestros) > 0) {
-                $array_maestros = array();
+                
                 foreach ($lista_maestros as $puntero => $objMaestro) {
                     if (count($objMaestro) > 0) {
                         $objMaestro->es_maestro = 1;
@@ -5072,6 +5084,70 @@ class Admin extends Admin_Controller {
             echo $returnValue;
         }
     }
+    
+    public function buscar_para_destacado_categoria($current_page = 1, $paginado = 0) {
+        if ($this->input->is_ajax_request()) {
+            $array_maestros = array();
+            //listamos todos los maestros
+            if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
+                $lista_maestros = $this->grupo_maestro_m->like('nombre', $this->input->post('txtBuscar'))->get_many_by(array());
+            } else {
+                $lista_maestros = $this->grupo_maestro_m->get_many_by(array());
+            }
+            if (count($lista_maestros) > 0) {
+
+                foreach ($lista_maestros as $puntero => $objMaestro) {
+                    if (count($objMaestro) > 0) {
+                        $objMaestro->es_maestro = 1;
+                        $objTipoMaestro = $this->tipo_maestro_m->get($objMaestro->tipo_grupo_maestro_id);
+                        $objMaestro->tipo = $objTipoMaestro->nombre;
+                        array_push($array_maestros, $objMaestro);
+                    }
+                }
+                //obtenemos los videos para listarlos
+                if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
+                    $lista_videos = $this->videos_m->like('titulo', $this->input->post('txtBuscar'))->get_many_by(array());
+                } else {
+                    $lista_videos = $this->videos_m->get_many_by(array());
+                }
+                if (count($lista_videos) > 0) {
+                    foreach ($lista_videos as $index => $objVideo) {
+                        $objVideo->es_maestro = 0;
+                        $objVideo->tipo = 'Video';
+                        array_push($array_maestros, $objVideo);
+                    }
+                }
+            }
+            $total = count($array_maestros);
+            $cantidad_mostrar = 7;
+            $current_page = $current_page - 1;
+            $numero_paginas = ceil(count($array_maestros) / $cantidad_mostrar);
+            $offset = $current_page * $cantidad_mostrar;
+            $array_maestros = array_slice($array_maestros, $offset, $cantidad_mostrar);
+            if ($paginado == '1') {
+                $returnValue = $this->htmlListaMaestro($array_maestros, $this->input->post('seccion_id'), $this->input->post('canal_id'));
+            } else {
+                $returnValue = '<table>';
+                $returnValue.='<thead>';
+                $returnValue.='<tr>';
+                $returnValue.='<th>#</th>';
+                $returnValue.='<th>imagen</td>';
+                $returnValue.='<th>nombre</td>';
+                $returnValue.='<th>tipo</td>';
+                $returnValue.='<th>acciones</td>';
+                $returnValue.='</tr>';
+                $returnValue.='</thead>';
+                $returnValue.='<tbody id="resultado">';
+                $returnValue.= $this->htmlListaMaestro($array_maestros, $this->input->post('seccion_id'), $this->input->post('canal_id'));
+                $returnValue.='</tbody>';
+                $returnValue.='</table>';
+                $returnValue.='<input type="hidden" id="total" name="total" value="' . $total . '" />';
+                $returnValue.='<input type="hidden" id="cantidad_mostrar" name="cantidad_mostrar" value="' . $cantidad_mostrar . '" />';
+                $returnValue.='<div id="black" style="margin: auto;"></div>';
+            }
+            echo $returnValue;
+        }
+    }    
 
     public function buscar_para_destacado_micanal($current_page = 1, $paginado = 0) {
         if ($this->input->is_ajax_request()) {
@@ -5488,8 +5564,8 @@ class Admin extends Admin_Controller {
         if ($this->input->post('f_keywords'))
             $keyword = $this->input->post('f_keywords');
 
-        if ($this->input->post('f_programa'))
-            $base_where['titulo'] = $this->input->post('f_programa');
+        if ($this->input->post('f_tipo'))
+            $base_where['tipo_maestro'] = $this->input->post('f_tipo');
 
         // Create pagination links
         if (strlen(trim($keyword)) > 0) {
@@ -5525,15 +5601,19 @@ class Admin extends Admin_Controller {
                 $objColeccionMaestro[$puntero] = $objMaestro;
             }
         }
+        //los tipos de items
+        $tipo_item = array("1" => "Lista de reproducción", "2" => "Colección", "3" => "Programa", "4" => "Video", "5" => "Canal", "6" => "Portada", "7" => "Sección");
         //do we need to unset the layout because the request is ajax?
         $this->input->is_ajax_request() and $this->template->set_layout(FALSE);
         $this->template
                 ->title($this->module_details['name'])
                 ->append_js('admin/filter.js')
+                ->set_partial('filters', 'admin/partials/filters')
                 ->append_js('module::jquery.alerts.js')
                 ->append_css('module::jquery.alerts.css')
                 ->set('maestros', $objColeccionMaestro)
                 ->set('canal', $objCanal)
+                ->set('tipo_item', $tipo_item)
                 ->set_partial('papeleras', 'admin/tables/papeleras')
                 ->append_js('module::jquery.alerts.js')
                 ->append_css('module::jquery.alerts.css')
@@ -5730,6 +5810,41 @@ class Admin extends Admin_Controller {
             $objDetalleSeccion = $objDetalleSeccion[0];
         }
         return $objDetalleSeccion;
+    }
+
+    /**
+     * Método para eliminar completamente del sistema
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param int $id
+     * @param string $tipo
+     */
+    public function eliminar_completamente($id, $tipo) {
+        if ($this->input->is_ajax_request()) {
+            switch ($tipo) {
+                case 'maestro':
+                    //Elimininamos todos los maestros en detalle secciones
+                    
+                    break;
+                case 'video':
+                    //Eliminamos todo los videos en los detalles secciones
+                    $this->detalle_secciones_m->delete_by(array("videos_id" => $id));
+                    //Eliminamos los videos que estén en la tabla grupo detalle
+                    $this->grupo_detalle_m->delete_by(array("video_id" => $id));
+                    //Eliminamos sus imagenes
+                    //$this->imagen_m->delete_by(array("videos_id" => $id));
+                    //Eliminamos sus tags relacionados
+                    $this->video_tags_m->delete_by(array("videos_id" => $id));
+                    //eliminamos el video
+                    $this->videos_m->delete($id);
+                    break;
+                case 'canal':
+                    break;
+                case 'portada':
+                    break;
+                case 'seccion':
+                    break;
+            }
+        }
     }
 
 }

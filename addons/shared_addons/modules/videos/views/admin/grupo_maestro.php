@@ -342,7 +342,6 @@ else:
                             //data:imagen_id,
                             success: function(returnRespuesta) //we're calling the response json array 'cities'
                             {
-                                console.log(returnRespuesta);
                             } //end success
                         }); //end AJAX              
                     }
@@ -543,7 +542,6 @@ else:
                         var winW = $(window).width();
 
                         var dialog = $(id);
-                        //console.log(dialog);
                         var maxheight = dialog.css("max-height");
                         var maxwidth = dialog.css("max-width");
 

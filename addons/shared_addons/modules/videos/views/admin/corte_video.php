@@ -340,7 +340,6 @@
                 //data:imagen_id,
                 success: function(returnRespuesta) //we're calling the response json array 'cities'
                 {
-                    console.log(returnRespuesta);
                 } //end success
             }); //end AJAX              
         }
@@ -356,7 +355,6 @@
             var post_url = "/admin/videos/verificarVideo/" + values['canal_id'] + "/" + values['video_id'];
             //var r;
             $.post(post_url, serializedData, function(data) {
-                //console.log(data.errorValue);
                 if (data.errorValue == '0') {
                     //showMessage('exit', 'no hay errores!', 2000,'');
                     $('#frm').submit();

@@ -37,7 +37,6 @@
                 mostrar_titulo();
                 var altura = $(document).height();
                 $(".bajada2").css('height', '800');
-                console.log(altura);
                 var nombre = $("#nombre"),
                         nombre_seccion = $("#nombre_seccion"),
                         descripcion = $("#descripcion"),
@@ -165,7 +164,6 @@
                                             htmlTable += '<td style="width: 25%;">' + respuesta.value.acciones + '</td>';
                                             htmlTable += '</tr></table>';
                                             $("#" + respuesta.portada_id).append(htmlTable);
-                                            console.log(this);
                                             $("#seccion-form").dialog("close");
                                             //location.reload();
                                         }

@@ -96,7 +96,6 @@
             //data:imagen_id,
             success: function(respuesta) //we're calling the response json array 'cities'
             {
-                //console.log(respuesta);
                 $("#urlvideo").html(respuesta);
             } //end success
         }); //end AJAX         

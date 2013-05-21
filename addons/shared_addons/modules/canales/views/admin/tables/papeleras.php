@@ -37,7 +37,8 @@
                     <td class="collapse"><?php echo lang('maestro:' . $video->tipo_maestro . '_maestro'); ?></td>
                     <td class="collapse" id="video_<?php echo $video->id; ?>"><?php echo lang('estado:'.($video->estado-1).'_estado') ?></td>
                     <td>
-                        <?php echo anchor('#', lang('global:edit'), 'class="mode_restore" onclick="restaurar_maestro(' . $video->id . ', \''.$video->maestros.'\');return false;"'); ?>
+                        <?php echo anchor('#', lang('global:restore'), 'title="'.lang('global:restore').'" class="mode_restore" onclick="restaurar_maestro(' . $video->id . ', \''.$video->maestros.'\');return false;"'); ?>
+                        <?php echo anchor('#', lang('global:delete'), 'title="'.lang('global:delete').'" class="mode_delete" onclick="eliminar(' . $video->id . ', \''.$video->maestros.'\');return false;"'); ?>
                     </td>
                 </tr>
             <?php endforeach; ?>
