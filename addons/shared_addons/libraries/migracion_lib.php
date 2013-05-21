@@ -35,6 +35,12 @@ class Migracion_lib extends MX_Controller {
     private $filtro = '';
 
     /**
+     * cadena q se desea buscar
+     * @var string 
+     */
+    private $search = '';
+
+    /**
      * Método para cargar los modelos, librerias y configuraciones
      */
     public function __construct() {
@@ -48,6 +54,7 @@ class Migracion_lib extends MX_Controller {
         $this->url = $this->config->item('migracion:url');
         $this->filtro = $this->config->item('migracion:filtro');
         $this->pagina = $this->config->item('migracion:paginas');
+        $this->search = $this->config->item('migracion:tag');
         $this->load->library('procesos_lib');
         $this->load->library('portadas_lib');
     }
@@ -76,16 +83,20 @@ class Migracion_lib extends MX_Controller {
      * @author Johnny Huamani <johnny1402@gmail.com>
      * @param object $objCanal
      */
-    public function migrar_canal($objCanal) {
+    public function migrar_canal($objCanal, $extra = array()) {
         //obtenemos el path del api
         $cantidad = 0;
         for ($indice = 0; $indice < $this->pagina; $indice++) {
-            $ruta_api = $this->generarApi($objCanal, $indice);
+            if (count($extra) > 0) {
+                $ruta_api = $this->generarApi($objCanal, $indice, $extra);
+            } else {
+                $ruta_api = $this->generarApi($objCanal, $indice);
+            }
             $data = @simplexml_load_file($ruta_api);
             //$this->vd($data);
             /// die();
             if ($data) {
-                $cantidad+= $this->obtener_objeto_bean_video($data, $objCanal);
+                $cantidad+= $this->obtener_objeto_bean_video($data, $objCanal, $extra);
             } else {
                 break;
             }
@@ -99,7 +110,7 @@ class Migracion_lib extends MX_Controller {
      * @param object $data
      * @param object $objCanal
      */
-    private function obtener_objeto_bean_video($data, $objCanal) {
+    private function obtener_objeto_bean_video($data, $objCanal, $extra) {
         //iteramos el contenido de Media, ahí están la lista de videos e imagenes
         $user_id = (int) $this->session->userdata('user_id');
         $lista_videos = $data->Media;
@@ -161,7 +172,7 @@ class Migracion_lib extends MX_Controller {
                         $objBeanVideo->procedencia = $this->config->item('procedencia:migracion');
                         $objBeanVideoSaved = $this->videos_m->save($objBeanVideo);
                         //registramos el detalle de grupo maestro
-                        $this->registrar_detalle_maestro($objBeanVideoSaved);
+                        $this->registrar_detalle_maestro($objBeanVideoSaved, $extra);
                         //guardamos las imagenes de cada video
                         $this->guardar_imagenes($objBeanVideoSaved->id, $objVideo->thumbs);
                         //guardamos los tags x video
@@ -184,11 +195,11 @@ class Migracion_lib extends MX_Controller {
      * @author Johnny Huamani <johnny1402@gmail.com>
      * @param object $objBeanVideo
      */
-    private function registrar_detalle_maestro($objBeanVideo) {
+    private function registrar_detalle_maestro($objBeanVideo, $extra) {
         $user_id = (int) $this->session->userdata('user_id');
         $objBeanGrupoDetalle = new stdClass();
         $objBeanGrupoDetalle->id = NULL;
-        $objBeanGrupoDetalle->grupo_maestro_padre = $this->config->item('migracion:coleccion');
+        $objBeanGrupoDetalle->grupo_maestro_padre = $extra['maestro_id'];
         $objBeanGrupoDetalle->grupo_maestro_id = NULL;
         $objBeanGrupoDetalle->video_id = $objBeanVideo->id;
         $objBeanGrupoDetalle->tipo_grupo_maestros_id = $this->config->item('videos:coleccion');
@@ -342,9 +353,14 @@ class Migracion_lib extends MX_Controller {
      * @return boolean
      */
     private function obtenerTipo($objTipoImage, $objThumbnail) {
-        $returnValue = false;
-        if ($objThumbnail->width <= ($objTipoImage->ancho + $this->config->item('migracion:margen_error_imagen')) && $objThumbnail->width >= $objTipoImage->ancho && $objThumbnail->height <= ($objTipoImage->alto + $this->config->item('migracion:margen_error_imagen')) && $objThumbnail->height >= $objTipoImage->alto) {
-            $returnValue = true;
+        $returnValue = FALSE;
+        $ancho_mayor = $objTipoImage->ancho + $this->config->item('migracion:margen_error_imagen');
+        $alto_mayor = $objTipoImage->alto + $this->config->item('migracion:margen_error_imagen');
+        $ancho_menor = $objTipoImage->ancho - $this->config->item('migracion:margen_error_imagen');
+        $alto_menor = $objTipoImage->alto - $this->config->item('migracion:margen_error_imagen');
+        
+        if($objThumbnail->width <= $ancho_mayor && $objThumbnail->width >= $ancho_menor && $objThumbnail->height <= $alto_mayor && $objThumbnail->height >= $alto_menor){
+            $returnValue = TRUE;
         }
         return $returnValue;
     }
@@ -492,9 +508,9 @@ class Migracion_lib extends MX_Controller {
      * @author Johnny Huamani <johnny1402@gmail.com>
      * @return string
      */
-    private function generarApi($objCanal, $pagina = 0) {
+    private function generarApi($objCanal, $pagina = 0, $extra = array()) {
         $returnValue = '';
-        $returnValue = $this->url . $objCanal->apikey . '&first=' . $pagina . '&' . $this->filtro;
+        $returnValue = $this->url . $objCanal->apikey .'&'.$this->search.$extra['tag'].'&first=' . $pagina . '&' . $this->filtro;
         //$returnValue = $this->url . $objCanal->apikey . '&first=' . $pagina;
         //echo $returnValue;
         return $returnValue;

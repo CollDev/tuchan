@@ -72,8 +72,14 @@
                         <div id="canal_boton_<?php echo $post->id; ?>"><?php echo $link; ?></div>
                     </td>
                     <?php if ($this->session->userdata['group'] == 'admin'): ?>
-                        <td><a href="#" onclick="migrar_canal(<?php echo $post->id; ?>);
-                                            return false;"><img src="<?php echo BASE_URL . 'system/cms/themes/pyrocms/img/Import24x24.png'; ?>" /></a></td>
+                        <td>
+<!--                            <a href="#" onclick="migrar_canal(<?php echo $post->id; ?>);return false;">
+                                <img src="<?php //echo BASE_URL . 'system/cms/themes/pyrocms/img/Import24x24.png'; ?>" />
+                            </a>-->
+                            <a href="/admin/canales/importacion/<?php echo $post->id; ?>">
+                                <img src="<?php echo BASE_URL . 'system/cms/themes/pyrocms/img/Import24x24.png'; ?>" />
+                            </a>
+                        </td>
                         <?php endif; ?>                    
                 </tr>
             <?php endforeach; ?>

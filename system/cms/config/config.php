@@ -397,15 +397,13 @@ $config['modules_locations'] = array(
             $config['protocolo:http'] = 'http:\/\/';
 
 //servidor elemento
-
-// servidor dev
 /*
 $config['server:elemento'] = 'dev.e.micanal.e3.pe';
 $config['url:elemento'] = 'http://pre.e3.pe/index.php/api/v1';
 $config['apikey:elemento'] = '590ee43e919b1f4baa2125a424f03cd160ff8901';
 $config['mensaje:elemento'] = 'cms.micanal.pe';
 */
-      
+
 //servidor pre
 $config['server:elemento'] = 'pre.e.micanal.e3.pe';
 $config['url:elemento'] = 'http://pre.e3.pe/index.php/api/v1';
@@ -429,18 +427,22 @@ $config['url:portada'] = BASE_URL.'system/cms/themes/pyrocms/img/imagen_portada_
 
 
 //variables de la migracion de canales
-$config['migracion:url'] = 'http://fast.api.liquidplatform.com/2.0/medias/?search=tags:LIFWeek&key=';
+//$config['migracion:url'] = 'http://fast.api.liquidplatform.com/2.0/medias/?search=tags:LIFWeek&key=';
+$config['migracion:url'] = 'http://fast.api.liquidplatform.com/2.0/medias/?key=';
 $config['migracion:filtro'] = 'filter=id;files;published;title;thumbs;tags;description;postDate';
 $config['migracion:output'] = '_RAW';
 $config['migracion:paginas'] = '10';
-$config['migracion:margen_error_imagen'] = '20';
+$config['migracion:tag'] = 'search=tags:';
+$config['migracion:margen_error_imagen'] = '70';
 
-// motor en dev
-/*
-$config['motor'] = 'http://pre.micanal.pe';
-*/
 
-//motor en pre
+
+
+/* DEV */ 
+//$config['motor'] = 'http://dev.micanal.pe';
+
+
+/* PRE */ 
 $config['motor'] = 'http://pre.micanal.pe';
 
 
