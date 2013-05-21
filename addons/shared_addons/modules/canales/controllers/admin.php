@@ -5823,7 +5823,7 @@ class Admin extends Admin_Controller {
             switch ($tipo) {
                 case 'maestro':
                     //Elimininamos todos los maestros en detalle secciones
-                    
+                    //primero verificamos que no tenga ningun video en estado publicado
                     break;
                 case 'video':
                     //Eliminamos todo los videos en los detalles secciones
