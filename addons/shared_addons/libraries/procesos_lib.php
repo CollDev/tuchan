@@ -1346,29 +1346,26 @@ class Procesos_lib extends MX_Controller {
                     $objmongo = array();
                     $objmongo['canal'] = strip_tags($value->nombre);
                     $objmongo['descripcion'] = strip_tags($value->descripcion);
-                    $objmongo['url'] = $value->alias;
-
-//                    
-//                    if($value->procedencia == 0){                        
-//                        $objmongo['imagen'] = "http://".$this->config->item('server:elemento')."/".$value->imagen;    
-//                    }
+                    $objmongo['url'] = (!empty($value->alias))?$value->alias:""; 
 
                     $imagenes = $this->imagenes_mp->getImagenesCanalesXId($id);
 
-                    foreach ($imagenes as $value2) {
-                        $objmongo[$value2->nombre] = "http://" . $this->config->item('server:elemento') . "/" . $value2->imagen;
+                    if(count($imagenes)>0)    {
+                        foreach ($imagenes as $value2) {
+                            $objmongo[$value2->nombre] = "http://" . $this->config->item('server:elemento') . "/" . $value2->imagen;
+                        }   
                     }
+
 
                     $objmongo['estado'] = $value->estado;
                     $objmongo['padre'] = "";
                     $objmongo['nivel'] = "0";
                     $objmongo['apikey'] = $value->apikey;
                     $objmongo['playerkey'] = $value->playerkey;
-                    $objmongo['canal_cv'] = $value->canal_cv;
-                    $objmongo['canal_cs'] = $value->canal_cs;
+                    $objmongo['canal_cv'] = (!empty($value->canal_cv))?$value->canal_cv:"" ;
+                    $objmongo['canal_cs'] = (!empty($value->canal_cs))?$value->canal_cs:"" ;
 
-                    error_log($value->canal_cv);
-
+                    print_r($objmongo);
 
                     if (!($this->canal_mp->existe_id_mongo($value->id_mongo))) {
                         $id_mongo = $this->canal_mp->setItemCollection($objmongo);
