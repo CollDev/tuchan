@@ -2209,6 +2209,10 @@ class Admin extends Admin_Controller {
                                         default: $link = 'buscar_para_micanal(1);';
                                             break;
                                     endswitch;
+                                }else{
+                                    if ($objPortada->tipo_portadas_id == $this->config->item('portada:categoria')) {
+                                       $link = 'buscar_para_destacado_categoria(1);';
+                                    }
                                 }
                             }
                         }
@@ -3890,8 +3894,9 @@ class Admin extends Admin_Controller {
             } else {
                 $lista_maestros = $this->grupo_maestro_m->get_many_by(array('canales_id' => $this->input->post('canal_id')));
             }
+            $array_maestros = array();
             if (count($lista_maestros) > 0) {
-                $array_maestros = array();
+                
                 foreach ($lista_maestros as $puntero => $objMaestro) {
                     if (count($objMaestro) > 0) {
                         $objMaestro->es_maestro = 1;
@@ -5079,6 +5084,70 @@ class Admin extends Admin_Controller {
             echo $returnValue;
         }
     }
+    
+    public function buscar_para_destacado_categoria($current_page = 1, $paginado = 0) {
+        if ($this->input->is_ajax_request()) {
+            $array_maestros = array();
+            //listamos todos los maestros
+            if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
+                $lista_maestros = $this->grupo_maestro_m->like('nombre', $this->input->post('txtBuscar'))->get_many_by(array());
+            } else {
+                $lista_maestros = $this->grupo_maestro_m->get_many_by(array());
+            }
+            if (count($lista_maestros) > 0) {
+
+                foreach ($lista_maestros as $puntero => $objMaestro) {
+                    if (count($objMaestro) > 0) {
+                        $objMaestro->es_maestro = 1;
+                        $objTipoMaestro = $this->tipo_maestro_m->get($objMaestro->tipo_grupo_maestro_id);
+                        $objMaestro->tipo = $objTipoMaestro->nombre;
+                        array_push($array_maestros, $objMaestro);
+                    }
+                }
+                //obtenemos los videos para listarlos
+                if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
+                    $lista_videos = $this->videos_m->like('titulo', $this->input->post('txtBuscar'))->get_many_by(array());
+                } else {
+                    $lista_videos = $this->videos_m->get_many_by(array());
+                }
+                if (count($lista_videos) > 0) {
+                    foreach ($lista_videos as $index => $objVideo) {
+                        $objVideo->es_maestro = 0;
+                        $objVideo->tipo = 'Video';
+                        array_push($array_maestros, $objVideo);
+                    }
+                }
+            }
+            $total = count($array_maestros);
+            $cantidad_mostrar = 7;
+            $current_page = $current_page - 1;
+            $numero_paginas = ceil(count($array_maestros) / $cantidad_mostrar);
+            $offset = $current_page * $cantidad_mostrar;
+            $array_maestros = array_slice($array_maestros, $offset, $cantidad_mostrar);
+            if ($paginado == '1') {
+                $returnValue = $this->htmlListaMaestro($array_maestros, $this->input->post('seccion_id'), $this->input->post('canal_id'));
+            } else {
+                $returnValue = '<table>';
+                $returnValue.='<thead>';
+                $returnValue.='<tr>';
+                $returnValue.='<th>#</th>';
+                $returnValue.='<th>imagen</td>';
+                $returnValue.='<th>nombre</td>';
+                $returnValue.='<th>tipo</td>';
+                $returnValue.='<th>acciones</td>';
+                $returnValue.='</tr>';
+                $returnValue.='</thead>';
+                $returnValue.='<tbody id="resultado">';
+                $returnValue.= $this->htmlListaMaestro($array_maestros, $this->input->post('seccion_id'), $this->input->post('canal_id'));
+                $returnValue.='</tbody>';
+                $returnValue.='</table>';
+                $returnValue.='<input type="hidden" id="total" name="total" value="' . $total . '" />';
+                $returnValue.='<input type="hidden" id="cantidad_mostrar" name="cantidad_mostrar" value="' . $cantidad_mostrar . '" />';
+                $returnValue.='<div id="black" style="margin: auto;"></div>';
+            }
+            echo $returnValue;
+        }
+    }    
 
     public function buscar_para_destacado_micanal($current_page = 1, $paginado = 0) {
         if ($this->input->is_ajax_request()) {
