@@ -422,11 +422,13 @@ $config['url:iso'] = BASE_URL.'system/cms/themes/pyrocms/img/icon_tv4.png';
 $config['url:portada'] = BASE_URL.'system/cms/themes/pyrocms/img/imagen_portada_default.jpg';
 
 //variables de la migracion de canales
-$config['migracion:url'] = 'http://fast.api.liquidplatform.com/2.0/medias/?search=tags:LIFWeek&key=';
+//$config['migracion:url'] = 'http://fast.api.liquidplatform.com/2.0/medias/?search=tags:LIFWeek&key=';
+$config['migracion:url'] = 'http://fast.api.liquidplatform.com/2.0/medias/?key=';
 $config['migracion:filtro'] = 'filter=id;files;published;title;thumbs;tags;description;postDate';
 $config['migracion:output'] = '_RAW';
 $config['migracion:paginas'] = '10';
-$config['migracion:margen_error_imagen'] = '20';
+$config['migracion:tag'] = 'search=tags:';
+$config['migracion:margen_error_imagen'] = '70';
 
 
 $config['motor'] = 'http://dev.micanal.pe';
