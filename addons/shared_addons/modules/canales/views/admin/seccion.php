@@ -610,13 +610,9 @@
                     }
                     function agregarVideoASeccion(canal_id, video_id, seccion_id) {
                         $("#div_" + video_id).empty();
-                        console.log(canal_id);
-                        console.log(video_id);
-                        console.log(seccion_id);
                         var html = '<a href="#" id="agregado" name="agregado" class="btn silver" onclick="return false;">Agregado</a>';
                         $("#div_" + video_id).html(html);
                         var post_url = "/admin/canales/agregarVideoASeccion/" + video_id + '/' + seccion_id;
-                        console.log(post_url);
                         $.ajax({
                             type: "POST",
                             url: post_url,
@@ -639,7 +635,6 @@
                         $("#div_" + canal_item).empty();
                         var html = '<a href="#" id="agregado" name="agregado" class="btn silver" onclick="return false;">Agregado</a>';
                         $("#div_" + canal_item).html(html);
-                        console.log(canal_item);
                         var post_url = "/admin/canales/agregarCanalASeccion/" + canal_item + '/' + seccion_id;
                         $.ajax({
                             type: "POST",
@@ -672,7 +667,6 @@
                                 $("#table-1").html(respuesta);
                                 $("#table-1").tableDnD({
                                     onDrop: function(table, row) {
-                                        //console.log($.tableDnD.serialize());
                                         ordenarLista($.tableDnD.serialize());
                                     }
                                 });
@@ -697,7 +691,6 @@
                                     //data: indexOrder,
                                     success: function(respuesta)
                                     {
-                                        console.log(respuesta);
                                         if (respuesta.value == '1') {
                                             //location.reload();
                                             mostrar_lista_detalle_seccion(canal_id, seccion_id);

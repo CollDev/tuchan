@@ -404,7 +404,6 @@
             var winW = $(window).width();
 
             var dialog = $(id);
-            //console.log(dialog);
             var maxheight = dialog.css("max-height");
             var maxwidth = dialog.css("max-width");
 
@@ -438,11 +437,6 @@
             else if (e.which)
                 code = e.which;
             var character = String.fromCharCode(code);
-            //alert('Character was ' + character);
-            //alert(code);
-            //if (code == 8) return true;
-            //var AllowRegex = /^[\ba-zA-Z\s-]$/;
-            //console.log(code);
             if (code == 32 || code == 8) {
                 return true;
             } else {
@@ -454,7 +448,6 @@
         }
 
         function saveImages(respuesta) {
-            //console.log(respuesta);
             var values = {};
             $.each($('#frmCanal').serializeArray(), function(i, field) {
                 values[field.name] = field.value;
@@ -474,7 +467,6 @@
                     $("#contenedorImage").empty();
                     var htmlN = '<select id="listaImagenes">';
                     $.each(returnRespuesta.imagenes, function(k, v) {
-                        //console.log(k+" ->"  +v.imagen_id + ", "+v.url); 
                         htmlN += '<option value=\"' + v.id + '\" data-imagesrc=\"' + v.path + '\" data-description=\" \"></option>';
                     });
                     htmlN += '</select>';
@@ -484,7 +476,6 @@
                         imagePosition: "center",
                         selectText: "Seleccione su imagen principal",
                         onSelected: function(data) {
-                            //console.log(data);
                             activeImageVideo(data['selectedData'].value);
                         }
                     });
@@ -555,7 +546,6 @@
                     respuestas = $.parseJSON(response);
                     if (respuestas.respuesta == 'done') {
                         //saveImages(respuesta);
-                        //console.log(respuesta);
                         if ($("#canal_id").val() == 0) {
                             $('#loaderAjax').hide();
                             $("#imagen_portada").val(respuestas.image);
@@ -658,7 +648,6 @@
                     imagePosition: "center",
                     selectText: "Seleccione su imagen principal",
                     onSelected: function(data) {
-                        //console.log(data['selectedData'].value);
                         activeImageVideo(data['selectedData'].value);
                     }
                 });

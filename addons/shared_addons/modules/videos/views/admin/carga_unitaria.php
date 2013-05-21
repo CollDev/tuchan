@@ -401,7 +401,6 @@
                         //data:imagen_id,
                         success: function(returnRespuesta) //we're calling the response json array 'cities'
                         {
-                            console.log(returnRespuesta);
                         } //end success
                     }); //end AJAX              
                 }
@@ -417,7 +416,6 @@
                     var post_url = "/admin/videos/verificarVideo/" + values['canal_id'] + "/" + values['video_id'];
                     //var r;
                     $.post(post_url, serializedData, function(data) {
-                        //console.log(data.errorValue);
                         if (data.errorValue == '0') {
                             $("#btnSave").html('<a href="#" class="btn silver" onclick="return false;" type="button"><?php echo lang('buttons.save'); ?></a>');
                             $('#frm').submit();
@@ -426,8 +424,6 @@
                             showMessage('error', '<?php echo lang('videos:fragment_exist') ?>', 2000, '');
                         }
                     }, "json");
-                    //console.log(f.responseText);
-                    //console.log($("#existe_fragmento").val());
                     /*var ff = $.ajax({
                      type: "POST",
                      url: post_url,
@@ -435,7 +431,6 @@
                      data:serializedData,
                      success: function(returnValue) //we're calling the response json array 'cities'
                      {
-                     //console.log(returnValue.errorValue);
                      if(returnValue.errorValue == '1'){
                      $("#existe_fragmento").val("1");
                      return true;

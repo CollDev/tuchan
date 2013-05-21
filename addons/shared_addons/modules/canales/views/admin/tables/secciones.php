@@ -112,7 +112,6 @@
                             //<span class="comment">// Initialise the table</span>
                             $("#table-1").tableDnD({
                                 onDrop: function(table, row) {
-                                    //console.log($.tableDnD.serialize());
                                     ordenarLista($.tableDnD.serialize());
                                 }
                             });
@@ -152,7 +151,6 @@
                                 data: serializedData,
                                 success: function(respuesta)
                                 {
-                                    console.log(respuesta);
                                     if (respuesta.value == '1') {
                                         //location.reload();
                                         showMessage('exit', '<?php echo lang('seccion:success_saved') ?>', 2000, '')
