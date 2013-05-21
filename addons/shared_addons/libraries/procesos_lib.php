@@ -1026,6 +1026,11 @@ class Procesos_lib extends MX_Controller {
                     $arrtemp["comentarios"] = $row3[0]->xvi_com;
                     $arrtemp["valoracion"] = $row3[0]->xvi_val;
                     $arrtemp["peso"] = $value2->peso;
+                    
+                     Log::erroLog("value2->canales_id: ". $value2->canales_id);
+                     Log::erroLog("value2->xvideoalias: ". $value2->xvideoalias);
+                     Log::erroLog("value2->tipo_secciones_id: ". $value2->tipo_secciones_id);
+                     Log::erroLog("value2->xfechatransmision: ". $value2->xfechatransmision);
 
                     if (!empty($value2->canales_id) && empty($value2->xvideoalias)) {
                         $urltemp = "canal/" . $row3[0]->xcanalalias;
