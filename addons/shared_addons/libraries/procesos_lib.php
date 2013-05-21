@@ -1027,7 +1027,7 @@ class Procesos_lib extends MX_Controller {
                     $arrtemp["valoracion"] = $row3[0]->xvi_val;
                     $arrtemp["peso"] = $value2->peso;
 
-                    if (!empty($value2->canales_id)) {
+                    if (!empty($value2->canales_id) && empty($value2->xvideoalias)) {
                         $urltemp = "canal/" . $row3[0]->xcanalalias;
                     } elseif ($value2->tipo_secciones_id == 1 && $value2->tipo_portadas_id == 5) {
                         $urltemp = "programa/" . $row3[0]->xprogramaalias;
