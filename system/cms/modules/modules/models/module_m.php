@@ -69,7 +69,11 @@ class Module_m extends MY_Model
                         if(isset($info['name']['en'])){
 			$name = ! isset($info['name'][CURRENT_LANGUAGE]) ? $info['name']['en'] : $info['name'][CURRENT_LANGUAGE];
 			$description = ! isset($info['description'][CURRENT_LANGUAGE]) ? $info['description']['en'] : $info['description'][CURRENT_LANGUAGE];
+                        }else{
+                            $name = '';
+                            $description = '';
                         }
+                        
 			return array(
 				'name' => $name,
 				'slug' => $row->slug,
