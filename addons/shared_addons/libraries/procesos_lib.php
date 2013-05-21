@@ -238,7 +238,7 @@ class Procesos_lib extends MX_Controller {
         if (count($resultado) > 0) {
             foreach ($resultado as $value) {
 
-                //error_log("dentro de " . $value->id);
+                ////error_log("dentro de " . $value->id);
 
                 $mediaarr = Liquid::obtenerDatosMedia($value);
 
@@ -249,7 +249,7 @@ class Procesos_lib extends MX_Controller {
                         $duracion = ($duracion / 1000);
                         $this->videos_mp->setDuracionVideos($value->id, $duracion);
                     }
-                    //error_log("duracion : " . $duracion);
+                    ////error_log("duracion : " . $duracion);
                 }
 
                 if (empty($value->ruta)) {
@@ -259,7 +259,7 @@ class Procesos_lib extends MX_Controller {
                     }
                 }
 
-                //error_log("ruta splitter". $value->rutasplitter);
+                ////error_log("ruta splitter". $value->rutasplitter);
 
                 if (empty($value->rutasplitter)) {
                     $urlvideo = Liquid::getUrlVideoLiquidRaw($mediaarr);
@@ -988,7 +988,7 @@ class Procesos_lib extends MX_Controller {
 
     private function _generarDetalleSeccionesMiCanalXSeccionId($id, $id_mongo) {
 
-        //error_log("seccion_id" . $id . "; mongo:" . $id_mongo);
+        ////error_log("seccion_id" . $id . "; mongo:" . $id_mongo);
 
         $resquery2 = $this->micanal_mp->queryMysql(4, $id);
 
@@ -1044,7 +1044,7 @@ class Procesos_lib extends MX_Controller {
                             }
                         } else {
                             $urltemp = "video" . "/" . $row3[0]->xfechatransmision . "-" . $row3[0]->xvideoalias;
-                            // error_log($urltemp. "Paso aqui ");
+                            // //error_log($urltemp. "Paso aqui ");
                         }
                     }
                 }
@@ -1071,7 +1071,7 @@ class Procesos_lib extends MX_Controller {
 
 
         $mongoid = new MongoId($id_mongo);
-        //error_log("mongo_id: " . $mongoid);
+        ////error_log("mongo_id: " . $mongoid);
         $this->micanal_mp->SetItemCollectionUpdate(array("item" => $item), array('_id' => $mongoid));
     }
 
@@ -1309,7 +1309,7 @@ class Procesos_lib extends MX_Controller {
     }
 
     public function generarGrupoMaestroXId($tgm, $id) {
-        //error_log($tgm,$id);
+        ////error_log($tgm,$id);
         switch ($tgm) {
             case 3;
                 $this->_generarProgramasXId($id);
@@ -1339,7 +1339,7 @@ class Procesos_lib extends MX_Controller {
         if (count($canal) > 0) {
 
             foreach ($canal as $value) {
-                //error_log("estado: " . $value->estado . " >> ". $value->estado_migracion );
+                ////error_log("estado: " . $value->estado . " >> ". $value->estado_migracion );
 
                 if (($value->estado_migracion == 0 or $value->estado_migracion == 9 ) && $value->estado == 1) {
 
@@ -1367,7 +1367,7 @@ class Procesos_lib extends MX_Controller {
                     $objmongo['canal_cv'] = $value->canal_cv;
                     $objmongo['canal_cs'] = $value->canal_cs;
 
-                    error_log($value->canal_cv);
+                    //error_log($value->canal_cv);
 
 
                     if (!($this->canal_mp->existe_id_mongo($value->id_mongo))) {
@@ -1397,14 +1397,14 @@ class Procesos_lib extends MX_Controller {
 //    
 //    private function _generarProgramasXId($id){
 //        
-//        //error_log("id: " . $id);
+//        ////error_log("id: " . $id);
 //        
 //        $programa= $this->grupo_maestros_mp->getProgramasXId($id);
 //
 //        if (count($programa) > 0) {
 //
 //            foreach ($programa as $value) {
-//                //error_log("estado: " . $value->estado . " >> ". $value->estado_migracion );
+//                ////error_log("estado: " . $value->estado . " >> ". $value->estado_migracion );
 //                
 //                if (($value->estado_migracion == 0 or $value->estado_migracion == 9 ) && $value->estado == 1) {
 //
@@ -1491,7 +1491,7 @@ class Procesos_lib extends MX_Controller {
                     $objmongo['valoracion'] = $datovideo[0]->xvi_val;
                     $objmongo['estado'] = ($value->estado == 2) ? "1" : "0";
 
-                    //error_log($datovideo[0]->xprogramaalias);
+                    ////error_log($datovideo[0]->xprogramaalias);
 
                     if (!empty($datovideo[0]->xprogramaalias)) {
                         if ($datovideo[0]->xfechatransmision == $datovideo[0]->xlistareproduccion) {
@@ -1544,7 +1544,7 @@ class Procesos_lib extends MX_Controller {
 
     private function _generarDetalleVideosXId($id, $mongo_id) {
 
-        //error_log("CASA: ". $id ."=>".$mongo_id);
+        ////error_log("CASA: ". $id ."=>".$mongo_id);
 
         $MongoId = array("_id" => new MongoId($mongo_id));
 
@@ -1564,7 +1564,7 @@ class Procesos_lib extends MX_Controller {
 
             $playlist = $this->videos_mp->getVideosPlaylist($id);
             
-            error_log(count($playlist));
+            //error_log(count($playlist));
             
 
             $arrayplaylist = array();
@@ -1575,10 +1575,10 @@ class Procesos_lib extends MX_Controller {
                 $i++;
             }
             
-            error_log(count($playlist));
+            //error_log(count($playlist));
             
             foreach ($playlist as $datos2) {         
-                 //error_log("cantidad: " . count($arrayplaylist). "para :" .$datos2->id_mongo);                 
+                 ////error_log("cantidad: " . count($arrayplaylist). "para :" .$datos2->id_mongo);                 
                  $set = array("playlist" => $arrayplaylist);
                  $tempmongo = array("_id" => new MongoId($datos2->id_mongo));
                  $this->canal_mp->SetItemCollectionUpdate($set,$tempmongo);
