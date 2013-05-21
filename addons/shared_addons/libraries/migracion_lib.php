@@ -171,7 +171,6 @@ class Migracion_lib extends MX_Controller {
                         $this->portadas_lib->agregar_video($objBeanVideoSaved->id);
                         //disparamos el proceso para la publicacion en el motor
                         $this->procesos_lib->curlActualizarVideosXId($objBeanVideoSaved->id);
-
                         $contador++;
                     }
                 }
