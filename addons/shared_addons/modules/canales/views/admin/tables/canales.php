@@ -41,7 +41,7 @@
                     <td><?php echo form_checkbox('action_to[]', $post->id); ?></td>
                     <td class="collapse"><img src="<?php echo $post->imagen_iso; ?>" /></td>
                     <td class="collapse"><?php echo anchor('admin/canales/videos/' . $post->id, $post->nombre); //$post->nombre;      ?></td>
-                    <td class="collapse"><?php echo $post->descripcion; ?></td>					
+                    <td class="collapse"><?php echo strip_tags($post->descripcion); ?></td>					
                     <td><div id="canal_<?php echo $post->id; ?>"><?php echo lang('global:' . $post->estado . '_estado'); ?></div></td>
                     <?php
                     switch ($post->estado):
