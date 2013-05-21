@@ -2588,7 +2588,7 @@ class Admin extends Admin_Controller {
      */
     public function actualizar_seccion() {
         if ($this->input->is_ajax_request()) {
-            error_log(print_r($this->input->post(),true));
+            error_log(print_r($this->input->post(), true));
             $user_id = (int) $this->session->userdata('user_id');
             $this->secciones_m->update($this->input->post('seccion_id'), array('nombre' => $this->input->post('nombre'), 'descripcion' => $this->input->post('descripcion'), 'templates_id' => $this->input->post('template'), 'fecha_actualizacion' => date("Y-m-d H:i:s"), 'usuario_actualizacion' => $user_id));
             echo json_encode(array("value" => "1"));
@@ -5482,7 +5482,7 @@ class Admin extends Admin_Controller {
             $canal_id = $objUsuarioCanal->canal_id;
         }
         $base_where = array("canales_id" => $canal_id, "estado" => $this->config->item('video:eliminado'));
-        
+
         //$programme_id = 0;
         $keyword = '';
         if ($this->input->post('f_keywords'))
@@ -5526,7 +5526,7 @@ class Admin extends Admin_Controller {
             }
         }
         //los tipos de items
-        $tipo_item = array("1"=>"Lista de reproducción", "2"=>"Colección", "3"=>"Programa", "4"=>"Video", "5"=>"Canal", "6"=>"Portada", "7"=>"Sección");
+        $tipo_item = array("1" => "Lista de reproducción", "2" => "Colección", "3" => "Programa", "4" => "Video", "5" => "Canal", "6" => "Portada", "7" => "Sección");
         //do we need to unset the layout because the request is ajax?
         $this->input->is_ajax_request() and $this->template->set_layout(FALSE);
         $this->template
@@ -5734,6 +5734,29 @@ class Admin extends Admin_Controller {
             $objDetalleSeccion = $objDetalleSeccion[0];
         }
         return $objDetalleSeccion;
+    }
+
+    /**
+     * Método para eliminar completamente del sistema
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param int $id
+     * @param string $tipo
+     */
+    public function eliminar_completamente($id, $tipo) {
+        if ($this->input->is_ajax_request()) {
+            switch ($tipo){
+                case 'maestro':
+                    break;
+                case 'video':
+                    break;
+                case 'canal':
+                    break;
+                case 'portada':
+                    break;
+                case 'seccion':
+                    break;
+            }
+        }
     }
 
 }
