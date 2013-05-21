@@ -8,7 +8,7 @@
         echo anchor('admin/videos/organizar/' . $canal->id, 'Organizar videos', array('class' => ''));
         echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
         echo anchor('admin/canales/portada/' . $canal->id, 'Portadas', array('class' => ''));
-        ?>        
+        ?>
     </div>
     <div style="float: right;">
         <?php echo anchor('admin/canales/papelera/' . $canal->id, 'Papelera', array('class' => '')); ?>
@@ -58,5 +58,25 @@
                 }); //end AJAX   
             }
         });
+    }
+    
+    function eliminar(id, tipo){
+        jConfirm("Seguro que deseas eliminar completamente este Item?", "Papelera", function(r) {
+            if (r) {
+                var post_url = "/admin/canales/eliminar_completamente/" + id+"/"+tipo;
+                $.ajax({
+                    type: "POST",
+                    url: post_url,
+                    dataType: 'json',
+                    //data: indexOrder,
+                    success: function(respuesta)
+                    {
+                        if(respuesta.value == 1){
+                            $("#"+tipo+"_"+id).empty();
+                        }
+                    } //end success
+                }); //end AJAX   
+            }
+        });    
     }
 </script>

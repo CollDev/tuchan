@@ -5482,14 +5482,14 @@ class Admin extends Admin_Controller {
             $canal_id = $objUsuarioCanal->canal_id;
         }
         $base_where = array("canales_id" => $canal_id, "estado" => $this->config->item('video:eliminado'));
-
+        
         //$programme_id = 0;
         $keyword = '';
         if ($this->input->post('f_keywords'))
             $keyword = $this->input->post('f_keywords');
 
-        if ($this->input->post('f_programa'))
-            $base_where['titulo'] = $this->input->post('f_programa');
+        if ($this->input->post('f_tipo'))
+            $base_where['tipo_maestro'] = $this->input->post('f_tipo');
 
         // Create pagination links
         if (strlen(trim($keyword)) > 0) {
@@ -5525,15 +5525,19 @@ class Admin extends Admin_Controller {
                 $objColeccionMaestro[$puntero] = $objMaestro;
             }
         }
+        //los tipos de items
+        $tipo_item = array("1"=>"Lista de reproducción", "2"=>"Colección", "3"=>"Programa", "4"=>"Video", "5"=>"Canal", "6"=>"Portada", "7"=>"Sección");
         //do we need to unset the layout because the request is ajax?
         $this->input->is_ajax_request() and $this->template->set_layout(FALSE);
         $this->template
                 ->title($this->module_details['name'])
                 ->append_js('admin/filter.js')
+                ->set_partial('filters', 'admin/partials/filters')
                 ->append_js('module::jquery.alerts.js')
                 ->append_css('module::jquery.alerts.css')
                 ->set('maestros', $objColeccionMaestro)
                 ->set('canal', $objCanal)
+                ->set('tipo_item', $tipo_item)
                 ->set_partial('papeleras', 'admin/tables/papeleras')
                 ->append_js('module::jquery.alerts.js')
                 ->append_css('module::jquery.alerts.css')
