@@ -2,13 +2,31 @@
 set_time_limit(1500);
 
 class Migracion extends MX_Controller {
-   
 
     function __construct() {
-        
-        }
+        $this->load->model('micanal_mp');
+        $this->load->model('canales_mp');
+    }
 
     private function index() {
+        
+    }
+    
+    private function _setMicanalMongo(){
+        $objmongo['tipo']="portada";
+        $objmongo['nombre']="Portada Principal Mi Canal";
+        $objmongo['estado']="1";
+        $objmongo['canal']="Mi Canal";
+        $objmongo['tipo_portadas_id']="1";
+        $objmongo['alias']="";
+        
+        $id_mongo = $this->micanal_mp->setItemCollection($objmongo);
+        
+        $canales = $this->portadas_mp->getPortadasMiCanal();
+        
+        foreach ($canales as $value) {                    
+             $this->micanal_mp->updateIdMongoPortadas($value->id, $id_mongo);            
+        }
         
     }
 
@@ -20,8 +38,9 @@ class Migracion extends MX_Controller {
         }
     }
 
-    public function setRestoreBD() {
+    public function setRestoreBD() {        
         self::procesoMigra("data.restore.sql");
+        self::_setMicanalMongo();
     }
 
     public function setRestoreFechaBD($fecha) {
@@ -29,10 +48,10 @@ class Migracion extends MX_Controller {
     }
 
     public function setBackupFechaBD() {
-       $file = (PATH_SQL . "" . date("Y_m_d") . ".sql");
-       //$file = "/home/idigital/Escritorio/prueba.sql";
-       self::backupmysql($this->db->hostname, $this->db->username, $this->db->password, $this->db->database, $file);
-       system('mysqldump --host=' . $this->db->hostname . ' --user=' . $this->db->username . ' --password=' . $this->db->password . '   ' . $this->db->database . ' > ' . $file);
+        $file = (PATH_SQL . "" . date("Y_m_d") . ".sql");
+        //$file = "/home/idigital/Escritorio/prueba.sql";
+        self::backupmysql($this->db->hostname, $this->db->username, $this->db->password, $this->db->database, $file);
+        system('mysqldump --host=' . $this->db->hostname . ' --user=' . $this->db->username . ' --password=' . $this->db->password . '   ' . $this->db->database . ' > ' . $file);
     }
 
     public function procesoMigra($path) {
@@ -67,9 +86,9 @@ class Migracion extends MX_Controller {
 
 
         $drop = FALSE;
-        $truncate =TRUE;
+        $truncate = TRUE;
 //        $tablas = false; 
-        
+
         $tablas = array(
             0 => 'core_sites',
             1 => 'core_users',
@@ -78,9 +97,9 @@ class Migracion extends MX_Controller {
             4 => 'default_ci_sessions',
             5 => 'default_cms_canales',
             6 => 'default_cms_categorias',
-            7=> 'default_cms_comentarios',
-            8=> 'default_cms_detalle_secciones',
-            9=> 'default_cms_grupo_detalles',
+            7 => 'default_cms_comentarios',
+            8 => 'default_cms_detalle_secciones',
+            9 => 'default_cms_grupo_detalles',
             10 => 'default_cms_grupo_maestro_tags',
             11 => 'default_cms_grupo_maestros',
             12 => 'default_cms_imagenes',
@@ -138,15 +157,12 @@ class Migracion extends MX_Controller {
         $compresion = false;
 
 
-        $conexion = mysql_connect($host, $usuario, $passwd)
-                or die("No se puede conectar con el servidor MySQL: " . mysql_error());
-        mysql_select_db($bd, $conexion)
-                or die("No se pudo seleccionar la Base de Datos: " . mysql_error());
+        $conexion = mysql_connect($host, $usuario, $passwd) or die("No se puede conectar con el servidor MySQL: " . mysql_error());
+        mysql_select_db($bd, $conexion) or die("No se pudo seleccionar la Base de Datos: " . mysql_error());
         /* Se busca las tablas en la base de datos */
         if (empty($tablas)) {
             $consulta = "SHOW TABLES FROM $bd;";
-            $respuesta = mysql_query($consulta, $conexion)
-                    or die("No se pudo ejecutar la consulta: " . mysql_error());
+            $respuesta = mysql_query($consulta, $conexion) or die("No se pudo ejecutar la consulta: " . mysql_error());
             while ($fila = mysql_fetch_array($respuesta, MYSQL_NUM)) {
                 $tablas[] = $fila[0];
             }
@@ -188,29 +204,26 @@ EOT;
             } else {
                 $drop_table_query = "# No especificado.";
             }
-            
-            if ($truncate){
+
+            if ($truncate) {
                 $truncate_table_query = "truncate table  " . $tabla . ";";
-            }else{
-                 $truncate_table_query = "# No especificado.";
+            } else {
+                $truncate_table_query = "# No especificado.";
             }
 
             /* Se halla el query que será capaz de recrear la estructura de la tabla. */
-           if ($create){
-            $create_table_query = "";
-            $consulta = "SHOW CREATE TABLE $tabla;";
-            $respuesta = mysql_query($consulta, $conexion)
-                    or die("No se pudo ejecutar la consulta: " . mysql_error());
-            while ($fila = mysql_fetch_array($respuesta, MYSQL_NUM)) {
-                $create_table_query = $fila[1] . ";";
+            if ($create) {
+                $create_table_query = "";
+                $consulta = "SHOW CREATE TABLE $tabla;";
+                $respuesta = mysql_query($consulta, $conexion) or die("No se pudo ejecutar la consulta: " . mysql_error());
+                while ($fila = mysql_fetch_array($respuesta, MYSQL_NUM)) {
+                    $create_table_query = $fila[1] . ";";
+                }
             }
-            
-           }
             /* Se halla el query que será capaz de insertar los datos. */
             $insert_into_query = "";
             $consulta = "SELECT * FROM $tabla;";
-            $respuesta = mysql_query($consulta, $conexion)
-                    or die("No se pudo ejecutar la consulta: " . mysql_error());
+            $respuesta = mysql_query($consulta, $conexion) or die("No se pudo ejecutar la consulta: " . mysql_error());
             while ($fila = mysql_fetch_array($respuesta, MYSQL_ASSOC)) {
                 $columnas = array_keys($fila);
                 foreach ($columnas as $columna) {

@@ -19,6 +19,5 @@ class Canales_mp extends CI_Model {
                 (gm1 IS NULL AND gm2 IS NULL  AND gm3 IS NULL  AND tipo_grupo=2 ) OR (gm1 IS NULL AND gm2 IS NULL  AND gm3 IS NULL  AND tipo_grupo=1 ))) AS 'canal_cs'
                 FROM ". $this->_table . "  ca WHERE ca.id=" . $id;        
         return $this->db->query($query)->result();
-    }
-
+    }    
 }
