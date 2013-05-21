@@ -1335,6 +1335,9 @@ class Procesos_lib extends MX_Controller {
 
     private function _generarCanalesXId($id) {
         $canal = $this->canales_mp->getCanalesXId($id);
+        print_r($canal);
+        
+        
 
         if (count($canal) > 0) {
 
