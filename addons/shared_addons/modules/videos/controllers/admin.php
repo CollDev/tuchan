@@ -2104,7 +2104,11 @@ class Admin extends Admin_Controller {
                     $objBeanSeccion->id = NULL;
                     $objBeanSeccion->nombre = ucwords($objTipoSeccion->nombre); // nombre de la seccion es el nombre del tipo de la seccion
                     if ($objTipoSeccion->id == $this->config->item('seccion:destacado')) {
-                        $objBeanSeccion->templates_id = '1';
+                        if($tipo_portada == $this->config->item('portada:canal')){
+                            $objBeanSeccion->templates_id = $this->config->item('template:destacado_canal');
+                        }else{
+                            $objBeanSeccion->templates_id = $this->config->item('template:destacado');
+                        }
                     } else {
                         if ($objTipoSeccion->id == $this->config->item('seccion:programa')) {
                             $objBeanSeccion->templates_id = '6';
@@ -3554,7 +3558,11 @@ class Admin extends Admin_Controller {
                 $objBeanSeccion->id = NULL;
                 $objBeanSeccion->nombre = ucwords($objTipoSeccion->nombre); // nombre de la seccion es el nombre del tipo de la seccion
                 if ($objTipoSeccion->id == $this->config->item('seccion:destacado')) {
-                    $objBeanSeccion->templates_id = '1';
+                    if($tipo_portada == $this->config->item('portada:canal')){
+                        $objBeanSeccion->templates_id = $this->config->item('template:destacado_canal');
+                    }else{
+                        $objBeanSeccion->templates_id = $this->config->item('template:destacado');
+                    }
                 } else {
                     if ($objTipoSeccion->id == $this->config->item('seccion:programa')) {
                         $objBeanSeccion->templates_id = '6';
@@ -5154,6 +5162,8 @@ class Admin extends Admin_Controller {
         if ($tipo > 0) {
             if ($objMaestro->tipo_grupo_maestro_id == $this->config->item('videos:coleccion')) {
                 $programa = $this->obtener_programa_x_coleccion($objMaestro->id);
+                //error_log(print_r($programa,true));
+                //var_dump($programa);
                 $objCanal = $this->canales_m->get($objMaestro->canales_id);
                 $returnValue.=anchor('/admin/videos/organizar/' . $objMaestro->canales_id, $objCanal->nombre);
                 $returnValue.=' > ';
@@ -5219,7 +5229,7 @@ class Admin extends Admin_Controller {
                 $returnValue = $objMaestro;
             }
         }
-        return $objMaestro;
+        return $returnValue;
     }
 
     /**

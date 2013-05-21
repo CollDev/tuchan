@@ -985,7 +985,11 @@ class Admin extends Admin_Controller {
                     $objBeanSeccion->id = NULL;
                     $objBeanSeccion->nombre = ucwords($objTipoSeccion->nombre); // Destacado + nombre del canal
                     if ($objTipoSeccion->id == $this->config->item('seccion:destacado')) {
-                        $objBeanSeccion->templates_id = '1';
+                        if($tipo_portada == $this->config->item('portada:canal')){
+                            $objBeanSeccion->templates_id = $this->config->item('template:destacado_canal');
+                        }else{
+                            $objBeanSeccion->templates_id = $this->config->item('template:destacado');
+                        }
                     } else {
                         if ($objTipoSeccion->id == $this->config->item('seccion:programa')) {
                             $objBeanSeccion->templates_id = '6';
@@ -3089,7 +3093,12 @@ class Admin extends Admin_Controller {
                 $objBeanSeccion->id = NULL;
                 $objBeanSeccion->nombre = ucwords($objTipoSeccion->nombre); // nombre de la seccion es el nombre del tipo de la seccion
                 if ($objTipoSeccion->id == $this->config->item('seccion:destacado')) {
-                    $objBeanSeccion->templates_id = '1';
+                    //template:destacado_canal
+                    if ($tipo_portada == $this->config->item('portada:canal')) {
+                        $objBeanSeccion->templates_id = $this->config->item('template:destacado_canal');
+                    }else{
+                        $objBeanSeccion->templates_id = $this->config->item('template:destacado');
+                    }
                 } else {
                     if ($objTipoSeccion->id == $this->config->item('seccion:programa')) {
                         $objBeanSeccion->templates_id = '6';
@@ -5744,10 +5753,22 @@ class Admin extends Admin_Controller {
      */
     public function eliminar_completamente($id, $tipo) {
         if ($this->input->is_ajax_request()) {
-            switch ($tipo){
+            switch ($tipo) {
                 case 'maestro':
+                    //Elimininamos todos los maestros en detalle secciones
+                    
                     break;
                 case 'video':
+                    //Eliminamos todo los videos en los detalles secciones
+                    $this->detalle_secciones_m->delete_by(array("videos_id" => $id));
+                    //Eliminamos los videos que estén en la tabla grupo detalle
+                    $this->grupo_detalle_m->delete_by(array("video_id" => $id));
+                    //Eliminamos sus imagenes
+                    //$this->imagen_m->delete_by(array("videos_id" => $id));
+                    //Eliminamos sus tags relacionados
+                    $this->video_tags_m->delete_by(array("videos_id" => $id));
+                    //eliminamos el video
+                    $this->videos_m->delete($id);
                     break;
                 case 'canal':
                     break;
