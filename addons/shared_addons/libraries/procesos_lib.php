@@ -69,13 +69,25 @@ class Procesos_lib extends MX_Controller {
             $arrayViews = Liquid::obtenernumberOfViews($value->apikey);
             foreach ($arrayViews as $value) {
                 //print_r($value);
-                $this->videos_mp->setReproducciones($value["id"], $value["numberOfViews"]);
+                //$this->videos_mp->setReproducciones($value["id"], $value["numberOfViews"]);
+                $this->_curlSetReproducciones($value["id"], $value["numberOfViews"]);
+                
             }
         }
     }
 
     /* Actualizar Visualizaciones Liquid  -  FIN */
-
+    
+    private function _curlSetReproducciones($id,$cant){
+        Log::erroLog("_curlSetReproducciones: " . $id.", cant: ".$cant);         
+        $ruta = base_url("curlproceso/setReproduccionesVideosXId/" . $id."/".$cant);
+        shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");        
+    }
+    
+    public function setReproduccionesVideosXId($id,$cant){
+        $this->videos_mp->setReproduccionesVideosXId($id, $cant);
+    }
+    
     /* Actualizar Comentarios Valoracion   -  INICIO */
 
     private function _actualizarComentariosValorizacion() {
@@ -418,7 +430,6 @@ class Procesos_lib extends MX_Controller {
     }
 
     /* Subir Videos - INICIO */
-
 
     /* MiCanal Mongo - INICIO */
 
