@@ -88,7 +88,6 @@ class Procesos_lib extends MX_Controller {
         $this->videos_mp->setReproduccionesVideosXId($id, $cant);
     }
     
-
     /* Actualizar Comentarios Valoracion   -  INICIO */
 
     private function _actualizarComentariosValorizacion() {

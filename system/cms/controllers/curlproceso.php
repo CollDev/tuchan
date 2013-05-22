@@ -36,6 +36,7 @@ class curlProceso extends MX_Controller {
     }   
     
     public function setReproduccionesVideosXId($id,$cant){
+        Log::erroLog("setReproduccionesVideosXId ".$id. ", cant: ".$cant);
         $this->procesos_lib->setReproduccionesVideosXId($id,$cant);
     }
     
