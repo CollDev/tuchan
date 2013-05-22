@@ -32,7 +32,7 @@
 */
  
 // Development
-/*
+
 $db[PYRO_DEVELOPMENT] = array(
 	'hostname'		=> 	'192.168.1.35', //'10.203.31.139'
 	'username'		=> 	'root',//'micanalcmsdev',
@@ -51,7 +51,7 @@ $db[PYRO_DEVELOPMENT] = array(
 	// 'Tough love': Forces strict mode to test your app for best compatibility
 	'stricton' 		=> TRUE,
 );
-*/
+
 
 // El Comercio -  DEV
 
@@ -74,11 +74,7 @@ $db[PYRO_DEVELOPMENT] = array(
 	// 'Tough love': Forces strict mode to test your app for best compatibility
 	'stricton' 		=> TRUE,	'stricton' 		=> TRUE,
 );
-<<<<<<< HEAD
-*/
-=======
 
->>>>>>> 85349e128c48b0f804f4575ce04ddb401a0da9c4
 // El Comercio - PRE
 /*
 $db[PYRO_DEVELOPMENT] = array(
