@@ -500,16 +500,6 @@ else:
                             success: function(respuesta)
                             {
                                 $("#divPrograma").html(respuesta);
-                                //$("#divResultado").html(respuesta);
-                                /*$('#black').smartpaginator({
-                                 totalrecords: $("#total").val(),
-                                 recordsperpage: 3,
-                                 theme: 'black',
-                                 onchange: function(newPage) {
-                                 //$('#r').html('Page # ' + newPage);
-                                 paginarItems(newPage);
-                                 }
-                                 });*/
                             } //end success
                         }); //end AJAX           
                     }

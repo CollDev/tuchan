@@ -78,9 +78,9 @@
                     tipo = 'maestro';
                 }
                 if (tipo == 'video') {
-                    var post_url = "/admin/videos/eliminar_video/" + maestro_id;
+                    var post_url = "/admin/canales/eliminar_video/" + maestro_id;
                 } else {
-                    var post_url = "/admin/videos/eliminar_maestro/" + maestro_id;
+                    var post_url = "/admin/canales/eliminar_maestro/" + maestro_id;
                 }
                 $.ajax({
                     type: "POST",
@@ -92,11 +92,6 @@
                         if (respuesta.value == 1) {
                             //location.reload();
                             $("#item_" + tipo_item + "_" + maestro_id).empty();
-                            //$("#" + tipo + "_" + maestro_id).html('Eliminado');
-                            //var htmlButton = '';
-                            //htmlButton+='<button class="btn blue" onclick="publicar(' +maestro_id+ ', \''+tipo+'\');return false;">Publicar</button>';
-                            //htmlButton = '<a href="#" class="mode mode_restore" onclick="restablecer(' + maestro_id + ', \'' + tipo + '\');return false;">Restablecer</a>';
-                            //$("#" + tipo + "_boton_" + maestro_id).html(htmlButton);
                         }
                     } //end success
                 }); //end AJAX   

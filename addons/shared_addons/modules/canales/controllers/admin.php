@@ -5426,6 +5426,12 @@ class Admin extends Admin_Controller {
         }
     }
 
+    /**
+     * Método para imprimir en la barra de titulos el canal y el nombre de la interface a la que se accede
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param int $canal_id
+     * @param int $vista
+     */
     public function mostrar_titulo($canal_id, $vista) {
         if ($this->input->is_ajax_request()) {
             $vista = str_replace("_", " ", $vista);
@@ -5468,6 +5474,9 @@ class Admin extends Admin_Controller {
     }
 
     /**
+     * Método para previsualizar  un video
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param int $video_id
      * metodo para llamar al archivo vista_previa.php para la vista previa
      */
     public function visualizar_video($video_id) {
@@ -5653,6 +5662,14 @@ class Admin extends Admin_Controller {
             $this->procesos_lib->curlDesactivarVideosXId($video_id);
             echo json_encode(array("value" => "1"));
         }
+    }
+    
+    public function eliminar_maestro($maestro_id){
+        if ($this->input->is_ajax_request()) {
+            $this->grupo_maestro_m->update($maestro_id, array("estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado" => $this->config->item('estado:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+            //$this->procesos_lib->curlDesactivarVideosXId($video_id);
+            echo json_encode(array("value" => "1"));
+        }        
     }
 
     /**
@@ -5850,6 +5867,11 @@ class Admin extends Admin_Controller {
         }
     }
 
+    /**
+     * Método de tipo vista para cargar datos a la interface de importación de videos
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param int $canal_id
+     */
     public function importacion($canal_id) {
         $objCanal = $this->canales_m->get($canal_id);
         $arrayProgramme = $this->grupo_maestro_m->getCollectionDropDown(array('tipo_grupo_maestro_id' => $this->config->item('videos:programa'), 'canales_id' => $canal_id), 'nombre');
@@ -5867,6 +5889,12 @@ class Admin extends Admin_Controller {
         $this->input->is_ajax_request() ? $this->template->build('admin/tables/canales') : $this->template->build('admin/importacion');
     }
 
+    /**
+     * Método para eliminar maestros que sean padres o hijos en la relación
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param array $arrayMaestro
+     * @return array
+     */
     private function eliminar_maestros_relacionados(&$arrayMaestro) {
         if (count($arrayMaestro) > 0) {
             foreach ($arrayMaestro as $master_id => $name_master) {
