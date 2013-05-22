@@ -3969,12 +3969,16 @@ class Admin extends Admin_Controller {
         return $objMaestro;
     }
 
+    /**
+     * Método para generar los maestros en estado publicado y borrador
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     */
     public function generar_programa() {
         if ($this->input->is_ajax_request()) {
             $html = '';
             switch ($this->input->post('tipo_grupo')) {
                 case $this->config->item('videos:coleccion'):
-                    $lista_programas = $this->grupo_maestro_m->where_not_in('estado',array($this->config->item('estado:eliminado')))->get_many_by(array("canales_id" => $this->input->post('canal_id'), "tipo_grupo_maestro_id" => $this->config->item('videos:programa')));
+                    $lista_programas = $this->grupo_maestro_m->where_not_in('estado', array($this->config->item('estado:eliminado')))->get_many_by(array("canales_id" => $this->input->post('canal_id'), "tipo_grupo_maestro_id" => $this->config->item('videos:programa')));
                     if (count($lista_programas) > 0) {
                         $html.='<label for="tipo">' . lang('videos:programme') . '</label>';
                         $html.='<select name="programa" id="programa" >';
@@ -3986,7 +3990,7 @@ class Admin extends Admin_Controller {
                     }
                     break;
                 case $this->config->item('videos:lista'):
-                    $lista_programas = $this->grupo_maestro_m->where_not_in('estado',array($this->config->item('estado:eliminado')))->get_many_by(array("canales_id" => $this->input->post('canal_id'), "tipo_grupo_maestro_id" => $this->config->item('videos:programa')));
+                    $lista_programas = $this->grupo_maestro_m->where_not_in('estado', array($this->config->item('estado:eliminado')))->get_many_by(array("canales_id" => $this->input->post('canal_id'), "tipo_grupo_maestro_id" => $this->config->item('videos:programa')));
                     if (count($lista_programas) > 0) {
                         $html.='<label for="tipo">' . lang('videos:programme') . '</label>';
                         $html.='<select name="programa" id="programa" onchange="generar_coleccion()" >';
@@ -4018,6 +4022,10 @@ class Admin extends Admin_Controller {
         return $lista_detalle;
     }
 
+    /**
+     * Método para listar colecciones de estado publicado y borrador
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     */
     public function generar_coleccion() {
         if ($this->input->is_ajax_request()) {
             $html = '';
@@ -4026,7 +4034,7 @@ class Admin extends Admin_Controller {
                 $array_coleccion = array();
                 foreach ($lista_detalle as $puntero => $objDetalle) {
                     if ($objDetalle->grupo_maestro_id != NULL) {
-                        $objColeccion = $this->grupo_maestro_m->get_by(array("id" => $objDetalle->grupo_maestro_id, "tipo_grupo_maestro_id" => $this->config->item('videos:coleccion')));
+                        $objColeccion = $this->grupo_maestro_m->where_not_in('estado', array($this->config->item('estado:eliminado')))->get_by(array("id" => $objDetalle->grupo_maestro_id, "tipo_grupo_maestro_id" => $this->config->item('videos:coleccion')));
                         if (count($objColeccion) > 0) {
                             array_push($array_coleccion, $objColeccion);
                         }
@@ -5011,7 +5019,7 @@ class Admin extends Admin_Controller {
                 //verificamos el maestro_id
                 if ($maestro_id > 0) {
                     if (strlen(trim($objCanal->apikey)) > 0) {
-                        $extra = array('maestro_id'=>$maestro_id,"tag"=>$this->input->post('tag'));
+                        $extra = array('maestro_id' => $maestro_id, "tag" => $this->input->post('tag'));
                         $returnvalue = $this->migracion_lib->migrar_canal($objCanal, $extra);
                         echo json_encode(array("error" => "0", "cantidad" => $returnvalue));
                     } else {
