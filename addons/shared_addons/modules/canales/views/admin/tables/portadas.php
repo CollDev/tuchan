@@ -51,7 +51,7 @@
                                     $link = '<a href="/admin/canales/previsualizar_portada/'.$post->id.'" target ="_blank" class="mode_preview modal-large">' . lang('global:preview') . '</a>';
                                 }
                                 $link.='<a href="#" class="link_portada mode_publish" onclick="publicar_portada(' . $post->id . ',\'portada\');return false;">Publicar</a>';
-                                $link.='<a href="#" class="link_portada mode_edit">Editar</a>';
+                                $link.='<a href="#" onclick="editar_portada('.$post->id.');return false;" class="link_portada mode_edit">Editar</a>';
                                 //$link.='<a href="#" class="link_portada mode_delete" onclick="eliminar_portada(' . $post->id . ',\'portada\');return false;">Eliminar</a>';
                                 $link.='<a href="#" class="link_portada mode_add" onclick="agregar_seccion(' . $post->id . ');return false;">Añadir sección</a>';
                                 break;
@@ -61,7 +61,7 @@
                                 } else {
                                     $link = '<a href="/admin/canales/previsualizar_portada/'.$post->id.'" target ="_blank" class="mode_preview modal-large">' . lang('global:preview') . '</a>';
                                 }
-                                $link.='<a href="#" class="link_portada mode_edit">Editar</a>';
+                                $link.='<a href="#" onclick="editar_portada('.$post->id.');return false;" class="link_portada mode_edit">Editar</a>';
                                 //$link.='<a href="#" class="link_portada mode_delete"  onclick="eliminar_portada(' . $post->id . ',\'portada\');return false;">Eliminar</a>';
                                 $link.='<a href="#" class="link_portada mode_add" onclick="agregar_seccion(' . $post->id . ');return false;">Añadir sección</a>';
                                 break;
@@ -90,12 +90,12 @@
                             case $this->config->item('estado:borrador'):
                                 $acciones = '<a href="/admin/canales/previsualizar_seccion/' . $objSeccion->id . '" target ="_blank" class="mode_preview modal-large">Previsualizar</a>';
                                 $acciones.= '<a href="#" onclick="publicar_seccion(' . $objSeccion->id . ', \'seccion\');return false;" class="mode_publish">Publicar</a>';
-                                $acciones.= '<a title="Editar" href="admin/canales/seccion/' . $post->canales_id . '/' . $objSeccion->id . '" class="mode_edit">Editar</a>';
+                                $acciones.= '<a title="Editar" href="/admin/canales/seccion/' . $post->canales_id . '/' . $objSeccion->id . '" class="mode_edit">Editar</a>';
                                 $acciones.= '<a href="#" onclick="eliminar_seccion(' . $objSeccion->id . ', \'seccion\');return false;" class="mode_delete">Eliminar</a>';
                                 break;
                             case $this->config->item('estado:publicado'):
                                 $acciones = '<a href="/admin/canales/previsualizar_seccion/' . $objSeccion->id . '" target ="_blank" class="modal-large mode_preview">Previsualizar</a>';
-                                $acciones.= '<a title="Editar" href="admin/canales/seccion/' . $post->canales_id . '/' . $objSeccion->id . '" class="mode_edit">Editar</a>';
+                                $acciones.= '<a title="Editar" href="/admin/canales/seccion/' . $post->canales_id . '/' . $objSeccion->id . '" class="mode_edit">Editar</a>';
                                 $acciones.= '<a href="#" onclick="eliminar_seccion(' . $objSeccion->id . ', \'seccion\');return false;" class="mode_delete">Eliminar</a>';
                                 break;
                             case $this->config->item('estado:eliminado') :

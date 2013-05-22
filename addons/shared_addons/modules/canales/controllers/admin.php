@@ -1546,7 +1546,7 @@ class Admin extends Admin_Controller {
             }
         } else {
             // Error en las dimensiones de la imagen
-            $mensajeFile = 'Verificar que la imagen tenga las dimenciones, el ancho:' . $objTipoImagenUpload->ancho . ', la altura: ' . $objTipoImagenUpload->alto;
+            $mensajeFile = 'Verificar que la imagen tenga las dimensiones, el ancho:' . $objTipoImagenUpload->ancho . ', la altura: ' . $objTipoImagenUpload->alto;
         }
         $salidaJson = array("respuesta" => $respuestaFile,
             "mensaje" => $mensajeFile,
