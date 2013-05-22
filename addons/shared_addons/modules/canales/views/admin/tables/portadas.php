@@ -108,7 +108,7 @@
                             <tr>
                                 <td style="width: 5%;"><?php echo $indice + 1; ?></td>
                                 <td style="width: 28%;"><?php echo $objSeccion->nombre; ?></td>
-                                <td style="width: 30%;"><?php echo $objSeccion->descripcion; ?></td>
+                                <td style="width: 30%;"><?php echo strip_tags($objSeccion->descripcion); ?></td>
                                 <td style="width: 10%;"><div id="seccion_<?php echo $objSeccion->id; ?>"><?php echo lang('global:' . $objSeccion->estado . '_estado'); ?></div></td>
                                 <td style="width: 25%;"><div id="seccion_boton_<?php echo $objSeccion->id; ?>"><?php echo $acciones; ?></div></td>
                             </tr>
