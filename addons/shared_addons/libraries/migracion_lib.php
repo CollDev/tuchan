@@ -177,7 +177,7 @@ class Migracion_lib extends MX_Controller {
                         $this->guardar_imagenes($objBeanVideoSaved->id, $objVideo->thumbs);
                         //guardamos los tags x video
                         $this->registrar_tags($objBeanVideoSaved->id, $objVideo->tags);
-
+                        
                         //registramos en las secciones con la libreria portadas_lib
                         $this->portadas_lib->agregar_video($objBeanVideoSaved->id);
                         //disparamos el proceso para la publicacion en el motor
