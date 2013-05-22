@@ -75,6 +75,48 @@
                         return true;
                     }
                 }
+                
+                $("#portada-form").dialog({
+                    title: 'Editar portada',
+                    autoOpen: false,
+                    height: 540,
+                    width: 540,
+                    modal: true,
+                    buttons: {
+                        "Registrar": function() {
+                            var bValid = true;
+                            allFields.removeClass("ui-state-error");
+                            bValid = bValid && checkLength(nombre, "nombre", 3, 150);
+                            bValid = bValid && checkLength(descripcion, "descripcion", 6, 200);
+                            if (bValid) {
+                                var post_url = "/admin/canales/editar_portada/" + $("#canal_id").val();
+                                $.ajax({
+                                    type: "POST",
+                                    url: post_url,
+                                    dataType: 'json',
+                                    data: 'nombre=' + nombre.val() + '&descripcion=' + descripcion.val() + '&tipo=' + tipo.val(),
+                                    success: function(respuesta)
+                                    {
+                                        //$(".validateTips").empty();
+                                        if (respuesta.error == 1) {
+                                            //$(".validateTips").html('<?php //echo lang('portada:portada_existe');       ?>');
+                                            updateTips('<?php echo lang('portada:portada_existe'); ?>');
+                                        } else {
+                                            $(this).dialog("close");
+                                            location.reload();
+                                        }
+                                    } //end success
+                                }); //end AJAX                         
+                            }
+                        },
+                        Cancel: function() {
+                            $(this).dialog("close");
+                        }
+                    },
+                    close: function() {
+                        allFields.val("").removeClass("ui-state-error");
+                    }
+                });                
 
                 $("#dialog-form").dialog({
                     autoOpen: false,
@@ -204,8 +246,11 @@
                 }); //end AJAX              
             }
 
-
+            function editar_portada(portada_id){
+                $("#portada-form").dialog("open");
+            }
         </script>
+        <div id="portada-form"></div>
         <div id="dialog-form" title="Agregar nueva Portada"  style="display:none;">
             <p class="validateTips"><?php echo lang('portada:all_form_fiels_are_required'); ?></p>
             <form>
