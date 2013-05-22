@@ -2599,7 +2599,7 @@ class Admin extends Admin_Controller {
     public function actualizar_seccion() {
         if ($this->input->is_ajax_request()) {
             $user_id = (int) $this->session->userdata('user_id');
-            $this->secciones_m->update($this->input->post('seccion_id'), array('nombre' => $this->input->post('nombre'), 'descripcion' => $this->input->post('descripcion'), 'templates_id' => $this->input->post('template'), 'fecha_actualizacion' => date("Y-m-d H:i:s"), 'usuario_actualizacion' => $user_id));
+            $this->secciones_m->update($this->input->post('seccion_id'), array('estado_migracion'=>$this->config->item('migracion:actualizado'),'nombre' => $this->input->post('nombre'), 'descripcion' => $this->input->post('descripcion'), 'templates_id' => $this->input->post('template'), 'fecha_actualizacion' => date("Y-m-d H:i:s"), 'usuario_actualizacion' => $user_id));
             echo json_encode(array("value" => "1"));
         }
     }
