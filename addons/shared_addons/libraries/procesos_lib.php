@@ -761,7 +761,7 @@ class Procesos_lib extends MX_Controller {
     public function actualizarPortadasMiCanal() {
         $portadas = $this->portadas_mp->getPortadas();
 
-        print_r($portadas);
+        //print_r($portadas);
 
         foreach ($portadas as $value) {
             $this->_generarPortadasMiCanalXId($value->id);
