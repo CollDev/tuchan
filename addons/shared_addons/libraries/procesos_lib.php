@@ -431,7 +431,6 @@ class Procesos_lib extends MX_Controller {
 
     /* Subir Videos - INICIO */
 
-
     /* MiCanal Mongo - INICIO */
 
     private function urls_amigables($url) {

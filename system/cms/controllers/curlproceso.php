@@ -117,8 +117,7 @@ class curlProceso extends MX_Controller {
         
         echo "<pre>";
         print_r($this->config);
-        echo "</pre>";
-        
+        echo "</pre>";        
     }
     
     public function getphpinfo(){
