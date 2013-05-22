@@ -39,8 +39,8 @@
                 <table>
                     <tr>
                         <td style="width: 5%;"><?php echo $index + 1; ?></td>
-                        <td style="width: 30%;"><?php echo $post->nombre; ?></td>
-                        <td style="width: 30%;"><?php echo strip_tags($post->descripcion) ?></td>
+                        <td style="width: 30%;"><div id="nombre_<?php echo $post->id ?>"><?php echo $post->nombre; ?></div></td>
+                        <td style="width: 30%;"><div id="descripcion_<?php echo $post->id ?>"><?php echo strip_tags($post->descripcion) ?></div></td>
                         <td style="width: 5%;"><div id="portada_<?php echo $post->id; ?>"><?php echo lang('global:' . $post->estado . '_estado'); ?></div></td>
                         <?php
                         switch ($post->estado):
