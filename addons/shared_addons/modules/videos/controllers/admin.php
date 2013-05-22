@@ -3974,7 +3974,7 @@ class Admin extends Admin_Controller {
             $html = '';
             switch ($this->input->post('tipo_grupo')) {
                 case $this->config->item('videos:coleccion'):
-                    $lista_programas = $this->grupo_maestro_m->get_many_by(array("canales_id" => $this->input->post('canal_id'), "tipo_grupo_maestro_id" => $this->config->item('videos:programa')));
+                    $lista_programas = $this->grupo_maestro_m->where_not_in('estado',array($this->config->item('estado:eliminado')))->get_many_by(array("canales_id" => $this->input->post('canal_id'), "tipo_grupo_maestro_id" => $this->config->item('videos:programa')));
                     if (count($lista_programas) > 0) {
                         $html.='<label for="tipo">' . lang('videos:programme') . '</label>';
                         $html.='<select name="programa" id="programa" >';
@@ -3986,7 +3986,7 @@ class Admin extends Admin_Controller {
                     }
                     break;
                 case $this->config->item('videos:lista'):
-                    $lista_programas = $this->grupo_maestro_m->get_many_by(array("canales_id" => $this->input->post('canal_id'), "tipo_grupo_maestro_id" => $this->config->item('videos:programa')));
+                    $lista_programas = $this->grupo_maestro_m->where_not_in('estado',array($this->config->item('estado:eliminado')))->get_many_by(array("canales_id" => $this->input->post('canal_id'), "tipo_grupo_maestro_id" => $this->config->item('videos:programa')));
                     if (count($lista_programas) > 0) {
                         $html.='<label for="tipo">' . lang('videos:programme') . '</label>';
                         $html.='<select name="programa" id="programa" onchange="generar_coleccion()" >';
