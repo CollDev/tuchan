@@ -81,7 +81,7 @@
                     autoOpen: false,
                     height: 340,
                     width: 540,
-                    modal: true,
+                    modal: false,
                     stack: false,
                     //zIndex: 9999,
                     buttons: {
@@ -123,7 +123,7 @@
                     autoOpen: false,
                     height: 540,
                     width: 540,
-                    modal: true,
+                    modal: false,
                     buttons: {
                         "Registrar": function() {
                             var bValid = true;
@@ -179,7 +179,7 @@
                     autoOpen: false,
                     height: 540,
                     width: 540,
-                    modal: true,
+                    modal: false,
                     buttons: {
                         "Registrar": function() {
                             var bValid = true;
