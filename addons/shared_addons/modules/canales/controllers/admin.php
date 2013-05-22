@@ -5663,13 +5663,13 @@ class Admin extends Admin_Controller {
             echo json_encode(array("value" => "1"));
         }
     }
-    
-    public function eliminar_maestro($maestro_id){
+
+    public function eliminar_maestro($maestro_id) {
         if ($this->input->is_ajax_request()) {
             $this->grupo_maestro_m->update($maestro_id, array("estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado" => $this->config->item('estado:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
             //$this->procesos_lib->curlDesactivarVideosXId($video_id);
             echo json_encode(array("value" => "1"));
-        }        
+        }
     }
 
     /**
@@ -5906,6 +5906,29 @@ class Admin extends Admin_Controller {
             }
         }
         return $arrayMaestro;
+    }
+
+    /**
+     * Método para editar el título y descripcion de una portada
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param int $portada_id
+     */
+    public function editar_portada($portada_id) {
+        if ($this->input->is_ajax_request()) {
+            $this->portada_m->update($portada_id, array("nombre"=>$this->input->post('nombre'), "descripcion"=>$this->input->post('descripcion'), "estado_migracion"=>$this->config->item('migracion:actualizado')));
+            echo json_encode(array("value" => "1","portada_id"=>$portada_id, "nombre" => $this->input->post('nombre'), "descripcion" => $this->input->post('descripcion')));
+        }
+    }
+
+    public function obtener_portada($portada_id) {
+        if ($this->input->is_ajax_request()) {
+            $objPortada = $this->portada_m->get($portada_id);
+            if (count($objPortada) > 0) {
+                echo json_encode(array("value" => "1", "nombre" => $objPortada->nombre, "descripcion" => $objPortada->descripcion));
+            } else {
+                echo json_encode(array("value" => "0"));
+            }
+        }
     }
 
 }

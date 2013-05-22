@@ -22,9 +22,9 @@
     </div>    
 </section>
 <?php if ($objCanal->tipo_canales_id == $this->config->item('canal:mi_canal')): ?>
-            <!--    <section>
-                    <a href="#" id="display-form" title="<?php //echo lang('portada:add_portada');    ?>"><?php //echo lang('portada:add_portada');    ?></a>
-                </section>-->
+                        <!--    <section>
+                                <a href="#" id="display-form" title="<?php //echo lang('portada:add_portada');       ?>"><?php //echo lang('portada:add_portada');       ?></a>
+                            </section>-->
 <?php endif; ?>
 <section class="item">
     <?php template_partial('filters'); ?>
@@ -75,13 +75,15 @@
                         return true;
                     }
                 }
-                
+
                 $("#portada-form").dialog({
                     title: 'Editar portada',
                     autoOpen: false,
-                    height: 540,
+                    height: 340,
                     width: 540,
                     modal: true,
+                    stack: false,
+                    //zIndex: 9999,
                     buttons: {
                         "Registrar": function() {
                             var bValid = true;
@@ -89,21 +91,20 @@
                             bValid = bValid && checkLength(nombre, "nombre", 3, 150);
                             bValid = bValid && checkLength(descripcion, "descripcion", 6, 200);
                             if (bValid) {
-                                var post_url = "/admin/canales/editar_portada/" + $("#canal_id").val();
+                                var post_url = "/admin/canales/editar_portada/" + $("#portada_id").val();
+                                var serializedData = $('#formPortada').serialize();
                                 $.ajax({
                                     type: "POST",
                                     url: post_url,
                                     dataType: 'json',
-                                    data: 'nombre=' + nombre.val() + '&descripcion=' + descripcion.val() + '&tipo=' + tipo.val(),
+                                    //data: 'nombre=' + nombre.val() + '&descripcion=' + descripcion.val() + '&tipo=' + tipo.val(),
+                                    data: serializedData,
                                     success: function(respuesta)
                                     {
-                                        //$(".validateTips").empty();
-                                        if (respuesta.error == 1) {
-                                            //$(".validateTips").html('<?php //echo lang('portada:portada_existe');       ?>');
-                                            updateTips('<?php echo lang('portada:portada_existe'); ?>');
-                                        } else {
-                                            $(this).dialog("close");
-                                            location.reload();
+                                        if (respuesta.value == 1) {
+                                            $("#nombre_"+respuesta.portada_id).html(respuesta.nombre);
+                                            $("#descripcion_"+respuesta.portada_id).html(respuesta.descripcion);
+                                            $("#portada-form").dialog("close");
                                         }
                                     } //end success
                                 }); //end AJAX                         
@@ -116,7 +117,7 @@
                     close: function() {
                         allFields.val("").removeClass("ui-state-error");
                     }
-                });                
+                });
 
                 $("#dialog-form").dialog({
                     autoOpen: false,
@@ -148,7 +149,7 @@
                                     {
                                         //$(".validateTips").empty();
                                         if (respuesta.error == 1) {
-                                            //$(".validateTips").html('<?php //echo lang('portada:portada_existe');       ?>');
+                                            //$(".validateTips").html('<?php //echo lang('portada:portada_existe');          ?>');
                                             updateTips('<?php echo lang('portada:portada_existe'); ?>');
                                         } else {
                                             $(this).dialog("close");
@@ -246,11 +247,38 @@
                 }); //end AJAX              
             }
 
-            function editar_portada(portada_id){
-                $("#portada-form").dialog("open");
+            function editar_portada(portada_id) {
+                var post_url = "/admin/canales/obtener_portada/" + portada_id;
+                $.ajax({
+                    type: "POST",
+                    url: post_url,
+                    dataType: 'json',
+                    //data:imagen_id,
+                    success: function(respuesta) //we're calling the response json array 'cities'
+                    {
+                        if (respuesta.value == 1) {
+                            $("#portada_id").val(portada_id);
+                            $("#nombre").val(respuesta.nombre);
+                            $("#descripcion").val(respuesta.descripcion);
+                            $("#portada-form").dialog("open");
+                        }
+                    } //end success
+                }); //end AJAX             
+
             }
         </script>
-        <div id="portada-form"></div>
+        <div id="portada-form">
+            <p class="validateTips"><?php echo lang('portada:all_form_fiels_are_required'); ?></p>
+            <form id="formPortada" name="formPortada">
+                <fieldset>
+                    <label for="name"><?php echo lang('canales:nombre_label'); ?></label>
+                    <input type="text" name="nombre" id="nombre" class="text ui-widget-content ui-corner-all" style="width:420px;" />
+                    <label for="descripcion"><?php echo lang('canales:descripcion_label'); ?></label>
+                    <input type="text" name="descripcion" id="descripcion" value="" class="text ui-widget-content ui-corner-all" style="width:420px;" />
+                    <input type="hidden" nombre="portada_id" id="portada_id" value="" />
+                </fieldset>
+            </form>            
+        </div>
         <div id="dialog-form" title="Agregar nueva Portada"  style="display:none;">
             <p class="validateTips"><?php echo lang('portada:all_form_fiels_are_required'); ?></p>
             <form>
@@ -275,7 +303,7 @@
                     <label for="descripcion"><?php echo lang('canales:descripcion_label'); ?></label>
                     <input type="text" name="descripcion_seccion" id="descripcion_seccion" value="" class="text ui-widget-content ui-corner-all" style="width:420px;" />
                     <br />
-    <!--                    <label for="tipo_seccion"><?php //echo lang('portada:tipo_portada')    ?></label>
+    <!--                    <label for="tipo_seccion"><?php //echo lang('portada:tipo_portada')       ?></label>
                     <?php //echo //form_dropdown('tipo_seccion', $tipo_seccion, 10);  ?>
                     <br /><br />-->
                     <label for="templates"><?php echo lang('portada:template') ?></label>
