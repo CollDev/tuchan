@@ -95,7 +95,7 @@ class Videos_mp extends CI_Model {
         return $this->db->query($query)->result();
     }
 
-    public function setReproducciones($id, $cant) {
+    public function setReproduccionesVideosXId($id, $cant) {
         $query = "update " . $this->_table . " set reproducciones='" . $cant . "' where codigo='" . $id . "'";
         return $this->db->query($query);
     }
