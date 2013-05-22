@@ -1689,7 +1689,7 @@ class Procesos_lib extends MX_Controller {
     
     public function actualizarSecciones6789() {
         Log::erroLog("_actualizarVisualizacion");
-        $this->_actualizarVisualizacion();
+        //$this->_actualizarVisualizacion();
         Log::erroLog("_actualizarComentariosValorizacion");
         $this->_actualizarComentariosValorizacion();
         Log::erroLog("_actualizarSecciones6789");
