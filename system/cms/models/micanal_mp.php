@@ -46,7 +46,7 @@ class MiCanal_mp extends CI_Model {
     public function queryProcedure($option, $id) {
         switch ($option) {
             case '1':
-                $query = "call sp_llenartiposeccion6789";                                
+                $query = "call sp_llenartiposeccion6789()";                                
                 break;
             case '4':
                 $query = "call sp_obtenerdatos(" . $id . ")";
