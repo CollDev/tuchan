@@ -5663,6 +5663,14 @@ class Admin extends Admin_Controller {
             echo json_encode(array("value" => "1"));
         }
     }
+    
+    public function eliminar_maestro($maestro_id){
+        if ($this->input->is_ajax_request()) {
+            $this->grupo_maestro_m->update($maestro_id, array("estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado" => $this->config->item('estado:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+            //$this->procesos_lib->curlDesactivarVideosXId($video_id);
+            echo json_encode(array("value" => "1"));
+        }        
+    }
 
     /**
      * Método para publicar el video
