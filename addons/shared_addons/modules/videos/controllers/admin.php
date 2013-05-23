@@ -2877,7 +2877,7 @@ class Admin extends Admin_Controller {
         //lista tipo de maestros
         $items = $this->itemsMaestros($maestro_id);
         //categorias
-        $categorias = $this->categoria_m->getCategoryDropDown(array());
+        $categorias = $this->categoria_m->getCategoryDropDown(array("categorias_id" => "0"), 'nombre');
         //listamos las imagenes
         $lista_imagenes = $this->listaImagenes($maestro_id);
 
