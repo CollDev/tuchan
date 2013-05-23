@@ -5,10 +5,29 @@ class Migracion extends MX_Controller {
    
 
     function __construct() {
-        
-        }
+        $this->load->model('micanal_mp');
+        $this->load->model('canales_mp');
+    }
 
     private function index() {
+        
+    }
+    
+    private function _setMicanalMongo(){
+        $objmongo['tipo']="portada";
+        $objmongo['nombre']="Portada Principal Mi Canal";
+        $objmongo['estado']="1";
+        $objmongo['canal']="Mi Canal";
+        $objmongo['tipo_portadas_id']="1";
+        $objmongo['alias']="";
+        
+        $id_mongo = $this->micanal_mp->setItemCollection($objmongo);
+        
+        $canales = $this->portadas_mp->getPortadasMiCanal();
+        
+        foreach ($canales as $value) {                    
+             $this->micanal_mp->updateIdMongoPortadas($value->id, $id_mongo);            
+        }
         
     }
 
@@ -22,6 +41,7 @@ class Migracion extends MX_Controller {
 
     public function setRestoreBD() {
         self::procesoMigra("data.restore.sql");
+        self::_setMicanalMongo();
     }
 
     public function setRestoreFechaBD($fecha) {
@@ -29,10 +49,10 @@ class Migracion extends MX_Controller {
     }
 
     public function setBackupFechaBD() {
-       $file = (PATH_SQL . "" . date("Y_m_d") . ".sql");
-       //$file = "/home/idigital/Escritorio/prueba.sql";
-       self::backupmysql($this->db->hostname, $this->db->username, $this->db->password, $this->db->database, $file);
-       system('mysqldump --host=' . $this->db->hostname . ' --user=' . $this->db->username . ' --password=' . $this->db->password . '   ' . $this->db->database . ' > ' . $file);
+        $file = (PATH_SQL . "" . date("Y_m_d") . ".sql");
+        //$file = "/home/idigital/Escritorio/prueba.sql";
+        self::backupmysql($this->db->hostname, $this->db->username, $this->db->password, $this->db->database, $file);
+        system('mysqldump --host=' . $this->db->hostname . ' --user=' . $this->db->username . ' --password=' . $this->db->password . '   ' . $this->db->database . ' > ' . $file);
     }
 
     public function procesoMigra($path) {

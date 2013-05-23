@@ -98,47 +98,12 @@ $db[PYRO_DEVELOPMENT] = array(
 */
 
 
-
-// Staging
-/*
-$db[PYRO_STAGING] = array(
-	'hostname'		=> 	'',
-	'username'		=> 	'',
-	'password'		=> 	'',
-	'database'		=> 	'pyrocms',
-	'dbdriver' 		=> 	'mysql',
-	'active_r' 		=>	TRUE,
-	'pconnect' 		=>	FALSE,
-	'db_debug' 		=>	FALSE,
-	'cache_on' 		=>	FALSE,
-	'char_set' 		=>	'utf8',
-	'dbcollat' 		=>	'utf8_unicode_ci',
-	'port' 	 		=>	3306,
-);
-*/
-/*
-// Production
-$db[PYRO_PRODUCTION] = array(
-	'hostname'		=> 	'localhost',
-	'username'		=> 	'root',
-	'password'		=> 	'123',
-	'database'		=> 	'pyro_admin',
-	'dbdriver' 		=> 	'mysqli',
-	'active_r' 		=>	TRUE,
-	'pconnect' 		=>	FALSE,
-	'db_debug' 		=>	FALSE,
-	'cache_on' 		=>	FALSE,
-	'char_set' 		=>	'utf8',
-	'dbcollat' 		=>	'utf8_unicode_ci',
-	'port' 	 		=>	'3306',
-);
-*/
-
 // Check the configuration group in use exists
 if ( ! array_key_exists(ENVIRONMENT, $db))
 {
 	show_error(sprintf(lang('error_invalid_db_group'), ENVIRONMENT));
 }
+
 
 // Assign the group to be used
 $active_group = ENVIRONMENT;
