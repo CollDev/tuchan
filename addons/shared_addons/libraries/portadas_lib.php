@@ -24,6 +24,8 @@ class Portadas_lib extends MX_Controller {
         $this->load->model('videos/tipo_imagen_m');
         $this->load->model('videos/grupo_maestro_m');
         $this->load->model('videos/grupo_detalle_m');
+        
+        $this->load->library("Procesos/log");
     }
 
     /**
@@ -147,6 +149,7 @@ class Portadas_lib extends MX_Controller {
     public function actualizar_video($video_id, $en_portada = TRUE) {
         if ($video_id > 0) {
             $objVideo = $this->videos_m->get($video_id);
+            Log::erroLog("estado antes de :" . $objVideo->estado);
             //modificamos el estado de video para que sea compatible con los estados de portada
             if ($objVideo->estado == $this->config->item('video:codificando') || $objVideo->estado == $this->config->item('video:borrador')) {
                 $objVideo->estado = $this->config->item('estado:borrador');
@@ -159,6 +162,9 @@ class Portadas_lib extends MX_Controller {
                     }
                 }
             }
+            
+            Log::erroLog("estado despues de:  " . $objVideo->estado);
+            
             //$objVideo->estado = $objVideo->estado + 1;
             if (count($objVideo) > 0) {
                 //listamos todos los detalles secciones que contengan este video
