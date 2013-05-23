@@ -898,6 +898,7 @@ class Procesos_lib extends MX_Controller {
     }
          
     public function generarSeccionesMiCanalXSeccionId($id) {
+          Log::erroLog("private curlGenerarSeccionesMiCanalXSeccionId: " . $id );
         $this->_generarSeccionesMiCanalXSeccionId($id);
     }
     
