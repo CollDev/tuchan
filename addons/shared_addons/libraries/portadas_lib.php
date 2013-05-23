@@ -159,7 +159,7 @@ class Portadas_lib extends MX_Controller {
                     }
                 }
             }
-            $objVideo->estado = $objVideo->estado + 1;
+            //$objVideo->estado = $objVideo->estado + 1;
             if (count($objVideo) > 0) {
                 //listamos todos los detalles secciones que contengan este video
                 $arrayDetalleSeciones = $this->detalle_secciones_m->get_many_by(array("videos_id" => $video_id));
