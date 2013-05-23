@@ -144,7 +144,7 @@ class Portadas_lib extends MX_Controller {
      * @author Johnny Huamani <johnny1402@gmail.com>
      * @param int $video_id
      */
-    public function actualizar_video($video_id) {
+    public function actualizar_video($video_id, $en_portada = TRUE) {
         if ($video_id > 0) {
             $objVideo = $this->videos_m->get($video_id);
             //modificamos el estado de video para que sea compatible con los estados de portada
@@ -193,19 +193,21 @@ class Portadas_lib extends MX_Controller {
                             }
                         }
                         //verificamos el estado de la portada
-                        if (count($arrayIdPortada) > 0) {
-                            $arrayIdPortada = array_unique($arrayIdPortada);
-                            foreach ($arrayIdPortada as $indice => $portada_id) {
-                                $objPortada = $this->portada_m->get($portada_id);
-                                if (count($objPortada) > 0) {
-                                    //veremos si podemos publicarlo
-                                    $arrayPortada = $this->secciones_m->get_many_by(array("portadas_id" => $portada_id, "estado" => $this->config->item('estado:publicado')));
-                                    if (count($arrayPortada) > 0) {
-                                        $this->portada_m->update($portada_id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
-                                    } else {
-                                        //verificamos que tuvo un estado eliminado
-                                        if ($objPortada->estado == $this->config->item('estado:publicado')) {
-                                            $this->portada_m->update($portada_id, array("estado" => $this->config->item('estado:borrador'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                        if ($en_portada) {
+                            if (count($arrayIdPortada) > 0) {
+                                $arrayIdPortada = array_unique($arrayIdPortada);
+                                foreach ($arrayIdPortada as $indice => $portada_id) {
+                                    $objPortada = $this->portada_m->get($portada_id);
+                                    if (count($objPortada) > 0) {
+                                        //veremos si podemos publicarlo
+                                        $arrayPortada = $this->secciones_m->get_many_by(array("portadas_id" => $portada_id, "estado" => $this->config->item('estado:publicado')));
+                                        if (count($arrayPortada) > 0) {
+                                            $this->portada_m->update($portada_id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                        } else {
+                                            //verificamos que tuvo un estado eliminado
+                                            if ($objPortada->estado == $this->config->item('estado:publicado')) {
+                                                $this->portada_m->update($portada_id, array("estado" => $this->config->item('estado:borrador'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                            }
                                         }
                                     }
                                 }
@@ -392,42 +394,42 @@ class Portadas_lib extends MX_Controller {
                 }
                 //buscamos el portada del canal y lo agregamos como un item
                 //if ($es_programa) {
-                    $objPortadaCanal = $this->portada_m->get_by(array("origen_id" => $objMaestro->canales_id, "tipo_portadas_id" => $this->config->item('portada:canal')));
-                    error_log(print_r($objPortadaCanal, true));
-                    if (count($objPortadaCanal) > 0) {
-                        $tipo_seccion = $this->obtener_array_tipo_seccion($objPortadaCanal, $objMaestro);
-                        error_log(print_r($tipo_seccion, true));
-                        if (count($tipo_seccion) > 0) {
-                            $secciones_portada = $this->secciones_m->where_in('tipo_secciones_id', $tipo_seccion)->get_many_by(array("portadas_id" => $objPortadaCanal->id));
-                            if (count($secciones_portada) > 0) {
-                                foreach ($secciones_portada as $index => $objSeccion) {
-                                    //if ($this->obtener_imagen_maestro($objMaestro, $objSeccion) > 0) {
-                                    $detalle_seccion = $this->detalle_secciones_m->get_many_by(array("secciones_id" => $objSeccion->id, "grupo_maestros_id" => $objMaestro->id));
-                                    if (count($detalle_seccion) == 0) {
-                                        //registramos el programa en esta seccion
-                                        $objBeanDetalleSeccion = new stdClass();
-                                        $objBeanDetalleSeccion->id = NULL;
-                                        $objBeanDetalleSeccion->secciones_id = $objSeccion->id;
-                                        $objBeanDetalleSeccion->videos_id = NULL;
-                                        $objBeanDetalleSeccion->grupo_maestros_id = $objMaestro->id;
-                                        $objBeanDetalleSeccion->canales_id = NULL;
-                                        $objBeanDetalleSeccion->imagenes_id = $this->obtener_imagen_maestro($objMaestro, $objSeccion);
-                                        $objBeanDetalleSeccion->peso = $this->obtenerPesoDetalleSeccion($objSeccion->id);
-                                        $objBeanDetalleSeccion->descripcion_item = '';
-                                        $objBeanDetalleSeccion->estado = $objMaestro->estado;
-                                        $objBeanDetalleSeccion->fecha_registro = date("Y-m-d H:i:s");
-                                        $objBeanDetalleSeccion->usuario_registro = $user_id;
-                                        $objBeanDetalleSeccion->estado_migracion = 9;
-                                        $objBeanDetalleSeccion->fecha_migracion = '0000-00-00 00:00:00';
-                                        $objBeanDetalleSeccion->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
-                                        $objBeanDetalleSeccionSaved = $this->detalle_secciones_m->save($objBeanDetalleSeccion);
-                                        $this->secciones_m->update($objSeccion->id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
-                                    }
-                                    //}
+                $objPortadaCanal = $this->portada_m->get_by(array("origen_id" => $objMaestro->canales_id, "tipo_portadas_id" => $this->config->item('portada:canal')));
+                error_log(print_r($objPortadaCanal, true));
+                if (count($objPortadaCanal) > 0) {
+                    $tipo_seccion = $this->obtener_array_tipo_seccion($objPortadaCanal, $objMaestro);
+                    error_log(print_r($tipo_seccion, true));
+                    if (count($tipo_seccion) > 0) {
+                        $secciones_portada = $this->secciones_m->where_in('tipo_secciones_id', $tipo_seccion)->get_many_by(array("portadas_id" => $objPortadaCanal->id));
+                        if (count($secciones_portada) > 0) {
+                            foreach ($secciones_portada as $index => $objSeccion) {
+                                //if ($this->obtener_imagen_maestro($objMaestro, $objSeccion) > 0) {
+                                $detalle_seccion = $this->detalle_secciones_m->get_many_by(array("secciones_id" => $objSeccion->id, "grupo_maestros_id" => $objMaestro->id));
+                                if (count($detalle_seccion) == 0) {
+                                    //registramos el programa en esta seccion
+                                    $objBeanDetalleSeccion = new stdClass();
+                                    $objBeanDetalleSeccion->id = NULL;
+                                    $objBeanDetalleSeccion->secciones_id = $objSeccion->id;
+                                    $objBeanDetalleSeccion->videos_id = NULL;
+                                    $objBeanDetalleSeccion->grupo_maestros_id = $objMaestro->id;
+                                    $objBeanDetalleSeccion->canales_id = NULL;
+                                    $objBeanDetalleSeccion->imagenes_id = $this->obtener_imagen_maestro($objMaestro, $objSeccion);
+                                    $objBeanDetalleSeccion->peso = $this->obtenerPesoDetalleSeccion($objSeccion->id);
+                                    $objBeanDetalleSeccion->descripcion_item = '';
+                                    $objBeanDetalleSeccion->estado = $objMaestro->estado;
+                                    $objBeanDetalleSeccion->fecha_registro = date("Y-m-d H:i:s");
+                                    $objBeanDetalleSeccion->usuario_registro = $user_id;
+                                    $objBeanDetalleSeccion->estado_migracion = 9;
+                                    $objBeanDetalleSeccion->fecha_migracion = '0000-00-00 00:00:00';
+                                    $objBeanDetalleSeccion->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
+                                    $objBeanDetalleSeccionSaved = $this->detalle_secciones_m->save($objBeanDetalleSeccion);
+                                    $this->secciones_m->update($objSeccion->id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
                                 }
+                                //}
                             }
                         }
                     }
+                }
                 //}
             }
             //parseamos todas las portadas y actualizamo estados
