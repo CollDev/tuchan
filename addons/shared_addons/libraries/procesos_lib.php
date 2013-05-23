@@ -718,6 +718,7 @@ class Procesos_lib extends MX_Controller {
                     $arrtemp["reproducciones"] = ($row3[0]->xvi_rep);
                     $arrtemp["comentarios"] = ($row3[0]->xvi_com);
                     $arrtemp["valoracion"] = ($row3[0]->xvi_val);
+                    $arrtemp["video"] = ($row3[0]->xvideo);
 
                     $urltemp = "";
                     if ($value->tipo_secciones_id == 1 && $value->tipo_portadas_id == 5) {
@@ -897,6 +898,7 @@ class Procesos_lib extends MX_Controller {
     }
          
     public function generarSeccionesMiCanalXSeccionId($id) {
+          Log::erroLog("private curlGenerarSeccionesMiCanalXSeccionId: " . $id );
         $this->_generarSeccionesMiCanalXSeccionId($id);
     }
     
@@ -1039,6 +1041,7 @@ class Procesos_lib extends MX_Controller {
                     $arrtemp["comentarios"] = $row3[0]->xvi_com;
                     $arrtemp["valoracion"] = $row3[0]->xvi_val;
                     $arrtemp["peso"] = $value2->peso;
+                    $arrtemp["video"] = strip_tags($row3[0]->xvideo);
 
                    if (!empty($value2->canales_id) && empty($row3[0]->xvideoalias)) {
                         $urltemp = "canal/" . $row3[0]->xcanalalias;

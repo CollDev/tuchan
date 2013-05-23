@@ -82,8 +82,6 @@
                     height: 340,
                     width: 540,
                     modal: false,
-                    stack: false,
-                    //zIndex: 9999,
                     buttons: {
                         "Registrar": function() {
                             var bValid = true;
