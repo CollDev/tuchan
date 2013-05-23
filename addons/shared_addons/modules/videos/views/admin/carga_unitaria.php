@@ -95,7 +95,7 @@
                 <?php if ($objBeanForm->video_id > 0) : ?>
                     <?php if ($objBeanForm->estado == ESTADO_PUBLICADO) : ?>
                         <div class="embed_video">
-                            <textarea class="embed_content" readonly="readonly">[iframe width="560" height="315" src="<?php echo $this->config->item('motor') . 'embed/' . $objBeanForm->video_id ?>" frameborder="0" allowfullscreen][/iframe]</textarea>
+                            <textarea class="embed_content" readonly="readonly">[iframe width="560" height="315" src="<?php echo $this->config->item('motor') . '/embed/' . $objBeanForm->video_id ?>" frameborder="0" allowfullscreen][/iframe]</textarea>
                         </div>
                         <script>
                             if ($('.embed_content').length == 1) {
