@@ -152,26 +152,21 @@ class Portadas_lib extends MX_Controller {
                 $this->config->load('videos/uploads');
             }
             $objVideo = $this->videos_m->get($video_id);
-            Log::erroLog("estado antes de :".$objVideo->id.'=>' . $objVideo->estado);
             //modificamos el estado de video para que sea compatible con los estados de portada
             if ($objVideo->estado == $this->config->item('video:codificando') || $objVideo->estado == $this->config->item('video:borrador')) {
-                $nuevo_estado = $this->config->item('estado:borrador');
+                $objVideo->estado = $this->config->item('estado:borrador');
             } else {
                 if ($objVideo->estado == $this->config->item('video:publicado')) {
-                    $nuevo_estado = $this->config->item('estado:publicado');
+                    $objVideo->estado = $this->config->item('estado:publicado');
                 } else {
                     if ($objVideo->estado == $this->config->item('video:eliminado')) {
-                        $nuevo_estado = $this->config->item('estado:eliminado');
+                        $objVideo->estado = $this->config->item('estado:eliminado');
                     }
                 }
             }
             
-            Log::erroLog("variable de estado :" .$this->config->item('estado:borrador'));
-            
-//            $objVideo->estado = $objVideo->estado - 1;
-//            if($objVideo->estado < 0){
-//                $objVideo->estado = 0;
-//            }
+            //Log::erroLog("variable de estado :" .$this->config->item('estado:borrador'));
+
             if (count($objVideo) > 0) {
                 //listamos todos los detalles secciones que contengan este video
                 $arrayDetalleSeciones = $this->detalle_secciones_m->get_many_by(array("videos_id" => $video_id));
