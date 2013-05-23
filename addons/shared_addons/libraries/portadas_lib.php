@@ -77,7 +77,9 @@ class Portadas_lib extends MX_Controller {
                                         $objBeanDetalleSeccion->videos_id = $video_id;
                                         $objBeanDetalleSeccion->grupo_maestros_id = NULL;
                                         $objBeanDetalleSeccion->canales_id = NULL;
+                                        Log::erroLog("---------------------------".$objVideo->id."------------------------------");
                                         $objBeanDetalleSeccion->imagenes_id = $this->obtener_imagen_maestro($objVideo, $objSeccion, 'video');
+                                        Log::erroLog("---------------------------FIN------------------------------");
                                         $objBeanDetalleSeccion->peso = $this->obtenerPesoDetalleSeccion($objSeccion->id);
                                         $objBeanDetalleSeccion->descripcion_item = '';
                                         $estado_video = $objVideo->estado - 1;
@@ -691,6 +693,7 @@ class Portadas_lib extends MX_Controller {
      */
     private function obtener_imagen_maestro($objeto, $objSeccion, $tipo = 'maestro') {
         $returnValue = 0;
+        Log::erroLog("test johnny tipo seccion :" .$objSeccion->tipo_secciones_id);
         switch ($objSeccion->tipo_secciones_id) {
             case $this->config->item('seccion:destacado'):
                 $tipo_imagen = $this->config->item('imagen:extralarge');
@@ -699,11 +702,13 @@ class Portadas_lib extends MX_Controller {
                 $tipo_imagen = $this->config->item('imagen:small');
                 break;
         }
+        Log::erroLog("test johnny tipo seccion salida :" .$tipo_imagen);
         if ($tipo == 'maestro') {
             $objImagen = $this->imagen_m->get_by(array("estado" => $this->config->item('estado:publicado'), "grupo_maestros_id" => $objeto->id, "tipo_imagen_id" => $tipo_imagen));
         } else {
             $objImagen = $this->imagen_m->get_by(array("estado" => $this->config->item('estado:publicado'), "videos_id" => $objeto->id, "tipo_imagen_id" => $tipo_imagen));
         }
+        Log::erroLog("test johnny imagen resultante :" .$objImagen->id);
         if (count($objImagen) > 0) {
             $returnValue = $objImagen->id;
         }
