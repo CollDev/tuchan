@@ -318,7 +318,9 @@ class Procesos_lib extends MX_Controller {
 
                 if ((!empty($value->ruta) || !empty($urlvideo) || !empty($duracion) ) && ($value->imag != 0 || !empty($datos["imagen"]))) {
                     $this->videos_mp->setEstadosVideos($value->id, 2, 6);
-                    
+                    Log::erroLog(" antes de actualizar_video: " . $id );
+                    $this->portadas_lib->actualizar_video($value->id, FALSE);
+                    Log::erroLog("actualizar_video: " . $id );
                 }
             }
         }
@@ -1640,10 +1642,7 @@ class Procesos_lib extends MX_Controller {
                 $i++;
             }
 
-            $set = array("imagen" => $arrimagen,  "clips" => $arrayitemclips, "related" => $arrayrelacionados);
-            Log::erroLog(" antes de actualizar_video: " . $id );
-            $this->portadas_lib->actualizar_video($id, FALSE);
-            Log::erroLog("actualizar_video: " . $id );
+            $set = array("imagen" => $arrimagen,  "clips" => $arrayitemclips, "related" => $arrayrelacionados);            
             $this->canal_mp->SetItemCollectionUpdate($set, $MongoId);            
             Log::erroLog("despues de actualizar_video: " . $id );
             //$this->micanal_mp->SetItemCollectionUpdate(array("item" => $item), array('_id' => $mongoid));
