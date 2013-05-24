@@ -2599,7 +2599,7 @@ class Admin extends Admin_Controller {
     public function actualizar_seccion() {
         if ($this->input->is_ajax_request()) {
             $user_id = (int) $this->session->userdata('user_id');
-            $this->secciones_m->update($this->input->post('seccion_id'), array('estado_migracion'=>$this->config->item('migracion:actualizado'),'nombre' => $this->input->post('nombre'), 'descripcion' => $this->input->post('descripcion'), 'templates_id' => $this->input->post('template'), 'fecha_actualizacion' => date("Y-m-d H:i:s"), 'usuario_actualizacion' => $user_id));
+            $this->secciones_m->update($this->input->post('seccion_id'), array('estado_migracion' => $this->config->item('migracion:actualizado'), 'nombre' => $this->input->post('nombre'), 'descripcion' => $this->input->post('descripcion'), 'templates_id' => $this->input->post('template'), 'fecha_actualizacion' => date("Y-m-d H:i:s"), 'usuario_actualizacion' => $user_id));
             echo json_encode(array("value" => "1"));
         }
     }
@@ -3201,18 +3201,40 @@ class Admin extends Admin_Controller {
             //$lista_maestros_publicados = $this->videos_m->get_many_by(array("canales_id" => $canal_id, "estado" => $this->config->item('video:publicado')));
             $lista_maestros_publicados = $this->vw_maestro_video_m->get_many_by(array("v" => "v", "canales_id" => $canal_id, "estado" => $this->config->item('video:publicado')));
             if (count($lista_maestros_publicados) > 0) {
-                $this->canales_m->update($canal_id, array("estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
-                //eliminamos la portada del canal
-                $objPortada = $this->portada_m->get_by(array("tipo_portadas_id" => $this->config->item('portada:canal'), "origen_id" => $canal_id));
-                if (count($objPortada) > 0) {
-                    $this->portada_m->update($objPortada->id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                if ($this->tiene_destacado_publicado($canal_id, 'canal')) {
+                    $this->canales_m->update($canal_id, array("estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                    //eliminamos la portada del canal
+                    $objPortada = $this->portada_m->get_by(array("tipo_portadas_id" => $this->config->item('portada:canal'), "origen_id" => $canal_id));
+                    if (count($objPortada) > 0) {
+                        $this->portada_m->update($objPortada->id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                    }
+                    $this->procesos_lib->curlGenerarCanalesXId($canal_id);
+                    echo json_encode(array("value" => "1"));
+                } else {
+                    echo json_encode(array("value" => "2")); //no tiene la sección destacado publicado
                 }
-                $this->procesos_lib->curlGenerarCanalesXId($canal_id);
-                echo json_encode(array("value" => "1"));
             } else {
                 echo json_encode(array("value" => "0")); //no tiene maestros activos
             }
         }
+    }
+
+    /**
+     * Método para identificar si la portada tiene la sección destacado publicado
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param int $canal_id
+     * @param string $tipo
+     * @return boolean
+     */
+    private function tiene_destacado_publicado($canal_id, $tipo) {
+        $returnValue = FALSE;
+        if($tipo == 'canal'){
+            $objPortadaCanal = $this->portadas_m->get_by(array("canales_id"=>$canal_id, "origen_id"=>$canal_id,"tipo_portadas_id"=>$this->config->item('portada:canal'), "estado"=>$this->config->item('estado:publicado')));
+            if(count($objPortadaCanal)>0){
+                $returnValue = TRUE;
+            }
+        }
+        return $returnValue;
     }
 
     /**
@@ -5915,8 +5937,8 @@ class Admin extends Admin_Controller {
      */
     public function editar_portada($portada_id) {
         if ($this->input->is_ajax_request()) {
-            $this->portada_m->update($portada_id, array("nombre"=>$this->input->post('nombre'), "descripcion"=>$this->input->post('descripcion'), "estado_migracion"=>$this->config->item('migracion:actualizado')));
-            echo json_encode(array("value" => "1","portada_id"=>$portada_id, "nombre" => $this->input->post('nombre'), "descripcion" => $this->input->post('descripcion')));
+            $this->portada_m->update($portada_id, array("nombre" => $this->input->post('nombre'), "descripcion" => $this->input->post('descripcion'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+            echo json_encode(array("value" => "1", "portada_id" => $portada_id, "nombre" => $this->input->post('nombre'), "descripcion" => $this->input->post('descripcion')));
         }
     }
 
