@@ -142,7 +142,11 @@
                                 htmlButton += '<a href="/admin/canales/portada/' + canal_id + '" class="mode_front">Portada</a>';
                                 $("#" + tipo + "_boton_" + canal_id).html(htmlButton);
                             }else{
-                                showMessage('error', 'No se puede publicar. No tiene videos publicados', 2000, '');
+                                if(respuesta.value ==  2){
+                                    showMessage('error', 'No se puede publicar. No tiene la sección destacado publicado', 2000, '');
+                                }else{
+                                    showMessage('error', 'No se puede publicar. No tiene videos publicados', 2000, '');
+                                }
                             }
                         } //end success
                     }); //end AJAX   
