@@ -821,6 +821,7 @@ class Portadas_lib extends MX_Controller {
         if ($imagen_id > 0) {
             $canal_id = 0;
             $objImagen = $this->imagen_m->get($imagen_id);
+            Log::erroLog("ID imagen :" .$objImagen->id);
             if (count($objImagen) > 0) {
                 if ($objImagen->grupo_maestros_id > 0) {
                     $detalle_secciones = $this->detalle_secciones_m->get_many_by(array("grupo_maestros_id" => $objImagen->grupo_maestros_id));
