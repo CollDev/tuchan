@@ -24,7 +24,7 @@ class Portadas_lib extends MX_Controller {
         $this->load->model('videos/tipo_imagen_m');
         $this->load->model('videos/grupo_maestro_m');
         $this->load->model('videos/grupo_detalle_m');
-        
+
         $this->load->library("Procesos/log");
     }
 
@@ -148,7 +148,7 @@ class Portadas_lib extends MX_Controller {
      */
     public function actualizar_video($video_id, $en_portada = TRUE) {
         if ($video_id > 0) {
-            if(!$en_portada){
+            if (!$en_portada) {
                 $this->config->load('videos/uploads');
             }
             $objVideo = $this->videos_m->get($video_id);
@@ -164,7 +164,7 @@ class Portadas_lib extends MX_Controller {
                     }
                 }
             }
-            
+
             //Log::erroLog("variable de estado :" .$this->config->item('estado:borrador'));
 
             if (count($objVideo) > 0) {
@@ -819,15 +819,15 @@ class Portadas_lib extends MX_Controller {
      */
     public function actualizar_imagen($imagen_id, $es_liquid = FALSE) {
         if ($imagen_id > 0) {
-            if($es_liquid){
+            if ($es_liquid) {
                 $this->config->load('videos/uploads');
             }
             $canal_id = 0;
             $objImagen = $this->imagen_m->get($imagen_id);
-            
+
             if (count($objImagen) > 0) {
                 if ($objImagen->grupo_maestros_id > 0) {
-                    Log::erroLog("johnny - Ingreso a maestros :" .$objImagen->videos_id);
+                    Log::erroLog("johnny - Ingreso a maestros :" . $objImagen->videos_id);
                     $detalle_secciones = $this->detalle_secciones_m->get_many_by(array("grupo_maestros_id" => $objImagen->grupo_maestros_id));
                     $objMaestro = $this->grupo_maestro_m->get($objImagen->grupo_maestros_id);
                     $canal_id = $objMaestro->canales_id;
@@ -849,7 +849,7 @@ class Portadas_lib extends MX_Controller {
                     }
                 } else {
                     if ($objImagen->videos_id > 0) {
-                        Log::erroLog("johnny - Ingreso a videos :" .$objImagen->videos_id);
+                        Log::erroLog("johnny - Ingreso a videos :" . $objImagen->videos_id);
                         $detalle_secciones = $this->detalle_secciones_m->get_many_by(array("videos_id" => $objImagen->videos_id));
                         $objVideo = $this->videos_m->get($objImagen->videos_id);
                         $canal_id = $objVideo->canales_id;
@@ -860,14 +860,16 @@ class Portadas_lib extends MX_Controller {
                         if (count($detalle_secciones) > 0) {
                             foreach ($detalle_secciones as $puntero => $objDetalleSeccion) {
                                 $objSeccion = $this->secciones_m->get_by(array("id" => $objDetalleSeccion->secciones_id));
-                                Log::erroLog("johnny - tipo de seccion :" .$objSeccion->tipo_secciones_id);
+                                Log::erroLog("johnny - tipo de seccion :" . $objSeccion->tipo_secciones_id);
                                 if (count($objSeccion) > 0) {
                                     if ($objSeccion->tipo_secciones_id == $this->config->item('seccion:destacado')) {
                                         if ($objImagen->tipo_imagen_id == $this->config->item('imagen:extralarge')) {
                                             $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id, "estado" => $estado_video, "estado_migracion" => $this->config->item('migracion:actualizado')));
                                         }
                                     } else {
-                                        $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id, "estado" => $estado_video, "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                        if ($objImagen->tipo_imagen_id == $this->config->item('imagen:small')) {
+                                            $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id, "estado" => $estado_video, "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                        }
                                     }
                                 }
                             }
@@ -886,7 +888,9 @@ class Portadas_lib extends MX_Controller {
                                                 $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id, "estado" => $objCanal->estado, "estado_migracion" => $this->config->item('migracion:actualizado')));
                                             }
                                         } else {
-                                            $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id, "estado" => $objCanal->estado, "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                            if ($objImagen->tipo_imagen_id == $this->config->item('imagen:small')) {
+                                                $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id, "estado" => $objCanal->estado, "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                            }
                                         }
                                     }
                                 }
