@@ -174,9 +174,12 @@ class Portadas_lib extends MX_Controller {
                     //creamos un array para recolectar los ID de seccion
                     $arrayIdSeccion = array();
                     foreach ($arrayDetalleSeciones as $puntero => $objDetalleSeccion) {
-                        array_push($arrayIdSeccion, $objDetalleSeccion->secciones_id);
                         //actualizamos el mismo estado del maestro al detalle de la seccion
-                        $this->detalle_secciones_m->update($objDetalleSeccion->id, array("estado" => $objVideo->estado, "estado_migracion" => $this->config->item('migracion:actualizado')));
+                        //validamos que el detalle sección tenga una imagen para activarlo
+                        if($objDetalleSeccion->imagenes_id > 0){
+                            array_push($arrayIdSeccion, $objDetalleSeccion->secciones_id);
+                            $this->detalle_secciones_m->update($objDetalleSeccion->id, array("estado" => $objVideo->estado, "estado_migracion" => $this->config->item('migracion:actualizado')));
+                        }
                     }
                     //actualizamos los estados de la seccion
                     if (count($arrayIdSeccion) > 0) {
