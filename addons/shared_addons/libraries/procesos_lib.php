@@ -1641,7 +1641,7 @@ class Procesos_lib extends MX_Controller {
             }
 
             $set = array("imagen" => $arrimagen,  "clips" => $arrayitemclips, "related" => $arrayrelacionados);
-            //$this->portadas_lib->actualizar_video($id, FALSE);
+            $this->portadas_lib->actualizar_video($id, FALSE);
             $this->canal_mp->SetItemCollectionUpdate($set, $MongoId);            
             Log::erroLog("actualizar_video: " . $id );
             //$this->micanal_mp->SetItemCollectionUpdate(array("item" => $item), array('_id' => $mongoid));
