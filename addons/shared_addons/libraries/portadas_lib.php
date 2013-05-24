@@ -821,9 +821,10 @@ class Portadas_lib extends MX_Controller {
         if ($imagen_id > 0) {
             $canal_id = 0;
             $objImagen = $this->imagen_m->get($imagen_id);
-            Log::erroLog("ID imagen :" .$objImagen->id);
+            
             if (count($objImagen) > 0) {
                 if ($objImagen->grupo_maestros_id > 0) {
+                    Log::erroLog("johnny - Ingreso a maestros :" .$objImagen->videos_id);
                     $detalle_secciones = $this->detalle_secciones_m->get_many_by(array("grupo_maestros_id" => $objImagen->grupo_maestros_id));
                     $objMaestro = $this->grupo_maestro_m->get($objImagen->grupo_maestros_id);
                     $canal_id = $objMaestro->canales_id;
@@ -845,6 +846,7 @@ class Portadas_lib extends MX_Controller {
                     }
                 } else {
                     if ($objImagen->videos_id > 0) {
+                        Log::erroLog("johnny - Ingreso a videos :" .$objImagen->videos_id);
                         $detalle_secciones = $this->detalle_secciones_m->get_many_by(array("videos_id" => $objImagen->videos_id));
                         $objVideo = $this->videos_m->get($objImagen->videos_id);
                         $canal_id = $objVideo->canales_id;
@@ -855,6 +857,7 @@ class Portadas_lib extends MX_Controller {
                         if (count($detalle_secciones) > 0) {
                             foreach ($detalle_secciones as $puntero => $objDetalleSeccion) {
                                 $objSeccion = $this->secciones_m->get_by(array("id" => $objDetalleSeccion->secciones_id));
+                                Log::erroLog("johnny - tipo de seccion :" .$objSeccion->tipo_secciones_id);
                                 if (count($objSeccion) > 0) {
                                     if ($objSeccion->tipo_secciones_id == $this->config->item('seccion:destacado')) {
                                         if ($objImagen->tipo_imagen_id == $this->config->item('imagen:extralarge')) {
