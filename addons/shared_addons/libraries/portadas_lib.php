@@ -817,8 +817,11 @@ class Portadas_lib extends MX_Controller {
      * @author Johnny Huamani <johnny1402@gmail.com>
      * @param int $imagen_id
      */
-    public function actualizar_imagen($imagen_id) {
+    public function actualizar_imagen($imagen_id, $es_liquid = FALSE) {
         if ($imagen_id > 0) {
+            if($es_liquid){
+                $this->config->load('videos/uploads');
+            }
             $canal_id = 0;
             $objImagen = $this->imagen_m->get($imagen_id);
             
