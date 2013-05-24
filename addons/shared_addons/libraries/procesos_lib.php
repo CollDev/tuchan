@@ -984,7 +984,7 @@ class Procesos_lib extends MX_Controller {
                         $this->secciones_mp->updateEstadoMigracionSeccionActualizacion($value->id);
                     }
 
-                    Log::erroLog("id_mongo de seccion " . $id_mongo);
+                    Log::erroLog("-> id_mongo de seccion " . $id_mongo);
                     $mongoid = new MongoId($id_mongo);
 
                     $this->_generarDetalleSeccionesMiCanalXSeccionId($value->id, $id_mongo);
@@ -1004,7 +1004,7 @@ class Procesos_lib extends MX_Controller {
 
     private function _generarDetalleSeccionesMiCanalXSeccionId($id, $id_mongo) {
 
-        ////error_log("seccion_id" . $id . "; mongo:" . $id_mongo);
+        Log::erroLog("-> id_mongo de seccion " . $id_mongo);
 
         $resquery2 = $this->micanal_mp->queryMysql(4, $id);
 
