@@ -3229,7 +3229,7 @@ class Admin extends Admin_Controller {
     private function tiene_destacado_publicado($canal_id, $tipo) {
         $returnValue = FALSE;
         if($tipo == 'canal'){
-            $objPortadaCanal = $this->portadas_m->get_by(array("canales_id"=>$canal_id, "origen_id"=>$canal_id,"tipo_portadas_id"=>$this->config->item('portada:canal'), "estado"=>$this->config->item('estado:publicado')));
+            $objPortadaCanal = $this->portada_m->get_by(array("canales_id"=>$canal_id, "origen_id"=>$canal_id,"tipo_portadas_id"=>$this->config->item('portada:canal'), "estado"=>$this->config->item('estado:publicado')));
             if(count($objPortadaCanal)>0){
                 $returnValue = TRUE;
             }
