@@ -405,10 +405,8 @@ class Portadas_lib extends MX_Controller {
                 //buscamos el portada del canal y lo agregamos como un item
                 //if ($es_programa) {
                 $objPortadaCanal = $this->portada_m->get_by(array("origen_id" => $objMaestro->canales_id, "tipo_portadas_id" => $this->config->item('portada:canal')));
-                error_log(print_r($objPortadaCanal, true));
                 if (count($objPortadaCanal) > 0) {
                     $tipo_seccion = $this->obtener_array_tipo_seccion($objPortadaCanal, $objMaestro);
-                    error_log(print_r($tipo_seccion, true));
                     if (count($tipo_seccion) > 0) {
                         $secciones_portada = $this->secciones_m->where_in('tipo_secciones_id', $tipo_seccion)->get_many_by(array("portadas_id" => $objPortadaCanal->id));
                         if (count($secciones_portada) > 0) {
@@ -794,7 +792,6 @@ class Portadas_lib extends MX_Controller {
      * @author Johnny Huamani <johnny1402@gmail.com>
      */
     private function parsear_portadas($canales_id, $es_liquid = FALSE) {
-        Log::erroLog("johnny - en la funcion parsear_portadas :" . $this->config->item('estado:publicado'));
         $lista_portadas = $this->portada_m->get_many_by(array("canales_id" => $canales_id));
         if (count($lista_portadas) > 0) {
             foreach ($lista_portadas as $puntero => $objPortada) {
@@ -808,10 +805,20 @@ class Portadas_lib extends MX_Controller {
                     }
                 }
                 //recorremos las portadas para actualizarlas
+                $tiene_seccion_destacado_activa = FALSE;
                 $objsecciones = $this->secciones_m->get_many_by(array("portadas_id" => $objPortada->id, "estado" => $this->config->item('estado:publicado')));
                 if (count($objsecciones) > 0) {
+                    foreach ($objsecciones as $ind=>$oSeccion){
+                        if($oSeccion->tipo_secciones_id == $this->config->item('seccion:destacado')){
+                            $tiene_seccion_destacado_activa = TRUE;
+                        }
+                    }
+                }
+                if (count($objsecciones) > 1 && $tiene_seccion_destacado_activa) {
                     if (!$es_liquid) {
-                        $this->portada_m->update($objPortada->id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                        //if ($this->tiene_destacado_publicado($canal_id, 'canal')) {
+                            $this->portada_m->update($objPortada->id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                        //}
                     }
                 }
             }

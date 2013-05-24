@@ -3433,7 +3433,7 @@ class Admin extends Admin_Controller {
                     $objBeanMaestro->cantidad_suscriptores = 0;
                     $objBeanMaestro->peso = $this->_obtenerPesoMaestro($this->input->post());
                     $objBeanMaestro->id_mongo = NULL;
-                    $objBeanMaestro->estado = $this->config->item('estado:publicado');
+                    $objBeanMaestro->estado = $this->config->item('estado:borrador');
                     $objBeanMaestro->fecha_registro = date("Y-m-d H:i:s");
                     $objBeanMaestro->usuario_registro = $user_id;
                     $objBeanMaestro->estado_migracion = 0;
@@ -3529,7 +3529,7 @@ class Admin extends Admin_Controller {
             $objBeanPortada->origen_id = $objMaestro->id;
         }
         $objBeanPortada->tipo_portadas_id = $tipo_portada; //$this->config->item('portada:canal');
-        $objBeanPortada->estado = '0';
+        $objBeanPortada->estado = $this->config->item('estado:borrador');
         $objBeanPortada->fecha_registro = date("Y-m-d H:i:s");
         $objBeanPortada->usuario_registro = $user_id;
         $objBeanPortada->fecha_actualizacion = date("Y-m-d H:i:s");
@@ -3579,12 +3579,12 @@ class Admin extends Admin_Controller {
                 $objBeanSeccion->tipo_secciones_id = $objTipoSeccion->id;
                 $objBeanSeccion->peso = ($puntero + 1);
                 $objBeanSeccion->id_mongo = '0';
-                $objBeanSeccion->estado = '0';
+                $objBeanSeccion->estado = $this->config->item('estado:borrador');
                 $objBeanSeccion->fecha_registro = date("Y-m-d H:i:s");
                 $objBeanSeccion->usuario_registro = $user_id;
                 $objBeanSeccion->fecha_actualizacion = date("Y-m-d H:i:s");
                 $objBeanSeccion->usuario_actualizacion = $user_id;
-                $objBeanSeccion->estado_migracion = '0';
+                $objBeanSeccion->estado_migracion = $this->config->item('migracion:nuevo');
                 $objBeanSeccion->fecha_migracion = '0000-00-00 00:00:00';
                 $objBeanSeccion->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
                 $objBeanSeccion->grupo_maestros_id = NULL;
@@ -3608,7 +3608,7 @@ class Admin extends Admin_Controller {
                             $objBeanDetalleSecciones->imagenes_id = $objImagen->id;
                             $objBeanDetalleSecciones->peso = 1;
                             $objBeanDetalleSecciones->descripcion_item = NULL;
-                            $objBeanDetalleSecciones->estado = 1;
+                            $objBeanDetalleSecciones->estado = $this->config->item('estado:publicado');
                             $objBeanDetalleSecciones->fecha_registro = date("Y-m-d H:i:s");
                             $objBeanDetalleSecciones->usuario_registro = $user_id;
                             $objBeanDetalleSecciones->estado_migracion = '0';
