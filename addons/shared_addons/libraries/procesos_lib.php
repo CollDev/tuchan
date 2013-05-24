@@ -1469,6 +1469,8 @@ class Procesos_lib extends MX_Controller {
     }
 
     private function _generarVideosXId($id) {
+        
+        Log::erroLog("_generarVideosXId: " . $id);
 
         $video = $this->videos_mp->getVideosxId($id);
 
