@@ -121,7 +121,7 @@ $config['grupo:administrador-canales'] = '4';
 $config['canal:mi_canal'] = '5';
 //intervalo de tiempo en segundos para verificar el estado de videos
 $config['video:segundos'] = '20000';
-$config['video:verificar'] = '1';
+$config['video:verificar'] = '0';
 
 //submenus
 $config['submenu:carga_unitaria'] = 'Subir video';
