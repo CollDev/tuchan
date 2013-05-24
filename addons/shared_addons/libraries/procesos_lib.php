@@ -907,8 +907,8 @@ class Procesos_lib extends MX_Controller {
         $array = array();
 
         $resquery = $this->secciones_mp->getSeccionesXId($id);
-        Log::erroLog("-> dato entrada    : " . $id . " -- ");
-        Log::erroLog("-> cantidad   : " . count($resquery) . " -- ");
+        Log::erroLog("->  dato entrada    : " . $id . " -- ");
+        Log::erroLog("->  cantidad   : " . count($resquery) . " -- ");
 
         if (count($resquery) != 0) {
 
