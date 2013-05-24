@@ -790,7 +790,7 @@ class Portadas_lib extends MX_Controller {
      * @param int $canales_id
      * @author Johnny Huamani <johnny1402@gmail.com>
      */
-    private function parsear_portadas($canales_id) {
+    private function parsear_portadas($canales_id, $es_liquid = TRUE) {
         Log::erroLog("johnny - en la funcion parsear_portadas :" . $this->config->item('estado:publicado'));
         $lista_portadas = $this->portada_m->get_many_by(array("canales_id" => $canales_id));
         if (count($lista_portadas) > 0) {
@@ -807,7 +807,9 @@ class Portadas_lib extends MX_Controller {
                 //recorremos las portadas para actualizarlas
                 $objsecciones = $this->secciones_m->get_many_by(array("portadas_id" => $objPortada->id, "estado" => $this->config->item('estado:publicado')));
                 if (count($objsecciones) > 0) {
-                    $this->portada_m->update($objPortada->id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                    if (!$es_liquid) {
+                        $this->portada_m->update($objPortada->id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                    }
                 }
             }
         }
@@ -828,7 +830,6 @@ class Portadas_lib extends MX_Controller {
 
             if (count($objImagen) > 0) {
                 if ($objImagen->grupo_maestros_id > 0) {
-                    Log::erroLog("johnny - Ingreso a maestros :" . $objImagen->videos_id);
                     $detalle_secciones = $this->detalle_secciones_m->get_many_by(array("grupo_maestros_id" => $objImagen->grupo_maestros_id));
                     $objMaestro = $this->grupo_maestro_m->get($objImagen->grupo_maestros_id);
                     $canal_id = $objMaestro->canales_id;
@@ -850,7 +851,6 @@ class Portadas_lib extends MX_Controller {
                     }
                 } else {
                     if ($objImagen->videos_id > 0) {
-                        Log::erroLog("johnny - Ingreso a videos :" . $objImagen->videos_id);
                         $detalle_secciones = $this->detalle_secciones_m->get_many_by(array("videos_id" => $objImagen->videos_id));
                         $objVideo = $this->videos_m->get($objImagen->videos_id);
                         $canal_id = $objVideo->canales_id;
@@ -861,7 +861,6 @@ class Portadas_lib extends MX_Controller {
                         if (count($detalle_secciones) > 0) {
                             foreach ($detalle_secciones as $puntero => $objDetalleSeccion) {
                                 $objSeccion = $this->secciones_m->get_by(array("id" => $objDetalleSeccion->secciones_id));
-                                Log::erroLog("johnny - tipo de seccion :" . $objSeccion->tipo_secciones_id);
                                 if (count($objSeccion) > 0) {
                                     if ($objSeccion->tipo_secciones_id == $this->config->item('seccion:destacado')) {
                                         if ($objImagen->tipo_imagen_id == $this->config->item('imagen:extralarge')) {
@@ -901,7 +900,7 @@ class Portadas_lib extends MX_Controller {
                 }
                 //parseamos todas las portadas para actualizarlas
                 if ($canal_id > 0) {
-                    $this->parsear_portadas($canal_id);
+                    $this->parsear_portadas($canal_id, $es_liquid);
                 }
             }
         }
