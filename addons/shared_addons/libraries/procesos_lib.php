@@ -118,9 +118,9 @@ class Procesos_lib extends MX_Controller {
         Log::erroLog("id: " . $id);
         $this->_convertirVideosXId($id);
 //        $this->_uploadVideosXId($id);
-//        Log::erroLog("entro a curl upload video: ". $id);
-//        $this->curlUploadVideosXId($id);
-//        Log::erroLog("salio de curl upload video ". $id);
+        Log::erroLog("entro a curl upload video: ". $id);
+        $this->curlUploadVideosXId($id);
+        Log::erroLog("salio de curl upload video ". $id);
     }
 
     public function continuaProcesoVideos($id) {
@@ -183,7 +183,7 @@ class Procesos_lib extends MX_Controller {
 
         if (!empty($id)) {
             $this->videos_mp->setEstadosVideos($id, 0, 1);
-            if (Ffmpeg::convertVideotoMp4($id)) {
+            if (Ffmpeg::convertVideotoMp4($id)) {                
                 $this->videos_mp->setEstadosVideos($id, 0, 2);
             } else {
                 $this->videos_mp->setEstadosVideos($id, 0, -1);
