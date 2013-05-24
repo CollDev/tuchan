@@ -2383,6 +2383,7 @@ class Admin extends Admin_Controller {
                 }
                 //guardamos en la tabla grupo detalle
                 $this->_saveVideoMaestroDetalle($objBeanVideo, $this->input->post(), $maestro_detalle_id);
+                $this->procesos_lib->curlActualizarVideosXId($video_id);
                 echo json_encode(array("value" => '0'));
             }
         }
