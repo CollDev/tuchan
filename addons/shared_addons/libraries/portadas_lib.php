@@ -790,7 +790,7 @@ class Portadas_lib extends MX_Controller {
      * @param int $canales_id
      * @author Johnny Huamani <johnny1402@gmail.com>
      */
-    private function parsear_portadas($canales_id, $es_liquid = TRUE) {
+    private function parsear_portadas($canales_id, $es_liquid = FALSE) {
         Log::erroLog("johnny - en la funcion parsear_portadas :" . $this->config->item('estado:publicado'));
         $lista_portadas = $this->portada_m->get_many_by(array("canales_id" => $canales_id));
         if (count($lista_portadas) > 0) {
