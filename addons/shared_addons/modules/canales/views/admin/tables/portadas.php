@@ -138,7 +138,6 @@
     <?php foreach ($portadas as $index => $post): ?>
                                     $("#table-<?php echo $post->id ?>").tableDnD({
                                         onDrop: function(table, row) {
-                                            console.log($.tableDnD.serialize());
                                             ordenarListaSecciones($.tableDnD.serialize());
                                         }
                                     });

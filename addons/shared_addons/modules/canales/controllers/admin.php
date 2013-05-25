@@ -98,9 +98,9 @@ class Admin extends Admin_Controller {
             // Create pagination links
             if (strlen(trim($keyword)) > 0) {
                 if (count($canalesxUsuario) > 0) {
-                    $total_rows = $this->canales_m->like('nombre', $keyword)->count_by($base_where);
-                } else {
                     $total_rows = $this->canales_m->where_in('id', $arrayCanales)->like('nombre', $keyword)->count_by($base_where);
+                } else {
+                    $total_rows = $this->canales_m->like('nombre', $keyword)->count_by($base_where);
                 }
             } else {
                 if (count($canalesxUsuario) > 0) {

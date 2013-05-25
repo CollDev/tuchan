@@ -186,6 +186,8 @@ class Migracion_lib extends MX_Controller {
                     }
                 }
             }
+            //solo para un item
+            //break;
         }
         return $contador;
     }
