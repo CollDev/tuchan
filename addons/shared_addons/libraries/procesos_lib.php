@@ -44,10 +44,14 @@ class Procesos_lib extends MX_Controller {
 
         $result = $this->videos_mp->getVideosxId($id_padre);
 
-
+        Log::erroLog("ini - curlCorteVideo: " . $id_padre . ", hijo " . $id_hijo. ", inicio " . $inicio. ", duracion " . $duracion);
+        
         if (!empty($id_padre) && !empty($id_hijo) && !empty($inicio) && !empty($duracion)) {
-            if (Ffmpeg::downloadVideo($result[0]->id, $result[0]->rutasplitter)) {
+            Log::erroLog("downloadVideo");            
+            if (Ffmpeg::downloadVideo($result[0]->id, trim($result[0]->rutasplitter))) {
+                Log::erroLog("splitVideo");            
                 if (Ffmpeg::splitVideo($id_padre, $id_hijo, $inicio, $duracion)) {
+                    Log::erroLog("curlProcesoVideosXId"); 
                     $this->curlProcesoVideosXId($id_hijo);
                 }
             }
@@ -251,8 +255,10 @@ class Procesos_lib extends MX_Controller {
             foreach ($resultado as $value) {
 
                 ////error_log("dentro de " . $value->id);
-
-                $mediaarr = Liquid::obtenerDatosMedia($value);
+                if(empty($value->duracion) && empty($value->ruta) && empty($value->rutasplitter)){
+                    $mediaarr = Liquid::obtenerDatosMedia($value);
+                }
+                
 
 
                 if (empty($value->duracion)) {
@@ -1611,17 +1617,17 @@ class Procesos_lib extends MX_Controller {
             $tags = $this->video_tags_mp->getTagsVideosXId($id);
             //  print_r($tags);
 
-            $clienteSOAP = new SoapClient($this->config->item('motor') . "/" . EC_CLIENTE_SOAP);
-
-            $parametros = array();
-
-            $parametros["estado"] = array(1);
-            $parametros["peso_videos"] = array("titulo" => 15, "descripcion" => 5, "tags" => 80);
-
-
-            $this->resultado = $clienteSOAP->BusquedaRelacionado(json_encode($parametros), $tags[0]->tags);
-
-            $resultado = json_decode($this->resultado);
+//            $clienteSOAP = new SoapClient($this->config->item('motor') . "/" . EC_CLIENTE_SOAP);
+//
+//            $parametros = array();
+//
+//            $parametros["estado"] = array(1);
+//            $parametros["peso_videos"] = array("titulo" => 15, "descripcion" => 5, "tags" => 80);
+//
+//
+//            $this->resultado = $clienteSOAP->BusquedaRelacionado(json_encode($parametros), $tags[0]->tags);
+//
+//            $resultado = json_decode($this->resultado);
 
             $arrayrelacionados = array();
 
