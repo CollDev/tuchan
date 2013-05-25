@@ -3698,9 +3698,9 @@ class Admin extends Admin_Controller {
         $returnValue = 0;
         switch ($post['tipo_grupo']) {
             case $this->config->item('videos:coleccion'):
+                $mayor = 0;
                 if ($post['programa'] > 0) {
                     $lista_coleccion_programa = $this->coleccion_de_programa($post['programa']);
-                    $mayor = 0;
                     if (count($lista_coleccion_programa) > 0) {
                         foreach ($lista_coleccion_programa as $puntero => $objMaestro) {
                             if ($objMaestro->peso > $mayor) {
@@ -3711,8 +3711,8 @@ class Admin extends Admin_Controller {
                     $returnValue = $mayor;
                 } else {
                     $coleccion_canal = $this->coleccion_canal($post['canal_id']);
+                    $mayor = 0;
                     if (count($coleccion_canal) > 0) {
-                        $mayor = 0;
                         foreach ($coleccion_canal as $indice => $objColeccion) {
                             if ($objColeccion->peso > $mayor) {
                                 $mayor = $objColeccion->peso;
@@ -3725,9 +3725,9 @@ class Admin extends Admin_Controller {
             case $this->config->item('videos:lista'):
                 if ($post['programa'] > 0) {
                     if ($post['coleccion'] > 0) {
+                        $mayor = 0;
                         $lista_coleccion = $this->lista_coleccion($post['canal_id'], $post['coleccion']);
                         if (count($lista_coleccion) > 0) {
-                            $mayor = 0;
                             foreach ($lista_coleccion as $indice => $objColeccion) {
                                 if ($objColeccion->peso > $mayor) {
                                     $mayor = $objColeccion->peso;
@@ -3737,8 +3737,8 @@ class Admin extends Admin_Controller {
                         $returnValue = $mayor;
                     } else {//lista para el programa
                         $lista_programa = $this->lista_programa($post['canal_id'], $post['programa']);
+                        $mayor = 0;
                         if (count($lista_programa) > 0) {
-                            $mayor = 0;
                             foreach ($lista_programa as $indice => $objLista) {
                                 if ($objLista->peso > $mayor) {
                                     $mayor = $objLista->peso;
@@ -3749,8 +3749,8 @@ class Admin extends Admin_Controller {
                     }
                 } else {
                     $lista = $this->lista_canal($post['canal_id']);
+                    $mayor = 0;
                     if (count($lista) > 0) {
-                        $mayor = 0;
                         foreach ($lista as $indice => $objLista) {
                             if ($objLista->peso > $mayor) {
                                 $mayor = $objLista->peso;
