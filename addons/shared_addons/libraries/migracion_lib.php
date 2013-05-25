@@ -57,6 +57,7 @@ class Migracion_lib extends MX_Controller {
         $this->search = $this->config->item('migracion:tag');
         $this->load->library('procesos_lib');
         $this->load->library('portadas_lib');
+        $this->load->library("Procesos/log");
     }
 
     /**
