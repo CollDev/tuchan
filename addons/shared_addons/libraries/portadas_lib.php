@@ -176,9 +176,12 @@ class Portadas_lib extends MX_Controller {
                     foreach ($arrayDetalleSeciones as $puntero => $objDetalleSeccion) {
                         //actualizamos el mismo estado del maestro al detalle de la seccion
                         //validamos que el detalle sección tenga una imagen para activarlo
-                        if($objDetalleSeccion->imagenes_id > 0){
-                            array_push($arrayIdSeccion, $objDetalleSeccion->secciones_id);
-                            $this->detalle_secciones_m->update($objDetalleSeccion->id, array("estado" => $objVideo->estado, "estado_migracion" => $this->config->item('migracion:actualizado')));
+                        if ($objDetalleSeccion->imagenes_id > 0) {
+                            $oSeccion = $this->secciones_m->get($objDetalleSeccion->secciones_id);
+                            if ($oSeccion->tipo_secciones_id != $this->config->item('seccion:destacado')) {
+                                array_push($arrayIdSeccion, $objDetalleSeccion->secciones_id);
+                                $this->detalle_secciones_m->update($objDetalleSeccion->id, array("estado" => $objVideo->estado, "estado_migracion" => $this->config->item('migracion:actualizado')));
+                            }
                         }
                     }
                     //actualizamos los estados de la seccion
@@ -245,9 +248,14 @@ class Portadas_lib extends MX_Controller {
                     //creamos un array para recolectar los ID de seccion
                     $arrayIdSeccion = array();
                     foreach ($arrayDetalleSeciones as $puntero => $objDetalleSeccion) {
-                        array_push($arrayIdSeccion, $objDetalleSeccion->secciones_id);
                         //actualizamos el mismo estado del maestro al detalle de la seccion
-                        $this->detalle_secciones_m->update($objDetalleSeccion->id, array("estado" => $objMaestro->estado, "estado_migracion" => $this->config->item('migracion:actualizado')));
+                        if ($objDetalleSeccion->imagenes_id > 0) {
+                            $oSeccion = $this->secciones_m->get($objDetalleSeccion->secciones_id);
+                            if ($oSeccion->tipo_secciones_id != $this->config->item('seccion:destacado')) {
+                                array_push($arrayIdSeccion, $objDetalleSeccion->secciones_id);
+                                $this->detalle_secciones_m->update($objDetalleSeccion->id, array("estado" => $objMaestro->estado, "estado_migracion" => $this->config->item('migracion:actualizado')));
+                            }
+                        }
                     }
                     //actualizamos los estados de la seccion
                     if (count($arrayIdSeccion) > 0) {
@@ -808,8 +816,8 @@ class Portadas_lib extends MX_Controller {
                 $tiene_seccion_destacado_activa = FALSE;
                 $objsecciones = $this->secciones_m->get_many_by(array("portadas_id" => $objPortada->id, "estado" => $this->config->item('estado:publicado')));
                 if (count($objsecciones) > 0) {
-                    foreach ($objsecciones as $ind=>$oSeccion){
-                        if($oSeccion->tipo_secciones_id == $this->config->item('seccion:destacado')){
+                    foreach ($objsecciones as $ind => $oSeccion) {
+                        if ($oSeccion->tipo_secciones_id == $this->config->item('seccion:destacado')) {
                             $tiene_seccion_destacado_activa = TRUE;
                         }
                     }
@@ -817,7 +825,7 @@ class Portadas_lib extends MX_Controller {
                 if (count($objsecciones) > 1 && $tiene_seccion_destacado_activa) {
                     if (!$es_liquid) {
                         //if ($this->tiene_destacado_publicado($canal_id, 'canal')) {
-                            $this->portada_m->update($objPortada->id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                        $this->portada_m->update($objPortada->id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
                         //}
                     }
                 }

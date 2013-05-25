@@ -1826,6 +1826,7 @@ class Admin extends Admin_Controller {
                 ->title($this->module_details['name'])
                 ->append_js('admin/filter.js')
                 ->append_js('module::jquery.ddslick.min.js')
+                ->append_js('module::jquery.tablednd.js')
                 ->set_partial('filters', 'admin/partials/filters')
                 ->set_partial('portadas', 'admin/tables/portadas')
                 ->append_js('module::jquery.alerts.js')
@@ -3228,9 +3229,9 @@ class Admin extends Admin_Controller {
      */
     private function tiene_destacado_publicado($canal_id, $tipo) {
         $returnValue = FALSE;
-        if($tipo == 'canal'){
-            $objPortadaCanal = $this->portada_m->get_by(array("canales_id"=>$canal_id, "origen_id"=>$canal_id,"tipo_portadas_id"=>$this->config->item('portada:canal'), "estado"=>$this->config->item('estado:publicado')));
-            if(count($objPortadaCanal)>0){
+        if ($tipo == 'canal') {
+            $objPortadaCanal = $this->portada_m->get_by(array("canales_id" => $canal_id, "origen_id" => $canal_id, "tipo_portadas_id" => $this->config->item('portada:canal'), "estado" => $this->config->item('estado:publicado')));
+            if (count($objPortadaCanal) > 0) {
                 $returnValue = TRUE;
             }
         }
@@ -5942,6 +5943,11 @@ class Admin extends Admin_Controller {
         }
     }
 
+    /**
+     * Método para obtener el nombre y descripcion de una portada
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param int $portada_id
+     */
     public function obtener_portada($portada_id) {
         if ($this->input->is_ajax_request()) {
             $objPortada = $this->portada_m->get($portada_id);
@@ -5950,6 +5956,46 @@ class Admin extends Admin_Controller {
             } else {
                 echo json_encode(array("value" => "0"));
             }
+        }
+    }
+
+    /**
+     * Método para reordenar las secciones de una portada
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param array $dato
+     */
+    public function ordenarListaSecciones() {
+        if ($this->input->is_ajax_request()) {
+            $arraySecciones = $this->input->post();
+            if (is_array($arraySecciones)) {
+                if (count($arraySecciones) > 0) {
+                    foreach ($arraySecciones as $puntero => $array_seccion_id) {
+                        if (is_array($array_seccion_id)) {
+                            if (count($array_seccion_id)) {
+                                //obtenemos la lista original de la BD
+                                $lista_original = $this->secciones_m->where_in('id', $array_seccion_id)->order_by('peso', 'ASC')->get_many_by(array());
+                                if (count($lista_original) > 0) {
+                                    $array_original = array();
+                                    foreach ($lista_original as $index => $oSeccion) {
+                                        if($oSeccion->peso == NULL){
+                                            array_push($array_original, $index);
+                                        }else{
+                                            array_push($array_original, $oSeccion->peso);
+                                        }
+                                    }
+                                }
+                                //actualizamos las nuevas posiciones
+                                $cont = 0;
+                                foreach ($array_seccion_id as $peso => $s_id) {
+                                    $this->secciones_m->update($s_id, array("peso" => $array_original[$cont], "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                    $cont++;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            echo json_encode(array("value"=>"1"));
         }
     }
 
