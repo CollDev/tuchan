@@ -49,7 +49,7 @@ class Procesos_lib extends MX_Controller {
         
         if (!empty($id_padre) && !empty($id_hijo) && !empty($inicio) && !empty($duracion)) {
             Log::erroLog("downloadVideo");            
-            if (Ffmpeg::downloadVideo($result[0]->id, trim($result[0]->rutasplitter))) {
+            if (Ffmpeg::downloadVideo($result[0]->id,(!empty($result[0]->rutasplitter))?$result[0]->rutasplitter:$result[0]->ruta)) {
                 Log::erroLog("splitVideo");            
                 if (Ffmpeg::splitVideo($id_padre, $id_hijo, $inicio, $duracion)) {
                     Log::erroLog("curlProcesoVideosXId"); 

@@ -2463,8 +2463,8 @@ class Admin extends Admin_Controller {
                 Log::erroLog("admin antes  curlCorteVideoXId");            
                 $this->procesos_lib->curlCorteVideoXId($video_id, $objvideotemp->id, $this->input->post('ini_corte'), $this->input->post('dur_corte'));
                 Log::erroLog("admin despues curlCorteVideoXId");            
-                //echo json_encode(array("value" => '0'));
-                echo json_encode(array($video_id, $objvideotemp->id, $this->input->post('ini_corte'), $this->input->post('dur_corte')));
+                echo json_encode(array("value" => '0'));
+                //echo json_encode(array($video_id, $objvideotemp->id, $this->input->post('ini_corte'), $this->input->post('dur_corte')));
             }
         }
     }

@@ -43,14 +43,19 @@ class Ffmpeg {
     function splitVideo($id_padre, $id_hijo, $inicio, $duracion) {
         try {
 
-
+             Log::erroLog("ENTRO DATOS ");
+             
             $video_in = PATH_VIDEOS . $id_padre . ".mp4";
             $video_out = PATH_VIDEOS . $id_hijo . ".mp4";
+            
+             Log::erroLog($video_in); 
+             Log::erroLog($video_out);
+
             
             SPLITVIDEO:
                         
             if (!is_readable($video_out)) {
-                exec("ffmpeg  -ss " . $inicio . " -t " . $duracion . " -i " . $video_in . " " . $video_out . " -loglevel quiet");
+                exec("ffmpeg  -ss " . $inicio . " -t " . $duracion . " -i " . $video_in . " " . $video_out . " ");//-loglevel quiet
             }
 
             if (is_readable($video_out)) {
