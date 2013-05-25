@@ -41,7 +41,8 @@ class Procesos_lib extends MX_Controller {
     }
 
     public function corteVideoXId($id_padre, $id_hijo, $inicio, $duracion) {
-
+        Log::erroLog("ini - curlCorteVideo: " . $id_padre . ", hijo " . $id_hijo. ", inicio " . $inicio. ", duracion " . $duracion);
+        
         $result = $this->videos_mp->getVideosxId($id_padre);
 
         Log::erroLog("ini - curlCorteVideo: " . $id_padre . ", hijo " . $id_hijo. ", inicio " . $inicio. ", duracion " . $duracion);

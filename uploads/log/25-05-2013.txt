@@ -4240,3 +4240,723 @@
 03:43:43 > http_code: 404
 03:43:43 > content_type: 
 03:43:43 > curl_errno: 22
+03:43:47 >  no paso get
+03:43:47 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:43:47 > get entro error liquid titulo
+03:43:47 >  no paso get
+03:43:47 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:43:47 > get entro error liquid titulo
+03:43:48 > http_code: 404
+03:43:48 > content_type: 
+03:43:48 > curl_errno: 22
+03:43:48 > http_code: 404
+03:43:48 > content_type: 
+03:43:48 > curl_errno: 22
+03:43:48 >  no paso get
+03:43:48 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:43:48 > get entro error liquid titulo
+03:43:48 > http_code: 404
+03:43:48 > content_type: 
+03:43:48 > curl_errno: 22
+03:43:53 >  no paso get
+03:43:53 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:43:53 > get entro error liquid titulo
+03:43:53 >  no paso get
+03:43:53 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:43:53 > get entro error liquid titulo
+03:43:53 > http_code: 404
+03:43:53 > content_type: 
+03:43:53 > curl_errno: 22
+03:43:53 > http_code: 404
+03:43:53 > content_type: 
+03:43:53 > curl_errno: 22
+03:43:53 >  no paso get
+03:43:53 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:43:53 > get entro error liquid titulo
+03:43:55 > http_code: 404
+03:43:55 > content_type: 
+03:43:55 > curl_errno: 22
+03:43:58 >  no paso get
+03:43:58 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:43:58 > get entro error liquid titulo
+03:43:58 >  no paso get
+03:43:58 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:43:58 > get entro error liquid titulo
+03:43:58 > http_code: 404
+03:43:58 > content_type: 
+03:43:58 > curl_errno: 22
+03:43:58 > http_code: 404
+03:43:58 > content_type: 
+03:43:58 > curl_errno: 22
+03:44:00 >  no paso get
+03:44:00 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:44:00 > get entro error liquid titulo
+03:44:00 > http_code: 404
+03:44:00 > content_type: 
+03:44:00 > curl_errno: 22
+03:44:03 >  no paso get
+03:44:03 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:44:03 > get entro error liquid titulo
+03:44:03 >  no paso get
+03:44:03 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:44:03 > get entro error liquid titulo
+03:44:04 > http_code: 404
+03:44:04 > content_type: 
+03:44:04 > curl_errno: 22
+03:44:04 > http_code: 404
+03:44:04 > content_type: 
+03:44:04 > curl_errno: 22
+03:44:05 >  no paso get
+03:44:05 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:44:05 > get entro error liquid titulo
+03:44:06 > http_code: 404
+03:44:06 > content_type: 
+03:44:06 > curl_errno: 22
+03:44:09 >  no paso get
+03:44:09 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:44:09 > get entro error liquid titulo
+03:44:09 >  no paso get
+03:44:09 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:44:09 > get entro error liquid titulo
+03:44:09 > http_code: 404
+03:44:09 > content_type: 
+03:44:09 > curl_errno: 22
+03:44:09 > http_code: 404
+03:44:09 > content_type: 
+03:44:09 > curl_errno: 22
+03:44:11 >  no paso get
+03:44:11 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:44:11 > get entro error liquid titulo
+03:44:11 > http_code: 404
+03:44:11 > content_type: 
+03:44:11 > curl_errno: 22
+03:44:14 >  no paso get
+03:44:14 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:44:14 > get entro error liquid titulo
+03:44:14 >  no paso get
+03:44:14 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:44:14 > get entro error liquid titulo
+03:44:14 > http_code: 404
+03:44:14 > content_type: 
+03:44:14 > curl_errno: 22
+03:44:14 > http_code: 404
+03:44:14 > content_type: 
+03:44:14 > curl_errno: 22
+03:44:16 >  no paso get
+03:44:16 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:44:16 > get entro error liquid titulo
+03:44:16 > http_code: 404
+03:44:16 > content_type: 
+03:44:16 > curl_errno: 22
+03:44:19 >  no paso get
+03:44:19 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:44:19 > get entro error liquid titulo
+03:44:19 >  no paso get
+03:44:19 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:44:19 > get entro error liquid titulo
+03:44:20 > http_code: 404
+03:44:20 > content_type: 
+03:44:20 > curl_errno: 22
+03:44:20 > http_code: 404
+03:44:20 > content_type: 
+03:44:20 > curl_errno: 22
+03:44:21 >  no paso get
+03:44:21 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:44:21 > get entro error liquid titulo
+03:44:21 > http_code: 404
+03:44:21 > content_type: 
+03:44:21 > curl_errno: 22
+03:44:25 >  no paso get
+03:44:25 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:44:25 > get entro error liquid titulo
+03:44:25 >  no paso get
+03:44:25 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:44:25 > get entro error liquid titulo
+03:44:25 > http_code: 404
+03:44:25 > content_type: 
+03:44:25 > curl_errno: 22
+03:44:25 > http_code: 404
+03:44:25 > content_type: 
+03:44:25 > curl_errno: 22
+03:44:26 >  no paso get
+03:44:26 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:44:26 > get entro error liquid titulo
+03:44:27 > http_code: 404
+03:44:27 > content_type: 
+03:44:27 > curl_errno: 22
+03:44:30 >  no paso get
+03:44:30 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:44:30 > get entro error liquid titulo
+03:44:30 >  no paso get
+03:44:30 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:44:30 > get entro error liquid titulo
+03:44:30 > http_code: 404
+03:44:30 > content_type: 
+03:44:30 > curl_errno: 22
+03:44:30 > http_code: 404
+03:44:30 > content_type: 
+03:44:30 > curl_errno: 22
+03:44:32 >  no paso get
+03:44:32 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:44:32 > get entro error liquid titulo
+03:44:32 > http_code: 404
+03:44:32 > content_type: 
+03:44:32 > curl_errno: 22
+03:44:35 >  no paso get
+03:44:35 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:44:35 > get entro error liquid titulo
+03:44:35 >  no paso get
+03:44:35 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:44:35 > get entro error liquid titulo
+03:44:35 > http_code: 404
+03:44:35 > content_type: 
+03:44:35 > curl_errno: 22
+03:44:35 > http_code: 404
+03:44:35 > content_type: 
+03:44:35 > curl_errno: 22
+03:44:37 >  no paso get
+03:44:37 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:44:37 > get entro error liquid titulo
+03:44:37 > http_code: 404
+03:44:37 > content_type: 
+03:44:37 > curl_errno: 22
+03:44:40 >  no paso get
+03:44:40 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:44:40 > get entro error liquid titulo
+03:44:40 >  no paso get
+03:44:40 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:44:40 > get entro error liquid titulo
+03:44:41 > http_code: 404
+03:44:41 > content_type: 
+03:44:41 > curl_errno: 22
+03:44:41 > http_code: 404
+03:44:41 > content_type: 
+03:44:41 > curl_errno: 22
+03:44:42 >  no paso get
+03:44:42 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:44:42 > get entro error liquid titulo
+03:44:42 > http_code: 404
+03:44:42 > content_type: 
+03:44:42 > curl_errno: 22
+03:44:46 >  no paso get
+03:44:46 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:44:46 > get entro error liquid titulo
+03:44:46 >  no paso get
+03:44:46 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:44:46 > get entro error liquid titulo
+03:44:46 > http_code: 404
+03:44:46 > content_type: 
+03:44:46 > curl_errno: 22
+03:44:46 > http_code: 404
+03:44:46 > content_type: 
+03:44:46 > curl_errno: 22
+03:44:47 >  no paso get
+03:44:47 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:44:47 > get entro error liquid titulo
+03:44:48 > http_code: 404
+03:44:48 > content_type: 
+03:44:48 > curl_errno: 22
+03:44:51 >  no paso get
+03:44:51 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:44:51 > get entro error liquid titulo
+03:44:51 >  no paso get
+03:44:51 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:44:51 > get entro error liquid titulo
+03:44:51 > http_code: 404
+03:44:51 > content_type: 
+03:44:51 > curl_errno: 22
+03:44:51 > http_code: 404
+03:44:51 > content_type: 
+03:44:51 > curl_errno: 22
+03:44:53 >  no paso get
+03:44:53 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:44:53 > get entro error liquid titulo
+03:44:54 > http_code: 404
+03:44:54 > content_type: 
+03:44:54 > curl_errno: 22
+03:44:56 >  no paso get
+03:44:56 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:44:56 > get entro error liquid titulo
+03:44:56 >  no paso get
+03:44:56 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:44:56 > get entro error liquid titulo
+03:44:57 > http_code: 404
+03:44:57 > content_type: 
+03:44:57 > curl_errno: 22
+03:44:57 > http_code: 404
+03:44:57 > content_type: 
+03:44:57 > curl_errno: 22
+03:44:59 >  no paso get
+03:44:59 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:44:59 > get entro error liquid titulo
+03:44:59 > http_code: 404
+03:44:59 > content_type: 
+03:44:59 > curl_errno: 22
+03:45:02 >  no paso get
+03:45:02 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:45:02 > get entro error liquid titulo
+03:45:02 >  no paso get
+03:45:02 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:45:02 > get entro error liquid titulo
+03:45:02 > http_code: 404
+03:45:02 > content_type: 
+03:45:02 > curl_errno: 22
+03:45:02 > http_code: 404
+03:45:02 > content_type: 
+03:45:02 > curl_errno: 22
+03:45:04 >  no paso get
+03:45:04 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:45:04 > get entro error liquid titulo
+03:45:04 > http_code: 404
+03:45:04 > content_type: 
+03:45:04 > curl_errno: 22
+03:45:07 >  no paso get
+03:45:07 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:45:07 > get entro error liquid titulo
+03:45:07 >  no paso get
+03:45:07 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:45:07 > get entro error liquid titulo
+03:45:08 > http_code: 404
+03:45:08 > content_type: 
+03:45:08 > curl_errno: 22
+03:45:08 > http_code: 404
+03:45:08 > content_type: 
+03:45:08 > curl_errno: 22
+03:45:09 >  no paso get
+03:45:09 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:45:09 > get entro error liquid titulo
+03:45:09 > http_code: 404
+03:45:09 > content_type: 
+03:45:09 > curl_errno: 22
+03:45:13 >  no paso get
+03:45:13 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:45:13 > get entro error liquid titulo
+03:45:13 >  no paso get
+03:45:13 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:45:13 > get entro error liquid titulo
+03:45:13 > http_code: 404
+03:45:13 > content_type: 
+03:45:13 > curl_errno: 22
+03:45:13 > http_code: 404
+03:45:13 > content_type: 
+03:45:13 > curl_errno: 22
+03:45:14 >  no paso get
+03:45:14 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:45:14 > get entro error liquid titulo
+03:45:15 > http_code: 404
+03:45:15 > content_type: 
+03:45:15 > curl_errno: 22
+03:45:18 >  no paso get
+03:45:18 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:45:18 > get entro error liquid titulo
+03:45:18 >  no paso get
+03:45:18 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:45:18 > get entro error liquid titulo
+03:45:18 > http_code: 404
+03:45:18 > content_type: 
+03:45:18 > curl_errno: 22
+03:45:18 > http_code: 404
+03:45:18 > content_type: 
+03:45:18 > curl_errno: 22
+03:45:20 >  no paso get
+03:45:20 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:45:20 > get entro error liquid titulo
+03:45:20 > http_code: 404
+03:45:20 > content_type: 
+03:45:20 > curl_errno: 22
+03:45:23 >  no paso get
+03:45:23 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:45:23 > get entro error liquid titulo
+03:45:23 >  no paso get
+03:45:23 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:45:23 > get entro error liquid titulo
+03:45:24 > http_code: 404
+03:45:24 > content_type: 
+03:45:24 > curl_errno: 22
+03:45:24 > http_code: 404
+03:45:24 > content_type: 
+03:45:24 > curl_errno: 22
+03:45:25 >  no paso get
+03:45:25 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:45:25 > get entro error liquid titulo
+03:45:26 > http_code: 404
+03:45:26 > content_type: 
+03:45:26 > curl_errno: 22
+03:45:29 >  no paso get
+03:45:29 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:45:29 > get entro error liquid titulo
+03:45:29 >  no paso get
+03:45:29 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:45:29 > get entro error liquid titulo
+03:45:29 > http_code: 404
+03:45:29 > content_type: 
+03:45:29 > curl_errno: 22
+03:45:29 > http_code: 404
+03:45:29 > content_type: 
+03:45:29 > curl_errno: 22
+03:45:31 >  no paso get
+03:45:31 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:45:31 > get entro error liquid titulo
+03:45:31 > http_code: 404
+03:45:31 > content_type: 
+03:45:31 > curl_errno: 22
+03:45:34 >  no paso get
+03:45:34 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:45:34 > get entro error liquid titulo
+03:45:34 >  no paso get
+03:45:34 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:45:34 > get entro error liquid titulo
+03:45:34 > http_code: 404
+03:45:34 > content_type: 
+03:45:34 > curl_errno: 22
+03:45:34 > http_code: 404
+03:45:34 > content_type: 
+03:45:34 > curl_errno: 22
+03:45:36 >  no paso get
+03:45:36 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:45:36 > get entro error liquid titulo
+03:45:36 > http_code: 404
+03:45:36 > content_type: 
+03:45:36 > curl_errno: 22
+03:45:39 >  no paso get
+03:45:39 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:45:39 > get entro error liquid titulo
+03:45:39 >  no paso get
+03:45:39 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:45:39 > get entro error liquid titulo
+03:45:40 > http_code: 404
+03:45:40 > content_type: 
+03:45:40 > curl_errno: 22
+03:45:40 > http_code: 404
+03:45:40 > content_type: 
+03:45:40 > curl_errno: 22
+03:45:41 >  no paso get
+03:45:41 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:45:41 > get entro error liquid titulo
+03:45:41 > http_code: 404
+03:45:41 > content_type: 
+03:45:41 > curl_errno: 22
+03:45:45 >  no paso get
+03:45:45 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:45:45 > get entro error liquid titulo
+03:45:45 >  no paso get
+03:45:45 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:45:45 > get entro error liquid titulo
+03:45:45 > http_code: 404
+03:45:45 > content_type: 
+03:45:45 > curl_errno: 22
+03:45:46 > http_code: 404
+03:45:46 > content_type: 
+03:45:46 > curl_errno: 22
+03:45:46 >  no paso get
+03:45:46 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:45:46 > get entro error liquid titulo
+03:45:47 > http_code: 404
+03:45:47 > content_type: 
+03:45:47 > curl_errno: 22
+03:45:50 >  no paso get
+03:45:50 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:45:50 > get entro error liquid titulo
+03:45:50 > http_code: 404
+03:45:50 > content_type: 
+03:45:50 > curl_errno: 22
+03:45:51 >  no paso get
+03:45:51 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:45:51 > get entro error liquid titulo
+03:45:51 > http_code: 404
+03:45:51 > content_type: 
+03:45:51 > curl_errno: 22
+03:45:52 >  no paso get
+03:45:52 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:45:52 > get entro error liquid titulo
+03:45:52 > http_code: 404
+03:45:52 > content_type: 
+03:45:52 > curl_errno: 22
+03:45:55 >  no paso get
+03:45:55 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:45:55 > get entro error liquid titulo
+03:45:56 > http_code: 404
+03:45:56 > content_type: 
+03:45:56 > curl_errno: 22
+03:45:56 >  no paso get
+03:45:56 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:45:56 > get entro error liquid titulo
+03:45:57 > http_code: 404
+03:45:57 > content_type: 
+03:45:57 > curl_errno: 22
+03:45:57 >  no paso get
+03:45:57 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:45:57 > get entro error liquid titulo
+03:45:57 > http_code: 404
+03:45:57 > content_type: 
+03:45:57 > curl_errno: 22
+03:46:01 >  no paso get
+03:46:01 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:46:01 > get entro error liquid titulo
+03:46:01 > http_code: 404
+03:46:01 > content_type: 
+03:46:01 > curl_errno: 22
+03:46:02 >  no paso get
+03:46:02 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:46:02 > get entro error liquid titulo
+03:46:02 > http_code: 404
+03:46:02 > content_type: 
+03:46:02 > curl_errno: 22
+03:46:02 >  no paso get
+03:46:02 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:46:02 > get entro error liquid titulo
+03:46:02 > http_code: 404
+03:46:02 > content_type: 
+03:46:02 > curl_errno: 22
+03:46:06 >  no paso get
+03:46:06 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:46:06 > get entro error liquid titulo
+03:46:06 > http_code: 404
+03:46:06 > content_type: 
+03:46:06 > curl_errno: 22
+03:46:07 >  no paso get
+03:46:07 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:46:07 > get entro error liquid titulo
+03:46:07 > http_code: 404
+03:46:07 > content_type: 
+03:46:07 > curl_errno: 22
+03:46:07 >  no paso get
+03:46:07 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:46:07 > get entro error liquid titulo
+03:46:08 > http_code: 404
+03:46:08 > content_type: 
+03:46:08 > curl_errno: 22
+03:46:11 >  no paso get
+03:46:11 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:46:11 > get entro error liquid titulo
+03:46:12 > http_code: 404
+03:46:12 > content_type: 
+03:46:12 > curl_errno: 22
+03:46:12 >  no paso get
+03:46:12 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:46:12 > get entro error liquid titulo
+03:46:12 > http_code: 404
+03:46:12 > content_type: 
+03:46:12 > curl_errno: 22
+03:46:13 >  no paso get
+03:46:13 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:46:13 > get entro error liquid titulo
+03:46:13 > http_code: 404
+03:46:13 > content_type: 
+03:46:13 > curl_errno: 22
+03:46:17 >  no paso get
+03:46:17 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:46:17 > get entro error liquid titulo
+03:46:17 > http_code: 404
+03:46:17 > content_type: 
+03:46:17 > curl_errno: 22
+03:46:17 >  no paso get
+03:46:17 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:46:17 > get entro error liquid titulo
+03:46:18 > http_code: 404
+03:46:18 > content_type: 
+03:46:18 > curl_errno: 22
+03:46:18 >  no paso get
+03:46:18 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:46:18 > get entro error liquid titulo
+03:46:18 > http_code: 404
+03:46:18 > content_type: 
+03:46:18 > curl_errno: 22
+03:46:22 >  no paso get
+03:46:22 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:46:22 > get entro error liquid titulo
+03:46:23 >  no paso get
+03:46:23 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:46:23 > get entro error liquid titulo
+03:46:23 > http_code: 404
+03:46:23 > content_type: 
+03:46:23 > curl_errno: 22
+03:46:23 > http_code: 404
+03:46:23 > content_type: 
+03:46:23 > curl_errno: 22
+03:46:23 >  no paso get
+03:46:23 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:46:23 > get entro error liquid titulo
+03:46:23 > http_code: 404
+03:46:23 > content_type: 
+03:46:23 > curl_errno: 22
+03:46:28 >  no paso get
+03:46:28 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:46:28 > get entro error liquid titulo
+03:46:28 >  no paso get
+03:46:28 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:46:28 > get entro error liquid titulo
+03:46:28 > http_code: 404
+03:46:28 > content_type: 
+03:46:28 > curl_errno: 22
+03:46:28 > http_code: 404
+03:46:28 > content_type: 
+03:46:28 > curl_errno: 22
+03:46:28 >  no paso get
+03:46:28 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:46:28 > get entro error liquid titulo
+03:46:29 > http_code: 404
+03:46:29 > content_type: 
+03:46:29 > curl_errno: 22
+03:46:33 >  no paso get
+03:46:33 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:46:33 > get entro error liquid titulo
+03:46:33 >  no paso get
+03:46:33 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:46:33 > get entro error liquid titulo
+03:46:33 > http_code: 404
+03:46:33 > content_type: 
+03:46:33 > curl_errno: 22
+03:46:33 > http_code: 404
+03:46:33 > content_type: 
+03:46:33 > curl_errno: 22
+03:46:34 >  no paso get
+03:46:34 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:46:34 > get entro error liquid titulo
+03:46:34 > http_code: 404
+03:46:34 > content_type: 
+03:46:34 > curl_errno: 22
+03:46:38 >  no paso get
+03:46:38 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:46:38 > get entro error liquid titulo
+03:46:38 >  no paso get
+03:46:38 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:46:38 > get entro error liquid titulo
+03:46:39 > http_code: 404
+03:46:39 > content_type: 
+03:46:39 > curl_errno: 22
+03:46:39 > http_code: 404
+03:46:39 > content_type: 
+03:46:39 > curl_errno: 22
+03:46:39 >  no paso get
+03:46:39 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:46:39 > get entro error liquid titulo
+03:46:39 > http_code: 404
+03:46:39 > content_type: 
+03:46:39 > curl_errno: 22
+03:46:44 >  no paso get
+03:46:44 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:46:44 > get entro error liquid titulo
+03:46:44 >  no paso get
+03:46:44 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:46:44 > get entro error liquid titulo
+03:46:44 > http_code: 404
+03:46:44 > content_type: 
+03:46:44 > curl_errno: 22
+03:46:44 > http_code: 404
+03:46:44 > content_type: 
+03:46:44 > curl_errno: 22
+03:46:44 >  no paso get
+03:46:44 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:46:44 > get entro error liquid titulo
+03:46:45 > http_code: 404
+03:46:45 > content_type: 
+03:46:45 > curl_errno: 22
+03:46:49 >  no paso get
+03:46:49 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:46:49 > get entro error liquid titulo
+03:46:49 >  no paso get
+03:46:49 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:46:49 > get entro error liquid titulo
+03:46:49 > http_code: 404
+03:46:49 > content_type: 
+03:46:49 > curl_errno: 22
+03:46:49 > http_code: 404
+03:46:49 > content_type: 
+03:46:49 > curl_errno: 22
+03:46:50 >  no paso get
+03:46:50 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:46:50 > get entro error liquid titulo
+03:46:50 > http_code: 404
+03:46:50 > content_type: 
+03:46:50 > curl_errno: 22
+03:46:54 >  no paso get
+03:46:54 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:46:54 > get entro error liquid titulo
+03:46:54 >  no paso get
+03:46:54 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:46:54 > get entro error liquid titulo
+03:46:54 > http_code: 404
+03:46:54 > content_type: 
+03:46:54 > curl_errno: 22
+03:46:54 > http_code: 404
+03:46:54 > content_type: 
+03:46:54 > curl_errno: 22
+03:46:55 >  no paso get
+03:46:55 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:46:55 > get entro error liquid titulo
+03:46:56 > http_code: 404
+03:46:56 > content_type: 
+03:46:56 > curl_errno: 22
+03:46:59 >  no paso get
+03:46:59 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:46:59 > get entro error liquid titulo
+03:46:59 >  no paso get
+03:46:59 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:46:59 > get entro error liquid titulo
+03:47:01 > http_code: 404
+03:47:01 > content_type: 
+03:47:01 > curl_errno: 22
+03:47:01 > http_code: 404
+03:47:01 > content_type: 
+03:47:01 > curl_errno: 22
+03:47:01 >  no paso get
+03:47:01 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:47:01 > get entro error liquid titulo
+03:47:01 > http_code: 404
+03:47:01 > content_type: 
+03:47:01 > curl_errno: 22
+03:47:06 >  no paso get
+03:47:06 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:47:06 > get entro error liquid titulo
+03:47:06 >  no paso get
+03:47:06 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:47:06 > get entro error liquid titulo
+03:47:06 > http_code: 404
+03:47:06 > content_type: 
+03:47:06 > curl_errno: 22
+03:47:06 > http_code: 404
+03:47:06 > content_type: 
+03:47:06 > curl_errno: 22
+03:47:06 >  no paso get
+03:47:06 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:47:06 > get entro error liquid titulo
+03:47:07 > http_code: 404
+03:47:07 > content_type: 
+03:47:07 > curl_errno: 22
+03:47:11 >  no paso get
+03:47:11 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:47:11 > get entro error liquid titulo
+03:47:11 >  no paso get
+03:47:11 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:47:11 > get entro error liquid titulo
+03:47:11 > http_code: 404
+03:47:11 > content_type: 
+03:47:11 > curl_errno: 22
+03:47:11 > http_code: 404
+03:47:11 > content_type: 
+03:47:11 > curl_errno: 22
+03:47:12 >  no paso get
+03:47:12 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:47:12 > get entro error liquid titulo
+03:47:12 > http_code: 404
+03:47:12 > content_type: 
+03:47:12 > curl_errno: 22
+03:47:16 >  no paso get
+03:47:16 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:47:16 > get entro error liquid titulo
+03:47:16 >  no paso get
+03:47:16 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:47:16 > get entro error liquid titulo
+03:47:17 > http_code: 404
+03:47:17 > content_type: 
+03:47:17 > curl_errno: 22
+03:47:17 > http_code: 404
+03:47:17 > content_type: 
+03:47:17 > curl_errno: 22
+03:47:17 >  no paso get
+03:47:17 > url get http://api.liquidplatform.com/2.0/medias/02a4920de90ae957e5929c95432fcebe?key=3b540fec2d40b445f91432821079128d&filter=id;thumbs;files;published
+03:47:17 > get entro error liquid titulo
+03:47:17 > http_code: 404
+03:47:17 > content_type: 
+03:47:17 > curl_errno: 22

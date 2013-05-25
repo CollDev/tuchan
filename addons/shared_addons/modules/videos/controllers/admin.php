@@ -2459,7 +2459,7 @@ class Admin extends Admin_Controller {
                 $this->portadas_lib->agregar_video($objvideotemp->id);
 
                 $this->procesos_lib->curlCorteVideoXId($video_id, $objvideotemp->id, $this->input->post('ini_corte'), $this->input->post('dur_corte'));
-                echo json_encode(array("value" => '0'));
+                echo json_encode(array("value" => '9'));
             }
         }
     }
