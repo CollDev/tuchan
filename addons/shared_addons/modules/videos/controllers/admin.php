@@ -43,6 +43,8 @@ class Admin extends Admin_Controller {
         $this->load->library('procesos_lib');
         $this->load->library('portadas_lib');
         $this->load->library('migracion_lib');
+        
+        $this->load->library("Procesos/log");
 
 //        ci()->load->model('videos_mp');
 //        ci()->load->library("Procesos/proceso");
@@ -2457,9 +2459,10 @@ class Admin extends Admin_Controller {
 //                
                 //lanzamos la libreria para registrar el video en las portadas
                 $this->portadas_lib->agregar_video($objvideotemp->id);
-
+                Log::erroLog("admin antes  curlCorteVideoXId");            
                 $this->procesos_lib->curlCorteVideoXId($video_id, $objvideotemp->id, $this->input->post('ini_corte'), $this->input->post('dur_corte'));
-                echo json_encode(array("value" => '9'));
+                Log::erroLog("admin despues curlCorteVideoXId");            
+                echo json_encode(array("value" => '0'));
             }
         }
     }
