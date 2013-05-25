@@ -55,7 +55,7 @@ class Ffmpeg {
             SPLITVIDEO:
                         
             if (!is_readable($video_out)) {
-                exec("ffmpeg  -ss " . $inicio . " -t " . $duracion . " -i " . $video_in . " " . $video_out . " ");//-loglevel quiet
+                exec("ffmpeg  -ss " . $inicio . " -t " . $duracion . " -i " . $video_in . " " . $video_out . " -loglevel quiet");
             }
 
             if (is_readable($video_out)) {

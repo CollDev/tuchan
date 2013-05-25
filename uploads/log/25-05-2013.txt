@@ -346,3 +346,5 @@
 04:19:59 > content_type: 
 04:19:59 > curl_errno: 22
 04:19:59 > return false
+04:20:29 > aun sin nada me curlVerificaVideosLiquidXId 4586
+04:20:39 > entro a : curlVerificaVideosLiquidXId4586
