@@ -2458,6 +2458,7 @@ class Admin extends Admin_Controller {
 //                Proceso::corte_Video($datos);
 //                
                 //lanzamos la libreria para registrar el video en las portadas
+                Log::erroLog("admin antes  agregar_video"); 
                 $this->portadas_lib->agregar_video($objvideotemp->id);
                 Log::erroLog("admin antes  curlCorteVideoXId");            
                 $this->procesos_lib->curlCorteVideoXId($video_id, $objvideotemp->id, $this->input->post('ini_corte'), $this->input->post('dur_corte'));
