@@ -230,7 +230,7 @@ class Migracion_lib extends MX_Controller {
             $user_id = (int) $this->session->userdata('user_id');
             //$arrayTag = (array) $objTags->tag;
             Log::erroLog(json_encode($objTags->tag));
-            $arrayTag = (array) $objTags->tag;
+            $arrayTag = $objTags->tag;
             if (count($arrayTag) > 0) {
                 Log::erroLog($arrayTag);
                 foreach ($arrayTag as $puntero => $tag) {
@@ -241,7 +241,7 @@ class Migracion_lib extends MX_Controller {
                         $objTagExistente = $this->tags_m->like('nombre', $tag, 'none')->get_by(array("tipo_tags_id" => "1"));
                         //verificamos si la relacion existe
                         $objVideoTag = $this->video_tags_m->get_by(array("tags_id" => $objTagExistente->id, "videos_id" => $video_id));
-                        Log::erroLog("johnny debug : video tag: " .$objVideoTag->tags_id."=>".$objVideoTag->videos_id);
+                        //Log::erroLog("johnny debug : video tag: " .$objVideoTag->tags_id."=>".$objVideoTag->videos_id);
                         if (count($objVideoTag) == 0) {
                             //registramos la relacion de tag con el video
                             $objBeanVideoTag = new stdClass();
