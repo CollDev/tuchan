@@ -225,6 +225,7 @@ class Migracion_lib extends MX_Controller {
      * @param object $objTags
      */
     private function registrar_tags($video_id, $objTags) {
+        Log::erroLog(json_encode($objTags));
         if (property_exists($objTags, 'tag')) {
             $user_id = (int) $this->session->userdata('user_id');
             $arrayTag = (array) $objTags->tag;
