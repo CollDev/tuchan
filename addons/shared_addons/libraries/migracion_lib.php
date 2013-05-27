@@ -57,6 +57,7 @@ class Migracion_lib extends MX_Controller {
         $this->search = $this->config->item('migracion:tag');
         $this->load->library('procesos_lib');
         $this->load->library('portadas_lib');
+        $this->load->library("Procesos/log");
     }
 
     /**
@@ -186,6 +187,8 @@ class Migracion_lib extends MX_Controller {
                     }
                 }
             }
+            //solo para un item
+            //break;
         }
         return $contador;
     }
@@ -222,16 +225,23 @@ class Migracion_lib extends MX_Controller {
      * @param object $objTags
      */
     private function registrar_tags($video_id, $objTags) {
+        Log::erroLog(json_encode($objTags));
         if (property_exists($objTags, 'tag')) {
             $user_id = (int) $this->session->userdata('user_id');
-            $arrayTag = (array) $objTags->tag;
+            //$arrayTag = (array) $objTags->tag;
+            Log::erroLog(json_encode($objTags->tag));
+            $arrayTag = $objTags->tag;
             if (count($arrayTag) > 0) {
+                Log::erroLog($arrayTag);
                 foreach ($arrayTag as $puntero => $tag) {
+                    Log::erroLog("--------TAG---------");
+                    Log::erroLog("johnny debug : video_id: " .$video_id."=>".$tag);
                     $aTag = $this->tags_m->like('nombre', $tag, 'none')->get_many_by(array("tipo_tags_id" => "1"));
                     if (count($aTag) > 0) {
                         $objTagExistente = $this->tags_m->like('nombre', $tag, 'none')->get_by(array("tipo_tags_id" => "1"));
                         //verificamos si la relacion existe
                         $objVideoTag = $this->video_tags_m->get_by(array("tags_id" => $objTagExistente->id, "videos_id" => $video_id));
+                        //Log::erroLog("johnny debug : video tag: " .$objVideoTag->tags_id."=>".$objVideoTag->videos_id);
                         if (count($objVideoTag) == 0) {
                             //registramos la relacion de tag con el video
                             $objBeanVideoTag = new stdClass();

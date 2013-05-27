@@ -360,7 +360,7 @@ CREATE TABLE `default_cms_portadas` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `canales_id` int(11) DEFAULT NULL,
   `nombre` varchar(45) DEFAULT NULL,
-  `descripcion` varchar(150) DEFAULT NULL,
+  `descripcion` varchar(800) DEFAULT NULL,
   `tipo_portadas_id` int(11) NOT NULL,
   `origen_id` int(11) DEFAULT NULL,
   `estado` tinyint(4) DEFAULT NULL,
@@ -415,7 +415,7 @@ DROP TABLE IF EXISTS `default_cms_secciones`;
 CREATE TABLE `default_cms_secciones` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) DEFAULT NULL,
-  `descripcion` varchar(45) DEFAULT NULL,
+  `descripcion` varchar(800) DEFAULT NULL,
   `tipo` tinyint(4) DEFAULT NULL,
   `portadas_id` int(11) DEFAULT NULL,
   `tipo_secciones_id` int(11) DEFAULT NULL,
@@ -484,7 +484,7 @@ DROP TABLE IF EXISTS `default_cms_tipo_canales`;
 CREATE TABLE `default_cms_tipo_canales` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) DEFAULT NULL,
-  `descripcion` varchar(45) DEFAULT NULL,
+  `descripcion` varchar(800) DEFAULT NULL,
   `estado` tinyint(4) DEFAULT '0',
   `fecha_registro` datetime DEFAULT NULL,
   `usuario_registro` int(11) DEFAULT NULL,
@@ -1274,19 +1274,15 @@ insert  into `default_cms_categorias`(`id`,`nombre`,`alias`,`estado`,`fecha_regi
 insert  into `default_cms_categorias`(`id`,`nombre`,`alias`,`estado`,`fecha_registro`,`usuario_registro`,`fecha_actualizacion`,`usuario_actualizacion`,`estado_migracion`,`fecha_migracion`,`fecha_migracion_actualizacion`,`categorias_id`) values (12,'Humor','humor',1,'2012-02-01 00:00:00',1,'2012-02-01 00:00:00',NULL,0,NULL,NULL,1);
 insert  into `default_cms_categorias`(`id`,`nombre`,`alias`,`estado`,`fecha_registro`,`usuario_registro`,`fecha_actualizacion`,`usuario_actualizacion`,`estado_migracion`,`fecha_migracion`,`fecha_migracion_actualizacion`,`categorias_id`) values (13,'Modas','modas',1,'2013-05-06 12:41:56',1,'2013-05-06 12:42:10',1,0,NULL,NULL,1);
 
-/*Data for the table `default_cms_comentarios` */
+insert  into `default_cms_templates`(`id`,`nombre`,`descripcion`,`fecha_registro`,`usuario_registro`,`fecha_actualizacion`,`usuario_actualizacion`) values (1,'destacado','seccion destacados',NULL,NULL,NULL,NULL);
+insert  into `default_cms_templates`(`id`,`nombre`,`descripcion`,`fecha_registro`,`usuario_registro`,`fecha_actualizacion`,`usuario_actualizacion`) values (2,'3 items','seccion de 3 items',NULL,NULL,NULL,NULL);
+insert  into `default_cms_templates`(`id`,`nombre`,`descripcion`,`fecha_registro`,`usuario_registro`,`fecha_actualizacion`,`usuario_actualizacion`) values (3,'4 items','seccion de 4 items',NULL,NULL,NULL,NULL);
+insert  into `default_cms_templates`(`id`,`nombre`,`descripcion`,`fecha_registro`,`usuario_registro`,`fecha_actualizacion`,`usuario_actualizacion`) values (4,'5 items','seccion de 5 items',NULL,NULL,NULL,NULL);
+insert  into `default_cms_templates`(`id`,`nombre`,`descripcion`,`fecha_registro`,`usuario_registro`,`fecha_actualizacion`,`usuario_actualizacion`) values (5,'8 items','seccion de 8 items',NULL,NULL,NULL,NULL);
+insert  into `default_cms_templates`(`id`,`nombre`,`descripcion`,`fecha_registro`,`usuario_registro`,`fecha_actualizacion`,`usuario_actualizacion`) values (6,'n items','seccion de n items',NULL,NULL,NULL,NULL);
+insert  into `default_cms_templates`(`id`,`nombre`,`descripcion`,`fecha_registro`,`usuario_registro`,`fecha_actualizacion`,`usuario_actualizacion`) values (7,'destacado2','seccion de tipo destacado 2',NULL,NULL,NULL,NULL);
+insert  into `default_cms_templates`(`id`,`nombre`,`descripcion`,`fecha_registro`,`usuario_registro`,`fecha_actualizacion`,`usuario_actualizacion`) values (8,'8 items con descripcion','seccion de 8 items con descripcion',NULL,NULL,NULL,NULL);
 
-/*Data for the table `default_cms_detalle_secciones` */
-
-/*Data for the table `default_cms_grupo_detalles` */
-
-/*Data for the table `default_cms_grupo_maestro_tags` */
-
-/*Data for the table `default_cms_grupo_maestros` */
-
-/*Data for the table `default_cms_imagenes` */
-
-/*Data for the table `default_cms_portadas` */
 
 insert  into `default_cms_portadas`(`id`,`canales_id`,`nombre`,`descripcion`,`tipo_portadas_id`,`origen_id`,`estado`,`fecha_registro`,`usuario_registro`,`fecha_actualizacion`,`usuario_actualizacion`,`id_mongo`,`estado_migracion`,`fecha_migracion`,`fecha_migracion_actualizacion`) values (18,1,'Portada Principal Mi Canal','Portada Principal Mi Canal',1,NULL,1,NULL,NULL,NULL,NULL,'5194165ac8437e9e1d00001e',2,'2013-05-15 18:12:26','2013-05-15 20:23:50');
 insert  into `default_cms_portadas`(`id`,`canales_id`,`nombre`,`descripcion`,`tipo_portadas_id`,`origen_id`,`estado`,`fecha_registro`,`usuario_registro`,`fecha_actualizacion`,`usuario_actualizacion`,`id_mongo`,`estado_migracion`,`fecha_migracion`,`fecha_migracion_actualizacion`) values (351,1,'economía','asdsafsf',5,28,1,'2013-03-25 16:44:50',1,'2013-03-25 16:44:50',1,'51941660c8437e9e1d0000f1',2,'2013-05-15 18:12:32','2013-05-15 20:23:54');
