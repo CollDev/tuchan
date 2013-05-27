@@ -2487,7 +2487,7 @@ class Admin extends Admin_Controller {
         $infofile = urlencode(file_get_contents($file)); //encode_content_file($file);
         $data = array(
             'apikey' => $this->config->item('apikey:elemento'),
-            'name' => $fid . '.' . $ext[1],
+            'name' => $fid . '.' . $ext[count($ext)-1],
             'content' => $infofile,
             //'ruta' => 'files/' . $remotedir,
             'ruta' => $remotedir,
