@@ -228,6 +228,8 @@ class Migracion_lib extends MX_Controller {
         Log::erroLog(json_encode($objTags));
         if (property_exists($objTags, 'tag')) {
             $user_id = (int) $this->session->userdata('user_id');
+            //$arrayTag = (array) $objTags->tag;
+            Log::erroLog(json_encode($objTags->tag));
             $arrayTag = (array) $objTags->tag;
             if (count($arrayTag) > 0) {
                 Log::erroLog($arrayTag);
