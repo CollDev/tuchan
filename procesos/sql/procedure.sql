@@ -1,70 +1,163 @@
- DROP PROCEDURE IF EXISTS  sp_llenartiposeccion6789 ;
+DELIMITER  $$
 
-DELIMITER $$
+DROP PROCEDURE IF EXISTS sp_llenartiposeccion6789 $$
 
- CREATE  PROCEDURE sp_llenartiposeccion6789()
+CREATE PROCEDURE sp_llenartiposeccion6789()
 BEGIN
     
-	declare xid int;
-	declare xportadas_id int;
-	declare xtipo_secciones_id int;
-	declare xcanales_id INT;
-	declare xtipo_portadas_id INT;
-	declare xorigen_id int;
-	declare cant int;
-	declare canttemp int;
-	declare idgm int;
-	declare xrownum int;
-	drop table if exists t_estadistica_reproducciones;
-	CREATE TEMPORARY TABLE t_estadistica_reproducciones
+	DECLARE xid INT;
+	DECLARE xportadas_id INT;
+	DECLARE xtipo_secciones_id INT;
+	DECLARE xcanales_id INT;
+	DECLARE xtipo_portadas_id INT;
+	DECLARE xorigen_id INT;
+	DECLARE cant INT;
+	DECLARE canttemp INT;
+	DECLARE idgm INT;
+	DECLARE xrownum INT;
+	
+/*  reproducciones */
+
+	DROP TABLE IF EXISTS t_estadistica_reproducciones_temp1;	
+	CREATE TEMPORARY TABLE t_estadistica_reproducciones_temp1
+	
 	SELECT vid.id AS 'vi_id',ima.id AS 'im_id',categorias_id,vid.canales_id,vid.reproducciones,
-  (SELECT gde1.grupo_maestro_padre FROM default_cms_grupo_detalles gde1 WHERE gde1.grupo_maestro_id=(SELECT gde1.grupo_maestro_padre FROM default_cms_grupo_detalles gde1 WHERE gde1.grupo_maestro_id=(SELECT gde2.grupo_maestro_padre FROM default_cms_grupo_detalles gde2 WHERE gde2.video_id=vid.id))) as 'programa_id'
+	(CASE (SELECT gd1.tipo_grupo_maestros_id FROM default_cms_grupo_detalles gd1 WHERE gd1.video_id = vid.id)		
+	WHEN 1 THEN 
+		( SELECT gd1.grupo_maestro_padre  FROM default_cms_grupo_detalles gd1 WHERE gd1.video_id = vid.id AND gd1.tipo_grupo_maestros_id =1)		
+	WHEN 2 THEN 
+		( SELECT gd2.grupo_maestro_padre FROM default_cms_grupo_detalles gd2 WHERE gd2.grupo_maestro_id = (SELECT gd3.grupo_maestro_padre FROM default_cms_grupo_detalles gd3 WHERE gd3.video_id = vid.id  )   AND  gd2.tipo_grupo_maestros_id =2)
+	WHEN 3 THEN 
+		(SELECT gd4.grupo_maestro_padre FROM default_cms_grupo_detalles gd4 WHERE gd4.grupo_maestro_id = (SELECT gd5.grupo_maestro_padre FROM default_cms_grupo_detalles gd5 WHERE gd5.grupo_maestro_id = (SELECT gd6.grupo_maestro_padre FROM default_cms_grupo_detalles gd6 WHERE gd6.video_id = vid.id )) AND  gd4.tipo_grupo_maestros_id =3)
+	ELSE
+		(SELECT NULL)	
+	END )AS 'gm_id'  
 	FROM default_cms_videos vid
 	INNER JOIN default_cms_grupo_detalles gde ON gde.video_id = vid.id
 	INNER JOIN default_cms_imagenes ima ON ima.videos_id=vid.id
-	WHERE  vid.reproducciones!=0     and vid.estado=2
-	GROUP BY gde.grupo_maestro_padre
-	ORDER BY vid.reproducciones DESC ;
-	drop table if exists t_estadistica_valorizacion;
-	CREATE TEMPORARY TABLE t_estadistica_valorizacion
+	WHERE  vid.reproducciones!=0  AND ima.tipo_imagen_id = 1  AND vid.estado=2;
+	
+	DROP TABLE IF EXISTS t_estadistica_reproducciones_temp2;
+	CREATE TEMPORARY TABLE t_estadistica_reproducciones_temp2
+	SELECT * FROM t_estadistica_reproducciones_temp1 WHERE gm_id IS NULL;
+	
+	DROP TABLE IF EXISTS t_estadistica_reproducciones;
+	CREATE TEMPORARY TABLE t_estadistica_reproducciones	
+	SELECT * FROM t_estadistica_reproducciones_temp1
+	WHERE gm_id IS NOT NULL
+	GROUP BY gm_id
+	UNION 
+	SELECT * FROM t_estadistica_reproducciones_temp2
+	WHERE gm_id IS  NULL;
+		
+	/*  valorizacion */
+DROP TABLE IF EXISTS t_estadistica_valorizacion_temp1;	
+	CREATE TEMPORARY TABLE t_estadistica_valorizacion_temp1
+	
 	SELECT vid.id AS 'vi_id',ima.id AS 'im_id',categorias_id,vid.canales_id,vid.valorizacion,
-(SELECT gde1.grupo_maestro_padre FROM default_cms_grupo_detalles gde1 WHERE gde1.grupo_maestro_id=(SELECT gde1.grupo_maestro_padre FROM default_cms_grupo_detalles gde1 WHERE gde1.grupo_maestro_id=(SELECT gde2.grupo_maestro_padre FROM default_cms_grupo_detalles gde2 WHERE gde2.video_id=vid.id))) as 'programa_id'
+	(CASE (SELECT gd1.tipo_grupo_maestros_id FROM default_cms_grupo_detalles gd1 WHERE gd1.video_id = vid.id)		
+	WHEN 1 THEN 
+		( SELECT gd1.grupo_maestro_padre  FROM default_cms_grupo_detalles gd1 WHERE gd1.video_id = vid.id AND gd1.tipo_grupo_maestros_id =1)		
+	WHEN 2 THEN 
+		( SELECT gd2.grupo_maestro_padre FROM default_cms_grupo_detalles gd2 WHERE gd2.grupo_maestro_id = (SELECT gd3.grupo_maestro_padre FROM default_cms_grupo_detalles gd3 WHERE gd3.video_id = vid.id  )   AND  gd2.tipo_grupo_maestros_id =2)
+	WHEN 3 THEN 
+		(SELECT gd4.grupo_maestro_padre FROM default_cms_grupo_detalles gd4 WHERE gd4.grupo_maestro_id = (SELECT gd5.grupo_maestro_padre FROM default_cms_grupo_detalles gd5 WHERE gd5.grupo_maestro_id = (SELECT gd6.grupo_maestro_padre FROM default_cms_grupo_detalles gd6 WHERE gd6.video_id = vid.id )) AND  gd4.tipo_grupo_maestros_id =3)
+	ELSE
+		(SELECT NULL)	
+	END )AS 'gm_id'  
 	FROM default_cms_videos vid
 	INNER JOIN default_cms_grupo_detalles gde ON gde.video_id = vid.id
 	INNER JOIN default_cms_imagenes ima ON ima.videos_id=vid.id
-	WHERE  vid.valorizacion!=0    and vid.estado=2
-	GROUP BY gde.grupo_maestro_padre
-	ORDER BY vid.valorizacion DESC ;
-	drop table if exists t_estadistica_comentarios;
-	CREATE TEMPORARY TABLE t_estadistica_comentarios
+	WHERE  vid.valorizacion!=0  AND ima.tipo_imagen_id = 1  AND vid.estado=2;
+	
+	DROP TABLE IF EXISTS t_estadistica_valorizacion_temp2;
+	CREATE TEMPORARY TABLE t_estadistica_valorizacion_temp2
+	SELECT * FROM t_estadistica_valorizacion_temp1 WHERE gm_id IS NULL;
+	
+	DROP TABLE IF EXISTS t_estadistica_valorizacion;
+	CREATE TEMPORARY TABLE t_estadistica_valorizacion	
+	SELECT * FROM t_estadistica_valorizacion_temp1
+	WHERE gm_id IS NOT NULL
+	GROUP BY gm_id
+	UNION 
+	SELECT * FROM t_estadistica_valorizacion_temp2
+	WHERE gm_id IS  NULL;
+	
+	
+		/*  comentarios */
+	
+	DROP TABLE IF EXISTS t_estadistica_comentarios_temp1;	
+	CREATE TEMPORARY TABLE t_estadistica_comentarios_temp1
+	
 	SELECT vid.id AS 'vi_id',ima.id AS 'im_id',categorias_id,vid.canales_id,vid.comentarios,
-(SELECT gde1.grupo_maestro_padre FROM default_cms_grupo_detalles gde1 WHERE gde1.grupo_maestro_id=(SELECT gde1.grupo_maestro_padre FROM default_cms_grupo_detalles gde1 WHERE gde1.grupo_maestro_id=(SELECT gde2.grupo_maestro_padre FROM default_cms_grupo_detalles gde2 WHERE gde2.video_id=vid.id))) as 'programa_id'
+	(CASE (SELECT gd1.tipo_grupo_maestros_id FROM default_cms_grupo_detalles gd1 WHERE gd1.video_id = vid.id)		
+	WHEN 1 THEN 
+		( SELECT gd1.grupo_maestro_padre  FROM default_cms_grupo_detalles gd1 WHERE gd1.video_id = vid.id AND gd1.tipo_grupo_maestros_id =1)		
+	WHEN 2 THEN 
+		( SELECT gd2.grupo_maestro_padre FROM default_cms_grupo_detalles gd2 WHERE gd2.grupo_maestro_id = (SELECT gd3.grupo_maestro_padre FROM default_cms_grupo_detalles gd3 WHERE gd3.video_id = vid.id  )   AND  gd2.tipo_grupo_maestros_id =2)
+	WHEN 3 THEN 
+		(SELECT gd4.grupo_maestro_padre FROM default_cms_grupo_detalles gd4 WHERE gd4.grupo_maestro_id = (SELECT gd5.grupo_maestro_padre FROM default_cms_grupo_detalles gd5 WHERE gd5.grupo_maestro_id = (SELECT gd6.grupo_maestro_padre FROM default_cms_grupo_detalles gd6 WHERE gd6.video_id = vid.id )) AND  gd4.tipo_grupo_maestros_id =3)
+	ELSE
+		(SELECT NULL)	
+	END )AS 'gm_id'  
 	FROM default_cms_videos vid
 	INNER JOIN default_cms_grupo_detalles gde ON gde.video_id = vid.id
 	INNER JOIN default_cms_imagenes ima ON ima.videos_id=vid.id
-	WHERE  vid.comentarios!=0    and vid.estado=2
-	GROUP BY gde.grupo_maestro_padre
-	ORDER BY vid.comentarios DESC ;
-	drop table if exists t_estadistica_fecha_transmision;
-	CREATE TEMPORARY TABLE t_estadistica_fecha_transmision
-	SELECT vid.id AS 'vi_id',ima.id AS 'im_id',categorias_id,vid.canales_id,(SELECT gde1.grupo_maestro_padre FROM default_cms_grupo_detalles gde1
-	WHERE gde1.grupo_maestro_id=(SELECT gde1.grupo_maestro_padre FROM default_cms_grupo_detalles gde1
-	WHERE gde1.grupo_maestro_id=(SELECT gde2.grupo_maestro_padre FROM default_cms_grupo_detalles gde2 WHERE gde2.video_id=vid.id))) AS 'programa_id',
-	fecha_transmision
+	WHERE  vid.comentarios!=0  AND ima.tipo_imagen_id = 1  AND vid.estado=2;
+	
+	DROP TABLE IF EXISTS t_estadistica_comentarios_temp2;
+	CREATE TEMPORARY TABLE t_estadistica_comentarios_temp2
+	SELECT * FROM t_estadistica_comentarios_temp1 WHERE gm_id IS NULL;
+	
+	DROP TABLE IF EXISTS t_estadistica_comentarios;
+	CREATE TEMPORARY TABLE t_estadistica_comentarios	
+	SELECT * FROM t_estadistica_comentarios_temp1
+	WHERE gm_id IS NOT NULL
+	GROUP BY gm_id
+	UNION 
+	SELECT * FROM t_estadistica_comentarios_temp2
+	WHERE gm_id IS  NULL;
+
+/* Fecha de transmision */
+
+DROP TABLE IF EXISTS t_estadistica_fecha_transmision_temp1;	
+	CREATE TEMPORARY TABLE t_estadistica_fecha_transmision_temp1
+	
+	SELECT vid.id AS 'vi_id',ima.id AS 'im_id',categorias_id,vid.canales_id,vid.fecha_transmision,
+	(CASE (SELECT gd1.tipo_grupo_maestros_id FROM default_cms_grupo_detalles gd1 WHERE gd1.video_id = vid.id)		
+	WHEN 1 THEN 
+		( SELECT gd1.grupo_maestro_padre  FROM default_cms_grupo_detalles gd1 WHERE gd1.video_id = vid.id AND gd1.tipo_grupo_maestros_id =1)		
+	WHEN 2 THEN 
+		( SELECT gd2.grupo_maestro_padre FROM default_cms_grupo_detalles gd2 WHERE gd2.grupo_maestro_id = (SELECT gd3.grupo_maestro_padre FROM default_cms_grupo_detalles gd3 WHERE gd3.video_id = vid.id  )   AND  gd2.tipo_grupo_maestros_id =2)
+	WHEN 3 THEN 
+		(SELECT gd4.grupo_maestro_padre FROM default_cms_grupo_detalles gd4 WHERE gd4.grupo_maestro_id = (SELECT gd5.grupo_maestro_padre FROM default_cms_grupo_detalles gd5 WHERE gd5.grupo_maestro_id = (SELECT gd6.grupo_maestro_padre FROM default_cms_grupo_detalles gd6 WHERE gd6.video_id = vid.id )) AND  gd4.tipo_grupo_maestros_id =3)
+	ELSE
+		(SELECT NULL)	
+	END )AS 'gm_id'  
 	FROM default_cms_videos vid
 	INNER JOIN default_cms_grupo_detalles gde ON gde.video_id = vid.id
 	INNER JOIN default_cms_imagenes ima ON ima.videos_id=vid.id
-	WHERE  vid.estado=2 -- vid.reproducciones!=0    
-	GROUP BY gde.grupo_maestro_padre
-	ORDER BY fecha_transmision DESC 
-	LIMIT 200;
+	WHERE  ima.tipo_imagen_id = 1  AND vid.estado=2 LIMIT 200;
+	
+	DROP TABLE IF EXISTS t_estadistica_fecha_transmision_temp2;
+	CREATE TEMPORARY TABLE t_estadistica_fecha_transmision_temp2
+	SELECT * FROM t_estadistica_fecha_transmision_temp1 WHERE gm_id IS NULL;
+	
+	DROP TABLE IF EXISTS t_estadistica_fecha_transmision;
+	CREATE TEMPORARY TABLE t_estadistica_fecha_transmision	
+	SELECT * FROM t_estadistica_fecha_transmision_temp1
+	WHERE gm_id IS NOT NULL
+	GROUP BY gm_id
+	UNION 
+	SELECT * FROM t_estadistica_fecha_transmision_temp2
+	WHERE gm_id IS  NULL;
 	
 	DROP TABLE IF EXISTS tempsecciones;
 	CREATE TEMPORARY TABLE tempsecciones
- SELECT id,portadas_id,tipo_secciones_id FROM default_cms_secciones WHERE tipo=0 AND tipo_secciones_id IN (6,7,8,9) and estado  =1 ;
+ SELECT id,portadas_id,tipo_secciones_id FROM default_cms_secciones WHERE tipo=0 AND tipo_secciones_id IN (6,7,8,9) AND estado  =1 ;
 SELECT COUNT(*)  INTO cant  FROM tempsecciones ;
  
-if cant>0 then
+IF cant>0 THEN
     
     loop_secciones: LOOP    
  
@@ -74,145 +167,146 @@ if cant>0 then
 					END IF ;
 							
 					SELECT canales_id,tipo_portadas_id,origen_id  
-					into xcanales_id,xtipo_portadas_id,xorigen_id
+					INTO xcanales_id,xtipo_portadas_id,xorigen_id
 					FROM default_cms_portadas WHERE id=xportadas_id;
 					
  
 					-- update default_cms_detalle_secciones set estado=0 where secciones_id=xid and estado=1;
-					delete from default_cms_detalle_secciones where secciones_id=xid;
+					DELETE FROM default_cms_detalle_secciones WHERE secciones_id=xid;
 					 
-					set @rownum=0;
-					set canttemp=0;	
-	if  xtipo_secciones_id= 6 THEN 
-				if xtipo_portadas_id =1 then		
+					SET @rownum=0;
+					SET canttemp=0;	
+	IF  xtipo_secciones_id= 6 THEN 
+				IF xtipo_portadas_id =1 THEN		
 								
-   						  insert  into default_cms_detalle_secciones (secciones_id,videos_id,imagenes_id,peso,fecha_registro,estado,estado_migracion)
+   						  INSERT  INTO default_cms_detalle_secciones (secciones_id,videos_id,imagenes_id,peso,fecha_registro,estado,estado_migracion)
 								SELECT xid,vi_id,im_id,@rownum:=@rownum+1 AS rownum,NOW(),1,0 FROM t_estadistica_reproducciones ter 
 								ORDER BY ter.reproducciones DESC 
 								LIMIT 50;
 	
-				elseif xtipo_portadas_id = 2 then
+				ELSEIF xtipo_portadas_id = 2 THEN
 					
-								insert  into default_cms_detalle_secciones (secciones_id,videos_id,imagenes_id,peso,fecha_registro,estado,estado_migracion)
+								INSERT  INTO default_cms_detalle_secciones (secciones_id,videos_id,imagenes_id,peso,fecha_registro,estado,estado_migracion)
 								SELECT xid,vi_id,im_id,@rownum:=@rownum+1 AS rownum,NOW(),1,0 FROM t_estadistica_reproducciones ter 
 								WHERE  categorias_id=xorigen_id 
 								ORDER BY ter.reproducciones DESC 
 								LIMIT 50;
-				elseif xtipo_portadas_id = 4 then
+				ELSEIF xtipo_portadas_id = 4 THEN
 												
-								insert  into default_cms_detalle_secciones (secciones_id,videos_id,imagenes_id,peso,fecha_registro,estado,estado_migracion)
+								INSERT  INTO default_cms_detalle_secciones (secciones_id,videos_id,imagenes_id,peso,fecha_registro,estado,estado_migracion)
 								SELECT xid,vi_id,im_id,@rownum:=@rownum+1 AS rownum,NOW(),1,0 FROM t_estadistica_reproducciones ter 
-								WHERE  programa_id=xorigen_id 
+								WHERE  gm_id=xorigen_id 
 								ORDER BY ter.reproducciones DESC 
 								LIMIT 50;
-				elseif 	xtipo_portadas_id =5 then
-								insert  into default_cms_detalle_secciones (secciones_id,videos_id,imagenes_id,peso,fecha_registro,estado,estado_migracion)
+				ELSEIF 	xtipo_portadas_id =5 THEN
+								INSERT  INTO default_cms_detalle_secciones (secciones_id,videos_id,imagenes_id,peso,fecha_registro,estado,estado_migracion)
 								SELECT xid,vi_id,im_id,@rownum:=@rownum+1 AS rownum,NOW(),1,0 FROM t_estadistica_reproducciones ter 
 								WHERE  canales_id=xorigen_id 
 								ORDER BY ter.reproducciones DESC 
 								LIMIT 50;
-				end if;	
-elseif  xtipo_secciones_id= 7 THEN 
+				END IF;	
+ELSEIF  xtipo_secciones_id= 7 THEN 
 						
-			if xtipo_portadas_id =1 then
-								insert  into default_cms_detalle_secciones (secciones_id,videos_id,imagenes_id,peso,fecha_registro,estado,estado_migracion)
+			IF xtipo_portadas_id =1 THEN
+								INSERT  INTO default_cms_detalle_secciones (secciones_id,videos_id,imagenes_id,peso,fecha_registro,estado,estado_migracion)
 								SELECT xid,vi_id,im_id,@rownum:=@rownum+1 AS rownum,NOW(),1,0 FROM t_estadistica_comentarios tec
 								ORDER BY tec.comentarios DESC 
 								LIMIT 50;
-				elseif xtipo_portadas_id = 2 then
+				ELSEIF xtipo_portadas_id = 2 THEN
 					
-								insert  into default_cms_detalle_secciones (secciones_id,videos_id,imagenes_id,peso,fecha_registro,estado,estado_migracion)
+								INSERT  INTO default_cms_detalle_secciones (secciones_id,videos_id,imagenes_id,peso,fecha_registro,estado,estado_migracion)
 								SELECT xid,vi_id,im_id,@rownum:=@rownum+1 AS rownum,NOW(),1,0 FROM t_estadistica_comentarios tec
 								WHERE  categorias_id=xorigen_id 
 								ORDER BY tec.comentarios DESC 
 								LIMIT 50;
-				elseif xtipo_portadas_id = 4 then
+				ELSEIF xtipo_portadas_id = 4 THEN
 					
-								insert  into default_cms_detalle_secciones (secciones_id,videos_id,imagenes_id,peso,fecha_registro,estado,estado_migracion)
+								INSERT  INTO default_cms_detalle_secciones (secciones_id,videos_id,imagenes_id,peso,fecha_registro,estado,estado_migracion)
 								SELECT xid,vi_id,im_id,@rownum:=@rownum+1 AS rownum,NOW(),1,0 FROM t_estadistica_comentarios tec 
-								WHERE  programa_id=xorigen_id 
+								WHERE  gm_id=xorigen_id 
 								ORDER BY tec.comentarios DESC 
 								LIMIT 50;
 		
-				elseif 	xtipo_portadas_id =5 then
-								insert  into default_cms_detalle_secciones (secciones_id,videos_id,imagenes_id,peso,fecha_registro,estado,estado_migracion)
+				ELSEIF 	xtipo_portadas_id =5 THEN
+								INSERT  INTO default_cms_detalle_secciones (secciones_id,videos_id,imagenes_id,peso,fecha_registro,estado,estado_migracion)
 								SELECT xid,vi_id,im_id,@rownum:=@rownum+1 AS rownum,NOW(),1,0 FROM t_estadistica_comentarios tec
 								WHERE  canales_id=xorigen_id 
 								ORDER BY tec.comentarios DESC 
 								LIMIT 50;
-				end if;	
-elseif  xtipo_secciones_id= 8 THEN 
-				if xtipo_portadas_id =1 then
+				END IF;	
+ELSEIF  xtipo_secciones_id= 8 THEN 
+				IF xtipo_portadas_id =1 THEN
 					
-								insert  into default_cms_detalle_secciones (secciones_id,videos_id,imagenes_id,peso,fecha_registro,estado,estado_migracion)
+								INSERT  INTO default_cms_detalle_secciones (secciones_id,videos_id,imagenes_id,peso,fecha_registro,estado,estado_migracion)
 								SELECT xid,vi_id,im_id,@rownum:=@rownum+1 AS rownum,NOW(),1,0 FROM t_estadistica_valorizacion tev
 								ORDER BY tev.valorizacion DESC 
 								LIMIT 50;
-				elseif xtipo_portadas_id = 2 then
+				ELSEIF xtipo_portadas_id = 2 THEN
 				
-								insert  into default_cms_detalle_secciones (secciones_id,videos_id,imagenes_id,peso,fecha_registro,estado,estado_migracion)
+								INSERT  INTO default_cms_detalle_secciones (secciones_id,videos_id,imagenes_id,peso,fecha_registro,estado,estado_migracion)
 								SELECT xid,vi_id,im_id,@rownum:=@rownum+1 AS rownum,NOW(),1,0 FROM t_estadistica_valorizacion tev
 								WHERE categorias_id=xorigen_id 
 								ORDER BY tev.valorizacion DESC 
 								LIMIT 50;
-				elseif xtipo_portadas_id = 4 then
+				ELSEIF xtipo_portadas_id = 4 THEN
 					
-								insert  into default_cms_detalle_secciones (secciones_id,videos_id,imagenes_id,peso,fecha_registro,estado,estado_migracion)
+								INSERT  INTO default_cms_detalle_secciones (secciones_id,videos_id,imagenes_id,peso,fecha_registro,estado,estado_migracion)
 								SELECT xid,vi_id,im_id,@rownum:=@rownum+1 AS rownum,NOW(),1,0 FROM t_estadistica_valorizacion tev
-								WHERE  programa_id=xorigen_id 
+								WHERE  gm_id=xorigen_id 
 								ORDER BY tev.valorizacion DESC 
 								LIMIT 50;
 		
-				elseif 	xtipo_portadas_id =5 then
-								insert  into default_cms_detalle_secciones (secciones_id,videos_id,imagenes_id,peso,fecha_registro,estado,estado_migracion)
+				ELSEIF 	xtipo_portadas_id =5 THEN
+								INSERT  INTO default_cms_detalle_secciones (secciones_id,videos_id,imagenes_id,peso,fecha_registro,estado,estado_migracion)
 								SELECT xid,vi_id,im_id,@rownum:=@rownum+1 AS rownum,NOW(),1,0 FROM t_estadistica_valorizacion tev
 								WHERE  canales_id=xorigen_id 
 								ORDER BY tev.valorizacion DESC 
 								LIMIT 50;
-				end if;	
-elseif  xtipo_secciones_id= 9 THEN 
-			if xtipo_portadas_id =1 then
+				END IF;	
+ELSEIF  xtipo_secciones_id= 9 THEN 
+			IF xtipo_portadas_id =1 THEN
 					
-								insert  into default_cms_detalle_secciones (secciones_id,videos_id,imagenes_id,peso,fecha_registro,estado,estado_migracion)
+								INSERT  INTO default_cms_detalle_secciones (secciones_id,videos_id,imagenes_id,peso,fecha_registro,estado,estado_migracion)
 								SELECT xid,vi_id,im_id,@rownum:=@rownum+1 AS rownum,NOW(),1,0 FROM t_estadistica_fecha_transmision tef
 								ORDER BY tef.fecha_transmision DESC 
 								LIMIT 50;
-				elseif xtipo_portadas_id = 2 then
+				ELSEIF xtipo_portadas_id = 2 THEN
 				
-								insert  into default_cms_detalle_secciones (secciones_id,videos_id,imagenes_id,peso,fecha_registro,estado,estado_migracion)
+								INSERT  INTO default_cms_detalle_secciones (secciones_id,videos_id,imagenes_id,peso,fecha_registro,estado,estado_migracion)
 								SELECT xid,vi_id,im_id,@rownum:=@rownum+1 AS rownum,NOW(),1,0 FROM  t_estadistica_fecha_transmision tef
 								WHERE categorias_id=xorigen_id 
 								ORDER BY tef.fecha_transmision DESC 
 								LIMIT 50;
-				elseif xtipo_portadas_id = 4 then
+				ELSEIF xtipo_portadas_id = 4 THEN
 					
-								insert  into default_cms_detalle_secciones (secciones_id,videos_id,imagenes_id,peso,fecha_registro,estado,estado_migracion)
+								INSERT  INTO default_cms_detalle_secciones (secciones_id,videos_id,imagenes_id,peso,fecha_registro,estado,estado_migracion)
 								SELECT xid,vi_id,im_id,@rownum:=@rownum+1 AS rownum,NOW(),1,0 FROM  t_estadistica_fecha_transmision tef
-								WHERE  programa_id=xorigen_id 
+								WHERE  gm_id=xorigen_id 
 								ORDER BY tef.fecha_transmision DESC 
 								LIMIT 50;
 		
-				elseif 	xtipo_portadas_id =5 then
-								insert  into default_cms_detalle_secciones (secciones_id,videos_id,imagenes_id,peso,fecha_registro,estado,estado_migracion)
+				ELSEIF 	xtipo_portadas_id =5 THEN
+								INSERT  INTO default_cms_detalle_secciones (secciones_id,videos_id,imagenes_id,peso,fecha_registro,estado,estado_migracion)
 								SELECT xid,vi_id,im_id,@rownum:=@rownum+1 AS rownum,NOW(),1,0 FROM  t_estadistica_fecha_transmision tef
 								WHERE  canales_id=xorigen_id 
 								ORDER BY tef.fecha_transmision DESC  
 								LIMIT 50;
-				end if;	
-end if;
-			 select  count(*) into canttemp from default_cms_detalle_secciones  where secciones_id=xid and estado=1;  
-				if  canttemp<> 0 then 
-						update default_cms_secciones set estado=1 where id=xid;
-					else
-						update default_cms_secciones set estado=0 where id=xid;
-				end if;
-		delete from tempsecciones where id=xid;
-		set cant = cant -1;		
-     end loop loop_secciones;
+				END IF;	
+END IF;
+			 SELECT  COUNT(*) INTO canttemp FROM default_cms_detalle_secciones  WHERE secciones_id=xid AND estado=1;  
+				IF  canttemp<> 0 THEN 
+						UPDATE default_cms_secciones SET estado=1 WHERE id=xid;
+					ELSE
+						UPDATE default_cms_secciones SET estado=0 WHERE id=xid;
+				END IF;
+		DELETE FROM tempsecciones WHERE id=xid;
+		SET cant = cant -1;		
+     END LOOP loop_secciones;
 	
 END IF;    
 	
-    END  $$
+    END $$
+
 DELIMITER ;
 
 /* Procedure structure for procedure sp_nombresColeccion */
