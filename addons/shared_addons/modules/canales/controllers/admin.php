@@ -609,27 +609,46 @@ class Admin extends Admin_Controller {
         $user_id = (int) $this->session->userdata('user_id');
         if ($canal > 0) {
             $objCanal = $this->canales_m->get($canal);
-            $objBeanCanal = new stdClass();
-            $objBeanCanal->id = $objCanal->id;
-            $objBeanCanal->tipo_canales_id = $objCanal->tipo_canales_id;
-            $objBeanCanal->alias = $objCanal->alias;
-            $objBeanCanal->nombre = $objCanal->nombre;
-            $objBeanCanal->descripcion = $objCanal->descripcion;
-            $objBeanCanal->apikey = $objCanal->apikey;
-            $objBeanCanal->playerkey = $objCanal->playerkey;
-            $objBeanCanal->id_mongo = $objCanal->id_mongo;
-            $objBeanCanal->cantidad_suscriptores = $objCanal->cantidad_suscriptores;
-            $objBeanCanal->estado = $objCanal->estado;
-            $objBeanCanal->fecha_registro = $objCanal->fecha_registro;
-            $objBeanCanal->usuario_registro = $objCanal->usuario_registro;
-            $objBeanCanal->fecha_actualizacion = $objCanal->fecha_actualizacion;
-            $objBeanCanal->usuario_actualizacion = $objCanal->usuario_actualizacion;
-            $objBeanCanal->estado_migracion = $objCanal->estado_migracion;
-            $objBeanCanal->fecha_migracion = $objCanal->fecha_migracion;
-            $objBeanCanal->fecha_migracion_actualizacion = $objCanal->fecha_migracion_actualizacion;
-            $objBeanCanal->imagen_portada = $this->_getImagen($canal, $this->config->item('imagen:extralarge'));
-            $objBeanCanal->imagen_logotipo = $this->config->item('protocolo:http') . $this->config->item('server:elemento') . '/' . $this->_getImagen($canal, $this->config->item('imagen:logo'));
-            $objBeanCanal->imagen_isotipo = $this->config->item('protocolo:http') . $this->config->item('server:elemento') . '/' . $this->_getImagen($canal, $this->config->item('imagen:iso'));
+            if (count($objCanal) > 0) {
+                $objBeanCanal = new stdClass();
+                $objBeanCanal->id = $objCanal->id;
+                $objBeanCanal->tipo_canales_id = $objCanal->tipo_canales_id;
+                $objBeanCanal->alias = $objCanal->alias;
+                $objBeanCanal->nombre = $objCanal->nombre;
+                $objBeanCanal->descripcion = $objCanal->descripcion;
+                $objBeanCanal->apikey = $objCanal->apikey;
+                $objBeanCanal->playerkey = $objCanal->playerkey;
+                $objBeanCanal->id_mongo = $objCanal->id_mongo;
+                $objBeanCanal->cantidad_suscriptores = $objCanal->cantidad_suscriptores;
+                $objBeanCanal->estado = $objCanal->estado;
+                $objBeanCanal->fecha_registro = $objCanal->fecha_registro;
+                $objBeanCanal->usuario_registro = $objCanal->usuario_registro;
+                $objBeanCanal->fecha_actualizacion = $objCanal->fecha_actualizacion;
+                $objBeanCanal->usuario_actualizacion = $objCanal->usuario_actualizacion;
+                $objBeanCanal->estado_migracion = $objCanal->estado_migracion;
+                $objBeanCanal->fecha_migracion = $objCanal->fecha_migracion;
+                $objBeanCanal->fecha_migracion_actualizacion = $objCanal->fecha_migracion_actualizacion;
+                $objBeanCanal->imagen_portada = $this->_getImagen($canal, $this->config->item('imagen:extralarge'));
+                $objBeanCanal->imagen_logotipo = $this->config->item('protocolo:http') . $this->config->item('server:elemento') . '/' . $this->_getImagen($canal, $this->config->item('imagen:logo'));
+                $objBeanCanal->imagen_isotipo = $this->config->item('protocolo:http') . $this->config->item('server:elemento') . '/' . $this->_getImagen($canal, $this->config->item('imagen:iso'));
+                $listaTipoCanal = $this->tipo_canales_m->getTipoCanalesDropDown(array("estado" => $this->config->item('estado:publicado')), 'nombre');
+                $this->template
+                        ->title($this->module_details['name'])
+                        ->append_js('AjaxUpload.2.0.min.js')
+                        ->append_metadata($this->load->view('fragments/wysiwyg', array(), TRUE))
+                        ->append_js('module::jquery.ddslick.min.js')
+                        ->set('objCanal', $objBeanCanal)
+                        ->append_js('module::jquery.alerts.js')
+                        ->append_css('module::jquery.alerts.css')
+                        ->set('tipo_canales', $listaTipoCanal)
+                        ->set('nombre_canal', 'nombre ...');
+                $this->template->build('admin/canal');
+            } else {
+                $listaTipoCanal = $this->tipo_canales_m->getTipoCanalesDropDown(array("estado" => $this->config->item('estado:publicado')), 'nombre');
+                $this->template
+                        ->title($this->module_details['name']);
+                $this->template->build('admin/error');
+            }
         } else {
             $objBeanCanal = new stdClass();
             $objBeanCanal->id = 0;
@@ -652,20 +671,19 @@ class Admin extends Admin_Controller {
             $objBeanCanal->imagen_portada = '';
             $objBeanCanal->imagen_logotipo = '';
             $objBeanCanal->imagen_isotipo = '';
+            $listaTipoCanal = $this->tipo_canales_m->getTipoCanalesDropDown(array("estado" => $this->config->item('estado:publicado')), 'nombre');
+            $this->template
+                    ->title($this->module_details['name'])
+                    ->append_js('AjaxUpload.2.0.min.js')
+                    ->append_metadata($this->load->view('fragments/wysiwyg', array(), TRUE))
+                    ->append_js('module::jquery.ddslick.min.js')
+                    ->set('objCanal', $objBeanCanal)
+                    ->append_js('module::jquery.alerts.js')
+                    ->append_css('module::jquery.alerts.css')
+                    ->set('tipo_canales', $listaTipoCanal)
+                    ->set('nombre_canal', 'nombre ...');
+            $this->template->build('admin/canal');
         }
-        //$listaTipoCanal = $this->tipo_canales_m->where_not_in('id',array($this->config->item('tipo_canal:micanal')))->getTipoCanalesDropDown(array("estado"=>$this->config->item('estado:publicado')), 'nombre');
-        $listaTipoCanal = $this->tipo_canales_m->getTipoCanalesDropDown(array("estado" => $this->config->item('estado:publicado')), 'nombre');
-        $this->template
-                ->title($this->module_details['name'])
-                ->append_js('AjaxUpload.2.0.min.js')
-                ->append_metadata($this->load->view('fragments/wysiwyg', array(), TRUE))
-                ->append_js('module::jquery.ddslick.min.js')
-                ->set('objCanal', $objBeanCanal)
-                ->append_js('module::jquery.alerts.js')
-                ->append_css('module::jquery.alerts.css')
-                ->set('tipo_canales', $listaTipoCanal)
-                ->set('nombre_canal', 'nombre ...');
-        $this->template->build('admin/canal');
     }
 
     public function _getImagen($canal_id, $tipo) {
@@ -1398,7 +1416,7 @@ class Admin extends Admin_Controller {
         $data = array(
             //'apikey' => '590ee43e919b1f4baa2125a424f03cd160ff8901',
             'apikey' => $this->config->item('apikey:elemento'),
-            'name' => $fid . '.' . $ext[1],
+            'name' => $fid . '.' . $ext[count($ext)-1],
             'content' => $infofile,
             //'ruta' => 'files/' . $remotedir,
             'ruta' => $remotedir,
@@ -5996,29 +6014,6 @@ class Admin extends Admin_Controller {
                 }
             }
             echo json_encode(array("value" => "1"));
-        }
-    }
-
-    public function repetidos() {
-        $array_detalle_maestro = $this->grupo_detalle_m->get_many_by(array());
-        $coleccion_grupo_detalle = $array_detalle_maestro;
-        if (count($array_detalle_maestro) > 0) {
-            foreach ($array_detalle_maestro as $puntero => $objDetalleGrupo) {
-                $cont = 0;
-                foreach ($coleccion_grupo_detalle as $index => $oDetalle) {
-                    if ($oDetalle->grupo_maestro_id != NULL && $objDetalleGrupo->grupo_maestro_id != NULL) {
-                        if ($oDetalle->grupo_maestro_padre == $objDetalleGrupo->grupo_maestro_padre && $oDetalle->grupo_maestro_id == $objDetalleGrupo->grupo_maestro_id) {
-                            $cont++;
-                        }
-                    }
-                    if ($cont == 2) {
-                        echo "<hr />";
-                        echo "se repite el ID:" . $oDetalle->id . "<br />";
-                        echo "se repite el ID:" . $objDetalleGrupo->id;
-                        break;
-                    }
-                }
-            }
         }
     }
 
