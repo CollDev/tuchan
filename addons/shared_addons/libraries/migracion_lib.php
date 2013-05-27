@@ -225,17 +225,12 @@ class Migracion_lib extends MX_Controller {
      * @param object $objTags
      */
     private function registrar_tags($video_id, $objTags) {
-        Log::erroLog(json_encode($objTags));
         if (property_exists($objTags, 'tag')) {
             $user_id = (int) $this->session->userdata('user_id');
             //$arrayTag = (array) $objTags->tag;
-            Log::erroLog(json_encode($objTags->tag));
             $arrayTag = $objTags->tag;
             if (count($arrayTag) > 0) {
-                Log::erroLog($arrayTag);
                 foreach ($arrayTag as $puntero => $tag) {
-                    Log::erroLog("--------TAG---------");
-                    Log::erroLog("johnny debug : video_id: " .$video_id."=>".$tag);
                     $aTag = $this->tags_m->like('nombre', $tag, 'none')->get_many_by(array("tipo_tags_id" => "1"));
                     if (count($aTag) > 0) {
                         $objTagExistente = $this->tags_m->like('nombre', $tag, 'none')->get_by(array("tipo_tags_id" => "1"));
