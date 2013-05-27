@@ -229,6 +229,7 @@ class Migracion_lib extends MX_Controller {
             $user_id = (int) $this->session->userdata('user_id');
             $arrayTag = (array) $objTags->tag;
             if (count($arrayTag) > 0) {
+                Log::erroLog($arrayTag);
                 foreach ($arrayTag as $puntero => $tag) {
                     Log::erroLog("--------TAG---------");
                     Log::erroLog("johnny debug : video_id: " .$video_id."=>".$tag);
