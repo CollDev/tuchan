@@ -5977,9 +5977,9 @@ class Admin extends Admin_Controller {
                                 if (count($lista_original) > 0) {
                                     $array_original = array();
                                     foreach ($lista_original as $index => $oSeccion) {
-                                        if($oSeccion->peso == NULL){
+                                        if ($oSeccion->peso == NULL) {
                                             array_push($array_original, $index);
-                                        }else{
+                                        } else {
                                             array_push($array_original, $oSeccion->peso);
                                         }
                                     }
@@ -5995,7 +5995,30 @@ class Admin extends Admin_Controller {
                     }
                 }
             }
-            echo json_encode(array("value"=>"1"));
+            echo json_encode(array("value" => "1"));
+        }
+    }
+
+    public function repetidos() {
+        $array_detalle_maestro = $this->grupo_detalle_m->get_many_by(array());
+        $coleccion_grupo_detalle = $array_detalle_maestro;
+        if (count($array_detalle_maestro) > 0) {
+            foreach ($array_detalle_maestro as $puntero => $objDetalleGrupo) {
+                $cont = 0;
+                foreach ($coleccion_grupo_detalle as $index => $oDetalle) {
+                    if ($oDetalle->grupo_maestro_id != NULL && $objDetalleGrupo->grupo_maestro_id != NULL) {
+                        if ($oDetalle->grupo_maestro_padre == $objDetalleGrupo->grupo_maestro_padre && $oDetalle->grupo_maestro_id == $objDetalleGrupo->grupo_maestro_id) {
+                            $cont++;
+                        }
+                    }
+                    if ($cont == 2) {
+                        echo "<hr />";
+                        echo "se repite el ID:" . $oDetalle->id . "<br />";
+                        echo "se repite el ID:" . $objDetalleGrupo->id;
+                        break;
+                    }
+                }
+            }
         }
     }
 
