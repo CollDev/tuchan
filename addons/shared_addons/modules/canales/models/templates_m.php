@@ -53,7 +53,9 @@ class Templates_m extends MY_Model {
         $arrayData = $this->getTemplate($where, $order);
         if (count($arrayData) > 0) {
             foreach ($arrayData as $index => $objTipo) {
-                $returnValue[$objTipo->id] = $objTipo->nombre;
+                if($objTipo->id != $this->config->item('template:destacado') && $objTipo->id !=$this->config->item('template:destacado_canal')){
+                    $returnValue[$objTipo->id] = $objTipo->nombre;
+                }
             }
         }
         //$returnValue[0] = lang('videos:select_template');

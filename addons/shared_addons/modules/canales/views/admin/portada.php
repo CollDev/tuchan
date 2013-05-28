@@ -301,9 +301,9 @@
                     <label for="descripcion"><?php echo lang('canales:descripcion_label'); ?></label>
                     <input type="text" name="descripcion_seccion" id="descripcion_seccion" value="" class="text ui-widget-content ui-corner-all" style="width:420px;" />
                     <br />
-    <!--                    <label for="tipo_seccion"><?php //echo lang('portada:tipo_portada')       ?></label>
-                    <?php //echo //form_dropdown('tipo_seccion', $tipo_seccion, 10);  ?>
-                    <br /><br />-->
+                        <label for="tipo_seccion"><?php echo lang('portada:tipo_portada')       ?></label>
+                    <?php echo form_dropdown('tipo_seccion', $tipo_seccion, 10);  ?>
+                    <br /><br />
                     <label for="templates"><?php echo lang('portada:template') ?></label>
                     <?php echo form_dropdown('template', $templates, 0); ?>
 

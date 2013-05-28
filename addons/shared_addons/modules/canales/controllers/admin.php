@@ -1826,7 +1826,8 @@ class Admin extends Admin_Controller {
             }
         }
         $tipo_portada = $this->tipo_portada_m->getTipoPortadaDropDown();
-        $tipo_seccion = $this->tipo_secciones_m->getSeccionDropDown();
+        //$tipo_seccion = $this->tipo_secciones_m->getSeccionDropDown();
+        $tipo_seccion = array($this->config->item('seccion:programa') => "Programa", $this->config->item('seccion:personalizado') => "Personalizado");
         $templates = $this->templates_m->getTemplateDropDown();
         $estados = array($this->config->item('estado:publicado') => "Publicado", "3" => "Borrador", $this->config->item('estado:eliminado') => "Eliminado");
         //do we need to unset the layout because the request is ajax?
@@ -3011,7 +3012,8 @@ class Admin extends Admin_Controller {
                 $objBeanSeccion->descripcion = $this->input->post('descripcion_seccion');
                 $objBeanSeccion->tipo = 0;
                 $objBeanSeccion->portadas_id = $portada_id;
-                $objBeanSeccion->tipo_secciones_id = $this->config->item('seccion:perzonalizado');
+                //$objBeanSeccion->tipo_secciones_id = $this->config->item('seccion:perzonalizado');
+                $objBeanSeccion->tipo_secciones_id = $this->input->post('tipo_seccion');
                 $objBeanSeccion->peso = $this->obtenerPesoSeccion($portada_id);
                 $objBeanSeccion->id_mongo = NULL;
                 $objBeanSeccion->estado = 0;
@@ -3027,7 +3029,11 @@ class Admin extends Admin_Controller {
                 $objBeanSeccionSaved = $this->secciones_m->save($objBeanSeccion);
                 $estado = 'Borrador';
                 //$acciones = 'Previsualizar | Publicar | Editar | Eliminar';
-                $acciones = '<a href="/admin/canales/previsualizar_seccion/" target ="_blank" class="modal-large">Previsualizar</a> | <a href="#" onclick="publicar_seccion(' . $objBeanSeccionSaved->id . ', \'seccion\');return false;">Publicar</a> | <a title="Editar" href="admin/canales/seccion/' . $this->input->post('canal_id') . '/' . $objBeanSeccionSaved->id . '">Editar</a> | <a href="#" onclick="eliminar_seccion(' . $objBeanSeccionSaved->id . ', \'seccion\');return false;">Eliminar</a>';
+                //$acciones = '<a href="/admin/canales/previsualizar_seccion/" target ="_blank" class="modal-large">Previsualizar</a> | <a href="#" onclick="publicar_seccion(' . $objBeanSeccionSaved->id . ', \'seccion\');return false;">Publicar</a> | <a title="Editar" href="admin/canales/seccion/' . $this->input->post('canal_id') . '/' . $objBeanSeccionSaved->id . '">Editar</a> | <a href="#" onclick="eliminar_seccion(' . $objBeanSeccionSaved->id . ', \'seccion\');return false;">Eliminar</a>';
+                $acciones = '<a href="/admin/canales/previsualizar_seccion/' . $objBeanSeccionSaved->id . '" target ="_blank" class="mode_preview modal-large">Previsualizar</a>';
+                $acciones.= '<a href="#" onclick="publicar_seccion(' . $objBeanSeccionSaved->id . ', \'seccion\');return false;" class="mode_publish">Publicar</a>';
+                $acciones.= '<a title="Editar" href="/admin/canales/seccion/' . $this->input->post('canal_id') . '/' . $objBeanSeccionSaved->id . '" class="mode_edit">Editar</a>';
+                $acciones.= '<a href="#" onclick="eliminar_seccion(' . $objBeanSeccionSaved->id . ', \'seccion\');return false;" class="mode_delete">Eliminar</a>';
                 if ($objBeanSeccionSaved->estado == 1) {
                     $estado = 'Publicado';
                 }
