@@ -8576,3 +8576,5 @@ ERROR - 2013-05-28 21:27:36 --> Severity: Warning  --> mysqli_connect(): (HY000/
 ERROR - 2013-05-28 21:27:36 --> Unable to connect to the database
 ERROR - 2013-05-28 21:28:16 --> Severity: Warning  --> mysqli_connect(): (HY000/2003): Can't connect to MySQL server on '10.203.31.139' (110) /home/user/Escritorio/adminmicanal/system/codeigniter/database/drivers/mysqli/mysqli_driver.php 75
 ERROR - 2013-05-28 21:28:16 --> Unable to connect to the database
+ERROR - 2013-05-28 21:45:11 --> Severity: Warning  --> mysqli_connect(): (HY000/2003): Can't connect to MySQL server on '10.203.31.139' (110) /home/user/Escritorio/adminmicanal/system/codeigniter/database/drivers/mysqli/mysqli_driver.php 75
+ERROR - 2013-05-28 21:45:11 --> Unable to connect to the database
