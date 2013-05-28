@@ -3159,14 +3159,14 @@ class Admin extends Admin_Controller {
                             $objBeanDetalleSecciones->imagenes_id = $objImagen->id;
                             $objBeanDetalleSecciones->peso = 1;
                             $objBeanDetalleSecciones->descripcion_item = NULL;
-                            $objBeanDetalleSecciones->estado = 1;
+                            $objBeanDetalleSecciones->estado = $this->config->item('estado:publicado');
                             $objBeanDetalleSecciones->fecha_registro = date("Y-m-d H:i:s");
                             $objBeanDetalleSecciones->usuario_registro = $user_id;
-                            $objBeanDetalleSecciones->estado_migracion = '0';
+                            $objBeanDetalleSecciones->estado_migracion = $this->config->item('migracion:nuevo');
                             $objBeanDetalleSecciones->fecha_migracion = '0000-00-00 00:00:00';
                             $objBeanDetalleSecciones->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
                             $objBeanDetalleSeccionesSaved = $this->detalle_secciones_m->save($objBeanDetalleSecciones);
-                            $this->secciones_m->update($objBeanSeccionSaved->id, array("estado" => "1"));
+                            $this->secciones_m->update($objBeanSeccionSaved->id, array("estado" => $this->config->item('estado:publicado')));
                         }
                     }
                 }

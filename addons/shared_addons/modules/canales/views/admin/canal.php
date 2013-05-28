@@ -437,7 +437,6 @@
             else if (e.which)
                 code = e.which;
             var character = String.fromCharCode(code);
-            console.log(code);
             if (code == 32 || code == 8 || code == 46 || code == 241 || code == 209) {
                 return true;
             } else {
