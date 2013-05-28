@@ -177,11 +177,11 @@ class Portadas_lib extends MX_Controller {
                         //actualizamos el mismo estado del maestro al detalle de la seccion
                         //validamos que el detalle sección tenga una imagen para activarlo
                         if ($objDetalleSeccion->imagenes_id > 0) {
-                            $oSeccion = $this->secciones_m->get($objDetalleSeccion->secciones_id);
-                            if ($oSeccion->tipo_secciones_id != $this->config->item('seccion:destacado')) {
+                            //$oSeccion = $this->secciones_m->get($objDetalleSeccion->secciones_id);
+                            //if ($oSeccion->tipo_secciones_id != $this->config->item('seccion:destacado')) {
                                 array_push($arrayIdSeccion, $objDetalleSeccion->secciones_id);
                                 $this->detalle_secciones_m->update($objDetalleSeccion->id, array("estado" => $objVideo->estado, "estado_migracion" => $this->config->item('migracion:actualizado')));
-                            }
+                            //}
                         }
                     }
                     //actualizamos los estados de la seccion

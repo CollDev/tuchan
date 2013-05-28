@@ -1,8 +1,12 @@
 <section class="title">
-<!--    <h4><?php //echo $module_details['name']; ?></h4>-->
+    <div style ="float: left;">
+    </div>
+    <div style="float: right;">
+        <?php echo anchor('admin/canales/papelera/', 'Papelera', array('class' => '')); ?>
+    </div> 
 </section>
 <?php if ($this->session->userdata['group'] == 'admin'): ?>
-    <!--<section class="menu"><?php //echo anchor('/admin/canales/canal/', lang('canales:new')) ?></section>-->
+        <!--<section class="menu"><?php //echo anchor('/admin/canales/canal/', lang('canales:new'))  ?></section>-->
 <?php endif; ?>
 <section class="item">
     <?php template_partial('filters'); ?>
@@ -75,15 +79,14 @@
                         success: function(respuesta)
                         {
                             if (respuesta.value == 1) {
-                                //location.reload();
-                                $("#" + tipo + "_" + canal_id).empty();
-                                $("#" + tipo + "_" + canal_id).html('Eliminado');
-                                var htmlButton = '';
-                                htmlButton += '<a href="#" onclick="restablecer(' + canal_id + ',\'canal\');return false;" class="mode_restore">Restablecer</a>';
-                                htmlButton += '<a href="/admin/canales/previsualizar_canal/' + canal_id + '" target ="_blank" class="mode_preview modal-large">Previsualizar</a>';
-                                //$link.= anchor('/admin/canales/portada/' . $post->id, lang('global:ver_portada'), 'class="mode_front"');
-                                htmlButton += '<a href="/admin/canales/portada/' + canal_id + '" class="mode_front">Portada</a>';
-                                $("#" + tipo + "_boton_" + canal_id).html(htmlButton);
+                                $("#canal_" + canal_id).empty();
+//                                $("#" + tipo + "_" + canal_id).empty();
+//                                $("#" + tipo + "_" + canal_id).html('Eliminado');
+//                                var htmlButton = '';
+//                                htmlButton += '<a href="#" onclick="restablecer(' + canal_id + ',\'canal\');return false;" class="mode_restore">Restablecer</a>';
+//                                htmlButton += '<a href="/admin/canales/previsualizar_canal/' + canal_id + '" target ="_blank" class="mode_preview modal-large">Previsualizar</a>';
+//                                htmlButton += '<a href="/admin/canales/portada/' + canal_id + '" class="mode_front">Portada</a>';
+//                                $("#" + tipo + "_boton_" + canal_id).html(htmlButton);
                             }
                         } //end success
                     }); //end AJAX   
@@ -141,10 +144,10 @@
                                 htmlButton += '<a href="#" onclick="eliminar(' + canal_id + ',\'canal\');return false;" class="mode_delete">Eliminar</a>';
                                 htmlButton += '<a href="/admin/canales/portada/' + canal_id + '" class="mode_front">Portada</a>';
                                 $("#" + tipo + "_boton_" + canal_id).html(htmlButton);
-                            }else{
-                                if(respuesta.value ==  2){
+                            } else {
+                                if (respuesta.value == 2) {
                                     showMessage('error', 'No se puede publicar. No tiene la sección destacado publicado', 2000, '');
-                                }else{
+                                } else {
                                     showMessage('error', 'No se puede publicar. No tiene videos publicados', 2000, '');
                                 }
                             }
