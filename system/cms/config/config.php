@@ -397,7 +397,7 @@ $config['modules_locations'] = array(
             $config['protocolo:http'] = 'http:\/\/';
 
 //servidor elemento
-      
+
 $config['server:elemento'] = 'dev.e.micanal.e3.pe';
 $config['url:elemento'] = 'http://dev.e3.pe/index.php/api/v1';
 $config['apikey:elemento'] = '590ee43e919b1f4baa2125a424f03cd160ff8901';
