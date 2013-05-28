@@ -65,7 +65,7 @@ class Procesos_lib extends MX_Controller {
 
     /* Actualizar Visualizaciones Liquid  -  INICIO */
 
-    private function _actualizarVisualizacion() {
+    private function _actualizarVisualizacionAnt() {
 
         $arrcanales = $this->canales_mp->getCanales();
 
@@ -80,6 +80,16 @@ class Procesos_lib extends MX_Controller {
             }
         }
     }
+    
+    private function _actualizarVisualizacion(){
+        $arrvideos = $this->videos_mp->getVideosActivosPublicados();
+        
+        foreach ($arrvideos as $value) {
+            $cantidad = Liquid::obtenernumberOfViewsXVideo($value->codigo,$value->apikey);
+            $this->_curlSetReproducciones($value->id,$cantidad);              
+            }        
+    }
+    
 
     /* Actualizar Visualizaciones Liquid  -  FIN */
     
@@ -91,6 +101,7 @@ class Procesos_lib extends MX_Controller {
     
     public function setReproduccionesVideosXId($id,$cant){
         $this->videos_mp->setReproduccionesVideosXId($id, $cant);
+        $this->_generarVideosXId($id);
     }
     
     /* Actualizar Comentarios Valoracion   -  INICIO */
@@ -917,8 +928,7 @@ class Procesos_lib extends MX_Controller {
         $array = array();
 
         $resquery = $this->secciones_mp->getSeccionesXId($id);
-        Log::erroLog("dato entrada    : " . $id . " -- ");
-        Log::erroLog("cantidad   : " . count($resquery) . " -- ");
+        Log::erroLog("dato entrada    : " . $id . " -- cantidad   : " . count($resquery) . " -- ");
 
         if (count($resquery) != 0) {
 
@@ -1549,11 +1559,7 @@ class Procesos_lib extends MX_Controller {
                         $this->canal_mp->updateEstadoMigracionVideosActualizacion($value->id);
                     }
                     
-                                 
-
-                    //if ($value->estado_migracion == 0 || $value->estado_migracion == 9) {
                     $this->_generarDetalleVideosXId($value->id, $mongo_id);
-                    //}
 
                     unset($objmongo);
                 } else {
@@ -1594,41 +1600,41 @@ class Procesos_lib extends MX_Controller {
 
             $playlist = $this->videos_mp->getVideosPlaylist($id);
             
-            //error_log(count($playlist));
-            
-
             $arrayplaylist = array();
 
             $i = 0;
             foreach ($playlist as $datos) {
                 $arrayplaylist[$i] = new MongoId($datos->id_mongo);
                 $i++;
-            }
+            }            
             
-            //error_log(count($playlist));
-            
-            foreach ($playlist as $datos2) {         
-                 ////error_log("cantidad: " . count($arrayplaylist). "para :" .$datos2->id_mongo);                 
+            foreach ($playlist as $datos2) {                     
                  $set = array("playlist" => $arrayplaylist);
                  $tempmongo = array("_id" => new MongoId($datos2->id_mongo));
                  $this->canal_mp->SetItemCollectionUpdate($set,$tempmongo);
             }               
 
-
             $tags = $this->video_tags_mp->getTagsVideosXId($id);
-            //  print_r($tags);
-
-//            $clienteSOAP = new SoapClient($this->config->item('motor') . "/" . EC_CLIENTE_SOAP);
-//
-//            $parametros = array();
-//
-//            $parametros["estado"] = array(1);
-//            $parametros["peso_videos"] = array("titulo" => 15, "descripcion" => 5, "tags" => 80);
-//
-//
-//            $this->resultado = $clienteSOAP->BusquedaRelacionado(json_encode($parametros), $tags[0]->tags);
-//
-//            $resultado = json_decode($this->resultado);
+                      
+            $url=$this->config->item('motor')."/sphinx/relacionados/vacio/".$tags[0]->tags;
+                    
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL,$url);
+            curl_setopt($ch, CURLOPT_FAILONERROR,1);
+            curl_setopt($ch, CURLOPT_FOLLOWLOCATION,1);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
+            curl_setopt($ch, CURLOPT_TIMEOUT, 15);            
+                      
+            $result = curl_exec($ch);
+            $info = curl_getinfo($ch);
+            
+           
+            if($info['http_code']=='200'){
+                $resultado = json_decode($result);
+            }else{
+                  $resultado=array();
+            }
+                               
 
             $arrayrelacionados = array();
 
@@ -1709,7 +1715,7 @@ class Procesos_lib extends MX_Controller {
     
     public function actualizarSecciones6789() {
         Log::erroLog("_actualizarVisualizacion");
-        //$this->_actualizarVisualizacion();
+        $this->_actualizarVisualizacion();
         Log::erroLog("_actualizarComentariosValorizacion");
         $this->_actualizarComentariosValorizacion();
         Log::erroLog("_actualizarSecciones6789");
