@@ -41,7 +41,7 @@ class Migracion extends MX_Controller {
 
     public function setRestoreBD() {
         self::procesoMigra("data.restore.sql");
-        self::_setMicanalMongo();
+        //self::_setMicanalMongo();
     }
 
     public function setRestoreFechaBD($fecha) {
