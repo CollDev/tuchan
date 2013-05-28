@@ -18,5 +18,8 @@ class Portadas_mp extends CI_Model {
         return $this->db->query($query)->result();  
     }
     
-
+    public function getPortadasMiCanal(){
+        $query  = "SELECT id FROM ". $this->_table." WHERE tipo_portadas_id = 1";
+        return $this->db->query($query)->result();
+    }
 }    

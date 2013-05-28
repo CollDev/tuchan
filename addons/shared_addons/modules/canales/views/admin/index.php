@@ -80,7 +80,7 @@
                                 $("#" + tipo + "_" + canal_id).html('Eliminado');
                                 var htmlButton = '';
                                 htmlButton += '<a href="#" onclick="restablecer(' + canal_id + ',\'canal\');return false;" class="mode_restore">Restablecer</a>';
-                                htmlButton += '<a href="/admin/canales/previsualizar_canal/" target ="_blank" class="mode_preview modal-large">Previsualizar</a>';
+                                htmlButton += '<a href="/admin/canales/previsualizar_canal/' + canal_id + '" target ="_blank" class="mode_preview modal-large">Previsualizar</a>';
                                 //$link.= anchor('/admin/canales/portada/' . $post->id, lang('global:ver_portada'), 'class="mode_front"');
                                 htmlButton += '<a href="/admin/canales/portada/' + canal_id + '" class="mode_front">Portada</a>';
                                 $("#" + tipo + "_boton_" + canal_id).html(htmlButton);
@@ -108,7 +108,7 @@
                                 $("#" + tipo + "_" + canal_id).html('Borrador');
                                 var htmlButton = '';
                                 htmlButton += '<a href="/admin/canales/canal/' + canal_id + '"  class="mode_edit">Editar</a>';
-                                htmlButton += '<a href="/admin/canales/previsualizar_canal/" target ="_blank" class="mode_preview modal-large">V.Previa</a>';
+                                htmlButton += '<a href="/admin/canales/previsualizar_canal/' + canal_id + '" target ="_blank" class="mode_preview modal-large">V.Previa</a>';
                                 htmlButton += '<a href="#" onclick="publicar(' + canal_id + ',\'canal\');return false;" class="mode_publish">Publicar</a>';
                                 htmlButton += '<a href="#" onclick="eliminar(' + canal_id + ',\'canal\');return false;" class="mode_delete">Eliminar</a>';
                                 htmlButton += '<a href="/admin/canales/portada/' + canal_id + '" class="mode_front">Portada</a>';
@@ -137,12 +137,16 @@
                                 $("#" + tipo + "_" + canal_id).html('Publicado');
                                 var htmlButton = '';
                                 htmlButton += '<a href="/admin/canales/canal/' + canal_id + '"  class="mode_edit">Editar</a>';
-                                htmlButton += '<a href="/admin/canales/previsualizar_canal/" target ="_blank" class="mode_preview modal-large">V.Previa</a>';
+                                htmlButton += '<a href="/admin/canales/previsualizar_canal/' + canal_id + '" target ="_blank" class="mode_preview modal-large">V.Previa</a>';
                                 htmlButton += '<a href="#" onclick="eliminar(' + canal_id + ',\'canal\');return false;" class="mode_delete">Eliminar</a>';
                                 htmlButton += '<a href="/admin/canales/portada/' + canal_id + '" class="mode_front">Portada</a>';
                                 $("#" + tipo + "_boton_" + canal_id).html(htmlButton);
                             }else{
-                                showMessage('error', 'No se puede publicar. No tiene videos publicados', 2000, '');
+                                if(respuesta.value ==  2){
+                                    showMessage('error', 'No se puede publicar. No tiene la sección destacado publicado', 2000, '');
+                                }else{
+                                    showMessage('error', 'No se puede publicar. No tiene videos publicados', 2000, '');
+                                }
                             }
                         } //end success
                     }); //end AJAX   

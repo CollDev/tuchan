@@ -46,21 +46,18 @@ class MiCanal_mp extends CI_Model {
     public function queryProcedure($option, $id) {
         switch ($option) {
             case '1':
-                $query = "call sp_llenartiposeccion6789";                                
+                $query = "call sp_llenartiposeccion6789()";                                
                 break;
             case '4':
                 $query = "call sp_obtenerdatos(" . $id . ")";
                 break;            
         }
 
-//         $objresult=$this->db->query($query);
-//         $resultado=$objresult->result();
-//         $objresult->free_result();
-//         return $resultado;
+
 
         $objresult = $this->db->query($query);
         mysqli_next_result($this->db->conn_id);
-        return $objresult->result();
+        return $objresult->result();        
     }
 
     public function queryMysql($option, $id = "") {

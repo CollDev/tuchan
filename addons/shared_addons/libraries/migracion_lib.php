@@ -57,6 +57,7 @@ class Migracion_lib extends MX_Controller {
         $this->search = $this->config->item('migracion:tag');
         $this->load->library('procesos_lib');
         $this->load->library('portadas_lib');
+        $this->load->library("Procesos/log");
     }
 
     /**
@@ -186,6 +187,8 @@ class Migracion_lib extends MX_Controller {
                     }
                 }
             }
+            //solo para un item
+            //break;
         }
         return $contador;
     }
@@ -224,7 +227,8 @@ class Migracion_lib extends MX_Controller {
     private function registrar_tags($video_id, $objTags) {
         if (property_exists($objTags, 'tag')) {
             $user_id = (int) $this->session->userdata('user_id');
-            $arrayTag = (array) $objTags->tag;
+            //$arrayTag = (array) $objTags->tag;
+            $arrayTag = $objTags->tag;
             if (count($arrayTag) > 0) {
                 foreach ($arrayTag as $puntero => $tag) {
                     $aTag = $this->tags_m->like('nombre', $tag, 'none')->get_many_by(array("tipo_tags_id" => "1"));
@@ -232,6 +236,7 @@ class Migracion_lib extends MX_Controller {
                         $objTagExistente = $this->tags_m->like('nombre', $tag, 'none')->get_by(array("tipo_tags_id" => "1"));
                         //verificamos si la relacion existe
                         $objVideoTag = $this->video_tags_m->get_by(array("tags_id" => $objTagExistente->id, "videos_id" => $video_id));
+                        //Log::erroLog("johnny debug : video tag: " .$objVideoTag->tags_id."=>".$objVideoTag->videos_id);
                         if (count($objVideoTag) == 0) {
                             //registramos la relacion de tag con el video
                             $objBeanVideoTag = new stdClass();
@@ -316,6 +321,8 @@ class Migracion_lib extends MX_Controller {
                         $objBeanImagen->imagen_padre = NULL;
                         $objBeanImagen->procedencia = 1;
                         $objBeanImagen->imagen_anterior = NULL;
+                        //desactivamos las imagenes del mismo tipo
+                        $this->imagen_m->desabilitarImagenes($video_id, $objBeanImagen->tipo_imagen_id, 'video');
                         $objBeanImagenSaved = $this->imagen_m->saveImage($objBeanImagen);
                     }
                 }

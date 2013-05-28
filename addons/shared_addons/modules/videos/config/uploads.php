@@ -121,7 +121,7 @@ $config['grupo:administrador-canales'] = '4';
 $config['canal:mi_canal'] = '5';
 //intervalo de tiempo en segundos para verificar el estado de videos
 $config['video:segundos'] = '20000';
-$config['video:verificar'] = '1';
+$config['video:verificar'] = '0';
 
 //submenus
 $config['submenu:carga_unitaria'] = 'Subir video';
@@ -130,8 +130,8 @@ $config['submenu:carga_unitaria'] = 'Subir video';
 //$config['migracion:no_canal'] = '1';
 //$config['migracion:programa'] = '492';
 //$config['migracion:coleccion'] = '497';
-$config['migracion:programa'] = '473';
-$config['migracion:coleccion'] = '474';
+$config['migracion:programa'] = '13';
+$config['migracion:coleccion'] = '14';
 
 //tipo de canal
 $config['tipo_canal:micanal'] = '5';
