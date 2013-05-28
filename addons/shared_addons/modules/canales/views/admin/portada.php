@@ -15,6 +15,8 @@
         echo anchor('admin/videos/organizar/' . $canal_id, 'Organizar videos', array('class' => ''));
         echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
         echo anchor('admin/canales/portada/' . $canal_id, 'Portadas', array('class' => ''));
+        echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
+        echo anchor('/admin/videos/grupo_maestro/' . $canal_id, 'Crear programas', array('class' => ''));        
         ?>        
     </div>
     <div style="float: right;">
