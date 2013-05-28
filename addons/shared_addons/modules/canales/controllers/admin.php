@@ -1812,6 +1812,8 @@ class Admin extends Admin_Controller {
         }
         $pagination = create_pagination('admin/canales/portada/' . $canal_id . '/index', $total_rows, 5, 6);
 
+        //actualizamo la fecha de registro de la portada principal para que siempre sea el primero en mostrarse
+        $this->portada_m->ubicar_primero_portada_canal($canal_id);
         // Using this data, get the relevant results
         if (strlen(trim($keyword)) > 0) {
             $coleccionPortada = $this->portada_m->order_by('fecha_registro', 'DESC')->like('nombre', $keyword)->limit($pagination['limit'])->get_many_by($base_where);
