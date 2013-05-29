@@ -276,11 +276,11 @@ class Portadas_lib extends MX_Controller {
                     foreach ($arrayDetalleSeciones as $puntero => $objDetalleSeccion) {
                         //actualizamos el mismo estado del maestro al detalle de la seccion
                         if ($objDetalleSeccion->imagenes_id > 0) {
-                            $oSeccion = $this->secciones_m->get($objDetalleSeccion->secciones_id);
-                            if ($oSeccion->tipo_secciones_id != $this->config->item('seccion:destacado')) {
-                                array_push($arrayIdSeccion, $objDetalleSeccion->secciones_id);
-                                $this->detalle_secciones_m->update($objDetalleSeccion->id, array("estado" => $objMaestro->estado, "estado_migracion" => $this->config->item('migracion:actualizado')));
-                            }
+                            //$oSeccion = $this->secciones_m->get($objDetalleSeccion->secciones_id);
+                            //if ($oSeccion->tipo_secciones_id != $this->config->item('seccion:destacado')) {
+                            array_push($arrayIdSeccion, $objDetalleSeccion->secciones_id);
+                            $this->detalle_secciones_m->update($objDetalleSeccion->id, array("estado" => $objMaestro->estado, "estado_migracion" => $this->config->item('migracion:actualizado')));
+                            //}
                         }
                     }
                     //actualizamos los estados de la seccion
@@ -366,7 +366,7 @@ class Portadas_lib extends MX_Controller {
      * @author Johnny Huamani <johnny1402@gmail.com>
      * @param int $maestro_id
      */
-    public function agregar_maestro($maestro_id) {
+    public function agregar_maestro($maestro_id, $destacado = FALSE) {
         if ($maestro_id > 0) {
             $objMaestro = $this->grupo_maestro_m->get($maestro_id);
             if (count($objMaestro) > 0) {
@@ -420,7 +420,11 @@ class Portadas_lib extends MX_Controller {
                                         $objBeanDetalleSeccion->imagenes_id = $this->obtener_imagen_maestro($objMaestro, $objSeccion);
                                         $objBeanDetalleSeccion->peso = $this->obtenerPesoDetalleSeccion($objSeccion->id);
                                         $objBeanDetalleSeccion->descripcion_item = '';
-                                        $objBeanDetalleSeccion->estado = $objMaestro->estado;
+                                        if ($destacado) {
+                                            $objBeanDetalleSeccion->estado = $this->config->item('estado:borrador');
+                                        } else {
+                                            $objBeanDetalleSeccion->estado = $objMaestro->estado;
+                                        }
                                         $objBeanDetalleSeccion->fecha_registro = date("Y-m-d H:i:s");
                                         $objBeanDetalleSeccion->usuario_registro = $user_id;
                                         $objBeanDetalleSeccion->estado_migracion = 9;
