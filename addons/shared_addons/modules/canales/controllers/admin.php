@@ -751,13 +751,13 @@ class Admin extends Admin_Controller {
                     $listLogo = $this->imagen_m->get_many_by(array("canales_id" => $objBeanCanal->id, "tipo_imagen_id" => $this->config->item('imagen:logo')));
                     if (count($listLogo) > 0) {
                         foreach ($listLogo as $j => $objImg) {
-                            $this->imagen_m->update($objImg->id, array("estado" => "0"));
+                            $this->imagen_m->update($objImg->id, array("estado" => $this->config->item('estado:borrador')));
                         }
                     }
                     $listIso = $this->imagen_m->get_many_by(array("canales_id" => $objBeanCanal->id, "tipo_imagen_id" => $this->config->item('imagen:iso')));
                     if (count($listIso) > 0) {
                         foreach ($listIso as $j => $objIso) {
-                            $this->imagen_m->update($objIso->id, array("estado" => "0"));
+                            $this->imagen_m->update($objIso->id, array("estado" => $this->config->item('estado:borrador')));
                         }
                     }
                     $arrayImagenSaved = $this->saveImages($array_images, $objBeanCanal->id);
@@ -768,7 +768,7 @@ class Admin extends Admin_Controller {
                         $listIso = $this->imagen_m->get_many_by(array("canales_id" => $objBeanCanal->id, "tipo_imagen_id" => $this->config->item('imagen:iso')));
                         if (count($listIso) > 0) {
                             foreach ($listIso as $j => $objIso) {
-                                $this->imagen_m->update($objIso->id, array("estado" => "0"));
+                                $this->imagen_m->update($objIso->id, array("estado" => $this->config->item('estado:borrador')));
                             }
                         }
                         $arrayImagenSaved = $this->saveImages($array_images, $objBeanCanal->id);
@@ -779,7 +779,7 @@ class Admin extends Admin_Controller {
                             $listLogo = $this->imagen_m->get_many_by(array("canales_id" => $objBeanCanal->id, "tipo_imagen_id" => $this->config->item('imagen:logo')));
                             if (count($listLogo) > 0) {
                                 foreach ($listLogo as $j => $objImg) {
-                                    $this->imagen_m->update($objImg->id, array("estado" => "0"));
+                                    $this->imagen_m->update($objImg->id, array("estado" => $this->config->item('estado:borrador')));
                                 }
                             }
                             $arrayImagenSaved = $this->saveImages($array_images, $objBeanCanal->id);
