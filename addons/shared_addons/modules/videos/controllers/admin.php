@@ -5198,7 +5198,7 @@ class Admin extends Admin_Controller {
                 $programa = $this->obtener_programa_x_coleccion($objMaestro->id);
                 $objCanal = $this->canales_m->get($objMaestro->canales_id);
                 $returnValue.=anchor('/admin/videos/organizar/' . $objMaestro->canales_id, $objCanal->nombre);
-                //$returnValue.=' > ';
+                $returnValue.=' > ';
                 if (count($programa) > 0) {
                     $returnValue.=anchor('/admin/videos/organizar/' . $programa->canales_id . '/' . $programa->id . '/' . $programa->tipo_grupo_maestro_id, $programa->nombre);
                     $returnValue.=' > ';
