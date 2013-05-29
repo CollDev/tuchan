@@ -323,6 +323,7 @@ class Procesos_lib extends MX_Controller {
                             if ($imagenpadre == NULL) {
                                 $imagenpadre = $this->imagenes_mp->setImagenVideos($datos);
                                 //registra en las portadas
+                                $this->portadas_lib->actualizar_imagen($imagenpadre,TRUE);
                                 Log::erroLog("id imagen padre: " . $datos["imagen_padre"]);
                             } else {
                                 $video_hijo_id = $this->imagenes_mp->setImagenVideos($datos);
@@ -1000,6 +1001,7 @@ class Procesos_lib extends MX_Controller {
                         $this->secciones_mp->updateEstadoMigracionSeccionActualizacion($value->id);
                     }
 
+                    Log::erroLog("-> id_mongo de seccion " . $id_mongo);
                     $mongoid = new MongoId($id_mongo);
 
                     $this->_generarDetalleSeccionesMiCanalXSeccionId($value->id, $id_mongo);
@@ -1019,6 +1021,7 @@ class Procesos_lib extends MX_Controller {
 
     private function _generarDetalleSeccionesMiCanalXSeccionId($id, $id_mongo) {
 
+        Log::erroLog("-> id_mongo de seccion " . $id_mongo);
 
         $resquery2 = $this->micanal_mp->queryMysql(4, $id);
 
@@ -1059,7 +1062,6 @@ class Procesos_lib extends MX_Controller {
                     $arrtemp["valoracion"] = $row3[0]->xvi_val;
                     $arrtemp["peso"] = $value2->peso;
                     $arrtemp["video"] = strip_tags($row3[0]->xvideo);
-                    //Log::erroLog("video" . $id .",xvideo".$row3[0]->video);
 
                    if (!empty($value2->canales_id) && empty($row3[0]->xvideoalias)) {
                         $urltemp = "canal/" . $row3[0]->xcanalalias;
