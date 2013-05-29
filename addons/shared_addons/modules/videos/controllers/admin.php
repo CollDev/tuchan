@@ -43,7 +43,7 @@ class Admin extends Admin_Controller {
         $this->load->library('procesos_lib');
         $this->load->library('portadas_lib');
         $this->load->library('migracion_lib');
-        
+
         $this->load->library("Procesos/log");
 
 //        ci()->load->model('videos_mp');
@@ -393,7 +393,7 @@ class Admin extends Admin_Controller {
             //creamos un objeto vacio que nos servira de recipiente
             $objBeanForm = new stdClass();
             if ($video_id > 0) {
-                
+
                 //agregar metodo para alimentar al objeto para la edicion
                 $lista = 0;
                 $coleccion = 0;
@@ -2459,11 +2459,11 @@ class Admin extends Admin_Controller {
 //                Proceso::corte_Video($datos);
 //                
                 //lanzamos la libreria para registrar el video en las portadas
-                Log::erroLog("admin antes  agregar_video"); 
+                Log::erroLog("admin antes  agregar_video");
                 $this->portadas_lib->agregar_video($objvideotemp->id);
-                Log::erroLog("admin antes  curlCorteVideoXId");            
+                Log::erroLog("admin antes  curlCorteVideoXId");
                 $this->procesos_lib->curlCorteVideoXId($video_id, $objvideotemp->id, $this->input->post('ini_corte'), $this->input->post('dur_corte'));
-                Log::erroLog("admin despues curlCorteVideoXId");            
+                Log::erroLog("admin despues curlCorteVideoXId");
                 echo json_encode(array("value" => '0'));
                 //echo json_encode(array($video_id, $objvideotemp->id, $this->input->post('ini_corte'), $this->input->post('dur_corte')));
             }
@@ -2488,7 +2488,7 @@ class Admin extends Admin_Controller {
         $infofile = urlencode(file_get_contents($file)); //encode_content_file($file);
         $data = array(
             'apikey' => $this->config->item('apikey:elemento'),
-            'name' => $fid . '.' . $ext[count($ext)-1],
+            'name' => $fid . '.' . $ext[count($ext) - 1],
             'content' => $infofile,
             //'ruta' => 'files/' . $remotedir,
             'ruta' => $remotedir,
@@ -3507,8 +3507,16 @@ class Admin extends Admin_Controller {
                             }
                             $maestro_id = $objBeanMaestroSaved->id;
                         }
+                        //verificamos si es destacado para notificarle que registre
+                        $post_recibido = $this->input->post();
+                        $es_destacado = FALSE;
+                        if (isset($post_recibido['es_destacado']) && $objBeanMaestroSaved->tipo_grupo_maestro_id == $this->config->item('videos:programa')) {
+                            if ($post_recibido['es_destacado'] > 0) {
+                                $es_destacado = TRUE;
+                            }
+                        }
                         //disparamos la funcion para registrar en las portadas y secciones
-                        $this->portadas_lib->agregar_maestro($objBeanMaestroSaved->id);
+                        $this->portadas_lib->agregar_maestro($objBeanMaestroSaved->id, $es_destacado);
 
                         $returnValue = 0;
                     } else {
@@ -5198,7 +5206,7 @@ class Admin extends Admin_Controller {
                 $programa = $this->obtener_programa_x_coleccion($objMaestro->id);
                 $objCanal = $this->canales_m->get($objMaestro->canales_id);
                 $returnValue.=anchor('/admin/videos/organizar/' . $objMaestro->canales_id, $objCanal->nombre);
-                //$returnValue.=' > ';
+                $returnValue.=' > ';
                 if (count($programa) > 0) {
                     $returnValue.=anchor('/admin/videos/organizar/' . $programa->canales_id . '/' . $programa->id . '/' . $programa->tipo_grupo_maestro_id, $programa->nombre);
                     $returnValue.=' > ';

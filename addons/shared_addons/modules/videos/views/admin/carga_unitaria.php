@@ -84,9 +84,10 @@
                 <label for="fragmento"><?php echo lang('videos:fragmento_label'); ?></label>
                 <?php echo form_error('fragmento'); ?><br />
                 <?php
-                $valores = array(lang("videos:select_fragment"), "1", "2", "3", "4", "5", "6", "7", "8", "9", "10");
+                //$valores = array(lang("videos:select_fragment"), "1", "2", "3", "4", "5", "6", "7", "8", "9", "10");
+                $fragmentos = array_merge(array(lang("videos:select_fragment")),$this->config->item('fragmento'));
                 ?>
-                <?php echo form_dropdown('fragmento', $valores, $objBeanForm->fragmento, 'onChange="addTitle()"'); ?>        
+                <?php echo form_dropdown('fragmento', $fragmentos, $objBeanForm->fragmento, 'onChange="addTitle()"'); ?>        
                 <br /><br />
                 <?php if ($objBeanForm->video_id == 0) { ?>
                     <!-- video -->
