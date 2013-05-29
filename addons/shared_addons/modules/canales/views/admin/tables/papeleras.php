@@ -45,7 +45,7 @@
         </tbody>
     </table>
     <div class="table_action_buttons">            
-        <?php $this->load->view('admin/partials/buttons', array('buttons' => array('publish'))); ?>            
+        <?php //$this->load->view('admin/partials/buttons', array('buttons' => array('publish'))); ?>            
     </div>
 <?php else: ?>
     <?php echo lang('global:no_data') ?>
