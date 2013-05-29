@@ -5703,7 +5703,7 @@ class Admin extends Admin_Controller {
             //$this->template->build('admin/papelera');
             $this->input->is_ajax_request() ? $this->template->build('admin/tables/papeleras') : $this->template->build('admin/papelera');
         } else {
-            $objUsuarioCanales = $this->usuario_grupo_canales_m->get_many_by(array("user_id" => $this->current_user->id, "estado" => $this->config->item('estado:publicado')));
+            $objUsuarioCanales = $this->usuario_grupo_canales_m->get_many_by(array("user_id" => $this->current_user->id));
             $id_canales = array();
             if (count($objUsuarioCanales) > 0) {
                 foreach ($objUsuarioCanales as $index => $value) {
