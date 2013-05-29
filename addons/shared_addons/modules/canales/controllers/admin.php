@@ -3191,7 +3191,7 @@ class Admin extends Admin_Controller {
         if ($this->input->is_ajax_request()) {
             //estado eliminado al registro del canal
             $this->canales_m->update($canal_id, array("estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado" => $this->config->item('estado:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
-            //estado eliminado a sus maestros
+            //estado eliminado a sus maestros//
             $objColeccionMaestros = $this->grupo_maestro_m->get_many_by(array("canales_id" => $canal_id));
             if (count($objColeccionMaestros) > 0) {
                 foreach ($objColeccionMaestros as $puntero => $objMaestro) {
@@ -3207,6 +3207,9 @@ class Admin extends Admin_Controller {
                     $this->videos_m->update($objVideo->id, array("estado" => $this->config->item('videos:eliminado')));
                 }
             }
+            
+            //cambiamos el estado de relacion en la tabla usuario_grupo_canales
+            $this->usuario_grupo_canales_m->update_by('canal_id',$canal_id, array('estado'=>$this->config->item('estado:borrador')));
             //eliminamos la portada del canal
 //            $objPortada = $this->portada_m->get_by(array("tipo_portadas_id" => $this->config->item('portada:canal'), "origen_id" => $canal_id));
 //            if (count($objPortada) > 0) {
