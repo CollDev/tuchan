@@ -321,6 +321,8 @@ class Migracion_lib extends MX_Controller {
                         $objBeanImagen->imagen_padre = NULL;
                         $objBeanImagen->procedencia = 1;
                         $objBeanImagen->imagen_anterior = NULL;
+                        //desactivamos las imagenes del mismo tipo
+                        $this->imagen_m->desabilitarImagenes($video_id, $objBeanImagen->tipo_imagen_id, 'video');
                         $objBeanImagenSaved = $this->imagen_m->saveImage($objBeanImagen);
                     }
                 }

@@ -9,6 +9,8 @@
         echo anchor('admin/videos/organizar/' . $canal->id, 'Organizar videos', array('class' => ''));
         echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
         echo anchor('admin/canales/portada/' . $canal->id, 'Portadas', array('class' => ''));
+        echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
+        echo anchor('/admin/videos/grupo_maestro/' . $canal->id, 'Crear programas', array('class' => ''));        
         ?>        
     </div>
     <div style="float: right;">

@@ -411,6 +411,14 @@ $config['apikey:elemento'] = '590ee43e919b1f4baa2125a424f03cd160ff8901';
 $config['mensaje:elemento'] = 'cms.micanal.pe';
 
 
+//servidor pro
+/*
+$config['server:elemento'] = 'e.micanal.e3.pe';
+$config['url:elemento'] = 'http://e3.pe/index.php/api/v1';
+$config['apikey:elemento'] = '590ee43e919b1f4baa2125a424f03cd160ff8901';
+$config['mensaje:elemento'] = 'cms.micanal.pe';
+*/
+            
 //rutas de uploads
 $config['path:video'] = FCPATH.'uploads/videos/';
 $config['path:imagen'] = FCPATH.'uploads/imagenes/';

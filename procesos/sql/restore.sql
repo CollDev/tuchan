@@ -1232,9 +1232,6 @@ CREATE TABLE `default_widgets` (
 
 
 
-insert  into `{PREFIX}profiles`(`id`,`user_id`,`display_name`,`first_name`,`last_name`,`company`,`lang`,`bio`,`dob`,`gender`,`phone`,`mobile`,`address_line1`,`address_line2`,`address_line3`,`postcode`,`website`,`updated_on`) values (1,1,'{DISPLAY-NAME}','{FIRST-NAME}','{LAST-NAME}','','en',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
-
-
 /*Data for the table `core_settings` */
 
 insert  into `core_settings`(`slug`,`default`,`value`) values ('date_format','g:ia -- m/d/y','g:ia -- m/d/y');

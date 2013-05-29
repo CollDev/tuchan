@@ -98,15 +98,15 @@ class Admin extends Admin_Controller {
             // Create pagination links
             if (strlen(trim($keyword)) > 0) {
                 if (count($canalesxUsuario) > 0) {
-                    $total_rows = $this->canales_m->where_in('id', $arrayCanales)->like('nombre', $keyword)->count_by($base_where);
+                    $total_rows = $this->canales_m->where_not_in('estado',array($this->config->item('estado:eliminado')))->where_in('id', $arrayCanales)->like('nombre', $keyword)->count_by($base_where);
                 } else {
-                    $total_rows = $this->canales_m->like('nombre', $keyword)->count_by($base_where);
+                    $total_rows = $this->canales_m->where_not_in('estado',array($this->config->item('estado:eliminado')))->like('nombre', $keyword)->count_by($base_where);
                 }
             } else {
                 if (count($canalesxUsuario) > 0) {
-                    $total_rows = $this->canales_m->where_in('id', $arrayCanales)->count_by($base_where);
+                    $total_rows = $this->canales_m->where_not_in('estado',array($this->config->item('estado:eliminado')))->where_in('id', $arrayCanales)->count_by($base_where);
                 } else {
-                    $total_rows = $this->canales_m->count_by($base_where);
+                    $total_rows = $this->canales_m->where_not_in('estado',array($this->config->item('estado:eliminado')))->count_by($base_where);
                 }
             }
             $pagination = create_pagination('admin/canales/index', $total_rows, 10);
@@ -114,15 +114,15 @@ class Admin extends Admin_Controller {
             // Using this data, get the relevant results
             if (strlen(trim($keyword)) > 0) {
                 if (count($canalesxUsuario) > 0) {
-                    $canales = $this->canales_m->where_in('id', $arrayCanales)->order_by('fecha_registro', 'DESC')->like('nombre', $keyword)->limit($pagination['limit'])->get_many_by($base_where);
+                    $canales = $this->canales_m->where_not_in('estado',array($this->config->item('estado:eliminado')))->where_in('id', $arrayCanales)->order_by('fecha_registro', 'DESC')->like('nombre', $keyword)->limit($pagination['limit'])->get_many_by($base_where);
                 } else {
-                    $canales = $this->canales_m->order_by('fecha_registro', 'DESC')->like('nombre', $keyword)->limit($pagination['limit'])->get_many_by($base_where);
+                    $canales = $this->canales_m->where_not_in('estado',array($this->config->item('estado:eliminado')))->order_by('fecha_registro', 'DESC')->like('nombre', $keyword)->limit($pagination['limit'])->get_many_by($base_where);
                 }
             } else {
                 if (count($canalesxUsuario) > 0) {
-                    $canales = $this->canales_m->where_in('id', $arrayCanales)->order_by('fecha_registro', 'DESC')->limit($pagination['limit'])->get_many_by($base_where);
+                    $canales = $this->canales_m->where_not_in('estado',array($this->config->item('estado:eliminado')))->where_in('id', $arrayCanales)->order_by('fecha_registro', 'DESC')->limit($pagination['limit'])->get_many_by($base_where);
                 } else {
-                    $canales = $this->canales_m->order_by('fecha_registro', 'DESC')->limit($pagination['limit'])->get_many_by($base_where);
+                    $canales = $this->canales_m->where_not_in('estado',array($this->config->item('estado:eliminado')))->order_by('fecha_registro', 'DESC')->limit($pagination['limit'])->get_many_by($base_where);
                 }
             }
 
@@ -171,91 +171,82 @@ class Admin extends Admin_Controller {
             $objUsuarioCanal = $this->usuario_grupo_canales_m->get_by(array("user_id" => $this->current_user->id, "estado" => $this->config->item('estado:publicado')));
             $canal_id = $objUsuarioCanal->canal_id;
         }
-        if ($this->input->post('f_estado') > 0) {
-            if ($this->input->post('f_estado') == '4') {
-                $estado_cambiado = $this->config->item('video:codificando');
+        $objCanal = $this->canales_m->get($canal_id);
+        if (count($objCanal) > 0) {
+            if ($this->input->post('f_estado') > 0) {
+                if ($this->input->post('f_estado') == '4') {
+                    $estado_cambiado = $this->config->item('video:codificando');
+                } else {
+                    $estado_cambiado = $this->input->post('f_estado');
+                }
+                $base_where = array("v" => "v", "canales_id" => $canal_id, "estado" => $estado_cambiado);
+                $estados_video_listar = array();
             } else {
-                $estado_cambiado = $this->input->post('f_estado');
+                $base_where = array("v" => "v", "canales_id" => $canal_id);
+                //estados de los videos a listar
+                $estados_video_listar = array($this->config->item('video:codificando'), $this->config->item('video:borrador'), $this->config->item('video:publicado'));
             }
-            $base_where = array("v" => "v", "canales_id" => $canal_id, "estado" => $estado_cambiado);
-            $estados_video_listar = array();
-        } else {
-            $base_where = array("v" => "v", "canales_id" => $canal_id);
-            //estados de los videos a listar
-            $estados_video_listar = array($this->config->item('video:codificando'), $this->config->item('video:borrador'), $this->config->item('video:publicado'));
-        }
-        //$programme_id = 0;
-        $keyword = '';
-        if ($this->input->post('f_keywords'))
-            $keyword = $this->input->post('f_keywords');
+            //$programme_id = 0;
+            $keyword = '';
+            if ($this->input->post('f_keywords'))
+                $keyword = $this->input->post('f_keywords');
 
-        if ($this->input->post('f_programa'))
-        //$base_where['tercer_padre'] = $this->input->post('f_programa');
-            $base_where['gm3'] = $this->input->post('f_programa');
+            if ($this->input->post('f_programa'))
+            //$base_where['tercer_padre'] = $this->input->post('f_programa');
+                $base_where['gm3'] = $this->input->post('f_programa');
 
-        // Create pagination links
-        if (strlen(trim($keyword)) > 0) {
-            //$total_rows = $this->vw_video_m->like('titulo', $keyword)->count_by($base_where);
-            $total_rows = $this->vw_maestro_video_m->like('nombre', $keyword)->count_by($base_where);
-        } else {
-            if (count($estados_video_listar) > 0) {
-                $total_rows = $this->vw_maestro_video_m->where_in('estado', $estados_video_listar)->count_by($base_where);
+            // Create pagination links
+            if (strlen(trim($keyword)) > 0) {
+                //$total_rows = $this->vw_video_m->like('titulo', $keyword)->count_by($base_where);
+                $total_rows = $this->vw_maestro_video_m->like('nombre', $keyword)->count_by($base_where);
             } else {
-                $total_rows = $this->vw_maestro_video_m->count_by($base_where);
+                if (count($estados_video_listar) > 0) {
+                    $total_rows = $this->vw_maestro_video_m->where_in('estado', $estados_video_listar)->count_by($base_where);
+                } else {
+                    $total_rows = $this->vw_maestro_video_m->count_by($base_where);
+                }
             }
-        }
-        $pagination = create_pagination('admin/canales/videos/' . $canal_id . '/index/', $total_rows, 10, 6);
-        if (strlen(trim($keyword)) > 0) {
-            // Using this data, get the relevant results
-            $listVideo = $this->vw_maestro_video_m->like('nombre', $keyword)->order_by('fecha_registro', 'DESC')->limit($pagination['limit'])->get_many_by($base_where);
-        } else {
-            if (count($estados_video_listar) > 0) {
-                $listVideo = $this->vw_maestro_video_m->where_in('estado', $estados_video_listar)->order_by('fecha_registro', 'DESC')->limit($pagination['limit'])->get_many_by($base_where);
+            $pagination = create_pagination('admin/canales/videos/' . $canal_id . '/index/', $total_rows, 10, 6);
+            if (strlen(trim($keyword)) > 0) {
+                // Using this data, get the relevant results
+                $listVideo = $this->vw_maestro_video_m->like('nombre', $keyword)->order_by('fecha_registro', 'DESC')->limit($pagination['limit'])->get_many_by($base_where);
             } else {
-                $listVideo = $this->vw_maestro_video_m->order_by('fecha_registro', 'DESC')->limit($pagination['limit'])->get_many_by($base_where);
+                if (count($estados_video_listar) > 0) {
+                    $listVideo = $this->vw_maestro_video_m->where_in('estado', $estados_video_listar)->order_by('fecha_registro', 'DESC')->limit($pagination['limit'])->get_many_by($base_where);
+                } else {
+                    $listVideo = $this->vw_maestro_video_m->order_by('fecha_registro', 'DESC')->limit($pagination['limit'])->get_many_by($base_where);
+                }
             }
-        }
-        //corregimos  el listado para maestros y programas
-        /* if (count($listVideo) > 0) {
-          foreach ($listVideo as $puntero => $oResultVideo) {
-          if (strlen(trim($oResultVideo->programa)) == 0) {
-          $oResultVideo->programa = $this->_getNamePrograma($oResultVideo->id);
-          $objImagen = $this->obtenerImagenVideo($oResultVideo->id);
-          $oResultVideo->procedencia = $objImagen->procedencia;
-          $oResultVideo->imagen = $objImagen->imagen;
-          $listVideo[$puntero] = $oResultVideo;
-          } else {
-          $objImagen = $this->obtenerImagenVideo($oResultVideo->id);
-          $oResultVideo->procedencia = $objImagen->procedencia;
-          $oResultVideo->imagen = $objImagen->imagen;
-          $listVideo[$puntero] = $oResultVideo;
-          }
-          }
-          } */
-        // Obtiene datos del canal
-        $canal = $this->canales_m->get($canal_id);
-        $logo_canal = $this->imagenes_m->getLogo(array('canales_id' => $canal_id,
-            'tipo_imagen_id' => TIPO_IMAGEN_ISO, 'estado' => ESTADO_ACTIVO));
-        $programas = $this->grupo_maestro_m->getCollectionDropDown(array("tipo_grupo_maestro_id" => $this->config->item('videos:programa'), "canales_id" => $canal_id), 'nombre');
-        $estados = array("4" => "Codificando", $this->config->item('video:borrador') => "Borrador", $this->config->item('video:publicado') => "Publicado", $this->config->item('video:eliminado') => "Eliminado");
-        // Obtiene la lista de videos según canal seleccionado
-        //do we need to unset the layout because the request is ajax?
-        $this->input->is_ajax_request() and $this->template->set_layout(FALSE);
+            //corregimos  el listado para maestros y programas
+            // Obtiene datos del canal
+            $canal = $this->canales_m->get($canal_id);
+            $logo_canal = $this->imagenes_m->getLogo(array('canales_id' => $canal_id,
+                'tipo_imagen_id' => TIPO_IMAGEN_ISO, 'estado' => ESTADO_ACTIVO));
+            $programas = $this->grupo_maestro_m->getCollectionDropDown(array("tipo_grupo_maestro_id" => $this->config->item('videos:programa'), "canales_id" => $canal_id), 'nombre');
+            $estados = array("4" => "Codificando", $this->config->item('video:borrador') => "Borrador", $this->config->item('video:publicado') => "Publicado", $this->config->item('video:eliminado') => "Eliminado");
+            // Obtiene la lista de videos según canal seleccionado
+            //do we need to unset the layout because the request is ajax?
+            $this->input->is_ajax_request() and $this->template->set_layout(FALSE);
 
-        $this->template
-                ->title($this->module_details['name'])
-                ->set('lista_videos', $listVideo)
-                ->append_js('admin/filter.js')
-                ->set_partial('filters', 'admin/partials/filters')
-                ->set_partial('users', 'admin/tables/users')
-                ->set('pagination', $pagination)
-                ->set('canal', $canal)
-                ->set('estados', $estados)
-                ->set('logo_canal', $logo_canal)
-                ->append_js('module::jquery.alerts.js')
-                ->append_css('module::jquery.alerts.css')
-                ->set('programa', $programas);
-        $this->input->is_ajax_request() ? $this->template->build('admin/tables/users') : $this->template->build('admin/videos');
+            $this->template
+                    ->title($this->module_details['name'])
+                    ->set('lista_videos', $listVideo)
+                    ->append_js('admin/filter.js')
+                    ->set_partial('filters', 'admin/partials/filters')
+                    ->set_partial('users', 'admin/tables/users')
+                    ->set('pagination', $pagination)
+                    ->set('canal', $canal)
+                    ->set('estados', $estados)
+                    ->set('logo_canal', $logo_canal)
+                    ->append_js('module::jquery.alerts.js')
+                    ->append_css('module::jquery.alerts.css')
+                    ->set('programa', $programas);
+            $this->input->is_ajax_request() ? $this->template->build('admin/tables/users') : $this->template->build('admin/videos');
+        } else {
+            $this->template
+                    ->title($this->module_details['name']);
+            $this->template->build('admin/error');
+        }
     }
 
     private function obtenerImagenVideo($video_id) {
@@ -760,13 +751,13 @@ class Admin extends Admin_Controller {
                     $listLogo = $this->imagen_m->get_many_by(array("canales_id" => $objBeanCanal->id, "tipo_imagen_id" => $this->config->item('imagen:logo')));
                     if (count($listLogo) > 0) {
                         foreach ($listLogo as $j => $objImg) {
-                            $this->imagen_m->update($objImg->id, array("estado" => "0"));
+                            $this->imagen_m->update($objImg->id, array("estado" => $this->config->item('estado:borrador')));
                         }
                     }
                     $listIso = $this->imagen_m->get_many_by(array("canales_id" => $objBeanCanal->id, "tipo_imagen_id" => $this->config->item('imagen:iso')));
                     if (count($listIso) > 0) {
                         foreach ($listIso as $j => $objIso) {
-                            $this->imagen_m->update($objIso->id, array("estado" => "0"));
+                            $this->imagen_m->update($objIso->id, array("estado" => $this->config->item('estado:borrador')));
                         }
                     }
                     $arrayImagenSaved = $this->saveImages($array_images, $objBeanCanal->id);
@@ -777,7 +768,7 @@ class Admin extends Admin_Controller {
                         $listIso = $this->imagen_m->get_many_by(array("canales_id" => $objBeanCanal->id, "tipo_imagen_id" => $this->config->item('imagen:iso')));
                         if (count($listIso) > 0) {
                             foreach ($listIso as $j => $objIso) {
-                                $this->imagen_m->update($objIso->id, array("estado" => "0"));
+                                $this->imagen_m->update($objIso->id, array("estado" => $this->config->item('estado:borrador')));
                             }
                         }
                         $arrayImagenSaved = $this->saveImages($array_images, $objBeanCanal->id);
@@ -788,7 +779,7 @@ class Admin extends Admin_Controller {
                             $listLogo = $this->imagen_m->get_many_by(array("canales_id" => $objBeanCanal->id, "tipo_imagen_id" => $this->config->item('imagen:logo')));
                             if (count($listLogo) > 0) {
                                 foreach ($listLogo as $j => $objImg) {
-                                    $this->imagen_m->update($objImg->id, array("estado" => "0"));
+                                    $this->imagen_m->update($objImg->id, array("estado" => $this->config->item('estado:borrador')));
                                 }
                             }
                             $arrayImagenSaved = $this->saveImages($array_images, $objBeanCanal->id);
@@ -1416,7 +1407,7 @@ class Admin extends Admin_Controller {
         $data = array(
             //'apikey' => '590ee43e919b1f4baa2125a424f03cd160ff8901',
             'apikey' => $this->config->item('apikey:elemento'),
-            'name' => $fid . '.' . $ext[count($ext)-1],
+            'name' => $fid . '.' . $ext[count($ext) - 1],
             'content' => $infofile,
             //'ruta' => 'files/' . $remotedir,
             'ruta' => $remotedir,
@@ -1821,6 +1812,8 @@ class Admin extends Admin_Controller {
         }
         $pagination = create_pagination('admin/canales/portada/' . $canal_id . '/index', $total_rows, 5, 6);
 
+        //actualizamo la fecha de registro de la portada principal para que siempre sea el primero en mostrarse
+        $this->portada_m->ubicar_primero_portada_canal($canal_id);
         // Using this data, get the relevant results
         if (strlen(trim($keyword)) > 0) {
             $coleccionPortada = $this->portada_m->order_by('fecha_registro', 'DESC')->like('nombre', $keyword)->limit($pagination['limit'])->get_many_by($base_where);
@@ -1835,7 +1828,8 @@ class Admin extends Admin_Controller {
             }
         }
         $tipo_portada = $this->tipo_portada_m->getTipoPortadaDropDown();
-        $tipo_seccion = $this->tipo_secciones_m->getSeccionDropDown();
+        //$tipo_seccion = $this->tipo_secciones_m->getSeccionDropDown();
+        $tipo_seccion = array($this->config->item('seccion:programa') => "Programa", $this->config->item('seccion:personalizado') => "Personalizado");
         $templates = $this->templates_m->getTemplateDropDown();
         $estados = array($this->config->item('estado:publicado') => "Publicado", "3" => "Borrador", $this->config->item('estado:eliminado') => "Eliminado");
         //do we need to unset the layout because the request is ajax?
@@ -3020,7 +3014,8 @@ class Admin extends Admin_Controller {
                 $objBeanSeccion->descripcion = $this->input->post('descripcion_seccion');
                 $objBeanSeccion->tipo = 0;
                 $objBeanSeccion->portadas_id = $portada_id;
-                $objBeanSeccion->tipo_secciones_id = $this->config->item('seccion:perzonalizado');
+                //$objBeanSeccion->tipo_secciones_id = $this->config->item('seccion:perzonalizado');
+                $objBeanSeccion->tipo_secciones_id = $this->input->post('tipo_seccion');
                 $objBeanSeccion->peso = $this->obtenerPesoSeccion($portada_id);
                 $objBeanSeccion->id_mongo = NULL;
                 $objBeanSeccion->estado = 0;
@@ -3036,7 +3031,11 @@ class Admin extends Admin_Controller {
                 $objBeanSeccionSaved = $this->secciones_m->save($objBeanSeccion);
                 $estado = 'Borrador';
                 //$acciones = 'Previsualizar | Publicar | Editar | Eliminar';
-                $acciones = '<a href="/admin/canales/previsualizar_seccion/" target ="_blank" class="modal-large">Previsualizar</a> | <a href="#" onclick="publicar_seccion(' . $objBeanSeccionSaved->id . ', \'seccion\');return false;">Publicar</a> | <a title="Editar" href="admin/canales/seccion/' . $this->input->post('canal_id') . '/' . $objBeanSeccionSaved->id . '">Editar</a> | <a href="#" onclick="eliminar_seccion(' . $objBeanSeccionSaved->id . ', \'seccion\');return false;">Eliminar</a>';
+                //$acciones = '<a href="/admin/canales/previsualizar_seccion/" target ="_blank" class="modal-large">Previsualizar</a> | <a href="#" onclick="publicar_seccion(' . $objBeanSeccionSaved->id . ', \'seccion\');return false;">Publicar</a> | <a title="Editar" href="admin/canales/seccion/' . $this->input->post('canal_id') . '/' . $objBeanSeccionSaved->id . '">Editar</a> | <a href="#" onclick="eliminar_seccion(' . $objBeanSeccionSaved->id . ', \'seccion\');return false;">Eliminar</a>';
+                $acciones = '<a href="/admin/canales/previsualizar_seccion/' . $objBeanSeccionSaved->id . '" target ="_blank" class="mode_preview modal-large">Previsualizar</a>';
+                $acciones.= '<a href="#" onclick="publicar_seccion(' . $objBeanSeccionSaved->id . ', \'seccion\');return false;" class="mode_publish">Publicar</a>';
+                $acciones.= '<a title="Editar" href="/admin/canales/seccion/' . $this->input->post('canal_id') . '/' . $objBeanSeccionSaved->id . '" class="mode_edit">Editar</a>';
+                $acciones.= '<a href="#" onclick="eliminar_seccion(' . $objBeanSeccionSaved->id . ', \'seccion\');return false;" class="mode_delete">Eliminar</a>';
                 if ($objBeanSeccionSaved->estado == 1) {
                     $estado = 'Publicado';
                 }
@@ -3168,14 +3167,14 @@ class Admin extends Admin_Controller {
                             $objBeanDetalleSecciones->imagenes_id = $objImagen->id;
                             $objBeanDetalleSecciones->peso = 1;
                             $objBeanDetalleSecciones->descripcion_item = NULL;
-                            $objBeanDetalleSecciones->estado = 1;
+                            $objBeanDetalleSecciones->estado = $this->config->item('estado:publicado');
                             $objBeanDetalleSecciones->fecha_registro = date("Y-m-d H:i:s");
                             $objBeanDetalleSecciones->usuario_registro = $user_id;
-                            $objBeanDetalleSecciones->estado_migracion = '0';
+                            $objBeanDetalleSecciones->estado_migracion = $this->config->item('migracion:nuevo');
                             $objBeanDetalleSecciones->fecha_migracion = '0000-00-00 00:00:00';
                             $objBeanDetalleSecciones->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
                             $objBeanDetalleSeccionesSaved = $this->detalle_secciones_m->save($objBeanDetalleSecciones);
-                            $this->secciones_m->update($objBeanSeccionSaved->id, array("estado" => "1"));
+                            $this->secciones_m->update($objBeanSeccionSaved->id, array("estado" => $this->config->item('estado:publicado')));
                         }
                     }
                 }
@@ -3183,14 +3182,36 @@ class Admin extends Admin_Controller {
         }
     }
 
+    /**
+     * Método para camiar un canal a un estado eliminado y todo su contenido
+     * @author Johny Huamani <johnny1402@gmail.com>
+     * @param int $canal_id
+     */
     public function eliminar_canal($canal_id) {
         if ($this->input->is_ajax_request()) {
+            //estado eliminado al registro del canal
             $this->canales_m->update($canal_id, array("estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado" => $this->config->item('estado:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
-            //eliminamos la portada del canal
-            $objPortada = $this->portada_m->get_by(array("tipo_portadas_id" => $this->config->item('portada:canal'), "origen_id" => $canal_id));
-            if (count($objPortada) > 0) {
-                $this->portada_m->update($objPortada->id, array("estado" => $this->config->item('estado:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+            //estado eliminado a sus maestros
+            $objColeccionMaestros = $this->grupo_maestro_m->get_many_by(array("canales_id" => $canal_id));
+            if (count($objColeccionMaestros) > 0) {
+                foreach ($objColeccionMaestros as $puntero => $objMaestro) {
+                    $this->grupo_maestro_m->update($objMaestro->id, array("estado" => $this->config->item('estado:eliminado')));
+                }
             }
+            //$this->grupo_maestro_m->update_by("canales_id", $canal_id, array("estado"=>$this->config->item('estado:borrador')));
+            //estado eliminado para sus videos
+            //$this->videos_m->update_by('canales_id', $canal_id, array('videos:eliminado'));
+            $objColeccionVideo = $this->videos_m->get_many_by(array("canales_id" => $canal_id));
+            if (count($objColeccionVideo) > 0) {
+                foreach ($objColeccionVideo as $indice => $objVideo) {
+                    $this->videos_m->update($objVideo->id, array("estado" => $this->config->item('videos:eliminado')));
+                }
+            }
+            //eliminamos la portada del canal
+//            $objPortada = $this->portada_m->get_by(array("tipo_portadas_id" => $this->config->item('portada:canal'), "origen_id" => $canal_id));
+//            if (count($objPortada) > 0) {
+//                $this->portada_m->update($objPortada->id, array("estado" => $this->config->item('estado:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+//            }
             $this->procesos_lib->curlGenerarCanalesXId($canal_id);
             echo json_encode(array("value" => "1"));
         }
@@ -5602,77 +5623,161 @@ class Admin extends Admin_Controller {
      * @author Johnny Huamani <johnny1402@gmail.com>
      * @param int $canal_id
      */
-    public function papelera($canal_id) {
-        $objCanal = $this->canales_m->get($canal_id);
-        //$objColeccionMaestro = $this->grupo_maestro_m->get_many_by(array("canales_id" => $canal_id, "estado" => $this->config->item('estado:eliminado')));
+    public function papelera($canal_id = 0) {
+        if ($canal_id > 0) {
+            $objCanal = $this->canales_m->get($canal_id);
+            //$objColeccionMaestro = $this->grupo_maestro_m->get_many_by(array("canales_id" => $canal_id, "estado" => $this->config->item('estado:eliminado')));
 
-        if ($canal_id == 0) {
-            $objUsuarioCanal = $this->usuario_grupo_canales_m->get_by(array("user_id" => $this->current_user->id, "estado" => $this->config->item('estado:publicado')));
-            $canal_id = $objUsuarioCanal->canal_id;
-        }
-        $base_where = array("canales_id" => $canal_id, "estado" => $this->config->item('video:eliminado'));
-
-        //$programme_id = 0;
-        $keyword = '';
-        if ($this->input->post('f_keywords'))
-            $keyword = $this->input->post('f_keywords');
-
-        if ($this->input->post('f_tipo'))
-            $base_where['tipo_maestro'] = $this->input->post('f_tipo');
-
-        // Create pagination links
-        if (strlen(trim($keyword)) > 0) {
-            $total_rows = $this->papelera_m->like('titulo', $keyword)->count_by($base_where);
-        } else {
-            $total_rows = $this->papelera_m->count_by($base_where);
-        }
-        $pagination = create_pagination('admin/canales/papelera/' . $canal_id . '/index/', $total_rows, 10, 6);
-        if (strlen(trim($keyword)) > 0) {
-            // Using this data, get the relevant results
-            $objColeccionMaestro = $this->papelera_m->like('titulo', $keyword)->order_by('fecha_registro', 'DESC')->limit($pagination['limit'])->get_many_by($base_where);
-        } else {
-            $objColeccionMaestro = $this->papelera_m->order_by('fecha_registro', 'DESC')->limit($pagination['limit'])->get_many_by($base_where);
-        }
-
-        //obtenemos la imagen
-        if (count($objColeccionMaestro) > 0) {
-            foreach ($objColeccionMaestro as $puntero => $objMaestro) {
-                if ($objMaestro->maestros == 'maestro') {
-                    $objImagen = $this->imagen_m->get_by(array("estado" => $this->config->item('estado:publicado'), "grupo_maestros_id" => $objMaestro->id, "tipo_imagen_id" => $this->config->item('imagen:small')));
-                } else {
-                    $objImagen = $this->imagen_m->get_by(array("estado" => $this->config->item('estado:publicado'), "videos_id" => $objMaestro->id, "tipo_imagen_id" => $this->config->item('imagen:small')));
-                }
-                if (count($objImagen) > 0) {
-                    if ($objImagen->procedencia == '1') {
-                        $objMaestro->imagen = $objImagen->imagen;
-                    } else {
-                        $objMaestro->imagen = $this->config->item('protocolo:http') . $this->config->item('server:elemento') . '/' . $objImagen->imagen;
-                    }
-                } else {
-                    $objMaestro->imagen = $this->config->item('url:default_imagen') . 'no_video.jpg';
-                }
-                $objColeccionMaestro[$puntero] = $objMaestro;
+            if ($canal_id == 0) {
+                $objUsuarioCanal = $this->usuario_grupo_canales_m->get_by(array("user_id" => $this->current_user->id, "estado" => $this->config->item('estado:publicado')));
+                $canal_id = $objUsuarioCanal->canal_id;
             }
+            $base_where = array("canales_id" => $canal_id, "estado" => $this->config->item('video:eliminado'));
+
+            //$programme_id = 0;
+            $keyword = '';
+            if ($this->input->post('f_keywords'))
+                $keyword = $this->input->post('f_keywords');
+
+            if ($this->input->post('f_tipo'))
+                $base_where['tipo_maestro'] = $this->input->post('f_tipo');
+
+            // Create pagination links
+            if (strlen(trim($keyword)) > 0) {
+                $total_rows = $this->papelera_m->like('titulo', $keyword)->count_by($base_where);
+            } else {
+                $total_rows = $this->papelera_m->count_by($base_where);
+            }
+            $pagination = create_pagination('admin/canales/papelera/' . $canal_id . '/index/', $total_rows, 10, 6);
+            if (strlen(trim($keyword)) > 0) {
+                // Using this data, get the relevant results
+                $objColeccionMaestro = $this->papelera_m->like('titulo', $keyword)->order_by('fecha_registro', 'DESC')->limit($pagination['limit'])->get_many_by($base_where);
+            } else {
+                $objColeccionMaestro = $this->papelera_m->order_by('fecha_registro', 'DESC')->limit($pagination['limit'])->get_many_by($base_where);
+            }
+
+            //obtenemos la imagen
+            if (count($objColeccionMaestro) > 0) {
+                foreach ($objColeccionMaestro as $puntero => $objMaestro) {
+                    if ($objMaestro->maestros == 'maestro') {
+                        $objImagen = $this->imagen_m->get_by(array("estado" => $this->config->item('estado:publicado'), "grupo_maestros_id" => $objMaestro->id, "tipo_imagen_id" => $this->config->item('imagen:small')));
+                    } else {
+                        if($objMaestro->maestros == 'video'){
+                            $objImagen = $this->imagen_m->get_by(array("estado" => $this->config->item('estado:publicado'), "videos_id" => $objMaestro->id, "tipo_imagen_id" => $this->config->item('imagen:small')));
+                        }else{
+                            $objImagen = $this->imagen_m->get_by(array("estado" => $this->config->item('estado:publicado'), "canales_id" => $objMaestro->id, "tipo_imagen_id" => $this->config->item('imagen:logo')));
+                        }
+                    }
+                    if (count($objImagen) > 0) {
+                        if ($objImagen->procedencia == '1') {
+                            $objMaestro->imagen = $objImagen->imagen;
+                        } else {
+                            $objMaestro->imagen = $this->config->item('protocolo:http') . $this->config->item('server:elemento') . '/' . $objImagen->imagen;
+                        }
+                    } else {
+                        $objMaestro->imagen = $this->config->item('url:default_imagen') . 'no_video.jpg';
+                    }
+                    $objColeccionMaestro[$puntero] = $objMaestro;
+                }
+            }
+            //los tipos de items
+            $tipo_item = array("1" => "Lista de reproducción", "2" => "Colección", "3" => "Programa", "4" => "Video", "5" => "Canal", "6" => "Portada", "7" => "Sección");
+            //do we need to unset the layout because the request is ajax?
+            $this->input->is_ajax_request() and $this->template->set_layout(FALSE);
+            $this->template
+                    ->title($this->module_details['name'])
+                    ->append_js('admin/filter.js')
+                    ->set_partial('filters', 'admin/partials/filters')
+                    ->append_js('module::jquery.alerts.js')
+                    ->append_css('module::jquery.alerts.css')
+                    ->set('maestros', $objColeccionMaestro)
+                    ->set('canal', $objCanal)
+                    ->set('tipo_item', $tipo_item)
+                    ->set_partial('papeleras', 'admin/tables/papeleras')
+                    ->append_js('module::jquery.alerts.js')
+                    ->append_css('module::jquery.alerts.css')
+                    ->set('pagination', $pagination);
+            //$this->template->build('admin/papelera');
+            $this->input->is_ajax_request() ? $this->template->build('admin/tables/papeleras') : $this->template->build('admin/papelera');
+        } else {
+            $objUsuarioCanales = $this->usuario_grupo_canales_m->get_many_by(array("user_id" => $this->current_user->id, "estado" => $this->config->item('estado:publicado')));
+            $id_canales = array();
+            if (count($objUsuarioCanales) > 0) {
+                foreach ($objUsuarioCanales as $index => $value) {
+                    array_push($id_canales, $value->canal_id);
+                }
+            }
+            $base_where = array("maestros" => "canal", "estado" => $this->config->item('video:eliminado'));
+            $keyword = '';
+            if ($this->input->post('f_keywords'))
+                $keyword = $this->input->post('f_keywords');
+            // Create pagination links
+            if (strlen(trim($keyword)) > 0) {
+                if (count($id_canales) > 0) {
+                    $total_rows = $this->papelera_m->where_in('canales_id', $id_canales)->like('titulo', $keyword)->count_by($base_where);
+                } else {
+                    $total_rows = 0;
+                }
+            } else {
+                if (count($id_canales) > 0) {
+                    $total_rows = $this->papelera_m->where_in('canales_id', $id_canales)->count_by($base_where);
+                } else {
+                    $total_rows = 0;
+                }
+            }
+            $pagination = create_pagination('admin/canales/papelera/index/', $total_rows, 10, 5);
+            if (strlen(trim($keyword)) > 0) {
+                if (count($id_canales) > 0) {
+                    $objColeccionMaestro = $this->papelera_m->where_in('canales_id', $id_canales)->like('titulo', $keyword)->order_by('fecha_registro', 'DESC')->limit($pagination['limit'])->get_many_by($base_where);
+                } else {
+                    $objColeccionMaestro = array();
+                }
+            } else {
+                if (count($id_canales) > 0) {
+                    $objColeccionMaestro = $this->papelera_m->where_in('canales_id', $id_canales)->order_by('fecha_registro', 'DESC')->limit($pagination['limit'])->get_many_by($base_where);
+                } else {
+                    $objColeccionMaestro = array();
+                }
+            }
+            //agreagamos las imagenes
+            if (count($objColeccionMaestro) > 0) {
+                foreach ($objColeccionMaestro as $puntero => $objMaestro) {
+                    if ($objMaestro->maestros == 'maestro') {
+                        $objImagen = $this->imagen_m->get_by(array("estado" => $this->config->item('estado:publicado'), "canales_id" => $objMaestro->id, "tipo_imagen_id" => $this->config->item('imagen:small')));
+                    } else {
+                        if($objMaestro->maestros == 'video'){
+                            $objImagen = $this->imagen_m->get_by(array("estado" => $this->config->item('estado:publicado'), "videos_id" => $objMaestro->id, "tipo_imagen_id" => $this->config->item('imagen:small')));
+                        }else{
+                            $objImagen = $this->imagen_m->get_by(array("estado" => $this->config->item('estado:publicado'), "canales_id" => $objMaestro->id, "tipo_imagen_id" => $this->config->item('imagen:logo')));
+                        }
+                    }
+                    if (count($objImagen) > 0) {
+                        if ($objImagen->procedencia == '1') {
+                            $objMaestro->imagen = $objImagen->imagen;
+                        } else {
+                            $objMaestro->imagen = $this->config->item('protocolo:http') . $this->config->item('server:elemento') . '/' . $objImagen->imagen;
+                        }
+                    } else {
+                        $objMaestro->imagen = $this->config->item('url:default_imagen') . 'no_video.jpg';
+                    }
+                    $objColeccionMaestro[$puntero] = $objMaestro;
+                }
+            }
+            $this->input->is_ajax_request() and $this->template->set_layout(FALSE);
+            $this->template
+                    ->title($this->module_details['name'])
+                    ->append_js('admin/filter.js')
+                    ->set_partial('filters', 'admin/partials/filters')
+                    ->append_js('module::jquery.alerts.js')
+                    ->append_css('module::jquery.alerts.css')
+                    ->set('maestros', $objColeccionMaestro)
+                    //->set('canal', $objCanal)
+                    ->set_partial('papeleras', 'admin/tables/papeleras')
+                    ->append_js('module::jquery.alerts.js')
+                    ->append_css('module::jquery.alerts.css')
+                    ->set('pagination', $pagination);
+            $this->input->is_ajax_request() ? $this->template->build('admin/tables/papeleras') : $this->template->build('admin/papelera_canal');
         }
-        //los tipos de items
-        $tipo_item = array("1" => "Lista de reproducción", "2" => "Colección", "3" => "Programa", "4" => "Video", "5" => "Canal", "6" => "Portada", "7" => "Sección");
-        //do we need to unset the layout because the request is ajax?
-        $this->input->is_ajax_request() and $this->template->set_layout(FALSE);
-        $this->template
-                ->title($this->module_details['name'])
-                ->append_js('admin/filter.js')
-                ->set_partial('filters', 'admin/partials/filters')
-                ->append_js('module::jquery.alerts.js')
-                ->append_css('module::jquery.alerts.css')
-                ->set('maestros', $objColeccionMaestro)
-                ->set('canal', $objCanal)
-                ->set('tipo_item', $tipo_item)
-                ->set_partial('papeleras', 'admin/tables/papeleras')
-                ->append_js('module::jquery.alerts.js')
-                ->append_css('module::jquery.alerts.css')
-                ->set('pagination', $pagination);
-        //$this->template->build('admin/papelera');
-        $this->input->is_ajax_request() ? $this->template->build('admin/tables/papeleras') : $this->template->build('admin/papelera');
     }
 
     /**

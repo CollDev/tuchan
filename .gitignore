@@ -11,5 +11,5 @@ $ cat .gitignore
 uploads/videos/*
 system/cms/cache/**/* 
 /nbproject/private/
-# system/cms/config/database.php
-# system/cms/config/mongodb.php
+system/cms/config/database.php
+system/cms/config/mongodb.php

@@ -37,7 +37,7 @@
         </tfoot>
         <tbody>
             <?php foreach ($canales as $post) : ?>
-                <tr>
+                <tr id="canal_<?php echo $post->id ?>">
                     <td><?php echo form_checkbox('action_to[]', $post->id); ?></td>
                     <td class="collapse"><img src="<?php echo $post->imagen_iso; ?>" /></td>
                     <td class="collapse"><?php echo anchor('admin/canales/videos/' . $post->id, $post->nombre); //$post->nombre;      ?></td>

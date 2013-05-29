@@ -80,6 +80,12 @@ class Portada_m extends MY_Model {
         return $objBeanPortada;           
     }
     
+    public function ubicar_primero_portada_canal($canal_id){
+        $query = "UPDATE " . $this->_table . " SET fecha_registro = '".date("Y-m-d H:i:s")."' WHERE canales_id =" . $canal_id . " AND tipo_portadas_id IN (" . $this->config->item('portada:canal') . ")";
+        $result = $this->db->query($query);
+        return $result;        
+    }
+    
     public function update($id, $array){
         
         parent::update($id, $array);

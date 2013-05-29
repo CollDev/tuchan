@@ -50,6 +50,7 @@ $lang['maestro:1_maestro'] =  'Lista de reproducción';
 $lang['maestro:2_maestro'] =  'Colección';
 $lang['maestro:3_maestro'] =  'Programa';
 $lang['maestro:4_maestro'] =  'Video';
+$lang['maestro:5_maestro'] =  'Canal';
 
 //tipo maestro
 $lang['tipo:1_maestro'] =  'Lista de reproducción';

@@ -13,6 +13,8 @@
         echo anchor('admin/videos/organizar/' . $canal->id, 'Organizar videos', array('class' => ''));
         echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
         echo anchor('admin/canales/portada/' . $canal->id, 'Portadas', array('class' => ''));
+        echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
+        echo anchor('/admin/videos/grupo_maestro/' . $canal->id, 'Crear programas', array('class' => ''));        
         ?>        
     </div>
     <div style="float: right;">
@@ -51,6 +53,10 @@
     <!---->
     <div id="tabs">
         <ul>
+        	    <!--<div id="btnSave" style="float: left; padding-right: 10px;">-->
+                    <!--<a href="javascript:saveVideo();" class="btn orange" type="button"><?php echo lang('buttons.save'); ?><img src="http://cdn1.iconfinder.com/data/icons/Toolbar_Icon_Set_by_shlyapnikova/32/save.png" /></a>-->
+                    <!--<a href="javascript:saveVideo();" class="btn orange" type="button"><?php //echo lang('buttons.save');    ?></a>-->
+                <!--</div>-->
             <li><a href="#tabs-1"><?php echo $title_tab; ?></a></li>
             <?php if ($objBeanForm->video_id > 0): ?>
                 <li><a href="#tabs-2">Imagenes</a></li>

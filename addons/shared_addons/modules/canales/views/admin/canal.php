@@ -9,6 +9,8 @@
             echo anchor('admin/videos/organizar/' . $objCanal->id, 'Organizar videos', array('class' => ''));
             echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
             echo anchor('admin/canales/portada/' . $objCanal->id, 'Portadas', array('class' => ''));
+        echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
+        echo anchor('/admin/videos/grupo_maestro/' . $objCanal->id, 'Crear programas', array('class' => ''));            
         endif;
         ?>        
     </div>
@@ -437,7 +439,6 @@
             else if (e.which)
                 code = e.which;
             var character = String.fromCharCode(code);
-            console.log(code);
             if (code == 32 || code == 8 || code == 46 || code == 241 || code == 209) {
                 return true;
             } else {

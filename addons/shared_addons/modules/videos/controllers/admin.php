@@ -389,10 +389,11 @@ class Admin extends Admin_Controller {
                 echo json_encode(array("error" => "2"));
             }
         } else {
-
+            //validamos que existan el video y/o el canal
             //creamos un objeto vacio que nos servira de recipiente
             $objBeanForm = new stdClass();
             if ($video_id > 0) {
+                
                 //agregar metodo para alimentar al objeto para la edicion
                 $lista = 0;
                 $coleccion = 0;
