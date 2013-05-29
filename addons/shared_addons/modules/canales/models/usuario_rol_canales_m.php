@@ -71,7 +71,7 @@ class Usuario_rol_canales_m extends MY_Model
     public function get_canales_by_usuario($where = array())
     {
         if (!is_array($where)) {
-            $where = array('user_id' => $where);
+            $where = array('user_id' => $where, 'c.estado'=>'1');
         }
 
         $this->db->select("urc.user_id, urc.group_id, urc.canal_id, c.nombre");
