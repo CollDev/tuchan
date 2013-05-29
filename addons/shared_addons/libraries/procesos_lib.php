@@ -1580,8 +1580,6 @@ class Procesos_lib extends MX_Controller {
 
     private function _generarDetalleVideosXId($id, $mongo_id) {
 
-        ////error_log("CASA: ". $id ."=>".$mongo_id);
-
         $MongoId = array("_id" => new MongoId($mongo_id));
 
         if (!empty($id)) {
@@ -1614,9 +1612,12 @@ class Procesos_lib extends MX_Controller {
                  $this->canal_mp->SetItemCollectionUpdate($set,$tempmongo);
             }               
 
+            $parametros=array();
+            $parametros["estado"]=array(ESTADO_ACTIVO);
+            $parametros["peso_videos"]=array("titulo"=>15,"descripcion"=>5,"tags"=>80);            
             $tags = $this->video_tags_mp->getTagsVideosXId($id);
                       
-            $url=$this->config->item('motor')."/sphinx/relacionados/vacio/".$tags[0]->tags;
+            $url=$this->config->item('motor')."/sphinx/relacionados/".json_encode($parametros)."/".$tags[0]->tags;
                     
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL,$url);
