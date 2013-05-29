@@ -100,6 +100,32 @@ class Portadas_lib extends MX_Controller {
                         }
                     }
                 }
+                //registramos el video en otras portadas de categoría
+                $objPortadaCategoria = $this->portada_m->get_by(array("origen_id" => $objVideo->categorias_id, "tipo_portadas_id" => $this->config->item('portada:categoria')));
+                if (count($objPortadaCategoria) > 0) {
+                    $objSeccionRecientes = $this->secciones_m->get_by(array("tipo_secciones_id" => $this->config->item('seccion:reciente'), "portadas_id" => $objPortadaCategoria->id));
+                    if (count($objSeccionRecientes) > 0) {
+                        $objBeanSeccionCategoria = new stdClass();
+                        $objBeanSeccionCategoria->id = NULL;
+                        $objBeanSeccionCategoria->secciones_id = $objSeccionRecientes->id;
+                        $objBeanSeccionCategoria->videos_id = $objVideo->id;
+                        $objBeanSeccionCategoria->grupo_maestros_id = NULL;
+                        $objBeanSeccionCategoria->canales_id = NULL;
+                        $objBeanSeccionCategoria->imagenes_id = $this->obtener_imagen_maestro($objVideo, $objSeccionRecientes, 'video');
+                        $objBeanSeccionCategoria->peso = obtenerPesoDetalleSeccion($objSeccionRecientes->id);
+                        $objBeanSeccionCategoria->descripcion_item = '';
+                        $estado_video = $objVideo->estado - 1;
+                        if ($estado_video < 0) {
+                            $estado_video = 0;
+                        }
+                        $objBeanSeccionCategoria->estado = $estado_video;
+                        $objBeanSeccionCategoria->fecha_registro = date("Y-m-d H:i:s");
+                        $objBeanSeccionCategoria->usuario_registro = $user_id;
+                        $objBeanSeccionCategoria->estado_migracion = $this->config->item('migracion:nuevo');
+                        $objBeanSeccionCategoria->fecha_migracion = '0000-00-00 00:00:00';
+                        $objBeanSeccionCategoria->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
+                    }
+                }
             }
         }
     }
@@ -179,8 +205,8 @@ class Portadas_lib extends MX_Controller {
                         if ($objDetalleSeccion->imagenes_id > 0) {
                             //$oSeccion = $this->secciones_m->get($objDetalleSeccion->secciones_id);
                             //if ($oSeccion->tipo_secciones_id != $this->config->item('seccion:destacado')) {
-                                array_push($arrayIdSeccion, $objDetalleSeccion->secciones_id);
-                                $this->detalle_secciones_m->update($objDetalleSeccion->id, array("estado" => $objVideo->estado, "estado_migracion" => $this->config->item('migracion:actualizado')));
+                            array_push($arrayIdSeccion, $objDetalleSeccion->secciones_id);
+                            $this->detalle_secciones_m->update($objDetalleSeccion->id, array("estado" => $objVideo->estado, "estado_migracion" => $this->config->item('migracion:actualizado')));
                             //}
                         }
                     }
