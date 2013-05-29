@@ -98,15 +98,15 @@ class Admin extends Admin_Controller {
             // Create pagination links
             if (strlen(trim($keyword)) > 0) {
                 if (count($canalesxUsuario) > 0) {
-                    $total_rows = $this->canales_m->where_not_in('estado',array($this->config->item('estado:eliminado')))->where_in('id', $arrayCanales)->like('nombre', $keyword)->count_by($base_where);
+                    $total_rows = $this->canales_m->where_not_in('estado', array($this->config->item('estado:eliminado')))->where_in('id', $arrayCanales)->like('nombre', $keyword)->count_by($base_where);
                 } else {
-                    $total_rows = $this->canales_m->where_not_in('estado',array($this->config->item('estado:eliminado')))->like('nombre', $keyword)->count_by($base_where);
+                    $total_rows = $this->canales_m->where_not_in('estado', array($this->config->item('estado:eliminado')))->like('nombre', $keyword)->count_by($base_where);
                 }
             } else {
                 if (count($canalesxUsuario) > 0) {
-                    $total_rows = $this->canales_m->where_not_in('estado',array($this->config->item('estado:eliminado')))->where_in('id', $arrayCanales)->count_by($base_where);
+                    $total_rows = $this->canales_m->where_not_in('estado', array($this->config->item('estado:eliminado')))->where_in('id', $arrayCanales)->count_by($base_where);
                 } else {
-                    $total_rows = $this->canales_m->where_not_in('estado',array($this->config->item('estado:eliminado')))->count_by($base_where);
+                    $total_rows = $this->canales_m->where_not_in('estado', array($this->config->item('estado:eliminado')))->count_by($base_where);
                 }
             }
             $pagination = create_pagination('admin/canales/index', $total_rows, 10);
@@ -114,15 +114,15 @@ class Admin extends Admin_Controller {
             // Using this data, get the relevant results
             if (strlen(trim($keyword)) > 0) {
                 if (count($canalesxUsuario) > 0) {
-                    $canales = $this->canales_m->where_not_in('estado',array($this->config->item('estado:eliminado')))->where_in('id', $arrayCanales)->order_by('fecha_registro', 'DESC')->like('nombre', $keyword)->limit($pagination['limit'])->get_many_by($base_where);
+                    $canales = $this->canales_m->where_not_in('estado', array($this->config->item('estado:eliminado')))->where_in('id', $arrayCanales)->order_by('fecha_registro', 'DESC')->like('nombre', $keyword)->limit($pagination['limit'])->get_many_by($base_where);
                 } else {
-                    $canales = $this->canales_m->where_not_in('estado',array($this->config->item('estado:eliminado')))->order_by('fecha_registro', 'DESC')->like('nombre', $keyword)->limit($pagination['limit'])->get_many_by($base_where);
+                    $canales = $this->canales_m->where_not_in('estado', array($this->config->item('estado:eliminado')))->order_by('fecha_registro', 'DESC')->like('nombre', $keyword)->limit($pagination['limit'])->get_many_by($base_where);
                 }
             } else {
                 if (count($canalesxUsuario) > 0) {
-                    $canales = $this->canales_m->where_not_in('estado',array($this->config->item('estado:eliminado')))->where_in('id', $arrayCanales)->order_by('fecha_registro', 'DESC')->limit($pagination['limit'])->get_many_by($base_where);
+                    $canales = $this->canales_m->where_not_in('estado', array($this->config->item('estado:eliminado')))->where_in('id', $arrayCanales)->order_by('fecha_registro', 'DESC')->limit($pagination['limit'])->get_many_by($base_where);
                 } else {
-                    $canales = $this->canales_m->where_not_in('estado',array($this->config->item('estado:eliminado')))->order_by('fecha_registro', 'DESC')->limit($pagination['limit'])->get_many_by($base_where);
+                    $canales = $this->canales_m->where_not_in('estado', array($this->config->item('estado:eliminado')))->order_by('fecha_registro', 'DESC')->limit($pagination['limit'])->get_many_by($base_where);
                 }
             }
 
@@ -1855,6 +1855,12 @@ class Admin extends Admin_Controller {
         $this->input->is_ajax_request() ? $this->template->build('admin/tables/portadas') : $this->template->build('admin/portada');
     }
 
+    /**
+     * Método para cargar la vista sección con los detalles de este mismo.
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param int $canal_id
+     * @param int $seccion_id
+     */
     public function seccion($canal_id, $seccion_id) {
         //cargamos el objetos seccion
         if ($seccion_id > 0) {
@@ -1885,49 +1891,13 @@ class Admin extends Admin_Controller {
             $primero = $objPrimero;
         }
         //lista de templates
+        
         //$templates = $this->templates_m->getTemplateDropDown();
-        $templates = $this->templates_m->getTemplateDropDown(array("id" => $objSeccion->templates_id));
+        //$templates = $this->templates_m->getTemplateDropDown(array("id" => $objSeccion->templates_id));
+        $objTemplate = $this->templates_m->get($objSeccion->templates_id);
+        $templates = array($objTemplate->id=>$objTemplate->nombre);
         //tipo de secciones
         $secciones = $this->tipo_secciones_m->getSeccionDropDown();
-        //imagen de la seccion destacado
-        /* if ($objSeccion->tipo_secciones_id == $this->config->item('seccion:destacado')) {
-          $objCanal = $this->canales_m->get($canal_id);
-          $objDetalleSeccion = $this->detalle_secciones_m->get_by(array("secciones_id" => $seccion_id));
-          $url_imagen_portada = '';
-          if (count($objDetalleSeccion) > 0) {
-          $objImagen = $this->imagen_m->get($objDetalleSeccion->imagenes_id);
-          if ($objImagen->procedencia == '0') {
-          $url_imagen_portada = $this->config->item('protocolo:http') . $this->config->item('server:elemento') . '/' . $objImagen->imagen;
-          } else {
-          $url_imagen_portada = $objImagen->imagen;
-          }
-          }
-          //lista de templates
-          $templates = $this->templates_m->getTemplateDropDown(array("id" => $this->config->item('seccion:destacado')));
-          $this->template
-          ->title($this->module_details['name'])
-          ->append_js('module::jquery.tablednd.js')
-          ->append_js('module::smartpaginator.js')
-          ->append_css('module::smartpaginator.css')
-          ->append_js('module::jquery.gridster.js')
-          ->append_css('module::jquery.gridster.css')
-          ->append_js('module::jquery.alerts.js')
-          ->append_css('module::jquery.alerts.css')
-          //->set_partial('filters', 'admin/partials/filters')
-          ->set_partial('destacado', 'admin/tables/destacado')
-          ->set_partial('secciones', 'admin/tables/secciones')
-          //->set('pagination', $pagination)
-          ->set('imagen_portada', $url_imagen_portada)
-          ->set('objSeccion', $objSeccion)
-          ->set('templates', $templates)
-          ->set('canal_id', $canal_id)
-          ->set('tipo_canal', $objCanal->tipo_canales_id)
-          ->set('ultimo', $ultimo)
-          ->set('primer', $primero)
-          ->set('title', $title);
-          $this->template->build('admin/seccion');
-
-          } else { */
         $this->input->is_ajax_request() and $this->template->set_layout(FALSE);
         $this->template
                 ->title($this->module_details['name'])
@@ -3207,9 +3177,9 @@ class Admin extends Admin_Controller {
                     $this->videos_m->update($objVideo->id, array("estado" => $this->config->item('videos:eliminado')));
                 }
             }
-            
+
             //cambiamos el estado de relacion en la tabla usuario_grupo_canales
-            $this->usuario_grupo_canales_m->update_by('canal_id',$canal_id, array('estado'=>$this->config->item('estado:borrador')));
+            $this->usuario_grupo_canales_m->update_by('canal_id', $canal_id, array('estado' => $this->config->item('estado:borrador')));
             //eliminamos la portada del canal
 //            $objPortada = $this->portada_m->get_by(array("tipo_portadas_id" => $this->config->item('portada:canal'), "origen_id" => $canal_id));
 //            if (count($objPortada) > 0) {
@@ -5665,9 +5635,9 @@ class Admin extends Admin_Controller {
                     if ($objMaestro->maestros == 'maestro') {
                         $objImagen = $this->imagen_m->get_by(array("estado" => $this->config->item('estado:publicado'), "grupo_maestros_id" => $objMaestro->id, "tipo_imagen_id" => $this->config->item('imagen:small')));
                     } else {
-                        if($objMaestro->maestros == 'video'){
+                        if ($objMaestro->maestros == 'video') {
                             $objImagen = $this->imagen_m->get_by(array("estado" => $this->config->item('estado:publicado'), "videos_id" => $objMaestro->id, "tipo_imagen_id" => $this->config->item('imagen:small')));
-                        }else{
+                        } else {
                             $objImagen = $this->imagen_m->get_by(array("estado" => $this->config->item('estado:publicado'), "canales_id" => $objMaestro->id, "tipo_imagen_id" => $this->config->item('imagen:logo')));
                         }
                     }
@@ -5748,9 +5718,9 @@ class Admin extends Admin_Controller {
                     if ($objMaestro->maestros == 'maestro') {
                         $objImagen = $this->imagen_m->get_by(array("estado" => $this->config->item('estado:publicado'), "canales_id" => $objMaestro->id, "tipo_imagen_id" => $this->config->item('imagen:small')));
                     } else {
-                        if($objMaestro->maestros == 'video'){
+                        if ($objMaestro->maestros == 'video') {
                             $objImagen = $this->imagen_m->get_by(array("estado" => $this->config->item('estado:publicado'), "videos_id" => $objMaestro->id, "tipo_imagen_id" => $this->config->item('imagen:small')));
-                        }else{
+                        } else {
                             $objImagen = $this->imagen_m->get_by(array("estado" => $this->config->item('estado:publicado'), "canales_id" => $objMaestro->id, "tipo_imagen_id" => $this->config->item('imagen:logo')));
                         }
                     }
