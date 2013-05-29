@@ -25,6 +25,11 @@ class Videos_mp extends CI_Model {
         $query = "select id,id_mongo from " . $this->_table . " where codigo is not null and estado_liquid = 6";
         return $this->db->query($query)->result();
     }
+    
+    public function getVideosActivosPublicados(){
+        $query = " SELECT vi.*,ca.apikey,ca.playerkey FROM default_cms_videos vi INNER JOIN default_cms_canales ca ON vi.canales_id =  ca.id WHERE vi.estado = 2 and vi.estado_liquid=6";
+        return $this->db->query($query)->result();
+    }
 
     public function getVideosxId($id) {
         $query = "SELECT vi.ruta,vi.id,vi.id_mongo,vi.estado_migracion,vi.estado, (SELECT GROUP_CONCAT(ta.nombre)
