@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 14:10:27 > ini - curlGenerarSeccionesMiCanalXSeccionId: 2376
 14:10:27 > private curlGenerarSeccionesMiCanalXSeccionId: 2376
 14:10:27 > dato entrada    : 2376 -- cantidad   : 1 -- 
@@ -7525,3 +7526,5 @@
 16:23:08 > estado_migracion: 2
 16:23:08 > -> id_mongo de seccion 51a75eb4a68b693210000006
 16:23:08 > -> id_mongo de seccion 51a75eb4a68b693210000006
+=======
+>>>>>>> 7de7f6790564acbaaa5a68f0b987b7ae1afc4f68
