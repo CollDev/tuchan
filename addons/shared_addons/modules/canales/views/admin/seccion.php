@@ -56,7 +56,7 @@
         <div style="width:100%;">
             <div  style=" float: left; width: 50%; text-align: left;">
                 <a href="#" onclick="guardarSeccion();
-                        return false;" class="btn blue" type="button">Publicar en portada</a>    
+                        return false;" class="btn blue" type="button"><?php echo lang('save_label'); ?></a>    
                    <?php //echo anchor('/admin/canales/vista_previa/', lang('buttons.preview'), array('target' => '_blank', 'class' => 'btn orange modal-large')); ?>                
             </div>
             <div style="float: right; width: 50%; text-align: right;">
@@ -72,7 +72,7 @@
         <div style="width:100%;">
             <div  style=" float: left; width: 50%; text-align: left;">
                 <a href="#" onclick="guardarSeccion();
-                        return false;" class="btn blue" type="button">Publicar en portada</a>    
+                        return false;" class="btn blue" type="button"><?php echo lang('save_label'); ?></a>    
                    <?php //echo anchor('/admin/canales/vista_previa/', lang('buttons.preview'), array('target' => '_blank', 'class' => 'btn orange modal-large')); ?>                
             </div>
             <div style="float: right; width: 50%; text-align: right;">
