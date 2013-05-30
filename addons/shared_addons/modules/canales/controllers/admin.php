@@ -6766,6 +6766,7 @@ class Admin extends Admin_Controller {
                                 $cont = 0;
                                 foreach ($array_seccion_id as $peso => $s_id) {
                                     $this->secciones_m->update($s_id, array("peso" => $array_original[$cont], "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                    $this->procesos_lib->curlActualizarPesoSeccion($s_id,$array_original[$cont]);
                                     $cont++;
                                 }
                             }
