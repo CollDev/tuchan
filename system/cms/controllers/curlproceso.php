@@ -80,6 +80,10 @@ class curlProceso extends MX_Controller {
         $this->procesos_lib->actualizarPortadasMiCanal();
     }
     
+    public function actualizarPesoSeccion($id,$peso){
+        $this->procesos_lib->actualizarPesoSeccion($id,$peso);
+    }
+    
     public function actualizarVideos(){
         $this->procesos_lib->actualizarVideos();
     }

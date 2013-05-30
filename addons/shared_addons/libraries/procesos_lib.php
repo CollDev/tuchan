@@ -41,18 +41,18 @@ class Procesos_lib extends MX_Controller {
     }
 
     public function corteVideoXId($id_padre, $id_hijo, $inicio, $duracion) {
-        Log::erroLog("ini - curlCorteVideo: " . $id_padre . ", hijo " . $id_hijo. ", inicio " . $inicio. ", duracion " . $duracion);
-        
+        Log::erroLog("ini - curlCorteVideo: " . $id_padre . ", hijo " . $id_hijo . ", inicio " . $inicio . ", duracion " . $duracion);
+
         $result = $this->videos_mp->getVideosxId($id_padre);
 
-        Log::erroLog("ini - curlCorteVideo: " . $id_padre . ", hijo " . $id_hijo. ", inicio " . $inicio. ", duracion " . $duracion);
-        
+        Log::erroLog("ini - curlCorteVideo: " . $id_padre . ", hijo " . $id_hijo . ", inicio " . $inicio . ", duracion " . $duracion);
+
         if (!empty($id_padre) && !empty($id_hijo) && !empty($inicio) && !empty($duracion)) {
-            Log::erroLog("downloadVideo");            
-            if (Ffmpeg::downloadVideo($result[0]->id,(!empty($result[0]->rutasplitter))?$result[0]->rutasplitter:$result[0]->ruta)) {
-                Log::erroLog("splitVideo");            
+            Log::erroLog("downloadVideo");
+            if (Ffmpeg::downloadVideo($result[0]->id, (!empty($result[0]->rutasplitter)) ? $result[0]->rutasplitter : $result[0]->ruta)) {
+                Log::erroLog("splitVideo");
                 if (Ffmpeg::splitVideo($id_padre, $id_hijo, $inicio, $duracion)) {
-                    Log::erroLog("curlProcesoVideosXId"); 
+                    Log::erroLog("curlProcesoVideosXId");
                     $this->curlProcesoVideosXId($id_hijo);
                 }
             }
@@ -76,34 +76,32 @@ class Procesos_lib extends MX_Controller {
                 //print_r($value);
                 //$this->videos_mp->setReproducciones($value["id"], $value["numberOfViews"]);
                 $this->_curlSetReproducciones($value["id"], $value["numberOfViews"]);
-                
             }
         }
     }
-    
-    private function _actualizarVisualizacion(){
+
+    private function _actualizarVisualizacion() {
         $arrvideos = $this->videos_mp->getVideosActivosPublicados();
-        
+
         foreach ($arrvideos as $value) {
-            $cantidad = Liquid::obtenernumberOfViewsXVideo($value->codigo,$value->apikey);
-            $this->_curlSetReproducciones($value->id,$cantidad);              
-            }        
+            $cantidad = Liquid::obtenernumberOfViewsXVideo($value->codigo, $value->apikey);
+            $this->_curlSetReproducciones($value->id, $cantidad);
+        }
     }
-    
 
     /* Actualizar Visualizaciones Liquid  -  FIN */
-    
-    private function _curlSetReproducciones($id,$cant){
-        Log::erroLog("_curlSetReproducciones: " . $id.", cant: ".$cant);         
-        $ruta = base_url("curlproceso/setReproduccionesVideosXId/" . $id."/".$cant);
-        shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");        
+
+    private function _curlSetReproducciones($id, $cant) {
+        Log::erroLog("_curlSetReproducciones: " . $id . ", cant: " . $cant);
+        $ruta = base_url("curlproceso/setReproduccionesVideosXId/" . $id . "/" . $cant);
+        shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");
     }
-    
-    public function setReproduccionesVideosXId($id,$cant){
+
+    public function setReproduccionesVideosXId($id, $cant) {
         $this->videos_mp->setReproduccionesVideosXId($id, $cant);
         $this->_generarVideosXId($id);
     }
-    
+
     /* Actualizar Comentarios Valoracion   -  INICIO */
 
     private function _actualizarComentariosValorizacion() {
@@ -134,9 +132,9 @@ class Procesos_lib extends MX_Controller {
         Log::erroLog("id: " . $id);
         $this->_convertirVideosXId($id);
 //        $this->_uploadVideosXId($id);
-        Log::erroLog("entro a curl upload video: ". $id);
+        Log::erroLog("entro a curl upload video: " . $id);
         $this->curlUploadVideosXId($id);
-        Log::erroLog("salio de curl upload video ". $id);
+        Log::erroLog("salio de curl upload video " . $id);
     }
 
     public function continuaProcesoVideos($id) {
@@ -199,7 +197,7 @@ class Procesos_lib extends MX_Controller {
 
         if (!empty($id)) {
             $this->videos_mp->setEstadosVideos($id, 0, 1);
-            if (Ffmpeg::convertVideotoMp4($id)) {                
+            if (Ffmpeg::convertVideotoMp4($id)) {
                 $this->videos_mp->setEstadosVideos($id, 0, 2);
             } else {
                 $this->videos_mp->setEstadosVideos($id, 0, -1);
@@ -267,10 +265,10 @@ class Procesos_lib extends MX_Controller {
             foreach ($resultado as $value) {
 
                 ////error_log("dentro de " . $value->id);
-                if(empty($value->duracion) && empty($value->ruta) && empty($value->rutasplitter)){
+                if (empty($value->duracion) && empty($value->ruta) && empty($value->rutasplitter)) {
                     $mediaarr = Liquid::obtenerDatosMedia($value);
                 }
-                
+
 
 
                 if (empty($value->duracion)) {
@@ -323,12 +321,12 @@ class Procesos_lib extends MX_Controller {
                             if ($imagenpadre == NULL) {
                                 $imagenpadre = $this->imagenes_mp->setImagenVideos($datos);
                                 //registra en las portadas
-                                $this->portadas_lib->actualizar_imagen($imagenpadre,TRUE);
+                                $this->portadas_lib->actualizar_imagen($imagenpadre, TRUE);
                                 Log::erroLog("id imagen padre: " . $datos["imagen_padre"]);
                             } else {
                                 $video_hijo_id = $this->imagenes_mp->setImagenVideos($datos);
                                 //registra en las portadas
-                                $this->portadas_lib->actualizar_imagen($video_hijo_id,TRUE);
+                                $this->portadas_lib->actualizar_imagen($video_hijo_id, TRUE);
                             }
                         }
                     }
@@ -336,9 +334,9 @@ class Procesos_lib extends MX_Controller {
 
                 if ((!empty($value->ruta) || !empty($urlvideo) || !empty($duracion) ) && ($value->imag != 0 || !empty($datos["imagen"]))) {
                     $this->videos_mp->setEstadosVideos($value->id, 2, 6);
-                    Log::erroLog(" antes de actualizar_video: " . $id );
+                    Log::erroLog(" antes de actualizar_video: " . $id);
                     $this->portadas_lib->actualizar_video($value->id, FALSE);
-                    Log::erroLog("actualizar_video: " . $id );
+                    Log::erroLog("actualizar_video: " . $id);
                 }
             }
         }
@@ -795,15 +793,15 @@ class Procesos_lib extends MX_Controller {
         $this->_generarPortadasMiCanalXId($id);
         Log::erroLog("paso: " . $id);
     }
-    
-    public function generarPortadasMiCanalXId($id){
+
+    public function generarPortadasMiCanalXId($id) {
         $this->_generarPortadasMiCanalXId($id);
     }
-    
-    public function curlGenerarPortadasMiCanalXId($id){
-        Log::erroLog("ini - curlGenerarCanalesXId: " . $id );
+
+    public function curlGenerarPortadasMiCanalXId($id) {
+        Log::erroLog("ini - curlGenerarCanalesXId: " . $id);
         $ruta = base_url("curlproceso/generarPortadasMiCanalXId/" . $id);
-        shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");                
+        shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");
     }
 
     private function _generarPortadasMiCanalXId($id) {
@@ -910,19 +908,18 @@ class Procesos_lib extends MX_Controller {
     public function actualizarSeccionesXId($id) {
         $this->_generarSeccionesMiCanalXSeccionId($id);
     }
-    
-    
-    public function curlGenerarSeccionesMiCanalXSeccionId($id){
-        Log::erroLog("ini - curlGenerarSeccionesMiCanalXSeccionId: " . $id );
+
+    public function curlGenerarSeccionesMiCanalXSeccionId($id) {
+        Log::erroLog("ini - curlGenerarSeccionesMiCanalXSeccionId: " . $id);
         $ruta = base_url("curlproceso/generarSeccionesMiCanalXSeccionId/" . $id);
-        shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");  
+        shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");
     }
-         
+
     public function generarSeccionesMiCanalXSeccionId($id) {
-          Log::erroLog("private curlGenerarSeccionesMiCanalXSeccionId: " . $id );
+        Log::erroLog("private curlGenerarSeccionesMiCanalXSeccionId: " . $id);
         $this->_generarSeccionesMiCanalXSeccionId($id);
     }
-    
+
     private function _generarSeccionesMiCanalXSeccionId($id) {
 
         $array = array();
@@ -1063,11 +1060,9 @@ class Procesos_lib extends MX_Controller {
                     $arrtemp["peso"] = $value2->peso;
                     $arrtemp["video"] = strip_tags($row3[0]->xvideo);
 
-                   if (!empty($value2->canales_id) && empty($row3[0]->xvideoalias)) {
+                    if (!empty($value2->canales_id) && empty($row3[0]->xvideoalias)) {
                         $urltemp = "canal/" . $row3[0]->xcanalalias;
-                    } elseif ($value2->tipo_secciones_id == 1 && $value2->tipo_portadas_id == 5) {
-                        $urltemp = "programa/" . $row3[0]->xprogramaalias;
-                    } elseif ($value2->tipo_secciones_id == 2 && $value2->tipo_portadas_id == 5) {
+                    } elseif ($value2->tipo_grupo_maestro == 3) {
                         $urltemp = "programa/" . $row3[0]->xprogramaalias;
                     } else {
                         if (!empty($row3[0]->xprogramaalias)) {
@@ -1081,6 +1076,25 @@ class Procesos_lib extends MX_Controller {
                             // //error_log($urltemp. "Paso aqui ");
                         }
                     }
+
+//                   if (!empty($value2->canales_id) && empty($row3[0]->xvideoalias)) {
+//                        $urltemp = "canal/" . $row3[0]->xcanalalias;
+//                    } elseif ($value2->tipo_secciones_id == 1 && $value2->tipo_portadas_id == 5) {
+//                        $urltemp = "programa/" . $row3[0]->xprogramaalias;
+//                    } elseif ($value2->tipo_secciones_id == 2 && $value2->tipo_portadas_id == 5) {
+//                        $urltemp = "programa/" . $row3[0]->xprogramaalias;
+//                    } else {
+//                        if (!empty($row3[0]->xprogramaalias)) {
+//                            if ($row3[0]->xfechatransmision == $row3[0]->xlistareproduccionalias) {
+//                                $urltemp = $row3[0]->xprogramaalias . "/" . $row3[0]->xfechatransmision . "-" . $row3[0]->xvideoalias;
+//                            } else {
+//                                $urltemp = $row3[0]->xprogramaalias . "/" . $row3[0]->xlistareproduccionalias . "/" . $row3[0]->xfechatransmision . "-" . $row3[0]->xvideoalias;
+//                            }
+//                        } else {
+//                            $urltemp = "video" . "/" . $row3[0]->xfechatransmision . "-" . $row3[0]->xvideoalias;
+//                            // //error_log($urltemp. "Paso aqui ");
+//                        }
+//                    }
                 }
 
                 $arrtemp["url"] = $urltemp;
@@ -1357,12 +1371,12 @@ class Procesos_lib extends MX_Controller {
         }
     }
 
-    public function curlGenerarCanalesXId($id){
-        Log::erroLog("ini - curlGenerarCanalesXId: " . $id );
+    public function curlGenerarCanalesXId($id) {
+        Log::erroLog("ini - curlGenerarCanalesXId: " . $id);
         $ruta = base_url("curlproceso/generarCanalesXId/" . $id);
         shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");
     }
-    
+
     public function generarCanalesXId($id) {
         $this->_generarCanalesXId($id);
     }
@@ -1482,13 +1496,13 @@ class Procesos_lib extends MX_Controller {
 //        
 //        
 //    }
-    
-    public function curlGenerarVideosXId($id){
+
+    public function curlGenerarVideosXId($id) {
         
     }
 
     private function _generarVideosXId($id) {
-        
+
         Log::erroLog("_generarVideosXId: " . $id);
 
         $video = $this->videos_mp->getVideosxId($id);
@@ -1558,7 +1572,7 @@ class Procesos_lib extends MX_Controller {
                         $this->canal_mp->setItemCollectionUpdate($objmongo, $MongoId);
                         $this->canal_mp->updateEstadoMigracionVideosActualizacion($value->id);
                     }
-                    
+
                     $this->_generarDetalleVideosXId($value->id, $mongo_id);
 
                     unset($objmongo);
@@ -1597,45 +1611,45 @@ class Procesos_lib extends MX_Controller {
             }
 
             $playlist = $this->videos_mp->getVideosPlaylist($id);
-            
+
             $arrayplaylist = array();
 
             $i = 0;
             foreach ($playlist as $datos) {
                 $arrayplaylist[$i] = new MongoId($datos->id_mongo);
                 $i++;
-            }            
-            
-            foreach ($playlist as $datos2) {                     
-                 $set = array("playlist" => $arrayplaylist);
-                 $tempmongo = array("_id" => new MongoId($datos2->id_mongo));
-                 $this->canal_mp->SetItemCollectionUpdate($set,$tempmongo);
-            }               
+            }
 
-            $parametros=array();
-            $parametros["estado"]=array(ESTADO_ACTIVO);
-            $parametros["peso_videos"]=array("titulo"=>15,"descripcion"=>5,"tags"=>80);            
+            foreach ($playlist as $datos2) {
+                $set = array("playlist" => $arrayplaylist);
+                $tempmongo = array("_id" => new MongoId($datos2->id_mongo));
+                $this->canal_mp->SetItemCollectionUpdate($set, $tempmongo);
+            }
+
+            $parametros = array();
+            $parametros["estado"] = array(ESTADO_ACTIVO);
+            $parametros["peso_videos"] = array("titulo" => 15, "descripcion" => 5, "tags" => 80);
             $tags = $this->video_tags_mp->getTagsVideosXId($id);
-                      
-            $url=$this->config->item('motor')."/sphinx/relacionados/".json_encode($parametros)."/".$tags[0]->tags;
-                    
+
+            $url = $this->config->item('motor') . "/sphinx/relacionados/" . json_encode($parametros) . "/" . $tags[0]->tags;
+
             $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL,$url);
-            curl_setopt($ch, CURLOPT_FAILONERROR,1);
-            curl_setopt($ch, CURLOPT_FOLLOWLOCATION,1);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
-            curl_setopt($ch, CURLOPT_TIMEOUT, 15);            
-                      
+            curl_setopt($ch, CURLOPT_URL, $url);
+            curl_setopt($ch, CURLOPT_FAILONERROR, 1);
+            curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($ch, CURLOPT_TIMEOUT, 15);
+
             $result = curl_exec($ch);
             $info = curl_getinfo($ch);
-            
-           
-            if($info['http_code']=='200'){
+
+
+            if ($info['http_code'] == '200') {
                 $resultado = json_decode($result);
-            }else{
-                  $resultado=array();
+            } else {
+                $resultado = array();
             }
-                               
+
 
             $arrayrelacionados = array();
 
@@ -1656,15 +1670,13 @@ class Procesos_lib extends MX_Controller {
                 $i++;
             }
 
-            $set = array("imagen" => $arrimagen,  "clips" => $arrayitemclips, "related" => $arrayrelacionados);            
-            $this->canal_mp->SetItemCollectionUpdate($set, $MongoId);            
-            Log::erroLog("despues de actualizar_video: " . $id );
+            $set = array("imagen" => $arrimagen, "clips" => $arrayitemclips, "related" => $arrayrelacionados);
+            $this->canal_mp->SetItemCollectionUpdate($set, $MongoId);
+            Log::erroLog("despues de actualizar_video: " . $id);
             //$this->micanal_mp->SetItemCollectionUpdate(array("item" => $item), array('_id' => $mongoid));
         }
     }
 
-
-    
     /* Canal Mongo - FIN */
 
     public function actualizarVideos() {
@@ -1675,12 +1687,12 @@ class Procesos_lib extends MX_Controller {
         }
     }
 
-    public function curlActualizarVideosXId($id){
-        Log::erroLog("ini - curlActualizarVideosXId: " . $id );
+    public function curlActualizarVideosXId($id) {
+        Log::erroLog("ini - curlActualizarVideosXId: " . $id);
         $ruta = base_url("curlproceso/actualizarVideosXId/" . $id);
         shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");
     }
-    
+
     public function actualizarVideosXId($id) {
         $this->_obtenerImagesUrlVideosXId($id);
         $this->_generarVideosXId($id);
@@ -1693,27 +1705,27 @@ class Procesos_lib extends MX_Controller {
     private function _activarVideosXId($id) {
         $this->canal_mp->setItemCollectionUpdate(array("estado" => "2"), array('id' => $id));
     }
-   
-    public function curlActivarVideosXId($id){
-        Log::erroLog("ini - curlDesactivarVideosXId: " . $id );
+
+    public function curlActivarVideosXId($id) {
+        Log::erroLog("ini - curlDesactivarVideosXId: " . $id);
         $ruta = base_url("curlproceso/activarVideosXId/" . $id);
         shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");
     }
-    
+
     public function desactivarVideosXId($id) {
         $this->_desactivarVideosXId($id);
     }
 
     private function _desactivarVideosXId($id) {
         $this->canal_mp->setItemCollectionUpdate(array("estado" => "0"), array('id' => $id));
-    }    
-    
-    public function curlDesactivarVideosXId($id){
-        Log::erroLog("ini - curlDesactivarVideosXId: " . $id );
+    }
+
+    public function curlDesactivarVideosXId($id) {
+        Log::erroLog("ini - curlDesactivarVideosXId: " . $id);
         $ruta = base_url("curlproceso/desactivarVideosXId/" . $id);
         shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");
     }
-    
+
     public function actualizarSecciones6789() {
         Log::erroLog("_actualizarVisualizacion");
         $this->_actualizarVisualizacion();
@@ -1729,6 +1741,23 @@ class Procesos_lib extends MX_Controller {
         foreach ($secciones as $value) {
             $this->_generarSeccionesMiCanalXSeccionId($value->id);
         }
+    }
+    
+    public function curlActualizarPesoSeccion($id,$peso){
+        Log::erroLog("ini - curlActualizarPesoSeccion: " . $id ." - ".$peso);
+        $ruta = base_url("curlproceso/actualizarPesoSeccion/" . $id."/".$peso);
+        shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");
+    }
+    
+    
+    public function actualizarPesoSeccion($id,$peso){
+        $this->_actualizarPesoSeccion($id,$peso);
+    }
+    
+    private function _actualizarPesoSeccion($id,$peso){
+        $seccion = $this->secciones_mp->getSeccionesXId($id);        
+        $id_mongo = new MongoId($seccion[0]->mongo_se);        
+        $this->micanal_mp->setItemCollectionUpdate(array('peso' => $peso), array('_id' => $id_mongo));
     }
 
     public function estadosVideos() {
