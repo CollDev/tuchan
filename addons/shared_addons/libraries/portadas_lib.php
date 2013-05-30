@@ -112,7 +112,7 @@ class Portadas_lib extends MX_Controller {
                         $objBeanSeccionCategoria->grupo_maestros_id = NULL;
                         $objBeanSeccionCategoria->canales_id = NULL;
                         $objBeanSeccionCategoria->imagenes_id = $this->obtener_imagen_maestro($objVideo, $objSeccionRecientes, 'video');
-                        $objBeanSeccionCategoria->peso = obtenerPesoDetalleSeccion($objSeccionRecientes->id);
+                        $objBeanSeccionCategoria->peso = $this->obtenerPesoDetalleSeccion($objSeccionRecientes->id);
                         $objBeanSeccionCategoria->descripcion_item = '';
                         $estado_video = $objVideo->estado - 1;
                         if ($estado_video < 0) {
