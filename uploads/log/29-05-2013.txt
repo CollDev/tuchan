@@ -1,0 +1,559 @@
+00:07:51 > ini - curlGenerarCanalesXId: 329
+00:07:51 > ini - curlGenerarSeccionesMiCanalXSeccionId: 3002
+00:07:51 > ini - curlGenerarSeccionesMiCanalXSeccionId: 3004
+00:07:51 > private curlGenerarSeccionesMiCanalXSeccionId: 3002
+00:07:51 > 9  -  1
+00:07:51 > dato entrada    : 3002 -- 
+00:07:51 > cantidad   : 1 -- 
+00:07:51 > mongo_se: 51a40b6ec8437e1060000109
+00:07:51 > estado_migracion: 2
+00:07:51 > -> id_mongo de seccion 51a546d7a68b691b1f000006
+00:07:51 > -> id_mongo de seccion 51a546d7a68b691b1f000006
+00:07:51 > dato entrada    : 2626 -- 
+00:07:51 > cantidad   : 1 -- 
+00:07:51 > private curlGenerarSeccionesMiCanalXSeccionId: 3004
+00:07:51 > dato entrada    : 2625 -- 
+00:07:51 > cantidad   : 1 -- 
+00:07:51 > dato entrada    : 3004 -- 
+00:07:51 > cantidad   : 1 -- 
+00:07:51 > mongo_se: 51a40b6fc8437e106000010a
+00:07:51 > dato entrada    : 2624 -- 
+00:07:51 > estado_migracion: 2
+00:07:51 > cantidad   : 1 -- 
+00:07:51 > dato entrada    : 2623 -- 
+00:07:51 > cantidad   : 1 -- 
+00:07:51 > -> id_mongo de seccion 51a546d7a68b699424000000
+00:07:51 > -> id_mongo de seccion 51a546d7a68b699424000000
+00:07:51 > dato entrada    : 2622 -- 
+00:07:51 > cantidad   : 1 -- 
+00:07:51 > dato entrada    : 2621 -- 
+00:07:51 > cantidad   : 1 -- 
+00:07:51 > mongo_se: 51a40b69c8437e1060000031
+00:07:51 > estado_migracion: 2
+00:07:51 > -> id_mongo de seccion 51a546d7a68b690620000006
+00:07:51 > -> id_mongo de seccion 51a546d7a68b690620000006
+00:07:51 > dato entrada    : 2620 -- 
+00:07:51 > cantidad   : 1 -- 
+00:07:51 > mongo_se: 51a40b69c8437e1060000032
+00:07:51 > estado_migracion: 2
+00:07:51 > -> id_mongo de seccion 51a546d7a68b690620000007
+00:07:51 > -> id_mongo de seccion 51a546d7a68b690620000007
+00:07:51 > ini - curlGenerarSeccionesMiCanalXSeccionId: 3009
+00:07:51 > dato entrada    : 2619 -- 
+00:07:51 > cantidad   : 1 -- 
+00:07:51 > dato entrada    : 2618 -- 
+00:07:51 > cantidad   : 1 -- 
+00:07:51 > mongo_se: 51a40b69c8437e1060000033
+00:07:51 > estado_migracion: 2
+00:07:51 > private curlGenerarSeccionesMiCanalXSeccionId: 3009
+00:07:51 > -> id_mongo de seccion 51a546d7a68b690620000008
+00:07:51 > -> id_mongo de seccion 51a546d7a68b690620000008
+00:07:51 > dato entrada    : 3009 -- 
+00:07:51 > cantidad   : 1 -- 
+00:07:51 > mongo_se: 51a40b6fc8437e106000010b
+00:07:51 > estado_migracion: 2
+00:07:51 > ini - curlGenerarSeccionesMiCanalXSeccionId: 3010
+00:07:51 > -> id_mongo de seccion 51a546d7a68b692a20000004
+00:07:51 > -> id_mongo de seccion 51a546d7a68b692a20000004
+00:07:51 > private curlGenerarSeccionesMiCanalXSeccionId: 3010
+00:07:51 > dato entrada    : 3010 -- 
+00:07:51 > cantidad   : 1 -- 
+00:07:51 > mongo_se: 51a40b6fc8437e106000010c
+00:07:51 > estado_migracion: 2
+00:07:51 > -> id_mongo de seccion 51a546d7a68b696318000000
+00:07:51 > -> id_mongo de seccion 51a546d7a68b696318000000
+00:07:51 > dato entrada    : 3415 -- 
+00:07:51 > cantidad   : 1 -- 
+00:07:51 > mongo_se: 51a40b69c8437e1060000034
+00:07:51 > estado_migracion: 2
+00:07:51 > -> id_mongo de seccion 51a546d7a68b690620000009
+00:07:51 > -> id_mongo de seccion 51a546d7a68b690620000009
+00:07:51 > dato entrada    : 3416 -- 
+00:07:51 > cantidad   : 1 -- 
+00:07:51 > mongo_se: 51a40b69c8437e1060000035
+00:07:51 > estado_migracion: 2
+00:07:51 > -> id_mongo de seccion 51a546d7a68b69062000000a
+00:07:51 > -> id_mongo de seccion 51a546d7a68b69062000000a
+00:08:20 > ini - curlGenerarCanalesXId: 329
+00:08:20 > ini - curlGenerarSeccionesMiCanalXSeccionId: 3002
+00:08:20 > 9  -  1
+00:08:20 > entro a actualizar
+00:08:20 > dato entrada    : 2626 -- 
+00:08:20 > cantidad   : 1 -- 
+00:08:20 > dato entrada    : 2625 -- 
+00:08:20 > cantidad   : 1 -- 
+00:08:20 > ini - curlGenerarSeccionesMiCanalXSeccionId: 3004
+00:08:20 > dato entrada    : 2624 -- 
+00:08:20 > cantidad   : 1 -- 
+00:08:20 > dato entrada    : 2623 -- 
+00:08:20 > cantidad   : 1 -- 
+00:08:20 > private curlGenerarSeccionesMiCanalXSeccionId: 3002
+00:08:20 > dato entrada    : 2622 -- 
+00:08:20 > cantidad   : 1 -- 
+00:08:20 > dato entrada    : 3002 -- 
+00:08:20 > dato entrada    : 2621 -- 
+00:08:20 > cantidad   : 1 -- 
+00:08:20 > mongo_se: 51a546d7a68b690620000006
+00:08:20 > estado_migracion: 2
+00:08:20 > cantidad   : 1 -- 
+00:08:20 > mongo_se: 51a546d7a68b691b1f000006
+00:08:20 > estado_migracion: 2
+00:08:20 > -> id_mongo de seccion 51a546d7a68b690620000006
+00:08:20 > -> id_mongo de seccion 51a546d7a68b690620000006
+00:08:20 > -> id_mongo de seccion 51a546d7a68b691b1f000006
+00:08:20 > -> id_mongo de seccion 51a546d7a68b691b1f000006
+00:08:20 > ini - curlGenerarSeccionesMiCanalXSeccionId: 3009
+00:08:20 > private curlGenerarSeccionesMiCanalXSeccionId: 3004
+00:08:20 > dato entrada    : 3004 -- 
+00:08:20 > cantidad   : 1 -- 
+00:08:20 > mongo_se: 51a546d7a68b699424000000
+00:08:20 > estado_migracion: 2
+00:08:20 > ini - curlGenerarSeccionesMiCanalXSeccionId: 3010
+00:08:20 > dato entrada    : 2620 -- 
+00:08:20 > cantidad   : 1 -- 
+00:08:20 > mongo_se: 51a546d7a68b690620000007
+00:08:20 > estado_migracion: 2
+00:08:20 > -> id_mongo de seccion 51a546d7a68b690620000007
+00:08:20 > -> id_mongo de seccion 51a546d7a68b690620000007
+00:08:20 > -> id_mongo de seccion 51a546d7a68b699424000000
+00:08:20 > -> id_mongo de seccion 51a546d7a68b699424000000
+00:08:20 > private curlGenerarSeccionesMiCanalXSeccionId: 3009
+00:08:20 > dato entrada    : 3009 -- 
+00:08:20 > cantidad   : 1 -- 
+00:08:20 > mongo_se: 51a546d7a68b692a20000004
+00:08:20 > estado_migracion: 2
+00:08:20 > private curlGenerarSeccionesMiCanalXSeccionId: 3010
+00:08:20 > dato entrada    : 3010 -- 
+00:08:20 > cantidad   : 1 -- 
+00:08:20 > mongo_se: 51a546d7a68b696318000000
+00:08:20 > estado_migracion: 2
+00:08:20 > -> id_mongo de seccion 51a546d7a68b692a20000004
+00:08:20 > -> id_mongo de seccion 51a546d7a68b692a20000004
+00:08:20 > dato entrada    : 2619 -- 
+00:08:20 > cantidad   : 1 -- 
+00:08:20 > dato entrada    : 2618 -- 
+00:08:20 > cantidad   : 1 -- 
+00:08:20 > -> id_mongo de seccion 51a546d7a68b696318000000
+00:08:20 > -> id_mongo de seccion 51a546d7a68b696318000000
+00:08:20 > mongo_se: 51a546d7a68b690620000008
+00:08:20 > estado_migracion: 2
+00:08:20 > -> id_mongo de seccion 51a546d7a68b690620000008
+00:08:20 > -> id_mongo de seccion 51a546d7a68b690620000008
+00:08:20 > dato entrada    : 3415 -- 
+00:08:20 > cantidad   : 1 -- 
+00:08:20 > mongo_se: 51a546d7a68b690620000009
+00:08:20 > estado_migracion: 2
+00:08:20 > -> id_mongo de seccion 51a546d7a68b690620000009
+00:08:20 > -> id_mongo de seccion 51a546d7a68b690620000009
+00:08:20 > dato entrada    : 3416 -- 
+00:08:20 > cantidad   : 1 -- 
+00:08:20 > mongo_se: 51a546d7a68b69062000000a
+00:08:20 > estado_migracion: 2
+00:08:20 > -> id_mongo de seccion 51a546d7a68b69062000000a
+00:08:20 > -> id_mongo de seccion 51a546d7a68b69062000000a
+00:08:23 > ini - curlGenerarCanalesXId: 329
+00:08:23 > ini - curlGenerarSeccionesMiCanalXSeccionId: 3002
+00:08:23 > 9  -  1
+00:08:23 > entro a actualizar
+00:08:23 > dato entrada    : 2626 -- 
+00:08:23 > cantidad   : 1 -- 
+00:08:23 > ini - curlGenerarSeccionesMiCanalXSeccionId: 3004
+00:08:23 > dato entrada    : 2625 -- 
+00:08:23 > cantidad   : 1 -- 
+00:08:23 > private curlGenerarSeccionesMiCanalXSeccionId: 3002
+00:08:23 > dato entrada    : 2624 -- 
+00:08:23 > cantidad   : 1 -- 
+00:08:23 > dato entrada    : 3002 -- 
+00:08:23 > cantidad   : 1 -- 
+00:08:23 > mongo_se: 51a546d7a68b691b1f000006
+00:08:23 > estado_migracion: 2
+00:08:23 > dato entrada    : 2623 -- 
+00:08:23 > cantidad   : 1 -- 
+00:08:23 > dato entrada    : 2622 -- 
+00:08:23 > cantidad   : 1 -- 
+00:08:23 > dato entrada    : 2621 -- 
+00:08:23 > cantidad   : 1 -- 
+00:08:23 > mongo_se: 51a546d7a68b690620000006
+00:08:23 > estado_migracion: 2
+00:08:23 > -> id_mongo de seccion 51a546d7a68b690620000006
+00:08:23 > -> id_mongo de seccion 51a546d7a68b690620000006
+00:08:23 > -> id_mongo de seccion 51a546d7a68b691b1f000006
+00:08:23 > -> id_mongo de seccion 51a546d7a68b691b1f000006
+00:08:23 > ini - curlGenerarSeccionesMiCanalXSeccionId: 3009
+00:08:23 > ini - curlGenerarSeccionesMiCanalXSeccionId: 3010
+00:08:23 > private curlGenerarSeccionesMiCanalXSeccionId: 3004
+00:08:23 > dato entrada    : 3004 -- 
+00:08:23 > cantidad   : 1 -- 
+00:08:23 > mongo_se: 51a546d7a68b699424000000
+00:08:23 > estado_migracion: 2
+00:08:23 > ini - curlGenerarCanalesXId: 34
+00:08:23 > dato entrada    : 2620 -- 
+00:08:23 > cantidad   : 1 -- 
+00:08:23 > mongo_se: 51a546d7a68b690620000007
+00:08:23 > estado_migracion: 2
+00:08:23 > -> id_mongo de seccion 51a546d7a68b690620000007
+00:08:23 > -> id_mongo de seccion 51a546d7a68b690620000007
+00:08:23 > private curlGenerarSeccionesMiCanalXSeccionId: 3009
+00:08:23 > dato entrada    : 3009 -- 
+00:08:23 > cantidad   : 1 -- 
+00:08:23 > mongo_se: 51a546d7a68b692a20000004
+00:08:23 > estado_migracion: 2
+00:08:23 > -> id_mongo de seccion 51a546d7a68b699424000000
+00:08:23 > -> id_mongo de seccion 51a546d7a68b699424000000
+00:08:23 > private curlGenerarSeccionesMiCanalXSeccionId: 3010
+00:08:23 > dato entrada    : 3010 -- 
+00:08:23 > cantidad   : 1 -- 
+00:08:23 > mongo_se: 51a546d7a68b696318000000
+00:08:23 > estado_migracion: 2
+00:08:23 > -> id_mongo de seccion 51a546d7a68b692a20000004
+00:08:23 > -> id_mongo de seccion 51a546d7a68b692a20000004
+00:08:23 > -> id_mongo de seccion 51a546d7a68b696318000000
+00:08:23 > -> id_mongo de seccion 51a546d7a68b696318000000
+00:08:23 > dato entrada    : 2619 -- 
+00:08:23 > cantidad   : 1 -- 
+00:08:23 > dato entrada    : 2618 -- 
+00:08:23 > cantidad   : 1 -- 
+00:08:23 > mongo_se: 51a546d7a68b690620000008
+00:08:23 > estado_migracion: 2
+00:08:23 > -> id_mongo de seccion 51a546d7a68b690620000008
+00:08:23 > -> id_mongo de seccion 51a546d7a68b690620000008
+00:08:23 > dato entrada    : 3415 -- 
+00:08:23 > cantidad   : 1 -- 
+00:08:23 > mongo_se: 51a546d7a68b690620000009
+00:08:23 > estado_migracion: 2
+00:08:23 > -> id_mongo de seccion 51a546d7a68b690620000009
+00:08:23 > -> id_mongo de seccion 51a546d7a68b690620000009
+00:08:23 > dato entrada    : 3416 -- 
+00:08:23 > cantidad   : 1 -- 
+00:08:23 > mongo_se: 51a546d7a68b69062000000a
+00:08:23 > estado_migracion: 2
+00:08:23 > -> id_mongo de seccion 51a546d7a68b69062000000a
+00:08:23 > -> id_mongo de seccion 51a546d7a68b69062000000a
+00:08:50 > ini - curlGenerarCanalesXId: 329
+00:08:50 > ini - curlGenerarSeccionesMiCanalXSeccionId: 3002
+00:08:50 > ini - curlGenerarSeccionesMiCanalXSeccionId: 3004
+00:08:50 > ini - curlGenerarSeccionesMiCanalXSeccionId: 3009
+00:08:50 > ini - curlGenerarSeccionesMiCanalXSeccionId: 3010
+00:08:50 > private curlGenerarSeccionesMiCanalXSeccionId: 3009
+00:08:50 > dato entrada    : 3009 -- 
+00:08:50 > cantidad   : 1 -- 
+00:08:50 > mongo_se: 51a546d7a68b692a20000004
+00:08:50 > estado_migracion: 2
+00:08:50 > private curlGenerarSeccionesMiCanalXSeccionId: 3002
+00:08:50 > 9  -  1
+00:08:50 > dato entrada    : 3002 -- 
+00:08:50 > cantidad   : 1 -- 
+00:08:50 > mongo_se: 51a546d7a68b691b1f000006
+00:08:50 > estado_migracion: 2
+00:08:50 > private curlGenerarSeccionesMiCanalXSeccionId: 3004
+00:08:50 > entro a actualizar
+00:08:50 > dato entrada    : 3004 -- 
+00:08:50 > cantidad   : 1 -- 
+00:08:50 > mongo_se: 51a546d7a68b699424000000
+00:08:50 > estado_migracion: 2
+00:08:50 > -> id_mongo de seccion 51a546d7a68b692a20000004
+00:08:50 > -> id_mongo de seccion 51a546d7a68b692a20000004
+00:08:50 > dato entrada    : 2626 -- 
+00:08:50 > cantidad   : 1 -- 
+00:08:50 > private curlGenerarSeccionesMiCanalXSeccionId: 3010
+00:08:50 > dato entrada    : 2625 -- 
+00:08:50 > cantidad   : 1 -- 
+00:08:50 > -> id_mongo de seccion 51a546d7a68b691b1f000006
+00:08:50 > -> id_mongo de seccion 51a546d7a68b691b1f000006
+00:08:50 > dato entrada    : 3010 -- 
+00:08:50 > cantidad   : 1 -- 
+00:08:50 > mongo_se: 51a546d7a68b696318000000
+00:08:50 > estado_migracion: 2
+00:08:50 > dato entrada    : 2624 -- 
+00:08:50 > cantidad   : 1 -- 
+00:08:50 > -> id_mongo de seccion 51a546d7a68b699424000000
+00:08:50 > dato entrada    : 2623 -- 
+00:08:50 > -> id_mongo de seccion 51a546d7a68b699424000000
+00:08:50 > cantidad   : 1 -- 
+00:08:50 > dato entrada    : 2622 -- 
+00:08:50 > cantidad   : 1 -- 
+00:08:50 > dato entrada    : 2621 -- 
+00:08:50 > cantidad   : 1 -- 
+00:08:50 > mongo_se: 51a546d7a68b690620000006
+00:08:50 > estado_migracion: 2
+00:08:50 > -> id_mongo de seccion 51a546d7a68b690620000006
+00:08:50 > -> id_mongo de seccion 51a546d7a68b690620000006
+00:08:50 > -> id_mongo de seccion 51a546d7a68b696318000000
+00:08:50 > -> id_mongo de seccion 51a546d7a68b696318000000
+00:08:50 > dato entrada    : 2620 -- 
+00:08:50 > cantidad   : 1 -- 
+00:08:50 > mongo_se: 51a546d7a68b690620000007
+00:08:50 > estado_migracion: 2
+00:08:50 > -> id_mongo de seccion 51a546d7a68b690620000007
+00:08:50 > -> id_mongo de seccion 51a546d7a68b690620000007
+00:08:50 > dato entrada    : 2619 -- 
+00:08:50 > cantidad   : 1 -- 
+00:08:50 > dato entrada    : 2618 -- 
+00:08:50 > cantidad   : 1 -- 
+00:08:50 > mongo_se: 51a546d7a68b690620000008
+00:08:50 > estado_migracion: 2
+00:08:50 > -> id_mongo de seccion 51a546d7a68b690620000008
+00:08:50 > -> id_mongo de seccion 51a546d7a68b690620000008
+00:08:50 > dato entrada    : 3415 -- 
+00:08:50 > cantidad   : 1 -- 
+00:08:50 > mongo_se: 51a546d7a68b690620000009
+00:08:50 > estado_migracion: 2
+00:08:50 > -> id_mongo de seccion 51a546d7a68b690620000009
+00:08:50 > -> id_mongo de seccion 51a546d7a68b690620000009
+00:08:50 > dato entrada    : 3416 -- 
+00:08:50 > cantidad   : 1 -- 
+00:08:50 > mongo_se: 51a546d7a68b69062000000a
+00:08:50 > estado_migracion: 2
+00:08:50 > -> id_mongo de seccion 51a546d7a68b69062000000a
+00:08:50 > -> id_mongo de seccion 51a546d7a68b69062000000a
+00:09:03 > ini - curlGenerarCanalesXId: 329
+00:09:03 > ini - curlGenerarSeccionesMiCanalXSeccionId: 3002
+00:09:03 > 9  -  1
+00:09:03 > entro a actualizar
+00:09:03 > dato entrada    : 2626 -- 
+00:09:03 > cantidad   : 1 -- 
+00:09:03 > ini - curlGenerarSeccionesMiCanalXSeccionId: 3004
+00:09:03 > dato entrada    : 2625 -- 
+00:09:03 > cantidad   : 1 -- 
+00:09:03 > dato entrada    : 2624 -- 
+00:09:03 > cantidad   : 1 -- 
+00:09:03 > dato entrada    : 2623 -- 
+00:09:03 > cantidad   : 1 -- 
+00:09:03 > private curlGenerarSeccionesMiCanalXSeccionId: 3002
+00:09:03 > dato entrada    : 2622 -- 
+00:09:03 > cantidad   : 1 -- 
+00:09:03 > dato entrada    : 3002 -- 
+00:09:03 > dato entrada    : 2621 -- 
+00:09:03 > cantidad   : 1 -- 
+00:09:03 > cantidad   : 1 -- 
+00:09:03 > mongo_se: 51a546d7a68b691b1f000006
+00:09:03 > mongo_se: 51a546d7a68b690620000006
+00:09:03 > estado_migracion: 2
+00:09:03 > estado_migracion: 2
+00:09:03 > -> id_mongo de seccion 51a546d7a68b690620000006
+00:09:03 > -> id_mongo de seccion 51a546d7a68b690620000006
+00:09:03 > ini - curlGenerarSeccionesMiCanalXSeccionId: 3009
+00:09:03 > -> id_mongo de seccion 51a546d7a68b691b1f000006
+00:09:03 > -> id_mongo de seccion 51a546d7a68b691b1f000006
+00:09:03 > ini - curlGenerarSeccionesMiCanalXSeccionId: 3010
+00:09:03 > private curlGenerarSeccionesMiCanalXSeccionId: 3004
+00:09:03 > dato entrada    : 3004 -- 
+00:09:03 > cantidad   : 1 -- 
+00:09:03 > mongo_se: 51a546d7a68b699424000000
+00:09:03 > estado_migracion: 2
+00:09:03 > dato entrada    : 2620 -- 
+00:09:03 > cantidad   : 1 -- 
+00:09:03 > mongo_se: 51a546d7a68b690620000007
+00:09:03 > estado_migracion: 2
+00:09:03 > -> id_mongo de seccion 51a546d7a68b690620000007
+00:09:03 > -> id_mongo de seccion 51a546d7a68b690620000007
+00:09:03 > private curlGenerarSeccionesMiCanalXSeccionId: 3009
+00:09:03 > -> id_mongo de seccion 51a546d7a68b699424000000
+00:09:03 > -> id_mongo de seccion 51a546d7a68b699424000000
+00:09:03 > dato entrada    : 3009 -- 
+00:09:03 > cantidad   : 1 -- 
+00:09:03 > mongo_se: 51a546d7a68b692a20000004
+00:09:03 > estado_migracion: 2
+00:09:03 > private curlGenerarSeccionesMiCanalXSeccionId: 3010
+00:09:03 > dato entrada    : 3010 -- 
+00:09:03 > cantidad   : 1 -- 
+00:09:03 > mongo_se: 51a546d7a68b696318000000
+00:09:03 > estado_migracion: 2
+00:09:03 > -> id_mongo de seccion 51a546d7a68b692a20000004
+00:09:03 > -> id_mongo de seccion 51a546d7a68b692a20000004
+00:09:03 > -> id_mongo de seccion 51a546d7a68b696318000000
+00:09:03 > -> id_mongo de seccion 51a546d7a68b696318000000
+00:09:03 > dato entrada    : 2619 -- 
+00:09:03 > cantidad   : 1 -- 
+00:09:03 > dato entrada    : 2618 -- 
+00:09:03 > cantidad   : 1 -- 
+00:09:03 > mongo_se: 51a546d7a68b690620000008
+00:09:03 > estado_migracion: 2
+00:09:03 > -> id_mongo de seccion 51a546d7a68b690620000008
+00:09:03 > -> id_mongo de seccion 51a546d7a68b690620000008
+00:09:03 > dato entrada    : 3415 -- 
+00:09:03 > cantidad   : 1 -- 
+00:09:03 > mongo_se: 51a546d7a68b690620000009
+00:09:03 > estado_migracion: 2
+00:09:03 > -> id_mongo de seccion 51a546d7a68b690620000009
+00:09:03 > -> id_mongo de seccion 51a546d7a68b690620000009
+00:09:03 > dato entrada    : 3416 -- 
+00:09:03 > cantidad   : 1 -- 
+00:09:03 > mongo_se: 51a546d7a68b69062000000a
+00:09:03 > estado_migracion: 2
+00:09:03 > -> id_mongo de seccion 51a546d7a68b69062000000a
+00:09:03 > -> id_mongo de seccion 51a546d7a68b69062000000a
+00:09:04 > ini - curlGenerarCanalesXId: 329
+00:09:04 > ini - curlGenerarSeccionesMiCanalXSeccionId: 3002
+00:09:04 > 9  -  1
+00:09:04 > entro a actualizar
+00:09:04 > dato entrada    : 2626 -- 
+00:09:04 > cantidad   : 1 -- 
+00:09:04 > dato entrada    : 2625 -- 
+00:09:04 > cantidad   : 1 -- 
+00:09:04 > dato entrada    : 2624 -- 
+00:09:04 > cantidad   : 1 -- 
+00:09:04 > ini - curlGenerarSeccionesMiCanalXSeccionId: 3004
+00:09:04 > dato entrada    : 2623 -- 
+00:09:04 > cantidad   : 1 -- 
+00:09:04 > dato entrada    : 2622 -- 
+00:09:04 > cantidad   : 1 -- 
+00:09:04 > private curlGenerarSeccionesMiCanalXSeccionId: 3002
+00:09:04 > dato entrada    : 2621 -- 
+00:09:04 > cantidad   : 1 -- 
+00:09:04 > mongo_se: 51a546d7a68b690620000006
+00:09:04 > estado_migracion: 2
+00:09:04 > dato entrada    : 3002 -- 
+00:09:04 > cantidad   : 1 -- 
+00:09:04 > mongo_se: 51a546d7a68b691b1f000006
+00:09:04 > estado_migracion: 2
+00:09:04 > -> id_mongo de seccion 51a546d7a68b690620000006
+00:09:04 > -> id_mongo de seccion 51a546d7a68b690620000006
+00:09:04 > -> id_mongo de seccion 51a546d7a68b691b1f000006
+00:09:04 > -> id_mongo de seccion 51a546d7a68b691b1f000006
+00:09:04 > ini - curlGenerarSeccionesMiCanalXSeccionId: 3009
+00:09:04 > private curlGenerarSeccionesMiCanalXSeccionId: 3004
+00:09:04 > dato entrada    : 3004 -- 
+00:09:04 > cantidad   : 1 -- 
+00:09:04 > mongo_se: 51a546d7a68b699424000000
+00:09:04 > estado_migracion: 2
+00:09:04 > ini - curlGenerarSeccionesMiCanalXSeccionId: 3010
+00:09:04 > ini - curlGenerarCanalesXId: 34
+00:09:04 > dato entrada    : 2620 -- 
+00:09:04 > cantidad   : 1 -- 
+00:09:04 > mongo_se: 51a546d7a68b690620000007
+00:09:04 > estado_migracion: 2
+00:09:04 > -> id_mongo de seccion 51a546d7a68b690620000007
+00:09:04 > -> id_mongo de seccion 51a546d7a68b690620000007
+00:09:04 > -> id_mongo de seccion 51a546d7a68b699424000000
+00:09:04 > -> id_mongo de seccion 51a546d7a68b699424000000
+00:09:04 > private curlGenerarSeccionesMiCanalXSeccionId: 3010
+00:09:04 > private curlGenerarSeccionesMiCanalXSeccionId: 3009
+00:09:04 > dato entrada    : 3010 -- 
+00:09:04 > cantidad   : 1 -- 
+00:09:04 > mongo_se: 51a546d7a68b696318000000
+00:09:04 > estado_migracion: 2
+00:09:04 > dato entrada    : 3009 -- 
+00:09:04 > cantidad   : 1 -- 
+00:09:04 > mongo_se: 51a546d7a68b692a20000004
+00:09:04 > estado_migracion: 2
+00:09:04 > dato entrada    : 2619 -- 
+00:09:04 > cantidad   : 1 -- 
+00:09:04 > dato entrada    : 2618 -- 
+00:09:04 > cantidad   : 1 -- 
+00:09:04 > -> id_mongo de seccion 51a546d7a68b696318000000
+00:09:04 > -> id_mongo de seccion 51a546d7a68b696318000000
+00:09:04 > mongo_se: 51a546d7a68b690620000008
+00:09:04 > estado_migracion: 2
+00:09:04 > -> id_mongo de seccion 51a546d7a68b692a20000004
+00:09:04 > -> id_mongo de seccion 51a546d7a68b692a20000004
+00:09:04 > -> id_mongo de seccion 51a546d7a68b690620000008
+00:09:04 > -> id_mongo de seccion 51a546d7a68b690620000008
+00:09:04 > dato entrada    : 3415 -- 
+00:09:04 > cantidad   : 1 -- 
+00:09:04 > mongo_se: 51a546d7a68b690620000009
+00:09:04 > estado_migracion: 2
+00:09:04 > -> id_mongo de seccion 51a546d7a68b690620000009
+00:09:04 > -> id_mongo de seccion 51a546d7a68b690620000009
+00:09:04 > dato entrada    : 3416 -- 
+00:09:04 > cantidad   : 1 -- 
+00:09:04 > mongo_se: 51a546d7a68b69062000000a
+00:09:04 > estado_migracion: 2
+00:09:04 > -> id_mongo de seccion 51a546d7a68b69062000000a
+00:09:04 > -> id_mongo de seccion 51a546d7a68b69062000000a
+19:29:22 > ini - curlGenerarSeccionesMiCanalXSeccionId: 2621
+19:29:22 > ini - curlGenerarSeccionesMiCanalXSeccionId: 2620
+19:29:22 > ini - curlGenerarSeccionesMiCanalXSeccionId: 2618
+19:29:22 > ini - curlGenerarSeccionesMiCanalXSeccionId: 3415
+19:29:22 > ini - curlGenerarSeccionesMiCanalXSeccionId: 3416
+19:29:22 > private curlGenerarSeccionesMiCanalXSeccionId: 2621
+19:29:22 > dato entrada    : 2621 -- cantidad   : 1 -- 
+19:29:22 > mongo_se: 51a546d7a68b690620000006
+19:29:22 > estado_migracion: 9
+19:29:22 > private curlGenerarSeccionesMiCanalXSeccionId: 2618
+19:29:22 > private curlGenerarSeccionesMiCanalXSeccionId: 2620
+19:29:22 > private curlGenerarSeccionesMiCanalXSeccionId: 3415
+19:29:22 > dato entrada    : 2620 -- cantidad   : 1 -- 
+19:29:22 > mongo_se: 51a546d7a68b690620000007
+19:29:22 > dato entrada    : 2618 -- cantidad   : 1 -- 
+19:29:22 > estado_migracion: 9
+19:29:22 > private curlGenerarSeccionesMiCanalXSeccionId: 3416
+19:29:22 > dato entrada    : 3415 -- cantidad   : 1 -- 
+19:29:22 > mongo_se: 51a546d7a68b690620000009
+19:29:22 > estado_migracion: 9
+19:29:22 > dato entrada    : 3416 -- cantidad   : 1 -- 
+19:29:22 > mongo_se: 51a546d7a68b69062000000a
+19:29:22 > estado_migracion: 9
+19:29:22 > mongo_se: 51a546d7a68b690620000008
+19:29:22 > estado_migracion: 9
+19:29:22 > -> id_mongo de seccion 51a65712a68b692a23000000
+19:29:22 > -> id_mongo de seccion 51a65712a68b692a23000000
+19:29:22 > -> id_mongo de seccion 51a65712a68b690323000000
+19:29:22 > -> id_mongo de seccion 51a65712a68b692d23000000
+19:29:22 > -> id_mongo de seccion 51a65712a68b690323000000
+19:29:22 > -> id_mongo de seccion 51a65712a68b692d23000000
+19:29:22 > -> id_mongo de seccion 51a65712a68b69c321000000
+19:29:22 > -> id_mongo de seccion 51a65712a68b694623000000
+19:29:22 > -> id_mongo de seccion 51a65712a68b694623000000
+19:29:22 > -> id_mongo de seccion 51a65712a68b69c321000000
+19:29:22 > ini - curlGenerarCanalesXId: 329
+19:29:22 > 9  -  1
+19:29:22 > dato entrada    : 2626 -- cantidad   : 1 -- 
+19:29:22 > dato entrada    : 2625 -- cantidad   : 1 -- 
+19:29:22 > dato entrada    : 2624 -- cantidad   : 1 -- 
+19:29:22 > dato entrada    : 2623 -- cantidad   : 1 -- 
+19:29:22 > dato entrada    : 2622 -- cantidad   : 1 -- 
+19:29:22 > dato entrada    : 2621 -- cantidad   : 1 -- 
+19:29:22 > mongo_se: 51a65712a68b692a23000000
+19:29:22 > estado_migracion: 2
+19:29:22 > -> id_mongo de seccion 51a65712a68b692a23000000
+19:29:22 > -> id_mongo de seccion 51a65712a68b692a23000000
+19:29:22 > dato entrada    : 2620 -- cantidad   : 1 -- 
+19:29:22 > ini - curlGenerarSeccionesMiCanalXSeccionId: 3002
+19:29:22 > mongo_se: 51a65712a68b692d23000000
+19:29:22 > estado_migracion: 2
+19:29:22 > -> id_mongo de seccion 51a65712a68b692d23000000
+19:29:22 > -> id_mongo de seccion 51a65712a68b692d23000000
+19:29:22 > private curlGenerarSeccionesMiCanalXSeccionId: 3002
+19:29:22 > dato entrada    : 3002 -- cantidad   : 1 -- 
+19:29:22 > mongo_se: 51a546d7a68b691b1f000006
+19:29:22 > estado_migracion: 2
+19:29:22 > dato entrada    : 2619 -- cantidad   : 1 -- 
+19:29:22 > -> id_mongo de seccion 51a65712a68b690123000000
+19:29:22 > -> id_mongo de seccion 51a65712a68b690123000000
+19:29:22 > dato entrada    : 2618 -- cantidad   : 1 -- 
+19:29:22 > mongo_se: 51a65712a68b69c321000000
+19:29:22 > estado_migracion: 2
+19:29:22 > -> id_mongo de seccion 51a65712a68b69c321000000
+19:29:22 > -> id_mongo de seccion 51a65712a68b69c321000000
+19:29:22 > dato entrada    : 3415 -- cantidad   : 1 -- 
+19:29:22 > ini - curlGenerarSeccionesMiCanalXSeccionId: 3004
+19:29:22 > mongo_se: 51a65712a68b690323000000
+19:29:22 > estado_migracion: 2
+19:29:22 > -> id_mongo de seccion 51a65712a68b690323000000
+19:29:22 > -> id_mongo de seccion 51a65712a68b690323000000
+19:29:22 > private curlGenerarSeccionesMiCanalXSeccionId: 3004
+19:29:22 > dato entrada    : 3004 -- cantidad   : 1 -- 
+19:29:22 > mongo_se: 51a546d7a68b699424000000
+19:29:22 > estado_migracion: 2
+19:29:22 > -> id_mongo de seccion 51a65712a68b690f21000000
+19:29:22 > -> id_mongo de seccion 51a65712a68b690f21000000
+19:29:22 > dato entrada    : 3416 -- cantidad   : 1 -- 
+19:29:22 > mongo_se: 51a65712a68b694623000000
+19:29:22 > estado_migracion: 2
+19:29:22 > -> id_mongo de seccion 51a65712a68b694623000000
+19:29:22 > -> id_mongo de seccion 51a65712a68b694623000000
+19:29:22 > ini - curlGenerarSeccionesMiCanalXSeccionId: 3009
+19:29:22 > ini - curlGenerarSeccionesMiCanalXSeccionId: 3010
+19:29:22 > private curlGenerarSeccionesMiCanalXSeccionId: 3009
+19:29:22 > dato entrada    : 3009 -- cantidad   : 1 -- 
+19:29:22 > mongo_se: 51a546d7a68b692a20000004
+19:29:22 > estado_migracion: 2
+19:29:22 > -> id_mongo de seccion 51a65712a68b694b23000000
+19:29:22 > -> id_mongo de seccion 51a65712a68b694b23000000
+19:29:22 > private curlGenerarSeccionesMiCanalXSeccionId: 3010
+19:29:22 > dato entrada    : 3010 -- cantidad   : 1 -- 
+19:29:22 > mongo_se: 51a546d7a68b696318000000
+19:29:22 > estado_migracion: 2
+19:29:22 > -> id_mongo de seccion 51a65712a68b694623000001
+19:29:22 > -> id_mongo de seccion 51a65712a68b694623000001
