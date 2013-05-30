@@ -86,14 +86,15 @@ class MiCanal_mp extends CI_Model {
 
 
             case '4':
-                $query = "SELECT se.tipo_secciones_id,po.tipo_portadas_id,ds.id,ds.descripcion_item,ds.videos_id,ds.grupo_maestros_id,ds.canales_id,ds.imagenes_id,ds.peso,im.imagen,im.procedencia,ds.estado,ds.estado_migracion
-                            FROM default_cms_detalle_secciones ds
-                            INNER JOIN default_cms_imagenes im ON im.id=ds.imagenes_id
-                            INNER JOIN default_cms_secciones se ON ds.secciones_id=se.id
-                            INNER JOIN default_cms_portadas po ON po.id=se.portadas_id
-                            WHERE secciones_id=".$id." AND ds.estado=1  ORDER BY peso ASC ";
-               
-                break;
+            $query = "SELECT se.tipo_secciones_id,po.tipo_portadas_id,ds.id,ds.descripcion_item,ds.videos_id,ds.grupo_maestros_id,
+                        (SELECT tipo_grupo_maestro_id FROM default_cms_grupo_maestros gm  WHERE gm.id= ds.grupo_maestros_id ) 
+                        AS tipo_grupo_maestro, ds.canales_id,ds.imagenes_id,ds.peso,im.imagen,im.procedencia,ds.estado,ds.estado_migracion
+                        FROM default_cms_detalle_secciones ds
+                        INNER JOIN default_cms_imagenes im ON im.id=ds.imagenes_id
+                        INNER JOIN default_cms_secciones se ON ds.secciones_id=se.id
+                        INNER JOIN default_cms_portadas po ON po.id=se.portadas_id
+                        WHERE secciones_id=".$id." AND ds.estado=1  ORDER BY peso ASC ";               
+            break;
 
             case '5':
                 $query = "SELECT ca.descripcion AS 'canal_des',im.imagen AS 'canal_img',im.procedencia, (SELECT COUNT(id) FROM default_cms_videos WHERE canales_id=ca.id) AS 'canal_cv'

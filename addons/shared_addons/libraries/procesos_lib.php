@@ -1063,11 +1063,9 @@ class Procesos_lib extends MX_Controller {
                     $arrtemp["peso"] = $value2->peso;
                     $arrtemp["video"] = strip_tags($row3[0]->xvideo);
 
-                   if (!empty($value2->canales_id) && empty($row3[0]->xvideoalias)) {
+                    if (!empty($value2->canales_id) && empty($row3[0]->xvideoalias)) {
                         $urltemp = "canal/" . $row3[0]->xcanalalias;
-                    } elseif ($value2->tipo_secciones_id == 1 && $value2->tipo_portadas_id == 5) {
-                        $urltemp = "programa/" . $row3[0]->xprogramaalias;
-                    } elseif ($value2->tipo_secciones_id == 2 && $value2->tipo_portadas_id == 5) {
+                    } elseif ($value2->tipo_grupo_maestro == 3) {                   
                         $urltemp = "programa/" . $row3[0]->xprogramaalias;
                     } else {
                         if (!empty($row3[0]->xprogramaalias)) {
@@ -1080,7 +1078,26 @@ class Procesos_lib extends MX_Controller {
                             $urltemp = "video" . "/" . $row3[0]->xfechatransmision . "-" . $row3[0]->xvideoalias;
                             // //error_log($urltemp. "Paso aqui ");
                         }
-                    }
+                    }                    
+                    
+//                   if (!empty($value2->canales_id) && empty($row3[0]->xvideoalias)) {
+//                        $urltemp = "canal/" . $row3[0]->xcanalalias;
+//                    } elseif ($value2->tipo_secciones_id == 1 && $value2->tipo_portadas_id == 5) {
+//                        $urltemp = "programa/" . $row3[0]->xprogramaalias;
+//                    } elseif ($value2->tipo_secciones_id == 2 && $value2->tipo_portadas_id == 5) {
+//                        $urltemp = "programa/" . $row3[0]->xprogramaalias;
+//                    } else {
+//                        if (!empty($row3[0]->xprogramaalias)) {
+//                            if ($row3[0]->xfechatransmision == $row3[0]->xlistareproduccionalias) {
+//                                $urltemp = $row3[0]->xprogramaalias . "/" . $row3[0]->xfechatransmision . "-" . $row3[0]->xvideoalias;
+//                            } else {
+//                                $urltemp = $row3[0]->xprogramaalias . "/" . $row3[0]->xlistareproduccionalias . "/" . $row3[0]->xfechatransmision . "-" . $row3[0]->xvideoalias;
+//                            }
+//                        } else {
+//                            $urltemp = "video" . "/" . $row3[0]->xfechatransmision . "-" . $row3[0]->xvideoalias;
+//                            // //error_log($urltemp. "Paso aqui ");
+//                        }
+//                    }
                 }
 
                 $arrtemp["url"] = $urltemp;
