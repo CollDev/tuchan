@@ -200,6 +200,8 @@ class Liquid {
             }
         } catch (Exception $exc) {
             Log::erroLog("return FALSE de Exception");
+            Log::erroLog("getMessage: ".$exc->getMessage);
+            Log::erroLog("getLine: ".$exc->getLine);
             return FALSE;
         }
     }
