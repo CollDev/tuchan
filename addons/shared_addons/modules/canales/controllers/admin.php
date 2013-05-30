@@ -6766,7 +6766,7 @@ class Admin extends Admin_Controller {
                                 $cont = 0;
                                 foreach ($array_seccion_id as $peso => $s_id) {
                                     $this->secciones_m->update($s_id, array("peso" => $array_original[$cont], "estado_migracion" => $this->config->item('migracion:actualizado')));
-                                    $this->procesos_lib->curlActualizarPesoSeccion($s_id,$array_original[$cont]);
+                                    $this->procesos_lib->curlActualizarPesoSeccion($s_id, $array_original[$cont]);
                                     $cont++;
                                 }
                             }
@@ -6774,6 +6774,17 @@ class Admin extends Admin_Controller {
                     }
                 }
             }
+            echo json_encode(array("value" => "1"));
+        }
+    }
+
+    /**
+     * Método para reenviar los videos en esta error
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param int $video_id
+     */
+    public function reenviar_video($video_id) {
+        if ($this->input->is_ajax_request()) {
             echo json_encode(array("value" => "1"));
         }
     }

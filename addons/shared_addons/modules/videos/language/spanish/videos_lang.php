@@ -39,6 +39,7 @@ $lang['videos:0_estado'] =  'Codificando';
 $lang['videos:1_estado'] =  'Borrador';
 $lang['videos:2_estado'] =  'Publicado';
 $lang['videos:3_estado'] =  'Eliminado';
+$lang['videos:4_estado'] =  'Error';
 
 // estados maestros
 $lang['estado:0_estado'] =  'Borrador';
