@@ -119,6 +119,7 @@ $lang['videos:fragment_exist']          = 'Ya existe un video con estos datos.';
 
 //maestros
 $lang['maestros:organizar_videos'] = 'Organizar videos';
+$lang['maestros:registrar_destacado'] = 'Registrar en la sección destacado del canal.';
 $lang['maestros:maestro_existe']          = 'El nombre maestro ya existe.';
 $lang['coleccion:temporada']          = 'Temporada 1';
 
