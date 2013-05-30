@@ -2110,6 +2110,9 @@ class Admin extends Admin_Controller {
 
     /**
      * metodo para retornar el html del formulario de busqueda
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param string $path
+     * @return string
      */
     public function formulario_busqueda($path) {
         if ($this->input->is_ajax_request()) {
@@ -2201,6 +2204,7 @@ class Admin extends Admin_Controller {
                                 }
                             }
                         }
+                        $tipo_buscar = array("0" => "Seleccione el tipo", $this->config->item('videos:programa') => "Programa", $this->config->item('videos:coleccion') => "Coleccion", $this->config->item('videos:lista') => "Lista", $this->config->item('videos:video') => "Video", $this->config->item('videos:canal') => "Canal");
                         $html.='<span class="view_mc">BUSQUEDA</span>                          	  
                          <div class="frm-input">
                             <form name="frmBuscar" id="frmBuscar" action="" method="POST">
@@ -2212,6 +2216,12 @@ class Admin extends Admin_Controller {
                                         <span class="st">Buscar</span>
                                     </a>
                                </div>
+                               <div style="clear:both;"></div>
+                               <div style="float:left;"><select name="tipo_buscar" id="tipo_buscar">';
+                        foreach ($tipo_buscar as $puntero => $value) {
+                            $html.='<option value="' . $puntero . '">' . $value . '</option>';
+                        }
+                        $html.='</select></div>
                                <div style="clear:both;"></div>
                                <div id="divResultado" style="background-color:#ffffff; -moz-opacity: 1 !important; opacity: 1 1 !important;"></div>
                                <input type="hidden" id="canal_id" name="canal_id" value="' . $arrayUrl[3] . '" />
@@ -3931,37 +3941,93 @@ class Admin extends Admin_Controller {
      */
     public function buscar_para_destacado($current_page = 1, $paginado = 0) {
         if ($this->input->is_ajax_request()) {
-            //listamos todos los maestros
-            if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
-                $lista_maestros = $this->grupo_maestro_m->like('nombre', $this->input->post('txtBuscar'))->get_many_by(array('canales_id' => $this->input->post('canal_id')));
-            } else {
-                $lista_maestros = $this->grupo_maestro_m->get_many_by(array('canales_id' => $this->input->post('canal_id')));
-            }
             $array_maestros = array();
-            if (count($lista_maestros) > 0) {
+            switch ($this->input->post('tipo_buscar')) {
+                case $this->config->item('videos:video'):
+                    if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
+                        $lista_videos = $this->videos_m->like('titulo', $this->input->post('txtBuscar'))->get_many_by(array('canales_id' => $this->input->post('canal_id')));
+                    } else {
+                        $lista_videos = $this->videos_m->get_many_by(array('canales_id' => $this->input->post('canal_id')));
+                    }
+                    if (count($lista_videos) > 0) {
+                        foreach ($lista_videos as $index => $objVideo) {
+                            $objVideo->es_maestro = 0;
+                            $objVideo->tipo = 'Video';
+                            array_push($array_maestros, $objVideo);
+                        }
+                    }
+                    break;
+                case $this->config->item('videos:canal'):
 
-                foreach ($lista_maestros as $puntero => $objMaestro) {
-                    if (count($objMaestro) > 0) {
-                        $objMaestro->es_maestro = 1;
-                        $objTipoMaestro = $this->tipo_maestro_m->get($objMaestro->tipo_grupo_maestro_id);
-                        $objMaestro->tipo = $objTipoMaestro->nombre;
-                        array_push($array_maestros, $objMaestro);
+                    break;
+                case $this->config->item('videos:programa'):
+                case $this->config->item('videos:coleccion'):
+                case $this->config->item('videos:lista'):
+                    if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
+                        if ($this->input->post('tipo_buscar')) {
+                            $lista_maestros = $this->grupo_maestro_m->where_in('tipo_grupo_maestro_id', $this->input->post('tipo_buscar'))->like('nombre', $this->input->post('txtBuscar'))->get_many_by(array('canales_id' => $this->input->post('canal_id')));
+                        } else {
+                            $lista_maestros = $this->grupo_maestro_m->like('nombre', $this->input->post('txtBuscar'))->get_many_by(array('canales_id' => $this->input->post('canal_id')));
+                        }
+                    } else {
+                        if ($this->input->post('tipo_buscar')) {
+                            $lista_maestros = $this->grupo_maestro_m->where_in('tipo_grupo_maestro_id', $this->input->post('tipo_buscar'))->get_many_by(array('canales_id' => $this->input->post('canal_id')));
+                        } else {
+                            $lista_maestros = $this->grupo_maestro_m->get_many_by(array('canales_id' => $this->input->post('canal_id')));
+                        }
                     }
-                }
-                //obtenemos los videos para listarlos
-                if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
-                    $lista_videos = $this->videos_m->like('titulo', $this->input->post('txtBuscar'))->get_many_by(array('canales_id' => $this->input->post('canal_id')));
-                } else {
-                    $lista_videos = $this->videos_m->get_many_by(array('canales_id' => $this->input->post('canal_id')));
-                }
-                if (count($lista_videos) > 0) {
-                    foreach ($lista_videos as $index => $objVideo) {
-                        $objVideo->es_maestro = 0;
-                        $objVideo->tipo = 'Video';
-                        array_push($array_maestros, $objVideo);
+                    if (count($lista_maestros) > 0) {
+
+                        foreach ($lista_maestros as $puntero => $objMaestro) {
+                            if (count($objMaestro) > 0) {
+                                $objMaestro->es_maestro = 1;
+                                $objTipoMaestro = $this->tipo_maestro_m->get($objMaestro->tipo_grupo_maestro_id);
+                                $objMaestro->tipo = $objTipoMaestro->nombre;
+                                array_push($array_maestros, $objMaestro);
+                            }
+                        }
                     }
-                }
+                    break;
+                default:
+                    if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
+                        if ($this->input->post('tipo_buscar')) {
+                            $lista_maestros = $this->grupo_maestro_m->where_in('tipo_grupo_maestro_id', $this->input->post('tipo_buscar'))->like('nombre', $this->input->post('txtBuscar'))->get_many_by(array('canales_id' => $this->input->post('canal_id')));
+                        } else {
+                            $lista_maestros = $this->grupo_maestro_m->like('nombre', $this->input->post('txtBuscar'))->get_many_by(array('canales_id' => $this->input->post('canal_id')));
+                        }
+                    } else {
+                        if ($this->input->post('tipo_buscar')) {
+                            $lista_maestros = $this->grupo_maestro_m->where_in('tipo_grupo_maestro_id', $this->input->post('tipo_buscar'))->get_many_by(array('canales_id' => $this->input->post('canal_id')));
+                        } else {
+                            $lista_maestros = $this->grupo_maestro_m->get_many_by(array('canales_id' => $this->input->post('canal_id')));
+                        }
+                    }
+                    if (count($lista_maestros) > 0) {
+
+                        foreach ($lista_maestros as $puntero => $objMaestro) {
+                            if (count($objMaestro) > 0) {
+                                $objMaestro->es_maestro = 1;
+                                $objTipoMaestro = $this->tipo_maestro_m->get($objMaestro->tipo_grupo_maestro_id);
+                                $objMaestro->tipo = $objTipoMaestro->nombre;
+                                array_push($array_maestros, $objMaestro);
+                            }
+                        }
+                    }
+                    if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
+                        $lista_videos = $this->videos_m->like('titulo', $this->input->post('txtBuscar'))->get_many_by(array('canales_id' => $this->input->post('canal_id')));
+                    } else {
+                        $lista_videos = $this->videos_m->get_many_by(array('canales_id' => $this->input->post('canal_id')));
+                    }
+                    if (count($lista_videos) > 0) {
+                        foreach ($lista_videos as $index => $objVideo) {
+                            $objVideo->es_maestro = 0;
+                            $objVideo->tipo = 'Video';
+                            array_push($array_maestros, $objVideo);
+                        }
+                    }
+                    break;
             }
+
             $total = count($array_maestros);
             $cantidad_mostrar = 7;
             $current_page = $current_page - 1;
@@ -4410,26 +4476,65 @@ class Admin extends Admin_Controller {
         }
     }
 
+    /**
+     * Método para mostrar en lista los items para esta seccion
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param int $current_page
+     * @param int $paginado
+     */
     public function buscar_para_programa($current_page = 1, $paginado = 0) {
         if ($this->input->is_ajax_request()) {
-            //listamos todos los maestros
-            if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
-                $lista_maestros = $this->grupo_maestro_m->like('nombre', $this->input->post('txtBuscar'))->get_many_by(array('canales_id' => $this->input->post('canal_id'), "tipo_grupo_maestro_id" => $this->config->item('videos:programa')));
-            } else {
-                $lista_maestros = $this->grupo_maestro_m->get_many_by(array('canales_id' => $this->input->post('canal_id'), "tipo_grupo_maestro_id" => $this->config->item('videos:programa')));
-            }
             $array_maestros = array();
-            if (count($lista_maestros) > 0) {
-
-                foreach ($lista_maestros as $puntero => $objMaestro) {
-                    if (count($objMaestro) > 0) {
-                        $objMaestro->es_maestro = 1;
-                        $objTipoMaestro = $this->tipo_maestro_m->get($objMaestro->tipo_grupo_maestro_id);
-                        $objMaestro->tipo = $objTipoMaestro->nombre;
-                        array_push($array_maestros, $objMaestro);
+            switch ($this->input->post('tipo_buscar')) {
+                case $this->config->item('videos:lista'):
+                case $this->config->item('videos:coleccion'):
+                    break;
+                case $this->config->item('videos:programa'):
+                    //listamos todos los maestros
+                    if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
+                        $lista_maestros = $this->grupo_maestro_m->like('nombre', $this->input->post('txtBuscar'))->get_many_by(array('canales_id' => $this->input->post('canal_id'), "tipo_grupo_maestro_id" => $this->config->item('videos:programa')));
+                    } else {
+                        $lista_maestros = $this->grupo_maestro_m->get_many_by(array('canales_id' => $this->input->post('canal_id'), "tipo_grupo_maestro_id" => $this->config->item('videos:programa')));
                     }
-                }
+
+                    if (count($lista_maestros) > 0) {
+
+                        foreach ($lista_maestros as $puntero => $objMaestro) {
+                            if (count($objMaestro) > 0) {
+                                $objMaestro->es_maestro = 1;
+                                $objTipoMaestro = $this->tipo_maestro_m->get($objMaestro->tipo_grupo_maestro_id);
+                                $objMaestro->tipo = $objTipoMaestro->nombre;
+                                array_push($array_maestros, $objMaestro);
+                            }
+                        }
+                    }
+                    break;
+                case $this->config->item('videos:video'):
+                    break;
+                case $this->config->item('videos:canal'):
+                    break;
+                default:
+                    //listamos todos los maestros
+                    if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
+                        $lista_maestros = $this->grupo_maestro_m->like('nombre', $this->input->post('txtBuscar'))->get_many_by(array('canales_id' => $this->input->post('canal_id'), "tipo_grupo_maestro_id" => $this->config->item('videos:programa')));
+                    } else {
+                        $lista_maestros = $this->grupo_maestro_m->get_many_by(array('canales_id' => $this->input->post('canal_id'), "tipo_grupo_maestro_id" => $this->config->item('videos:programa')));
+                    }
+
+                    if (count($lista_maestros) > 0) {
+
+                        foreach ($lista_maestros as $puntero => $objMaestro) {
+                            if (count($objMaestro) > 0) {
+                                $objMaestro->es_maestro = 1;
+                                $objTipoMaestro = $this->tipo_maestro_m->get($objMaestro->tipo_grupo_maestro_id);
+                                $objMaestro->tipo = $objTipoMaestro->nombre;
+                                array_push($array_maestros, $objMaestro);
+                            }
+                        }
+                    }
+                    break;
             }
+
             $total = count($array_maestros);
             $cantidad_mostrar = 7;
             $current_page = $current_page - 1;
@@ -4461,38 +4566,99 @@ class Admin extends Admin_Controller {
         }
     }
 
+    /**
+     * Método para buscar items para la seccion coleccion
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param int $current_page
+     * @param int $paginado
+     */
     public function buscar_para_coleccion($current_page = 1, $paginado = 0) {
         if ($this->input->is_ajax_request()) {
-            //listamos todos los maestros
-            if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
-                $lista_maestros = $this->grupo_maestro_m->like('nombre', $this->input->post('txtBuscar'))->get_many_by(array('canales_id' => $this->input->post('canal_id'), "tipo_grupo_maestro_id" => $this->config->item('videos:lista')));
-            } else {
-                $lista_maestros = $this->grupo_maestro_m->get_many_by(array('canales_id' => $this->input->post('canal_id'), "tipo_grupo_maestro_id" => $this->config->item('videos:lista')));
-            }
             $array_maestros = array();
-            if (count($lista_maestros) > 0) {
-                foreach ($lista_maestros as $puntero => $objMaestro) {
-                    if (count($objMaestro) > 0) {
-                        $objMaestro->es_maestro = 1;
-                        $objTipoMaestro = $this->tipo_maestro_m->get($objMaestro->tipo_grupo_maestro_id);
-                        $objMaestro->tipo = $objTipoMaestro->nombre;
-                        array_push($array_maestros, $objMaestro);
+            switch ($this->input->post('tipo_buscar')) {
+                case $this->config->item('videos:video'):
+                    //obtenemos los videos para listarlos
+                    if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
+                        $lista_videos = $this->videos_m->like('titulo', $this->input->post('txtBuscar'))->get_many_by(array('canales_id' => $this->input->post('canal_id')));
+                    } else {
+                        $lista_videos = $this->videos_m->get_many_by(array('canales_id' => $this->input->post('canal_id')));
                     }
-                }
-                //obtenemos los videos para listarlos
-                if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
-                    $lista_videos = $this->videos_m->like('titulo', $this->input->post('txtBuscar'))->get_many_by(array('canales_id' => $this->input->post('canal_id')));
-                } else {
-                    $lista_videos = $this->videos_m->get_many_by(array('canales_id' => $this->input->post('canal_id')));
-                }
-                if (count($lista_videos) > 0) {
-                    foreach ($lista_videos as $index => $objVideo) {
-                        $objVideo->es_maestro = 0;
-                        $objVideo->tipo = 'Video';
-                        array_push($array_maestros, $objVideo);
+                    if (count($lista_videos) > 0) {
+                        foreach ($lista_videos as $index => $objVideo) {
+                            $objVideo->es_maestro = 0;
+                            $objVideo->tipo = 'Video';
+                            array_push($array_maestros, $objVideo);
+                        }
                     }
-                }
+                    break;
+                case $this->config->item('videos:canal'):
+
+                    break;
+                case $this->config->item('videos:programa'):
+                case $this->config->item('videos:coleccion'):
+                    break;
+                case $this->config->item('videos:lista'):
+                    //listamos todos los maestros
+                    if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
+                        if ($this->input->post('tipo_buscar')) {
+                            $lista_maestros = $this->grupo_maestro_m->where_in('tipo_grupo_maestro_id', $this->input->post('tipo_buscar'))->like('nombre', $this->input->post('txtBuscar'))->get_many_by(array('canales_id' => $this->input->post('canal_id'), "tipo_grupo_maestro_id" => $this->config->item('videos:lista')));
+                        } else {
+                            $lista_maestros = $this->grupo_maestro_m->like('nombre', $this->input->post('txtBuscar'))->get_many_by(array('canales_id' => $this->input->post('canal_id'), "tipo_grupo_maestro_id" => $this->config->item('videos:lista')));
+                        }
+                    } else {
+                        if ($this->input->post('tipo_buscar')) {
+                            $lista_maestros = $this->grupo_maestro_m->where_in('tipo_grupo_maestro_id', $this->input->post('tipo_buscar'))->get_many_by(array('canales_id' => $this->input->post('canal_id'), "tipo_grupo_maestro_id" => $this->config->item('videos:lista')));
+                        } else {
+                            $lista_maestros = $this->grupo_maestro_m->get_many_by(array('canales_id' => $this->input->post('canal_id'), "tipo_grupo_maestro_id" => $this->config->item('videos:lista')));
+                        }
+                    }
+
+                    if (count($lista_maestros) > 0) {
+                        foreach ($lista_maestros as $puntero => $objMaestro) {
+                            if (count($objMaestro) > 0) {
+                                $objMaestro->es_maestro = 1;
+                                $objTipoMaestro = $this->tipo_maestro_m->get($objMaestro->tipo_grupo_maestro_id);
+                                $objMaestro->tipo = $objTipoMaestro->nombre;
+                                array_push($array_maestros, $objMaestro);
+                            }
+                        }
+                    }
+                    break;
+                default:
+                    //listamos todos los maestros
+                    if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
+                        $lista_maestros = $this->grupo_maestro_m->like('nombre', $this->input->post('txtBuscar'))->get_many_by(array('canales_id' => $this->input->post('canal_id'), "tipo_grupo_maestro_id" => $this->config->item('videos:lista')));
+                    } else {
+                        $lista_maestros = $this->grupo_maestro_m->get_many_by(array('canales_id' => $this->input->post('canal_id'), "tipo_grupo_maestro_id" => $this->config->item('videos:lista')));
+                    }
+
+                    if (count($lista_maestros) > 0) {
+                        foreach ($lista_maestros as $puntero => $objMaestro) {
+                            if (count($objMaestro) > 0) {
+                                $objMaestro->es_maestro = 1;
+                                $objTipoMaestro = $this->tipo_maestro_m->get($objMaestro->tipo_grupo_maestro_id);
+                                $objMaestro->tipo = $objTipoMaestro->nombre;
+                                array_push($array_maestros, $objMaestro);
+                            }
+                        }
+                    }
+                    //obtenemos los videos para listarlos
+                    if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
+                        $lista_videos = $this->videos_m->like('titulo', $this->input->post('txtBuscar'))->get_many_by(array('canales_id' => $this->input->post('canal_id')));
+                    } else {
+                        $lista_videos = $this->videos_m->get_many_by(array('canales_id' => $this->input->post('canal_id')));
+                    }
+                    if (count($lista_videos) > 0) {
+                        foreach ($lista_videos as $index => $objVideo) {
+                            $objVideo->es_maestro = 0;
+                            $objVideo->tipo = 'Video';
+                            array_push($array_maestros, $objVideo);
+                        }
+                    }
+
+                    break;
             }
+
             $total = count($array_maestros);
             $cantidad_mostrar = 7;
             $current_page = $current_page - 1;
@@ -4524,26 +4690,66 @@ class Admin extends Admin_Controller {
         }
     }
 
+    /**
+     * Método para mostrar en lista los items para esta seccion
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param int $current_page
+     * @param int $paginado
+     */
     public function buscar_para_lista($current_page = 1, $paginado = 0) {
         if ($this->input->is_ajax_request()) {
-            //listamos todos los maestros
-            if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
-                $lista_maestros = $this->grupo_maestro_m->like('nombre', $this->input->post('txtBuscar'))->get_many_by(array('canales_id' => $this->input->post('canal_id'), "tipo_grupo_maestro_id" => $this->config->item('videos:lista')));
-            } else {
-                $lista_maestros = $this->grupo_maestro_m->get_many_by(array('canales_id' => $this->input->post('canal_id'), "tipo_grupo_maestro_id" => $this->config->item('videos:lista')));
-            }
             $array_maestros = array();
-            if (count($lista_maestros) > 0) {
-
-                foreach ($lista_maestros as $puntero => $objMaestro) {
-                    if (count($objMaestro) > 0) {
-                        $objMaestro->es_maestro = 1;
-                        $objTipoMaestro = $this->tipo_maestro_m->get($objMaestro->tipo_grupo_maestro_id);
-                        $objMaestro->tipo = $objTipoMaestro->nombre;
-                        array_push($array_maestros, $objMaestro);
+            switch ($this->input->post('tipo_buscar')) {
+                case $this->config->item('videos:canal'):
+                    break;
+                case $this->config->item('videos:video'):
+                    break;
+                case $this->config->item('videos:programa'):
+                    break;
+                case $this->config->item('videos:coleccion'):
+                    break;
+                case $this->config->item('videos:lista'):
+                    //listamos todos los maestros
+                    if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
+                        $lista_maestros = $this->grupo_maestro_m->like('nombre', $this->input->post('txtBuscar'))->get_many_by(array('canales_id' => $this->input->post('canal_id'), "tipo_grupo_maestro_id" => $this->config->item('videos:lista')));
+                    } else {
+                        $lista_maestros = $this->grupo_maestro_m->get_many_by(array('canales_id' => $this->input->post('canal_id'), "tipo_grupo_maestro_id" => $this->config->item('videos:lista')));
                     }
-                }
+
+                    if (count($lista_maestros) > 0) {
+
+                        foreach ($lista_maestros as $puntero => $objMaestro) {
+                            if (count($objMaestro) > 0) {
+                                $objMaestro->es_maestro = 1;
+                                $objTipoMaestro = $this->tipo_maestro_m->get($objMaestro->tipo_grupo_maestro_id);
+                                $objMaestro->tipo = $objTipoMaestro->nombre;
+                                array_push($array_maestros, $objMaestro);
+                            }
+                        }
+                    }
+                    break;
+                default:
+                    //listamos todos los maestros
+                    if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
+                        $lista_maestros = $this->grupo_maestro_m->like('nombre', $this->input->post('txtBuscar'))->get_many_by(array('canales_id' => $this->input->post('canal_id'), "tipo_grupo_maestro_id" => $this->config->item('videos:lista')));
+                    } else {
+                        $lista_maestros = $this->grupo_maestro_m->get_many_by(array('canales_id' => $this->input->post('canal_id'), "tipo_grupo_maestro_id" => $this->config->item('videos:lista')));
+                    }
+
+                    if (count($lista_maestros) > 0) {
+
+                        foreach ($lista_maestros as $puntero => $objMaestro) {
+                            if (count($objMaestro) > 0) {
+                                $objMaestro->es_maestro = 1;
+                                $objTipoMaestro = $this->tipo_maestro_m->get($objMaestro->tipo_grupo_maestro_id);
+                                $objMaestro->tipo = $objTipoMaestro->nombre;
+                                array_push($array_maestros, $objMaestro);
+                            }
+                        }
+                    }
+                    break;
             }
+
             $total = count($array_maestros);
             $cantidad_mostrar = 7;
             $current_page = $current_page - 1;
@@ -4575,22 +4781,53 @@ class Admin extends Admin_Controller {
         }
     }
 
+    /**
+     * Método para mostrar en lista los items para esta seccion
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param int $current_page
+     * @param int $paginado
+     */
     public function buscar_para_video($current_page = 1, $paginado = 0) {
         if ($this->input->is_ajax_request()) {
             $array_maestros = array();
-            //obtenemos los videos para listarlos
-            if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
-                $lista_videos = $this->videos_m->like('titulo', $this->input->post('txtBuscar'))->get_many_by(array('canales_id' => $this->input->post('canal_id')));
-            } else {
-                $lista_videos = $this->videos_m->get_many_by(array('canales_id' => $this->input->post('canal_id')));
+            switch ($this->input->post('tipo_buscar')) {
+                case $this->config->item('videos:lista'):
+                case $this->config->item('videos:coleccion'):
+                case $this->config->item('videos:canal'):
+                case $this->config->item('videos:programa'):
+                    break;
+                case $this->config->item('videos:video'):
+                    //obtenemos los videos para listarlos
+                    if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
+                        $lista_videos = $this->videos_m->like('titulo', $this->input->post('txtBuscar'))->get_many_by(array('canales_id' => $this->input->post('canal_id')));
+                    } else {
+                        $lista_videos = $this->videos_m->get_many_by(array('canales_id' => $this->input->post('canal_id')));
+                    }
+                    if (count($lista_videos) > 0) {
+                        foreach ($lista_videos as $index => $objVideo) {
+                            $objVideo->es_maestro = 0;
+                            $objVideo->tipo = 'Video';
+                            array_push($array_maestros, $objVideo);
+                        }
+                    }
+                    break;
+                default:
+                    //obtenemos los videos para listarlos
+                    if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
+                        $lista_videos = $this->videos_m->like('titulo', $this->input->post('txtBuscar'))->get_many_by(array('canales_id' => $this->input->post('canal_id')));
+                    } else {
+                        $lista_videos = $this->videos_m->get_many_by(array('canales_id' => $this->input->post('canal_id')));
+                    }
+                    if (count($lista_videos) > 0) {
+                        foreach ($lista_videos as $index => $objVideo) {
+                            $objVideo->es_maestro = 0;
+                            $objVideo->tipo = 'Video';
+                            array_push($array_maestros, $objVideo);
+                        }
+                    }
+                    break;
             }
-            if (count($lista_videos) > 0) {
-                foreach ($lista_videos as $index => $objVideo) {
-                    $objVideo->es_maestro = 0;
-                    $objVideo->tipo = 'Video';
-                    array_push($array_maestros, $objVideo);
-                }
-            }
+
             $total = count($array_maestros);
             $cantidad_mostrar = 7;
             $current_page = $current_page - 1;
@@ -4648,19 +4885,43 @@ class Admin extends Admin_Controller {
               array_push($array_maestros, $objMaestro);
               }
               } */
-            //obtenemos los videos para listarlos
-            if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
-                $lista_videos = $this->videos_m->like('titulo', $this->input->post('txtBuscar'))->get_many_by(array('canales_id' => $this->input->post('canal_id')));
-            } else {
-                $lista_videos = $this->videos_m->get_many_by(array('canales_id' => $this->input->post('canal_id')));
+            switch ($this->input->post('tipo_buscar')) {
+                case $this->config->item('videos:programa'):
+                case $this->config->item('videos:coleccion'):
+                case $this->config->item('videos:lista'):
+                case $this->config->item('videos:canal'):
+                    break;
+                case $this->config->item('videos:video'):
+                    //obtenemos los videos para listarlos
+                    if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
+                        $lista_videos = $this->videos_m->like('titulo', $this->input->post('txtBuscar'))->get_many_by(array('canales_id' => $this->input->post('canal_id')));
+                    } else {
+                        $lista_videos = $this->videos_m->get_many_by(array('canales_id' => $this->input->post('canal_id')));
+                    }
+                    if (count($lista_videos) > 0) {
+                        foreach ($lista_videos as $index => $objVideo) {
+                            $objVideo->es_maestro = 0;
+                            $objVideo->tipo = 'Video';
+                            array_push($array_maestros, $objVideo);
+                        }
+                    }
+                default:
+                    //obtenemos los videos para listarlos
+                    if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
+                        $lista_videos = $this->videos_m->like('titulo', $this->input->post('txtBuscar'))->get_many_by(array('canales_id' => $this->input->post('canal_id')));
+                    } else {
+                        $lista_videos = $this->videos_m->get_many_by(array('canales_id' => $this->input->post('canal_id')));
+                    }
+                    if (count($lista_videos) > 0) {
+                        foreach ($lista_videos as $index => $objVideo) {
+                            $objVideo->es_maestro = 0;
+                            $objVideo->tipo = 'Video';
+                            array_push($array_maestros, $objVideo);
+                        }
+                    }
+                    break;
             }
-            if (count($lista_videos) > 0) {
-                foreach ($lista_videos as $index => $objVideo) {
-                    $objVideo->es_maestro = 0;
-                    $objVideo->tipo = 'Video';
-                    array_push($array_maestros, $objVideo);
-                }
-            }
+
             //}
             $total = count($array_maestros);
             $cantidad_mostrar = 7;
@@ -4693,6 +4954,12 @@ class Admin extends Admin_Controller {
         }
     }
 
+    /**
+     * Método para listar los items de la sección correspondiente
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param int $current_page
+     * @param int $paginado
+     */
     public function buscar_para_destacado_programa($current_page = 1, $paginado = 0) {
         if ($this->input->is_ajax_request()) {
             $objSeccion = $this->secciones_m->get($this->input->post('seccion_id'));
@@ -4796,78 +5063,165 @@ class Admin extends Admin_Controller {
             $programa_id = $objPortada->origen_id;
             $array_maestros = array();
             $array_id_item = array();
-            //listamos todas las listas de las colecciones del programa
-            $lista_programa = $this->obtenerListaPrograma($programa_id);
-            if (count($lista_programa) > 0) {
-                foreach ($lista_programa as $puntero => $objMaestro) {
-                    if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
-                        if (stristr($objMaestro->nombre, $this->input->post('txtBuscar'))) {
-                            $objMaestro->es_maestro = 1;
-                            $objTipoMaestro = $this->tipo_maestro_m->get($objMaestro->tipo_grupo_maestro_id);
-                            $objMaestro->tipo = $objTipoMaestro->nombre;
-                            array_push($array_maestros, $objMaestro);
-                            array_push($array_id_item, $objMaestro->id);
+            switch ($this->input->post('tipo_buscar')) {
+                case $this->config->item('videos:programa'):
+                    break;
+                case $this->config->item('videos:coleccion'):
+                    break;
+                case $this->config->item('videos:lista'):
+                    //listamos todas las listas de las colecciones del programa
+                    $lista_programa = $this->obtenerListaPrograma($programa_id);
+                    if (count($lista_programa) > 0) {
+                        foreach ($lista_programa as $puntero => $objMaestro) {
+                            if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
+                                if (stristr($objMaestro->nombre, $this->input->post('txtBuscar'))) {
+                                    $objMaestro->es_maestro = 1;
+                                    $objTipoMaestro = $this->tipo_maestro_m->get($objMaestro->tipo_grupo_maestro_id);
+                                    $objMaestro->tipo = $objTipoMaestro->nombre;
+                                    array_push($array_maestros, $objMaestro);
+                                    array_push($array_id_item, $objMaestro->id);
+                                }
+                            } else {
+                                $objMaestro->es_maestro = 1;
+                                $objTipoMaestro = $this->tipo_maestro_m->get($objMaestro->tipo_grupo_maestro_id);
+                                $objMaestro->tipo = $objTipoMaestro->nombre;
+                                array_push($array_maestros, $objMaestro);
+                                array_push($array_id_item, $objMaestro->id);
+                            }
                         }
-                    } else {
-                        $objMaestro->es_maestro = 1;
-                        $objTipoMaestro = $this->tipo_maestro_m->get($objMaestro->tipo_grupo_maestro_id);
-                        $objMaestro->tipo = $objTipoMaestro->nombre;
-                        array_push($array_maestros, $objMaestro);
-                        array_push($array_id_item, $objMaestro->id);
                     }
-                }
-            }
-            //listamos las listas diractas al programa
-            $lista_directas_programa = $this->obtenerListaProgramaDirecta($programa_id);
-            if (count($lista_directas_programa) > 0) {
-                foreach ($lista_directas_programa as $indice => $objMaestro2) {
-                    if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
-                        if (stristr($objMaestro2->nombre, $this->input->post('txtBuscar'))) {
-                            $objMaestro2->es_maestro = 1;
-                            $objTipoMaestro = $this->tipo_maestro_m->get($objMaestro2->tipo_grupo_maestro_id);
-                            $objMaestro2->tipo = $objTipoMaestro->nombre;
-                            array_push($array_maestros, $objMaestro2);
-                            array_push($array_id_item, $objMaestro2->id);
+                    //listamos las listas diractas al programa
+                    $lista_directas_programa = $this->obtenerListaProgramaDirecta($programa_id);
+                    if (count($lista_directas_programa) > 0) {
+                        foreach ($lista_directas_programa as $indice => $objMaestro2) {
+                            if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
+                                if (stristr($objMaestro2->nombre, $this->input->post('txtBuscar'))) {
+                                    $objMaestro2->es_maestro = 1;
+                                    $objTipoMaestro = $this->tipo_maestro_m->get($objMaestro2->tipo_grupo_maestro_id);
+                                    $objMaestro2->tipo = $objTipoMaestro->nombre;
+                                    array_push($array_maestros, $objMaestro2);
+                                    array_push($array_id_item, $objMaestro2->id);
+                                }
+                            } else {
+                                $objMaestro2->es_maestro = 1;
+                                $objTipoMaestro = $this->tipo_maestro_m->get($objMaestro2->tipo_grupo_maestro_id);
+                                $objMaestro2->tipo = $objTipoMaestro->nombre;
+                                array_push($array_maestros, $objMaestro2);
+                                array_push($array_id_item, $objMaestro2->id);
+                            }
                         }
-                    } else {
-                        $objMaestro2->es_maestro = 1;
-                        $objTipoMaestro = $this->tipo_maestro_m->get($objMaestro2->tipo_grupo_maestro_id);
-                        $objMaestro2->tipo = $objTipoMaestro->nombre;
-                        array_push($array_maestros, $objMaestro2);
-                        array_push($array_id_item, $objMaestro2->id);
                     }
-                }
-            }
-            //limpiamos las listas repetidas
-            if (count($array_id_item) > 0) {
-                $array_id_item = array_unique($array_id_item);
-                $array_maestros = array();
-                foreach ($array_id_item as $in => $cod_maestro) {
-                    $objMaestro3 = $this->grupo_maestro_m->get($cod_maestro);
-                    $objMaestro3->es_maestro = 1;
-                    $objTipoMaestro = $this->tipo_maestro_m->get($objMaestro3->tipo_grupo_maestro_id);
-                    $objMaestro3->tipo = $objTipoMaestro->nombre;
-                    array_push($array_maestros, $objMaestro3);
-                }
-            }
-            //listamos los videos del programa
-            $detalle_videos_programa = $this->obtenerVideosPrograma($programa_id);
-            if (count($detalle_videos_programa) > 0) {
-                foreach ($detalle_videos_programa as $index => $objDetalleMaestro) {
-                    $objVideo = $this->videos_m->get($objDetalleMaestro->video_id);
-                    if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
-                        if (stristr($objVideo->titulo, $this->input->post('txtBuscar'))) {
-                            $objVideo->es_maestro = 0;
-                            $objVideo->tipo = 'Video';
-                            array_push($array_maestros, $objVideo);
+                    //limpiamos las listas repetidas
+                    if (count($array_id_item) > 0) {
+                        $array_id_item = array_unique($array_id_item);
+                        $array_maestros = array();
+                        foreach ($array_id_item as $in => $cod_maestro) {
+                            $objMaestro3 = $this->grupo_maestro_m->get($cod_maestro);
+                            $objMaestro3->es_maestro = 1;
+                            $objTipoMaestro = $this->tipo_maestro_m->get($objMaestro3->tipo_grupo_maestro_id);
+                            $objMaestro3->tipo = $objTipoMaestro->nombre;
+                            array_push($array_maestros, $objMaestro3);
                         }
-                    } else {
-                        $objVideo->es_maestro = 0;
-                        $objVideo->tipo = 'Video';
-                        array_push($array_maestros, $objVideo);
                     }
-                }
+                    break;
+                case $this->config->item('videos:video'):
+                    //listamos los videos del programa
+                    $detalle_videos_programa = $this->obtenerVideosPrograma($programa_id);
+                    if (count($detalle_videos_programa) > 0) {
+                        foreach ($detalle_videos_programa as $index => $objDetalleMaestro) {
+                            $objVideo = $this->videos_m->get($objDetalleMaestro->video_id);
+                            if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
+                                if (stristr($objVideo->titulo, $this->input->post('txtBuscar'))) {
+                                    $objVideo->es_maestro = 0;
+                                    $objVideo->tipo = 'Video';
+                                    array_push($array_maestros, $objVideo);
+                                }
+                            } else {
+                                $objVideo->es_maestro = 0;
+                                $objVideo->tipo = 'Video';
+                                array_push($array_maestros, $objVideo);
+                            }
+                        }
+                    }
+                    break;
+                case $this->config->item('videos:canal'):
+                    break;
+                default:
+                    //listamos todas las listas de las colecciones del programa
+                    $lista_programa = $this->obtenerListaPrograma($programa_id);
+                    if (count($lista_programa) > 0) {
+                        foreach ($lista_programa as $puntero => $objMaestro) {
+                            if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
+                                if (stristr($objMaestro->nombre, $this->input->post('txtBuscar'))) {
+                                    $objMaestro->es_maestro = 1;
+                                    $objTipoMaestro = $this->tipo_maestro_m->get($objMaestro->tipo_grupo_maestro_id);
+                                    $objMaestro->tipo = $objTipoMaestro->nombre;
+                                    array_push($array_maestros, $objMaestro);
+                                    array_push($array_id_item, $objMaestro->id);
+                                }
+                            } else {
+                                $objMaestro->es_maestro = 1;
+                                $objTipoMaestro = $this->tipo_maestro_m->get($objMaestro->tipo_grupo_maestro_id);
+                                $objMaestro->tipo = $objTipoMaestro->nombre;
+                                array_push($array_maestros, $objMaestro);
+                                array_push($array_id_item, $objMaestro->id);
+                            }
+                        }
+                    }
+                    //listamos las listas diractas al programa
+                    $lista_directas_programa = $this->obtenerListaProgramaDirecta($programa_id);
+                    if (count($lista_directas_programa) > 0) {
+                        foreach ($lista_directas_programa as $indice => $objMaestro2) {
+                            if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
+                                if (stristr($objMaestro2->nombre, $this->input->post('txtBuscar'))) {
+                                    $objMaestro2->es_maestro = 1;
+                                    $objTipoMaestro = $this->tipo_maestro_m->get($objMaestro2->tipo_grupo_maestro_id);
+                                    $objMaestro2->tipo = $objTipoMaestro->nombre;
+                                    array_push($array_maestros, $objMaestro2);
+                                    array_push($array_id_item, $objMaestro2->id);
+                                }
+                            } else {
+                                $objMaestro2->es_maestro = 1;
+                                $objTipoMaestro = $this->tipo_maestro_m->get($objMaestro2->tipo_grupo_maestro_id);
+                                $objMaestro2->tipo = $objTipoMaestro->nombre;
+                                array_push($array_maestros, $objMaestro2);
+                                array_push($array_id_item, $objMaestro2->id);
+                            }
+                        }
+                    }
+                    //limpiamos las listas repetidas
+                    if (count($array_id_item) > 0) {
+                        $array_id_item = array_unique($array_id_item);
+                        $array_maestros = array();
+                        foreach ($array_id_item as $in => $cod_maestro) {
+                            $objMaestro3 = $this->grupo_maestro_m->get($cod_maestro);
+                            $objMaestro3->es_maestro = 1;
+                            $objTipoMaestro = $this->tipo_maestro_m->get($objMaestro3->tipo_grupo_maestro_id);
+                            $objMaestro3->tipo = $objTipoMaestro->nombre;
+                            array_push($array_maestros, $objMaestro3);
+                        }
+                    }
+                    //listamos los videos del programa
+                    $detalle_videos_programa = $this->obtenerVideosPrograma($programa_id);
+                    if (count($detalle_videos_programa) > 0) {
+                        foreach ($detalle_videos_programa as $index => $objDetalleMaestro) {
+                            $objVideo = $this->videos_m->get($objDetalleMaestro->video_id);
+                            if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
+                                if (stristr($objVideo->titulo, $this->input->post('txtBuscar'))) {
+                                    $objVideo->es_maestro = 0;
+                                    $objVideo->tipo = 'Video';
+                                    array_push($array_maestros, $objVideo);
+                                }
+                            } else {
+                                $objVideo->es_maestro = 0;
+                                $objVideo->tipo = 'Video';
+                                array_push($array_maestros, $objVideo);
+                            }
+                        }
+                    }
+                    break;
             }
+
             $total = count($array_maestros);
             $cantidad_mostrar = 7;
             $current_page = $current_page - 1;
@@ -4899,6 +5253,12 @@ class Admin extends Admin_Controller {
         }
     }
 
+    /**
+     * Método para mostrar en lista los items para esta seccion
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param int $current_page
+     * @param int $paginado
+     */
     public function buscar_para_lista_programa($current_page = 1, $paginado = 0) {
         if ($this->input->is_ajax_request()) {
             $objSeccion = $this->secciones_m->get($this->input->post('seccion_id'));
@@ -4906,39 +5266,84 @@ class Admin extends Admin_Controller {
             $programa_id = $objPortada->origen_id;
             $array_maestros = array();
             $array_id_item = array();
-            //listamos las listas diractas al programa
-            $lista_directas_programa = $this->obtenerListaProgramaDirecta($programa_id);
-            if (count($lista_directas_programa) > 0) {
-                foreach ($lista_directas_programa as $indice => $objMaestro2) {
-                    if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
-                        if (stristr($objMaestro2->nombre, $this->input->post('txtBuscar'))) {
-                            $objMaestro2->es_maestro = 1;
-                            $objTipoMaestro = $this->tipo_maestro_m->get($objMaestro2->tipo_grupo_maestro_id);
-                            $objMaestro2->tipo = $objTipoMaestro->nombre;
-                            array_push($array_maestros, $objMaestro2);
-                            array_push($array_id_item, $objMaestro2->id);
+            switch ($this->input->post('tipo_buscar')) {
+                case $this->config->item('videos:canal'):
+                case $this->config->item('videos:video'):
+                case $this->config->item('videos:programa'):
+                case $this->config->item('videos:coleccion'):
+                    break;
+                case $this->config->item('videos:lista'):
+                    //listamos las listas diractas al programa
+                    $lista_directas_programa = $this->obtenerListaProgramaDirecta($programa_id);
+                    if (count($lista_directas_programa) > 0) {
+                        foreach ($lista_directas_programa as $indice => $objMaestro2) {
+                            if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
+                                if (stristr($objMaestro2->nombre, $this->input->post('txtBuscar'))) {
+                                    $objMaestro2->es_maestro = 1;
+                                    $objTipoMaestro = $this->tipo_maestro_m->get($objMaestro2->tipo_grupo_maestro_id);
+                                    $objMaestro2->tipo = $objTipoMaestro->nombre;
+                                    array_push($array_maestros, $objMaestro2);
+                                    array_push($array_id_item, $objMaestro2->id);
+                                }
+                            } else {
+                                $objMaestro2->es_maestro = 1;
+                                $objTipoMaestro = $this->tipo_maestro_m->get($objMaestro2->tipo_grupo_maestro_id);
+                                $objMaestro2->tipo = $objTipoMaestro->nombre;
+                                array_push($array_maestros, $objMaestro2);
+                                array_push($array_id_item, $objMaestro2->id);
+                            }
                         }
-                    } else {
-                        $objMaestro2->es_maestro = 1;
-                        $objTipoMaestro = $this->tipo_maestro_m->get($objMaestro2->tipo_grupo_maestro_id);
-                        $objMaestro2->tipo = $objTipoMaestro->nombre;
-                        array_push($array_maestros, $objMaestro2);
-                        array_push($array_id_item, $objMaestro2->id);
                     }
-                }
+                    //limpiamos las listas repetidas
+                    if (count($array_id_item) > 0) {
+                        $array_id_item = array_unique($array_id_item);
+                        $array_maestros = array();
+                        foreach ($array_id_item as $in => $cod_maestro) {
+                            $objMaestro3 = $this->grupo_maestro_m->get($cod_maestro);
+                            $objMaestro3->es_maestro = 1;
+                            $objTipoMaestro = $this->tipo_maestro_m->get($objMaestro3->tipo_grupo_maestro_id);
+                            $objMaestro3->tipo = $objTipoMaestro->nombre;
+                            array_push($array_maestros, $objMaestro3);
+                        }
+                    }
+                    break;
+                default:
+                    //listamos las listas diractas al programa
+                    $lista_directas_programa = $this->obtenerListaProgramaDirecta($programa_id);
+                    if (count($lista_directas_programa) > 0) {
+                        foreach ($lista_directas_programa as $indice => $objMaestro2) {
+                            if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
+                                if (stristr($objMaestro2->nombre, $this->input->post('txtBuscar'))) {
+                                    $objMaestro2->es_maestro = 1;
+                                    $objTipoMaestro = $this->tipo_maestro_m->get($objMaestro2->tipo_grupo_maestro_id);
+                                    $objMaestro2->tipo = $objTipoMaestro->nombre;
+                                    array_push($array_maestros, $objMaestro2);
+                                    array_push($array_id_item, $objMaestro2->id);
+                                }
+                            } else {
+                                $objMaestro2->es_maestro = 1;
+                                $objTipoMaestro = $this->tipo_maestro_m->get($objMaestro2->tipo_grupo_maestro_id);
+                                $objMaestro2->tipo = $objTipoMaestro->nombre;
+                                array_push($array_maestros, $objMaestro2);
+                                array_push($array_id_item, $objMaestro2->id);
+                            }
+                        }
+                    }
+                    //limpiamos las listas repetidas
+                    if (count($array_id_item) > 0) {
+                        $array_id_item = array_unique($array_id_item);
+                        $array_maestros = array();
+                        foreach ($array_id_item as $in => $cod_maestro) {
+                            $objMaestro3 = $this->grupo_maestro_m->get($cod_maestro);
+                            $objMaestro3->es_maestro = 1;
+                            $objTipoMaestro = $this->tipo_maestro_m->get($objMaestro3->tipo_grupo_maestro_id);
+                            $objMaestro3->tipo = $objTipoMaestro->nombre;
+                            array_push($array_maestros, $objMaestro3);
+                        }
+                    }
+                    break;
             }
-            //limpiamos las listas repetidas
-            if (count($array_id_item) > 0) {
-                $array_id_item = array_unique($array_id_item);
-                $array_maestros = array();
-                foreach ($array_id_item as $in => $cod_maestro) {
-                    $objMaestro3 = $this->grupo_maestro_m->get($cod_maestro);
-                    $objMaestro3->es_maestro = 1;
-                    $objTipoMaestro = $this->tipo_maestro_m->get($objMaestro3->tipo_grupo_maestro_id);
-                    $objMaestro3->tipo = $objTipoMaestro->nombre;
-                    array_push($array_maestros, $objMaestro3);
-                }
-            }
+
             $total = count($array_maestros);
             $cantidad_mostrar = 7;
             $current_page = $current_page - 1;
@@ -4970,30 +5375,66 @@ class Admin extends Admin_Controller {
         }
     }
 
+    /**
+     * Método para mostrar en lista los items para esta seccion
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param int $current_page
+     * @param int $paginado
+     */
     public function buscar_para_video_programa($current_page = 1, $paginado = 0) {
         if ($this->input->is_ajax_request()) {
             $objSeccion = $this->secciones_m->get($this->input->post('seccion_id'));
             $objPortada = $this->portada_m->get($objSeccion->portadas_id);
             $programa_id = $objPortada->origen_id;
             $array_maestros = array();
-            //listamos los videos del programa
-            $detalle_videos_programa = $this->obtenerVideosPrograma($programa_id);
-            if (count($detalle_videos_programa) > 0) {
-                foreach ($detalle_videos_programa as $index => $objDetalleMaestro) {
-                    $objVideo = $this->videos_m->get($objDetalleMaestro->video_id);
-                    if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
-                        if (stristr($objVideo->titulo, $this->input->post('txtBuscar'))) {
-                            $objVideo->es_maestro = 0;
-                            $objVideo->tipo = 'Video';
-                            array_push($array_maestros, $objVideo);
+            switch ($this->input->post('tipo_buscar')) {
+                case $this->config->item('videos:lista'):
+                case $this->config->item('videos:coleccion'):
+                case $this->config->item('videos:canal'):
+                case $this->config->item('videos:programa'):
+                    break;
+                case $this->config->item('videos:video'):
+                    //listamos los videos del programa
+                    $detalle_videos_programa = $this->obtenerVideosPrograma($programa_id);
+                    if (count($detalle_videos_programa) > 0) {
+                        foreach ($detalle_videos_programa as $index => $objDetalleMaestro) {
+                            $objVideo = $this->videos_m->get($objDetalleMaestro->video_id);
+                            if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
+                                if (stristr($objVideo->titulo, $this->input->post('txtBuscar'))) {
+                                    $objVideo->es_maestro = 0;
+                                    $objVideo->tipo = 'Video';
+                                    array_push($array_maestros, $objVideo);
+                                }
+                            } else {
+                                $objVideo->es_maestro = 0;
+                                $objVideo->tipo = 'Video';
+                                array_push($array_maestros, $objVideo);
+                            }
                         }
-                    } else {
-                        $objVideo->es_maestro = 0;
-                        $objVideo->tipo = 'Video';
-                        array_push($array_maestros, $objVideo);
                     }
-                }
+                    break;
+                default:
+                    //listamos los videos del programa
+                    $detalle_videos_programa = $this->obtenerVideosPrograma($programa_id);
+                    if (count($detalle_videos_programa) > 0) {
+                        foreach ($detalle_videos_programa as $index => $objDetalleMaestro) {
+                            $objVideo = $this->videos_m->get($objDetalleMaestro->video_id);
+                            if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
+                                if (stristr($objVideo->titulo, $this->input->post('txtBuscar'))) {
+                                    $objVideo->es_maestro = 0;
+                                    $objVideo->tipo = 'Video';
+                                    array_push($array_maestros, $objVideo);
+                                }
+                            } else {
+                                $objVideo->es_maestro = 0;
+                                $objVideo->tipo = 'Video';
+                                array_push($array_maestros, $objVideo);
+                            }
+                        }
+                    }
+                    break;
             }
+
             $total = count($array_maestros);
             $cantidad_mostrar = 7;
             $current_page = $current_page - 1;
@@ -5039,77 +5480,229 @@ class Admin extends Admin_Controller {
             $array_maestros = array();
             $array_id_item = array();
             //listamos todas las listas de las colecciones del programa
-            /*$lista_programa = $this->obtenerListaPrograma($programa_id);
-            if (count($lista_programa) > 0) {
-                foreach ($lista_programa as $puntero => $objMaestro) {
-                    if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
-                        if (stristr($objMaestro->nombre, $this->input->post('txtBuscar'))) {
-                            $objMaestro->es_maestro = 1;
-                            $objTipoMaestro = $this->tipo_maestro_m->get($objMaestro->tipo_grupo_maestro_id);
-                            $objMaestro->tipo = $objTipoMaestro->nombre;
-                            array_push($array_maestros, $objMaestro);
-                            array_push($array_id_item, $objMaestro->id);
-                        }
-                    } else {
-                        $objMaestro->es_maestro = 1;
-                        $objTipoMaestro = $this->tipo_maestro_m->get($objMaestro->tipo_grupo_maestro_id);
-                        $objMaestro->tipo = $objTipoMaestro->nombre;
-                        array_push($array_maestros, $objMaestro);
-                        array_push($array_id_item, $objMaestro->id);
-                    }
-                }
-            }*/
+            /* $lista_programa = $this->obtenerListaPrograma($programa_id);
+              if (count($lista_programa) > 0) {
+              foreach ($lista_programa as $puntero => $objMaestro) {
+              if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
+              if (stristr($objMaestro->nombre, $this->input->post('txtBuscar'))) {
+              $objMaestro->es_maestro = 1;
+              $objTipoMaestro = $this->tipo_maestro_m->get($objMaestro->tipo_grupo_maestro_id);
+              $objMaestro->tipo = $objTipoMaestro->nombre;
+              array_push($array_maestros, $objMaestro);
+              array_push($array_id_item, $objMaestro->id);
+              }
+              } else {
+              $objMaestro->es_maestro = 1;
+              $objTipoMaestro = $this->tipo_maestro_m->get($objMaestro->tipo_grupo_maestro_id);
+              $objMaestro->tipo = $objTipoMaestro->nombre;
+              array_push($array_maestros, $objMaestro);
+              array_push($array_id_item, $objMaestro->id);
+              }
+              }
+              } */
             //listamos las listas diractas al programa
-            /*$lista_directas_programa = $this->obtenerListaProgramaDirecta($programa_id);
-            if (count($lista_directas_programa) > 0) {
-                foreach ($lista_directas_programa as $indice => $objMaestro2) {
+            /* $lista_directas_programa = $this->obtenerListaProgramaDirecta($programa_id);
+              if (count($lista_directas_programa) > 0) {
+              foreach ($lista_directas_programa as $indice => $objMaestro2) {
+              if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
+              if (stristr($objMaestro2->nombre, $this->input->post('txtBuscar'))) {
+              $objMaestro2->es_maestro = 1;
+              $objTipoMaestro = $this->tipo_maestro_m->get($objMaestro2->tipo_grupo_maestro_id);
+              $objMaestro2->tipo = $objTipoMaestro->nombre;
+              array_push($array_maestros, $objMaestro2);
+              array_push($array_id_item, $objMaestro2->id);
+              }
+              } else {
+              $objMaestro2->es_maestro = 1;
+              $objTipoMaestro = $this->tipo_maestro_m->get($objMaestro2->tipo_grupo_maestro_id);
+              $objMaestro2->tipo = $objTipoMaestro->nombre;
+              array_push($array_maestros, $objMaestro2);
+              array_push($array_id_item, $objMaestro2->id);
+              }
+              }
+              } */
+            //limpiamos las listas repetidas
+            /* if (count($array_id_item) > 0) {
+              $array_id_item = array_unique($array_id_item);
+              $array_maestros = array();
+              foreach ($array_id_item as $in => $cod_maestro) {
+              $objMaestro3 = $this->grupo_maestro_m->get($cod_maestro);
+              $objMaestro3->es_maestro = 1;
+              $objTipoMaestro = $this->tipo_maestro_m->get($objMaestro3->tipo_grupo_maestro_id);
+              $objMaestro3->tipo = $objTipoMaestro->nombre;
+              array_push($array_maestros, $objMaestro3);
+              }
+              } */
+            switch ($this->input->post('tipo_buscar')) {
+                case $this->config->item('videos:canal'):
+                case $this->config->item('videos:lista'):
+                case $this->config->item('videos:programa'):
+                case $this->config->item('videos:coleccion'):
+                    break;
+                case $this->config->item('videos:video'):
+                    //listamos los videos del programa
+                    $detalle_videos_programa = $this->obtenerVideosPrograma($programa_id);
+                    if (count($detalle_videos_programa) > 0) {
+                        foreach ($detalle_videos_programa as $index => $objDetalleMaestro) {
+                            $objVideo = $this->videos_m->get($objDetalleMaestro->video_id);
+                            if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
+                                if (stristr($objVideo->titulo, $this->input->post('txtBuscar'))) {
+                                    $objVideo->es_maestro = 0;
+                                    $objVideo->tipo = 'Video';
+                                    array_push($array_maestros, $objVideo);
+                                }
+                            } else {
+                                $objVideo->es_maestro = 0;
+                                $objVideo->tipo = 'Video';
+                                array_push($array_maestros, $objVideo);
+                            }
+                        }
+                    }
+                    break;
+                default:
+                    //listamos los videos del programa
+                    $detalle_videos_programa = $this->obtenerVideosPrograma($programa_id);
+                    if (count($detalle_videos_programa) > 0) {
+                        foreach ($detalle_videos_programa as $index => $objDetalleMaestro) {
+                            $objVideo = $this->videos_m->get($objDetalleMaestro->video_id);
+                            if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
+                                if (stristr($objVideo->titulo, $this->input->post('txtBuscar'))) {
+                                    $objVideo->es_maestro = 0;
+                                    $objVideo->tipo = 'Video';
+                                    array_push($array_maestros, $objVideo);
+                                }
+                            } else {
+                                $objVideo->es_maestro = 0;
+                                $objVideo->tipo = 'Video';
+                                array_push($array_maestros, $objVideo);
+                            }
+                        }
+                    }
+                    break;
+            }
+
+            $total = count($array_maestros);
+            $cantidad_mostrar = 7;
+            $current_page = $current_page - 1;
+            $numero_paginas = ceil(count($array_maestros) / $cantidad_mostrar);
+            $offset = $current_page * $cantidad_mostrar;
+            $array_maestros = array_slice($array_maestros, $offset, $cantidad_mostrar);
+            if ($paginado == '1') {
+                $returnValue = $this->htmlListaMaestro($array_maestros, $this->input->post('seccion_id'), $this->input->post('canal_id'));
+            } else {
+                $returnValue = '<table>';
+                $returnValue.='<thead>';
+                $returnValue.='<tr>';
+                $returnValue.='<th>#</th>';
+                $returnValue.='<th>imagen</td>';
+                $returnValue.='<th>nombre</td>';
+                $returnValue.='<th>tipo</td>';
+                $returnValue.='<th>acciones</td>';
+                $returnValue.='</tr>';
+                $returnValue.='</thead>';
+                $returnValue.='<tbody id="resultado">';
+                $returnValue.= $this->htmlListaMaestro($array_maestros, $this->input->post('seccion_id'), $this->input->post('canal_id'));
+                $returnValue.='</tbody>';
+                $returnValue.='</table>';
+                $returnValue.='<input type="hidden" id="total" name="total" value="' . $total . '" />';
+                $returnValue.='<input type="hidden" id="cantidad_mostrar" name="cantidad_mostrar" value="' . $cantidad_mostrar . '" />';
+                $returnValue.='<div id="black" style="margin: auto;"></div>';
+            }
+            echo $returnValue;
+        }
+    }
+
+    /**
+     * Método para mostrar en lista los items para esta seccion
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param int $current_page
+     * @param int $paginado
+     */
+    public function buscar_para_destacado_categoria($current_page = 1, $paginado = 0) {
+        if ($this->input->is_ajax_request()) {
+            $array_maestros = array();
+            switch ($this->input->post('tipo_buscar')) {
+                case $this->config->item('videos:programa'):
+                case $this->config->item('videos:coleccion'):
+                case $this->config->item('videos:lista'):
+                    //listamos todos los maestros
                     if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
-                        if (stristr($objMaestro2->nombre, $this->input->post('txtBuscar'))) {
-                            $objMaestro2->es_maestro = 1;
-                            $objTipoMaestro = $this->tipo_maestro_m->get($objMaestro2->tipo_grupo_maestro_id);
-                            $objMaestro2->tipo = $objTipoMaestro->nombre;
-                            array_push($array_maestros, $objMaestro2);
-                            array_push($array_id_item, $objMaestro2->id);
+                        if ($this->input->post('tipo_buscar')) {
+                            $lista_maestros = $this->grupo_maestro_m->where_in('tipo_grupo_maestro_id', $this->input->post('tipo_buscar'))->like('nombre', $this->input->post('txtBuscar'))->get_many_by(array());
+                        } else {
+                            $lista_maestros = $this->grupo_maestro_m->like('nombre', $this->input->post('txtBuscar'))->get_many_by(array());
                         }
                     } else {
-                        $objMaestro2->es_maestro = 1;
-                        $objTipoMaestro = $this->tipo_maestro_m->get($objMaestro2->tipo_grupo_maestro_id);
-                        $objMaestro2->tipo = $objTipoMaestro->nombre;
-                        array_push($array_maestros, $objMaestro2);
-                        array_push($array_id_item, $objMaestro2->id);
+                        if ($this->input->post('tipo_buscar')) {
+                            $lista_maestros = $this->grupo_maestro_m->where_in('tipo_grupo_maestro_id', $this->input->post('tipo_buscar'))->get_many_by(array());
+                        } else {
+                            $lista_maestros = $this->grupo_maestro_m->get_many_by(array());
+                        }
                     }
-                }
-            }*/
-            //limpiamos las listas repetidas
-            /*if (count($array_id_item) > 0) {
-                $array_id_item = array_unique($array_id_item);
-                $array_maestros = array();
-                foreach ($array_id_item as $in => $cod_maestro) {
-                    $objMaestro3 = $this->grupo_maestro_m->get($cod_maestro);
-                    $objMaestro3->es_maestro = 1;
-                    $objTipoMaestro = $this->tipo_maestro_m->get($objMaestro3->tipo_grupo_maestro_id);
-                    $objMaestro3->tipo = $objTipoMaestro->nombre;
-                    array_push($array_maestros, $objMaestro3);
-                }
-            }*/
-            //listamos los videos del programa
-            $detalle_videos_programa = $this->obtenerVideosPrograma($programa_id);
-            if (count($detalle_videos_programa) > 0) {
-                foreach ($detalle_videos_programa as $index => $objDetalleMaestro) {
-                    $objVideo = $this->videos_m->get($objDetalleMaestro->video_id);
+                    if (count($lista_maestros) > 0) {
+
+                        foreach ($lista_maestros as $puntero => $objMaestro) {
+                            if (count($objMaestro) > 0) {
+                                $objMaestro->es_maestro = 1;
+                                $objTipoMaestro = $this->tipo_maestro_m->get($objMaestro->tipo_grupo_maestro_id);
+                                $objMaestro->tipo = $objTipoMaestro->nombre;
+                                array_push($array_maestros, $objMaestro);
+                            }
+                        }
+                    }
+                    break;
+                case $this->config->item('videos:canal'):
+                    break;
+                case $this->config->item('videos:video'):
+                    //obtenemos los videos para listarlos
                     if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
-                        if (stristr($objVideo->titulo, $this->input->post('txtBuscar'))) {
+                        $lista_videos = $this->videos_m->like('titulo', $this->input->post('txtBuscar'))->get_many_by(array());
+                    } else {
+                        $lista_videos = $this->videos_m->get_many_by(array());
+                    }
+                    if (count($lista_videos) > 0) {
+                        foreach ($lista_videos as $index => $objVideo) {
                             $objVideo->es_maestro = 0;
                             $objVideo->tipo = 'Video';
                             array_push($array_maestros, $objVideo);
                         }
+                    }
+                    break;
+                default:
+                    //listamos todos los maestros
+                    if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
+                        $lista_maestros = $this->grupo_maestro_m->like('nombre', $this->input->post('txtBuscar'))->get_many_by(array());
                     } else {
-                        $objVideo->es_maestro = 0;
-                        $objVideo->tipo = 'Video';
-                        array_push($array_maestros, $objVideo);
+                        $lista_maestros = $this->grupo_maestro_m->get_many_by(array());
                     }
-                }
+                    if (count($lista_maestros) > 0) {
+
+                        foreach ($lista_maestros as $puntero => $objMaestro) {
+                            if (count($objMaestro) > 0) {
+                                $objMaestro->es_maestro = 1;
+                                $objTipoMaestro = $this->tipo_maestro_m->get($objMaestro->tipo_grupo_maestro_id);
+                                $objMaestro->tipo = $objTipoMaestro->nombre;
+                                array_push($array_maestros, $objMaestro);
+                            }
+                        }
+                    }
+                    //obtenemos los videos para listarlos
+                    if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
+                        $lista_videos = $this->videos_m->like('titulo', $this->input->post('txtBuscar'))->get_many_by(array());
+                    } else {
+                        $lista_videos = $this->videos_m->get_many_by(array());
+                    }
+                    if (count($lista_videos) > 0) {
+                        foreach ($lista_videos as $index => $objVideo) {
+                            $objVideo->es_maestro = 0;
+                            $objVideo->tipo = 'Video';
+                            array_push($array_maestros, $objVideo);
+                        }
+                    }
+
+                    break;
             }
+
             $total = count($array_maestros);
             $cantidad_mostrar = 7;
             $current_page = $current_page - 1;
@@ -5141,115 +5734,120 @@ class Admin extends Admin_Controller {
         }
     }
 
-    public function buscar_para_destacado_categoria($current_page = 1, $paginado = 0) {
-        if ($this->input->is_ajax_request()) {
-            $array_maestros = array();
-            //listamos todos los maestros
-            if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
-                $lista_maestros = $this->grupo_maestro_m->like('nombre', $this->input->post('txtBuscar'))->get_many_by(array());
-            } else {
-                $lista_maestros = $this->grupo_maestro_m->get_many_by(array());
-            }
-            if (count($lista_maestros) > 0) {
-
-                foreach ($lista_maestros as $puntero => $objMaestro) {
-                    if (count($objMaestro) > 0) {
-                        $objMaestro->es_maestro = 1;
-                        $objTipoMaestro = $this->tipo_maestro_m->get($objMaestro->tipo_grupo_maestro_id);
-                        $objMaestro->tipo = $objTipoMaestro->nombre;
-                        array_push($array_maestros, $objMaestro);
-                    }
-                }
-                //obtenemos los videos para listarlos
-                if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
-                    $lista_videos = $this->videos_m->like('titulo', $this->input->post('txtBuscar'))->get_many_by(array());
-                } else {
-                    $lista_videos = $this->videos_m->get_many_by(array());
-                }
-                if (count($lista_videos) > 0) {
-                    foreach ($lista_videos as $index => $objVideo) {
-                        $objVideo->es_maestro = 0;
-                        $objVideo->tipo = 'Video';
-                        array_push($array_maestros, $objVideo);
-                    }
-                }
-            }
-            $total = count($array_maestros);
-            $cantidad_mostrar = 7;
-            $current_page = $current_page - 1;
-            $numero_paginas = ceil(count($array_maestros) / $cantidad_mostrar);
-            $offset = $current_page * $cantidad_mostrar;
-            $array_maestros = array_slice($array_maestros, $offset, $cantidad_mostrar);
-            if ($paginado == '1') {
-                $returnValue = $this->htmlListaMaestro($array_maestros, $this->input->post('seccion_id'), $this->input->post('canal_id'));
-            } else {
-                $returnValue = '<table>';
-                $returnValue.='<thead>';
-                $returnValue.='<tr>';
-                $returnValue.='<th>#</th>';
-                $returnValue.='<th>imagen</td>';
-                $returnValue.='<th>nombre</td>';
-                $returnValue.='<th>tipo</td>';
-                $returnValue.='<th>acciones</td>';
-                $returnValue.='</tr>';
-                $returnValue.='</thead>';
-                $returnValue.='<tbody id="resultado">';
-                $returnValue.= $this->htmlListaMaestro($array_maestros, $this->input->post('seccion_id'), $this->input->post('canal_id'));
-                $returnValue.='</tbody>';
-                $returnValue.='</table>';
-                $returnValue.='<input type="hidden" id="total" name="total" value="' . $total . '" />';
-                $returnValue.='<input type="hidden" id="cantidad_mostrar" name="cantidad_mostrar" value="' . $cantidad_mostrar . '" />';
-                $returnValue.='<div id="black" style="margin: auto;"></div>';
-            }
-            echo $returnValue;
-        }
-    }
-
+    /**
+     * Método para mostrar en lista los items para esta seccion
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param int $current_page
+     * @param int $paginado
+     */
     public function buscar_para_destacado_micanal($current_page = 1, $paginado = 0) {
         if ($this->input->is_ajax_request()) {
             $array_maestros = array();
-            //obtenemos la lista de los canales, para agregarlos
-            if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
-                $lista_canales = $this->canales_m->like('nombre', $this->input->post('txtBuscar'))->get_many_by(array("estado" => $this->config->item('estado:publicado')));
-            } else {
-                $lista_canales = $this->canales_m->get_many_by(array("estado" => $this->config->item('estado:publicado')));
-            }
-            if (count($lista_canales) > 0) {
-                foreach ($lista_canales as $ind => $oCanal) {
-                    $oCanal->es_maestro = 2; //es canal
-                    $oCanal->tipo = 'Canal';
-                    array_push($array_maestros, $oCanal);
-                }
-            }
-            //listamos todos los maestros
-            if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
-                $lista_maestros = $this->grupo_maestro_m->like('nombre', $this->input->post('txtBuscar'))->get_many_by(array());
-            } else {
-                $lista_maestros = $this->grupo_maestro_m->get_many_by(array());
-            }
-            if (count($lista_maestros) > 0) {
+            switch ($this->input->post('tipo_buscar')) {
+                case $this->config->item('videos:canal'):
+                    //obtenemos la lista de los canales, para agregarlos
+                    if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
+                        $lista_canales = $this->canales_m->like('nombre', $this->input->post('txtBuscar'))->get_many_by(array("estado" => $this->config->item('estado:publicado')));
+                    } else {
+                        $lista_canales = $this->canales_m->get_many_by(array("estado" => $this->config->item('estado:publicado')));
+                    }
+                    if (count($lista_canales) > 0) {
+                        foreach ($lista_canales as $ind => $oCanal) {
+                            $oCanal->es_maestro = 2; //es canal
+                            $oCanal->tipo = 'Canal';
+                            array_push($array_maestros, $oCanal);
+                        }
+                    }
+                    break;
+                case $this->config->item('videos:video'):
+                    //obtenemos los videos para listarlos
+                    if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
+                        $lista_videos = $this->videos_m->like('titulo', $this->input->post('txtBuscar'))->get_many_by(array());
+                    } else {
+                        $lista_videos = $this->videos_m->get_many_by(array());
+                    }
+                    if (count($lista_videos) > 0) {
+                        foreach ($lista_videos as $index => $objVideo) {
+                            $objVideo->es_maestro = 0;
+                            $objVideo->tipo = 'Video';
+                            array_push($array_maestros, $objVideo);
+                        }
+                    }
+                    break;
+                case $this->config->item('videos:programa'):
+                case $this->config->item('videos:coleccion'):
+                case $this->config->item('videos:lista'):
+                    //listamos todos los maestros
+                    if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
+                        if ($this->input->post('tipo_buscar')) {
+                            $lista_maestros = $this->grupo_maestro_m->where_in('tipo_grupo_maestro_id', $this->input->post('tipo_buscar'))->like('nombre', $this->input->post('txtBuscar'))->get_many_by(array());
+                        } else {
+                            $lista_maestros = $this->grupo_maestro_m->like('nombre', $this->input->post('txtBuscar'))->get_many_by(array());
+                        }
+                    } else {
+                        if ($this->input->post('tipo_buscar')) {
+                            $lista_maestros = $this->grupo_maestro_m->where_in('tipo_grupo_maestro_id', $this->input->post('tipo_buscar'))->get_many_by(array());
+                        } else {
+                            $lista_maestros = $this->grupo_maestro_m->get_many_by(array());
+                        }
+                    }
+                    if (count($lista_maestros) > 0) {
 
-                foreach ($lista_maestros as $puntero => $objMaestro) {
-                    if (count($objMaestro) > 0) {
-                        $objMaestro->es_maestro = 1;
-                        $objTipoMaestro = $this->tipo_maestro_m->get($objMaestro->tipo_grupo_maestro_id);
-                        $objMaestro->tipo = $objTipoMaestro->nombre;
-                        array_push($array_maestros, $objMaestro);
+                        foreach ($lista_maestros as $puntero => $objMaestro) {
+                            if (count($objMaestro) > 0) {
+                                $objMaestro->es_maestro = 1;
+                                $objTipoMaestro = $this->tipo_maestro_m->get($objMaestro->tipo_grupo_maestro_id);
+                                $objMaestro->tipo = $objTipoMaestro->nombre;
+                                array_push($array_maestros, $objMaestro);
+                            }
+                        }
                     }
-                }
-                //obtenemos los videos para listarlos
-                if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
-                    $lista_videos = $this->videos_m->like('titulo', $this->input->post('txtBuscar'))->get_many_by(array());
-                } else {
-                    $lista_videos = $this->videos_m->get_many_by(array());
-                }
-                if (count($lista_videos) > 0) {
-                    foreach ($lista_videos as $index => $objVideo) {
-                        $objVideo->es_maestro = 0;
-                        $objVideo->tipo = 'Video';
-                        array_push($array_maestros, $objVideo);
+                    break;
+                default:
+                    //obtenemos la lista de los canales, para agregarlos
+                    if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
+                        $lista_canales = $this->canales_m->like('nombre', $this->input->post('txtBuscar'))->get_many_by(array("estado" => $this->config->item('estado:publicado')));
+                    } else {
+                        $lista_canales = $this->canales_m->get_many_by(array("estado" => $this->config->item('estado:publicado')));
                     }
-                }
+                    if (count($lista_canales) > 0) {
+                        foreach ($lista_canales as $ind => $oCanal) {
+                            $oCanal->es_maestro = 2; //es canal
+                            $oCanal->tipo = 'Canal';
+                            array_push($array_maestros, $oCanal);
+                        }
+                    }
+                    //listamos todos los maestros
+                    if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
+                        $lista_maestros = $this->grupo_maestro_m->like('nombre', $this->input->post('txtBuscar'))->get_many_by(array());
+                    } else {
+                        $lista_maestros = $this->grupo_maestro_m->get_many_by(array());
+                    }
+                    if (count($lista_maestros) > 0) {
+
+                        foreach ($lista_maestros as $puntero => $objMaestro) {
+                            if (count($objMaestro) > 0) {
+                                $objMaestro->es_maestro = 1;
+                                $objTipoMaestro = $this->tipo_maestro_m->get($objMaestro->tipo_grupo_maestro_id);
+                                $objMaestro->tipo = $objTipoMaestro->nombre;
+                                array_push($array_maestros, $objMaestro);
+                            }
+                        }
+                    }
+                    //obtenemos los videos para listarlos
+                    if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
+                        $lista_videos = $this->videos_m->like('titulo', $this->input->post('txtBuscar'))->get_many_by(array());
+                    } else {
+                        $lista_videos = $this->videos_m->get_many_by(array());
+                    }
+                    if (count($lista_videos) > 0) {
+                        foreach ($lista_videos as $index => $objVideo) {
+                            $objVideo->es_maestro = 0;
+                            $objVideo->tipo = 'Video';
+                            array_push($array_maestros, $objVideo);
+                        }
+                    }
+                    break;
             }
             $total = count($array_maestros);
             $cantidad_mostrar = 7;
@@ -5352,52 +5950,84 @@ class Admin extends Admin_Controller {
         }
     }
 
+    /**
+     * Método para mostrar en lista los items para esta seccion
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param int $current_page
+     * @param int $paginado
+     */
     public function buscar_para_micanal($current_page = 1, $paginado = 0) {
         if ($this->input->is_ajax_request()) {
             $array_maestros = array();
-            //obtenemos la lista de los canales, para agregarlos
-            if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
-                $lista_canales = $this->canales_m->like('nombre', $this->input->post('txtBuscar'))->get_many_by(array("estado" => $this->config->item('estado:publicado')));
-            } else {
-                $lista_canales = $this->canales_m->get_many_by(array("estado" => $this->config->item('estado:publicado')));
-            }
-            if (count($lista_canales) > 0) {
-                foreach ($lista_canales as $ind => $oCanal) {
-                    $oCanal->es_maestro = 2; //es canal
-                    $oCanal->tipo = 'Canal';
-                    array_push($array_maestros, $oCanal);
-                }
-            }
-            //listamos todos los maestros
-            if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
-                $lista_maestros = $this->grupo_maestro_m->like('nombre', $this->input->post('txtBuscar'))->get_many_by(array());
-            } else {
-                $lista_maestros = $this->grupo_maestro_m->get_many_by(array());
-            }
-            if (count($lista_maestros) > 0) {
-                foreach ($lista_maestros as $puntero => $objMaestro) {
-                    if (count($objMaestro) > 0) {
-                        $objMaestro->es_maestro = 1;
-                        $objTipoMaestro = $this->tipo_maestro_m->get($objMaestro->tipo_grupo_maestro_id);
-                        $objMaestro->tipo = $objTipoMaestro->nombre;
-                        array_push($array_maestros, $objMaestro);
+            switch ($this->input->post('tipo_buscar')) {
+                case $this->config->item('videos:programa'):
+                case $this->config->item('videos:coleccion'):
+                case $this->config->item('videos:lista'):
+                case $this->config->item('videos:video'):
+                    break;
+                case $this->config->item('videos:canal'):
+                    //obtenemos la lista de los canales, para agregarlos
+                    if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
+                        $lista_canales = $this->canales_m->like('nombre', $this->input->post('txtBuscar'))->get_many_by(array("estado" => $this->config->item('estado:publicado')));
+                    } else {
+                        $lista_canales = $this->canales_m->get_many_by(array("estado" => $this->config->item('estado:publicado')));
                     }
-                }
-                //obtenemos los videos para listarlos
-                if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
-                    $lista_videos = $this->videos_m->like('titulo', $this->input->post('txtBuscar'))->get_many_by(array());
-                } else {
-                    $lista_videos = $this->videos_m->get_many_by(array());
-                }
+                    if (count($lista_canales) > 0) {
+                        foreach ($lista_canales as $ind => $oCanal) {
+                            $oCanal->es_maestro = 2; //es canal
+                            $oCanal->tipo = 'Canal';
+                            array_push($array_maestros, $oCanal);
+                        }
+                    }
+                    break;
+                default:
+                    //obtenemos la lista de los canales, para agregarlos
+                    if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
+                        $lista_canales = $this->canales_m->like('nombre', $this->input->post('txtBuscar'))->get_many_by(array("estado" => $this->config->item('estado:publicado')));
+                    } else {
+                        $lista_canales = $this->canales_m->get_many_by(array("estado" => $this->config->item('estado:publicado')));
+                    }
+                    if (count($lista_canales) > 0) {
+                        foreach ($lista_canales as $ind => $oCanal) {
+                            $oCanal->es_maestro = 2; //es canal
+                            $oCanal->tipo = 'Canal';
+                            array_push($array_maestros, $oCanal);
+                        }
+                    }
+                    //listamos todos los maestros
+                    if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
+                        $lista_maestros = $this->grupo_maestro_m->like('nombre', $this->input->post('txtBuscar'))->get_many_by(array());
+                    } else {
+                        $lista_maestros = $this->grupo_maestro_m->get_many_by(array());
+                    }
+                    if (count($lista_maestros) > 0) {
+                        foreach ($lista_maestros as $puntero => $objMaestro) {
+                            if (count($objMaestro) > 0) {
+                                $objMaestro->es_maestro = 1;
+                                $objTipoMaestro = $this->tipo_maestro_m->get($objMaestro->tipo_grupo_maestro_id);
+                                $objMaestro->tipo = $objTipoMaestro->nombre;
+                                array_push($array_maestros, $objMaestro);
+                            }
+                        }
+                    }
+                    //obtenemos los videos para listarlos
+                    if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
+                        $lista_videos = $this->videos_m->like('titulo', $this->input->post('txtBuscar'))->get_many_by(array());
+                    } else {
+                        $lista_videos = $this->videos_m->get_many_by(array());
+                    }
 
-                if (count($lista_videos) > 0) {
-                    foreach ($lista_videos as $index => $objVideo) {
-                        $objVideo->es_maestro = 0;
-                        $objVideo->tipo = 'Video';
-                        array_push($array_maestros, $objVideo);
+                    if (count($lista_videos) > 0) {
+                        foreach ($lista_videos as $index => $objVideo) {
+                            $objVideo->es_maestro = 0;
+                            $objVideo->tipo = 'Video';
+                            array_push($array_maestros, $objVideo);
+                        }
                     }
-                }
+                    break;
             }
+
+
             $total = count($array_maestros);
             $cantidad_mostrar = 7;
             $current_page = $current_page - 1;
@@ -5429,25 +6059,59 @@ class Admin extends Admin_Controller {
         }
     }
 
+    /**
+     * Método para mostrar en lista los items para esta seccion
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param int $current_page
+     * @param int $paginado
+     */
     public function buscar_para_programa_micanal($current_page = 1, $paginado = 0) {
         if ($this->input->is_ajax_request()) {
             $array_maestros = array();
-            //listamos todos los maestros
-            if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
-                $lista_maestros = $this->grupo_maestro_m->like('nombre', $this->input->post('txtBuscar'))->get_many_by(array("tipo_grupo_maestro_id" => $this->config->item('videos:programa')));
-            } else {
-                $lista_maestros = $this->grupo_maestro_m->get_many_by(array("tipo_grupo_maestro_id" => $this->config->item('videos:programa')));
-            }
-            if (count($lista_maestros) > 0) {
-                foreach ($lista_maestros as $puntero => $objMaestro) {
-                    if (count($objMaestro) > 0) {
-                        $objMaestro->es_maestro = 1;
-                        $objTipoMaestro = $this->tipo_maestro_m->get($objMaestro->tipo_grupo_maestro_id);
-                        $objMaestro->tipo = $objTipoMaestro->nombre;
-                        array_push($array_maestros, $objMaestro);
+            switch ($this->input->post('tipo_buscar')) {
+                case $this->config->item('videos:lista'):
+                case $this->config->item('videos:coleccion'):
+                case $this->config->item('videos:canal'):
+                case $this->config->item('videos:video'):
+                    break;
+                case $this->config->item('videos:programa'):
+                    //listamos todos los maestros
+                    if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
+                        $lista_maestros = $this->grupo_maestro_m->like('nombre', $this->input->post('txtBuscar'))->get_many_by(array("tipo_grupo_maestro_id" => $this->config->item('videos:programa')));
+                    } else {
+                        $lista_maestros = $this->grupo_maestro_m->get_many_by(array("tipo_grupo_maestro_id" => $this->config->item('videos:programa')));
                     }
-                }
+                    if (count($lista_maestros) > 0) {
+                        foreach ($lista_maestros as $puntero => $objMaestro) {
+                            if (count($objMaestro) > 0) {
+                                $objMaestro->es_maestro = 1;
+                                $objTipoMaestro = $this->tipo_maestro_m->get($objMaestro->tipo_grupo_maestro_id);
+                                $objMaestro->tipo = $objTipoMaestro->nombre;
+                                array_push($array_maestros, $objMaestro);
+                            }
+                        }
+                    }
+                    break;
+                default:
+                    //listamos todos los maestros
+                    if (strlen(trim($this->input->post('txtBuscar'))) > 0) {
+                        $lista_maestros = $this->grupo_maestro_m->like('nombre', $this->input->post('txtBuscar'))->get_many_by(array("tipo_grupo_maestro_id" => $this->config->item('videos:programa')));
+                    } else {
+                        $lista_maestros = $this->grupo_maestro_m->get_many_by(array("tipo_grupo_maestro_id" => $this->config->item('videos:programa')));
+                    }
+                    if (count($lista_maestros) > 0) {
+                        foreach ($lista_maestros as $puntero => $objMaestro) {
+                            if (count($objMaestro) > 0) {
+                                $objMaestro->es_maestro = 1;
+                                $objTipoMaestro = $this->tipo_maestro_m->get($objMaestro->tipo_grupo_maestro_id);
+                                $objMaestro->tipo = $objTipoMaestro->nombre;
+                                array_push($array_maestros, $objMaestro);
+                            }
+                        }
+                    }
+                    break;
             }
+
             $total = count($array_maestros);
             $cantidad_mostrar = 7;
             $current_page = $current_page - 1;

@@ -17,6 +17,8 @@ $config['extension:mp4'] = 'mp4';
 $config['videos:programa'] = '3';
 $config['videos:coleccion'] = '2';
 $config['videos:lista'] = '1';
+$config['videos:video'] = '4';
+$config['videos:canal'] = '5';
 
 //tipo de videos
 $config['videos:normal'] = '1';
