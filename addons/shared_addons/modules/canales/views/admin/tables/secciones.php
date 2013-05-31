@@ -142,21 +142,31 @@
                             $.each($('#frmSeccion').serializeArray(), function(i, field) {
                                 values[field.name] = field.value;
                             });
-                            var serializedData = $('#frmSeccion').serialize();
-                            var post_url = "/admin/canales/actualizar_seccion/";
-                            $.ajax({
-                                type: "POST",
-                                url: post_url,
-                                dataType: 'json',
-                                data: serializedData,
-                                success: function(respuesta)
-                                {
-                                    if (respuesta.value == '1') {
-                                        //location.reload();
-                                        showMessage('exit', '<?php echo lang('seccion:success_saved') ?>', 2000, '')
-                                    }
-                                } //end success
-                            }); //end AJAX  
+                            var mensaje = 'Seguro deseas guardar los cambios?';
+                            if (values['template'] != values['template_old']) {
+                                mensaje = 'Seguro deseas guardar los cambios con el nueva plantilla seleccionada?';
+                            }
+                            jConfirm(mensaje, "Detalle seccion", function(r) {
+                                if (r) {
+                                    var serializedData = $('#frmSeccion').serialize();
+                                    var post_url = "/admin/canales/actualizar_seccion/";
+                                    $.ajax({
+                                        type: "POST",
+                                        url: post_url,
+                                        dataType: 'json',
+                                        data: serializedData,
+                                        success: function(respuesta)
+                                        {
+                                            if (respuesta.value == '1') {
+                                                //location.reload();
+                                                showMessage('exit', '<?php echo lang('seccion:success_saved') ?>', 2000, '')
+                                            }
+                                        } //end success
+                                    }); //end AJAX  
+                                }
+                            });
+
+
                         }
 
                         /**
