@@ -1,8 +1,10 @@
 <section class="title"> 
     <div style ="float: left;">
         <?php
-        echo anchor('admin/videos/carga_unitaria/' . $objCanal->id, $this->config->item('submenu:carga_unitaria'), array('class' => ''));
-        echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
+        if ($objCanal->tipo_canales_id != $this->config->item('canal:mi_canal')):
+            echo anchor('admin/videos/carga_unitaria/' . $objCanal->id, $this->config->item('submenu:carga_unitaria'), array('class' => ''));
+            echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
+        endif;
         /*    echo anchor('admin/videos/carga_masiva/' . $canal_id, 'Carga masiva', array('class' => ''));
           echo '&nbsp;&nbsp;|&nbsp;&nbsp;'; */
         echo anchor('admin/videos/organizar/' . $objCanal->id, 'Organizar videos', array('class' => ''));
@@ -149,12 +151,12 @@ else:
                 <label for="personajes"><?php echo lang('videos:etiquetas_personajes_label'); ?></label>
                 <div class="input"><?php echo form_input('personajes', $objMaestro->personajes, 'id="personajes"') ?></div>
                 <br /><br />
-<!--                <div id="check_es_portada">
-                    <div class="input">
-                        <div style="float: left;"><input type="checkbox" name="es_portada_canal" id="es_portada_canal" value="1"></div>
-                        <div style="float: left; padding: 6px 0px 0px 5px;"><label for="registra_destacado"><?php //echo lang('maestros:registrar_destacado'); ?></label></div>
-                    </div>
-                </div>-->
+                <!--                <div id="check_es_portada">
+                                    <div class="input">
+                                        <div style="float: left;"><input type="checkbox" name="es_portada_canal" id="es_portada_canal" value="1"></div>
+                                        <div style="float: left; padding: 6px 0px 0px 5px;"><label for="registra_destacado"><?php //echo lang('maestros:registrar_destacado');  ?></label></div>
+                                    </div>
+                                </div>-->
             </div>
             <div class="main_opt">
                 <br /><br />
@@ -492,7 +494,7 @@ else:
 //                        if (values['tipo_grupo'] == '3') {//si es un programa
 //                            var htmlCheck = '<div class="input">';
 //                            htmlCheck += '<div style="float: left;"><input type="checkbox" name="es_portada_canal" id="es_portada_canal" value="1"></div>';
-//                            htmlCheck += '<div style="float: left; padding: 6px 0px 0px 5px;"><label for="registra_destacado"><?php //echo lang('maestros:registrar_destacado'); ?></label></div>';
+//                            htmlCheck += '<div style="float: left; padding: 6px 0px 0px 5px;"><label for="registra_destacado"><?php //echo lang('maestros:registrar_destacado');  ?></label></div>';
 //                            htmlCheck += '</div>';
 //                            $("#check_es_portada").html(htmlCheck);
 //                        } else {

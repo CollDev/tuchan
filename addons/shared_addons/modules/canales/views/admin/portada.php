@@ -8,15 +8,17 @@
 <section class="title"> 
     <div style ="float: left;">
         <?php
-        echo anchor('admin/videos/carga_unitaria/' . $canal_id, $this->config->item('submenu:carga_unitaria'), array('class' => ''));
-        echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
+        if ($objCanal->tipo_canales_id != $this->config->item('canal:mi_canal')):
+            echo anchor('admin/videos/carga_unitaria/' . $canal_id, $this->config->item('submenu:carga_unitaria'), array('class' => ''));
+            echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
+        endif;
         /*    echo anchor('admin/videos/carga_masiva/' . $canal_id, 'Carga masiva', array('class' => ''));
           echo '&nbsp;&nbsp;|&nbsp;&nbsp;'; */
         echo anchor('admin/videos/organizar/' . $canal_id, 'Organizar videos', array('class' => ''));
         echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
         echo anchor('admin/canales/portada/' . $canal_id, 'Portadas', array('class' => ''));
         echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
-        echo anchor('/admin/videos/grupo_maestro/' . $canal_id, 'Crear programas', array('class' => ''));        
+        echo anchor('/admin/videos/grupo_maestro/' . $canal_id, 'Crear programas', array('class' => ''));
         ?>        
     </div>
     <div style="float: right;">
@@ -24,9 +26,9 @@
     </div>    
 </section>
 <?php if ($objCanal->tipo_canales_id == $this->config->item('canal:mi_canal')): ?>
-                        <!--    <section>
-                                <a href="#" id="display-form" title="<?php //echo lang('portada:add_portada');       ?>"><?php //echo lang('portada:add_portada');       ?></a>
-                            </section>-->
+                            <!--    <section>
+                                    <a href="#" id="display-form" title="<?php //echo lang('portada:add_portada');        ?>"><?php //echo lang('portada:add_portada');        ?></a>
+                                </section>-->
 <?php endif; ?>
 <section class="item">
     <?php template_partial('filters'); ?>
@@ -102,8 +104,8 @@
                                     success: function(respuesta)
                                     {
                                         if (respuesta.value == 1) {
-                                            $("#nombre_"+respuesta.portada_id).html(respuesta.nombre);
-                                            $("#descripcion_"+respuesta.portada_id).html(respuesta.descripcion);
+                                            $("#nombre_" + respuesta.portada_id).html(respuesta.nombre);
+                                            $("#descripcion_" + respuesta.portada_id).html(respuesta.descripcion);
                                             $("#portada-form").dialog("close");
                                         }
                                     } //end success
@@ -149,7 +151,7 @@
                                     {
                                         //$(".validateTips").empty();
                                         if (respuesta.error == 1) {
-                                            //$(".validateTips").html('<?php //echo lang('portada:portada_existe');          ?>');
+                                            //$(".validateTips").html('<?php //echo lang('portada:portada_existe');           ?>');
                                             updateTips('<?php echo lang('portada:portada_existe'); ?>');
                                         } else {
                                             $(this).dialog("close");
@@ -303,8 +305,8 @@
                     <label for="descripcion"><?php echo lang('canales:descripcion_label'); ?></label>
                     <input type="text" name="descripcion_seccion" id="descripcion_seccion" value="" class="text ui-widget-content ui-corner-all" style="width:420px;" />
                     <br />
-                        <label for="tipo_seccion"><?php echo lang('portada:tipo_portada')       ?></label>
-                    <?php echo form_dropdown('tipo_seccion', $tipo_seccion, 10);  ?>
+                    <label for="tipo_seccion"><?php echo lang('portada:tipo_portada') ?></label>
+                    <?php echo form_dropdown('tipo_seccion', $tipo_seccion, 10); ?>
                     <br /><br />
                     <label for="templates"><?php echo lang('portada:template') ?></label>
                     <?php echo form_dropdown('template', $templates, 0); ?>

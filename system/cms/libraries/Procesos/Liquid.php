@@ -470,7 +470,6 @@ class Liquid {
             $result = curl_exec($ch);
             $info = curl_getinfo($ch);
 
-
             Log::erroLog("http_code: " . $info['http_code']);
             Log::erroLog("content_type: " . $info['content_type']);
             Log::erroLog("curl_errno: " . curl_errno($ch));
@@ -487,41 +486,37 @@ class Liquid {
         }
     }
 
-//    function getObtenerMediaXId($id, $apikey) {
-//
-//        $contador = 0;
-//        
-//        
-//
-//
-//        $ayer = strtotime ("-1 day"); 
-//        $mañana = strtotime ("+1 day"); 
-//
-//        $straye = date("Ymd",$ayer)."000000<br>"; 
-//        $strman = date("Ymd",$mañana)."235959<br>"; 
-//
-//
-//        GETCURL:
-//
-//            
-//            
-//        if ($contador = 10) {
-//            return false;
-//        }
-//
-//        $url = APIURL . "/medias/?key=" . $apikey . "&filter=id;postDate;title&search=title:" . $id . ";postDate:%3C20130601235959;postDate:%3E".$straye;
-//
-//        $retorno = self::getCurl($url);
-//
-//        if ($retorno != FALSE) {
-//            return $retorno;
-//        } else {
-//
-//
-//            $contador++;
-//            goto GETCURL;
-//        }
-//    }
+    function getObtenerMediaXId($id, $apikey) {
+
+        $contador = 0;
+
+        $ayer = strtotime("-1 day");
+        $mañana = strtotime("+1 day");
+
+        $straye = date("Ymd", $ayer) . "000000<br>";
+        $strman = date("Ymd", $mañana) . "235959<br>";
+
+
+        GETCURL:
+
+
+        if ($contador == 10) {
+            return false;
+        }
+
+        $url = APIURL . "/medias/?key=" . $apikey . "&filter=id;postDate;title&search=title:" . $id . ";postDate:%3C" . $strman . ";postDate:%3E" . $straye;
+
+        $retorno = self::getCurl($url);
+
+        if ($retorno != FALSE) {
+            return $retorno;
+        } else {
+
+            sleep(10);
+            $contador++;
+            goto GETCURL;
+        }
+    }
 
     function getCurl($url) {
         try {

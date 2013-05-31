@@ -1,13 +1,15 @@
 <section class="title"> 
     <div style ="float: left;">
         <?php
-        echo anchor('admin/videos/carga_unitaria/' . $canal_id, $this->config->item('submenu:carga_unitaria'), array('class' => ''));
-        echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
+        if ($objCanal->tipo_canales_id != $this->config->item('canal:mi_canal')):
+            echo anchor('admin/videos/carga_unitaria/' . $canal_id, $this->config->item('submenu:carga_unitaria'), array('class' => ''));
+            echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
+        endif;
         echo anchor('admin/videos/organizar/' . $canal_id, 'Organizar videos', array('class' => ''));
         echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
         echo anchor('admin/canales/portada/' . $canal_id, 'Portadas', array('class' => ''));
         echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
-        echo anchor('/admin/videos/grupo_maestro/' . $canal_id, 'Crear programas', array('class' => ''));        
+        echo anchor('/admin/videos/grupo_maestro/' . $canal_id, 'Crear programas', array('class' => ''));
         ?>        
     </div>
     <div style="float: right;">

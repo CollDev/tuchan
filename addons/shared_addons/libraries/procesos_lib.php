@@ -217,25 +217,28 @@ class Procesos_lib extends MX_Controller {
                 $this->curlVerificaVideosLiquidXId($id);
                 $retorno = Liquid::uploadVideoLiquid($value->id, $value->apikey);
                 Log::erroLog("retorno de upload video: " . $retorno);
-                
-                if(!empty($retorno) || $retorno != ""){
+
+                if (($retorno != FALSE) && ($retorno != "")) {
                     Log::erroLog("entro a : updateMediaVideosXId " . $value->id . "/" . $retorno);
                     $ruta = base_url("curlproceso/updateMediaVideosXId/" . $value->id . "/" . $retorno);
                     shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");
-                    Log::erroLog("return media " . trim($retorno));                    
-                }else{
-                    
+                    Log::erroLog("return media " . trim($retorno));
+                } else {
+                    sleep(10);
+                    $media = Liquid::getObtenerMediaXId($value->id, $value->apikey);
+                    Log::erroLog("entro a : updateMediaVideosXId " . $value->id . "/" . $retorno);
+                    $ruta = base_url("curlproceso/updateMediaVideosXId/" . $value->id . "/" . $retorno);
+                    shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");
+                    Log::erroLog("return media " . trim($retorno));
                 }
-
-                
             }
         }
     }
-    
-    public function buscarMediaMongoXId($id){
+
+    public function buscarMediaMongoXId($id) {
         
     }
-    
+
     public function updateMediaVideosXId($id, $media) {
         $this->_updateMediaVideosXId($id, $media);
     }
@@ -283,15 +286,13 @@ class Procesos_lib extends MX_Controller {
                     $mediaarr = Liquid::obtenerDatosMedia($value);
                 }
 
-
-
                 if (empty($value->duracion)) {
                     $duracion = Liquid::getDurationLiquid($mediaarr);
                     if (!empty($duracion)) {
                         $duracion = ($duracion / 1000);
                         $this->videos_mp->setDuracionVideos($value->id, $duracion);
                     }
-                    ////error_log("duracion : " . $duracion);
+
                 }
 
                 if (empty($value->ruta)) {
@@ -300,8 +301,6 @@ class Procesos_lib extends MX_Controller {
                         $this->videos_mp->setRutaVideos($value->id, $urlvideo);
                     }
                 }
-
-                ////error_log("ruta splitter". $value->rutasplitter);
 
                 if (empty($value->rutasplitter)) {
                     $urlvideo = Liquid::getUrlVideoLiquidRaw($mediaarr);
@@ -342,7 +341,7 @@ class Procesos_lib extends MX_Controller {
                                 $video_hijo_id = $this->imagenes_mp->setImagenVideos($datos);
                                 //registra en las portadas
                                 $this->portadas_lib->actualizar_imagen($video_hijo_id, TRUE);
-                                $this->portadas_lib->agregar_imagen_video_lista($id, $video_hijo_id); 
+                                $this->portadas_lib->agregar_imagen_video_lista($id, $video_hijo_id);
                             }
                         }
                     }
@@ -1686,7 +1685,13 @@ class Procesos_lib extends MX_Controller {
                 $arrayitemclips[$i] = new MongoId($value->id_mongo);
                 $i++;
             }
-
+            
+            $padreclips = $this->videos_mp->getVideoPadreXIdHijo($id);
+            
+            foreach ($padreclips as $value) {                                      
+                        self::_generarDetalleVideosXId($value->id,$value->id_mongo);                
+            }
+            
             $set = array("imagen" => $arrimagen, "clips" => $arrayitemclips, "related" => $arrayrelacionados);
             $this->canal_mp->SetItemCollectionUpdate($set, $MongoId);
             Log::erroLog("despues de actualizar_video: " . $id);
@@ -1761,33 +1766,32 @@ class Procesos_lib extends MX_Controller {
             $this->_generarSeccionesMiCanalXSeccionId($value->id);
         }
     }
-    
-    private function _publicidadVideosMasVistos(){
-        
+
+    private function _publicidadVideosMasVistos() {
+
         $this->canal_mp->setItemsCollectionUpdate(array('publicidad' => "0"));
-        
+
         $videos = $this->videos_mp->getVideosMasVistosXId(50);
-        
+
         foreach ($videos as $value) {
-            $id_mongo = new MongoId($value->id_mongo);                     
+            $id_mongo = new MongoId($value->id_mongo);
             $this->canal_mp->setItemCollectionUpdate(array('publicidad' => "1"), array('_id' => $id_mongo));
         }
     }
-       
-    public function curlActualizarPesoSeccion($id,$peso){
-        Log::erroLog("ini - curlActualizarPesoSeccion: " . $id ." - ".$peso);
-        $ruta = base_url("curlproceso/actualizarPesoSeccion/" . $id."/".$peso);
+
+    public function curlActualizarPesoSeccion($id, $peso) {
+        Log::erroLog("ini - curlActualizarPesoSeccion: " . $id . " - " . $peso);
+        $ruta = base_url("curlproceso/actualizarPesoSeccion/" . $id . "/" . $peso);
         shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");
     }
-    
-    
-    public function actualizarPesoSeccion($id,$peso){
-        $this->_actualizarPesoSeccion($id,$peso);
+
+    public function actualizarPesoSeccion($id, $peso) {
+        $this->_actualizarPesoSeccion($id, $peso);
     }
-    
-    private function _actualizarPesoSeccion($id,$peso){
-        $seccion = $this->secciones_mp->getSeccionesXId($id);        
-        $id_mongo = new MongoId($seccion[0]->mongo_se);        
+
+    private function _actualizarPesoSeccion($id, $peso) {
+        $seccion = $this->secciones_mp->getSeccionesXId($id);
+        $id_mongo = new MongoId($seccion[0]->mongo_se);
         $this->micanal_mp->setItemCollectionUpdate(array('peso' => $peso), array('_id' => $id_mongo));
     }
 

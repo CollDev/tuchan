@@ -5,8 +5,10 @@
 <section class="title"> 
     <div style ="float: left;">
         <?php
-        echo anchor('admin/videos/carga_unitaria/' . $canal_id, $this->config->item('submenu:carga_unitaria'), array('class' => ''));
-        echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
+        if ($objCanal->tipo_canales_id != $this->config->item('canal:mi_canal')):
+            echo anchor('admin/videos/carga_unitaria/' . $canal_id, $this->config->item('submenu:carga_unitaria'), array('class' => ''));
+            echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
+        endif;
         /*    echo anchor('admin/videos/carga_masiva/' . $canal_id, 'Carga masiva', array('class' => ''));
           echo '&nbsp;&nbsp;|&nbsp;&nbsp;'; */
         echo anchor('admin/videos/organizar/' . $canal_id, 'Organizar videos', array('class' => ''));
@@ -1086,9 +1088,9 @@
                         $.each($('#frmSeccion').serializeArray(), function(i, field) {
                             values[field.name] = field.value;
                         });
-                        if(values['template'] != values['template_old']){
+                        if (values['template'] != values['template_old']) {
                             //agregamos el boton previsualizar
-                            
+
                         }
                     }
     </script>

@@ -1898,6 +1898,7 @@ class Admin extends Admin_Controller {
         }
         //tipo de secciones
         $secciones = $this->tipo_secciones_m->getSeccionDropDown();
+        $objCanal = $this->canales_m->get($canal_id);
         $this->input->is_ajax_request() and $this->template->set_layout(FALSE);
         $this->template
                 ->title($this->module_details['name'])
@@ -1913,6 +1914,7 @@ class Admin extends Admin_Controller {
                 ->set('templates', $templates)
                 ->set('tipo_seccion', $secciones)
                 ->set('canal_id', $canal_id)
+                ->set('objCanal', $objCanal)
                 ->set('pagination', $pagination)
                 ->set('ultimo', $ultimo)
                 ->set('primer', $primero)

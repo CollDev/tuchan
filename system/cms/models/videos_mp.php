@@ -104,6 +104,12 @@ class Videos_mp extends CI_Model {
         $query  ="select id,id_mongo from " . $this->_table . " WHERE estado=2 ORDER BY reproducciones DESC LIMIT ".$cant;        
         return $this->db->query($query)->result();
     }
+    
+    public function getVideoPadreXIdHijo($id){
+        
+        $query = "SELECT id,id_mongo FROM " . $this->_table . " WHERE id =  (SELECT padre FROM " . $this->_table . " WHERE id = ".$id.")";
+        return $this->db->query($query)->result();
+    }
 
     public function setReproduccionesVideosXId($id, $cant) {
         $query = "update " . $this->_table . " set reproducciones='" . $cant . "' where id='" . $id . "'";

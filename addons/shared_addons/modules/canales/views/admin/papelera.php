@@ -1,15 +1,17 @@
 <section class="title"> 
     <div style ="float: left;">
         <?php
-        echo anchor('admin/videos/carga_unitaria/' . $canal->id, $this->config->item('submenu:carga_unitaria'), array('class' => ''));
-        echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
+        if ($canal->tipo_canales_id != $this->config->item('canal:mi_canal')):
+            echo anchor('admin/videos/carga_unitaria/' . $canal->id, $this->config->item('submenu:carga_unitaria'), array('class' => ''));
+            echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
+        endif;
         /*    echo anchor('admin/videos/carga_masiva/' . $canal->id, 'Carga masiva', array('class' => ''));
           echo '&nbsp;&nbsp;|&nbsp;&nbsp;'; */
         echo anchor('admin/videos/organizar/' . $canal->id, 'Organizar videos', array('class' => ''));
         echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
         echo anchor('admin/canales/portada/' . $canal->id, 'Portadas', array('class' => ''));
         echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
-        echo anchor('/admin/videos/grupo_maestro/' . $canal->id, 'Crear programas', array('class' => ''));        
+        echo anchor('/admin/videos/grupo_maestro/' . $canal->id, 'Crear programas', array('class' => ''));
         ?>
     </div>
     <div style="float: right;">
@@ -45,7 +47,7 @@
     function restaurar_maestro(id, tipo) {
         jConfirm("Seguro que deseas restaurar este Item?", "Papelera", function(r) {
             if (r) {
-                var post_url = "/admin/canales/restaurar/" + id+"/"+tipo;
+                var post_url = "/admin/canales/restaurar/" + id + "/" + tipo;
                 $.ajax({
                     type: "POST",
                     url: post_url,
@@ -53,19 +55,19 @@
                     //data: indexOrder,
                     success: function(respuesta)
                     {
-                        if(respuesta.value == 1){
-                            $("#"+tipo+"_"+id).empty();
+                        if (respuesta.value == 1) {
+                            $("#" + tipo + "_" + id).empty();
                         }
                     } //end success
                 }); //end AJAX   
             }
         });
     }
-    
-    function eliminar(id, tipo){
+
+    function eliminar(id, tipo) {
         jConfirm("Seguro que deseas eliminar completamente este Item?", "Papelera", function(r) {
             if (r) {
-                var post_url = "/admin/canales/eliminar_completamente/" + id+"/"+tipo;
+                var post_url = "/admin/canales/eliminar_completamente/" + id + "/" + tipo;
                 $.ajax({
                     type: "POST",
                     url: post_url,
@@ -73,12 +75,12 @@
                     //data: indexOrder,
                     success: function(respuesta)
                     {
-                        if(respuesta.value == 1){
-                            $("#"+tipo+"_"+id).empty();
+                        if (respuesta.value == 1) {
+                            $("#" + tipo + "_" + id).empty();
                         }
                     } //end success
                 }); //end AJAX   
             }
-        });    
+        });
     }
 </script>
