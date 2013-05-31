@@ -99,9 +99,14 @@ class Videos_mp extends CI_Model {
 
         return $this->db->query($query)->result();
     }
+    
+    public function getVideosMasVistosXId($cant){
+        $query  ="select id,id_mongo from " . $this->_table . " WHERE estado=2 ORDER BY reproducciones DESC LIMIT ".$cant;        
+        return $this->db->query($query)->result();
+    }
 
     public function setReproduccionesVideosXId($id, $cant) {
-        $query = "update " . $this->_table . " set reproducciones='" . $cant . "' where codigo='" . $id . "'";
+        $query = "update " . $this->_table . " set reproducciones='" . $cant . "' where id='" . $id . "'";
         return $this->db->query($query);
     }
 
