@@ -2,15 +2,17 @@
     <div style ="float: left;">
         <?php
         if ($objCanal->id > 0):
-            echo anchor('admin/videos/carga_unitaria/' . $objCanal->id, $this->config->item('submenu:carga_unitaria'), array('class' => ''));
-            echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
+            if ($objCanal->tipo_canales_id != $this->config->item('canal:mi_canal')):
+                echo anchor('admin/videos/carga_unitaria/' . $objCanal->id, $this->config->item('submenu:carga_unitaria'), array('class' => ''));
+                echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
+            endif;
             /*    echo anchor('admin/videos/carga_masiva/' . $canal_id, 'Carga masiva', array('class' => ''));
               echo '&nbsp;&nbsp;|&nbsp;&nbsp;'; */
             echo anchor('admin/videos/organizar/' . $objCanal->id, 'Organizar videos', array('class' => ''));
             echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
             echo anchor('admin/canales/portada/' . $objCanal->id, 'Portadas', array('class' => ''));
-        echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
-        echo anchor('/admin/videos/grupo_maestro/' . $objCanal->id, 'Crear programas', array('class' => ''));            
+            echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
+            echo anchor('/admin/videos/grupo_maestro/' . $objCanal->id, 'Crear programas', array('class' => ''));
         endif;
         ?>        
     </div>
@@ -330,7 +332,7 @@
                                                                             showMessage('error', '<?php echo lang('canales:exist_canal') ?>', 2000, '');//no se encontro el logotipo en el servidor 
                                                                         } else {
                                                                             var url = "admin/canales";
-                                                                            //showMessage('exit', '<?php //echo lang('canales:success_saved')      ?>', 2000, '');//no se encontro el logotipo en el servidor 
+                                                                            //showMessage('exit', '<?php //echo lang('canales:success_saved')       ?>', 2000, '');//no se encontro el logotipo en el servidor 
                                                                             $(location).attr('href', '<?php echo BASE_URL; ?>' + url);
                                                                         }
                                                                     }
@@ -658,7 +660,7 @@
 <?php } ?>
         });
     </script>
-    <input type="hidden" name="imagen_portada" id="imagen_portada" value="<?php //echo $objCanal->imgen_portada;      ?>" />
+    <input type="hidden" name="imagen_portada" id="imagen_portada" value="<?php //echo $objCanal->imgen_portada;       ?>" />
     <input type="hidden" name="imagen_logotipo" id="imagen_logotipo" value="<?php echo $objCanal->imagen_logotipo; ?>" />
     <input type="hidden" name="update_logotipo" id="update_logotipo" value="0" />
     <input type="hidden" name="imagen_isotipo" id="imagen_isotipo" value="<?php echo $objCanal->imagen_isotipo; ?>" />
