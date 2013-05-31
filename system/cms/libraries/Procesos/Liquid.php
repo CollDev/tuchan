@@ -517,6 +517,33 @@ class Liquid {
             goto GETCURL;
         }
     }
+    
+    function getObtenerMedia($mediaarr,$id) {
+        $media=FALSE;
+
+        if (!empty($mediaarr["Media"])) {
+            foreach ($mediaarr["Media"] as $value) {
+
+                if (isset($value["id"])) {
+
+                    if ($value["title"]===$id) {                        
+                        $media = $value["id"];
+                        break;
+                    }
+                } else {
+
+                    foreach ($value as $value2) {
+
+                        if ($value["title"]===$id) {                            
+                            $media = $value["id"];
+                            break 2;
+                        }
+                    }
+                }
+            }
+        }
+        return $media;        
+    }
 
     function getCurl($url) {
         try {

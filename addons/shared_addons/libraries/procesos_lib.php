@@ -226,8 +226,14 @@ class Procesos_lib extends MX_Controller {
                 } else {
                     sleep(10);
                     $media = Liquid::getObtenerMediaXId($value->id, $value->apikey);
-                    Log::erroLog("entro a : updateMediaVideosXId " . $value->id . "/" . $retorno);
-                    $ruta = base_url("curlproceso/updateMediaVideosXId/" . $value->id . "/" . $retorno);
+                    
+                    $mediaxml = new SimpleXMLElement($media);
+                    $mediaarr = json_decode(json_encode($mediaxml), TRUE);
+
+                    $media= Liquid::getObtenerMedia($mediaarr,$value->id);
+                    
+                    Log::erroLog("entro a : updateMediaVideosXId por error" . $value->id . "/" . $media);
+                    $ruta = base_url("curlproceso/updateMediaVideosXId/" . $value->id . "/" . $media);
                     shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");
                     Log::erroLog("return media " . trim($retorno));
                 }
