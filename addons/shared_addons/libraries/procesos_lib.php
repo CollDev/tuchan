@@ -1764,13 +1764,13 @@ class Procesos_lib extends MX_Controller {
     
     private function _publicidadVideosMasVistos(){
         
-        $this->canal_mp->setItemCollectionUpdate(array('publicidad' => "0"));
+        $this->canal_mp->setItemsCollectionUpdate(array('publicidad' => "0"));
         
         $videos = $this->videos_mp->getVideosMasVistosXId(50);
         
         foreach ($videos as $value) {                         
             $id_mongo = new MongoId($value->id_mongo);                     
-            $this->micanal_mp->setItemCollectionUpdate(array('publicidad' => "1",array()), array('_id' => $id_mongo));
+            $this->micanal_mp->setItemCollectionUpdate(array('publicidad' => "1"), array('_id' => $id_mongo));
         }
     }
        
