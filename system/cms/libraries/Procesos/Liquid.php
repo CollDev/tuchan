@@ -96,7 +96,7 @@ class Liquid {
         $fecha = date('Y-m-d H:i:s');
         $date = date("Y-m-d\TH:i:sP", strtotime($fecha));
 
-        $post = "<Media><title>Titulo</title><description>Descripcion</description><published>true</published><publishDate>" . $date . "</publishDate></Media>";        
+        $post = "<Media><title>Titulo</title><description>Descripcion</description><published>true</published><publishDate>" . $date . "</publishDate></Media>";
         //echo $url . "<br>";
         return $this->postXML($url, $post);
     }
@@ -188,13 +188,13 @@ class Liquid {
             $media = $mediaarr["media"]["@attributes"]["id"];
             Log::erroLog("media " . $media . " " . $id_video);
 
-            if (!empty($media)) {   
+            if (!empty($media)) {
                 return trim($media);
             }
         } catch (Exception $exc) {
             Log::erroLog("return FALSE de Exception");
-            Log::erroLog("getMessage: ".$exc->getMessage);
-            Log::erroLog("getLine: ".$exc->getLine);
+            Log::erroLog("getMessage: " . $exc->getMessage);
+            Log::erroLog("getLine: " . $exc->getLine);
             return FALSE;
         }
     }
@@ -480,6 +480,71 @@ class Liquid {
                 return TRUE;
             } else {
                 Log::erroLog("return false");
+                return FALSE;
+            }
+        } catch (Exception $exc) {
+            return FALSE;
+        }
+    }
+
+//    function getObtenerMediaXId($id, $apikey) {
+//
+//        $contador = 0;
+//        
+//        
+//
+//
+//        $ayer = strtotime ("-1 day"); 
+//        $mañana = strtotime ("+1 day"); 
+//
+//        $straye = date("Ymd",$ayer)."000000<br>"; 
+//        $strman = date("Ymd",$mañana)."235959<br>"; 
+//
+//
+//        GETCURL:
+//
+//            
+//            
+//        if ($contador = 10) {
+//            return false;
+//        }
+//
+//        $url = APIURL . "/medias/?key=" . $apikey . "&filter=id;postDate;title&search=title:" . $id . ";postDate:%3C20130601235959;postDate:%3E".$straye;
+//
+//        $retorno = self::getCurl($url);
+//
+//        if ($retorno != FALSE) {
+//            return $retorno;
+//        } else {
+//
+//
+//            $contador++;
+//            goto GETCURL;
+//        }
+//    }
+
+    function getCurl($url) {
+        try {
+
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, $url);
+            curl_setopt($ch, CURLOPT_FAILONERROR, 1);
+            curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($ch, CURLOPT_TIMEOUT, 15);
+
+            $result = curl_exec($ch);
+            $info = curl_getinfo($ch);
+
+            curl_close($ch);
+
+            Log::erroLog("http_code: " . $info['http_code']);
+            Log::erroLog("content_type: " . $info['content_type']);
+            Log::erroLog("curl_errno: " . curl_errno($ch));
+
+            if ($info['http_code'] == '200') {
+                return $result;
+            } else {
                 return FALSE;
             }
         } catch (Exception $exc) {

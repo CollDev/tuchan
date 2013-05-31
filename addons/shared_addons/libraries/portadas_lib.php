@@ -963,21 +963,21 @@ class Portadas_lib extends MX_Controller {
     public function agregar_imagen_video_lista($video_id, $imagen_id) {
         if ($video_id > 0 && $imagen_id > 0) {
             $objVideo = $this->videos_m->get($video_id);
+            $objImagen = $this->imagen_m->get($imagen_id);
             if (count($objVideo) > 0) {
                 //verificamos si tiene un padre de tipo lista
-                $objDetalleGrupo = $this->grupo_detalle_m->get_by(array("tipo_grupo_maestros_id" => "2", "video_id" => $video_id));
+                $objDetalleGrupo = $this->grupo_detalle_m->get_by(array("tipo_grupo_maestros_id" => "1", "video_id" => $video_id));
                 if (count($objDetalleGrupo) > 0) {
                     if ($objDetalleGrupo->grupo_maestro_padre != NULL) {
                         $lista_id = $objDetalleGrupo->grupo_maestro_padre;
                         //obtenemos los videos de la lista
-                        $objPrimerRegistroVideo = $this->grupo_detalle_m->order_by('fecha_registro', 'ASC')->get_by(array("grupo_maestro_padre" => $lista_id, "video_id" => $video_id, "tipo_grupo_maestros_id" => "2"));
+                        $objPrimerRegistroVideo = $this->grupo_detalle_m->order_by('fecha_registro', 'ASC')->get_by(array("grupo_maestro_padre" => $lista_id, "video_id" => $video_id, "tipo_grupo_maestros_id" => "1"));
                         if (count($objPrimerRegistroVideo) > 0) {
                             //verificamos que la lista no tenga imagenes activas
-                            $objImagenLista = $this->imagen_m->get_many_by(array("grupo_maestros_id" => $objPrimerRegistroVideo->grupo_maestro_padre));
+                            $objImagenLista = $this->imagen_m->get_many_by(array("grupo_maestros_id" => $objPrimerRegistroVideo->grupo_maestro_padre, "tipo_imagen_id"=>$objImagen->tipo_imagen_id));
                             if (count($objImagenLista) == 0) {
                                 //hasta aquí ya tenemos seguro que el video pertenece a una lista
                                 //agregamos la imagen como parte de la lista
-                                $objImagen = $this->imagen_m->get($imagen_id);
                                 $objBeanImagen = new stdClass();
                                 $objBeanImagen->id = NULL;
                                 $objBeanImagen->canales_id = NULL;
@@ -997,13 +997,14 @@ class Portadas_lib extends MX_Controller {
                                 $objBeanImagen->procedencia = $objImagen->procedencia;
                                 $objBeanImagen->imagen_anterior = '0';
                                 $objBeanImagenSaved = $this->imagen_m->saveImage($objBeanImagen);
-                                
                                 //registramos la imagen en las secciones que contengan
                                 $detalle_secciones = $this->detalle_secciones_m->get_many_by(array("grupo_maestros_id"=>$objPrimerRegistroVideo->grupo_maestro_padre));
                                 if(count($detalle_secciones)>0){
                                     foreach($detalle_secciones as $puntero=>$objDetalleSeccion){
-                                        $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id"=>$objBeanImagenSaved->imagen));
+                                        $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id"=>$objBeanImagenSaved->id));
                                     }
+                                    //activamos el maestro
+                                    $this->grupo_maestro_m->update($objPrimerRegistroVideo->grupo_maestro_padre, array("estado"=>"1"));
                                 }
                             }
                         }

@@ -342,7 +342,7 @@ class Procesos_lib extends MX_Controller {
                                 $video_hijo_id = $this->imagenes_mp->setImagenVideos($datos);
                                 //registra en las portadas
                                 $this->portadas_lib->actualizar_imagen($video_hijo_id, TRUE);
-                                $this->portadas_lib->agregar_imagen_video_lista($id, $imagenpadre); 
+                                $this->portadas_lib->agregar_imagen_video_lista($id, $video_hijo_id); 
                             }
                         }
                     }
@@ -1768,9 +1768,9 @@ class Procesos_lib extends MX_Controller {
         
         $videos = $this->videos_mp->getVideosMasVistosXId(50);
         
-        foreach ($videos as $value) {                         
+        foreach ($videos as $value) {
             $id_mongo = new MongoId($value->id_mongo);                     
-            $this->micanal_mp->setItemCollectionUpdate(array('publicidad' => "1"), array('_id' => $id_mongo));
+            $this->canal_mp->setItemCollectionUpdate(array('publicidad' => "1"), array('_id' => $id_mongo));
         }
     }
        
