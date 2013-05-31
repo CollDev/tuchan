@@ -336,11 +336,13 @@ class Procesos_lib extends MX_Controller {
                                 $imagenpadre = $this->imagenes_mp->setImagenVideos($datos);
                                 //registra en las portadas
                                 $this->portadas_lib->actualizar_imagen($imagenpadre, TRUE);
+                                $this->portadas_lib->agregar_imagen_video_lista($id, $imagenpadre);
                                 Log::erroLog("id imagen padre: " . $datos["imagen_padre"]);
                             } else {
                                 $video_hijo_id = $this->imagenes_mp->setImagenVideos($datos);
                                 //registra en las portadas
                                 $this->portadas_lib->actualizar_imagen($video_hijo_id, TRUE);
+                                $this->portadas_lib->agregar_imagen_video_lista($id, $imagenpadre); 
                             }
                         }
                     }
