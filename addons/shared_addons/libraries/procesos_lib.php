@@ -1770,7 +1770,7 @@ class Procesos_lib extends MX_Controller {
         
         foreach ($videos as $value) {                         
             $id_mongo = new MongoId($value->id_mongo);                     
-            $this->micanal_mp->setItemCollectionUpdate(array('publicidad' => "1"), array('_id' => $id_mongo));
+            $this->micanal_mp->setItemCollectionUpdate(array('publicidad' => "1",array()), array('_id' => $id_mongo));
         }
     }
        
