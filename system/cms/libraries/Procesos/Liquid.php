@@ -36,6 +36,7 @@ class Liquid {
                 Log::erroLog("paso publishd");
                 return $result;
             } elseif ($info['http_code'] == '500') {
+                sleep(15);
                 Log::erroLog("publishd datos genericos");
                 return self::updatePublishedMedia($url);
             } else {
@@ -95,8 +96,7 @@ class Liquid {
         $fecha = date('Y-m-d H:i:s');
         $date = date("Y-m-d\TH:i:sP", strtotime($fecha));
 
-        $post = "<Media><title>Titulo</title><description>Descripcion</description><published>true</published><publishDate>" . $date . "</publishDate></Media>";
-        $url = APIURL . "/medias/" . $mediaId . "?key=" . $apiKey;
+        $post = "<Media><title>Titulo</title><description>Descripcion</description><published>true</published><publishDate>" . $date . "</publishDate></Media>";        
         //echo $url . "<br>";
         return $this->postXML($url, $post);
     }
@@ -188,18 +188,13 @@ class Liquid {
             $media = $mediaarr["media"]["@attributes"]["id"];
             Log::erroLog("media " . $media . " " . $id_video);
 
-            if (!empty($media)) {
-                Log::erroLog("entro a : updateMediaVideosXId " . $id_video . "/" . $media);
-                $ruta = base_url("curlproceso/updateMediaVideosXId/" . $id_video . "/" . $media);
-                shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");
-                Log::erroLog("return media " . trim($media));
+            if (!empty($media)) {   
                 return trim($media);
-            } else {
-                Log::erroLog("return FALSE");
-                return FALSE;
             }
         } catch (Exception $exc) {
             Log::erroLog("return FALSE de Exception");
+            Log::erroLog("getMessage: ".$exc->getMessage);
+            Log::erroLog("getLine: ".$exc->getLine);
             return FALSE;
         }
     }

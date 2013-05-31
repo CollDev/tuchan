@@ -32,11 +32,13 @@ $config['estado:borrador'] = '0';
 $config['estado:publicado'] = '1';
 $config['estado:eliminado'] = '2';
 
+
 //estados de los videos
 $config['video:codificando'] = '0';
 $config['video:borrador'] = '1';
 $config['video:publicado'] = '2';
 $config['video:eliminado'] = '3';
+$config['video:error'] = '4';
 
 //estado de migración
 $config['migracion:nuevo'] = '0';

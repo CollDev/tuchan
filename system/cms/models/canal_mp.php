@@ -115,6 +115,10 @@ class Canal_mp extends CI_Model {
     public function setItemCollectionUpdate($set, $where) {
         $this->mongo_db->where($where)->set($set)->update($this->_tabla);        
     }
+    
+    public function setItemsCollectionUpdate($set) {
+        $this->mongo_db->set($set)->update($this->_tabla);        
+    }
 
     public function setItemCollectionDelete($id) {
          $this->mongo_db->delete_where($this->_tabla,array("id"=>$id));       

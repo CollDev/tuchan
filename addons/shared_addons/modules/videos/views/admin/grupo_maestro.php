@@ -9,7 +9,7 @@
         echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
         echo anchor('admin/canales/portada/' . $objCanal->id, 'Portadas', array('class' => ''));
         echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
-        echo anchor('/admin/videos/grupo_maestro/' . $objCanal->id, 'Crear programas', array('class' => ''));        
+        echo anchor('/admin/videos/grupo_maestro/' . $objCanal->id, 'Crear programas', array('class' => ''));
         ?>        
     </div>
     <div style="float: right;">
@@ -144,10 +144,17 @@ else:
                 <br/></br>        
                 <label for="tematicas"><?php echo lang('videos:etiquetas_tematicas_label'); ?> <span class="required">*</span></label>
                 <div class="input"><?php echo form_input('tematicas', $objMaestro->tematicas, 'id="tematicas"') ?></div>
-                <br/></br>
+                <br /><br />
                 <!-- tags personajes -->
                 <label for="personajes"><?php echo lang('videos:etiquetas_personajes_label'); ?></label>
-                <div class="input"><?php echo form_input('personajes', $objMaestro->personajes, 'id="personajes"') ?></div>        
+                <div class="input"><?php echo form_input('personajes', $objMaestro->personajes, 'id="personajes"') ?></div>
+                <br /><br />
+<!--                <div id="check_es_portada">
+                    <div class="input">
+                        <div style="float: left;"><input type="checkbox" name="es_portada_canal" id="es_portada_canal" value="1"></div>
+                        <div style="float: left; padding: 6px 0px 0px 5px;"><label for="registra_destacado"><?php //echo lang('maestros:registrar_destacado'); ?></label></div>
+                    </div>
+                </div>-->
             </div>
             <div class="main_opt">
                 <br /><br />
@@ -481,6 +488,16 @@ else:
                         $.each($('#formMaestro').serializeArray(), function(i, field) {
                             values[field.name] = field.value;
                         });
+                        //mostramos u ocultamos el check dependiendo del tipo de maestro que registrará
+//                        if (values['tipo_grupo'] == '3') {//si es un programa
+//                            var htmlCheck = '<div class="input">';
+//                            htmlCheck += '<div style="float: left;"><input type="checkbox" name="es_portada_canal" id="es_portada_canal" value="1"></div>';
+//                            htmlCheck += '<div style="float: left; padding: 6px 0px 0px 5px;"><label for="registra_destacado"><?php //echo lang('maestros:registrar_destacado'); ?></label></div>';
+//                            htmlCheck += '</div>';
+//                            $("#check_es_portada").html(htmlCheck);
+//                        } else {
+//                            $("#check_es_portada").html('');
+//                        }
                         if ($("#tipo_id").val() != values['tipo_grupo']) {
                             $("#tipo_id").val(values['tipo_grupo']);
                             if ($("#tipo_id").val() == '3') {

@@ -1891,10 +1891,11 @@ class Admin extends Admin_Controller {
             $primero = $objPrimero;
         }
         //lista de templates
-        //$templates = $this->templates_m->getTemplateDropDown();
-        //$templates = $this->templates_m->getTemplateDropDown(array("id" => $objSeccion->templates_id));
-        $objTemplate = $this->templates_m->get($objSeccion->templates_id);
-        $templates = array($objTemplate->id => $objTemplate->nombre);
+        $objTemplate = $this->templates_m->get_many_by(array());
+        $templates = array();
+        foreach ($objTemplate as $indice=>$objTem){
+            $templates[$objTem->id] = $objTem->nombre;
+        }
         //tipo de secciones
         $secciones = $this->tipo_secciones_m->getSeccionDropDown();
         $this->input->is_ajax_request() and $this->template->set_layout(FALSE);
@@ -6766,7 +6767,7 @@ class Admin extends Admin_Controller {
                                 $cont = 0;
                                 foreach ($array_seccion_id as $peso => $s_id) {
                                     $this->secciones_m->update($s_id, array("peso" => $array_original[$cont], "estado_migracion" => $this->config->item('migracion:actualizado')));
-                                    $this->procesos_lib->curlActualizarPesoSeccion($s_id,$array_original[$cont]);
+                                    $this->procesos_lib->curlActualizarPesoSeccion($s_id, $cont);
                                     $cont++;
                                 }
                             }
@@ -6774,6 +6775,17 @@ class Admin extends Admin_Controller {
                     }
                 }
             }
+            echo json_encode(array("value" => "1"));
+        }
+    }
+
+    /**
+     * Método para reenviar los videos en esta error
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param int $video_id
+     */
+    public function reenviar_video($video_id) {
+        if ($this->input->is_ajax_request()) {
             echo json_encode(array("value" => "1"));
         }
     }

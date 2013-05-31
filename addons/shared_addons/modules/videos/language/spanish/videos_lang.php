@@ -39,6 +39,7 @@ $lang['videos:0_estado'] =  'Codificando';
 $lang['videos:1_estado'] =  'Borrador';
 $lang['videos:2_estado'] =  'Publicado';
 $lang['videos:3_estado'] =  'Eliminado';
+$lang['videos:4_estado'] =  'Error';
 
 // estados maestros
 $lang['estado:0_estado'] =  'Borrador';
@@ -119,6 +120,7 @@ $lang['videos:fragment_exist']          = 'Ya existe un video con estos datos.';
 
 //maestros
 $lang['maestros:organizar_videos'] = 'Organizar videos';
+$lang['maestros:registrar_destacado'] = 'Registrar en la sección destacado del canal.';
 $lang['maestros:maestro_existe']          = 'El nombre maestro ya existe.';
 $lang['coleccion:temporada']          = 'Temporada 1';
 

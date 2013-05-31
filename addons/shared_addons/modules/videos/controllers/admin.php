@@ -2019,7 +2019,7 @@ class Admin extends Admin_Controller {
                     $objBeanImage->usuario_registro = $user_id;
                     $objBeanImage->fecha_actualizacion = date("Y-m-d H:i:s");
                     $objBeanImage->usuario_actualizacion = $user_id;
-                    $objBeanImage->estado_migracion = 0;
+                    $objBeanImage->estado_migracion = $this->config->item('migracion:nuevo');
                     $objBeanImage->fecha_migracion = '0000-00-00 00:00:00';
                     $objBeanImage->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
                     $objBeanImage->imagen_padre = $parent_id;
@@ -2033,7 +2033,8 @@ class Admin extends Admin_Controller {
                         unset($array_path[0]);
                     }
                     $path_single_element = implode('/', $array_path);
-                    $this->imagen_m->uploadNameImage($objBeanImage->id, $path_single_element);
+                    //$this->imagen_m->uploadNameImage($objBeanImage->id, $path_single_element);
+                    $this->imagen_m->update($objBeanImage->id, array('imagen' => $path_single_element));
 
                     if ($objBeanImage->tipo_imagen_id == $this->config->item('imagen:small')) {
                         $imagen_id_small = $objBeanImage->id;
@@ -3610,7 +3611,7 @@ class Admin extends Admin_Controller {
                     //en la sección destacado buscar imagen extralarge para registrar detalle seccion
                     if ($objTipoSeccion->id == intval($this->config->item('seccion:destacado'))) {//seccion destacado
                         $objImagen = $this->imagen_m->get_by(array("grupo_maestros_id" => $objMaestro->id, "estado" => "1", "tipo_imagen_id" => $this->config->item('imagen:extralarge')));
-                        if (count($objImagen) > 0) {
+                        //if (count($objImagen) > 0) {
                             $objBeanDetalleSecciones = new stdClass();
                             $objBeanDetalleSecciones->id = NULL;
                             $objBeanDetalleSecciones->secciones_id = $objBeanSeccionSaved->id;
@@ -3620,10 +3621,15 @@ class Admin extends Admin_Controller {
                             $objBeanDetalleSecciones->grupo_maestros_id = $objMaestro->id;
                             $objBeanDetalleSecciones->categorias_id = NULL;
                             $objBeanDetalleSecciones->tags_id = NULL;
-                            $objBeanDetalleSecciones->imagenes_id = $objImagen->id;
+                            if (count($objImagen) > 0) {
+                                $objBeanDetalleSecciones->imagenes_id = $objImagen->id;
+                            }  else {
+                                $objBeanDetalleSecciones->imagenes_id = 0;
+                            }
+                            
                             $objBeanDetalleSecciones->peso = 1;
                             $objBeanDetalleSecciones->descripcion_item = NULL;
-                            $objBeanDetalleSecciones->estado = $this->config->item('estado:publicado');
+                            $objBeanDetalleSecciones->estado = $objMaestro->estado;//$this->config->item('estado:publicado');
                             $objBeanDetalleSecciones->fecha_registro = date("Y-m-d H:i:s");
                             $objBeanDetalleSecciones->usuario_registro = $user_id;
                             $objBeanDetalleSecciones->estado_migracion = '0';
@@ -3631,7 +3637,7 @@ class Admin extends Admin_Controller {
                             $objBeanDetalleSecciones->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
                             $objBeanDetalleSeccionesSaved = $this->detalle_secciones_m->save($objBeanDetalleSecciones);
                             $this->secciones_m->update($objBeanSeccionSaved->id, array("estado" => "1"));
-                        }
+                        //}
                     }
                 }
             }

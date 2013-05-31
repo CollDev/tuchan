@@ -111,5 +111,6 @@ $lang['global:empty'] = 'Vaciar';
 $lang['global:delete'] = 'Eliminar';
 $lang['global:remove'] = 'Eliminar';
 $lang['global:type'] = 'Tipo';
+$lang['global:forward'] = 'Reenviar';
 
 $lang['global:keywords'] = 'Palabras claves';

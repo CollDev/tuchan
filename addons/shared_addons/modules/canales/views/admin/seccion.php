@@ -13,7 +13,7 @@
         echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
         echo anchor('admin/canales/portada/' . $canal_id, 'Portadas', array('class' => ''));
         echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
-        echo anchor('/admin/videos/grupo_maestro/' . $canal_id, 'Crear programas', array('class' => ''));        
+        echo anchor('/admin/videos/grupo_maestro/' . $canal_id, 'Crear programas', array('class' => ''));
         ?>        
     </div>
     <div style="float: right;">
@@ -56,11 +56,12 @@
         <div style="width:100%;">
             <div  style=" float: left; width: 50%; text-align: left;">
                 <a href="#" onclick="guardarSeccion();
-                        return false;" class="btn blue" type="button">Publicar en portada</a>    
+                        return false;" class="btn blue" type="button"><?php echo lang('save_label'); ?></a>    
                    <?php //echo anchor('/admin/canales/vista_previa/', lang('buttons.preview'), array('target' => '_blank', 'class' => 'btn orange modal-large')); ?>                
             </div>
+            <input type="hidden" name="template_old" id="template_old" value="<?php echo $objSeccion->templates_id ?>" />
             <div style="float: right; width: 50%; text-align: right;">
-                <?php echo form_dropdown('template', $templates, $objSeccion->templates_id); ?>            
+                <?php echo form_dropdown('template', $templates, $objSeccion->templates_id, 'onchange="mostrar_boton_vista_previa(' . $objSeccion->id . ')"'); ?>            
             </div>
             <div style="clear: both;"></div>
         </div>        
@@ -72,11 +73,11 @@
         <div style="width:100%;">
             <div  style=" float: left; width: 50%; text-align: left;">
                 <a href="#" onclick="guardarSeccion();
-                        return false;" class="btn blue" type="button">Publicar en portada</a>    
+                        return false;" class="btn blue" type="button"><?php echo lang('save_label'); ?></a>    
                    <?php //echo anchor('/admin/canales/vista_previa/', lang('buttons.preview'), array('target' => '_blank', 'class' => 'btn orange modal-large')); ?>                
             </div>
             <div style="float: right; width: 50%; text-align: right;">
-                <?php echo form_dropdown('template', $templates, $objSeccion->templates_id); ?>            
+                <?php //echo form_dropdown('template', $templates, $objSeccion->templates_id, 'onchange="mostrar_boton_vista_previa(' . $objSeccion->id . ')"'); ?>            
             </div>
             <div style="clear: both;"></div>
         </div>
@@ -995,7 +996,7 @@
                             //data: serializedData,
                             success: function(respuesta)
                             {
-                                var html = '<textarea onkeypress="return textonly(event,' + detalle_seccion_id + ');" id="descripcion_texto_' + detalle_seccion_id + '" nombre="descripcion_texto_' + detalle_seccion_id + '">'+respuesta.value+'</textarea>';
+                                var html = '<textarea onkeypress="return textonly(event,' + detalle_seccion_id + ');" id="descripcion_texto_' + detalle_seccion_id + '" nombre="descripcion_texto_' + detalle_seccion_id + '">' + respuesta.value + '</textarea>';
                                 var boton = '<a href="#" class="btn blue" onclick="quitar_descripcion(' + detalle_seccion_id + '); return false;">Quitar descripción</a>';
                                 $("#descripcion_" + detalle_seccion_id).html(html);
                                 $("#boton_" + detalle_seccion_id).html(boton);
@@ -1079,6 +1080,16 @@
                                 $("#boton_" + detalle_seccion_id).html(boton);
                             } //end success
                         }); //end AJAX 
+                    }
+                    function mostrar_boton_vista_previa(seccion_id) {
+                        var values = {};
+                        $.each($('#frmSeccion').serializeArray(), function(i, field) {
+                            values[field.name] = field.value;
+                        });
+                        if(values['template'] != values['template_old']){
+                            //agregamos el boton previsualizar
+                            
+                        }
                     }
     </script>
 </section>

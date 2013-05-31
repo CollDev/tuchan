@@ -216,12 +216,26 @@ class Procesos_lib extends MX_Controller {
                 $this->videos_mp->setEstadosVideos($value->id, 0, 3);
                 $this->curlVerificaVideosLiquidXId($id);
                 $retorno = Liquid::uploadVideoLiquid($value->id, $value->apikey);
-
                 Log::erroLog("retorno de upload video: " . $retorno);
+                
+                if(!empty($retorno) || $retorno != ""){
+                    Log::erroLog("entro a : updateMediaVideosXId " . $value->id . "/" . $retorno);
+                    $ruta = base_url("curlproceso/updateMediaVideosXId/" . $value->id . "/" . $retorno);
+                    shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");
+                    Log::erroLog("return media " . trim($retorno));                    
+                }else{
+                    
+                }
+
+                
             }
         }
     }
-
+    
+    public function buscarMediaMongoXId($id){
+        
+    }
+    
     public function updateMediaVideosXId($id, $media) {
         $this->_updateMediaVideosXId($id, $media);
     }
@@ -322,11 +336,13 @@ class Procesos_lib extends MX_Controller {
                                 $imagenpadre = $this->imagenes_mp->setImagenVideos($datos);
                                 //registra en las portadas
                                 $this->portadas_lib->actualizar_imagen($imagenpadre, TRUE);
+                                $this->portadas_lib->agregar_imagen_video_lista($id, $imagenpadre);
                                 Log::erroLog("id imagen padre: " . $datos["imagen_padre"]);
                             } else {
                                 $video_hijo_id = $this->imagenes_mp->setImagenVideos($datos);
                                 //registra en las portadas
                                 $this->portadas_lib->actualizar_imagen($video_hijo_id, TRUE);
+                                $this->portadas_lib->agregar_imagen_video_lista($id, $imagenpadre); 
                             }
                         }
                     }
@@ -1543,6 +1559,7 @@ class Procesos_lib extends MX_Controller {
                     $objmongo['apikey'] = $datovideo[0]->xapikey;
 
                     $objmongo['valoracion'] = $datovideo[0]->xvi_val;
+                    $objmongo['publicidad'] = "0";
                     $objmongo['estado'] = ($value->estado == 2) ? "1" : "0";
 
                     ////error_log($datovideo[0]->xprogramaalias);
@@ -1733,6 +1750,8 @@ class Procesos_lib extends MX_Controller {
         $this->_actualizarComentariosValorizacion();
         Log::erroLog("_actualizarSecciones6789");
         $this->_actualizarSecciones6789();
+        Log::erroLog("_publicidadVideosMasVistos");
+        $this->_publicidadVideosMasVistos();
     }
 
     private function _actualizarSecciones6789() {
@@ -1743,6 +1762,18 @@ class Procesos_lib extends MX_Controller {
         }
     }
     
+    private function _publicidadVideosMasVistos(){
+        
+        $this->canal_mp->setItemsCollectionUpdate(array('publicidad' => "0"));
+        
+        $videos = $this->videos_mp->getVideosMasVistosXId(50);
+        
+        foreach ($videos as $value) {                         
+            $id_mongo = new MongoId($value->id_mongo);                     
+            $this->micanal_mp->setItemCollectionUpdate(array('publicidad' => "1"), array('_id' => $id_mongo));
+        }
+    }
+       
     public function curlActualizarPesoSeccion($id,$peso){
         Log::erroLog("ini - curlActualizarPesoSeccion: " . $id ." - ".$peso);
         $ruta = base_url("curlproceso/actualizarPesoSeccion/" . $id."/".$peso);
