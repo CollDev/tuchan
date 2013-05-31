@@ -216,12 +216,26 @@ class Procesos_lib extends MX_Controller {
                 $this->videos_mp->setEstadosVideos($value->id, 0, 3);
                 $this->curlVerificaVideosLiquidXId($id);
                 $retorno = Liquid::uploadVideoLiquid($value->id, $value->apikey);
-
                 Log::erroLog("retorno de upload video: " . $retorno);
+                
+                if(!empty($retorno) || $retorno != ""){
+                    Log::erroLog("entro a : updateMediaVideosXId " . $value->id . "/" . $retorno);
+                    $ruta = base_url("curlproceso/updateMediaVideosXId/" . $value->id . "/" . $retorno);
+                    shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");
+                    Log::erroLog("return media " . trim($retorno));                    
+                }else{
+                    
+                }
+
+                
             }
         }
     }
-
+    
+    public function buscarMediaMongoXId($id){
+        
+    }
+    
     public function updateMediaVideosXId($id, $media) {
         $this->_updateMediaVideosXId($id, $media);
     }
