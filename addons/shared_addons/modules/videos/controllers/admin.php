@@ -2639,6 +2639,7 @@ class Admin extends Admin_Controller {
         $estados = array($this->config->item('estado:publicado') => "Publicado", "3" => "Borrador", $this->config->item('estado:eliminado') => "Eliminado");
         //$lista_programas = $this->listaProgramacompleto($this->grupo_maestro_m->order_by('fecha_registro', 'DESC')->limit($pagination['limit'])->get_many_by($base_where));
         $programas = $this->grupo_maestro_m->getCollectionDropDown(array("tipo_grupo_maestro_id" => $this->config->item('videos:programa'), "canales_id" => $canal_id), 'nombre');
+        $objCanal = $this->canales_m->get($canal_id);
         $this->input->is_ajax_request() and $this->template->set_layout(FALSE);
         $this->template
                 ->title($this->module_details['name'])
@@ -2651,6 +2652,7 @@ class Admin extends Admin_Controller {
                 ->set('programa', $programas)
                 ->set_partial('maestros', 'admin/tables/maestros')
                 ->set('canal_id', $canal_id)
+                ->set('objCanal', $objCanal)
                 ->set('lista_programas', $lista_programas);
         $this->input->is_ajax_request() ? $this->template->build('admin/tables/maestros') : $this->template->build('admin/maestro');
     }
@@ -5183,6 +5185,7 @@ class Admin extends Admin_Controller {
             //$lista_programas = $this->vw_organizar_m->limit($pagination['limit'])->get_many_by($base_where);
         }
         $estados = array("4" => "Codificando", $this->config->item('video:borrador') => "Borrador", $this->config->item('video:publicado') => "Publicado", $this->config->item('video:eliminado') => "Eliminado");
+        $objCanal = $this->canales_m->get($canal_id);
         $this->input->is_ajax_request() and $this->template->set_layout(FALSE);
         $this->template
                 ->title($this->module_details['name'])
@@ -5195,6 +5198,7 @@ class Admin extends Admin_Controller {
                 ->set('pagination', $pagination)
                 ->set('estados', $estados)
                 ->set('breadcrumb', $breadcrumb)
+                ->set('objCanal', $objCanal)
                 ->set('canal_id', $canal_id);
         $this->input->is_ajax_request() ? $this->template->build('admin/tables/organizar_videos') : $this->template->build('admin/organizar');
     }

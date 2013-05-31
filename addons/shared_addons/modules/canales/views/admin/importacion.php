@@ -2,15 +2,17 @@
     <div style ="float: left;">
         <?php
         if ($objCanal->id > 0):
-            echo anchor('admin/videos/carga_unitaria/' . $objCanal->id, $this->config->item('submenu:carga_unitaria'), array('class' => ''));
-            echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
+            if ($objCanal->tipo_canales_id != $this->config->item('canal:mi_canal')):
+                echo anchor('admin/videos/carga_unitaria/' . $objCanal->id, $this->config->item('submenu:carga_unitaria'), array('class' => ''));
+                echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
+            endif;
             /*    echo anchor('admin/videos/carga_masiva/' . $canal_id, 'Carga masiva', array('class' => ''));
               echo '&nbsp;&nbsp;|&nbsp;&nbsp;'; */
             echo anchor('admin/videos/organizar/' . $objCanal->id, 'Organizar videos', array('class' => ''));
             echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
             echo anchor('admin/canales/portada/' . $objCanal->id, 'Portadas', array('class' => ''));
-        echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
-        echo anchor('/admin/videos/grupo_maestro/' . $objCanal->id, 'Crear programas', array('class' => ''));            
+            echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
+            echo anchor('/admin/videos/grupo_maestro/' . $objCanal->id, 'Crear programas', array('class' => ''));
         endif;
         ?>        
     </div>
