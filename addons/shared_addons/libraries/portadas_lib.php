@@ -91,7 +91,17 @@ class Portadas_lib extends MX_Controller {
                                         $objBeanDetalleSeccion->fecha_migracion = '0000-00-00 00:00:00';
                                         $objBeanDetalleSeccion->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
                                         $objBeanDetalleSeccionSaved = $this->detalle_secciones_m->save($objBeanDetalleSeccion);
-                                        $this->secciones_m->update($objSeccion->id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+
+                                        if ($objSeccion->tipo_secciones_id == $this->config->item('seccion:video') || $objSeccion->tipo_secciones_id == $this->config->item('seccion:lista') || $objSeccion->tipo_secciones_id == $this->config->item('seccion:coleccion')) {
+                                            //verificamos q la sección coleccion sea de un programa
+                                            if ($objPortada->tipo_portadas_id == $this->config->item('portada:programa')) {
+                                                if ($objSeccion->tipo_secciones_id == $this->config->item('seccion:coleccion')) {
+                                                    $this->secciones_m->update($objSeccion->id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                                }
+                                            }
+                                        } else {
+                                            $this->secciones_m->update($objSeccion->id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                        }
                                     }
                                     //}
                                 }
@@ -216,17 +226,40 @@ class Portadas_lib extends MX_Controller {
                         //creamos un array para recolectar los ID de portada
                         $arrayIdPortada = array();
                         foreach ($arrayIdSeccion as $index => $seccion_id) {
-                            $objSeccion = $this->secciones_m->get($seccion_id);
-                            array_push($arrayIdPortada, $objSeccion->portadas_id);
-                            if (count($objSeccion) > 0) {
-                                //veremos si podemos publicarlo
-                                $arraySeccionPublicado = $this->detalle_secciones_m->get_many_by(array("secciones_id" => $seccion_id, "estado" => $this->config->item('estado:publicado')));
-                                if (count($arraySeccionPublicado) > 0) {
-                                    $this->secciones_m->update($seccion_id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
-                                } else {
-                                    //verificamos que tuvo un estado eliminado
-                                    if ($objSeccion->estado == $this->config->item('estado:publicado')) {
-                                        $this->secciones_m->update($seccion_id, array("estado" => $this->config->item('estado:borrador'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                            $oSeccionFiltro = $this->secciones_m->get($seccion_id);
+                            $objPortadaFiltro = $this->portada_m->get($oSeccionFiltro->portadas_id);
+                            if ($oSeccionFiltro->tipo_secciones_id == $this->config->item('seccion:coleccion') || $oSeccionFiltro->tipo_secciones_id == $this->config->item('seccion:video') || $oSeccionFiltro->tipo_secciones_id == $this->config->item('seccion:lista')) {
+                                if ($objPortadaFiltro->tipo_portadas_id == $this->config->item('portada:programa')) {
+                                    if ($objPortadaFiltro->tipo_secciones_id == $this->config->item('seccion:coleccion')) {
+                                        $objSeccion = $this->secciones_m->get($seccion_id);
+                                        array_push($arrayIdPortada, $objSeccion->portadas_id);
+                                        if (count($objSeccion) > 0) {
+                                            //veremos si podemos publicarlo
+                                            $arraySeccionPublicado = $this->detalle_secciones_m->get_many_by(array("secciones_id" => $seccion_id, "estado" => $this->config->item('estado:publicado')));
+                                            if (count($arraySeccionPublicado) > 0) {
+                                                $this->secciones_m->update($seccion_id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                            } else {
+                                                //verificamos que tuvo un estado eliminado
+                                                if ($objSeccion->estado == $this->config->item('estado:publicado')) {
+                                                    $this->secciones_m->update($seccion_id, array("estado" => $this->config->item('estado:borrador'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            } else {
+                                $objSeccion = $this->secciones_m->get($seccion_id);
+                                array_push($arrayIdPortada, $objSeccion->portadas_id);
+                                if (count($objSeccion) > 0) {
+                                    //veremos si podemos publicarlo
+                                    $arraySeccionPublicado = $this->detalle_secciones_m->get_many_by(array("secciones_id" => $seccion_id, "estado" => $this->config->item('estado:publicado')));
+                                    if (count($arraySeccionPublicado) > 0) {
+                                        $this->secciones_m->update($seccion_id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                    } else {
+                                        //verificamos que tuvo un estado eliminado
+                                        if ($objSeccion->estado == $this->config->item('estado:publicado')) {
+                                            $this->secciones_m->update($seccion_id, array("estado" => $this->config->item('estado:borrador'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                        }
                                     }
                                 }
                             }
@@ -290,16 +323,37 @@ class Portadas_lib extends MX_Controller {
                         $arrayIdPortada = array();
                         foreach ($arrayIdSeccion as $index => $seccion_id) {
                             $objSeccion = $this->secciones_m->get($seccion_id);
-                            array_push($arrayIdPortada, $objSeccion->portadas_id);
-                            if (count($objSeccion) > 0) {
-                                //veremos si podemos publicarlo
-                                $arraySeccionPublicado = $this->detalle_secciones_m->get_many_by(array("secciones_id" => $seccion_id, "estado" => $this->config->item('estado:publicado')));
-                                if (count($arraySeccionPublicado) > 0) {
-                                    $this->secciones_m->update($seccion_id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
-                                } else {
-                                    //verificamos que tuvo un estado eliminado
-                                    if ($objSeccion->estado == $this->config->item('estado:publicado')) {
-                                        $this->secciones_m->update($seccion_id, array("estado" => $this->config->item('estado:borrador'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                            $objPortadaFiltro = $this->portada_m->get($objSeccion->portadas_id);
+                            if ($objSeccion->tipo_secciones_id == $this->config->item('seccion:coleccion') || $objSeccion->tipo_secciones_id == $this->config->item('seccion:video') || $objSeccion->tipo_secciones_id == $this->config->item('seccion:lista')) {
+                                if ($objPortadaFiltro->tipo_portadas_id == $this->config->item('portada:programa')) {
+                                    if ($objSeccion->tipo_secciones_id == $this->config->item('seccion:coleccion')) {
+                                        array_push($arrayIdPortada, $objSeccion->portadas_id);
+                                        if (count($objSeccion) > 0) {
+                                            //veremos si podemos publicarlo
+                                            $arraySeccionPublicado = $this->detalle_secciones_m->get_many_by(array("secciones_id" => $seccion_id, "estado" => $this->config->item('estado:publicado')));
+                                            if (count($arraySeccionPublicado) > 0) {
+                                                $this->secciones_m->update($seccion_id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                            } else {
+                                                //verificamos que tuvo un estado eliminado
+                                                if ($objSeccion->estado == $this->config->item('estado:publicado')) {
+                                                    $this->secciones_m->update($seccion_id, array("estado" => $this->config->item('estado:borrador'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            } else {
+                                array_push($arrayIdPortada, $objSeccion->portadas_id);
+                                if (count($objSeccion) > 0) {
+                                    //veremos si podemos publicarlo
+                                    $arraySeccionPublicado = $this->detalle_secciones_m->get_many_by(array("secciones_id" => $seccion_id, "estado" => $this->config->item('estado:publicado')));
+                                    if (count($arraySeccionPublicado) > 0) {
+                                        $this->secciones_m->update($seccion_id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                    } else {
+                                        //verificamos que tuvo un estado eliminado
+                                        if ($objSeccion->estado == $this->config->item('estado:publicado')) {
+                                            $this->secciones_m->update($seccion_id, array("estado" => $this->config->item('estado:borrador'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                        }
                                     }
                                 }
                             }
@@ -431,7 +485,7 @@ class Portadas_lib extends MX_Controller {
                                         $objBeanDetalleSeccion->fecha_migracion = '0000-00-00 00:00:00';
                                         $objBeanDetalleSeccion->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
                                         $objBeanDetalleSeccionSaved = $this->detalle_secciones_m->save($objBeanDetalleSeccion);
-                                        $this->secciones_m->update($objSeccion->id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                        //$this->secciones_m->update($objSeccion->id, array("estado" => $objBeanDetalleSeccionSaved->estado, "estado_migracion" => $this->config->item('migracion:actualizado')));
                                     }
                                     //}
                                 }
@@ -469,7 +523,7 @@ class Portadas_lib extends MX_Controller {
                                     $objBeanDetalleSeccion->fecha_migracion = '0000-00-00 00:00:00';
                                     $objBeanDetalleSeccion->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
                                     $objBeanDetalleSeccionSaved = $this->detalle_secciones_m->save($objBeanDetalleSeccion);
-                                    $this->secciones_m->update($objSeccion->id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                    //$this->secciones_m->update($objSeccion->id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
                                 }
                                 //}
                             }
@@ -890,8 +944,20 @@ class Portadas_lib extends MX_Controller {
                                         $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id, "estado" => $objMaestro->estado, "estado_migracion" => $this->config->item('migracion:actualizado')));
                                     }
                                 } else {
-                                    if ($objImagen->tipo_imagen_id == $this->config->item('imagen:small')) {
-                                        $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id, "estado" => $objMaestro->estado, "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                    if ($objSeccion->tipo_secciones_id == $this->config->item('seccion:coleccion') || $objSeccion->tipo_secciones_id == $this->config->item('seccion:video') || $objSeccion->tipo_secciones_id == $this->config->item('seccion:lista')) {
+                                        //activacion manual de las secciones
+                                        $objPortadaFiltro = $this->portada_m->get($objSeccion->portadas_id);
+                                        if ($objPortadaFiltro->tipo_portadas_id == $this->config->item('portada:programa')) {
+                                            if ($objSeccion->tipo_secciones_id == $this->config->item('seccion:coleccion')) {
+                                                if ($objImagen->tipo_imagen_id == $this->config->item('imagen:small')) {
+                                                    $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id, "estado" => $objMaestro->estado, "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                                }
+                                            }
+                                        }
+                                    } else {
+                                        if ($objImagen->tipo_imagen_id == $this->config->item('imagen:small')) {
+                                            $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id, "estado" => $objMaestro->estado, "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                        }
                                     }
                                 }
                             }
@@ -915,8 +981,20 @@ class Portadas_lib extends MX_Controller {
                                             $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id, "estado" => $estado_video, "estado_migracion" => $this->config->item('migracion:actualizado')));
                                         }
                                     } else {
-                                        if ($objImagen->tipo_imagen_id == $this->config->item('imagen:small')) {
-                                            $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id, "estado" => $estado_video, "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                        if ($objSeccion->tipo_secciones_id == $this->config->item('seccion:coleccion') || $objSeccion->tipo_secciones_id == $this->config->item('seccion:video') || $objSeccion->tipo_secciones_id == $this->config->item('seccion:lista')) {
+                                            //activacion manual de las secciones
+                                            $objPortadaFiltro = $this->portada_m->get($objSeccion->portadas_id);
+                                            if ($objPortadaFiltro->tipo_portadas_id == $this->config->item('portada:programa')) {
+                                                if ($objSeccion->tipo_secciones_id == $this->config->item('seccion:coleccion')) {
+                                                    if ($objImagen->tipo_imagen_id == $this->config->item('imagen:small')) {
+                                                        $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id, "estado" => $estado_video, "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                                    }
+                                                }
+                                            }
+                                        } else {
+                                            if ($objImagen->tipo_imagen_id == $this->config->item('imagen:small')) {
+                                                $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id, "estado" => $estado_video, "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                            }
                                         }
                                     }
                                 }
@@ -936,8 +1014,20 @@ class Portadas_lib extends MX_Controller {
                                                 $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id, "estado" => $objCanal->estado, "estado_migracion" => $this->config->item('migracion:actualizado')));
                                             }
                                         } else {
-                                            if ($objImagen->tipo_imagen_id == $this->config->item('imagen:small')) {
-                                                $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id, "estado" => $objCanal->estado, "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                            if ($objSeccion->tipo_secciones_id == $this->config->item('seccion:coleccion') || $objSeccion->tipo_secciones_id == $this->config->item('seccion:video') || $objSeccion->tipo_secciones_id == $this->config->item('seccion:lista')) {
+                                                //activacion manual de las secciones
+                                                $objPortadaFiltro = $this->portada_m->get($objSeccion->portadas_id);
+                                                if ($objPortadaFiltro->tipo_portadas_id == $this->config->item('portada:programa')) {
+                                                    if ($objSeccion->tipo_secciones_id == $this->config->item('seccion:coleccion')) {
+                                                        if ($objImagen->tipo_imagen_id == $this->config->item('imagen:small')) {
+                                                            $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id, "estado" => $objCanal->estado, "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                                        }
+                                                    }
+                                                }
+                                            } else {
+                                                if ($objImagen->tipo_imagen_id == $this->config->item('imagen:small')) {
+                                                    $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id, "estado" => $objCanal->estado, "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                                }
                                             }
                                         }
                                     }
@@ -974,7 +1064,7 @@ class Portadas_lib extends MX_Controller {
                         $objPrimerRegistroVideo = $this->grupo_detalle_m->order_by('fecha_registro', 'ASC')->get_by(array("grupo_maestro_padre" => $lista_id, "video_id" => $video_id, "tipo_grupo_maestros_id" => "1"));
                         if (count($objPrimerRegistroVideo) > 0) {
                             //verificamos que la lista no tenga imagenes activas
-                            $objImagenLista = $this->imagen_m->get_many_by(array("grupo_maestros_id" => $objPrimerRegistroVideo->grupo_maestro_padre, "tipo_imagen_id"=>$objImagen->tipo_imagen_id));
+                            $objImagenLista = $this->imagen_m->get_many_by(array("grupo_maestros_id" => $objPrimerRegistroVideo->grupo_maestro_padre, "tipo_imagen_id" => $objImagen->tipo_imagen_id));
                             if (count($objImagenLista) == 0) {
                                 //hasta aquí ya tenemos seguro que el video pertenece a una lista
                                 //agregamos la imagen como parte de la lista
@@ -998,13 +1088,13 @@ class Portadas_lib extends MX_Controller {
                                 $objBeanImagen->imagen_anterior = '0';
                                 $objBeanImagenSaved = $this->imagen_m->saveImage($objBeanImagen);
                                 //registramos la imagen en las secciones que contengan
-                                $detalle_secciones = $this->detalle_secciones_m->get_many_by(array("grupo_maestros_id"=>$objPrimerRegistroVideo->grupo_maestro_padre));
-                                if(count($detalle_secciones)>0){
-                                    foreach($detalle_secciones as $puntero=>$objDetalleSeccion){
-                                        $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id"=>$objBeanImagenSaved->id));
+                                $detalle_secciones = $this->detalle_secciones_m->get_many_by(array("grupo_maestros_id" => $objPrimerRegistroVideo->grupo_maestro_padre));
+                                if (count($detalle_secciones) > 0) {
+                                    foreach ($detalle_secciones as $puntero => $objDetalleSeccion) {
+                                        $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objBeanImagenSaved->id));
                                     }
                                     //activamos el maestro
-                                    $this->grupo_maestro_m->update($objPrimerRegistroVideo->grupo_maestro_padre, array("estado"=>"1"));
+                                    $this->grupo_maestro_m->update($objPrimerRegistroVideo->grupo_maestro_padre, array("estado" => "1"));
                                 }
                             }
                         }
