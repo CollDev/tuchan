@@ -46,6 +46,7 @@ $lang['seccion:success_saved']           = 'La seccion se actualizó en forma sa
 $lang['seccion:not_found_item']          = 'No se encontró el item seleccionado';
 $lang['seccion:not_found_small_image']          = 'El item seleccionado no tiene una imagen pequeña registrado';
 $lang['seccion:not_found_image_template']          = 'El maestro no tiene el tipo de imagen q requiere el template de la sección';
+$lang['seccion:item_no_pertenece_seccion']          = 'No es posible agregar este item. Seleccione un item que sea del mismo tipo ya existe. Esta sección acepta Listas o Videos';
 
 $lang['video:video_codificando']          = 'El video se encuentra en un estado codificando';
 $lang['video:coleccion_tiene_registro']          = 'Esta sección ya cuenta con una sección';
