@@ -7132,3 +7132,2583 @@ ERROR - 2013-06-01 19:01:39 --> Severity: Warning  --> mysqli_connect(): (HY000/
 ERROR - 2013-06-01 19:01:39 --> Unable to connect to the database
 ERROR - 2013-06-01 19:02:00 --> Severity: Warning  --> mysqli_connect(): (HY000/2003): Can't connect to MySQL server on '10.203.31.139' (110) /home/user/Escritorio/adminmicanal/system/codeigniter/database/drivers/mysqli/mysqli_driver.php 75
 ERROR - 2013-06-01 19:02:00 --> Unable to connect to the database
+ERROR - 2013-06-01 19:19:38 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:19:38 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:19:39 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:19:39 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:19:40 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:19:40 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:19:40 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:19:40 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:19:40 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:19:40 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:19:41 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:19:41 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:19:41 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:19:41 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:19:41 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:19:41 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:19:42 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:19:42 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:19:42 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:19:42 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:19:42 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:19:42 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:19:43 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:19:43 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:19:43 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:19:43 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:19:44 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:19:44 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:19:44 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:19:44 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:19:44 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:19:44 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:19:45 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:19:45 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:19:45 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:19:45 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:19:46 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:19:46 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:19:46 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:19:46 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:19:47 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:19:47 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:19:47 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:19:47 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:19:48 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:19:48 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:19:48 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:19:48 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:19:48 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:19:48 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:19:48 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:19:48 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:19:49 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:19:49 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:19:49 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:19:49 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:19:49 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:19:49 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:19:50 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:19:50 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:19:50 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:19:50 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:19:50 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:19:50 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:19:51 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:19:51 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:19:51 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:19:51 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:19:51 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:19:51 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:19:52 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:19:52 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:19:52 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:19:52 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:19:52 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:19:52 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:19:53 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:19:53 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:19:53 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:19:53 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:19:54 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:19:54 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:19:54 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:19:54 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:19:54 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:19:54 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:19:55 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:19:55 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:19:55 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:19:55 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:19:55 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:19:55 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:19:56 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:19:56 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:19:56 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:19:56 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:19:57 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:19:57 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:19:57 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:19:57 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:19:57 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:19:57 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:19:58 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:19:58 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:19:58 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:19:58 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:19:58 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:19:58 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:19:59 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:19:59 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:19:59 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:19:59 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:00 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:00 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:00 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:00 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:01 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:01 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:01 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:01 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:01 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:01 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:02 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:02 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:02 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:02 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:02 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:02 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:03 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:03 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:03 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:03 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:04 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:04 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:04 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:04 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:05 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:05 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:05 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:05 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:05 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:05 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:06 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:06 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:06 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:06 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:07 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:07 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:07 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:07 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:07 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:07 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:08 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:08 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:09 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:09 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:10 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:10 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:10 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:10 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:10 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:10 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:11 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:11 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:11 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:11 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:12 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:12 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:12 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:12 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:13 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:13 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:13 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:13 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:14 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:14 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:14 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:14 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:14 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:14 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:15 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:15 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:15 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:15 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:16 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:16 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:16 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:16 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:16 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:16 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:17 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:17 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:18 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:18 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:18 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:18 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:18 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:18 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:19 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:19 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:19 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:19 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:19 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:19 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:20 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:20 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:20 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:20 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:20 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:20 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:21 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:21 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:21 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:21 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:22 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:22 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:22 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:22 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:22 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:22 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:23 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:23 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:23 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:23 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:24 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:24 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:24 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:24 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:24 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:24 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:25 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:25 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:25 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:25 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:26 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:26 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:26 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:26 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:27 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:27 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:27 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:27 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:27 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:27 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:28 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:28 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:28 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:28 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:28 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:28 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:29 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:29 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:29 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:29 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:29 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:29 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:30 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:30 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:30 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:30 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:31 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:31 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:31 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:31 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:32 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:32 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:32 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:32 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:33 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:33 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:33 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:33 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:34 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:34 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:34 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:34 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:34 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:34 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:35 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:35 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:35 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:35 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:36 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:36 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:36 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:36 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:37 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:37 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:37 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:37 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:38 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:38 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:38 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:38 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:38 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:38 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:39 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:39 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:39 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:39 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:39 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:39 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:40 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:40 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:40 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:40 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:41 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:41 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:41 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:41 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:42 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:42 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:42 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:42 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:42 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:42 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:43 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:43 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:43 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:43 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:43 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:43 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:44 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:44 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:44 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:44 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:44 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:44 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:45 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:45 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:45 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:45 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:46 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:46 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:46 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:46 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:46 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:46 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:47 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:47 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:47 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:47 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:47 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:47 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:48 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:48 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:48 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:48 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:49 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:49 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:49 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:49 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:49 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:49 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:50 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:50 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:50 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:50 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:51 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:51 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:51 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:51 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:52 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:52 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:52 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:52 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:53 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:53 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:53 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:53 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:54 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:54 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:54 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:54 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:55 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:55 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:55 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:55 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:56 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:56 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:56 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:56 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:56 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:56 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:57 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:57 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:57 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:57 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:58 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:58 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:58 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:58 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:58 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:58 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:59 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:59 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:59 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:59 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:20:59 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:20:59 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:00 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:00 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:00 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:00 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:01 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:01 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:01 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:01 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:02 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:02 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:02 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:02 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:02 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:02 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:03 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:03 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:03 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:03 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:03 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:03 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:03 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:03 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:04 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:04 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:04 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:04 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:05 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:05 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:05 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:05 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:05 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:05 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:05 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:05 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:06 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:06 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:06 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:06 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:07 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:07 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:07 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:07 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:07 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:07 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:08 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:08 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:08 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:08 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:08 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:08 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:09 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:09 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:09 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:09 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:10 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:10 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:10 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:10 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:10 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:10 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:11 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:11 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:11 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:11 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:11 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:11 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:12 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:12 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:12 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:12 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:13 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:13 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:13 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:13 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:13 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:13 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:14 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:14 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:14 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:14 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:15 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:15 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:15 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:15 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:15 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:15 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:16 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:16 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:16 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:16 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:17 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:17 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:17 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:17 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:18 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:18 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:19 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:19 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:19 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:19 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:20 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:20 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:20 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:20 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:20 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:20 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:21 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:21 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:21 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:21 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:21 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:21 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:21 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:21 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:22 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:22 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:22 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:22 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:23 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:23 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:23 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:23 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:23 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:23 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:24 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:24 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:24 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:24 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:24 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:24 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:25 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:25 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:25 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:25 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:26 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:26 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:26 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:26 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:27 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:27 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:27 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:27 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:28 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:28 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:28 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:28 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:28 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:28 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:29 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:29 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:29 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:29 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:29 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:29 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:30 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:30 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:30 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:30 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:31 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:31 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:31 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:31 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:31 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:31 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:32 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:32 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:32 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:32 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:32 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:32 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:33 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:33 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:33 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:33 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:33 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:33 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:34 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:34 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:34 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:34 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:34 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:34 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:35 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:35 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:35 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:35 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:36 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:36 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:36 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:36 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:36 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:36 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:37 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:37 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:37 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:37 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:38 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:38 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:39 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:39 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:39 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:39 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:40 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:40 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:40 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:40 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:40 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:40 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:41 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:41 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:41 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:41 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:42 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:42 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:42 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:42 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:42 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:42 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:42 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:42 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:43 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:43 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:43 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:43 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:44 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:44 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:44 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:44 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:44 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:44 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:45 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:45 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:45 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:45 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:46 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:46 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:47 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:47 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:47 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:47 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:47 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:47 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:48 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:48 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:48 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:48 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:48 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:48 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:49 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:49 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:49 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:49 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:49 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:49 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:50 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:50 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:50 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:50 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:50 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:50 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:51 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:51 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:51 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:51 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:52 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:52 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:52 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:52 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:52 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:52 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:53 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:53 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:53 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:53 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:53 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:53 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:54 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:54 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:54 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:54 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:54 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:54 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:55 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:55 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:55 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:55 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:56 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:56 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:56 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:56 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:56 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:56 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:57 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:57 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:57 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:57 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:58 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:58 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:58 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:58 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:59 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:59 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:59 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:59 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:21:59 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:21:59 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:00 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:00 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:00 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:00 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:01 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:01 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:01 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:01 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:02 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:02 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:02 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:02 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:02 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:02 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:03 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:03 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:03 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:03 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:04 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:04 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:04 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:04 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:04 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:04 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:04 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:04 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:05 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:05 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:05 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:05 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:06 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:06 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:06 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:06 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:07 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:07 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:07 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:07 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:07 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:07 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:08 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:08 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:08 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:08 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:09 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:09 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:09 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:09 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:09 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:09 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:10 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:10 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:10 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:10 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:11 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:11 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:11 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:11 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:12 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:12 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:12 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:12 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:12 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:12 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:12 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:12 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:13 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:13 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:13 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:13 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:14 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:14 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:14 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:14 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:15 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:15 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:15 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:15 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:15 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:15 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:16 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:16 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:16 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:16 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:17 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:17 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:17 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:17 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:17 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:17 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:18 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:18 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:18 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:18 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:18 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:18 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:19 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:19 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:19 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:19 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:20 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:20 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:20 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:20 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:20 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:20 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:21 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:21 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:21 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:21 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:21 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:21 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:22 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:22 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:22 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:22 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:23 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:23 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:23 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:23 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:23 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:23 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:24 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:24 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:24 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:24 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:25 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:25 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:25 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:25 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:26 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:26 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:26 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:26 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:27 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:27 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:27 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:27 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:27 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:27 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:28 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:28 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:28 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:28 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:28 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:28 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:29 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:29 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:29 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:29 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:30 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:30 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:30 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:30 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:31 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:31 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:31 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:31 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:31 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:31 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:32 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:32 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:33 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:33 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:33 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:33 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:34 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:34 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:34 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:34 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:34 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:34 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:35 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:35 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:35 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:35 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:36 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:36 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:36 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:36 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:36 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:36 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:37 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:37 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:37 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:37 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:38 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:38 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:38 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:38 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:38 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:38 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:39 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:39 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:39 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:39 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:40 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:40 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:40 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:40 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:40 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:40 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:42 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:42 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:42 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:42 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:42 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:42 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:43 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:43 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:43 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:43 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:43 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:43 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:44 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:44 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:44 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:44 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:44 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:44 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:45 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:45 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:45 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:45 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:45 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:45 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:46 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:46 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:46 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:46 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:46 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:46 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:47 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:47 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:47 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:47 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:48 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:48 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:48 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:48 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:49 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:49 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:49 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:49 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:49 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:49 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:50 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:50 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:50 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:50 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:50 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:50 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:51 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:51 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:51 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:51 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:51 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:51 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:52 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:52 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:52 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:52 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:53 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:53 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:54 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:54 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:54 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:54 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:55 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:55 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:55 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:55 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:56 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:56 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:56 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:56 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:56 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:56 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:57 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:57 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:57 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:57 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:57 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:57 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:58 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:58 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:58 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:58 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:59 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:59 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:22:59 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:22:59 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:00 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:00 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:00 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:00 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:00 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:00 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:01 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:01 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:01 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:01 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:02 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:02 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:02 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:02 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:03 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:03 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:03 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:03 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:04 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:04 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:04 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:04 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:04 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:04 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:05 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:05 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:05 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:05 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:06 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:06 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:06 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:06 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:07 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:07 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:07 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:07 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:07 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:07 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:08 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:08 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:08 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:08 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:09 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:09 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:09 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:09 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:09 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:09 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:10 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:10 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:10 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:10 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:11 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:11 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:11 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:11 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:11 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:11 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:12 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:12 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:12 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:12 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:12 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:12 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:13 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:13 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:13 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:13 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:14 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:14 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:14 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:14 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:14 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:14 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:15 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:15 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:15 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:15 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:16 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:16 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:16 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:16 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:16 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:16 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:17 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:17 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:17 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:17 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:18 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:18 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:18 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:18 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:18 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:18 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:19 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:19 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:19 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:19 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:20 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:20 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:20 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:20 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:20 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:20 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:21 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:21 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:21 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:21 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:22 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:22 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:22 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:22 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:23 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:23 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:23 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:23 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:24 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:24 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:24 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:24 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:25 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:25 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:25 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:25 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:25 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:25 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:26 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:26 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:26 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:26 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:27 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:27 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:28 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:28 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:28 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:28 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:29 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:29 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:29 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:29 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:29 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:29 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:30 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:30 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:31 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:31 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:31 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:31 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:32 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:32 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:32 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:32 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:32 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:32 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:33 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:33 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:33 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:33 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:33 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:33 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:34 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:34 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:34 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:34 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:34 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:34 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:35 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:35 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:35 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:35 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:35 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:35 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:36 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:36 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:36 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:36 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:36 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:36 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:37 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:37 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:37 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:37 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:37 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:37 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:38 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:38 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:38 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:38 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:39 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:39 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:40 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:40 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:41 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:41 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:41 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:41 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:42 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:42 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:42 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:42 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:43 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:43 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:43 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:43 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:43 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:43 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:44 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:44 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:44 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:44 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:45 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:45 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:45 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:45 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:46 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:46 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:46 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:46 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:46 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:46 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:47 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:47 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:47 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:47 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:48 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:48 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:48 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:48 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:49 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:49 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:49 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:49 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:50 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:50 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:50 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:50 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:51 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:51 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:51 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:51 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:51 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:51 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:52 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:52 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:52 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:52 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:53 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:53 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:53 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:53 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:53 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:53 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:54 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:54 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:54 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:54 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:54 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:54 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:55 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:55 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:55 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:55 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:56 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:56 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:56 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:56 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:56 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:56 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:57 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:57 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:57 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:57 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:58 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:58 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:58 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:58 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:58 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:58 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:59 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:59 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:23:59 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:23:59 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:00 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:00 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:00 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:00 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:00 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:00 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:01 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:01 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:01 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:01 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:02 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:02 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:02 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:02 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:02 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:02 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:03 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:03 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:03 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:03 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:03 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:03 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:04 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:04 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:04 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:04 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:05 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:05 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:05 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:05 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:05 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:05 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:06 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:06 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:06 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:06 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:06 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:06 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:07 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:07 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:07 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:07 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:07 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:07 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:08 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:08 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:08 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:08 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:08 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:08 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:09 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:09 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:09 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:09 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:09 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:09 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:10 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:10 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:10 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:10 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:10 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:10 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:11 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:11 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:11 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:11 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:12 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:12 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:12 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:12 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:12 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:12 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:13 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:13 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:13 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:13 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:13 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:13 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:14 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:14 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:14 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:14 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:15 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:15 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:15 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:15 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:15 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:15 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:16 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:16 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:16 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:16 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:16 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:16 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:16 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:16 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:17 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:17 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:17 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:17 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:18 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:18 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:18 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:18 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:18 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:18 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:19 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:19 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:19 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:19 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:19 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:19 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:20 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:20 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:20 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:20 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:20 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:20 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:21 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:21 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:21 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:21 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:21 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:21 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:22 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:22 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:22 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:22 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:23 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:23 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:23 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:23 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:24 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:24 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:24 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:24 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:24 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:24 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:25 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:25 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:25 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:25 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:26 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:26 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:26 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:26 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:26 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:26 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:27 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:27 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:27 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:27 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:28 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:28 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:28 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:28 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:28 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:28 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:29 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:29 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:29 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:29 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:30 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:30 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:30 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:30 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:30 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:30 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:31 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:31 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:31 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:31 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:32 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:32 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:32 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:32 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:33 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:33 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:33 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:33 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:34 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:34 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:34 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:34 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:35 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:35 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:35 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:35 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:36 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:36 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:36 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:36 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:36 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:36 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:37 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:37 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:37 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:37 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:37 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:37 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:38 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:38 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:38 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:38 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:39 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:39 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:39 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:39 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:40 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:40 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:40 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:40 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:40 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:40 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:41 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:41 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:41 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:41 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:42 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:42 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:42 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:42 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:42 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:42 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:43 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:43 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:43 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:43 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:44 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:44 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:44 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:44 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:45 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:45 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:45 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:45 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:45 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:45 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:46 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:46 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:46 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:46 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:47 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:47 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:47 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:47 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:47 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:47 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:48 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:48 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:48 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:48 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:49 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:49 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:49 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:49 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:50 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:50 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:50 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:50 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:50 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:50 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:50 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:50 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:51 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:51 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:51 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:51 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:52 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:52 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:52 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:52 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:52 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:52 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:53 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:53 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:53 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:53 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:53 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:53 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:54 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:54 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:54 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:54 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:54 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:54 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:55 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:55 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:55 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:55 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:55 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:55 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:56 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:56 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:56 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:56 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:57 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:57 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:57 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:57 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:57 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:57 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:58 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:58 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:58 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:58 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:58 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:58 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:59 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:59 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:59 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:59 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:24:59 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:24:59 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:00 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:00 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:00 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:00 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:00 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:00 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:01 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:01 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:01 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:01 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:01 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:01 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:02 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:02 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:02 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:02 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:03 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:03 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:03 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:03 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:03 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:03 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:04 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:04 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:04 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:04 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:04 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:04 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:05 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:05 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:05 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:05 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:06 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:06 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:06 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:06 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:06 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:06 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:07 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:07 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:07 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:07 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:07 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:07 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:08 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:08 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:08 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:08 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:09 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:09 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:09 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:09 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:10 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:10 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:10 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:10 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:11 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:11 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:11 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:11 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:11 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:11 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:12 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:12 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:12 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:12 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:13 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:13 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:13 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:13 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:14 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:14 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:15 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:15 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:17 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:17 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:18 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:18 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:20 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:20 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:21 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:21 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:23 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:23 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:23 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:23 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:24 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:24 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:25 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:25 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:25 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:25 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:25 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:25 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:26 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:26 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:26 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:26 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:26 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:26 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:27 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:27 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:27 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:27 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:27 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:27 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:28 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:28 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:28 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:28 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:29 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:29 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:29 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:29 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:29 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:29 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:30 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:30 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:30 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:30 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:31 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:31 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:31 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:31 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:32 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:32 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:32 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:32 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:33 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:33 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:33 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:33 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:33 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:33 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:34 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:34 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:35 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:35 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:35 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:35 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:37 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:37 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:38 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:38 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:38 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:38 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:39 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:39 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:39 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:39 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:40 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:40 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:41 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:41 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:42 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:42 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:42 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:42 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:42 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:42 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:43 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:43 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:43 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:43 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:43 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:43 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:44 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:44 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:44 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:44 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:45 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:45 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:45 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:45 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:46 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:46 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:46 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:46 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:46 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:46 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:47 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:47 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:47 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:47 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:47 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:47 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:48 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:48 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:48 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:48 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:48 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:48 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:49 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:49 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:50 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:50 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:50 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:50 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:50 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:50 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:50 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:50 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:51 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:51 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:51 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:51 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:52 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:52 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:52 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:52 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:53 --> Severity: Notice  --> Undefined variable: mediaarr /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 312
+ERROR - 2013-06-01 19:25:53 --> Severity: Notice  --> Undefined variable: mediaarr /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 321
+ERROR - 2013-06-01 19:25:54 --> Severity: Notice  --> Undefined variable: mediaarr /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 312
+ERROR - 2013-06-01 19:25:54 --> Severity: Notice  --> Undefined variable: mediaarr /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 321
+ERROR - 2013-06-01 19:25:54 --> Severity: Notice  --> Undefined variable: mediaarr /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 312
+ERROR - 2013-06-01 19:25:54 --> Severity: Notice  --> Undefined variable: mediaarr /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 321
+ERROR - 2013-06-01 19:25:54 --> Severity: Notice  --> Undefined variable: mediaarr /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 312
+ERROR - 2013-06-01 19:25:54 --> Severity: Notice  --> Undefined variable: mediaarr /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 321
+ERROR - 2013-06-01 19:25:55 --> Severity: Notice  --> Undefined variable: mediaarr /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 312
+ERROR - 2013-06-01 19:25:55 --> Severity: Notice  --> Undefined variable: mediaarr /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 321
+ERROR - 2013-06-01 19:25:55 --> Severity: Notice  --> Undefined variable: mediaarr /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 312
+ERROR - 2013-06-01 19:25:55 --> Severity: Notice  --> Undefined variable: mediaarr /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 321
+ERROR - 2013-06-01 19:25:55 --> Severity: Notice  --> Undefined variable: mediaarr /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 312
+ERROR - 2013-06-01 19:25:55 --> Severity: Notice  --> Undefined variable: mediaarr /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 321
+ERROR - 2013-06-01 19:25:55 --> Severity: Notice  --> Undefined variable: mediaarr /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 312
+ERROR - 2013-06-01 19:25:55 --> Severity: Notice  --> Undefined variable: mediaarr /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 321
+ERROR - 2013-06-01 19:25:56 --> Severity: Notice  --> Undefined variable: mediaarr /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 312
+ERROR - 2013-06-01 19:25:56 --> Severity: Notice  --> Undefined variable: mediaarr /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 321
+ERROR - 2013-06-01 19:25:56 --> Severity: Notice  --> Undefined variable: mediaarr /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 312
+ERROR - 2013-06-01 19:25:56 --> Severity: Notice  --> Undefined variable: mediaarr /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 321
+ERROR - 2013-06-01 19:25:56 --> Severity: Notice  --> Undefined variable: mediaarr /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 312
+ERROR - 2013-06-01 19:25:56 --> Severity: Notice  --> Undefined variable: mediaarr /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 321
+ERROR - 2013-06-01 19:25:57 --> Severity: Notice  --> Undefined variable: mediaarr /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 312
+ERROR - 2013-06-01 19:25:57 --> Severity: Notice  --> Undefined variable: mediaarr /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 321
+ERROR - 2013-06-01 19:25:57 --> Severity: Notice  --> Undefined variable: mediaarr /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 312
+ERROR - 2013-06-01 19:25:57 --> Severity: Notice  --> Undefined variable: mediaarr /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 321
+ERROR - 2013-06-01 19:25:58 --> Severity: Notice  --> Undefined variable: mediaarr /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 312
+ERROR - 2013-06-01 19:25:58 --> Severity: Notice  --> Undefined variable: mediaarr /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 321
+ERROR - 2013-06-01 19:25:58 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:58 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:58 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:58 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:59 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:59 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:25:59 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:25:59 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:00 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:00 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:00 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:00 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:00 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:00 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:01 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:01 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:01 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:01 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:01 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:01 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:02 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:02 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:02 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:02 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:02 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:02 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:03 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:03 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:03 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:03 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:03 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:03 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:03 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:03 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:04 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:04 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:04 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:04 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:05 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:05 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:05 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:05 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:05 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:05 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:06 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:06 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:06 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:06 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:07 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:07 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:07 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:07 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:07 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:07 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:08 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:08 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:08 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:08 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:09 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:09 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:09 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:09 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:09 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:09 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:10 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:10 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:10 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:10 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:11 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:11 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:11 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:11 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:12 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:12 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:13 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:13 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:13 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:13 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:14 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:14 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:14 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:14 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:15 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:15 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:15 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:15 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:16 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:16 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:16 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:16 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:16 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:26:17 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:17 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:17 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:17 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:17 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:17 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:18 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:18 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:18 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:18 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:18 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:18 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:19 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:19 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:19 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:19 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:19 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:19 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:20 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:20 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:20 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:20 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:21 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:21 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:21 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:21 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:21 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:21 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:21 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:21 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:22 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:22 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:22 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:22 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:23 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:23 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:23 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:23 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:24 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:24 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:24 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:24 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:25 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:25 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:25 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:25 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:26 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:26 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:26 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:26 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:26 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:26 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:27 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:27 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:27 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:27 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:27 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:27 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:27 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:27 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:28 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:28 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:28 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:28 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:28 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:28 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:30 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:30 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:30 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:30 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:30 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:30 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:31 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:31 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:31 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:31 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:32 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:32 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:32 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:32 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:32 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:32 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:33 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:33 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:33 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:33 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:34 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:34 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:34 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:34 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:34 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:34 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:35 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:35 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:35 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:35 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:36 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:36 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:36 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:36 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:36 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:36 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:37 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:37 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:37 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:37 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:38 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:38 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:38 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:38 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:38 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:38 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:39 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:39 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:39 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:39 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:39 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:39 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:40 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:40 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:40 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:40 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:41 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:41 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:41 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:41 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:41 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:41 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:42 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:42 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:42 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:42 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:43 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:43 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:44 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:44 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:45 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:45 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:46 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:46 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:47 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:47 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:47 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:47 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:47 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:47 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:48 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:48 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:48 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:48 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:48 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:48 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:49 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:49 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:49 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:49 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:49 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:49 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:50 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:50 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:50 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:50 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:50 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:50 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:50 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:50 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:51 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:51 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:51 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:51 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:52 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:52 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:52 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:52 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:53 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:53 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:53 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:53 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:53 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:53 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:54 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:54 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:54 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:54 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:54 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:54 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:55 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:55 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:56 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:56 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:56 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:56 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:57 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:57 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:58 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:58 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:58 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:58 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:58 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:58 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:59 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:59 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:26:59 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:26:59 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:00 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:00 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:00 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:00 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:00 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:00 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:01 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:01 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:01 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:01 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:02 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:02 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:02 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:02 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:02 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:02 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:04 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:04 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:04 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:04 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:04 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:04 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:05 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:05 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:05 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:05 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:05 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:05 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:06 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:06 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:06 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:06 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:07 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:07 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:07 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:07 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:08 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:08 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:08 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:08 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:09 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:09 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:09 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:09 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:10 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:10 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:10 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:10 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:11 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:11 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:11 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:11 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:11 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:11 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:12 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:12 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:12 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:12 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:12 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:12 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:13 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:13 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:13 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:13 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:13 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:13 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:14 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:14 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:14 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:14 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:15 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:15 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:15 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:15 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:15 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:15 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:16 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:16 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:16 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:16 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:16 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:16 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:17 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:17 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:17 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:17 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:17 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:17 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:17 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:18 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:18 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:18 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:18 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:18 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:18 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:19 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:19 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:19 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:19 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:20 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:20 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:20 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:20 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:20 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:20 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:20 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:20 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:20 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:20 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:21 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:21 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:21 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:21 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:21 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:21 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:21 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:21 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:21 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:21 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:21 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:21 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:22 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:22 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:22 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:22 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:22 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:22 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:22 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:22 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:23 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:23 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:23 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:23 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:23 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:23 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:23 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:23 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:23 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:23 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:23 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:23 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:24 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:24 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:24 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:24 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:24 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:24 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:24 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:24 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:24 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:24 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:24 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:24 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:25 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:25 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:25 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:25 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:25 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:25 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:25 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:25 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:25 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:25 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:25 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:25 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:25 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:26 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:26 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:26 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:26 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:26 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:26 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:26 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:26 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:26 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:26 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:26 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:26 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:26 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:26 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:26 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:26 --> Severity: Notice  --> Undefined variable: mediaarr /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 312
+ERROR - 2013-06-01 19:27:26 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:26 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:27 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:27 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:27 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:27 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:27 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:27 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:27 --> Severity: Notice  --> Undefined variable: mediaarr /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 312
+ERROR - 2013-06-01 19:27:27 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:27 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:27 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:27 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:27 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:27 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:28 --> Severity: Notice  --> Undefined variable: mediaarr /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 312
+ERROR - 2013-06-01 19:27:28 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:28 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:28 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:28 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:28 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:28 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:28 --> Severity: Notice  --> Undefined variable: mediaarr /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 312
+ERROR - 2013-06-01 19:27:28 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:28 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:28 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:28 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:28 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:28 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:28 --> Severity: Notice  --> Undefined variable: mediaarr /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 312
+ERROR - 2013-06-01 19:27:28 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:28 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:28 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:28 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:28 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:28 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:29 --> Severity: Notice  --> Undefined variable: mediaarr /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 312
+ERROR - 2013-06-01 19:27:29 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:29 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:29 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:29 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:29 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:29 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:29 --> Severity: Notice  --> Undefined variable: mediaarr /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 312
+ERROR - 2013-06-01 19:27:29 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:29 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:29 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:29 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:29 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:29 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:29 --> Severity: Notice  --> Undefined variable: mediaarr /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 312
+ERROR - 2013-06-01 19:27:29 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:29 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:29 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:29 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:29 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:29 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:30 --> Severity: Notice  --> Undefined variable: mediaarr /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 312
+ERROR - 2013-06-01 19:27:30 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:30 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:30 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:30 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:30 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:30 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:30 --> Severity: Notice  --> Undefined variable: mediaarr /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 312
+ERROR - 2013-06-01 19:27:30 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:30 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:30 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:30 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:30 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:30 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:31 --> Severity: Notice  --> Undefined variable: mediaarr /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 312
+ERROR - 2013-06-01 19:27:31 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:31 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:31 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:31 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:31 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:31 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:31 --> Severity: Notice  --> Undefined variable: mediaarr /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 312
+ERROR - 2013-06-01 19:27:31 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:31 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:31 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:31 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:31 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:31 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:31 --> Severity: Notice  --> Undefined variable: mediaarr /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 312
+ERROR - 2013-06-01 19:27:31 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:31 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:31 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:31 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:31 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:31 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:32 --> Severity: Notice  --> Undefined variable: mediaarr /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 312
+ERROR - 2013-06-01 19:27:32 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:32 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:32 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:32 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:32 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:32 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:32 --> Severity: Notice  --> Undefined variable: mediaarr /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 312
+ERROR - 2013-06-01 19:27:32 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:32 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:32 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:32 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:32 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:32 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:33 --> Severity: Notice  --> Undefined variable: mediaarr /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 312
+ERROR - 2013-06-01 19:27:33 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:33 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:33 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:33 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:33 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:33 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:33 --> Severity: Notice  --> Undefined variable: mediaarr /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 312
+ERROR - 2013-06-01 19:27:33 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:33 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:33 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:33 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:33 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:33 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:34 --> Severity: Notice  --> Undefined variable: mediaarr /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 312
+ERROR - 2013-06-01 19:27:34 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:34 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:34 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:34 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:34 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:34 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:34 --> Severity: Notice  --> Undefined variable: mediaarr /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 312
+ERROR - 2013-06-01 19:27:34 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:34 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:34 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:34 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:34 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:34 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:34 --> Severity: Notice  --> Undefined variable: mediaarr /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 312
+ERROR - 2013-06-01 19:27:34 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:34 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:34 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:34 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:34 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:34 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:35 --> Severity: Notice  --> Undefined variable: mediaarr /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 312
+ERROR - 2013-06-01 19:27:35 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:35 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:35 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:35 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:35 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:35 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:35 --> Severity: Notice  --> Undefined variable: mediaarr /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 312
+ERROR - 2013-06-01 19:27:35 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:35 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:35 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:35 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:35 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:35 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:35 --> Severity: Notice  --> Undefined variable: mediaarr /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 312
+ERROR - 2013-06-01 19:27:35 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:35 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:35 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:35 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:35 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:35 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:36 --> Severity: Notice  --> Undefined variable: mediaarr /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 312
+ERROR - 2013-06-01 19:27:36 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:36 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:36 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:36 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:36 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:36 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:36 --> Severity: Notice  --> Undefined variable: mediaarr /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 312
+ERROR - 2013-06-01 19:27:36 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:36 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:36 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:36 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:36 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:36 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:37 --> Severity: Notice  --> Undefined variable: mediaarr /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 312
+ERROR - 2013-06-01 19:27:37 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:37 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:37 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:37 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:37 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:37 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:37 --> Severity: Notice  --> Undefined variable: mediaarr /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 312
+ERROR - 2013-06-01 19:27:37 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:37 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:37 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:37 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:37 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:37 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:37 --> Severity: Notice  --> Undefined variable: mediaarr /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 312
+ERROR - 2013-06-01 19:27:37 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:37 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:37 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:37 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:37 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:37 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:37 --> Severity: Notice  --> Undefined variable: mediaarr /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 312
+ERROR - 2013-06-01 19:27:37 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:37 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:37 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:37 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:37 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:37 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:38 --> Severity: Notice  --> Undefined variable: mediaarr /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 312
+ERROR - 2013-06-01 19:27:38 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:38 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:38 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:38 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:38 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:38 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:38 --> Severity: Notice  --> Undefined variable: mediaarr /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 312
+ERROR - 2013-06-01 19:27:38 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:38 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:38 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:38 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:38 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:38 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:39 --> Severity: Notice  --> Undefined variable: mediaarr /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 312
+ERROR - 2013-06-01 19:27:39 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:39 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:39 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:39 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:39 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:39 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:39 --> Severity: Notice  --> Undefined variable: mediaarr /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 312
+ERROR - 2013-06-01 19:27:39 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:39 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:39 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:39 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:39 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:39 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:39 --> Severity: Notice  --> Undefined variable: mediaarr /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 312
+ERROR - 2013-06-01 19:27:39 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:39 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:39 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:39 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:39 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:39 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:40 --> Severity: Notice  --> Undefined variable: mediaarr /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 312
+ERROR - 2013-06-01 19:27:40 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:40 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:40 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:40 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:40 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:40 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:40 --> Severity: Notice  --> Undefined variable: mediaarr /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 312
+ERROR - 2013-06-01 19:27:40 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:40 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:40 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:40 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:40 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:40 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:40 --> Severity: Notice  --> Undefined variable: mediaarr /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 312
+ERROR - 2013-06-01 19:27:40 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:40 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:40 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:40 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:40 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:40 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:41 --> Severity: Notice  --> Undefined variable: mediaarr /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/procesos_lib.php 312
+ERROR - 2013-06-01 19:27:41 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
+ERROR - 2013-06-01 19:27:41 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
+ERROR - 2013-06-01 19:27:41 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:41 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:41 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:41 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-01 19:27:46 --> Severity: Warning  --> mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given /home/user/Escritorio/adminmicanal/system/codeigniter/database/drivers/mysqli/mysqli_result.php 46
+ERROR - 2013-06-01 19:27:46 --> Severity: Warning  --> mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given /home/user/Escritorio/adminmicanal/system/codeigniter/database/drivers/mysqli/mysqli_result.php 46
+ERROR - 2013-06-01 19:35:42 --> Severity: Warning  --> mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given /home/user/Escritorio/adminmicanal/system/codeigniter/database/drivers/mysqli/mysqli_result.php 46
+ERROR - 2013-06-01 19:35:42 --> Severity: Warning  --> mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given /home/user/Escritorio/adminmicanal/system/codeigniter/database/drivers/mysqli/mysqli_result.php 46
