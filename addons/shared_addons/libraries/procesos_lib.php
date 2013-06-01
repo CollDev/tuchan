@@ -1061,6 +1061,8 @@ class Procesos_lib extends MX_Controller {
                     $idtemp = "3," . $value2->canales_id;
                 }
 
+                 Log::erroLog("idtemp" . $idtemp);
+                
                 $urltemp = "";
 
                 if (!empty($idtemp)) {
@@ -1648,12 +1650,11 @@ class Procesos_lib extends MX_Controller {
                 $this->canal_mp->SetItemCollectionUpdate($set, $tempmongo);
             }
 
-            $parametros = array();
-            $parametros["estado"] = array(ESTADO_ACTIVO);
-            $parametros["peso_videos"] = array("titulo" => 15, "descripcion" => 5, "tags" => 80);
             $tags = $this->video_tags_mp->getTagsVideosXId($id);
+            
+            Log::erroLog("relacionados tags: " . $tags[0]->tags);
 
-            $url = $this->config->item('motor') . "/sphinx/relacionados/" . json_encode($parametros) . "/" . $tags[0]->tags;
+            $url = $this->config->item('motor') . "/sphinx/relacionados/nada/" . str_replace(" ","-",$tags[0]->tags);
 
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL, $url);
@@ -1682,6 +1683,8 @@ class Procesos_lib extends MX_Controller {
                     $i++;
                 }
             }
+            Log::erroLog("relacionados cantidad: " . count($arrayrelacionados));
+            
 
             $itemsclips = $this->videos_mp->getVideosClips($id);
             $arrayitemclips = array();
@@ -1756,7 +1759,7 @@ class Procesos_lib extends MX_Controller {
 
     public function actualizarSecciones6789() {
         Log::erroLog("_actualizarVisualizacion");
-        $this->_actualizarVisualizacion();
+        //$this->_actualizarVisualizacion();
         Log::erroLog("_actualizarComentariosValorizacion");
         $this->_actualizarComentariosValorizacion();
         Log::erroLog("_actualizarSecciones6789");
