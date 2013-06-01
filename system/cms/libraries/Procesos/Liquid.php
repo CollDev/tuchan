@@ -96,7 +96,7 @@ class Liquid {
 
         $post = "<Media><title>Titulo</title><description>Descripcion</description><published>true</published><publishDate>" . $date . "</publishDate></Media>";
         //echo $url . "<br>";
-        return $this->postXML($url, $post);
+        return self::postXML($url, $post);
     }
 
     function updatePublishedMediaNode($datos) {
