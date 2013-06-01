@@ -91,8 +91,6 @@ class Liquid {
     }
 
     function updatePublishedMedia($url) {
-        $mediaId = trim($mediaId);
-
         $fecha = date('Y-m-d H:i:s');
         $date = date("Y-m-d\TH:i:sP", strtotime($fecha));
 
