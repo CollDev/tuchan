@@ -630,10 +630,14 @@
                                 if (respuesta.error == 1) {
                                     showMessage('error', '<?php echo lang('seccion:not_found_image_template'); ?>', 2000, '');
                                 } else {
-                                    $("#div_" + maestro_id).empty();
-                                    var htmlAgregado = '<a href="#" id="agregado" name="agregado" class="btn silver" onclick="return false;">Agregado</a>';
-                                    $("#div_" + maestro_id).html(htmlAgregado);
-                                    mostrar_lista_detalle_seccion(canal_id, seccion_id);
+                                    if (respuesta.error == 2) {
+                                        showMessage('error', '<?php echo lang('seccion:item_no_pertenece_seccion'); ?>', 3000, '');
+                                    } else {
+                                        $("#div_" + maestro_id).empty();
+                                        var htmlAgregado = '<a href="#" id="agregado" name="agregado" class="btn silver" onclick="return false;">Agregado</a>';
+                                        $("#div_" + maestro_id).html(htmlAgregado);
+                                        mostrar_lista_detalle_seccion(canal_id, seccion_id);
+                                    }
                                 }
                             } //end success
                         }); //end AJAX             
@@ -653,10 +657,14 @@
                                 if (respuesta.error == 1) {
                                     showMessage('error', '<?php echo lang('seccion:not_found_image_template'); ?>', 2000, '');
                                 } else {
-                                    $("#div_" + video_id).empty();
-                                    var htmlAgregado = '<a href="#" id="agregado" name="agregado" class="btn silver" onclick="return false;">Agregado</a>';
-                                    $("#div_" + video_id).html(htmlAgregado);
-                                    mostrar_lista_detalle_seccion(canal_id, seccion_id);
+                                    if (respuesta.error == 2) {
+                                        showMessage('error', '<?php echo lang('seccion:item_no_pertenece_seccion'); ?>', 3000, '');
+                                    } else {
+                                        $("#div_" + video_id).empty();
+                                        var htmlAgregado = '<a href="#" id="agregado" name="agregado" class="btn silver" onclick="return false;">Agregado</a>';
+                                        $("#div_" + video_id).html(htmlAgregado);
+                                        mostrar_lista_detalle_seccion(canal_id, seccion_id);
+                                    }
                                 }
                             } //end success
                         }); //end AJAX             

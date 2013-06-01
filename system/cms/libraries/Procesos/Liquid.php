@@ -91,14 +91,12 @@ class Liquid {
     }
 
     function updatePublishedMedia($url) {
-        $mediaId = trim($mediaId);
-
         $fecha = date('Y-m-d H:i:s');
         $date = date("Y-m-d\TH:i:sP", strtotime($fecha));
 
         $post = "<Media><title>Titulo</title><description>Descripcion</description><published>true</published><publishDate>" . $date . "</publishDate></Media>";
         //echo $url . "<br>";
-        return $this->postXML($url, $post);
+        return self::postXML($url, $post);
     }
 
     function updatePublishedMediaNode($datos) {
@@ -516,6 +514,33 @@ class Liquid {
             $contador++;
             goto GETCURL;
         }
+    }
+    
+    function getObtenerMedia($mediaarr,$id) {
+        $media=FALSE;
+
+        if (!empty($mediaarr["Media"])) {
+            foreach ($mediaarr["Media"] as $value) {
+
+                if (isset($value["id"])) {
+
+                    if ($value["title"]===$id) {                        
+                        $media = $value["id"];
+                        break;
+                    }
+                } else {
+
+                    foreach ($value as $value2) {
+
+                        if ($value["title"]===$id) {                            
+                            $media = $value["id"];
+                            break 2;
+                        }
+                    }
+                }
+            }
+        }
+        return $media;        
     }
 
     function getCurl($url) {

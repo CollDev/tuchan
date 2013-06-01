@@ -1893,7 +1893,7 @@ class Admin extends Admin_Controller {
         //lista de templates
         $objTemplate = $this->templates_m->get_many_by(array());
         $templates = array();
-        foreach ($objTemplate as $indice=>$objTem){
+        foreach ($objTemplate as $indice => $objTem) {
             $templates[$objTem->id] = $objTem->nombre;
         }
         //tipo de secciones
@@ -4197,10 +4197,10 @@ class Admin extends Admin_Controller {
                         $objBeanDetalleSeccion->imagenes_id = $objImagen->id;
                         $objBeanDetalleSeccion->peso = 1;
                         $objBeanDetalleSeccion->descripcion_item = '';
-                        $objBeanDetalleSeccion->estado = 1;
+                        $objBeanDetalleSeccion->estado = $this->config->item('estado:publicado');
                         $objBeanDetalleSeccion->fecha_registro = date("Y-m-d H:i:s");
                         $objBeanDetalleSeccion->usuario_registro = $user_id;
-                        $objBeanDetalleSeccion->estado_migracion = 0;
+                        $objBeanDetalleSeccion->estado_migracion = $this->config->item('migracion:nuevo');
                         $objBeanDetalleSeccion->fecha_migracion = '0000-00-00 00:00:00';
                         $objBeanDetalleSeccion->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
                         $this->detalle_secciones_m->save($objBeanDetalleSeccion);
@@ -4230,10 +4230,10 @@ class Admin extends Admin_Controller {
                                             $objBeanDetalleSeccion->imagenes_id = $objImagenLista->id;
                                             $objBeanDetalleSeccion->peso = $peso;
                                             $objBeanDetalleSeccion->descripcion_item = '';
-                                            $objBeanDetalleSeccion->estado = 1;
+                                            $objBeanDetalleSeccion->estado = $this->config->item('estado:publicado');
                                             $objBeanDetalleSeccion->fecha_registro = date("Y-m-d H:i:s");
                                             $objBeanDetalleSeccion->usuario_registro = $user_id;
-                                            $objBeanDetalleSeccion->estado_migracion = 0;
+                                            $objBeanDetalleSeccion->estado_migracion = $this->config->item('migracion:nuevo');
                                             $objBeanDetalleSeccion->fecha_migracion = '0000-00-00 00:00:00';
                                             $objBeanDetalleSeccion->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
                                             $this->detalle_secciones_m->save($objBeanDetalleSeccion);
@@ -4250,10 +4250,31 @@ class Admin extends Admin_Controller {
                     $objImagen = $this->obtenerImagenMaestro($maestro_id, $seccion_id);
                     if (count($objImagen) > 0) {
                         if ($this->maestroAgregadoSeccion($maestro_id, $seccion_id, 0)) {
-                            $objDetalleSeccion = $this->detalle_secciones_m->get_by(array("grupo_maestros_id" => $maestro_id, "secciones_id" => $seccion_id));
-                            $peso = $this->obtenerPeso($seccion_id);
-                            $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id, "peso" => $peso, "estado" => "1", "estado_migracion" => $this->config->item('migracion:actualizado')));
-                            $returnValue = 0;
+                            if ($this->es_seccion_excluyente($seccion_id)) {
+                                $tipo_maestro_registrado = $this->obtener_tipo_maestro_registrado($seccion_id);
+                                if ($tipo_maestro_registrado > 0) {
+                                    //obtenemos el tipo del maestro que se quiere registrar en este detalle seccion
+                                    $objMaestroCandidato = $this->grupo_maestro_m->get($maestro_id);
+                                    if ($objMaestroCandidato->tipo_grupo_maestro_id == $tipo_maestro_registrado) {
+                                        $objDetalleSeccion = $this->detalle_secciones_m->get_by(array("grupo_maestros_id" => $maestro_id, "secciones_id" => $seccion_id));
+                                        $peso = $this->obtenerPeso($seccion_id);
+                                        $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id, "peso" => $peso, "estado" => "1", "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                        $returnValue = 0;
+                                    } else {
+                                        $returnValue = 2;
+                                    }
+                                } else {
+                                    $objDetalleSeccion = $this->detalle_secciones_m->get_by(array("grupo_maestros_id" => $maestro_id, "secciones_id" => $seccion_id));
+                                    $peso = $this->obtenerPeso($seccion_id);
+                                    $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id, "peso" => $peso, "estado" => "1", "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                    $returnValue = 0;
+                                }
+                            } else {
+                                $objDetalleSeccion = $this->detalle_secciones_m->get_by(array("grupo_maestros_id" => $maestro_id, "secciones_id" => $seccion_id));
+                                $peso = $this->obtenerPeso($seccion_id);
+                                $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id, "peso" => $peso, "estado" => "1", "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                $returnValue = 0;
+                            }
                         } else {
                             $objBeanDetalleSeccion = new stdClass();
                             $objBeanDetalleSeccion->id = NULL;
@@ -4264,10 +4285,10 @@ class Admin extends Admin_Controller {
                             $objBeanDetalleSeccion->imagenes_id = $objImagen->id;
                             $objBeanDetalleSeccion->peso = $this->obtenerPeso($seccion_id);
                             $objBeanDetalleSeccion->descripcion_item = '';
-                            $objBeanDetalleSeccion->estado = 1;
+                            $objBeanDetalleSeccion->estado = $this->config->item('estado:publicado');
                             $objBeanDetalleSeccion->fecha_registro = date("Y-m-d H:i:s");
                             $objBeanDetalleSeccion->usuario_registro = $user_id;
-                            $objBeanDetalleSeccion->estado_migracion = 0;
+                            $objBeanDetalleSeccion->estado_migracion = $this->config->item('migracion:nuevo');
                             $objBeanDetalleSeccion->fecha_migracion = '0000-00-00 00:00:00';
                             $objBeanDetalleSeccion->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
                             $this->detalle_secciones_m->save($objBeanDetalleSeccion);
@@ -4279,10 +4300,31 @@ class Admin extends Admin_Controller {
                 $objImagen = $this->obtenerImagenMaestro($maestro_id, $seccion_id);
                 if (count($objImagen) > 0) {
                     if ($this->maestroAgregadoSeccion($maestro_id, $seccion_id, 0)) {
-                        $objDetalleSeccion = $this->detalle_secciones_m->get_by(array("grupo_maestros_id" => $maestro_id, "secciones_id" => $seccion_id));
-                        $peso = $this->obtenerPeso($seccion_id);
-                        $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id, "peso" => $peso, "estado" => "1", "estado_migracion" => $this->config->item('migracion:actualizado')));
-                        $returnValue = 0;
+                        if ($this->es_seccion_excluyente($seccion_id)) {//se aplica para todas las secciones de tipo coleccion
+                            $tipo_maestro_registrado = $this->obtener_tipo_maestro_registrado($seccion_id);
+                            if ($tipo_maestro_registrado > 0) {
+                                //obtenemos el tipo del maestro que se quiere registrar en este detalle seccion
+                                $objMaestroCandidato = $this->grupo_maestro_m->get($maestro_id);
+                                if ($objMaestroCandidato->tipo_grupo_maestro_id == $tipo_maestro_registrado) {
+                                    $objDetalleSeccion = $this->detalle_secciones_m->get_by(array("grupo_maestros_id" => $maestro_id, "secciones_id" => $seccion_id));
+                                    $peso = $this->obtenerPeso($seccion_id);
+                                    $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id, "peso" => $peso, "estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                    $returnValue = 0;
+                                } else {
+                                    $returnValue = 2; //el tipo de maestro no es posible agregar
+                                }
+                            } else {//registramos el primer item
+                                $objDetalleSeccion = $this->detalle_secciones_m->get_by(array("grupo_maestros_id" => $maestro_id, "secciones_id" => $seccion_id));
+                                $peso = $this->obtenerPeso($seccion_id);
+                                $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id, "peso" => $peso, "estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                $returnValue = 0;
+                            }
+                        } else {
+                            $objDetalleSeccion = $this->detalle_secciones_m->get_by(array("grupo_maestros_id" => $maestro_id, "secciones_id" => $seccion_id));
+                            $peso = $this->obtenerPeso($seccion_id);
+                            $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id, "peso" => $peso, "estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                            $returnValue = 0;
+                        }
                     } else {
                         $objBeanDetalleSeccion = new stdClass();
                         $objBeanDetalleSeccion->id = NULL;
@@ -4293,10 +4335,10 @@ class Admin extends Admin_Controller {
                         $objBeanDetalleSeccion->imagenes_id = $objImagen->id;
                         $objBeanDetalleSeccion->peso = $this->obtenerPeso($seccion_id);
                         $objBeanDetalleSeccion->descripcion_item = '';
-                        $objBeanDetalleSeccion->estado = 1;
+                        $objBeanDetalleSeccion->estado = $this->config->item('estado:publicado');
                         $objBeanDetalleSeccion->fecha_registro = date("Y-m-d H:i:s");
                         $objBeanDetalleSeccion->usuario_registro = $user_id;
-                        $objBeanDetalleSeccion->estado_migracion = 0;
+                        $objBeanDetalleSeccion->estado_migracion = $this->config->item('migracion:nuevo');
                         $objBeanDetalleSeccion->fecha_migracion = '0000-00-00 00:00:00';
                         $objBeanDetalleSeccion->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
                         $this->detalle_secciones_m->save($objBeanDetalleSeccion);
@@ -4306,6 +4348,64 @@ class Admin extends Admin_Controller {
             }
             echo json_encode(array("error" => $returnValue, "maestro_id" => $maestro_id));
         }
+    }
+
+    /**
+     * Método para obtener el tipo de maestro que está registrado en el detalle de una sección
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param int $seccion_id
+     * @return int
+     */
+    private function obtener_tipo_maestro_registrado($seccion_id) {
+        $returnValue = 0;
+        $lista_detalle_seccion = $this->detalle_secciones_m->get_many_by(array("secciones_id" => $seccion_id, "estado" => $this->config->item('estado:publicado')));
+        if (count($lista_detalle_seccion) > 0) {
+            $count_video = 0;
+            $count_lista = 0;
+            foreach ($lista_detalle_seccion as $puntero => $objDetalleSeccion) {
+                if ($objDetalleSeccion->grupo_maestros_id != NULL) {
+                    $objMaestro = $this->grupo_maestro_m->get($objDetalleSeccion->grupo_maestros_id);
+                    if (count($objMaestro) > 0) {
+                        if ($objMaestro->tipo_grupo_maestro_id == $this->config->item('videos:lista')) {
+                            $count_lista++;
+                        } else {
+                            if ($objMaestro->tipo_grupo_maestro_id == $this->config->item('videos:video')) {
+                                $count_video++;
+                            }
+                        }
+                    }
+                }
+            }
+            if ($count_lista > $count_video) {
+                $returnValue = $this->config->item('videos:lista');
+            } else {
+                if ($count_lista < $count_video) {
+                    $returnValue = $this->config->item('videos:video');
+                } else {
+                    $returnValue = $this->config->item('videos:video');
+                }
+            }
+        }
+        return $returnValue;
+    }
+
+    /**
+     * Método para verificar si es una sección excluyente
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param int $seccion_id
+     * @return boolean
+     */
+    private function es_seccion_excluyente($seccion_id) {
+        $returnValue = FALSE;
+        $objSeccion = $this->secciones_m->get($seccion_id);
+        if (count($objSeccion) > 0) {
+            if ($objSeccion->tipo_secciones_id == $this->config->item('seccion:coleccion')) {
+                //listamos el detalle de la seccion, para saber que items tiene
+                //$lista_detalle_seccion = $this->detalle_secciones_m->get_many_by(array("secciones_id"=>$seccion_id, "estado"=>$this->config->item('estado:publicado')));
+                $returnValue = TRUE;
+            }
+        }
+        return $returnValue;
     }
 
     private function obtenerImagenMaestro($maestro_id, $seccion_id, $origen = 'maestro') {
@@ -5925,10 +6025,29 @@ class Admin extends Admin_Controller {
             $returnValue = 1;
             if (count($objImagen) > 0) {
                 if ($this->videoAgregadoSeccion($video_id, $seccion_id, 0)) {
-                    $objDetalleSeccion = $this->detalle_secciones_m->get_by(array("videos_id" => $video_id, "secciones_id" => $seccion_id));
-                    $peso = $this->obtenerPeso($seccion_id);
-                    $this->detalle_secciones_m->update($objDetalleSeccion->id, array("peso" => $peso, "estado" => "1", "estado_migracion" => $this->config->item('migracion:actualizado')));
-                    $returnValue = 0;
+                    if ($this->es_seccion_excluyente($seccion_id)) {
+                        $tipo_maestro_registrado = $this->obtener_tipo_maestro_registrado($seccion_id);
+                        if ($tipo_maestro_registrado > 0) {
+                            if ($this->config->item('videos:video') == $tipo_maestro_registrado) {
+                                $objDetalleSeccion = $this->detalle_secciones_m->get_by(array("videos_id" => $video_id, "secciones_id" => $seccion_id));
+                                $peso = $this->obtenerPeso($seccion_id);
+                                $this->detalle_secciones_m->update($objDetalleSeccion->id, array("peso" => $peso, "estado" => "1", "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                $returnValue = 0;
+                            } else {
+                                $returnValue = 2;
+                            }
+                        } else {
+                            $objDetalleSeccion = $this->detalle_secciones_m->get_by(array("videos_id" => $video_id, "secciones_id" => $seccion_id));
+                            $peso = $this->obtenerPeso($seccion_id);
+                            $this->detalle_secciones_m->update($objDetalleSeccion->id, array("peso" => $peso, "estado" => "1", "estado_migracion" => $this->config->item('migracion:actualizado')));
+                            $returnValue = 0;
+                        }
+                    } else {
+                        $objDetalleSeccion = $this->detalle_secciones_m->get_by(array("videos_id" => $video_id, "secciones_id" => $seccion_id));
+                        $peso = $this->obtenerPeso($seccion_id);
+                        $this->detalle_secciones_m->update($objDetalleSeccion->id, array("peso" => $peso, "estado" => "1", "estado_migracion" => $this->config->item('migracion:actualizado')));
+                        $returnValue = 0;
+                    }
                 } else {
                     $objBeanDetalleSeccion = new stdClass();
                     $objBeanDetalleSeccion->id = NULL;

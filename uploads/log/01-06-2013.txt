@@ -1,0 +1,2774 @@
+19:27:28 > relacionados cantidad: 0
+19:27:28 > despues de actualizar_video: 4785
+19:27:28 > entro a _obtenerImagesUrlVideosXId:  4781
+19:27:28 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=4781
+19:27:28 >  antes de actualizar_video: 4781
+19:27:28 > actualizar_video: 4781
+19:27:28 > _generarVideosXId: 4781
+19:27:28 > relacionados tags: Descentralizado 2013-La Previa Depor-Alianza Lima-Sporting  Cristal-Copa Movistar 2013-La Previa-Universitario
+19:27:28 > relacionados cantidad: 0
+19:27:28 > despues de actualizar_video: 4781
+19:27:28 > entro a _obtenerImagesUrlVideosXId:  4782
+19:27:28 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=4782
+19:27:28 >  antes de actualizar_video: 4782
+19:27:28 > actualizar_video: 4782
+19:27:28 > _generarVideosXId: 4782
+19:27:28 > relacionados tags: Copa Movistar 2013-Descentralizado 2013-Alianza Lima-Universitario-Sporting Cristal
+19:27:29 > relacionados cantidad: 0
+19:27:29 > despues de actualizar_video: 4782
+19:27:29 > entro a _obtenerImagesUrlVideosXId:  4783
+19:27:29 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=4783
+19:27:29 >  antes de actualizar_video: 4783
+19:27:29 > actualizar_video: 4783
+19:27:29 > _generarVideosXId: 4783
+19:27:29 > relacionados tags: San Martín-Descentralizado 2013-Sporting Cristal-Alianza Lima-Universitario-Copa Movistar 2013
+19:27:29 > relacionados cantidad: 0
+19:27:29 > despues de actualizar_video: 4783
+19:27:29 > entro a _obtenerImagesUrlVideosXId:  4779
+19:27:29 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=4779
+19:27:29 >  antes de actualizar_video: 4779
+19:27:29 > actualizar_video: 4779
+19:27:29 > _generarVideosXId: 4779
+19:27:29 > relacionados tags: Real Garcilaso-Sporting Cristal-Universitario-Descentralizado 2013-Alianza Lima-Copa Movistar 2013
+19:27:29 > relacionados cantidad: 0
+19:27:29 > despues de actualizar_video: 4779
+19:27:29 > entro a _obtenerImagesUrlVideosXId:  4780
+19:27:29 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=4780
+19:27:29 >  antes de actualizar_video: 4780
+19:27:29 > actualizar_video: 4780
+19:27:29 > _generarVideosXId: 4780
+19:27:29 > relacionados tags: Universitario-Alianza Lima-Copa Movistar 2013-Descentralizado 2013
+19:27:30 > relacionados cantidad: 0
+19:27:30 > despues de actualizar_video: 4780
+19:27:30 > entro a _obtenerImagesUrlVideosXId:  4777
+19:27:30 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=4777
+19:27:30 >  antes de actualizar_video: 4777
+19:27:30 > actualizar_video: 4777
+19:27:30 > _generarVideosXId: 4777
+19:27:30 > relacionados tags: Real Garcilaso-Universitario-Descentralizado 2013-3 Al Hilo-Copa Movistar 2013
+19:27:30 > relacionados cantidad: 0
+19:27:30 > despues de actualizar_video: 4777
+19:27:30 > entro a _obtenerImagesUrlVideosXId:  4778
+19:27:30 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=4778
+19:27:30 >  antes de actualizar_video: 4778
+19:27:30 > actualizar_video: 4778
+19:27:30 > _generarVideosXId: 4778
+19:27:30 > relacionados tags: Descentralizado 2013-Alianza Lima-Universitario-Copa Movistar 2013
+19:27:31 > relacionados cantidad: 0
+19:27:31 > despues de actualizar_video: 4778
+19:27:31 > entro a _obtenerImagesUrlVideosXId:  4774
+19:27:31 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=4774
+19:27:31 >  antes de actualizar_video: 4774
+19:27:31 > actualizar_video: 4774
+19:27:31 > _generarVideosXId: 4774
+19:27:31 > relacionados tags: 3 Al Hilo-Copa Movistar 2013-Descentralizado 2013-Universitario
+19:27:31 > relacionados cantidad: 0
+19:27:31 > despues de actualizar_video: 4774
+19:27:31 > entro a _obtenerImagesUrlVideosXId:  4775
+19:27:31 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=4775
+19:27:31 >  antes de actualizar_video: 4775
+19:27:31 > actualizar_video: 4775
+19:27:31 > _generarVideosXId: 4775
+19:27:31 > relacionados tags: Descentralizado 2013-Copa Movistar 2013-León de Huánuco-Alianza Lima
+19:27:31 > relacionados cantidad: 0
+19:27:31 > despues de actualizar_video: 4775
+19:27:31 > entro a _obtenerImagesUrlVideosXId:  4772
+19:27:31 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=4772
+19:27:31 >  antes de actualizar_video: 4772
+19:27:31 > actualizar_video: 4772
+19:27:31 > _generarVideosXId: 4772
+19:27:31 > relacionados tags: Copa Movistar 2013-Descentralizado 2013-Universitario-Sporting Cristal
+19:27:32 > relacionados cantidad: 0
+19:27:32 > despues de actualizar_video: 4772
+19:27:32 > entro a _obtenerImagesUrlVideosXId:  4773
+19:27:32 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=4773
+19:27:32 >  antes de actualizar_video: 4773
+19:27:32 > actualizar_video: 4773
+19:27:32 > _generarVideosXId: 4773
+19:27:32 > relacionados tags: Alianza Lima-3 Al Hilo-Descentralizado 2013-Copa Movistar 2013
+19:27:32 > relacionados cantidad: 0
+19:27:32 > despues de actualizar_video: 4773
+19:27:32 > entro a _obtenerImagesUrlVideosXId:  4776
+19:27:32 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=4776
+19:27:32 >  antes de actualizar_video: 4776
+19:27:32 > actualizar_video: 4776
+19:27:32 > _generarVideosXId: 4776
+19:27:32 > relacionados tags: 3 Al Hilo-Descentralizado 2013-Copa Movistar 2013-Alianza Lima
+19:27:33 > relacionados cantidad: 0
+19:27:33 > despues de actualizar_video: 4776
+19:27:33 > entro a _obtenerImagesUrlVideosXId:  4771
+19:27:33 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=4771
+19:27:33 >  antes de actualizar_video: 4771
+19:27:33 > actualizar_video: 4771
+19:27:33 > _generarVideosXId: 4771
+19:27:33 > relacionados tags: Descentralizado 2013-Sporting Cristal-Copa Libertadores 2013-Copa Movistar 2013
+19:27:33 > relacionados cantidad: 0
+19:27:33 > despues de actualizar_video: 4771
+19:27:33 > entro a _obtenerImagesUrlVideosXId:  4770
+19:27:33 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=4770
+19:27:33 >  antes de actualizar_video: 4770
+19:27:33 > actualizar_video: 4770
+19:27:33 > _generarVideosXId: 4770
+19:27:33 > relacionados tags: Twitter-Sport Huancayo-Descentralizado 2013-Copa Movistar 2013
+19:27:34 > relacionados cantidad: 0
+19:27:34 > despues de actualizar_video: 4770
+19:27:34 > entro a _obtenerImagesUrlVideosXId:  4768
+19:27:34 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=4768
+19:27:34 >  antes de actualizar_video: 4768
+19:27:34 > actualizar_video: 4768
+19:27:34 > _generarVideosXId: 4768
+19:27:34 > relacionados tags: Copa Movistar 2013-Universitario-Descentralizado 2013-San Martín
+19:27:34 > relacionados cantidad: 0
+19:27:34 > despues de actualizar_video: 4768
+19:27:34 > entro a _obtenerImagesUrlVideosXId:  4769
+19:27:34 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=4769
+19:27:34 >  antes de actualizar_video: 4769
+19:27:34 > actualizar_video: 4769
+19:27:34 > _generarVideosXId: 4769
+19:27:34 > relacionados tags: Universitario-César Vallejo-Descentralizado 2013-Copa Movistar 2013
+19:27:34 > relacionados cantidad: 0
+19:27:34 > despues de actualizar_video: 4769
+19:27:34 > entro a _obtenerImagesUrlVideosXId:  4767
+19:27:34 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=4767
+19:27:34 >  antes de actualizar_video: 4767
+19:27:34 > actualizar_video: 4767
+19:27:34 > _generarVideosXId: 4767
+19:27:34 > relacionados tags: César Vallejo-Descentralizado 2013-Copa Movistar 2013
+19:27:35 > relacionados cantidad: 0
+19:27:35 > despues de actualizar_video: 4767
+19:27:35 > entro a _obtenerImagesUrlVideosXId:  4755
+19:27:35 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=4755
+19:27:35 >  antes de actualizar_video: 4755
+19:27:35 > actualizar_video: 4755
+19:27:35 > _generarVideosXId: 4755
+19:27:35 > relacionados tags: Copa Movistar 2013-Alianza Lima-Descentralizado 2013-Melgar-Sporting Cristal-César Vallejo-San Martín
+19:27:35 > relacionados cantidad: 0
+19:27:35 > despues de actualizar_video: 4755
+19:27:35 > entro a _obtenerImagesUrlVideosXId:  4756
+19:27:35 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=4756
+19:27:35 >  antes de actualizar_video: 4756
+19:27:35 > actualizar_video: 4756
+19:27:35 > _generarVideosXId: 4756
+19:27:35 > relacionados tags: Copa Movistar 2013-Real Garcilaso-Pacífico FC-Alianza Lima-Sport Huancayo-Sporting Cristal-Descentralizado 2013-Universitario
+19:27:35 > relacionados cantidad: 0
+19:27:35 > despues de actualizar_video: 4756
+19:27:35 > entro a _obtenerImagesUrlVideosXId:  4757
+19:27:35 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=4757
+19:27:35 >  antes de actualizar_video: 4757
+19:27:35 > actualizar_video: 4757
+19:27:35 > _generarVideosXId: 4757
+19:27:35 > relacionados tags: Copa Movistar 2013-Descentralizado 2013-Universitario-Alianza Lima-Tabla de Posiciones Descentralizado 2013-Sporting  Cristal
+19:27:36 > relacionados cantidad: 0
+19:27:36 > despues de actualizar_video: 4757
+19:27:36 > entro a _obtenerImagesUrlVideosXId:  4758
+19:27:36 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=4758
+19:27:36 >  antes de actualizar_video: 4758
+19:27:36 > actualizar_video: 4758
+19:27:36 > _generarVideosXId: 4758
+19:27:36 > relacionados tags: César Vallejo-Descentralizado 2013-Universitario
+19:27:36 > relacionados cantidad: 0
+19:27:36 > despues de actualizar_video: 4758
+19:27:36 > entro a _obtenerImagesUrlVideosXId:  4759
+19:27:36 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=4759
+19:27:36 >  antes de actualizar_video: 4759
+19:27:36 > actualizar_video: 4759
+19:27:36 > _generarVideosXId: 4759
+19:27:36 > relacionados tags: León de Huánuco-Copa Libertadores 2013-Real Garcilaso-Descentralizado 2013
+19:27:36 > relacionados cantidad: 0
+19:27:37 > despues de actualizar_video: 4759
+19:27:37 > entro a _obtenerImagesUrlVideosXId:  4760
+19:27:37 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=4760
+19:27:37 >  antes de actualizar_video: 4760
+19:27:37 > actualizar_video: 4760
+19:27:37 > _generarVideosXId: 4760
+19:27:37 > relacionados tags: Juan Aurich-Unión Comercio-Copa Movistar 2013-Descentralizado 2013
+19:27:37 > relacionados cantidad: 0
+19:27:37 > despues de actualizar_video: 4760
+19:27:37 > entro a _obtenerImagesUrlVideosXId:  4761
+19:27:37 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=4761
+19:27:37 >  antes de actualizar_video: 4761
+19:27:37 > actualizar_video: 4761
+19:27:37 > _generarVideosXId: 4761
+19:27:37 > relacionados tags: Mayimbe-Alianza Lima-Descentralizado 2013-Copa Movistar 2013
+19:27:37 > relacionados cantidad: 0
+19:27:37 > despues de actualizar_video: 4761
+19:27:37 > entro a _obtenerImagesUrlVideosXId:  4762
+19:27:37 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=4762
+19:27:37 >  antes de actualizar_video: 4762
+19:27:37 > actualizar_video: 4762
+19:27:37 > _generarVideosXId: 4762
+19:27:37 > relacionados tags: Descentralizado 2013-Universitario-San Martín-Copa Movistar 2013
+19:27:37 > relacionados cantidad: 0
+19:27:37 > despues de actualizar_video: 4762
+19:27:37 > entro a _obtenerImagesUrlVideosXId:  4763
+19:27:37 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=4763
+19:27:37 >  antes de actualizar_video: 4763
+19:27:37 > actualizar_video: 4763
+19:27:37 > _generarVideosXId: 4763
+19:27:38 > relacionados tags: Universitario-Copa Movistar 2013-Descentralizado 2013
+19:27:38 > relacionados cantidad: 0
+19:27:38 > despues de actualizar_video: 4763
+19:27:38 > entro a _obtenerImagesUrlVideosXId:  4764
+19:27:38 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=4764
+19:27:38 >  antes de actualizar_video: 4764
+19:27:38 > actualizar_video: 4764
+19:27:38 > _generarVideosXId: 4764
+19:27:38 > relacionados tags: Copa Movistar 2013-Juan Aurich-Alianza Lima-Descentralizado 2013
+19:27:38 > relacionados cantidad: 0
+19:27:38 > despues de actualizar_video: 4764
+19:27:38 > entro a _obtenerImagesUrlVideosXId:  4765
+19:27:38 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=4765
+19:27:38 >  antes de actualizar_video: 4765
+19:27:38 > actualizar_video: 4765
+19:27:38 > _generarVideosXId: 4765
+19:27:38 > relacionados tags: Copa Movistar-Descentralizado 2013-Universitario
+19:27:39 > relacionados cantidad: 0
+19:27:39 > despues de actualizar_video: 4765
+19:27:39 > entro a _obtenerImagesUrlVideosXId:  4766
+19:27:39 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=4766
+19:27:39 >  antes de actualizar_video: 4766
+19:27:39 > actualizar_video: 4766
+19:27:39 > _generarVideosXId: 4766
+19:27:39 > relacionados tags: César Vallejo-Copa Movistar 2013-Descentralizado 2013
+19:27:39 > relacionados cantidad: 0
+19:27:39 > despues de actualizar_video: 4766
+19:27:39 > entro a _obtenerImagesUrlVideosXId:  4754
+19:27:39 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=4754
+19:27:39 >  antes de actualizar_video: 4754
+19:27:39 > actualizar_video: 4754
+19:27:39 > _generarVideosXId: 4754
+19:27:39 > relacionados tags: San Martín-Universitario-Descentralizado 2013
+19:27:39 > relacionados cantidad: 0
+19:27:39 > despues de actualizar_video: 4754
+19:27:39 > entro a _obtenerImagesUrlVideosXId:  4753
+19:27:39 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=4753
+19:27:39 >  antes de actualizar_video: 4753
+19:27:39 > actualizar_video: 4753
+19:27:39 > _generarVideosXId: 4753
+19:27:39 > relacionados tags: Copa Movistar 2013-Descentralizado 2013-Universitario
+19:27:40 > relacionados cantidad: 0
+19:27:40 > despues de actualizar_video: 4753
+19:27:40 > entro a _obtenerImagesUrlVideosXId:  4751
+19:27:40 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=4751
+19:27:40 >  antes de actualizar_video: 4751
+19:27:40 > actualizar_video: 4751
+19:27:40 > _generarVideosXId: 4751
+19:27:40 > relacionados tags: Descentralizado 2013-Alianza Lima-Copa Movistar 2013
+19:27:40 > relacionados cantidad: 0
+19:27:40 > despues de actualizar_video: 4751
+19:27:40 > entro a _obtenerImagesUrlVideosXId:  4752
+19:27:40 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=4752
+19:27:40 >  antes de actualizar_video: 4752
+19:27:40 > actualizar_video: 4752
+19:27:40 > _generarVideosXId: 4752
+19:27:40 > relacionados tags: Copa Movistar 2013-Descentralizado 2013-3 Al Hilo-Universitario
+19:27:40 > relacionados cantidad: 0
+19:27:40 > despues de actualizar_video: 4752
+19:27:40 > entro a _obtenerImagesUrlVideosXId:  4749
+19:27:40 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=4749
+19:27:40 >  antes de actualizar_video: 4749
+19:27:40 > actualizar_video: 4749
+19:27:40 > _generarVideosXId: 4749
+19:27:40 > relacionados tags: Pacífico FC-Descentralizado 2013-Copa Movistar 2013
+19:27:41 > relacionados cantidad: 0
+19:27:41 > despues de actualizar_video: 4749
+19:27:41 > entro a _obtenerImagesUrlVideosXId:  4750
+19:27:41 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=4750
+19:27:41 >  antes de actualizar_video: 4750
+19:27:41 > actualizar_video: 4750
+19:27:41 > _generarVideosXId: 4750
+19:27:41 > relacionados tags: Copa Movistar 2013-César Vallejo-Alianza Lima-Descentralizado 2013
+19:27:42 > relacionados cantidad: 0
+19:27:42 > despues de actualizar_video: 4750
+19:27:42 > _actualizarVisualizacion
+19:27:42 > _actualizarComentariosValorizacion
+19:27:42 > _actualizarSecciones6789
+19:27:46 > dato entrada    : 2700 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2699 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2698 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2697 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2692 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2691 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2690 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2689 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2684 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2683 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2682 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2681 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2676 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2675 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2674 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2673 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2668 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2667 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2666 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2665 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2660 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2659 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2658 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2657 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2652 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2651 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2650 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2649 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2644 -- cantidad   : 1 -- 
+19:27:46 > mongo_se: 51aa493fc8437e963100001d
+19:27:46 > estado_migracion: 2
+19:27:46 > -> id_mongo de seccion 51aa493fc8437e963100001d
+19:27:46 > -> id_mongo de seccion 51aa493fc8437e963100001d
+19:27:46 > idtemp2,1257
+19:27:46 > idtemp2,1264
+19:27:46 > idtemp2,1269
+19:27:46 > idtemp2,1274
+19:27:46 > idtemp2,1123
+19:27:46 > dato entrada    : 2643 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2642 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2641 -- cantidad   : 1 -- 
+19:27:46 > mongo_se: 51aa493fc8437e963100001e
+19:27:46 > estado_migracion: 2
+19:27:46 > -> id_mongo de seccion 51aa493fc8437e963100001e
+19:27:46 > -> id_mongo de seccion 51aa493fc8437e963100001e
+19:27:46 > idtemp2,1410
+19:27:46 > idtemp2,1123
+19:27:46 > idtemp2,2022
+19:27:46 > idtemp2,1326
+19:27:46 > idtemp2,1415
+19:27:46 > idtemp2,1257
+19:27:46 > idtemp2,1574
+19:27:46 > idtemp2,1264
+19:27:46 > idtemp2,1564
+19:27:46 > idtemp2,1466
+19:27:46 > idtemp2,1341
+19:27:46 > idtemp2,1460
+19:27:46 > idtemp2,1349
+19:27:46 > idtemp2,1903
+19:27:46 > idtemp2,1269
+19:27:46 > idtemp2,1381
+19:27:46 > idtemp2,1446
+19:27:46 > idtemp2,1379
+19:27:46 > idtemp2,1438
+19:27:46 > idtemp2,1554
+19:27:46 > idtemp2,1420
+19:27:46 > idtemp2,1569
+19:27:46 > idtemp2,1559
+19:27:46 > idtemp2,1453
+19:27:46 > idtemp2,1923
+19:27:46 > idtemp2,2023
+19:27:46 > idtemp2,2025
+19:27:46 > idtemp2,1908
+19:27:46 > idtemp2,1913
+19:27:46 > idtemp2,1918
+19:27:46 > idtemp2,1274
+19:27:46 > idtemp2,1928
+19:27:46 > idtemp2,1933
+19:27:46 > idtemp2,1938
+19:27:46 > idtemp2,1943
+19:27:46 > idtemp2,1948
+19:27:46 > idtemp2,1404
+19:27:46 > idtemp2,1285
+19:27:46 > idtemp2,1399
+19:27:46 > idtemp2,1425
+19:27:46 > idtemp2,1431
+19:27:46 > idtemp2,1394
+19:27:46 > idtemp2,1370
+19:27:46 > idtemp2,1307
+19:27:46 > idtemp2,1387
+19:27:46 > idtemp2,1302
+19:27:46 > idtemp2,1474
+19:27:46 > idtemp2,1297
+19:27:46 > idtemp2,1292
+19:27:46 > idtemp2,1917
+19:27:46 > dato entrada    : 2635 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2634 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2633 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2632 -- cantidad   : 1 -- 
+19:27:46 > mongo_se: 51aa493fc8437e9631000022
+19:27:46 > estado_migracion: 2
+19:27:46 > -> id_mongo de seccion 51aa493fc8437e9631000022
+19:27:46 > -> id_mongo de seccion 51aa493fc8437e9631000022
+19:27:46 > idtemp2,4161
+19:27:46 > idtemp2,4169
+19:27:46 > idtemp2,4181
+19:27:46 > idtemp2,4144
+19:27:46 > idtemp2,4151
+19:27:46 > idtemp2,4191
+19:27:46 > idtemp2,4188
+19:27:46 > idtemp2,4156
+19:27:46 > idtemp2,4166
+19:27:46 > idtemp2,4137
+19:27:46 > idtemp2,4148
+19:27:46 > idtemp2,4174
+19:27:46 > idtemp2,4178
+19:27:46 > idtemp2,4171
+19:27:46 > idtemp2,4152
+19:27:46 > idtemp2,4138
+19:27:46 > idtemp2,4155
+19:27:46 > idtemp2,4192
+19:27:46 > idtemp2,4182
+19:27:46 > idtemp2,4143
+19:27:46 > idtemp2,4168
+19:27:46 > idtemp2,4173
+19:27:46 > idtemp2,4167
+19:27:46 > idtemp2,4183
+19:27:46 > idtemp2,4157
+19:27:46 > idtemp2,4160
+19:27:46 > idtemp2,4177
+19:27:46 > idtemp2,4179
+19:27:46 > idtemp2,4134
+19:27:46 > idtemp2,4184
+19:27:46 > idtemp2,4139
+19:27:46 > idtemp2,4189
+19:27:46 > idtemp2,4150
+19:27:46 > idtemp2,4159
+19:27:46 > idtemp2,4154
+19:27:46 > idtemp2,4172
+19:27:46 > idtemp2,4175
+19:27:46 > idtemp2,4185
+19:27:46 > idtemp2,4158
+19:27:46 > idtemp2,4145
+19:27:46 > idtemp2,4176
+19:27:46 > idtemp2,4146
+19:27:46 > idtemp2,4135
+19:27:46 > idtemp2,4180
+19:27:46 > idtemp2,4142
+19:27:46 > idtemp2,4149
+19:27:46 > idtemp2,4164
+19:27:46 > idtemp2,4153
+19:27:46 > idtemp2,4162
+19:27:46 > idtemp2,4170
+19:27:46 > dato entrada    : 2626 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2625 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2624 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2623 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2617 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2616 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2615 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2614 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2608 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2607 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2606 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2605 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2599 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2598 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2597 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2596 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2591 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2590 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2589 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2588 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2583 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2582 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2581 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2580 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2575 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2574 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2573 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2572 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2567 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2566 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2565 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2564 -- cantidad   : 1 -- 
+19:27:46 > mongo_se: 51aa493fc8437e963100003d
+19:27:46 > estado_migracion: 2
+19:27:46 > -> id_mongo de seccion 51aa493fc8437e963100003d
+19:27:46 > -> id_mongo de seccion 51aa493fc8437e963100003d
+19:27:46 > idtemp2,1224
+19:27:46 > idtemp2,1214
+19:27:46 > idtemp2,1340
+19:27:46 > idtemp2,1247
+19:27:46 > idtemp2,1254
+19:27:46 > idtemp2,1234
+19:27:46 > dato entrada    : 2559 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2558 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2557 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2556 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2551 -- cantidad   : 1 -- 
+19:27:46 > mongo_se: 51aa4940c8437e9631000044
+19:27:46 > estado_migracion: 2
+19:27:46 > -> id_mongo de seccion 51aa4940c8437e9631000044
+19:27:46 > -> id_mongo de seccion 51aa4940c8437e9631000044
+19:27:46 > idtemp2,1214
+19:27:46 > idtemp2,1224
+19:27:46 > idtemp2,1128
+19:27:46 > idtemp2,1133
+19:27:46 > idtemp2,1234
+19:27:46 > idtemp2,1156
+19:27:46 > idtemp2,1247
+19:27:46 > idtemp2,1161
+19:27:46 > idtemp2,1254
+19:27:46 > idtemp2,1169
+19:27:46 > dato entrada    : 2550 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2549 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2548 -- cantidad   : 1 -- 
+19:27:46 > mongo_se: 51aa4940c8437e9631000045
+19:27:46 > estado_migracion: 2
+19:27:46 > -> id_mongo de seccion 51aa4940c8437e9631000045
+19:27:46 > -> id_mongo de seccion 51aa4940c8437e9631000045
+19:27:46 > idtemp2,1224
+19:27:46 > idtemp2,1214
+19:27:46 > idtemp2,1340
+19:27:46 > idtemp2,1484
+19:27:46 > idtemp2,1128
+19:27:46 > idtemp2,1878
+19:27:46 > idtemp2,1247
+19:27:46 > idtemp2,1953
+19:27:46 > idtemp2,1254
+19:27:46 > idtemp2,1234
+19:27:46 > idtemp2,1133
+19:27:46 > idtemp2,1489
+19:27:46 > idtemp2,1703
+19:27:46 > idtemp2,1169
+19:27:46 > idtemp2,1723
+19:27:46 > idtemp2,1499
+19:27:46 > idtemp2,1973
+19:27:46 > idtemp2,1883
+19:27:46 > idtemp2,1161
+19:27:46 > idtemp2,1968
+19:27:46 > idtemp2,1479
+19:27:46 > idtemp2,1713
+19:27:46 > idtemp2,1898
+19:27:46 > idtemp2,1963
+19:27:46 > idtemp2,1958
+19:27:46 > idtemp2,1156
+19:27:46 > idtemp2,1893
+19:27:46 > idtemp2,1888
+19:27:46 > idtemp2,1718
+19:27:46 > idtemp2,1708
+19:27:46 > idtemp2,1494
+19:27:46 > dato entrada    : 2542 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2541 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2540 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2539 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2534 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2533 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2532 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2531 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2526 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2525 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2524 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2523 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2518 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2517 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2516 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2515 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2510 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2509 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2508 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2507 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2502 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2501 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2500 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2499 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2494 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2493 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2492 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2491 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2486 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2485 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2484 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2483 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2477 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2476 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2475 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2474 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2469 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2468 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2467 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2466 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2461 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2460 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2459 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2458 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2453 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2452 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2451 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2450 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2445 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2444 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2443 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2442 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2437 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2436 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2435 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2434 -- cantidad   : 1 -- 
+19:27:46 > mongo_se: 51aa4940c8437e963100006c
+19:27:46 > estado_migracion: 2
+19:27:46 > -> id_mongo de seccion 51aa4940c8437e963100006c
+19:27:46 > -> id_mongo de seccion 51aa4940c8437e963100006c
+19:27:46 > idtemp2,1312
+19:27:46 > idtemp2,1317
+19:27:46 > idtemp2,1322
+19:27:46 > idtemp2,1329
+19:27:46 > idtemp2,1334
+19:27:46 > dato entrada    : 2429 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2428 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2427 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2426 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2421 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2420 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2419 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2418 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2412 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2411 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2410 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2409 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2404 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2403 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2402 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2401 -- cantidad   : 1 -- 
+19:27:46 > mongo_se: 51aa4941c8437e9631000079
+19:27:46 > estado_migracion: 2
+19:27:46 > -> id_mongo de seccion 51aa4941c8437e9631000079
+19:27:46 > -> id_mongo de seccion 51aa4941c8437e9631000079
+19:27:46 > idtemp2,1134
+19:27:46 > idtemp2,1217
+19:27:46 > idtemp2,1225
+19:27:46 > idtemp2,1235
+19:27:46 > idtemp2,1243
+19:27:46 > dato entrada    : 2396 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2395 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2394 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2393 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2388 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2387 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2386 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2385 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2380 -- cantidad   : 1 -- 
+19:27:46 > mongo_se: 51aa4941c8437e9631000083
+19:27:46 > estado_migracion: 2
+19:27:46 > -> id_mongo de seccion 51aa4941c8437e9631000083
+19:27:46 > -> id_mongo de seccion 51aa4941c8437e9631000083
+19:27:46 > idtemp2,1075
+19:27:46 > idtemp2,1179
+19:27:46 > idtemp2,1134
+19:27:46 > idtemp2,1081
+19:27:46 > idtemp2,1186
+19:27:46 > idtemp2,1077
+19:27:46 > idtemp2,1104
+19:27:46 > idtemp2,1217
+19:27:46 > idtemp2,1194
+19:27:46 > idtemp2,1086
+19:27:46 > idtemp2,1089
+19:27:46 > idtemp2,1204
+19:27:46 > idtemp2,1225
+19:27:46 > idtemp2,1109
+19:27:46 > idtemp2,1092
+19:27:46 > idtemp2,1091
+19:27:46 > idtemp2,1235
+19:27:46 > idtemp2,1209
+19:27:46 > idtemp2,1096
+19:27:46 > idtemp2,1114
+19:27:46 > idtemp2,1243
+19:27:46 > idtemp2,1119
+19:27:46 > idtemp2,1098
+19:27:46 > idtemp2,1139
+19:27:46 > idtemp2,1144
+19:27:46 > idtemp2,1153
+19:27:46 > idtemp2,1172
+19:27:46 > idtemp2,1182
+19:27:46 > idtemp2,1197
+19:27:46 > idtemp2,1146
+19:27:46 > dato entrada    : 2379 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2378 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2377 -- cantidad   : 1 -- 
+19:27:46 > mongo_se: 51aa4941c8437e9631000084
+19:27:46 > estado_migracion: 2
+19:27:46 > -> id_mongo de seccion 51aa4941c8437e9631000084
+19:27:46 > -> id_mongo de seccion 51aa4941c8437e9631000084
+19:27:46 > idtemp2,1648
+19:27:46 > idtemp2,1086
+19:27:46 > idtemp2,1323
+19:27:46 > idtemp2,1077
+19:27:46 > idtemp2,1134
+19:27:46 > idtemp2,1092
+19:27:46 > idtemp2,1633
+19:27:46 > idtemp2,1312
+19:27:46 > idtemp2,1733
+19:27:46 > idtemp2,1075
+19:27:46 > idtemp2,1628
+19:27:46 > idtemp2,1139
+19:27:46 > idtemp2,1863
+19:27:46 > idtemp2,1104
+19:27:46 > idtemp2,1146
+19:27:46 > idtemp2,1407
+19:27:46 > idtemp2,1096
+19:27:46 > idtemp2,1081
+19:27:46 > idtemp2,2074
+19:27:46 > idtemp2,1529
+19:27:46 > idtemp2,1346
+19:27:46 > idtemp2,1459
+19:27:46 > idtemp2,1444
+19:27:46 > idtemp2,1109
+19:27:46 > idtemp2,1098
+19:27:46 > idtemp2,1091
+19:27:46 > idtemp2,1317
+19:27:46 > idtemp2,1504
+19:27:46 > idtemp2,1514
+19:27:46 > idtemp2,1204
+19:27:46 > idtemp2,1688
+19:27:46 > idtemp2,1119
+19:27:46 > idtemp2,1114
+19:27:46 > idtemp2,1144
+19:27:46 > idtemp2,1673
+19:27:46 > idtemp2,1638
+19:27:46 > idtemp2,1519
+19:27:46 > idtemp2,1683
+19:27:46 > idtemp2,1653
+19:27:46 > idtemp2,1693
+19:27:46 > idtemp2,1524
+19:27:46 > idtemp2,1373
+19:27:46 > idtemp2,1360
+19:27:46 > idtemp2,1828
+19:27:46 > idtemp2,1793
+19:27:46 > idtemp2,1843
+19:27:46 > idtemp2,1848
+19:27:46 > idtemp2,1853
+19:27:46 > idtemp2,1753
+19:27:46 > idtemp2,1749
+19:27:46 > dato entrada    : 2705 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2706 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2707 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2708 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2713 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2714 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2715 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2716 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2722 -- cantidad   : 1 -- 
+19:27:46 > mongo_se: 51aa4ac6c8437ea931000000
+19:27:46 > estado_migracion: 2
+19:27:46 > -> id_mongo de seccion 51aa4ac6c8437ea931000000
+19:27:46 > -> id_mongo de seccion 51aa4ac6c8437ea931000000
+19:27:46 > idtemp2,1997
+19:27:46 > idtemp2,1992
+19:27:46 > idtemp2,2002
+19:27:46 > idtemp2,2007
+19:27:46 > idtemp2,2012
+19:27:46 > dato entrada    : 2723 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2724 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2725 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2730 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2731 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2732 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2733 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2739 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2740 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2741 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2742 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2748 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2749 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2750 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2751 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2757 -- cantidad   : 1 -- 
+19:27:46 > mongo_se: 51aa4942c8437e963100009f
+19:27:46 > estado_migracion: 2
+19:27:46 > -> id_mongo de seccion 51aa4942c8437e963100009f
+19:27:46 > -> id_mongo de seccion 51aa4942c8437e963100009f
+19:27:46 > idtemp2,1578
+19:27:46 > idtemp2,1593
+19:27:46 > idtemp2,1603
+19:27:46 > idtemp2,1583
+19:27:46 > idtemp2,1608
+19:27:46 > idtemp2,1588
+19:27:46 > idtemp2,1613
+19:27:46 > idtemp2,1598
+19:27:46 > idtemp2,1618
+19:27:46 > idtemp2,1623
+19:27:46 > dato entrada    : 2758 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2759 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2760 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2765 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2766 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2767 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2768 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2773 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2774 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2775 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2776 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2782 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2783 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2784 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2785 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2791 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2792 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2793 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2794 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2800 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2801 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2802 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2803 -- cantidad   : 1 -- 
+19:27:46 > dato entrada    : 2843 -- cantidad   : 1 -- 
+19:27:46 > mongo_se: 51aa4942c8437e96310000b3
+19:27:46 > estado_migracion: 2
+19:27:46 > -> id_mongo de seccion 51aa4942c8437e96310000b3
+19:27:46 > -> id_mongo de seccion 51aa4942c8437e96310000b3
+19:27:46 > idtemp2,1953
+19:27:46 > idtemp2,1703
+19:27:46 > idtemp2,1723
+19:27:46 > idtemp2,1688
+19:27:46 > idtemp2,1968
+19:27:46 > idtemp2,1973
+19:27:46 > idtemp2,1673
+19:27:46 > idtemp2,1683
+19:27:46 > idtemp2,1653
+19:27:46 > idtemp2,1713
+19:27:46 > idtemp2,1693
+19:27:46 > idtemp2,1698
+19:27:46 > idtemp2,1658
+19:27:46 > idtemp2,1963
+19:27:46 > idtemp2,1958
+19:27:46 > idtemp2,1663
+19:27:46 > idtemp2,1668
+19:27:46 > idtemp2,1678
+19:27:46 > idtemp2,1708
+19:27:47 > idtemp2,1718
+19:27:47 > dato entrada    : 2844 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2842 -- cantidad   : 1 -- 
+19:27:47 > mongo_se: 51aa4942c8437e96310000af
+19:27:47 > estado_migracion: 2
+19:27:47 > -> id_mongo de seccion 51aa4942c8437e96310000af
+19:27:47 > -> id_mongo de seccion 51aa4942c8437e96310000af
+19:27:47 > idtemp2,1214
+19:27:47 > idtemp2,1077
+19:27:47 > idtemp2,1224
+19:27:47 > idtemp2,1134
+19:27:47 > idtemp2,1104
+19:27:47 > idtemp2,1234
+19:27:47 > idtemp2,1217
+19:27:47 > idtemp2,1247
+19:27:47 > idtemp2,1225
+19:27:47 > idtemp2,1109
+19:27:47 > idtemp2,1114
+19:27:47 > idtemp2,1235
+19:27:47 > idtemp2,1254
+19:27:47 > idtemp2,1257
+19:27:47 > idtemp2,1119
+19:27:47 > idtemp2,1243
+19:27:47 > idtemp2,1264
+19:27:47 > idtemp2,1269
+19:27:47 > idtemp2,1274
+19:27:47 > idtemp2,1123
+19:27:47 > dato entrada    : 2841 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2840 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2839 -- cantidad   : 1 -- 
+19:27:47 > mongo_se: 51aa4942c8437e96310000b0
+19:27:47 > estado_migracion: 2
+19:27:47 > -> id_mongo de seccion 51aa4942c8437e96310000b0
+19:27:47 > -> id_mongo de seccion 51aa4942c8437e96310000b0
+19:27:47 > idtemp2,1224
+19:27:47 > idtemp2,1214
+19:27:47 > idtemp2,1077
+19:27:47 > idtemp2,1134
+19:27:47 > idtemp2,1123
+19:27:47 > idtemp2,2022
+19:27:47 > idtemp2,1326
+19:27:47 > idtemp2,1415
+19:27:47 > idtemp2,1257
+19:27:47 > idtemp2,1264
+19:27:47 > idtemp2,1104
+19:27:47 > idtemp2,1247
+19:27:47 > idtemp2,2074
+19:27:47 > idtemp2,1346
+19:27:47 > idtemp2,1254
+19:27:47 > idtemp2,1109
+19:27:47 > idtemp2,1234
+19:27:47 > idtemp2,1269
+19:27:47 > idtemp2,1119
+19:27:47 > idtemp2,1438
+19:27:47 > idtemp2,1114
+19:27:47 > idtemp2,1360
+19:27:47 > idtemp2,1420
+19:27:47 > idtemp2,1373
+19:27:47 > idtemp2,2023
+19:27:47 > idtemp2,1823
+19:27:47 > idtemp2,1399
+19:27:47 > idtemp2,1818
+19:27:47 > idtemp2,1813
+19:27:47 > idtemp2,1808
+19:27:47 > idtemp2,1425
+19:27:47 > idtemp2,1431
+19:27:47 > idtemp2,1225
+19:27:47 > idtemp2,1366
+19:27:47 > idtemp2,1235
+19:27:47 > idtemp2,1243
+19:27:47 > idtemp2,1217
+19:27:47 > idtemp2,2025
+19:27:47 > idtemp2,1274
+19:27:47 > idtemp2,1292
+19:27:47 > idtemp2,1297
+19:27:47 > idtemp2,1302
+19:27:47 > idtemp2,1307
+19:27:47 > idtemp2,1285
+19:27:47 > idtemp2,1354
+19:27:47 > idtemp2,1803
+19:27:47 > dato entrada    : 2838 -- cantidad   : 1 -- 
+19:27:47 > mongo_se: 51aa4942c8437e96310000ab
+19:27:47 > estado_migracion: 2
+19:27:47 > -> id_mongo de seccion 51aa4942c8437e96310000ab
+19:27:47 > -> id_mongo de seccion 51aa4942c8437e96310000ab
+19:27:47 > idtemp2,1075
+19:27:47 > idtemp2,1179
+19:27:47 > idtemp2,1081
+19:27:47 > idtemp2,1186
+19:27:47 > idtemp2,1128
+19:27:47 > idtemp2,1133
+19:27:47 > idtemp2,1194
+19:27:47 > idtemp2,1086
+19:27:47 > idtemp2,1089
+19:27:47 > idtemp2,1204
+19:27:47 > idtemp2,1092
+19:27:47 > idtemp2,1091
+19:27:47 > idtemp2,1156
+19:27:47 > idtemp2,1161
+19:27:47 > idtemp2,1209
+19:27:47 > idtemp2,1096
+19:27:47 > idtemp2,1169
+19:27:47 > idtemp2,1098
+19:27:47 > idtemp2,1144
+19:27:47 > idtemp2,1139
+19:27:47 > idtemp2,1153
+19:27:47 > idtemp2,1172
+19:27:47 > idtemp2,1182
+19:27:47 > idtemp2,1197
+19:27:47 > idtemp2,1146
+19:27:47 > dato entrada    : 2837 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2836 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2835 -- cantidad   : 1 -- 
+19:27:47 > mongo_se: 51aa4942c8437e96310000ac
+19:27:47 > estado_migracion: 2
+19:27:47 > -> id_mongo de seccion 51aa4942c8437e96310000ac
+19:27:47 > -> id_mongo de seccion 51aa4942c8437e96310000ac
+19:27:47 > idtemp2,1410
+19:27:47 > idtemp2,1086
+19:27:47 > idtemp2,1323
+19:27:47 > idtemp2,1340
+19:27:47 > idtemp2,1092
+19:27:47 > idtemp2,1312
+19:27:47 > idtemp2,1075
+19:27:47 > idtemp2,1128
+19:27:47 > idtemp2,1139
+19:27:47 > idtemp2,1146
+19:27:47 > idtemp2,1096
+19:27:47 > idtemp2,1081
+19:27:47 > idtemp2,1466
+19:27:47 > idtemp2,1341
+19:27:47 > idtemp2,1098
+19:27:47 > idtemp2,2335
+19:27:47 > idtemp2,1133
+19:27:47 > idtemp2,1091
+19:27:47 > idtemp2,1349
+19:27:47 > idtemp2,1460
+19:27:47 > idtemp2,1317
+19:27:47 > idtemp2,1381
+19:27:47 > idtemp2,1204
+19:27:47 > idtemp2,1169
+19:27:47 > idtemp2,1446
+19:27:47 > idtemp2,4194
+19:27:47 > idtemp2,1379
+19:27:47 > idtemp2,1144
+19:27:47 > idtemp2,1161
+19:27:47 > idtemp2,1453
+19:27:47 > idtemp2,1394
+19:27:47 > idtemp2,1404
+19:27:47 > idtemp2,1209
+19:27:47 > idtemp2,1282
+19:27:47 > idtemp2,1156
+19:27:47 > idtemp2,1153
+19:27:47 > idtemp2,1474
+19:27:47 > idtemp2,1387
+19:27:47 > idtemp2,1172
+19:27:47 > idtemp2,1322
+19:27:47 > idtemp2,1197
+19:27:47 > idtemp2,1329
+19:27:47 > idtemp2,1334
+19:27:47 > idtemp2,1194
+19:27:47 > idtemp2,1186
+19:27:47 > idtemp2,1182
+19:27:47 > idtemp2,1370
+19:27:47 > idtemp2,1179
+19:27:47 > idtemp2,1089
+19:27:47 > dato entrada    : 2845 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2846 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2847 -- cantidad   : 1 -- 
+19:27:47 > mongo_se: 51aa4942c8437e96310000b6
+19:27:47 > estado_migracion: 2
+19:27:47 > -> id_mongo de seccion 51aa4942c8437e96310000b6
+19:27:47 > -> id_mongo de seccion 51aa4942c8437e96310000b6
+19:27:47 > idtemp2,1733
+19:27:47 > idtemp2,1863
+19:27:47 > idtemp2,1729
+19:27:47 > idtemp2,1788
+19:27:47 > idtemp2,1793
+19:27:47 > idtemp2,1798
+19:27:47 > idtemp2,1853
+19:27:47 > idtemp2,1858
+19:27:47 > idtemp2,1868
+19:27:47 > idtemp2,1783
+19:27:47 > idtemp2,1778
+19:27:47 > idtemp2,1773
+19:27:47 > idtemp2,1768
+19:27:47 > idtemp2,1763
+19:27:47 > idtemp2,1758
+19:27:47 > idtemp2,1753
+19:27:47 > idtemp2,1749
+19:27:47 > idtemp2,1743
+19:27:47 > idtemp2,1738
+19:27:47 > idtemp2,1873
+19:27:47 > dato entrada    : 2848 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2849 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2850 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2851 -- cantidad   : 1 -- 
+19:27:47 > mongo_se: 51aa4942c8437e96310000b9
+19:27:47 > estado_migracion: 2
+19:27:47 > -> id_mongo de seccion 51aa4942c8437e96310000b9
+19:27:47 > -> id_mongo de seccion 51aa4942c8437e96310000b9
+19:27:47 > idtemp2,1878
+19:27:47 > idtemp2,1883
+19:27:47 > idtemp2,1898
+19:27:47 > idtemp2,1828
+19:27:47 > idtemp2,1997
+19:27:47 > idtemp2,1992
+19:27:47 > idtemp2,2002
+19:27:47 > idtemp2,1948
+19:27:47 > idtemp2,1943
+19:27:47 > idtemp2,2007
+19:27:47 > idtemp2,1938
+19:27:47 > idtemp2,1933
+19:27:47 > idtemp2,1928
+19:27:47 > idtemp2,1893
+19:27:47 > idtemp2,1888
+19:27:47 > idtemp2,1848
+19:27:47 > idtemp2,1843
+19:27:47 > idtemp2,1838
+19:27:47 > idtemp2,1833
+19:27:47 > idtemp2,2012
+19:27:47 > dato entrada    : 2852 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2853 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2854 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2855 -- cantidad   : 1 -- 
+19:27:47 > mongo_se: 51aa4942c8437e96310000bc
+19:27:47 > estado_migracion: 2
+19:27:47 > -> id_mongo de seccion 51aa4942c8437e96310000bc
+19:27:47 > -> id_mongo de seccion 51aa4942c8437e96310000bc
+19:27:47 > idtemp2,1484
+19:27:47 > idtemp2,1407
+19:27:47 > idtemp2,1459
+19:27:47 > idtemp2,1444
+19:27:47 > idtemp2,1489
+19:27:47 > idtemp2,1514
+19:27:47 > idtemp2,1504
+19:27:47 > idtemp2,1499
+19:27:47 > idtemp2,1519
+19:27:47 > idtemp2,1524
+19:27:47 > idtemp2,1479
+19:27:47 > idtemp2,1509
+19:27:47 > idtemp2,1494
+19:27:47 > dato entrada    : 2856 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2857 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2858 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2865 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2864 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2863 -- cantidad   : 1 -- 
+19:27:47 > mongo_se: 51aa4942c8437e96310000bf
+19:27:47 > estado_migracion: 2
+19:27:47 > -> id_mongo de seccion 51aa4942c8437e96310000bf
+19:27:47 > -> id_mongo de seccion 51aa4942c8437e96310000bf
+19:27:47 > idtemp2,1574
+19:27:47 > idtemp2,1564
+19:27:47 > idtemp2,1529
+19:27:47 > idtemp2,1903
+19:27:47 > idtemp2,1923
+19:27:47 > idtemp2,1569
+19:27:47 > idtemp2,1559
+19:27:47 > idtemp2,1554
+19:27:47 > idtemp2,1549
+19:27:47 > idtemp2,1544
+19:27:47 > idtemp2,1539
+19:27:47 > idtemp2,1908
+19:27:47 > idtemp2,1913
+19:27:47 > idtemp2,1918
+19:27:47 > idtemp2,1534
+19:27:47 > idtemp2,1917
+19:27:47 > dato entrada    : 2866 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2867 -- cantidad   : 1 -- 
+19:27:47 > mongo_se: 51aa4942c8437e96310000c2
+19:27:47 > estado_migracion: 2
+19:27:47 > -> id_mongo de seccion 51aa4942c8437e96310000c2
+19:27:47 > -> id_mongo de seccion 51aa4942c8437e96310000c2
+19:27:47 > idtemp2,1603
+19:27:47 > idtemp2,1608
+19:27:47 > idtemp2,1613
+19:27:47 > idtemp2,1618
+19:27:47 > idtemp2,1623
+19:27:47 > dato entrada    : 2868 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2869 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2870 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2871 -- cantidad   : 1 -- 
+19:27:47 > mongo_se: 51aa4942c8437e96310000c5
+19:27:47 > estado_migracion: 2
+19:27:47 > -> id_mongo de seccion 51aa4942c8437e96310000c5
+19:27:47 > -> id_mongo de seccion 51aa4942c8437e96310000c5
+19:27:47 > idtemp2,1648
+19:27:47 > idtemp2,1633
+19:27:47 > idtemp2,1628
+19:27:47 > idtemp2,1638
+19:27:47 > idtemp2,1643
+19:27:47 > dato entrada    : 2872 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2873 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2874 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2875 -- cantidad   : 1 -- 
+19:27:47 > mongo_se: 51aa4942c8437e96310000c8
+19:27:47 > estado_migracion: 2
+19:27:47 > -> id_mongo de seccion 51aa4942c8437e96310000c8
+19:27:47 > -> id_mongo de seccion 51aa4942c8437e96310000c8
+19:27:47 > idtemp2,1578
+19:27:47 > idtemp2,1593
+19:27:47 > idtemp2,1583
+19:27:47 > idtemp2,1588
+19:27:47 > idtemp2,1598
+19:27:47 > dato entrada    : 2876 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2877 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2878 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2881 -- cantidad   : 1 -- 
+19:27:47 > mongo_se: 51aa493fc8437e963100001a
+19:27:47 > estado_migracion: 2
+19:27:47 > -> id_mongo de seccion 51aa493fc8437e963100001a
+19:27:47 > -> id_mongo de seccion 51aa493fc8437e963100001a
+19:27:47 > idtemp2,4161
+19:27:47 > idtemp2,4169
+19:27:47 > idtemp2,4181
+19:27:47 > idtemp2,4144
+19:27:47 > idtemp2,4151
+19:27:47 > idtemp2,4191
+19:27:47 > idtemp2,4188
+19:27:47 > idtemp2,4156
+19:27:47 > idtemp2,4166
+19:27:47 > idtemp2,4137
+19:27:47 > idtemp2,4148
+19:27:47 > idtemp2,4174
+19:27:47 > idtemp2,4178
+19:27:47 > idtemp2,4171
+19:27:47 > idtemp2,4152
+19:27:47 > idtemp2,4138
+19:27:47 > idtemp2,4155
+19:27:47 > idtemp2,4192
+19:27:47 > idtemp2,4182
+19:27:47 > idtemp2,4143
+19:27:47 > idtemp2,4168
+19:27:47 > idtemp2,4173
+19:27:47 > idtemp2,4167
+19:27:47 > idtemp2,4183
+19:27:47 > idtemp2,4157
+19:27:47 > idtemp2,4160
+19:27:47 > idtemp2,4177
+19:27:47 > idtemp2,4179
+19:27:47 > idtemp2,4134
+19:27:47 > idtemp2,4184
+19:27:47 > idtemp2,4139
+19:27:47 > idtemp2,4189
+19:27:47 > idtemp2,4150
+19:27:47 > idtemp2,4159
+19:27:47 > idtemp2,4154
+19:27:47 > idtemp2,4172
+19:27:47 > idtemp2,4175
+19:27:47 > idtemp2,4185
+19:27:47 > idtemp2,4158
+19:27:47 > idtemp2,4145
+19:27:47 > idtemp2,4176
+19:27:47 > idtemp2,4146
+19:27:47 > idtemp2,4135
+19:27:47 > idtemp2,1648
+19:27:47 > idtemp2,1410
+19:27:47 > idtemp2,4180
+19:27:47 > idtemp2,4142
+19:27:47 > idtemp2,1086
+19:27:47 > idtemp2,4149
+19:27:47 > idtemp2,4164
+19:27:47 > dato entrada    : 2882 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2883 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2884 -- cantidad   : 1 -- 
+19:27:47 > mongo_se: 51aa493fc8437e963100001b
+19:27:47 > estado_migracion: 2
+19:27:47 > -> id_mongo de seccion 51aa493fc8437e963100001b
+19:27:47 > -> id_mongo de seccion 51aa493fc8437e963100001b
+19:27:47 > idtemp2,1075
+19:27:47 > idtemp2,1179
+19:27:47 > idtemp2,1214
+19:27:47 > idtemp2,1134
+19:27:47 > idtemp2,1128
+19:27:47 > idtemp2,1224
+19:27:47 > idtemp2,1081
+19:27:47 > idtemp2,1077
+19:27:47 > idtemp2,1186
+19:27:47 > idtemp2,1133
+19:27:47 > idtemp2,1194
+19:27:47 > idtemp2,1089
+19:27:47 > idtemp2,1104
+19:27:47 > idtemp2,1217
+19:27:47 > idtemp2,1234
+19:27:47 > idtemp2,1086
+19:27:47 > idtemp2,1247
+19:27:47 > idtemp2,1204
+19:27:47 > idtemp2,1225
+19:27:47 > idtemp2,1156
+19:27:47 > idtemp2,1109
+19:27:47 > idtemp2,1091
+19:27:47 > idtemp2,1092
+19:27:47 > idtemp2,1235
+19:27:47 > idtemp2,1257
+19:27:47 > idtemp2,1254
+19:27:47 > idtemp2,1161
+19:27:47 > idtemp2,1096
+19:27:47 > idtemp2,1209
+19:27:47 > idtemp2,1114
+19:27:47 > idtemp2,1169
+19:27:47 > idtemp2,1264
+19:27:47 > idtemp2,1243
+19:27:47 > idtemp2,1119
+19:27:47 > idtemp2,1269
+19:27:47 > idtemp2,1098
+19:27:47 > idtemp2,1274
+19:27:47 > idtemp2,1139
+19:27:47 > idtemp2,1144
+19:27:47 > idtemp2,1153
+19:27:47 > idtemp2,1172
+19:27:47 > idtemp2,1182
+19:27:47 > idtemp2,1197
+19:27:47 > idtemp2,1123
+19:27:47 > idtemp2,1146
+19:27:47 > dato entrada    : 2890 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2891 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2892 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2893 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2898 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2899 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2900 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2901 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2906 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2907 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2908 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2909 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2914 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2915 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2916 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2917 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2922 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2923 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2924 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2925 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2930 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2931 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2932 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2933 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2938 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2939 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2940 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2941 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2948 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2949 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2950 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2951 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2960 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2961 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2962 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2963 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2969 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2970 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2971 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2972 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2978 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2979 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2980 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2981 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2987 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2988 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2989 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2990 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2995 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2996 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2997 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 2998 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3005 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3006 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3007 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3008 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3016 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3017 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3018 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3019 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3025 -- cantidad   : 1 -- 
+19:27:47 > mongo_se: 51aa4afac8437ecf24000000
+19:27:47 > estado_migracion: 2
+19:27:47 > -> id_mongo de seccion 51aa4afac8437ecf24000000
+19:27:47 > -> id_mongo de seccion 51aa4afac8437ecf24000000
+19:27:47 > idtemp2,2335
+19:27:47 > dato entrada    : 3026 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3027 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3028 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3033 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3034 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3035 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3036 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3042 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3043 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3044 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3045 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3052 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3053 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3054 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3055 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3060 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3061 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3062 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3063 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3070 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3071 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3072 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3073 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3078 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3079 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3080 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3081 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3087 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3088 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3089 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3090 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3095 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3096 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3097 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3098 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3103 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3104 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3105 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3106 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3111 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3112 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3113 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3114 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3119 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3120 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3121 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3122 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3127 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3128 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3129 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3130 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3135 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3136 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3137 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3138 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3143 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3144 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3145 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3146 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3151 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3152 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3153 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3154 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3159 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3160 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3161 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3162 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3167 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3168 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3169 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3170 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3176 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3177 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3178 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3179 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3184 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3185 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3186 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3187 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3196 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3197 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3198 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3199 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3204 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3205 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3206 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3207 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3213 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3214 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3215 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3216 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3221 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3222 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3223 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3224 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3229 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3230 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3231 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3232 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3237 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3238 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3239 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3240 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3248 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3249 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3250 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3251 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3256 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3257 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3258 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3259 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3264 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3265 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3266 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3267 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3272 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3273 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3274 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3275 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3280 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3281 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3282 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3283 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3288 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3289 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3290 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3291 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3296 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3297 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3298 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3299 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3305 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3306 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3307 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3308 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3315 -- cantidad   : 1 -- 
+19:27:47 > mongo_se: 51aa4b15c8437ece24000021
+19:27:47 > estado_migracion: 2
+19:27:47 > -> id_mongo de seccion 51aa4b15c8437ece24000021
+19:27:47 > -> id_mongo de seccion 51aa4b15c8437ece24000021
+19:27:47 > idtemp2,4194
+19:27:47 > dato entrada    : 3316 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3317 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3318 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3323 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3324 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3325 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3326 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3332 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3333 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3334 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3335 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3344 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3345 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3346 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3347 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3352 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3353 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3354 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3355 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3360 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3361 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3362 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3363 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3368 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3369 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3370 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3371 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3376 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3377 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3378 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3379 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3384 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3385 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3386 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3387 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3392 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3393 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3394 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3395 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3401 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3402 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3403 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3404 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3410 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3411 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3412 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3413 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3423 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3424 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3425 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3426 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3431 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3432 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3433 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3434 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3439 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3440 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3441 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3442 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3448 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3449 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3450 -- cantidad   : 1 -- 
+19:27:47 > dato entrada    : 3451 -- cantidad   : 1 -- 
+19:27:47 > _publicidadVideosMasVistos
+19:35:23 > ini - curlGenerarSeccionesMiCanalXSeccionId: 2418
+19:35:23 > private curlGenerarSeccionesMiCanalXSeccionId: 2418
+19:35:23 > dato entrada    : 2418 -- cantidad   : 1 -- 
+19:35:23 > mongo_se: 5194165ec8437e9e1d0000a6
+19:35:23 > estado_migracion: 9
+19:35:23 > -> id_mongo de seccion 51aa4cfbc8437e6d38000000
+19:35:23 > -> id_mongo de seccion 51aa4cfbc8437e6d38000000
+19:35:24 > ini - curlGenerarSeccionesMiCanalXSeccionId: 2419
+19:35:24 > private curlGenerarSeccionesMiCanalXSeccionId: 2419
+19:35:24 > dato entrada    : 2419 -- cantidad   : 1 -- 
+19:35:24 > mongo_se: 51aa247ec8437ef80a0000af
+19:35:24 > estado_migracion: 9
+19:35:24 > -> id_mongo de seccion 51aa4cfcc8437eb838000000
+19:35:24 > -> id_mongo de seccion 51aa4cfcc8437eb838000000
+19:35:26 > ini - curlGenerarSeccionesMiCanalXSeccionId: 2420
+19:35:26 > private curlGenerarSeccionesMiCanalXSeccionId: 2420
+19:35:26 > dato entrada    : 2420 -- cantidad   : 1 -- 
+19:35:26 > mongo_se: 5171b17bc8437e8e3e0000ee
+19:35:26 > estado_migracion: 9
+19:35:26 > -> id_mongo de seccion 51aa4cfec8437e9631000607
+19:35:26 > -> id_mongo de seccion 51aa4cfec8437e9631000607
+19:35:27 > ini - curlGenerarSeccionesMiCanalXSeccionId: 2421
+19:35:27 > private curlGenerarSeccionesMiCanalXSeccionId: 2421
+19:35:27 > dato entrada    : 2421 -- cantidad   : 1 -- 
+19:35:27 > mongo_se: 51aa247ec8437ef80a0000ae
+19:35:27 > estado_migracion: 9
+19:35:27 > -> id_mongo de seccion 51aa4cffc8437ecf24000001
+19:35:27 > -> id_mongo de seccion 51aa4cffc8437ecf24000001
+19:35:39 > _actualizarVisualizacion
+19:35:39 > _actualizarComentariosValorizacion
+19:35:39 > _actualizarSecciones6789
+19:35:42 > dato entrada    : 2700 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2699 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2698 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2697 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2692 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2691 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2690 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2689 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2684 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2683 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2682 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2681 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2676 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2675 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2674 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2673 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2668 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2667 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2666 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2665 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2660 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2659 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2658 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2657 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2652 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2651 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2650 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2649 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2644 -- cantidad   : 1 -- 
+19:35:42 > mongo_se: 51aa493fc8437e963100001d
+19:35:42 > estado_migracion: 2
+19:35:42 > -> id_mongo de seccion 51aa493fc8437e963100001d
+19:35:42 > -> id_mongo de seccion 51aa493fc8437e963100001d
+19:35:42 > idtemp2,1257
+19:35:42 > idtemp2,1264
+19:35:42 > idtemp2,1269
+19:35:42 > idtemp2,1274
+19:35:42 > idtemp2,1123
+19:35:42 > dato entrada    : 2643 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2642 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2641 -- cantidad   : 1 -- 
+19:35:42 > mongo_se: 51aa493fc8437e963100001e
+19:35:42 > estado_migracion: 2
+19:35:42 > -> id_mongo de seccion 51aa493fc8437e963100001e
+19:35:42 > -> id_mongo de seccion 51aa493fc8437e963100001e
+19:35:42 > idtemp2,1410
+19:35:42 > idtemp2,1123
+19:35:42 > idtemp2,2022
+19:35:42 > idtemp2,1326
+19:35:42 > idtemp2,1415
+19:35:42 > idtemp2,1257
+19:35:42 > idtemp2,1574
+19:35:42 > idtemp2,1264
+19:35:42 > idtemp2,1564
+19:35:42 > idtemp2,1466
+19:35:42 > idtemp2,1341
+19:35:42 > idtemp2,1460
+19:35:42 > idtemp2,1349
+19:35:42 > idtemp2,1903
+19:35:42 > idtemp2,1269
+19:35:42 > idtemp2,1381
+19:35:42 > idtemp2,1446
+19:35:42 > idtemp2,1379
+19:35:42 > idtemp2,1438
+19:35:42 > idtemp2,1554
+19:35:42 > idtemp2,1420
+19:35:42 > idtemp2,1569
+19:35:42 > idtemp2,1559
+19:35:42 > idtemp2,1453
+19:35:42 > idtemp2,1923
+19:35:42 > idtemp2,2023
+19:35:42 > idtemp2,2025
+19:35:42 > idtemp2,1908
+19:35:42 > idtemp2,1913
+19:35:42 > idtemp2,1918
+19:35:42 > idtemp2,1274
+19:35:42 > idtemp2,1928
+19:35:42 > idtemp2,1933
+19:35:42 > idtemp2,1938
+19:35:42 > idtemp2,1943
+19:35:42 > idtemp2,1948
+19:35:42 > idtemp2,1404
+19:35:42 > idtemp2,1285
+19:35:42 > idtemp2,1399
+19:35:42 > idtemp2,1425
+19:35:42 > idtemp2,1431
+19:35:42 > idtemp2,1394
+19:35:42 > idtemp2,1370
+19:35:42 > idtemp2,1307
+19:35:42 > idtemp2,1387
+19:35:42 > idtemp2,1302
+19:35:42 > idtemp2,1474
+19:35:42 > idtemp2,1297
+19:35:42 > idtemp2,1292
+19:35:42 > idtemp2,1917
+19:35:42 > dato entrada    : 2635 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2634 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2633 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2632 -- cantidad   : 1 -- 
+19:35:42 > mongo_se: 51aa493fc8437e9631000022
+19:35:42 > estado_migracion: 2
+19:35:42 > -> id_mongo de seccion 51aa493fc8437e9631000022
+19:35:42 > -> id_mongo de seccion 51aa493fc8437e9631000022
+19:35:42 > idtemp2,4161
+19:35:42 > idtemp2,4169
+19:35:42 > idtemp2,4181
+19:35:42 > idtemp2,4144
+19:35:42 > idtemp2,4151
+19:35:42 > idtemp2,4191
+19:35:42 > idtemp2,4188
+19:35:42 > idtemp2,4156
+19:35:42 > idtemp2,4166
+19:35:42 > idtemp2,4137
+19:35:42 > idtemp2,4148
+19:35:42 > idtemp2,4174
+19:35:42 > idtemp2,4178
+19:35:42 > idtemp2,4171
+19:35:42 > idtemp2,4152
+19:35:42 > idtemp2,4138
+19:35:42 > idtemp2,4155
+19:35:42 > idtemp2,4192
+19:35:42 > idtemp2,4182
+19:35:42 > idtemp2,4143
+19:35:42 > idtemp2,4168
+19:35:42 > idtemp2,4173
+19:35:42 > idtemp2,4167
+19:35:42 > idtemp2,4183
+19:35:42 > idtemp2,4157
+19:35:42 > idtemp2,4160
+19:35:42 > idtemp2,4177
+19:35:42 > idtemp2,4179
+19:35:42 > idtemp2,4134
+19:35:42 > idtemp2,4184
+19:35:42 > idtemp2,4139
+19:35:42 > idtemp2,4189
+19:35:42 > idtemp2,4150
+19:35:42 > idtemp2,4159
+19:35:42 > idtemp2,4154
+19:35:42 > idtemp2,4172
+19:35:42 > idtemp2,4175
+19:35:42 > idtemp2,4185
+19:35:42 > idtemp2,4158
+19:35:42 > idtemp2,4145
+19:35:42 > idtemp2,4176
+19:35:42 > idtemp2,4146
+19:35:42 > idtemp2,4135
+19:35:42 > idtemp2,4180
+19:35:42 > idtemp2,4142
+19:35:42 > idtemp2,4149
+19:35:42 > idtemp2,4164
+19:35:42 > idtemp2,4153
+19:35:42 > idtemp2,4162
+19:35:42 > idtemp2,4170
+19:35:42 > dato entrada    : 2626 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2625 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2624 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2623 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2617 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2616 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2615 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2614 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2608 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2607 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2606 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2605 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2599 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2598 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2597 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2596 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2591 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2590 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2589 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2588 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2583 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2582 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2581 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2580 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2575 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2574 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2573 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2572 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2567 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2566 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2565 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2564 -- cantidad   : 1 -- 
+19:35:42 > mongo_se: 51aa493fc8437e963100003d
+19:35:42 > estado_migracion: 2
+19:35:42 > -> id_mongo de seccion 51aa493fc8437e963100003d
+19:35:42 > -> id_mongo de seccion 51aa493fc8437e963100003d
+19:35:42 > idtemp2,1224
+19:35:42 > idtemp2,1214
+19:35:42 > idtemp2,1340
+19:35:42 > idtemp2,1247
+19:35:42 > idtemp2,1254
+19:35:42 > idtemp2,1234
+19:35:42 > dato entrada    : 2559 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2558 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2557 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2556 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2551 -- cantidad   : 1 -- 
+19:35:42 > mongo_se: 51aa4940c8437e9631000044
+19:35:42 > estado_migracion: 2
+19:35:42 > -> id_mongo de seccion 51aa4940c8437e9631000044
+19:35:42 > -> id_mongo de seccion 51aa4940c8437e9631000044
+19:35:42 > idtemp2,1214
+19:35:42 > idtemp2,1224
+19:35:42 > idtemp2,1128
+19:35:42 > idtemp2,1133
+19:35:42 > idtemp2,1234
+19:35:42 > idtemp2,1156
+19:35:42 > idtemp2,1247
+19:35:42 > idtemp2,1161
+19:35:42 > idtemp2,1254
+19:35:42 > idtemp2,1169
+19:35:42 > dato entrada    : 2550 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2549 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2548 -- cantidad   : 1 -- 
+19:35:42 > mongo_se: 51aa4940c8437e9631000045
+19:35:42 > estado_migracion: 2
+19:35:42 > -> id_mongo de seccion 51aa4940c8437e9631000045
+19:35:42 > -> id_mongo de seccion 51aa4940c8437e9631000045
+19:35:42 > idtemp2,1224
+19:35:42 > idtemp2,1214
+19:35:42 > idtemp2,1340
+19:35:42 > idtemp2,1484
+19:35:42 > idtemp2,1128
+19:35:42 > idtemp2,1878
+19:35:42 > idtemp2,1247
+19:35:42 > idtemp2,1953
+19:35:42 > idtemp2,1254
+19:35:42 > idtemp2,1234
+19:35:42 > idtemp2,1133
+19:35:42 > idtemp2,1489
+19:35:42 > idtemp2,1703
+19:35:42 > idtemp2,1169
+19:35:42 > idtemp2,1723
+19:35:42 > idtemp2,1499
+19:35:42 > idtemp2,1973
+19:35:42 > idtemp2,1883
+19:35:42 > idtemp2,1161
+19:35:42 > idtemp2,1968
+19:35:42 > idtemp2,1479
+19:35:42 > idtemp2,1713
+19:35:42 > idtemp2,1898
+19:35:42 > idtemp2,1963
+19:35:42 > idtemp2,1958
+19:35:42 > idtemp2,1156
+19:35:42 > idtemp2,1893
+19:35:42 > idtemp2,1888
+19:35:42 > idtemp2,1718
+19:35:42 > idtemp2,1708
+19:35:42 > idtemp2,1494
+19:35:42 > dato entrada    : 2542 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2541 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2540 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2539 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2534 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2533 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2532 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2531 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2526 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2525 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2524 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2523 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2518 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2517 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2516 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2515 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2510 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2509 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2508 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2507 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2502 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2501 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2500 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2499 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2494 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2493 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2492 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2491 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2486 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2485 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2484 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2483 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2477 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2476 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2475 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2474 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2469 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2468 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2467 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2466 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2461 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2460 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2459 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2458 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2453 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2452 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2451 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2450 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2445 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2444 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2443 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2442 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2437 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2436 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2435 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2434 -- cantidad   : 1 -- 
+19:35:42 > mongo_se: 51aa4940c8437e963100006c
+19:35:42 > estado_migracion: 2
+19:35:42 > -> id_mongo de seccion 51aa4940c8437e963100006c
+19:35:42 > -> id_mongo de seccion 51aa4940c8437e963100006c
+19:35:42 > idtemp2,1312
+19:35:42 > idtemp2,1317
+19:35:42 > idtemp2,1322
+19:35:42 > idtemp2,1329
+19:35:42 > idtemp2,1334
+19:35:42 > dato entrada    : 2429 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2428 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2427 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2426 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2421 -- cantidad   : 1 -- 
+19:35:42 > mongo_se: 51aa4cffc8437ecf24000001
+19:35:42 > estado_migracion: 2
+19:35:42 > -> id_mongo de seccion 51aa4cffc8437ecf24000001
+19:35:42 > -> id_mongo de seccion 51aa4cffc8437ecf24000001
+19:35:42 > idtemp2,1144
+19:35:42 > dato entrada    : 2420 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2419 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2418 -- cantidad   : 1 -- 
+19:35:42 > mongo_se: 51aa4cfbc8437e6d38000000
+19:35:42 > estado_migracion: 2
+19:35:42 > -> id_mongo de seccion 51aa4cfbc8437e6d38000000
+19:35:42 > -> id_mongo de seccion 51aa4cfbc8437e6d38000000
+19:35:42 > idtemp2,1323
+19:35:42 > idtemp2,1144
+19:35:42 > idtemp2,1282
+19:35:42 > dato entrada    : 2412 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2411 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2410 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2409 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2404 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2403 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2402 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2401 -- cantidad   : 1 -- 
+19:35:42 > mongo_se: 51aa4941c8437e9631000079
+19:35:42 > estado_migracion: 2
+19:35:42 > -> id_mongo de seccion 51aa4941c8437e9631000079
+19:35:42 > -> id_mongo de seccion 51aa4941c8437e9631000079
+19:35:42 > idtemp2,1134
+19:35:42 > idtemp2,1217
+19:35:42 > idtemp2,1225
+19:35:42 > idtemp2,1235
+19:35:42 > idtemp2,1243
+19:35:42 > dato entrada    : 2396 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2395 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2394 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2393 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2388 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2387 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2386 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2385 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2380 -- cantidad   : 1 -- 
+19:35:42 > mongo_se: 51aa4941c8437e9631000083
+19:35:42 > estado_migracion: 2
+19:35:42 > -> id_mongo de seccion 51aa4941c8437e9631000083
+19:35:42 > -> id_mongo de seccion 51aa4941c8437e9631000083
+19:35:42 > idtemp2,1075
+19:35:42 > idtemp2,1179
+19:35:42 > idtemp2,1134
+19:35:42 > idtemp2,1081
+19:35:42 > idtemp2,1186
+19:35:42 > idtemp2,1077
+19:35:42 > idtemp2,1104
+19:35:42 > idtemp2,1217
+19:35:42 > idtemp2,1194
+19:35:42 > idtemp2,1086
+19:35:42 > idtemp2,1089
+19:35:42 > idtemp2,1204
+19:35:42 > idtemp2,1225
+19:35:42 > idtemp2,1109
+19:35:42 > idtemp2,1092
+19:35:42 > idtemp2,1091
+19:35:42 > idtemp2,1235
+19:35:42 > idtemp2,1209
+19:35:42 > idtemp2,1096
+19:35:42 > idtemp2,1114
+19:35:42 > idtemp2,1243
+19:35:42 > idtemp2,1119
+19:35:42 > idtemp2,1098
+19:35:42 > idtemp2,1139
+19:35:42 > idtemp2,1144
+19:35:42 > idtemp2,1153
+19:35:42 > idtemp2,1172
+19:35:42 > idtemp2,1182
+19:35:42 > idtemp2,1197
+19:35:42 > idtemp2,1146
+19:35:42 > dato entrada    : 2379 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2378 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2377 -- cantidad   : 1 -- 
+19:35:42 > mongo_se: 51aa4941c8437e9631000084
+19:35:42 > estado_migracion: 2
+19:35:42 > -> id_mongo de seccion 51aa4941c8437e9631000084
+19:35:42 > -> id_mongo de seccion 51aa4941c8437e9631000084
+19:35:42 > idtemp2,1648
+19:35:42 > idtemp2,1086
+19:35:42 > idtemp2,1323
+19:35:42 > idtemp2,1077
+19:35:42 > idtemp2,1134
+19:35:42 > idtemp2,1092
+19:35:42 > idtemp2,1633
+19:35:42 > idtemp2,1312
+19:35:42 > idtemp2,1733
+19:35:42 > idtemp2,1075
+19:35:42 > idtemp2,1628
+19:35:42 > idtemp2,1139
+19:35:42 > idtemp2,1863
+19:35:42 > idtemp2,1104
+19:35:42 > idtemp2,1146
+19:35:42 > idtemp2,1407
+19:35:42 > idtemp2,1096
+19:35:42 > idtemp2,1081
+19:35:42 > idtemp2,2074
+19:35:42 > idtemp2,1529
+19:35:42 > idtemp2,1346
+19:35:42 > idtemp2,1459
+19:35:42 > idtemp2,1444
+19:35:42 > idtemp2,1109
+19:35:42 > idtemp2,1098
+19:35:42 > idtemp2,1091
+19:35:42 > idtemp2,1317
+19:35:42 > idtemp2,1504
+19:35:42 > idtemp2,1514
+19:35:42 > idtemp2,1204
+19:35:42 > idtemp2,1688
+19:35:42 > idtemp2,1119
+19:35:42 > idtemp2,1114
+19:35:42 > idtemp2,1144
+19:35:42 > idtemp2,1673
+19:35:42 > idtemp2,1638
+19:35:42 > idtemp2,1519
+19:35:42 > idtemp2,1683
+19:35:42 > idtemp2,1653
+19:35:42 > idtemp2,1693
+19:35:42 > idtemp2,1524
+19:35:42 > idtemp2,1373
+19:35:42 > idtemp2,1360
+19:35:42 > idtemp2,1828
+19:35:42 > idtemp2,1793
+19:35:42 > idtemp2,1843
+19:35:42 > idtemp2,1848
+19:35:42 > idtemp2,1853
+19:35:42 > idtemp2,1753
+19:35:42 > idtemp2,1749
+19:35:42 > dato entrada    : 2705 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2706 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2707 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2708 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2713 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2714 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2715 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2716 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2722 -- cantidad   : 1 -- 
+19:35:42 > mongo_se: 51aa4ac6c8437ea931000000
+19:35:42 > estado_migracion: 2
+19:35:42 > -> id_mongo de seccion 51aa4ac6c8437ea931000000
+19:35:42 > -> id_mongo de seccion 51aa4ac6c8437ea931000000
+19:35:42 > idtemp2,1997
+19:35:42 > idtemp2,1992
+19:35:42 > idtemp2,2002
+19:35:42 > idtemp2,2007
+19:35:42 > idtemp2,2012
+19:35:42 > dato entrada    : 2723 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2724 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2725 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2730 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2731 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2732 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2733 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2739 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2740 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2741 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2742 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2748 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2749 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2750 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2751 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2757 -- cantidad   : 1 -- 
+19:35:42 > mongo_se: 51aa4942c8437e963100009f
+19:35:42 > estado_migracion: 2
+19:35:42 > -> id_mongo de seccion 51aa4942c8437e963100009f
+19:35:42 > -> id_mongo de seccion 51aa4942c8437e963100009f
+19:35:42 > idtemp2,1578
+19:35:42 > idtemp2,1593
+19:35:42 > idtemp2,1603
+19:35:42 > idtemp2,1583
+19:35:42 > idtemp2,1608
+19:35:42 > idtemp2,1588
+19:35:42 > idtemp2,1613
+19:35:42 > idtemp2,1598
+19:35:42 > idtemp2,1618
+19:35:42 > idtemp2,1623
+19:35:42 > dato entrada    : 2758 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2759 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2760 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2765 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2766 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2767 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2768 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2773 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2774 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2775 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2776 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2782 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2783 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2784 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2785 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2791 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2792 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2793 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2794 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2800 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2801 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2802 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2803 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2843 -- cantidad   : 1 -- 
+19:35:42 > mongo_se: 51aa4942c8437e96310000b3
+19:35:42 > estado_migracion: 2
+19:35:42 > -> id_mongo de seccion 51aa4942c8437e96310000b3
+19:35:42 > -> id_mongo de seccion 51aa4942c8437e96310000b3
+19:35:42 > idtemp2,1953
+19:35:42 > idtemp2,1703
+19:35:42 > idtemp2,1723
+19:35:42 > idtemp2,1688
+19:35:42 > idtemp2,1968
+19:35:42 > idtemp2,1973
+19:35:42 > idtemp2,1673
+19:35:42 > idtemp2,1683
+19:35:42 > idtemp2,1653
+19:35:42 > idtemp2,1713
+19:35:42 > idtemp2,1693
+19:35:42 > idtemp2,1698
+19:35:42 > idtemp2,1658
+19:35:42 > idtemp2,1963
+19:35:42 > idtemp2,1958
+19:35:42 > idtemp2,1663
+19:35:42 > idtemp2,1668
+19:35:42 > idtemp2,1678
+19:35:42 > idtemp2,1708
+19:35:42 > idtemp2,1718
+19:35:42 > dato entrada    : 2844 -- cantidad   : 1 -- 
+19:35:42 > dato entrada    : 2842 -- cantidad   : 1 -- 
+19:35:42 > mongo_se: 51aa4942c8437e96310000af
+19:35:42 > estado_migracion: 2
+19:35:42 > -> id_mongo de seccion 51aa4942c8437e96310000af
+19:35:42 > -> id_mongo de seccion 51aa4942c8437e96310000af
+19:35:42 > idtemp2,1214
+19:35:42 > idtemp2,1077
+19:35:42 > idtemp2,1224
+19:35:42 > idtemp2,1134
+19:35:42 > idtemp2,1104
+19:35:42 > idtemp2,1234
+19:35:42 > idtemp2,1217
+19:35:42 > idtemp2,1247
+19:35:42 > idtemp2,1225
+19:35:42 > idtemp2,1109
+19:35:42 > idtemp2,1114
+19:35:42 > idtemp2,1235
+19:35:42 > idtemp2,1254
+19:35:42 > idtemp2,1257
+19:35:42 > idtemp2,1119
+19:35:42 > idtemp2,1243
+19:35:42 > idtemp2,1264
+19:35:42 > idtemp2,1269
+19:35:42 > idtemp2,1274
+19:35:43 > idtemp2,1123
+19:35:43 > dato entrada    : 2841 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2840 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2839 -- cantidad   : 1 -- 
+19:35:43 > mongo_se: 51aa4942c8437e96310000b0
+19:35:43 > estado_migracion: 2
+19:35:43 > -> id_mongo de seccion 51aa4942c8437e96310000b0
+19:35:43 > -> id_mongo de seccion 51aa4942c8437e96310000b0
+19:35:43 > idtemp2,1224
+19:35:43 > idtemp2,1214
+19:35:43 > idtemp2,1077
+19:35:43 > idtemp2,1134
+19:35:43 > idtemp2,1123
+19:35:43 > idtemp2,2022
+19:35:43 > idtemp2,1326
+19:35:43 > idtemp2,1415
+19:35:43 > idtemp2,1257
+19:35:43 > idtemp2,1264
+19:35:43 > idtemp2,1104
+19:35:43 > idtemp2,1247
+19:35:43 > idtemp2,2074
+19:35:43 > idtemp2,1346
+19:35:43 > idtemp2,1254
+19:35:43 > idtemp2,1109
+19:35:43 > idtemp2,1234
+19:35:43 > idtemp2,1269
+19:35:43 > idtemp2,1119
+19:35:43 > idtemp2,1438
+19:35:43 > idtemp2,1114
+19:35:43 > idtemp2,1360
+19:35:43 > idtemp2,1420
+19:35:43 > idtemp2,1373
+19:35:43 > idtemp2,2023
+19:35:43 > idtemp2,1823
+19:35:43 > idtemp2,1399
+19:35:43 > idtemp2,1818
+19:35:43 > idtemp2,1813
+19:35:43 > idtemp2,1808
+19:35:43 > idtemp2,1425
+19:35:43 > idtemp2,1431
+19:35:43 > idtemp2,1225
+19:35:43 > idtemp2,1366
+19:35:43 > idtemp2,1235
+19:35:43 > idtemp2,1243
+19:35:43 > idtemp2,1217
+19:35:43 > idtemp2,2025
+19:35:43 > idtemp2,1274
+19:35:43 > idtemp2,1292
+19:35:43 > idtemp2,1297
+19:35:43 > idtemp2,1302
+19:35:43 > idtemp2,1307
+19:35:43 > idtemp2,1285
+19:35:43 > idtemp2,1354
+19:35:43 > idtemp2,1803
+19:35:43 > dato entrada    : 2838 -- cantidad   : 1 -- 
+19:35:43 > mongo_se: 51aa4942c8437e96310000ab
+19:35:43 > estado_migracion: 2
+19:35:43 > -> id_mongo de seccion 51aa4942c8437e96310000ab
+19:35:43 > -> id_mongo de seccion 51aa4942c8437e96310000ab
+19:35:43 > idtemp2,1075
+19:35:43 > idtemp2,1179
+19:35:43 > idtemp2,1081
+19:35:43 > idtemp2,1186
+19:35:43 > idtemp2,1128
+19:35:43 > idtemp2,1133
+19:35:43 > idtemp2,1194
+19:35:43 > idtemp2,1086
+19:35:43 > idtemp2,1089
+19:35:43 > idtemp2,1204
+19:35:43 > idtemp2,1092
+19:35:43 > idtemp2,1091
+19:35:43 > idtemp2,1156
+19:35:43 > idtemp2,1161
+19:35:43 > idtemp2,1209
+19:35:43 > idtemp2,1096
+19:35:43 > idtemp2,1169
+19:35:43 > idtemp2,1098
+19:35:43 > idtemp2,1144
+19:35:43 > idtemp2,1139
+19:35:43 > idtemp2,1153
+19:35:43 > idtemp2,1172
+19:35:43 > idtemp2,1182
+19:35:43 > idtemp2,1197
+19:35:43 > idtemp2,1146
+19:35:43 > dato entrada    : 2837 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2836 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2835 -- cantidad   : 1 -- 
+19:35:43 > mongo_se: 51aa4942c8437e96310000ac
+19:35:43 > estado_migracion: 2
+19:35:43 > -> id_mongo de seccion 51aa4942c8437e96310000ac
+19:35:43 > -> id_mongo de seccion 51aa4942c8437e96310000ac
+19:35:43 > idtemp2,1410
+19:35:43 > idtemp2,1086
+19:35:43 > idtemp2,1323
+19:35:43 > idtemp2,1340
+19:35:43 > idtemp2,1092
+19:35:43 > idtemp2,1312
+19:35:43 > idtemp2,1075
+19:35:43 > idtemp2,1128
+19:35:43 > idtemp2,1139
+19:35:43 > idtemp2,1146
+19:35:43 > idtemp2,1096
+19:35:43 > idtemp2,1081
+19:35:43 > idtemp2,1466
+19:35:43 > idtemp2,1341
+19:35:43 > idtemp2,1098
+19:35:43 > idtemp2,2335
+19:35:43 > idtemp2,1133
+19:35:43 > idtemp2,1091
+19:35:43 > idtemp2,1349
+19:35:43 > idtemp2,1460
+19:35:43 > idtemp2,1317
+19:35:43 > idtemp2,1381
+19:35:43 > idtemp2,1204
+19:35:43 > idtemp2,1169
+19:35:43 > idtemp2,1446
+19:35:43 > idtemp2,4194
+19:35:43 > idtemp2,1379
+19:35:43 > idtemp2,1144
+19:35:43 > idtemp2,1161
+19:35:43 > idtemp2,1453
+19:35:43 > idtemp2,1394
+19:35:43 > idtemp2,1404
+19:35:43 > idtemp2,1209
+19:35:43 > idtemp2,1282
+19:35:43 > idtemp2,1156
+19:35:43 > idtemp2,1153
+19:35:43 > idtemp2,1474
+19:35:43 > idtemp2,1387
+19:35:43 > idtemp2,1172
+19:35:43 > idtemp2,1322
+19:35:43 > idtemp2,1197
+19:35:43 > idtemp2,1329
+19:35:43 > idtemp2,1334
+19:35:43 > idtemp2,1194
+19:35:43 > idtemp2,1186
+19:35:43 > idtemp2,1182
+19:35:43 > idtemp2,1370
+19:35:43 > idtemp2,1179
+19:35:43 > idtemp2,1089
+19:35:43 > dato entrada    : 2845 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2846 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2847 -- cantidad   : 1 -- 
+19:35:43 > mongo_se: 51aa4942c8437e96310000b6
+19:35:43 > estado_migracion: 2
+19:35:43 > -> id_mongo de seccion 51aa4942c8437e96310000b6
+19:35:43 > -> id_mongo de seccion 51aa4942c8437e96310000b6
+19:35:43 > idtemp2,1733
+19:35:43 > idtemp2,1863
+19:35:43 > idtemp2,1729
+19:35:43 > idtemp2,1788
+19:35:43 > idtemp2,1793
+19:35:43 > idtemp2,1798
+19:35:43 > idtemp2,1853
+19:35:43 > idtemp2,1858
+19:35:43 > idtemp2,1868
+19:35:43 > idtemp2,1783
+19:35:43 > idtemp2,1778
+19:35:43 > idtemp2,1773
+19:35:43 > idtemp2,1768
+19:35:43 > idtemp2,1763
+19:35:43 > idtemp2,1758
+19:35:43 > idtemp2,1753
+19:35:43 > idtemp2,1749
+19:35:43 > idtemp2,1743
+19:35:43 > idtemp2,1738
+19:35:43 > idtemp2,1873
+19:35:43 > dato entrada    : 2848 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2849 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2850 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2851 -- cantidad   : 1 -- 
+19:35:43 > mongo_se: 51aa4942c8437e96310000b9
+19:35:43 > estado_migracion: 2
+19:35:43 > -> id_mongo de seccion 51aa4942c8437e96310000b9
+19:35:43 > -> id_mongo de seccion 51aa4942c8437e96310000b9
+19:35:43 > idtemp2,1878
+19:35:43 > idtemp2,1883
+19:35:43 > idtemp2,1898
+19:35:43 > idtemp2,1828
+19:35:43 > idtemp2,1997
+19:35:43 > idtemp2,1992
+19:35:43 > idtemp2,2002
+19:35:43 > idtemp2,1948
+19:35:43 > idtemp2,1943
+19:35:43 > idtemp2,2007
+19:35:43 > idtemp2,1938
+19:35:43 > idtemp2,1933
+19:35:43 > idtemp2,1928
+19:35:43 > idtemp2,1893
+19:35:43 > idtemp2,1888
+19:35:43 > idtemp2,1848
+19:35:43 > idtemp2,1843
+19:35:43 > idtemp2,1838
+19:35:43 > idtemp2,1833
+19:35:43 > idtemp2,2012
+19:35:43 > dato entrada    : 2852 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2853 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2854 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2855 -- cantidad   : 1 -- 
+19:35:43 > mongo_se: 51aa4942c8437e96310000bc
+19:35:43 > estado_migracion: 2
+19:35:43 > -> id_mongo de seccion 51aa4942c8437e96310000bc
+19:35:43 > -> id_mongo de seccion 51aa4942c8437e96310000bc
+19:35:43 > idtemp2,1484
+19:35:43 > idtemp2,1407
+19:35:43 > idtemp2,1459
+19:35:43 > idtemp2,1444
+19:35:43 > idtemp2,1489
+19:35:43 > idtemp2,1514
+19:35:43 > idtemp2,1504
+19:35:43 > idtemp2,1499
+19:35:43 > idtemp2,1519
+19:35:43 > idtemp2,1524
+19:35:43 > idtemp2,1479
+19:35:43 > idtemp2,1509
+19:35:43 > idtemp2,1494
+19:35:43 > dato entrada    : 2856 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2857 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2858 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2865 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2864 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2863 -- cantidad   : 1 -- 
+19:35:43 > mongo_se: 51aa4942c8437e96310000bf
+19:35:43 > estado_migracion: 2
+19:35:43 > -> id_mongo de seccion 51aa4942c8437e96310000bf
+19:35:43 > -> id_mongo de seccion 51aa4942c8437e96310000bf
+19:35:43 > idtemp2,1574
+19:35:43 > idtemp2,1564
+19:35:43 > idtemp2,1529
+19:35:43 > idtemp2,1903
+19:35:43 > idtemp2,1923
+19:35:43 > idtemp2,1569
+19:35:43 > idtemp2,1559
+19:35:43 > idtemp2,1554
+19:35:43 > idtemp2,1549
+19:35:43 > idtemp2,1544
+19:35:43 > idtemp2,1539
+19:35:43 > idtemp2,1908
+19:35:43 > idtemp2,1913
+19:35:43 > idtemp2,1918
+19:35:43 > idtemp2,1534
+19:35:43 > idtemp2,1917
+19:35:43 > dato entrada    : 2866 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2867 -- cantidad   : 1 -- 
+19:35:43 > mongo_se: 51aa4942c8437e96310000c2
+19:35:43 > estado_migracion: 2
+19:35:43 > -> id_mongo de seccion 51aa4942c8437e96310000c2
+19:35:43 > -> id_mongo de seccion 51aa4942c8437e96310000c2
+19:35:43 > idtemp2,1603
+19:35:43 > idtemp2,1608
+19:35:43 > idtemp2,1613
+19:35:43 > idtemp2,1618
+19:35:43 > idtemp2,1623
+19:35:43 > dato entrada    : 2868 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2869 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2870 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2871 -- cantidad   : 1 -- 
+19:35:43 > mongo_se: 51aa4942c8437e96310000c5
+19:35:43 > estado_migracion: 2
+19:35:43 > -> id_mongo de seccion 51aa4942c8437e96310000c5
+19:35:43 > -> id_mongo de seccion 51aa4942c8437e96310000c5
+19:35:43 > idtemp2,1648
+19:35:43 > idtemp2,1633
+19:35:43 > idtemp2,1628
+19:35:43 > idtemp2,1638
+19:35:43 > idtemp2,1643
+19:35:43 > dato entrada    : 2872 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2873 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2874 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2875 -- cantidad   : 1 -- 
+19:35:43 > mongo_se: 51aa4942c8437e96310000c8
+19:35:43 > estado_migracion: 2
+19:35:43 > -> id_mongo de seccion 51aa4942c8437e96310000c8
+19:35:43 > -> id_mongo de seccion 51aa4942c8437e96310000c8
+19:35:43 > idtemp2,1578
+19:35:43 > idtemp2,1593
+19:35:43 > idtemp2,1583
+19:35:43 > idtemp2,1588
+19:35:43 > idtemp2,1598
+19:35:43 > dato entrada    : 2876 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2877 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2878 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2881 -- cantidad   : 1 -- 
+19:35:43 > mongo_se: 51aa493fc8437e963100001a
+19:35:43 > estado_migracion: 2
+19:35:43 > -> id_mongo de seccion 51aa493fc8437e963100001a
+19:35:43 > -> id_mongo de seccion 51aa493fc8437e963100001a
+19:35:43 > idtemp2,4161
+19:35:43 > idtemp2,4169
+19:35:43 > idtemp2,4181
+19:35:43 > idtemp2,4144
+19:35:43 > idtemp2,4151
+19:35:43 > idtemp2,4191
+19:35:43 > idtemp2,4188
+19:35:43 > idtemp2,4156
+19:35:43 > idtemp2,4166
+19:35:43 > idtemp2,4137
+19:35:43 > idtemp2,4148
+19:35:43 > idtemp2,4174
+19:35:43 > idtemp2,4178
+19:35:43 > idtemp2,4171
+19:35:43 > idtemp2,4152
+19:35:43 > idtemp2,4138
+19:35:43 > idtemp2,4155
+19:35:43 > idtemp2,4192
+19:35:43 > idtemp2,4182
+19:35:43 > idtemp2,4143
+19:35:43 > idtemp2,4168
+19:35:43 > idtemp2,4173
+19:35:43 > idtemp2,4167
+19:35:43 > idtemp2,4183
+19:35:43 > idtemp2,4157
+19:35:43 > idtemp2,4160
+19:35:43 > idtemp2,4177
+19:35:43 > idtemp2,4179
+19:35:43 > idtemp2,4134
+19:35:43 > idtemp2,4184
+19:35:43 > idtemp2,4139
+19:35:43 > idtemp2,4189
+19:35:43 > idtemp2,4150
+19:35:43 > idtemp2,4159
+19:35:43 > idtemp2,4154
+19:35:43 > idtemp2,4172
+19:35:43 > idtemp2,4175
+19:35:43 > idtemp2,4185
+19:35:43 > idtemp2,4158
+19:35:43 > idtemp2,4145
+19:35:43 > idtemp2,4176
+19:35:43 > idtemp2,4146
+19:35:43 > idtemp2,4135
+19:35:43 > idtemp2,1648
+19:35:43 > idtemp2,1410
+19:35:43 > idtemp2,4180
+19:35:43 > idtemp2,4142
+19:35:43 > idtemp2,1086
+19:35:43 > idtemp2,4149
+19:35:43 > idtemp2,4164
+19:35:43 > dato entrada    : 2882 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2883 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2884 -- cantidad   : 1 -- 
+19:35:43 > mongo_se: 51aa493fc8437e963100001b
+19:35:43 > estado_migracion: 2
+19:35:43 > -> id_mongo de seccion 51aa493fc8437e963100001b
+19:35:43 > -> id_mongo de seccion 51aa493fc8437e963100001b
+19:35:43 > idtemp2,1075
+19:35:43 > idtemp2,1179
+19:35:43 > idtemp2,1214
+19:35:43 > idtemp2,1134
+19:35:43 > idtemp2,1128
+19:35:43 > idtemp2,1224
+19:35:43 > idtemp2,1081
+19:35:43 > idtemp2,1077
+19:35:43 > idtemp2,1186
+19:35:43 > idtemp2,1133
+19:35:43 > idtemp2,1194
+19:35:43 > idtemp2,1089
+19:35:43 > idtemp2,1104
+19:35:43 > idtemp2,1217
+19:35:43 > idtemp2,1234
+19:35:43 > idtemp2,1086
+19:35:43 > idtemp2,1247
+19:35:43 > idtemp2,1204
+19:35:43 > idtemp2,1225
+19:35:43 > idtemp2,1156
+19:35:43 > idtemp2,1109
+19:35:43 > idtemp2,1091
+19:35:43 > idtemp2,1092
+19:35:43 > idtemp2,1235
+19:35:43 > idtemp2,1257
+19:35:43 > idtemp2,1254
+19:35:43 > idtemp2,1161
+19:35:43 > idtemp2,1096
+19:35:43 > idtemp2,1209
+19:35:43 > idtemp2,1114
+19:35:43 > idtemp2,1169
+19:35:43 > idtemp2,1264
+19:35:43 > idtemp2,1243
+19:35:43 > idtemp2,1119
+19:35:43 > idtemp2,1269
+19:35:43 > idtemp2,1098
+19:35:43 > idtemp2,1274
+19:35:43 > idtemp2,1139
+19:35:43 > idtemp2,1144
+19:35:43 > idtemp2,1153
+19:35:43 > idtemp2,1172
+19:35:43 > idtemp2,1182
+19:35:43 > idtemp2,1197
+19:35:43 > idtemp2,1123
+19:35:43 > idtemp2,1146
+19:35:43 > dato entrada    : 2890 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2891 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2892 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2893 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2898 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2899 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2900 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2901 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2906 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2907 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2908 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2909 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2914 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2915 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2916 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2917 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2922 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2923 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2924 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2925 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2930 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2931 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2932 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2933 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2938 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2939 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2940 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2941 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2948 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2949 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2950 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2951 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2960 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2961 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2962 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2963 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2969 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2970 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2971 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2972 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2978 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2979 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2980 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2981 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2987 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2988 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2989 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2990 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2995 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2996 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2997 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 2998 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3005 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3006 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3007 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3008 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3016 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3017 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3018 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3019 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3025 -- cantidad   : 1 -- 
+19:35:43 > mongo_se: 51aa4afac8437ecf24000000
+19:35:43 > estado_migracion: 2
+19:35:43 > -> id_mongo de seccion 51aa4afac8437ecf24000000
+19:35:43 > -> id_mongo de seccion 51aa4afac8437ecf24000000
+19:35:43 > idtemp2,2335
+19:35:43 > dato entrada    : 3026 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3027 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3028 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3033 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3034 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3035 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3036 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3042 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3043 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3044 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3045 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3052 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3053 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3054 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3055 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3060 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3061 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3062 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3063 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3070 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3071 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3072 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3073 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3078 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3079 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3080 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3081 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3087 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3088 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3089 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3090 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3095 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3096 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3097 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3098 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3103 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3104 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3105 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3106 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3111 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3112 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3113 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3114 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3119 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3120 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3121 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3122 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3127 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3128 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3129 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3130 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3135 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3136 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3137 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3138 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3143 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3144 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3145 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3146 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3151 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3152 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3153 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3154 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3159 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3160 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3161 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3162 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3167 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3168 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3169 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3170 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3176 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3177 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3178 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3179 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3184 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3185 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3186 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3187 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3196 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3197 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3198 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3199 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3204 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3205 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3206 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3207 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3213 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3214 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3215 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3216 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3221 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3222 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3223 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3224 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3229 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3230 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3231 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3232 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3237 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3238 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3239 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3240 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3248 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3249 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3250 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3251 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3256 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3257 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3258 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3259 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3264 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3265 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3266 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3267 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3272 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3273 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3274 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3275 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3280 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3281 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3282 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3283 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3288 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3289 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3290 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3291 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3296 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3297 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3298 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3299 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3305 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3306 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3307 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3308 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3315 -- cantidad   : 1 -- 
+19:35:43 > mongo_se: 51aa4b15c8437ece24000021
+19:35:43 > estado_migracion: 2
+19:35:43 > -> id_mongo de seccion 51aa4b15c8437ece24000021
+19:35:43 > -> id_mongo de seccion 51aa4b15c8437ece24000021
+19:35:43 > idtemp2,4194
+19:35:43 > dato entrada    : 3316 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3317 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3318 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3323 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3324 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3325 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3326 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3332 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3333 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3334 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3335 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3344 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3345 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3346 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3347 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3352 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3353 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3354 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3355 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3360 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3361 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3362 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3363 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3368 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3369 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3370 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3371 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3376 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3377 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3378 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3379 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3384 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3385 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3386 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3387 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3392 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3393 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3394 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3395 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3401 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3402 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3403 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3404 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3410 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3411 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3412 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3413 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3423 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3424 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3425 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3426 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3431 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3432 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3433 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3434 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3439 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3440 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3441 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3442 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3448 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3449 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3450 -- cantidad   : 1 -- 
+19:35:43 > dato entrada    : 3451 -- cantidad   : 1 -- 
+19:35:43 > _publicidadVideosMasVistos
