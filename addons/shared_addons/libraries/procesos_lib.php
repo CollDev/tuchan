@@ -340,13 +340,13 @@ class Procesos_lib extends MX_Controller {
                             if ($imagenpadre == NULL) {
                                 $imagenpadre = $this->imagenes_mp->setImagenVideos($datos);
                                 //registra en las portadas
-                                $this->portadas_lib->actualizar_imagen($imagenpadre, TRUE);
+                                //$this->portadas_lib->actualizar_imagen($imagenpadre, TRUE);
                                 $this->portadas_lib->agregar_imagen_video_lista($id, $imagenpadre);
                                 Log::erroLog("id imagen padre: " . $datos["imagen_padre"]);
                             } else {
                                 $video_hijo_id = $this->imagenes_mp->setImagenVideos($datos);
                                 //registra en las portadas
-                                $this->portadas_lib->actualizar_imagen($video_hijo_id, TRUE);
+                                //$this->portadas_lib->actualizar_imagen($video_hijo_id, TRUE);
                                 $this->portadas_lib->agregar_imagen_video_lista($id, $video_hijo_id);
                             }
                         }
@@ -356,7 +356,7 @@ class Procesos_lib extends MX_Controller {
                 if ((!empty($value->ruta) || !empty($urlvideo) || !empty($duracion) ) && ($value->imag != 0 || !empty($datos["imagen"]))) {
                     $this->videos_mp->setEstadosVideos($value->id, 2, 6);
                     Log::erroLog(" antes de actualizar_video: " . $id);
-                    $this->portadas_lib->actualizar_video($value->id, FALSE);
+                    //$this->portadas_lib->actualizar_video($value->id, FALSE);
                     Log::erroLog("actualizar_video: " . $id);
                 }
             }

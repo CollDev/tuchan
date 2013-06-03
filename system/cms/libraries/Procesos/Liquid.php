@@ -450,6 +450,16 @@ class Liquid {
         }
         return $duration;
     }
+    
+    function getPublished($mediaarr = array()) {
+        
+            if(!empty($mediaarr["published"])){
+                                
+            }  else {
+                return false;    
+            }
+        
+    }
 
     function getVerificarLiquidPostUpload($media, $apiKey) {
         try {
