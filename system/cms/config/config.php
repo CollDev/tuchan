@@ -440,7 +440,15 @@ $config['migracion:output'] = '_RAW';
 $config['migracion:paginas'] = '10';
 $config['migracion:tag'] = 'search=tags:';
 $config['migracion:margen_error_imagen'] = '70';
+
 $config['fragmento'] = array(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15);
+
+$config['video_e:codificando'] = '0';
+$config['video_e:borrador'] = '1';
+$config['video_e:publicado'] = '2';
+$config['video_e:eliminado'] = '3';
+$config['video_e:error'] = '4'; 
+
 
 
 /* DEV */ 

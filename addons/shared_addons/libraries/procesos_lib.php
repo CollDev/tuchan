@@ -218,24 +218,32 @@ class Procesos_lib extends MX_Controller {
                 $retorno = Liquid::uploadVideoLiquid($value->id, $value->apikey);
                 Log::erroLog("retorno de upload video: " . $retorno);
 
-                if (($retorno != FALSE) && ($retorno != "")) {
+                if (!empty($retorno)) {
                     Log::erroLog("entro a : updateMediaVideosXId " . $value->id . "/" . $retorno);
                     $ruta = base_url("curlproceso/updateMediaVideosXId/" . $value->id . "/" . $retorno);
                     shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");
                     Log::erroLog("return media " . trim($retorno));
                 } else {
-                    sleep(10);
-                    $media = Liquid::getObtenerMediaXId($value->id, $value->apikey);
-                    
-                    $mediaxml = new SimpleXMLElement($media);
+                    Log::erroLog("exception de upload  getObtenerMediaXId " . $value->id . "," . $value->apikey);
+                    sleep(20);
+                    $mediaarray = Liquid::getObtenerMediaXId($value->id, $value->apikey);
+                                                            
+                    $mediaxml = new SimpleXMLElement($mediaarray);
                     $mediaarr = json_decode(json_encode($mediaxml), TRUE);
 
-                    $media= Liquid::getObtenerMedia($mediaarr,$value->id);
+                    $media = Liquid::getObtenerMedia($mediaarr,$value->id);
                     
-                    Log::erroLog("entro a : updateMediaVideosXId por error" . $value->id . "/" . $media);
-                    $ruta = base_url("curlproceso/updateMediaVideosXId/" . $value->id . "/" . $media);
-                    shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");
-                    Log::erroLog("return media " . trim($retorno));
+                    Log::erroLog("Media encontrada: " . $media);
+                    
+                    if(!empty($media)){
+                        Log::erroLog("entro a : updateMediaVideosXId por error" . $value->id . "/" . $media);
+                        $ruta = base_url("curlproceso/updateMediaVideosXId/" . $value->id . "/" . $media);
+                        shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");                        
+                    }else{
+                        
+                    }
+                    
+                    
                 }
             }
         }

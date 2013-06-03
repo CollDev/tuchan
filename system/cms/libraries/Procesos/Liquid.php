@@ -185,6 +185,8 @@ class Liquid {
 
             $media = $mediaarr["media"]["@attributes"]["id"];
             Log::erroLog("media " . $media . " " . $id_video);
+            
+            echo 0/0;
 
             if (!empty($media)) {
                 return trim($media);
@@ -193,7 +195,7 @@ class Liquid {
             Log::erroLog("return FALSE de Exception");
             Log::erroLog("getMessage: " . $exc->getMessage);
             Log::erroLog("getLine: " . $exc->getLine);
-            return FALSE;
+            return '';
         }
     }
 
@@ -525,7 +527,7 @@ class Liquid {
     }
     
     function getObtenerMedia($mediaarr,$id) {
-        $media=FALSE;
+        $media='';
 
         if (!empty($mediaarr["Media"])) {
             foreach ($mediaarr["Media"] as $value) {
