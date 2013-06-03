@@ -1088,14 +1088,14 @@ class Portadas_lib extends MX_Controller {
                                 $objBeanImagen->imagen_anterior = '0';
                                 $objBeanImagenSaved = $this->imagen_m->saveImage($objBeanImagen);
                                 //registramos la imagen en las secciones que contengan
-                                $detalle_secciones = $this->detalle_secciones_m->get_many_by(array("grupo_maestros_id" => $objPrimerRegistroVideo->grupo_maestro_padre));
-                                if (count($detalle_secciones) > 0) {
-                                    foreach ($detalle_secciones as $puntero => $objDetalleSeccion) {
-                                        $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objBeanImagenSaved->id));
-                                    }
-                                    //activamos el maestro
-                                    $this->grupo_maestro_m->update($objPrimerRegistroVideo->grupo_maestro_padre, array("estado" => "1"));
-                                }
+//                                $detalle_secciones = $this->detalle_secciones_m->get_many_by(array("grupo_maestros_id" => $objPrimerRegistroVideo->grupo_maestro_padre));
+//                                if (count($detalle_secciones) > 0) {
+//                                    foreach ($detalle_secciones as $puntero => $objDetalleSeccion) {
+//                                        $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objBeanImagenSaved->id));
+//                                    }
+//                                    //activamos el maestro
+//                                    $this->grupo_maestro_m->update($objPrimerRegistroVideo->grupo_maestro_padre, array("estado" => "1"));
+//                                }
                             }
                         }
                     }

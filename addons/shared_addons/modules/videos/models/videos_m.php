@@ -222,14 +222,14 @@ class Videos_m extends MY_Model {
             'estado_migracion_sphinx' => $objBeanVideo->estado_migracion_sphinx
         ));
         //disaramos un proceso de la libreria portadas para actualizar estados de maestros en las portadas y secciones
-        $this->portadas_lib->actualizar_video($objBeanVideo->id);
+        //$this->portadas_lib->actualizar_video($objBeanVideo->id);
         return $objBeanVideo;
     }
 
     public function update($id, $array) {
         parent::update($id, $array);
         //disaramos un proceso de la libreria portadas para actualizar estados de maestros en las portadas y secciones
-        $this->portadas_lib->actualizar_video($id);
+        //$this->portadas_lib->actualizar_video($id);
     }
 
     public function existVideo($title, $canal_id, $video_id, $video_update = 0, $type = 0) {
