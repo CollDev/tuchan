@@ -987,3 +987,13 @@ ERROR - 2013-06-03 14:40:54 --> Severity: Notice  --> Undefined property: stdCla
 ERROR - 2013-06-03 22:23:24 --> Severity: Warning  --> Division by zero /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 189
 ERROR - 2013-06-03 22:23:36 --> Severity: Warning  --> Division by zero /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 189
 ERROR - 2013-06-03 22:29:05 --> Severity: Warning  --> Division by zero /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 189
+ERROR - 2013-06-03 22:33:07 --> Severity: Warning  --> mysqli_connect(): (HY000/2003): Can't connect to MySQL server on '10.203.31.139' (110) /home/user/Escritorio/adminmicanal/system/codeigniter/database/drivers/mysqli/mysqli_driver.php 75
+ERROR - 2013-06-03 22:33:07 --> Unable to connect to the database
+ERROR - 2013-06-03 22:33:13 --> Severity: Warning  --> mysqli_connect(): (HY000/2003): Can't connect to MySQL server on '10.203.31.139' (110) /home/user/Escritorio/adminmicanal/system/codeigniter/database/drivers/mysqli/mysqli_driver.php 75
+ERROR - 2013-06-03 22:33:13 --> Unable to connect to the database
+ERROR - 2013-06-03 22:45:18 --> Severity: Warning  --> curl_errno(): 71 is not a valid cURL handle resource /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 572
+ERROR - 2013-06-03 22:45:32 --> Severity: Warning  --> curl_errno(): 76 is not a valid cURL handle resource /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 572
+ERROR - 2013-06-03 22:45:46 --> Severity: Warning  --> curl_errno(): 81 is not a valid cURL handle resource /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 572
+ERROR - 2013-06-03 22:45:46 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 542
+ERROR - 2013-06-03 22:45:46 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 542
+ERROR - 2013-06-03 22:45:46 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 542

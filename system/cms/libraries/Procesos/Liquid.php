@@ -187,7 +187,7 @@ class Liquid {
             Log::erroLog("media " . $media . " " . $id_video);                       
 
             if (!empty($media)) {
-                return trim($media);
+                return trim($media);                
             }
         } catch (Exception $exc) {
             Log::erroLog("return FALSE de Exception");

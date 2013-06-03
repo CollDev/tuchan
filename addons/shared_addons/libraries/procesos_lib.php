@@ -165,23 +165,26 @@ class Procesos_lib extends MX_Controller {
         Log::erroLog($video[0]->estado_liquid . " " . $id);
         Log::erroLog("estado_liquid " . $id . " " . $video[0]->estado_liquid);
 
-        if (empty($video[0]->codigo)) {
-            if ($video[0]->estado_liquid == 2) {
-                Log::erroLog("el video no se cargo me voy a  curlUploadVideosXId " . $id);
-                $this->curlUploadVideosXId($id);
-            } elseif ($video[0]->estado_liquid == 3 || $video[0]->estado_liquid == 4) {
-                Log::erroLog("no hay datos me voy a curlVerificaVideosLiquidXId " . $id);
-                $this->curlVerificaVideosLiquidXId($id);
-            }
-        } else {
-            Log::erroLog("si hay datos me voy a getVerificarLiquidPostUpload");
-            if (Liquid::getVerificarLiquidPostUpload($video[0]->codigo, $video[0]->apikey)) {
-                Log::erroLog("al fin algo continuo el publishd " . $id);
-                $this->continuaProcesoVideos($id);
+        if ($this->config->item('video_e:error') != $video[0]->estado) {
+
+            if (empty($video[0]->codigo)) {
+                if ($video[0]->estado_liquid == 2) {
+                    Log::erroLog("el video no se cargo me voy a  curlUploadVideosXId " . $id);
+                    $this->curlUploadVideosXId($id);
+                } elseif ($video[0]->estado_liquid == 3 || $video[0]->estado_liquid == 4) {
+                    Log::erroLog("no hay datos me voy a curlVerificaVideosLiquidXId " . $id);
+                    $this->curlVerificaVideosLiquidXId($id);
+                }
             } else {
-                sleep(30);
-                Log::erroLog("aun sin nada me curlVerificaVideosLiquidXId " . $id);
-                $this->curlVerificaVideosLiquidXId($id);
+                Log::erroLog("si hay datos me voy a getVerificarLiquidPostUpload");
+                if (Liquid::getVerificarLiquidPostUpload($video[0]->codigo, $video[0]->apikey)) {
+                    Log::erroLog("al fin algo continuo el publishd " . $id);
+                    $this->continuaProcesoVideos($id);
+                } else {
+                    sleep(30);
+                    Log::erroLog("aun sin nada me curlVerificaVideosLiquidXId " . $id);
+                    $this->curlVerificaVideosLiquidXId($id);
+                }
             }
         }
     }
@@ -240,7 +243,7 @@ class Procesos_lib extends MX_Controller {
                         $ruta = base_url("curlproceso/updateMediaVideosXId/" . $value->id . "/" . $media);
                         shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");                        
                     }else{
-                        
+                       $this->videos_mp->setEstadosVideos($value->id, $this->config->item('video_e:error'), 3);
                     }
                     
                     
@@ -1471,8 +1474,7 @@ class Procesos_lib extends MX_Controller {
                         $this->canal_mp->setItemCollectionUpdate($objmongo, array('_id' => $id_mongo));
                         $this->canal_mp->updateEstadoMigracionCanalesActualizacion($value->id);
                     }
-
-
+                    
                     unset($objmongo);
                 } elseif ($value->estado == 0 || $value->estado == 2) {
                     $id_mongo = new MongoId($value->id_mongo);
