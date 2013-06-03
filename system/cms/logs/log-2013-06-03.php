@@ -984,3 +984,6 @@ ERROR - 2013-06-03 14:40:52 --> Severity: Notice  --> Constant UPLOAD_VIDEOS alr
 ERROR - 2013-06-03 14:40:54 --> Severity: Notice  --> Constant UPLOAD_IMAGENES_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 2
 ERROR - 2013-06-03 14:40:54 --> Severity: Notice  --> Constant UPLOAD_VIDEOS already defined /home/user/Escritorio/adminmicanal/addons/shared_addons/modules/videos/config/uploads.php 3
 ERROR - 2013-06-03 14:40:54 --> Severity: Notice  --> Undefined property: stdClass::$tipo_secciones_id /home/user/Escritorio/adminmicanal/addons/shared_addons/libraries/portadas_lib.php 233
+ERROR - 2013-06-03 22:23:24 --> Severity: Warning  --> Division by zero /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 189
+ERROR - 2013-06-03 22:23:36 --> Severity: Warning  --> Division by zero /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 189
+ERROR - 2013-06-03 22:29:05 --> Severity: Warning  --> Division by zero /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 189

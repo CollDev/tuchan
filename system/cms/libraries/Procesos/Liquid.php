@@ -184,7 +184,7 @@ class Liquid {
             $mediaarr = json_decode(json_encode($mediaxml), true);
 
             $media = $mediaarr["media"]["@attributes"]["id"];
-            Log::erroLog("media " . $media . " " . $id_video);           
+            Log::erroLog("media " . $media . " " . $id_video);                       
 
             if (!empty($media)) {
                 return trim($media);
