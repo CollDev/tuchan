@@ -451,14 +451,12 @@ class Liquid {
         return $duration;
     }
     
-    function getPublished($mediaarr = array()) {
-        
+    function getPublished($mediaarr = array()) {       
             if(!empty($mediaarr["published"])){
-                                
+                return (strtoupper($mediaarr["published"])=='TRUE')?TRUE:FALSE;    
             }  else {
-                return false;    
-            }
-        
+                return NULL;    
+            }        
     }
 
     function getVerificarLiquidPostUpload($media, $apiKey) {

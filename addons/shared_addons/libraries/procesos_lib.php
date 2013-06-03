@@ -270,16 +270,12 @@ class Procesos_lib extends MX_Controller {
                 //var_dump($retorno);
                 if ($retorno != FALSE) {
                     $this->videos_mp->setEstadosVideos($value->id, 1, 5);
-                } else {
-                    
                 }
             }
         }
     }
 
     protected function _obtenerImagesUrlVideosXId($id) {
-
-
         Log::erroLog("entro a _obtenerImagesUrlVideosXId:  " . $id);
 
         $resultado = $this->videos_mp->getVideosObtenerDatosXId($id);
@@ -314,6 +310,23 @@ class Procesos_lib extends MX_Controller {
                         $this->videos_mp->setRutaVideosSplitter($value->id, $urlvideo);
                     }
                 }
+                
+                $boolpublished =Liquid::getPublished($mediaarr);
+                
+                if ($boolpublished) {
+                    Log::erroLog("Liquid retorna publicado para el video " . $id);
+                } elseif (!$boolpublished) {
+                    Log::erroLog("Liquid retorna no publicado para el video " . $id);
+                    $resultado = $this->videos_mp->getVideosNoPublicadosXId($id);
+                    if (count($resultado) > 0) {
+                        foreach ($resultado as $value) {
+                            Liquid::updatePublishedMediaNode($value);
+                        }
+                    }
+                } elseif ($boolpublished == NULL) {
+                    Log::erroLog("Liquid no retorna published para el video " . $id);
+                }
+                
 
 
                 if ($value->imag == 0) {
