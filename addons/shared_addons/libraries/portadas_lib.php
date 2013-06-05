@@ -230,7 +230,7 @@ class Portadas_lib extends MX_Controller {
                             $objPortadaFiltro = $this->portada_m->get($oSeccionFiltro->portadas_id);
                             if ($oSeccionFiltro->tipo_secciones_id == $this->config->item('seccion:coleccion') || $oSeccionFiltro->tipo_secciones_id == $this->config->item('seccion:video') || $oSeccionFiltro->tipo_secciones_id == $this->config->item('seccion:lista')) {
                                 if ($objPortadaFiltro->tipo_portadas_id == $this->config->item('portada:programa')) {
-                                    if ($objPortadaFiltro->tipo_secciones_id == $this->config->item('seccion:coleccion')) {
+                                    if ($oSeccionFiltro->tipo_secciones_id->tipo_secciones_id == $this->config->item('seccion:coleccion')) {
                                         $objSeccion = $this->secciones_m->get($seccion_id);
                                         array_push($arrayIdPortada, $objSeccion->portadas_id);
                                         if (count($objSeccion) > 0) {
