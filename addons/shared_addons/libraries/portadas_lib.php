@@ -230,7 +230,7 @@ class Portadas_lib extends MX_Controller {
                             $objPortadaFiltro = $this->portada_m->get($oSeccionFiltro->portadas_id);
                             if ($oSeccionFiltro->tipo_secciones_id == $this->config->item('seccion:coleccion') || $oSeccionFiltro->tipo_secciones_id == $this->config->item('seccion:video') || $oSeccionFiltro->tipo_secciones_id == $this->config->item('seccion:lista')) {
                                 if ($objPortadaFiltro->tipo_portadas_id == $this->config->item('portada:programa')) {
-                                    if ($objPortadaFiltro->tipo_secciones_id == $this->config->item('seccion:coleccion')) {
+                                    if ($oSeccionFiltro->tipo_secciones_id->tipo_secciones_id == $this->config->item('seccion:coleccion')) {
                                         $objSeccion = $this->secciones_m->get($seccion_id);
                                         array_push($arrayIdPortada, $objSeccion->portadas_id);
                                         if (count($objSeccion) > 0) {
@@ -1088,14 +1088,14 @@ class Portadas_lib extends MX_Controller {
                                 $objBeanImagen->imagen_anterior = '0';
                                 $objBeanImagenSaved = $this->imagen_m->saveImage($objBeanImagen);
                                 //registramos la imagen en las secciones que contengan
-                                $detalle_secciones = $this->detalle_secciones_m->get_many_by(array("grupo_maestros_id" => $objPrimerRegistroVideo->grupo_maestro_padre));
-                                if (count($detalle_secciones) > 0) {
-                                    foreach ($detalle_secciones as $puntero => $objDetalleSeccion) {
-                                        $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objBeanImagenSaved->id));
-                                    }
-                                    //activamos el maestro
-                                    $this->grupo_maestro_m->update($objPrimerRegistroVideo->grupo_maestro_padre, array("estado" => "1"));
-                                }
+//                                $detalle_secciones = $this->detalle_secciones_m->get_many_by(array("grupo_maestros_id" => $objPrimerRegistroVideo->grupo_maestro_padre));
+//                                if (count($detalle_secciones) > 0) {
+//                                    foreach ($detalle_secciones as $puntero => $objDetalleSeccion) {
+//                                        $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objBeanImagenSaved->id));
+//                                    }
+//                                    //activamos el maestro
+//                                    $this->grupo_maestro_m->update($objPrimerRegistroVideo->grupo_maestro_padre, array("estado" => "1"));
+//                                }
                             }
                         }
                     }
