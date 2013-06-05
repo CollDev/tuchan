@@ -997,3 +997,5 @@ ERROR - 2013-06-03 22:45:46 --> Severity: Warning  --> curl_errno(): 81 is not a
 ERROR - 2013-06-03 22:45:46 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 542
 ERROR - 2013-06-03 22:45:46 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 542
 ERROR - 2013-06-03 22:45:46 --> Severity: Warning  --> Invalid argument supplied for foreach() /home/user/Escritorio/adminmicanal/system/cms/libraries/Procesos/Liquid.php 542
+ERROR - 2013-06-03 23:48:57 --> Severity: Warning  --> mysqli_connect(): (HY000/2003): Can't connect to MySQL server on '10.203.31.139' (110) /home/user/Escritorio/adminmicanal/system/codeigniter/database/drivers/mysqli/mysqli_driver.php 75
+ERROR - 2013-06-03 23:48:57 --> Unable to connect to the database

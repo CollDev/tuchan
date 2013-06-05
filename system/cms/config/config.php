@@ -449,10 +449,18 @@ $config['video_e:publicado'] = '2';
 $config['video_e:eliminado'] = '3';
 $config['video_e:error'] = '4'; 
 
+    //$config['video_l:codificando'] = '0';
+    //$config['video_l:borrador'] = '1';
+    //$config['video_l:publicado'] = '2';
+    //$config['video_l:eliminado'] = '3';
+    //$config['video_l:error'] = '4'; 
 
+
+/* local */ 
+$config['motor'] = 'http://ci.micanal.deve';
 
 /* DEV */ 
-$config['motor'] = 'http://dev.micanal.pe';
+//$config['motor'] = 'http://dev.micanal.pe';
 
 /* PRE */ 
 //$config['motor'] = 'http://pre.micanal.pe';
