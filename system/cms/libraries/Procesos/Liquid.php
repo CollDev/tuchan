@@ -369,7 +369,7 @@ class Liquid {
                             $urlimg = $value2["url"] . "\n";
                             break 2;
                         }
-                    }
+                    }   
                 }
             }
         }
@@ -418,7 +418,7 @@ class Liquid {
         $mediaxml = new SimpleXMLElement($response);
         $mediaarr = json_decode(json_encode($mediaxml), TRUE);
 
-        return $this->getUrlVideoLiquidRawLite($mediarr);
+        return $this->getUrlVideoLiquidRawLite($mediaarr);
     }
 
     function getDurationLiquid($mediaarr = array()) {
@@ -532,7 +532,7 @@ class Liquid {
 
                 if (isset($value["id"])) {
 
-                    if ($value["title"]===$id) {                        
+                    if ($value["title"]==$id) {                        
                         $media = $value["id"];
                         break;
                     }
@@ -540,8 +540,8 @@ class Liquid {
 
                     foreach ($value as $value2) {
 
-                        if ($value["title"]===$id) {                            
-                            $media = $value["id"];
+                        if ($value2["title"]==$id) {                            
+                            $media = $value2["id"];
                             break 2;
                         }
                     }
