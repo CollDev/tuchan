@@ -1670,7 +1670,7 @@ class Procesos_lib extends MX_Controller {
 
             $tags = $this->video_tags_mp->getTagsVideosXId($id);
             
-            Log::erroLog("relacionados tags: " . $tags[0]->tags);
+            Log::erroLog("relacionados tags: " . str_replace(" ","-",$tags[0]->tags));
 
             $url = $this->config->item('motor') . "/sphinx/relacionados/nada/" . str_replace(" ","-",$tags[0]->tags);
 
