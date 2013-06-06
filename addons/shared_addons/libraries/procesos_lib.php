@@ -165,13 +165,13 @@ class Procesos_lib extends MX_Controller {
         Log::erroLog($video[0]->estado_liquid . " " . $id);
         Log::erroLog("estado_liquid " . $id . " " . $video[0]->estado_liquid);
 
-        if ($this->config->item('video_e:error') != $video[0]->estado) {
+        if ($this->config->item('v_e:error') != $video[0]->estado) {
 
             if (empty($video[0]->codigo)) {
-                if ($video[0]->estado_liquid == 2) {
+                if ($video[0]->estado_liquid == $this->config->item('v_l:codificado')) {
                     Log::erroLog("el video no se cargo me voy a  curlUploadVideosXId " . $id);
                     $this->curlUploadVideosXId($id);
-                } elseif ($video[0]->estado_liquid == 3 || $video[0]->estado_liquid == 4) {
+                } elseif ($video[0]->estado_liquid == $this->config->item('v_l:subiendo') || $video[0]->estado_liquid == $this->config->item('v_l:subido')) {
                     Log::erroLog("no hay datos me voy a curlVerificaVideosLiquidXId " . $id);
                     $this->curlVerificaVideosLiquidXId($id);
                 }
@@ -198,11 +198,11 @@ class Procesos_lib extends MX_Controller {
     protected function _convertirVideosXId($id) {
 
         if (!empty($id)) {
-            $this->videos_mp->setEstadosVideos($id, 0, 1);
+            $this->videos_mp->setEstadosVideos($id,$this->config->item('v_e:codificando'), $id,$this->config->item('v_l:codificando'));
             if (Ffmpeg::convertVideotoMp4($id)) {
-                $this->videos_mp->setEstadosVideos($id, 0, 2);
+                $this->videos_mp->setEstadosVideos($id, $this->config->item('v_e:codificando'), $this->config->item('v_l:codificado'));
             } else {
-                $this->videos_mp->setEstadosVideos($id, 0, -1);
+                $this->videos_mp->setEstadosVideos($id, $this->config->item('v_e:codificando'), -1);
             }
         }
     }
@@ -215,7 +215,7 @@ class Procesos_lib extends MX_Controller {
         if (count($resultado) > 0) {
             foreach ($resultado as $value) {
 
-                $this->videos_mp->setEstadosVideos($value->id, 0, 3);
+                $this->videos_mp->setEstadosVideos($value->id, $this->config->item('v_e:codificando'), $this->config->item('v_l:subiendo'));
                 $this->curlVerificaVideosLiquidXId($id);
                 $retorno = Liquid::uploadVideoLiquid($value->id, $value->apikey);
                 Log::erroLog("retorno de upload video: " . $retorno);
@@ -242,17 +242,13 @@ class Procesos_lib extends MX_Controller {
                         $ruta = base_url("curlproceso/updateMediaVideosXId/" . $value->id . "/" . $media);
                         shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");                        
                     }else{
-                       $this->videos_mp->setEstadosVideos($value->id, $this->config->item('video_e:error'), 3);
+                       $this->videos_mp->setEstadosVideos($value->id, $this->config->item('v_e:error'), $this->config->item('v_l:subiendo'));
                     }
                     
                     
                 }
             }
         }
-    }
-
-    public function buscarMediaMongoXId($id) {
-        
     }
 
     public function updateMediaVideosXId($id, $media) {
@@ -262,7 +258,7 @@ class Procesos_lib extends MX_Controller {
     protected function _updateMediaVideosXId($id, $media) {
         if ($media != FALSE) {
             Log::erroLog("es diferente de FALSE media: " . $media);
-            $this->videos_mp->setEstadosVideos($id, 0, 4);
+            $this->videos_mp->setEstadosVideos($id, $this->config->item('v_e:codificando'), $this->config->item('v_l:subido'));
             $this->videos_mp->setMediaVideos($id, $media);
         } else {
             Log::erroLog("es FALSE retorno: " . $media);
@@ -279,7 +275,7 @@ class Procesos_lib extends MX_Controller {
                 $retorno = Liquid::updatePublishedMediaNode($value);
                 //var_dump($retorno);
                 if ($retorno != FALSE) {
-                    $this->videos_mp->setEstadosVideos($value->id, 1, 5);
+                    $this->videos_mp->setEstadosVideos($value->id,$this->config->item('v_e:borrador'),$this->config->item('v_l:activo'));
                 }
             }
         }
@@ -377,7 +373,7 @@ class Procesos_lib extends MX_Controller {
                 }
 
                 if ((!empty($value->ruta) || !empty($urlvideo) || !empty($duracion) ) && ($value->imag != 0 || !empty($datos["imagen"]))) {
-                    $this->videos_mp->setEstadosVideos($value->id, 2, 6);
+                    $this->videos_mp->setEstadosVideos($value->id,$this->config->item('v_e:publicado'), $this->config->item('v_l:publicado'));
                     Log::erroLog(" antes de actualizar_video: " . $id);
                     //$this->portadas_lib->actualizar_video($value->id, FALSE);
                     Log::erroLog("actualizar_video: " . $id);
