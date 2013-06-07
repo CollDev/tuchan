@@ -237,15 +237,13 @@ class Procesos_lib extends MX_Controller {
                     
                     Log::erroLog("Media encontrada: " . $media);
                     
-                    if(!empty($media)){
+                    if(!empty($media)){ 
                         Log::erroLog("entro a : updateMediaVideosXId por error" . $value->id . "/" . $media);
                         $ruta = base_url("curlproceso/updateMediaVideosXId/" . $value->id . "/" . $media);
                         shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");                        
                     }else{
                        $this->videos_mp->setEstadosVideos($value->id, $this->config->item('v_e:error'), $this->config->item('v_l:subiendo'));
-                    }
-                    
-                    
+                    }                                       
                 }
             }
         }

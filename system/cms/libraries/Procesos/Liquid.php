@@ -506,7 +506,7 @@ class Liquid {
         GETCURL:
 
 
-        if ($contador == 10) {
+        if ($contador == 50) {
             return false;
         }
 
