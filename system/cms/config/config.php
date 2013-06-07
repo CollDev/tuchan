@@ -397,19 +397,19 @@ $config['modules_locations'] = array(
             $config['protocolo:http'] = 'http:\/\/';
 
 //servidor elemento
-/*
+            
 $config['server:elemento'] = 'dev.e.micanal.e3.pe';
-$config['url:elemento'] = 'http://pre.e3.pe/index.php/api/v1';
+$config['url:elemento'] = 'http://dev.e3.pe/index.php/api/v1';
 $config['apikey:elemento'] = '590ee43e919b1f4baa2125a424f03cd160ff8901';
 $config['mensaje:elemento'] = 'cms.micanal.pe';
-*/
 
 //servidor pre
+/*
 $config['server:elemento'] = 'pre.e.micanal.e3.pe';
 $config['url:elemento'] = 'http://pre.e3.pe/index.php/api/v1';
 $config['apikey:elemento'] = '590ee43e919b1f4baa2125a424f03cd160ff8901';
 $config['mensaje:elemento'] = 'cms.micanal.pe';
-
+*/
 
 //servidor pro
 /*
@@ -425,14 +425,12 @@ $config['path:imagen'] = FCPATH.'uploads/imagenes/';
 $config['path:temp'] = FCPATH.'uploads/temp/';
 $config['path:log'] = FCPATH.'uploads/log/';
 
-
 //url de imagenes predefinidas
 $config['url:default_imagen'] = BASE_URL.'uploads/imagenes/';
 $config['url:temp'] = BASE_URL.'uploads/temp/';
 $config['url:logo'] = BASE_URL.'system/cms/themes/pyrocms/img/image_no_found.png';
 $config['url:iso'] = BASE_URL.'system/cms/themes/pyrocms/img/icon_tv4.png';
 $config['url:portada'] = BASE_URL.'system/cms/themes/pyrocms/img/imagen_portada_default.jpg';
-
 
 //variables de la migracion de canales
 //$config['migracion:url'] = 'http://fast.api.liquidplatform.com/2.0/medias/?search=tags:LIFWeek&key=';
@@ -442,17 +440,32 @@ $config['migracion:output'] = '_RAW';
 $config['migracion:paginas'] = '10';
 $config['migracion:tag'] = 'search=tags:';
 $config['migracion:margen_error_imagen'] = '70';
+
 $config['fragmento'] = array(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15);
 
+$config['v_e:codificando'] = '0';
+$config['v_e:borrador'] = '1';
+$config['v_e:publicado'] = '2';
+$config['v_e:eliminado'] = '3';
+$config['v_e:error'] = '4'; 
+
+$config['v_l:nuevo'] = '0';
+$config['v_l:codificando'] = '1';
+$config['v_l:codificado'] = '2';
+$config['v_l:subiendo'] = '3';
+$config['v_l:subido'] = '4'; 
+$config['v_l:activo'] = '5'; 
+$config['v_l:publicado'] = '6'; 
 
 
+/* local */ 
+//$config['motor'] = 'http://ci.micanal.deve';
 
 /* DEV */ 
-//$config['motor'] = 'http://dev.micanal.pe';
-
+$config['motor'] = 'http://dev.micanal.pe';
 
 /* PRE */ 
-$config['motor'] = 'http://pre.micanal.pe';
+//$config['motor'] = 'http://pre.micanal.pe';
 
 
 

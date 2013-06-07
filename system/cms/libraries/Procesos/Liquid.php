@@ -184,16 +184,16 @@ class Liquid {
             $mediaarr = json_decode(json_encode($mediaxml), true);
 
             $media = $mediaarr["media"]["@attributes"]["id"];
-            Log::erroLog("media " . $media . " " . $id_video);
+            Log::erroLog("media " . $media . " " . $id_video);                       
 
             if (!empty($media)) {
-                return trim($media);
+                return trim($media);                 
             }
         } catch (Exception $exc) {
             Log::erroLog("return FALSE de Exception");
             Log::erroLog("getMessage: " . $exc->getMessage);
             Log::erroLog("getLine: " . $exc->getLine);
-            return FALSE;
+            return '';
         }
     }
 
@@ -369,7 +369,7 @@ class Liquid {
                             $urlimg = $value2["url"] . "\n";
                             break 2;
                         }
-                    }
+                    }   
                 }
             }
         }
@@ -418,7 +418,7 @@ class Liquid {
         $mediaxml = new SimpleXMLElement($response);
         $mediaarr = json_decode(json_encode($mediaxml), TRUE);
 
-        return $this->getUrlVideoLiquidRawLite($mediarr);
+        return $this->getUrlVideoLiquidRawLite($mediaarr);
     }
 
     function getDurationLiquid($mediaarr = array()) {
@@ -449,6 +449,14 @@ class Liquid {
             }
         }
         return $duration;
+    }
+    
+    function getPublished($mediaarr = array()) {       
+            if(!empty($mediaarr["published"])){
+                return (strtoupper($mediaarr["published"])=='TRUE')?TRUE:FALSE;    
+            }  else {
+                return NULL;    
+            }        
     }
 
     function getVerificarLiquidPostUpload($media, $apiKey) {
@@ -498,7 +506,7 @@ class Liquid {
         GETCURL:
 
 
-        if ($contador == 10) {
+        if ($contador == 50) {
             return false;
         }
 
@@ -517,14 +525,14 @@ class Liquid {
     }
     
     function getObtenerMedia($mediaarr,$id) {
-        $media=FALSE;
+        $media='';
 
         if (!empty($mediaarr["Media"])) {
             foreach ($mediaarr["Media"] as $value) {
 
                 if (isset($value["id"])) {
 
-                    if ($value["title"]===$id) {                        
+                    if ($value["title"]==$id) {                        
                         $media = $value["id"];
                         break;
                     }
@@ -532,8 +540,8 @@ class Liquid {
 
                     foreach ($value as $value2) {
 
-                        if ($value["title"]===$id) {                            
-                            $media = $value["id"];
+                        if ($value2["title"]==$id) {                            
+                            $media = $value2["id"];
                             break 2;
                         }
                     }
