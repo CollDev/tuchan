@@ -161,7 +161,7 @@ class Procesos_lib extends MX_Controller {
 
         $video = $this->videos_mp->getVideosxIdConKey($id);
 
-        Log::erroLog($video[0]->codigo . " " . $id);
+            Log::erroLog($video[0]->codigo . " " . $id);
         Log::erroLog($video[0]->estado_liquid . " " . $id);
         Log::erroLog("estado_liquid " . $id . " " . $video[0]->estado_liquid);
 
