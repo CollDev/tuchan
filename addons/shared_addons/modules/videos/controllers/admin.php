@@ -1046,7 +1046,7 @@ class Admin extends Admin_Controller {
                 foreach ($returnArray as $in => $objImg) {
                     $arrayImg['text'] = '';
                     $arrayImg['value'] = $objImg->id;
-                    if ($objImg->estado == "0") {
+                    if ($objImg->estado == $this->config->item('estado:borrador')) {
                         $arrayImg['selected'] = false;
                     } else {
                         if ($objImg->estado == "1") {
@@ -1098,7 +1098,7 @@ class Admin extends Admin_Controller {
                 foreach ($returnArray as $in => $objImg) {
                     $arrayImg['text'] = '';
                     $arrayImg['value'] = $objImg->id;
-                    if ($objImg->estado == "0") {
+                    if ($objImg->estado == $this->config->item('estado:borrador')) {
                         $arrayImg['selected'] = false;
                     } else {
 
@@ -4616,7 +4616,7 @@ class Admin extends Admin_Controller {
 
     public function quitar_grupo_maestro() {
         if ($this->input->is_ajax_request()) {
-            $this->grupo_detalle_m->update($this->input->post('grupo_detalle_id'), array("estado" => "0", "estado_migracion" => $this->config->item('migracion:actualizado')));
+            $this->grupo_detalle_m->update($this->input->post('grupo_detalle_id'), array("estado" => $this->config->item('estado:borrador'), "estado_migracion" => $this->config->item('migracion:actualizado')));
             //echo json_encode(array("value" => "1"));
             //lista tipo de maestros
             $items = $this->itemsMaestros($this->input->post('parent_maestro'));
