@@ -3558,7 +3558,8 @@ class Admin extends Admin_Controller {
         $objBeanPortada->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
         $objBeanPortadaSaved = $this->portada_m->save($objBeanPortada);
         //listamos los tipos de secciones predefinidas para crearlas
-        $arraySecciones = $this->tipo_secciones_m->where_not_in('id', array($this->config->item('seccion:coleccion'), $this->config->item('seccion:lista'), $this->config->item('seccion:video')))->get_many_by(array());
+//        $arraySecciones = $this->tipo_secciones_m->where_not_in('id', array($this->config->item('seccion:coleccion'), $this->config->item('seccion:lista'), $this->config->item('seccion:video')))->get_many_by(array());
+        $arraySecciones = $this->tipo_secciones_m->get_many_by(array());
         if ($tipo_portada != $this->config->item('portada:canal')) {
             if (count($arraySecciones) > 0) {
                 foreach ($arraySecciones as $puntero => $oS) {
