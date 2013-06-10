@@ -174,7 +174,7 @@ class Sincronizar_lib extends MX_Controller {
         //preguntamos si ambos tienen imagen
         if (count($objImagenLista) > 0 && count($objImagen) > 0) {
             //activamos el maestro lista
-            $this->grupo_maestro_m->update($objVistaVideo->gm1, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+            $this->grupo_maestro_m->update($objVistaVideo->gm1, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado'), "estado_migracion_sphinx"=>$this->config->item('sphinx:actualizar')));
             //obtenemos la portada del canal
             $objPortadaCanal = $this->portada_m->get_by(array("origen_id" => $objVistaVideo->canales_id, "canales_id" => $objVistaVideo->canales_id, "tipo_portadas_id" => $this->config->item('portada:canal')));
             if (count($objPortadaCanal) > 0) {
@@ -233,7 +233,7 @@ class Sincronizar_lib extends MX_Controller {
         //no verificamos si el maestro coleccion tiene imagen, xq en la seccion coleccion irá el video
         if (count($objImagen) > 0) {
             //activamos el maestro coleccion apesar que no tiene imagen
-            $this->grupo_maestro_m->update($objVistaVideo->gm2, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+            $this->grupo_maestro_m->update($objVistaVideo->gm2, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado'), "estado_migracion_sphinx"=>$this->config->item('sphinx:actualizar')));
             //obtenemos la portada del canal
             $objPortadaCanal = $this->portada_m->get_by(array("origen_id" => $objVistaVideo->canales_id, "canales_id" => $objVistaVideo->canales_id, "tipo_portadas_id" => $this->config->item('portada:canal')));
             if (count($objPortadaCanal) > 0) {
@@ -369,7 +369,7 @@ class Sincronizar_lib extends MX_Controller {
                     }
                 }
                 //publicamos el maestro programa
-                $this->grupo_maestro_m->update($objVistaVideo->gm3, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                $this->grupo_maestro_m->update($objVistaVideo->gm3, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado'), "estado_migracion_sphinx"=>$this->config->item('sphinx:actualizar')));
                 //publicamos la portada del programa
                 $this->portada_m->update($objPortadaPrograma->id, array('estado' => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
                 //existe el programa en la sección programas de la portada del canal
@@ -512,9 +512,9 @@ class Sincronizar_lib extends MX_Controller {
                     }
                 }
                 //publicamos el maestro programa
-                $this->grupo_maestro_m->update($objVistaVideo->gm3, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                $this->grupo_maestro_m->update($objVistaVideo->gm3, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado'), "estado_migracion_sphinx"=>$this->config->item('sphinx:actualizar')));
                 //publicamos el maestro lista
-                $this->grupo_maestro_m->update($objVistaVideo->gm1, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                $this->grupo_maestro_m->update($objVistaVideo->gm1, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado'), "estado_migracion_sphinx"=>$this->config->item('sphinx:actualizar')));
                 //publicamos la portada del programa
                 $this->portada_m->update($objPortadaPrograma->id, array('estado' => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
                 //existe el programa en la sección programas de la portada del canal
@@ -654,9 +654,9 @@ class Sincronizar_lib extends MX_Controller {
                     }
                 }
                 //publicamos el maestro programa
-                $this->grupo_maestro_m->update($objVistaVideo->gm3, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                $this->grupo_maestro_m->update($objVistaVideo->gm3, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado'), "estado_migracion_sphinx"=>$this->config->item('sphinx:actualizar')));
                 //publicamos el maestro coleccion
-                $this->grupo_maestro_m->update($objVistaVideo->gm2, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                $this->grupo_maestro_m->update($objVistaVideo->gm2, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado'), "estado_migracion_sphinx"=>$this->config->item('sphinx:actualizar')));
                 //publicamos la portada del programa
                 $this->portada_m->update($objPortadaPrograma->id, array('estado' => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
                 //existe el programa en la sección programas de la portada del canal
@@ -796,11 +796,11 @@ class Sincronizar_lib extends MX_Controller {
                     }
                 }
                 //publicamos el maestro programa
-                $this->grupo_maestro_m->update($objVistaVideo->gm3, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                $this->grupo_maestro_m->update($objVistaVideo->gm3, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado'), "estado_migracion_sphinx"=>$this->config->item('sphinx:actualizar')));
                 //publicamos el maestro coleccion
-                $this->grupo_maestro_m->update($objVistaVideo->gm2, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                $this->grupo_maestro_m->update($objVistaVideo->gm2, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado'), "estado_migracion_sphinx"=>$this->config->item('sphinx:actualizar')));
                 //publicamos el maestro lista
-                $this->grupo_maestro_m->update($objVistaVideo->gm1, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                $this->grupo_maestro_m->update($objVistaVideo->gm1, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado'), "estado_migracion_sphinx"=>$this->config->item('sphinx:actualizar')));
                 //publicamos la portada del programa
                 $this->portada_m->update($objPortadaPrograma->id, array('estado' => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
                 //existe el programa en la sección programas de la portada del canal
@@ -862,8 +862,8 @@ class Sincronizar_lib extends MX_Controller {
         $objImagenLista = $this->imagen_m->get_by(array("grupo_maestros_id" => $objVistaVideo->gm1, "tipo_imagen_id" => $this->config->item('imagen:small'), "estado" => $this->config->item('estado:publicado')));
         if (count($objImagenLista) > 0) {
             //publicamos el maestro lista y el maestro coleccion
-            $this->grupo_maestro_m->update($objVistaVideo->gm1, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
-            $this->grupo_maestro_m->update($objVistaVideo->gm2, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+            $this->grupo_maestro_m->update($objVistaVideo->gm1, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado'), "estado_migracion_sphinx"=>$this->config->item('sphinx:actualizar')));
+            $this->grupo_maestro_m->update($objVistaVideo->gm2, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado'), "estado_migracion_sphinx"=>$this->config->item('sphinx:actualizar')));
             //obtenemos la portada del canal 
             $objPortadaCanal = $this->portada_m->get_by(array("canales_id" => $objVistaVideo->canales_id, "origen_id" => $objVistaVideo->canales_id, "tipo_portadas_id" => $this->config->item('portada:canal')));
             if (count($objPortadaCanal) > 0) {
