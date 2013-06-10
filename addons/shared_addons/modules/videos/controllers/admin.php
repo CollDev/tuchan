@@ -69,7 +69,7 @@ class Admin extends Admin_Controller {
         }
         rename($path_video_old, $path_video_new);
         //lanzamos la libreria para registrar el video en las portadas
-        $this->portadas_lib->agregar_video($objBeanVideo->id);
+        //$this->portadas_lib->agregar_video($objBeanVideo->id);
 
         $this->procesos_lib->curlProcesoVideosXId($objBeanVideo->id);
 
@@ -1274,7 +1274,7 @@ class Admin extends Admin_Controller {
                     }
                 }
                 //disparamos la funcion para registrar en las portadas y secciones
-                $this->portadas_lib->agregar_maestro($objBeanMaestroSaved->id);
+                //$this->portadas_lib->agregar_maestro($objBeanMaestroSaved->id);
                 //procesos de Christian
                 //$this->procesos_lib->generarGrupoMaestroXId($objBeanMaestroSaved->tipo_grupo_maestro_id, $objBeanMaestroSaved->id);
 
@@ -2460,8 +2460,8 @@ class Admin extends Admin_Controller {
 //                Proceso::corte_Video($datos);
 //                
                 //lanzamos la libreria para registrar el video en las portadas
-                Log::erroLog("admin antes  agregar_video");
-                $this->portadas_lib->agregar_video($objvideotemp->id);
+                //Log::erroLog("admin antes  agregar_video");
+                //$this->portadas_lib->agregar_video($objvideotemp->id);
                 Log::erroLog("admin antes  curlCorteVideoXId");
                 $this->procesos_lib->curlCorteVideoXId($video_id, $objvideotemp->id, $this->input->post('ini_corte'), $this->input->post('dur_corte'));
                 Log::erroLog("admin despues curlCorteVideoXId");
@@ -3519,7 +3519,7 @@ class Admin extends Admin_Controller {
                             }
                         }
                         //disparamos la funcion para registrar en las portadas y secciones
-                        $this->portadas_lib->agregar_maestro($objBeanMaestroSaved->id, $es_destacado);
+                        //$this->portadas_lib->agregar_maestro($objBeanMaestroSaved->id, $es_destacado);
 
                         $returnValue = 0;
                     } else {
@@ -3558,7 +3558,7 @@ class Admin extends Admin_Controller {
         $objBeanPortada->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
         $objBeanPortadaSaved = $this->portada_m->save($objBeanPortada);
         //listamos los tipos de secciones predefinidas para crearlas
-        $arraySecciones = $this->tipo_secciones_m->get_many_by(array());
+        $arraySecciones = $this->tipo_secciones_m->where_not_in('id', array($this->config->item('seccion:coleccion'), $this->config->item('seccion:lista'), $this->config->item('seccion:video')))->get_many_by(array());
         if ($tipo_portada != $this->config->item('portada:canal')) {
             if (count($arraySecciones) > 0) {
                 foreach ($arraySecciones as $puntero => $oS) {

@@ -88,7 +88,7 @@ class Imagen_m extends MY_Model {
     public function activarImagen($objBeanImagen) {
         parent::update($objBeanImagen->id, array('estado' => $objBeanImagen->estado));
         //actualizamos la imagen en la portada
-        $this->portadas_lib->actualizar_imagen($objBeanImagen->id);
+        //$this->portadas_lib->actualizar_imagen($objBeanImagen->id);
         return true;
     }
 
@@ -148,7 +148,7 @@ class Imagen_m extends MY_Model {
     public function update($id, $array) {
         parent::update($id, $array);
         //actualizamos la imagen en la portada
-        $this->portadas_lib->actualizar_imagen($id);
+        //$this->portadas_lib->actualizar_imagen($id);
     }
 
 }
