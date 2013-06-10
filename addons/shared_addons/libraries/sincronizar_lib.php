@@ -37,7 +37,7 @@ class Sincronizar_lib extends MX_Controller {
     private function publicar_video_canal($objVistaVideo, $ref) {
         //cargamos el config si el origen de llamada es diferente al cms
         if ($ref != 'cms') {
-            $this->config->load('videos/uploads');
+            //$this->config->load('videos/uploads');
             $user_id = 1; //usuario administrador
         } else {
             $user_id = (int) $this->session->userdata('user_id');
@@ -169,7 +169,7 @@ class Sincronizar_lib extends MX_Controller {
     private function publicar_lista_canal($objVistaVideo, $ref) {
         //cargamos el config si el origen de llamada es diferente al cms
         if ($ref != 'cms') {
-            $this->config->load('videos/uploads');
+            //$this->config->load('videos/uploads');
             $user_id = 1; //usuario administrador
         } else {
             $user_id = (int) $this->session->userdata('user_id');
@@ -232,7 +232,7 @@ class Sincronizar_lib extends MX_Controller {
     private function publicar_coleccion_canal($objVistaVideo, $ref) {
         //cargamos el config si el origen de llamada es diferente al cms
         if ($ref != 'cms') {
-            $this->config->load('videos/uploads');
+            //$this->config->load('videos/uploads');
             $user_id = 1; //usuario administrador
         } else {
             $user_id = (int) $this->session->userdata('user_id');
@@ -293,7 +293,7 @@ class Sincronizar_lib extends MX_Controller {
     private function publicar_programa_canal($objVistaVideo, $ref) {
         //cargamos el config si el origen de llamada es diferente al cms
         if ($ref != 'cms') {
-            $this->config->load('videos/uploads');
+            //$this->config->load('videos/uploads');
             $user_id = 1; //usuario administrador
         } else {
             $user_id = (int) $this->session->userdata('user_id');
@@ -436,7 +436,7 @@ class Sincronizar_lib extends MX_Controller {
     private function publicar_video_lista_programa_canal($objVistaVideo, $ref) {
         //cargamos el config si el origen de llamada es diferente al cms
         if ($ref != 'cms') {
-            $this->config->load('videos/uploads');
+            //$this->config->load('videos/uploads');
             $user_id = 1; //usuario administrador
         } else {
             $user_id = (int) $this->session->userdata('user_id');
@@ -582,7 +582,7 @@ class Sincronizar_lib extends MX_Controller {
     private function publicar_video_coleccion_programa_canal($objVistaVideo, $ref) {
         //cargamos el config si el origen de llamada es diferente al cms
         if ($ref != 'cms') {
-            $this->config->load('videos/uploads');
+            //$this->config->load('videos/uploads');
             $user_id = 1; //usuario administrador
         } else {
             $user_id = (int) $this->session->userdata('user_id');
@@ -726,7 +726,7 @@ class Sincronizar_lib extends MX_Controller {
     private function publicar_video_lista_coleccion_programa_canal($objVistaVideo, $ref) {
         //cargamos el config si el origen de llamada es diferente al cms
         if ($ref != 'cms') {
-            $this->config->load('videos/uploads');
+            //$this->config->load('videos/uploads');
             $user_id = 1; //usuario administrador
         } else {
             $user_id = (int) $this->session->userdata('user_id');
@@ -872,7 +872,7 @@ class Sincronizar_lib extends MX_Controller {
     private function publicar_lista_coleccion_canal($objVistaVideo, $ref) {
         //cargamos el config si el origen de llamada es diferente al cms
         if ($ref != 'cms') {
-            $this->config->load('videos/uploads');
+            //$this->config->load('videos/uploads');
             $user_id = 1; //usuario administrador
         } else {
             $user_id = (int) $this->session->userdata('user_id');
