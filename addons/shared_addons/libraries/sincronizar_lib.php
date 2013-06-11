@@ -35,10 +35,12 @@ class Sincronizar_lib extends MX_Controller {
      * @param string $ref
      */
     private function publicar_video_canal($objVistaVideo, $ref) {
-        $user_id = (int) $this->session->userdata('user_id');
         //cargamos el config si el origen de llamada es diferente al cms
         if ($ref != 'cms') {
-            $this->config->load('videos/uploads');
+            //$this->config->load('videos/uploads');
+            $user_id = 1; //usuario administrador
+        } else {
+            $user_id = (int) $this->session->userdata('user_id');
         }
         //varificamos que el video tenga imagenes
         $objImagen = $this->imagen_m->get_by(array("videos_id" => $objVistaVideo->id, "tipo_imagen_id" => $this->config->item('imagen:small'), "estado" => $this->config->item('estado:publicado')));
@@ -97,6 +99,9 @@ class Sincronizar_lib extends MX_Controller {
         //cargamos el config si el origen de llamada es diferente al cms
         if ($ref != 'cms') {
             $this->config->load('videos/uploads');
+            $user_id = 1; //usuario administrador
+        } else {
+            $user_id = (int) $this->session->userdata('user_id');
         }
         $objVideo = $this->videos_m->get($video_id);
         if (count($objVideo) > 0) {
@@ -162,10 +167,12 @@ class Sincronizar_lib extends MX_Controller {
      * @param string $ref
      */
     private function publicar_lista_canal($objVistaVideo, $ref) {
-        $user_id = (int) $this->session->userdata('user_id');
         //cargamos el config si el origen de llamada es diferente al cms
         if ($ref != 'cms') {
-            $this->config->load('videos/uploads');
+            //$this->config->load('videos/uploads');
+            $user_id = 1; //usuario administrador
+        } else {
+            $user_id = (int) $this->session->userdata('user_id');
         }
         //varificamos que el video tenga imagenes
         $objImagen = $this->imagen_m->get_by(array("videos_id" => $objVistaVideo->id, "tipo_imagen_id" => $this->config->item('imagen:small'), "estado" => $this->config->item('estado:publicado')));
@@ -174,7 +181,7 @@ class Sincronizar_lib extends MX_Controller {
         //preguntamos si ambos tienen imagen
         if (count($objImagenLista) > 0 && count($objImagen) > 0) {
             //activamos el maestro lista
-            $this->grupo_maestro_m->update($objVistaVideo->gm1, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado'), "estado_migracion_sphinx"=>$this->config->item('sphinx:actualizar')));
+            $this->grupo_maestro_m->update($objVistaVideo->gm1, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado'), "estado_migracion_sphinx" => $this->config->item('sphinx:actualizar')));
             //obtenemos la portada del canal
             $objPortadaCanal = $this->portada_m->get_by(array("origen_id" => $objVistaVideo->canales_id, "canales_id" => $objVistaVideo->canales_id, "tipo_portadas_id" => $this->config->item('portada:canal')));
             if (count($objPortadaCanal) > 0) {
@@ -223,17 +230,19 @@ class Sincronizar_lib extends MX_Controller {
      * @param string $ref
      */
     private function publicar_coleccion_canal($objVistaVideo, $ref) {
-        $user_id = (int) $this->session->userdata('user_id');
         //cargamos el config si el origen de llamada es diferente al cms
         if ($ref != 'cms') {
-            $this->config->load('videos/uploads');
+            //$this->config->load('videos/uploads');
+            $user_id = 1; //usuario administrador
+        } else {
+            $user_id = (int) $this->session->userdata('user_id');
         }
         //varificamos que el video tenga imagenes
         $objImagen = $this->imagen_m->get_by(array("videos_id" => $objVistaVideo->id, "tipo_imagen_id" => $this->config->item('imagen:small'), "estado" => $this->config->item('estado:publicado')));
         //no verificamos si el maestro coleccion tiene imagen, xq en la seccion coleccion irá el video
         if (count($objImagen) > 0) {
             //activamos el maestro coleccion apesar que no tiene imagen
-            $this->grupo_maestro_m->update($objVistaVideo->gm2, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado'), "estado_migracion_sphinx"=>$this->config->item('sphinx:actualizar')));
+            $this->grupo_maestro_m->update($objVistaVideo->gm2, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado'), "estado_migracion_sphinx" => $this->config->item('sphinx:actualizar')));
             //obtenemos la portada del canal
             $objPortadaCanal = $this->portada_m->get_by(array("origen_id" => $objVistaVideo->canales_id, "canales_id" => $objVistaVideo->canales_id, "tipo_portadas_id" => $this->config->item('portada:canal')));
             if (count($objPortadaCanal) > 0) {
@@ -282,10 +291,12 @@ class Sincronizar_lib extends MX_Controller {
      * @param string $ref
      */
     private function publicar_programa_canal($objVistaVideo, $ref) {
-        $user_id = (int) $this->session->userdata('user_id');
         //cargamos el config si el origen de llamada es diferente al cms
         if ($ref != 'cms') {
-            $this->config->load('videos/uploads');
+            //$this->config->load('videos/uploads');
+            $user_id = 1; //usuario administrador
+        } else {
+            $user_id = (int) $this->session->userdata('user_id');
         }
         $objImagenXLPrograma = $this->imagen_m->where_in('tipo_imagen_id', array($this->config->item('imagen:extralarge')))->get_by(array("estado" => $this->config->item('estado:publicado'), "grupo_maestros_id" => $objVistaVideo->gm3));
         $objImagenSPrograma = $this->imagen_m->where_in('tipo_imagen_id', array($this->config->item('imagen:small')))->get_by(array("estado" => $this->config->item('estado:publicado'), "grupo_maestros_id" => $objVistaVideo->gm3));
@@ -369,7 +380,7 @@ class Sincronizar_lib extends MX_Controller {
                     }
                 }
                 //publicamos el maestro programa
-                $this->grupo_maestro_m->update($objVistaVideo->gm3, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado'), "estado_migracion_sphinx"=>$this->config->item('sphinx:actualizar')));
+                $this->grupo_maestro_m->update($objVistaVideo->gm3, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado'), "estado_migracion_sphinx" => $this->config->item('sphinx:actualizar')));
                 //publicamos la portada del programa
                 $this->portada_m->update($objPortadaPrograma->id, array('estado' => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
                 //existe el programa en la sección programas de la portada del canal
@@ -423,10 +434,12 @@ class Sincronizar_lib extends MX_Controller {
      * @param string $ref
      */
     private function publicar_video_lista_programa_canal($objVistaVideo, $ref) {
-        $user_id = (int) $this->session->userdata('user_id');
         //cargamos el config si el origen de llamada es diferente al cms
         if ($ref != 'cms') {
-            $this->config->load('videos/uploads');
+            //$this->config->load('videos/uploads');
+            $user_id = 1; //usuario administrador
+        } else {
+            $user_id = (int) $this->session->userdata('user_id');
         }
         //preguntamos si el programa cuenta con una imagen XL o S para estar apto a publicar
         $objImagenXLPrograma = $this->imagen_m->where_in('tipo_imagen_id', array($this->config->item('imagen:extralarge')))->get_by(array("estado" => $this->config->item('estado:publicado'), "grupo_maestros_id" => $objVistaVideo->gm3));
@@ -512,9 +525,9 @@ class Sincronizar_lib extends MX_Controller {
                     }
                 }
                 //publicamos el maestro programa
-                $this->grupo_maestro_m->update($objVistaVideo->gm3, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado'), "estado_migracion_sphinx"=>$this->config->item('sphinx:actualizar')));
+                $this->grupo_maestro_m->update($objVistaVideo->gm3, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado'), "estado_migracion_sphinx" => $this->config->item('sphinx:actualizar')));
                 //publicamos el maestro lista
-                $this->grupo_maestro_m->update($objVistaVideo->gm1, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado'), "estado_migracion_sphinx"=>$this->config->item('sphinx:actualizar')));
+                $this->grupo_maestro_m->update($objVistaVideo->gm1, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado'), "estado_migracion_sphinx" => $this->config->item('sphinx:actualizar')));
                 //publicamos la portada del programa
                 $this->portada_m->update($objPortadaPrograma->id, array('estado' => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
                 //existe el programa en la sección programas de la portada del canal
@@ -567,10 +580,12 @@ class Sincronizar_lib extends MX_Controller {
      * @param string $ref
      */
     private function publicar_video_coleccion_programa_canal($objVistaVideo, $ref) {
-        $user_id = (int) $this->session->userdata('user_id');
         //cargamos el config si el origen de llamada es diferente al cms
         if ($ref != 'cms') {
-            $this->config->load('videos/uploads');
+            //$this->config->load('videos/uploads');
+            $user_id = 1; //usuario administrador
+        } else {
+            $user_id = (int) $this->session->userdata('user_id');
         }
         //preguntamos si el programa cuenta con una imagen XL o S para estar apto a publicar
         $objImagenXLPrograma = $this->imagen_m->where_in('tipo_imagen_id', array($this->config->item('imagen:extralarge')))->get_by(array("estado" => $this->config->item('estado:publicado'), "grupo_maestros_id" => $objVistaVideo->gm3));
@@ -654,9 +669,9 @@ class Sincronizar_lib extends MX_Controller {
                     }
                 }
                 //publicamos el maestro programa
-                $this->grupo_maestro_m->update($objVistaVideo->gm3, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado'), "estado_migracion_sphinx"=>$this->config->item('sphinx:actualizar')));
+                $this->grupo_maestro_m->update($objVistaVideo->gm3, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado'), "estado_migracion_sphinx" => $this->config->item('sphinx:actualizar')));
                 //publicamos el maestro coleccion
-                $this->grupo_maestro_m->update($objVistaVideo->gm2, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado'), "estado_migracion_sphinx"=>$this->config->item('sphinx:actualizar')));
+                $this->grupo_maestro_m->update($objVistaVideo->gm2, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado'), "estado_migracion_sphinx" => $this->config->item('sphinx:actualizar')));
                 //publicamos la portada del programa
                 $this->portada_m->update($objPortadaPrograma->id, array('estado' => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
                 //existe el programa en la sección programas de la portada del canal
@@ -709,10 +724,12 @@ class Sincronizar_lib extends MX_Controller {
      * @param string $ref
      */
     private function publicar_video_lista_coleccion_programa_canal($objVistaVideo, $ref) {
-        $user_id = (int) $this->session->userdata('user_id');
         //cargamos el config si el origen de llamada es diferente al cms
         if ($ref != 'cms') {
-            $this->config->load('videos/uploads');
+            //$this->config->load('videos/uploads');
+            $user_id = 1; //usuario administrador
+        } else {
+            $user_id = (int) $this->session->userdata('user_id');
         }
         //preguntamos si el programa cuenta con una imagen XL o S para estar apto a publicar
         $objImagenXLPrograma = $this->imagen_m->where_in('tipo_imagen_id', array($this->config->item('imagen:extralarge')))->get_by(array("estado" => $this->config->item('estado:publicado'), "grupo_maestros_id" => $objVistaVideo->gm3));
@@ -796,11 +813,11 @@ class Sincronizar_lib extends MX_Controller {
                     }
                 }
                 //publicamos el maestro programa
-                $this->grupo_maestro_m->update($objVistaVideo->gm3, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado'), "estado_migracion_sphinx"=>$this->config->item('sphinx:actualizar')));
+                $this->grupo_maestro_m->update($objVistaVideo->gm3, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado'), "estado_migracion_sphinx" => $this->config->item('sphinx:actualizar')));
                 //publicamos el maestro coleccion
-                $this->grupo_maestro_m->update($objVistaVideo->gm2, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado'), "estado_migracion_sphinx"=>$this->config->item('sphinx:actualizar')));
+                $this->grupo_maestro_m->update($objVistaVideo->gm2, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado'), "estado_migracion_sphinx" => $this->config->item('sphinx:actualizar')));
                 //publicamos el maestro lista
-                $this->grupo_maestro_m->update($objVistaVideo->gm1, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado'), "estado_migracion_sphinx"=>$this->config->item('sphinx:actualizar')));
+                $this->grupo_maestro_m->update($objVistaVideo->gm1, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado'), "estado_migracion_sphinx" => $this->config->item('sphinx:actualizar')));
                 //publicamos la portada del programa
                 $this->portada_m->update($objPortadaPrograma->id, array('estado' => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
                 //existe el programa en la sección programas de la portada del canal
@@ -853,17 +870,19 @@ class Sincronizar_lib extends MX_Controller {
      * @param string $ref
      */
     private function publicar_lista_coleccion_canal($objVistaVideo, $ref) {
-        $user_id = (int) $this->session->userdata('user_id');
         //cargamos el config si el origen de llamada es diferente al cms
         if ($ref != 'cms') {
-            $this->config->load('videos/uploads');
+            //$this->config->load('videos/uploads');
+            $user_id = 1; //usuario administrador
+        } else {
+            $user_id = (int) $this->session->userdata('user_id');
         }
         //verificamos si la lista tiene imagen, la colección no importa mucho en este caso solo la imagen del maestro lista
         $objImagenLista = $this->imagen_m->get_by(array("grupo_maestros_id" => $objVistaVideo->gm1, "tipo_imagen_id" => $this->config->item('imagen:small'), "estado" => $this->config->item('estado:publicado')));
         if (count($objImagenLista) > 0) {
             //publicamos el maestro lista y el maestro coleccion
-            $this->grupo_maestro_m->update($objVistaVideo->gm1, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado'), "estado_migracion_sphinx"=>$this->config->item('sphinx:actualizar')));
-            $this->grupo_maestro_m->update($objVistaVideo->gm2, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado'), "estado_migracion_sphinx"=>$this->config->item('sphinx:actualizar')));
+            $this->grupo_maestro_m->update($objVistaVideo->gm1, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado'), "estado_migracion_sphinx" => $this->config->item('sphinx:actualizar')));
+            $this->grupo_maestro_m->update($objVistaVideo->gm2, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado'), "estado_migracion_sphinx" => $this->config->item('sphinx:actualizar')));
             //obtenemos la portada del canal 
             $objPortadaCanal = $this->portada_m->get_by(array("canales_id" => $objVistaVideo->canales_id, "origen_id" => $objVistaVideo->canales_id, "tipo_portadas_id" => $this->config->item('portada:canal')));
             if (count($objPortadaCanal) > 0) {

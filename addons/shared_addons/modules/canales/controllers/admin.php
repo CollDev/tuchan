@@ -313,7 +313,7 @@ class Admin extends Admin_Controller {
     public function _getUrlImage($objVideo) {
         //$returnValue = BASE_URL . UPLOAD_IMAGENES_VIDEOS . 'no_video.jpg';
         $returnValue = $this->config->item('url:default_imagen') . 'no_video.jpg';
-        $objCollectionImagen = $this->imagen_m->get_many_by(array("videos_id" => $objVideo->id, "estado" => "1"));
+        $objCollectionImagen = $this->imagen_m->get_many_by(array("videos_id" => $objVideo->id, "estado" => $this->config->item('estado:publicado')));
         if (count($objCollectionImagen) > 0) {
             foreach ($objCollectionImagen as $index => $objImage) {
                 if ($objImage->tipo_imagen_id == '1') {
@@ -687,10 +687,10 @@ class Admin extends Admin_Controller {
                 foreach ($arrayImagen as $in => $objImg) {
                     $arrayImg['text'] = '';
                     $arrayImg['value'] = $objImg->id;
-                    if ($objImg->estado == "0") {
+                    if ($objImg->estado == $this->config->item('estado:borrador')) {
                         $arrayImg['selected'] = false;
                     } else {
-                        if ($objImg->estado == "1") {
+                        if ($objImg->estado == $this->config->item('estado:publicado')) {
                             $arrayImg['selected'] = true;
                         }
                     }
@@ -704,7 +704,7 @@ class Admin extends Admin_Controller {
             }
             return $returnArray;
         } else {
-            $listImg = $this->imagen_m->get_many_by(array("canales_id" => $canal_id, "tipo_imagen_id" => $tipo, "estado" => "1"));
+            $listImg = $this->imagen_m->get_many_by(array("canales_id" => $canal_id, "tipo_imagen_id" => $tipo, "estado" => $this->config->item('estado:publicado')));
             $returnValue = '';
             if (count($listImg) > 0) {
                 foreach ($listImg as $indice => $objImage) {
@@ -908,7 +908,7 @@ class Admin extends Admin_Controller {
                             }
                             if ($imagen_id > 0) {
                                 //$obtenemos el Objeto de la imagen de portada activa
-                                $objImagenPortada = $this->imagen_m->get_by(array("tipo_imagen_id" => $this->config->item('imagen:extralarge'), "estado" => "1", "canales_id" => $canal_id));
+                                $objImagenPortada = $this->imagen_m->get_by(array("tipo_imagen_id" => $this->config->item('imagen:extralarge'), "estado" => $this->config->item('estado:publicado'), "canales_id" => $canal_id));
                                 if (count($objImagenPortada) > 0) {
                                     $this->detalle_secciones_m->update($detalle_seccion_id, array("imagenes_id" => $objImagenPortada->id));
                                 }
@@ -933,7 +933,7 @@ class Admin extends Admin_Controller {
                     }
                     $path_single_element = implode('/', $array_path);
                     if ($objImagen->tipo_imagen_id == $this->config->item('imagen:iso') || $objImagen->tipo_imagen_id == $this->config->item('imagen:logo')) {
-                        $this->imagen_m->update($objImagen->id, array("imagen" => $path_single_element, "procedencia" => "0", "estado" => "1"));
+                        $this->imagen_m->update($objImagen->id, array("imagen" => $path_single_element, "procedencia" => "0", "estado" => $this->config->item('estado:publicado')));
                     } else {
                         $this->imagen_m->update($objImagen->id, array("imagen" => $path_single_element, "procedencia" => "0"));
                     }
@@ -1032,9 +1032,9 @@ class Admin extends Admin_Controller {
                      */
                     if ($objTipoSeccion->id == intval($this->config->item('seccion:destacado'))) {//seccion destacado
                         if ($objetoMaestro == NULL) {
-                            $objImagen = $this->imagen_m->get_by(array("canales_id" => $objCanal->id, "estado" => "1", "tipo_imagen_id" => $this->config->item('imagen:extralarge')));
+                            $objImagen = $this->imagen_m->get_by(array("canales_id" => $objCanal->id, "estado" => $this->config->item('estado:publicado'), "tipo_imagen_id" => $this->config->item('imagen:extralarge')));
                         } else {
-                            $objImagen = $this->imagen_m->get_by(array("grupo_maestros_id" => $objetoMaestro->id, "estado" => "1", "tipo_imagen_id" => $this->config->item('imagen:extralarge')));
+                            $objImagen = $this->imagen_m->get_by(array("grupo_maestros_id" => $objetoMaestro->id, "estado" => $this->config->item('estado:publicado'), "tipo_imagen_id" => $this->config->item('imagen:extralarge')));
                         }
                         if (count($objImagen) > 0) {
                             $objBeanDetalleSecciones = new stdClass();
@@ -1056,7 +1056,7 @@ class Admin extends Admin_Controller {
                             $objBeanDetalleSecciones->fecha_migracion = '0000-00-00 00:00:00';
                             $objBeanDetalleSecciones->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
                             $objBeanDetalleSeccionesSaved = $this->detalle_secciones_m->save($objBeanDetalleSecciones);
-                            $this->secciones_m->update($objBeanSeccionSaved->id, array("estado" => "1"));
+                            $this->secciones_m->update($objBeanSeccionSaved->id, array("estado" => $this->config->item('estado:publicado')));
                             //$this->portada_m->update($objBeanPortadaSaved->id, array("estado" => "1"));
                         }
                     } else { //seccion programas
@@ -1088,8 +1088,8 @@ class Admin extends Admin_Controller {
                                     $objBeanDetalleSecciones->fecha_migracion = '0000-00-00 00:00:00';
                                     $objBeanDetalleSecciones->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
                                     $objBeanDetalleSeccionesSaved = $this->detalle_secciones_m->save($objBeanDetalleSecciones);
-                                    $this->portada_m->update($objBeanPortadaSaved->id, array("estado" => "1"));
-                                    $this->secciones_m->update($objBeanSeccionSaved->id, array("estado" => "1"));
+                                    $this->portada_m->update($objBeanPortadaSaved->id, array("estado" => $this->config->item('estado:publicado')));
+                                    $this->secciones_m->update($objBeanSeccionSaved->id, array("estado" => $this->config->item('estado:publicado')));
                                 }
                             }
                             //$this->portada_m->update($objBeanPortadaSaved->id, array("estado" => "1"));
@@ -1157,8 +1157,8 @@ class Admin extends Admin_Controller {
                                         $objBeanDetalleSecciones->fecha_migracion = '0000-00-00 00:00:00';
                                         $objBeanDetalleSecciones->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
                                         $objBeanDetalleSeccionesSaved = $this->detalle_secciones_m->save($objBeanDetalleSecciones);
-                                        $this->portada_m->update($objBeanPortadaSaved->id, array("estado" => "1"));
-                                        $this->secciones_m->update($objBeanSeccionSaved->id, array("estado" => "1"));
+                                        $this->portada_m->update($objBeanPortadaSaved->id, array("estado" => $this->config->item('estado:publicado')));
+                                        $this->secciones_m->update($objBeanSeccionSaved->id, array("estado" => $this->config->item('estado:publicado')));
                                         $exite_item = true;
                                     }
                                 }
@@ -1687,9 +1687,9 @@ class Admin extends Admin_Controller {
             if (count($listaImagen) > 0) {
                 foreach ($listaImagen as $index => $objImagen) {
                     if ($objImagen->id == $imagen_id) {
-                        $this->imagen_m->update($objImagen->id, array("estado" => "1"));
+                        $this->imagen_m->update($objImagen->id, array("estado" => $this->config->item('estado:publicado')));
                     } else {
-                        $this->imagen_m->update($objImagen->id, array("estado" => "0"));
+                        $this->imagen_m->update($objImagen->id, array("estado" => $this->config->item('estado:borrador')));
                     }
                 }
             }
@@ -1708,7 +1708,7 @@ class Admin extends Admin_Controller {
                     if (count($listaDetalles) > 0) {
                         foreach ($listaDetalles as $indexDetalle => $objDetalleMaestro) {
                             if ($objDetalleMaestro->video_id != NULL) {
-                                $objImagen = $this->imagen_m->get_by(array("videos_id" => $objDetalleMaestro->video_id, "tipo_imagen_id" => $this->config->item('imagen:small'), "estado" => "1"));
+                                $objImagen = $this->imagen_m->get_by(array("videos_id" => $objDetalleMaestro->video_id, "tipo_imagen_id" => $this->config->item('imagen:small'), "estado" => $this->config->item('estado:publicado')));
                                 if (count($objImagen) > 0) {
                                     //registrar imagen para la lista
                                     $objBeanImagen = new stdClass();
@@ -1742,7 +1742,7 @@ class Admin extends Admin_Controller {
 
     private function tieneImagen($lista_id, $type) {
         $returnValue = false;
-        $listaImagen = $this->imagen_m->get_many_by(array("grupo_maestros_id" => $lista_id, "tipo_imagen_id" => $type, "estado" => "1"));
+        $listaImagen = $this->imagen_m->get_many_by(array("grupo_maestros_id" => $lista_id, "tipo_imagen_id" => $type, "estado" => $this->config->item('estado:publicado')));
         if (count($listaImagen) > 0) {
             $returnValue = true;
         }
@@ -1755,7 +1755,7 @@ class Admin extends Admin_Controller {
             foreach ($programas as $indexPrograma => $objMaestroPrograma) {
                 if ($this->tieneImagen($objMaestroPrograma->id, $this->config->item('imagen:large'))) {
                     $listacoleccion = $this->grupo_detalle_m->get_many_by(array("grupo_maestro_padre" => $objMaestroPrograma->id));
-                    $objImagenPrograma = $this->imagen_m->get_by(array("grupo_maestros_id" => $objMaestroPrograma->id, "tipo_imagen_id" => $this->config->item('imagen:large'), "estado" => "1"));
+                    $objImagenPrograma = $this->imagen_m->get_by(array("grupo_maestros_id" => $objMaestroPrograma->id, "tipo_imagen_id" => $this->config->item('imagen:large'), "estado" => $this->config->item('estado:publicado')));
                     if (count($listacoleccion) > 0) {
                         foreach ($listacoleccion as $indexColeccion => $objDetalle) {
                             if (!$this->tieneImagen($objDetalle->grupo_maestro_id, $this->config->item('imagen:large'))) {
@@ -1884,7 +1884,7 @@ class Admin extends Admin_Controller {
             $ultimo = $objUltimo;
         }
         //obtener el primer item
-        $primero = $this->detalle_secciones_m->order_by('peso', 'ASC')->get_by(array("secciones_id" => $seccion_id, "estado" => "1"));
+        $primero = $this->detalle_secciones_m->order_by('peso', 'ASC')->get_by(array("secciones_id" => $seccion_id, "estado" => $this->config->item('estado:publicado')));
         if (count($primero) == 0) {
             $objPrimero = new stdClass();
             $objPrimero->id = 0;
@@ -2025,9 +2025,9 @@ class Admin extends Admin_Controller {
             }
         }
         //obtener el último item
-        $ultimo = $this->detalle_secciones_m->order_by('peso', 'DESC')->get_by(array("secciones_id" => $seccion_id, "estado" => "1"));
+        $ultimo = $this->detalle_secciones_m->order_by('peso', 'DESC')->get_by(array("secciones_id" => $seccion_id, "estado" => $this->config->item('estado:publicado')));
         //obtener el primer item
-        $primero = $this->detalle_secciones_m->order_by('peso', 'ASC')->get_by(array("secciones_id" => $seccion_id, "estado" => "1"));
+        $primero = $this->detalle_secciones_m->order_by('peso', 'ASC')->get_by(array("secciones_id" => $seccion_id, "estado" => $this->config->item('estado:publicado')));
         echo json_encode(array("value" => "1", "orden" => $array_original2, "ultimo" => $ultimo->id, "primer" => $primero->id));
     }
 
@@ -2295,9 +2295,9 @@ class Admin extends Admin_Controller {
                     if (count($objColeccionGrupoMaestro)) {
                         foreach ($objColeccionGrupoMaestro as $puntero => $objMaestro) {
                             if ($objMaestro->tipo_grupo_maestro_id == $this->config->item('videos:coleccion')) {
-                                $objImagen = $this->imagen_m->get_by(array("grupo_maestros_id" => $objMaestro->id, "tipo_imagen_id" => $this->config->item('imagen:large'), "estado" => "1"));
+                                $objImagen = $this->imagen_m->get_by(array("grupo_maestros_id" => $objMaestro->id, "tipo_imagen_id" => $this->config->item('imagen:large'), "estado" => $this->config->item('estado:publicado')));
                             } else {
-                                $objImagen = $this->imagen_m->get_by(array("grupo_maestros_id" => $objMaestro->id, "tipo_imagen_id" => $this->config->item('imagen:small'), "estado" => "1"));
+                                $objImagen = $this->imagen_m->get_by(array("grupo_maestros_id" => $objMaestro->id, "tipo_imagen_id" => $this->config->item('imagen:small'), "estado" => $this->config->item('estado:publicado')));
                             }
                             if (count($objImagen) > 0) {
                                 if ($objImagen->procedencia == '0') {
@@ -2330,7 +2330,7 @@ class Admin extends Admin_Controller {
                         $objColeccionVideo = $this->obtenerVideosCanal($this->input->post('canal_id'));
                         if (count($objColeccionVideo)) {
                             foreach ($objColeccionVideo as $puntero => $objVideo) {
-                                $objImagen = $this->imagen_m->get_by(array("videos_id" => $objVideo->id, "tipo_imagen_id" => $this->config->item('imagen:small'), "estado" => "1"));
+                                $objImagen = $this->imagen_m->get_by(array("videos_id" => $objVideo->id, "tipo_imagen_id" => $this->config->item('imagen:small'), "estado" => $this->config->item('estado:publicado')));
                                 if (count($objImagen) > 0) {
                                     if ($objImagen->procedencia == '0') {
                                         $imagen = $this->config->item('protocolo:http') . $this->config->item('server:elemento') . '/' . $objImagen->imagen;
@@ -2388,9 +2388,9 @@ class Admin extends Admin_Controller {
                     if (count($objColeccionGrupoMaestro)) {
                         foreach ($objColeccionGrupoMaestro as $puntero => $objMaestro) {
                             if ($objMaestro->tipo_grupo_maestro_id == $this->config->item('videos:coleccion')) {
-                                $objImagen = $this->imagen_m->get_by(array("grupo_maestros_id" => $objMaestro->id, "tipo_imagen_id" => $this->config->item('imagen:large'), "estado" => "1"));
+                                $objImagen = $this->imagen_m->get_by(array("grupo_maestros_id" => $objMaestro->id, "tipo_imagen_id" => $this->config->item('imagen:large'), "estado" => $this->config->item('estado:publicado')));
                             } else {
-                                $objImagen = $this->imagen_m->get_by(array("grupo_maestros_id" => $objMaestro->id, "tipo_imagen_id" => $this->config->item('imagen:small'), "estado" => "1"));
+                                $objImagen = $this->imagen_m->get_by(array("grupo_maestros_id" => $objMaestro->id, "tipo_imagen_id" => $this->config->item('imagen:small'), "estado" => $this->config->item('estado:publicado')));
                             }
                             if (count($objImagen) > 0) {
                                 if ($objImagen->procedencia == '0') {
@@ -2480,9 +2480,9 @@ class Admin extends Admin_Controller {
             foreach ($items as $puntero => $objMaestro) {
                 //verificamos si es solo video o es de tipo maestro
                 if ($objMaestro->tipo_grupo_maestro_id == $this->config->item('videos:coleccion')) {
-                    $objImagen = $this->imagen_m->get_by(array("grupo_maestros_id" => $objMaestro->id, "tipo_imagen_id" => $this->config->item('imagen:large'), "estado" => "1"));
+                    $objImagen = $this->imagen_m->get_by(array("grupo_maestros_id" => $objMaestro->id, "tipo_imagen_id" => $this->config->item('imagen:large'), "estado" => $this->config->item('estado:publicado')));
                 } else {
-                    $objImagen = $this->imagen_m->get_by(array("grupo_maestros_id" => $objMaestro->id, "tipo_imagen_id" => $this->config->item('imagen:small'), "estado" => "1"));
+                    $objImagen = $this->imagen_m->get_by(array("grupo_maestros_id" => $objMaestro->id, "tipo_imagen_id" => $this->config->item('imagen:small'), "estado" => $this->config->item('estado:publicado')));
                 }
                 if (count($objImagen) > 0) {
                     if ($objImagen->procedencia == '0') {
@@ -2578,11 +2578,11 @@ class Admin extends Admin_Controller {
                     if ($objMaestro->tipo_grupo_maestro_id == $this->config->item('videos:programa')) {
                         $this->detalle_secciones_m->delete_by("secciones_id", $objDetalleSeccion->secciones_id);
                     } else {
-                        $this->detalle_secciones_m->update($detalle_seccion_id, array("estado" => "0"));
+                        $this->detalle_secciones_m->update($detalle_seccion_id, array("estado" => $this->config->item('estado:borrador')));
                     }
                 }
             } else {
-                $this->detalle_secciones_m->update($detalle_seccion_id, array("estado" => "0"));
+                $this->detalle_secciones_m->update($detalle_seccion_id, array("estado" => $this->config->item('estado:borrador')));
             }
             echo json_encode(array("value" => 1));
         }
@@ -2691,7 +2691,7 @@ class Admin extends Admin_Controller {
                 if ($this->existeRegistro($this->input->post('maestro_id'), $this->input->post('seccion_id'), 0)) {
                     $objDetalleSeccion = $this->detalle_secciones_m->get_by(array("secciones_id" => $this->input->post('seccion_id'), "grupo_maestros_id" => $this->input->post('maestro_id')));
                     if (count($objDetalleSeccion) > 0) {
-                        $this->detalle_secciones_m->update($objDetalleSeccion->id, array("estado" => "1"));
+                        $this->detalle_secciones_m->update($objDetalleSeccion->id, array("estado" => $this->config->item('estado:publicado')));
                     } else {//no hay items que agregar 
                         $returnValue = 1;
                     }
@@ -2779,7 +2779,7 @@ class Admin extends Admin_Controller {
                 if ($this->existeRegistroVideo($this->input->post('video_id'), $this->input->post('seccion_id'), 0)) {
                     $objDetalleSeccion = $this->detalle_secciones_m->get_by(array("secciones_id" => $this->input->post('seccion_id'), "videos_id" => $this->input->post('video_id')));
                     if (count($objDetalleSeccion) > 0) {
-                        $this->detalle_secciones_m->update($objDetalleSeccion->id, array("estado" => "1"));
+                        $this->detalle_secciones_m->update($objDetalleSeccion->id, array("estado" => $this->config->item('estado:publicado')));
                     } else {//no hay items que agregar 
                         $returnValue = 1;
                     }
@@ -2833,9 +2833,9 @@ class Admin extends Admin_Controller {
                         if (count($objDetalleSeccion) > 0) {
                             $objImagen = $this->imagen_m->get_by(array("grupo_maestros_id" => $this->input->post('maestro_id'), "tipo_imagen_id" => $this->config->item('imagen:extralarge')));
                             if (count($objImagen) > 0) {
-                                $this->detalle_secciones_m->update($objDetalleSeccion->id, array("estado" => "1", "imagenes_id" => $objImagen->id));
+                                $this->detalle_secciones_m->update($objDetalleSeccion->id, array("estado" => $this->config->item('estado:publicado'), "imagenes_id" => $objImagen->id));
                             } else {
-                                $this->detalle_secciones_m->update($objDetalleSeccion->id, array("estado" => "1"));
+                                $this->detalle_secciones_m->update($objDetalleSeccion->id, array("estado" => $this->config->item('estado:publicado')));
                             }
                         } else {
                             $returnValue = 1; //no hay items que agregar
@@ -3136,7 +3136,7 @@ class Admin extends Admin_Controller {
                 if ($tipo_portada == $this->config->item('portada:programa')) {
                     //en la sección destacado buscar imagen extralarge para registrar detalle seccion
                     if ($objTipoSeccion->id == intval($this->config->item('seccion:destacado'))) {//seccion destacado
-                        $objImagen = $this->imagen_m->get_by(array("grupo_maestros_id" => $objMaestro->id, "estado" => "1", "tipo_imagen_id" => $this->config->item('imagen:extralarge')));
+                        $objImagen = $this->imagen_m->get_by(array("grupo_maestros_id" => $objMaestro->id, "estado" => $this->config->item('estado:publicado'), "tipo_imagen_id" => $this->config->item('imagen:extralarge')));
                         if (count($objImagen) > 0) {
                             $objBeanDetalleSecciones = new stdClass();
                             $objBeanDetalleSecciones->id = NULL;
@@ -4068,7 +4068,7 @@ class Admin extends Admin_Controller {
             $indice = 0;
             foreach ($arrayMaestro as $puntero => $objMaestro) {
                 if ($objMaestro->es_maestro == '1') {
-                    $objImagen = $this->imagen_m->get_by(array("grupo_maestros_id" => $objMaestro->id, "tipo_imagen_id" => $this->config->item('imagen:small'), "estado" => "1"));
+                    $objImagen = $this->imagen_m->get_by(array("grupo_maestros_id" => $objMaestro->id, "tipo_imagen_id" => $this->config->item('imagen:small'), "estado" => $this->config->item('estado:publicado')));
                     if (count($objImagen) > 0) {
                         if ($objImagen->procedencia == '0') {
                             $imagen = $this->config->item('protocolo:http') . $this->config->item('server:elemento') . '/' . $objImagen->imagen;
@@ -4092,7 +4092,7 @@ class Admin extends Admin_Controller {
                     $returnValue.='</tr>';
                 } else {
                     if ($objMaestro->es_maestro == '2') { //para canales
-                        $objImagen = $this->imagen_m->get_by(array("canales_id" => $objMaestro->id, "tipo_imagen_id" => $this->config->item('imagen:logo'), "estado" => "1"));
+                        $objImagen = $this->imagen_m->get_by(array("canales_id" => $objMaestro->id, "tipo_imagen_id" => $this->config->item('imagen:logo'), "estado" => $this->config->item('estado:publicado')));
                         if (count($objImagen) > 0) {
                             if ($objImagen->procedencia == '0') {
                                 $imagen = $this->config->item('protocolo:http') . $this->config->item('server:elemento') . '/' . $objImagen->imagen;
@@ -4115,7 +4115,7 @@ class Admin extends Admin_Controller {
                         }
                         $returnValue.='</tr>';
                     } else {
-                        $objImagen = $this->imagen_m->get_by(array("videos_id" => $objMaestro->id, "tipo_imagen_id" => $this->config->item('imagen:small'), "estado" => "1"));
+                        $objImagen = $this->imagen_m->get_by(array("videos_id" => $objMaestro->id, "tipo_imagen_id" => $this->config->item('imagen:small'), "estado" => $this->config->item('estado:publicado')));
                         if (count($objImagen) > 0) {
                             if ($objImagen->procedencia == '0') {
                                 $imagen = $this->config->item('protocolo:http') . $this->config->item('server:elemento') . '/' . $objImagen->imagen;
@@ -4260,7 +4260,7 @@ class Admin extends Admin_Controller {
                                     if ($objMaestroCandidato->tipo_grupo_maestro_id == $tipo_maestro_registrado) {
                                         $objDetalleSeccion = $this->detalle_secciones_m->get_by(array("grupo_maestros_id" => $maestro_id, "secciones_id" => $seccion_id));
                                         $peso = $this->obtenerPeso($seccion_id);
-                                        $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id, "peso" => $peso, "estado" => "1", "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                        $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id, "peso" => $peso, "estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
                                         $returnValue = 0;
                                     } else {
                                         $returnValue = 2;
@@ -4268,13 +4268,13 @@ class Admin extends Admin_Controller {
                                 } else {
                                     $objDetalleSeccion = $this->detalle_secciones_m->get_by(array("grupo_maestros_id" => $maestro_id, "secciones_id" => $seccion_id));
                                     $peso = $this->obtenerPeso($seccion_id);
-                                    $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id, "peso" => $peso, "estado" => "1", "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                    $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id, "peso" => $peso, "estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
                                     $returnValue = 0;
                                 }
                             } else {
                                 $objDetalleSeccion = $this->detalle_secciones_m->get_by(array("grupo_maestros_id" => $maestro_id, "secciones_id" => $seccion_id));
                                 $peso = $this->obtenerPeso($seccion_id);
-                                $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id, "peso" => $peso, "estado" => "1", "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id, "peso" => $peso, "estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
                                 $returnValue = 0;
                             }
                         } else {
@@ -4420,34 +4420,34 @@ class Admin extends Admin_Controller {
                 switch ($objSeccion->templates_id) {
                     case $this->config->item('template:destacado_canal'):
                         if ($origen == 'canal') {
-                            $returnValue = $this->imagen_m->get_by(array("canales_id" => $maestro_id, "tipo_imagen_id" => $this->config->item('imagen:extralarge'), "estado" => "1"));
+                            $returnValue = $this->imagen_m->get_by(array("canales_id" => $maestro_id, "tipo_imagen_id" => $this->config->item('imagen:extralarge'), "estado" => $this->config->item('estado:publicado')));
                         } else {
                             if ($origen == 'video') {
-                                $returnValue = $this->imagen_m->get_by(array("videos_id" => $maestro_id, "tipo_imagen_id" => $this->config->item('imagen:extralarge'), "estado" => "1"));
+                                $returnValue = $this->imagen_m->get_by(array("videos_id" => $maestro_id, "tipo_imagen_id" => $this->config->item('imagen:extralarge'), "estado" => $this->config->item('estado:publicado')));
                             } else {
-                                $returnValue = $this->imagen_m->get_by(array("grupo_maestros_id" => $maestro_id, "tipo_imagen_id" => $this->config->item('imagen:extralarge'), "estado" => "1"));
+                                $returnValue = $this->imagen_m->get_by(array("grupo_maestros_id" => $maestro_id, "tipo_imagen_id" => $this->config->item('imagen:extralarge'), "estado" => $this->config->item('estado:publicado')));
                             }
                         }
                         break;
                     case $this->config->item('template:destacado'):
                         if ($origen == 'canal') {
-                            $returnValue = $this->imagen_m->get_by(array("canales_id" => $maestro_id, "tipo_imagen_id" => $this->config->item('imagen:extralarge'), "estado" => "1"));
+                            $returnValue = $this->imagen_m->get_by(array("canales_id" => $maestro_id, "tipo_imagen_id" => $this->config->item('imagen:extralarge'), "estado" => $this->config->item('estado:publicado')));
                         } else {
                             if ($origen == 'video') {
-                                $returnValue = $this->imagen_m->get_by(array("videos_id" => $maestro_id, "tipo_imagen_id" => $this->config->item('imagen:extralarge'), "estado" => "1"));
+                                $returnValue = $this->imagen_m->get_by(array("videos_id" => $maestro_id, "tipo_imagen_id" => $this->config->item('imagen:extralarge'), "estado" => $this->config->item('estado:publicado')));
                             } else {
-                                $returnValue = $this->imagen_m->get_by(array("grupo_maestros_id" => $maestro_id, "tipo_imagen_id" => $this->config->item('imagen:extralarge'), "estado" => "1"));
+                                $returnValue = $this->imagen_m->get_by(array("grupo_maestros_id" => $maestro_id, "tipo_imagen_id" => $this->config->item('imagen:extralarge'), "estado" => $this->config->item('estado:publicado')));
                             }
                         }
                         break;
                     case $this->config->item('template:5items'):
                         if ($origen == 'canal') {
-                            $returnValue = $this->imagen_m->get_by(array("canales_id" => $maestro_id, "tipo_imagen_id" => $this->config->item('imagen:large'), "estado" => "1"));
+                            $returnValue = $this->imagen_m->get_by(array("canales_id" => $maestro_id, "tipo_imagen_id" => $this->config->item('imagen:large'), "estado" => $this->config->item('estado:publicado')));
                         } else {
                             if ($origen == 'video') {
-                                $returnValue = $this->imagen_m->get_by(array("videos_id" => $maestro_id, "tipo_imagen_id" => $this->config->item('imagen:large'), "estado" => "1"));
+                                $returnValue = $this->imagen_m->get_by(array("videos_id" => $maestro_id, "tipo_imagen_id" => $this->config->item('imagen:large'), "estado" => $this->config->item('estado:publicado')));
                             } else {
-                                $returnValue = $this->imagen_m->get_by(array("grupo_maestros_id" => $maestro_id, "tipo_imagen_id" => $this->config->item('imagen:large'), "estado" => "1"));
+                                $returnValue = $this->imagen_m->get_by(array("grupo_maestros_id" => $maestro_id, "tipo_imagen_id" => $this->config->item('imagen:large'), "estado" => $this->config->item('estado:publicado')));
                             }
                         }
                         break;
@@ -4464,12 +4464,12 @@ class Admin extends Admin_Controller {
                         break;
                     default:
                         if ($origen == 'canal') {
-                            $returnValue = $this->imagen_m->get_by(array("canales_id" => $maestro_id, "tipo_imagen_id" => $this->config->item('imagen:small'), "estado" => "1"));
+                            $returnValue = $this->imagen_m->get_by(array("canales_id" => $maestro_id, "tipo_imagen_id" => $this->config->item('imagen:small'), "estado" => $this->config->item('estado:publicado')));
                         } else {
                             if ($origen == 'video') {
-                                $returnValue = $this->imagen_m->get_by(array("videos_id" => $maestro_id, "tipo_imagen_id" => $this->config->item('imagen:small'), "estado" => "1"));
+                                $returnValue = $this->imagen_m->get_by(array("videos_id" => $maestro_id, "tipo_imagen_id" => $this->config->item('imagen:small'), "estado" => $this->config->item('estado:publicado')));
                             } else {
-                                $returnValue = $this->imagen_m->get_by(array("grupo_maestros_id" => $maestro_id, "tipo_imagen_id" => $this->config->item('imagen:small'), "estado" => "1"));
+                                $returnValue = $this->imagen_m->get_by(array("grupo_maestros_id" => $maestro_id, "tipo_imagen_id" => $this->config->item('imagen:small'), "estado" => $this->config->item('estado:publicado')));
                             }
                         }
 
@@ -4496,7 +4496,7 @@ class Admin extends Admin_Controller {
                 $ultimo = $objUltimo;
             }
             //obtener el primer item
-            $primero = $this->detalle_secciones_m->order_by('peso', 'ASC')->get_by(array("secciones_id" => $seccion_id, "estado" => "1"));
+            $primero = $this->detalle_secciones_m->order_by('peso', 'ASC')->get_by(array("secciones_id" => $seccion_id, "estado" => $this->config->item('estado:publicado')));
             if (count($primero) == 0) {
                 $objPrimero = new stdClass();
                 $objPrimero->id = 0;

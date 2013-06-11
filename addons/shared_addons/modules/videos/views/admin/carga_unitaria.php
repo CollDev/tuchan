@@ -55,10 +55,10 @@
     <!---->
     <div id="tabs">
         <ul>
-            <!--<div id="btnSave" style="float: left; padding-right: 10px;">-->
-            <!--<a href="javascript:saveVideo();" class="btn orange" type="button"><?php echo lang('buttons.save'); ?><img src="http://cdn1.iconfinder.com/data/icons/Toolbar_Icon_Set_by_shlyapnikova/32/save.png" /></a>-->
-            <!--<a href="javascript:saveVideo();" class="btn orange" type="button"><?php //echo lang('buttons.save');     ?></a>-->
-            <!--</div>-->
+            <div id="btnSave" style="float: left; padding-right: 10px;">
+                <a href="javascript:saveVideo();" class="btn orange" type="button"><?php echo lang('buttons.save'); ?><img src="<?php echo BASE_URL ?>system/cms/themes/pyrocms/img/save.png" /></a>
+                <!--<a href="javascript:saveVideo();" class="btn orange" type="button"><?php //echo lang('buttons.save');      ?></a>-->
+            </div>
             <li><a href="#tabs-1"><?php echo $title_tab; ?></a></li>
             <?php if ($objBeanForm->video_id > 0): ?>
                 <li><a href="#tabs-2">Imagenes</a></li>
@@ -124,7 +124,7 @@
 
                 <?php if ($objBeanForm->video_id > 0) { ?>
                     <!-- imagen -->
-    <!--                    <label for="imagen"><?php //echo lang('videos:avatar');        ?></label>-->
+    <!--                    <label for="imagen"><?php //echo lang('videos:avatar');         ?></label>-->
                     <?php
 //                    $imagen = array('name' => 'addImage', 'id' => 'addImage', 'type' => 'hidden', 'value' => 'Agrega nuevas imagenes a tu video');
 //                    echo '<div style="float:left;">' . form_input($imagen) . '</div>';
@@ -304,7 +304,7 @@
 
                 <!-- tipo -->
                 <!--        <br /><br />
-                        <label for="tipo"><?php //echo lang('videos:tipo_label');         ?></label>
+                        <label for="tipo"><?php //echo lang('videos:tipo_label');          ?></label>
                 <?php //echo form_error('tipo'); ?><br/>
                 <?php //echo form_dropdown('tipo', $tipo, $objBeanForm->tipo); ?> -->
                 <input type="hidden" name="int_tipo_video" id="int_tipo_video" value="<?php echo $objBeanForm->tipo; ?>" >
@@ -326,7 +326,7 @@
                 </div>
                 <!-- fecha de publicación -->
                 <br/><br/>
-        <!--        <label for="fecha_publicacion"><?php //echo lang('videos:fecha_publicacion_label');          ?></label>-->
+        <!--        <label for="fecha_publicacion"><?php //echo lang('videos:fecha_publicacion_label');           ?></label>-->
                 <?php //echo lang('videos:inicio'); ?>
                 <?php
                 $fec_pub_ini = array(
@@ -352,7 +352,7 @@
                 ?>
 
                 <!-- ubicacion -->
-        <!--        <label><?php //echo lang('videos:ubicacion_label');          ?></label>-->
+        <!--        <label><?php //echo lang('videos:ubicacion_label');           ?></label>-->
                 <?php
                 $ubicacion = array(
                     'type' => 'hidden',
@@ -366,12 +366,9 @@
             </div>
 
             <div class="main_opt">            
-                <!--<input type="button" onclik="saveVideo()" value="Guardar" name="btnGuardar" />-->
-                <!--<a href="javascript:document.frm.submit();" class="btn orange" type="button">Guardar</a>-->
-                <div id="btnSave" style="float: left; padding-right: 10px;">
-                    <a href="javascript:saveVideo();" class="btn orange" type="button"><?php echo lang('buttons.save'); ?></a>
-                    <!--<a href="javascript:saveVideo();" class="btn orange" type="button"><?php //echo lang('buttons.save');     ?></a>-->
-                </div>
+                <!--                <div id="btnSave" style="float: left; padding-right: 10px;">
+                                    <a href="javascript:saveVideo();" class="btn orange" type="button"><?php //echo lang('buttons.save');  ?></a>
+                                </div>-->
                 <div  style="float: left;">
                     <?php
                     //$attr = array('class' => 'btn orange', 'type' => 'button');
@@ -426,11 +423,12 @@
                     //var r;
                     $.post(post_url, serializedData, function(data) {
                         if (data.errorValue == '0') {
-                            $("#btnSave").html('<a href="#" class="btn silver" onclick="return false;" type="button"><?php echo lang('buttons.save'); ?></a>');
+                            $("#btnSave").html('<a href="#" class="btn silver" onclick="return false;" type="button"><?php echo lang('buttons.save'); ?><img src="<?php echo BASE_URL ?>system/cms/themes/pyrocms/img/save.png" /></a>');
                             $('#frm').submit();
                             //$("#btnSave").find("a").attr("disabled","false");
                         } else {
                             showMessage('error', '<?php echo lang('videos:fragment_exist') ?>', 2000, '');
+                            $("#btnSave").html('<a href="javascript:saveVideo();" class="btn orange" type="button"><?php echo lang('buttons.save'); ?><img src="<?php echo BASE_URL ?>system/cms/themes/pyrocms/img/save.png" /></a>');
                         }
                     }, "json");
                     /*var ff = $.ajax({
@@ -464,6 +462,7 @@
                  * @returns {undefined}
                  */
                 function saveVideo() {
+                    $("#btnSave").html('<a href="#" class="btn silver" onclick="return false;" type="button"><?php echo lang('buttons.save'); ?><img src="<?php echo BASE_URL ?>system/cms/themes/pyrocms/img/save.png" /></a>');
                     var values = {};
                     $.each($('#frm').serializeArray(), function(i, field) {
                         values[field.name] = field.value;
@@ -524,7 +523,7 @@
                                                             //var repite = $("#existe_fragmento").val();
                                                             //console.log(repite);
                                                             if (true) {
-<?php //if ($objBeanForm->video_id > 0) {  ?>
+<?php //if ($objBeanForm->video_id > 0) {   ?>
                                                                 if ($("#video_id").val() > 0) {
                                                                     var serializedData = $('#frm').serialize();
                                                                     //var post_url = "/admin/videos/save_maestro/"+values['txt_'+type_video]+"/"+values['canal_id']+"/"+values['categoria']+"/"+type_video;
@@ -542,49 +541,61 @@
                                                                                 showMessage('exit', '<?php echo lang('videos:edit_video_success') ?>', 1000, url);
                                                                             } else {
                                                                                 showMessage('error', '<?php echo lang('videos:fragment_exist') ?>', 2000, '');
+                                                                                $("#btnSave").html('<a href="javascript:saveVideo();" class="btn orange" type="button"><?php echo lang('buttons.save'); ?><img src="<?php echo BASE_URL ?>system/cms/themes/pyrocms/img/save.png" /></a>');
                                                                             }
                                                                         } //end success
                                                                     }); //end AJAX                                                    
-<?php //} else {  ?>
+<?php //} else {   ?>
                                                                 } else {
                                                                     //$('#frm').submit();
                                                                     existeFragmento();
-<?php //}  ?>
+<?php //}   ?>
                                                                 }
                                                             } else {
                                                                 showMessage('error', '<?php echo lang('videos:fragment_exist') ?>', 2000, '');
+                                                                $("#btnSave").html('<a href="javascript:saveVideo();" class="btn orange" type="button"><?php echo lang('buttons.save'); ?><img src="<?php echo BASE_URL ?>system/cms/themes/pyrocms/img/save.png" /></a>');
                                                             }
                                                         } else {
                                                             showMessage('error', '<?php echo lang('videos:require_source') ?>', 2000, '');
+                                                            $("#btnSave").html('<a href="javascript:saveVideo();" class="btn orange" type="button"><?php echo lang('buttons.save'); ?><img src="<?php echo BASE_URL ?>system/cms/themes/pyrocms/img/save.png" /></a>');
                                                         }
                                                     } else {
                                                         showMessage('error', '<?php echo lang('videos:require_type') ?>', 2000, '');
+                                                        $("#btnSave").html('<a href="javascript:saveVideo();" class="btn orange" type="button"><?php echo lang('buttons.save'); ?><img src="<?php echo BASE_URL ?>system/cms/themes/pyrocms/img/save.png" /></a>');
                                                     }
                                                 } else {
                                                     showMessage('error', '<?php echo lang('videos:require_personajes') ?>', 2000, '');
+                                                    $("#btnSave").html('<a href="javascript:saveVideo();" class="btn orange" type="button"><?php echo lang('buttons.save'); ?><img src="<?php echo BASE_URL ?>system/cms/themes/pyrocms/img/save.png" /></a>');
                                                 }
                                             } else {
                                                 showMessage('error', '<?php echo lang('videos:require_tematicas') ?>', 2000, '');
+                                                $("#btnSave").html('<a href="javascript:saveVideo();" class="btn orange" type="button"><?php echo lang('buttons.save'); ?><img src="<?php echo BASE_URL ?>system/cms/themes/pyrocms/img/save.png" /></a>');
                                             }
                                         } else {
                                             showMessage('error', '<?php echo lang('videos:require_category') ?>', 2000, '');
+                                            $("#btnSave").html('<a href="javascript:saveVideo();" class="btn orange" type="button"><?php echo lang('buttons.save'); ?><img src="<?php echo BASE_URL ?>system/cms/themes/pyrocms/img/save.png" /></a>');
                                         }
                                     } else {
                                         showMessage('error', '<?php echo lang('videos:require_description') ?>', 2000, '');
+                                        $("#btnSave").html('<a href="javascript:saveVideo();" class="btn orange" type="button"><?php echo lang('buttons.save'); ?><img src="<?php echo BASE_URL ?>system/cms/themes/pyrocms/img/save.png" /></a>');
                                     }
                                     //aquí enviamos el mensaje de validación del formato del archivo
                                 } else {
                                     showMessage('error', '<?php echo lang('videos:format_invalid') ?>', 2000, '');
+                                    $("#btnSave").html('<a href="javascript:saveVideo();" class="btn orange" type="button"><?php echo lang('buttons.save'); ?><img src="<?php echo BASE_URL ?>system/cms/themes/pyrocms/img/save.png" /></a>');
                                 }
                             } else {
                                 showMessage('error', '<?php echo lang('videos:require_video') ?>', 2000, '');
+                                $("#btnSave").html('<a href="javascript:saveVideo();" class="btn orange" type="button"><?php echo lang('buttons.save'); ?><img src="<?php echo BASE_URL ?>system/cms/themes/pyrocms/img/save.png" /></a>');
                             }
 
                         } else {
                             showMessage('error', '<?php echo lang('videos:require_title') ?>', 2000, '');
+                            $("#btnSave").html('<a href="javascript:saveVideo();" class="btn orange" type="button"><?php echo lang('buttons.save'); ?><img src="<?php echo BASE_URL ?>system/cms/themes/pyrocms/img/save.png" /></a>');
                         }
                     } else {
                         showMessage('error', 'La hora fin de la transmisión no debe ser menor a la hora inicial', 2000, '');
+                        $("#btnSave").html('<a href="javascript:saveVideo();" class="btn orange" type="button"><?php echo lang('buttons.save'); ?><img src="<?php echo BASE_URL ?>system/cms/themes/pyrocms/img/save.png" /></a>');
                     }
                 }
                 /**
@@ -893,9 +904,11 @@
                         {
                             if (respuesta.error == 1) {
                                 showMessage('error', '<?php echo lang('videos:size_invalid') ?>', 2000, '');
+                                $("#btnSave").html('<a href="javascript:saveVideo();" class="btn orange" type="button"><?php echo lang('buttons.save'); ?><img src="<?php echo BASE_URL ?>system/cms/themes/pyrocms/img/save.png" /></a>');
                             } else {
                                 if (respuesta.error == 2) {
                                     showMessage('error', '<?php echo lang('videos:format_invalid') ?>', 2000, '');
+                                    $("#btnSave").html('<a href="javascript:saveVideo();" class="btn orange" type="button"><?php echo lang('buttons.save'); ?><img src="<?php echo BASE_URL ?>system/cms/themes/pyrocms/img/save.png" /></a>');
                                 } else {
                                     if (respuesta.error == 0) {
                                         var url = "admin/canales/videos/" + values['canal_id'];
@@ -911,9 +924,9 @@
                              });
                              if (resultado) {
                              var url = "admin/canales/videos/" + values['canal_id'];
-                             showMessage('exit', '<?php //echo lang('videos:add_video_success')       ?>', 2000, url);
+                             showMessage('exit', '<?php //echo lang('videos:add_video_success')        ?>', 2000, url);
                              } else {
-                             showMessage('error', '<?php //echo lang('videos:not_found_video')       ?>', 2000, '');
+                             showMessage('error', '<?php //echo lang('videos:not_found_video')        ?>', 2000, '');
                              }*/
                         } //end success
                     }); //end AJAX

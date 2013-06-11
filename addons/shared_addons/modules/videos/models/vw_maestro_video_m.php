@@ -17,7 +17,7 @@ class Vw_maestro_video_m extends MY_Model {
      *  nombre de la tabla
      * @var string 
      */
-    protected $_table = 'vw_maestros_videos';
+    protected $_table = 'default_vw_maestros_videos';
     
     public function vd($var){
         echo "<pre>";

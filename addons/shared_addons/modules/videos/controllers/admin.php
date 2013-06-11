@@ -1046,7 +1046,7 @@ class Admin extends Admin_Controller {
                 foreach ($returnArray as $in => $objImg) {
                     $arrayImg['text'] = '';
                     $arrayImg['value'] = $objImg->id;
-                    if ($objImg->estado == "0") {
+                    if ($objImg->estado == $this->config->item('estado:borrador')) {
                         $arrayImg['selected'] = false;
                     } else {
                         if ($objImg->estado == "1") {
@@ -1098,7 +1098,7 @@ class Admin extends Admin_Controller {
                 foreach ($returnArray as $in => $objImg) {
                     $arrayImg['text'] = '';
                     $arrayImg['value'] = $objImg->id;
-                    if ($objImg->estado == "0") {
+                    if ($objImg->estado == $this->config->item('estado:borrador')) {
                         $arrayImg['selected'] = false;
                     } else {
 
@@ -3558,7 +3558,8 @@ class Admin extends Admin_Controller {
         $objBeanPortada->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
         $objBeanPortadaSaved = $this->portada_m->save($objBeanPortada);
         //listamos los tipos de secciones predefinidas para crearlas
-        $arraySecciones = $this->tipo_secciones_m->where_not_in('id', array($this->config->item('seccion:coleccion'), $this->config->item('seccion:lista'), $this->config->item('seccion:video')))->get_many_by(array());
+//        $arraySecciones = $this->tipo_secciones_m->where_not_in('id', array($this->config->item('seccion:coleccion'), $this->config->item('seccion:lista'), $this->config->item('seccion:video')))->get_many_by(array());
+        $arraySecciones = $this->tipo_secciones_m->get_many_by(array());
         if ($tipo_portada != $this->config->item('portada:canal')) {
             if (count($arraySecciones) > 0) {
                 foreach ($arraySecciones as $puntero => $oS) {
@@ -4616,7 +4617,7 @@ class Admin extends Admin_Controller {
 
     public function quitar_grupo_maestro() {
         if ($this->input->is_ajax_request()) {
-            $this->grupo_detalle_m->update($this->input->post('grupo_detalle_id'), array("estado" => "0", "estado_migracion" => $this->config->item('migracion:actualizado')));
+            $this->grupo_detalle_m->update($this->input->post('grupo_detalle_id'), array("estado" => $this->config->item('estado:borrador'), "estado_migracion" => $this->config->item('migracion:actualizado')));
             //echo json_encode(array("value" => "1"));
             //lista tipo de maestros
             $items = $this->itemsMaestros($this->input->post('parent_maestro'));

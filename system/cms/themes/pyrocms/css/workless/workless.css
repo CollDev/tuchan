@@ -1776,7 +1776,11 @@ background: url(../../img/access_icon.png) no-repeat top center !important;
 }
 
 
- 
+#btnSave > a > img{
+width: 20px !important;
+height: 20px !important;
+margin-left: 10px !important;
+}
  
 @media print {
   * { background: transparent !important; color: black !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; } /* Black prints faster */
