@@ -25,7 +25,7 @@ class Procesos_lib extends MX_Controller {
         $this->load->library("Procesos/ffmpeg");
         $this->load->library("Procesos/log");
         $this->load->library('portadas_lib');
-        $this->load->library('sincronizar_lib');
+        //$this->load->library('sincronizar_lib');
     }
 
     public function index() {
@@ -376,7 +376,7 @@ class Procesos_lib extends MX_Controller {
                     $this->videos_mp->setEstadosVideos($value->id, $this->config->item('v_e:publicado'), $this->config->item('v_l:publicado'));
                     Log::erroLog(" antes de actualizar_video: " . $id);
                     //$this->portadas_lib->actualizar_video($value->id, FALSE);
-                    $this->sincronizar_lib->agregar_video($value->id, 'pro');
+                    //$this->sincronizar_lib->agregar_video($value->id, 'pro');
                     Log::erroLog("actualizar_video: " . $id);
                 }
             }
@@ -1384,11 +1384,11 @@ class Procesos_lib extends MX_Controller {
                 $this->canal_mp->SetItemCollectionUpdate($set, $where);
 
                 $playlist = $this->videos_mp->getVideosPlaylist($value->id);
-
+                
                 $arrayplaylist = array();
 
                 $i = 0;
-                foreach ($playlist as $codigo) {
+                foreach ($playlist as $codigo) { 
                     $arrayplaylist[$i] = new MongoId($codigo->id_mongo);
                     $i++;
                 }
@@ -1654,7 +1654,7 @@ class Procesos_lib extends MX_Controller {
             }
 
             $playlist = $this->videos_mp->getVideosPlaylist($id);
-
+                 
             $arrayplaylist = array();
 
             $i = 0;
@@ -1788,7 +1788,7 @@ class Procesos_lib extends MX_Controller {
     }
 
     private function _actualizarSecciones6789() {
-        $this->micanal_mp->queryProcedure(1, "");
+        $this->micanal_mp->queryProcedure(1,"");
         $secciones = $this->secciones_mp->getSeccionesTipo6789();
         foreach ($secciones as $value) {
             $this->_generarSeccionesMiCanalXSeccionId($value->id);
