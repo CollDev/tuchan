@@ -124,21 +124,36 @@
                     //data: indexOrder,
                     success: function(respuesta)
                     {
-                        if (respuesta.value == 1) {
-                            //location.reload();
-                            $("#estado_" + tipo_item + "_" + maestro_id).empty();
-                            $("#estado_" + tipo_item + "_" + maestro_id).html('Publicado');
-                            var htmlButton = '';
-                            if (tipo_item == 'v') {
-                                var url = 'admin/videos/carga_unitaria/<?php echo $canal_id ?>/' + maestro_id;
-                            } else {
-                                var url = 'admin/videos/grupo_maestro/<?php echo $canal_id ?>/' + maestro_id;
-                            }
-                            htmlButton += '<a href="#" class="mode mode_edit" onclick="editar(\'' + url + '\');return false;">Editar</a>';
-                            htmlButton += '<a href="#" class="mode mode_delete" onclick="eliminar(' + maestro_id + ', \'' + tipo_item + '\');return false;">Eliminar</a>';
-                            $("#acciones_" + tipo_item + "_" + maestro_id).html(htmlButton);
-                        } else {
-                            showMessage('error', 'No es posible publicar. No tiene videos publicados', 2000, '');
+                        switch (respuesta.value) {
+                            case 1 :
+                                //location.reload();
+                                $("#estado_" + tipo_item + "_" + maestro_id).empty();
+                                $("#estado_" + tipo_item + "_" + maestro_id).html('Publicado');
+                                var htmlButton = '';
+                                if (tipo_item == 'v') {
+                                    var url = 'admin/videos/carga_unitaria/<?php echo $canal_id ?>/' + maestro_id;
+                                } else {
+                                    var url = 'admin/videos/grupo_maestro/<?php echo $canal_id ?>/' + maestro_id;
+                                }
+                                htmlButton += '<a href="#" class="mode mode_edit" onclick="editar(\'' + url + '\');return false;">Editar</a>';
+                                htmlButton += '<a href="#" class="mode mode_delete" onclick="eliminar(' + maestro_id + ', \'' + tipo_item + '\');return false;">Eliminar</a>';
+                                $("#acciones_" + tipo_item + "_" + maestro_id).html(htmlButton);
+                                break;
+                            case 2 :
+                                showMessage('error', 'No es posible publicar. No tiene videos publicados', 2000, '');
+                                break;
+                            case 3 :
+                                showMessage('error', 'No es posible publicar. El canal no está publicado', 2000, '');
+                                break;
+                            case 6 :
+                                showMessage('error', 'No es posible publicar. No existe el video', 2000, '');
+                                break;
+                            case 7 :
+                                showMessage('error', 'No es posible publicar. El video no tiene imagenes', 2000, '');
+                                break;
+                            default:
+                                showMessage('error', 'No es posible publicar', 2000, '');
+                                break;
                         }
                     } //end success
                 }); //end AJAX   

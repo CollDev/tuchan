@@ -1,0 +1,4 @@
+23:11:07 > ini - curlProcesoVideosXId: 4797
+23:11:07 > fin - curlProcesoVideosXId: 4797 ruta http://local.adminmicanal.com/curlproceso/procesoVideosXId/4797
+23:11:07 > ini en curl - procesoVideosXId4797
+23:11:07 > id: 4797

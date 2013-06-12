@@ -54,6 +54,7 @@ class Admin extends Admin_Controller {
         $this->load->library('imagenes_lib');
         $this->load->library('procesos_lib');
         $this->load->library('portadas_lib');
+        $this->load->library('sincronizar_lib');
         $this->config->load('videos/uploads');
     }
 
@@ -3226,15 +3227,27 @@ class Admin extends Admin_Controller {
             //$lista_maestros_publicados = $this->videos_m->get_many_by(array("canales_id" => $canal_id, "estado" => $this->config->item('video:publicado')));
             $lista_maestros_publicados = $this->vw_maestro_video_m->get_many_by(array("v" => "v", "canales_id" => $canal_id, "estado" => $this->config->item('video:publicado')));
             if (count($lista_maestros_publicados) > 0) {
+                //validamos que tenga la sección destacado publicada
                 if ($this->tiene_destacado_publicado($canal_id, 'canal')) {
-                    $this->canales_m->update($canal_id, array("estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
-                    //eliminamos la portada del canal
-                    $objPortada = $this->portada_m->get_by(array("tipo_portadas_id" => $this->config->item('portada:canal'), "origen_id" => $canal_id));
-                    if (count($objPortada) > 0) {
-                        $this->portada_m->update($objPortada->id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                    //validamos que tenga otra sección este publicado ademas del destacado
+                    if ($this->tiene_otra_seccion_publicada($canal_id)) {
+                        //recorremos los videos para agregar a las secciones
+                        //llamamos al metodo de agregar video de la libreria sincronizar
+                        //iteramos todos los videos encontramos de la variable $lista_maestros_publicados
+                        foreach ($lista_maestros_publicados as $puntero => $objVideoVista) {
+                            $this->sincronizar_lib->agregar_video($objVideoVista->id);
+                        }
+                        $this->canales_m->update($canal_id, array("estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                        //publicamos la portada del canal
+                        $objPortada = $this->portada_m->get_by(array("tipo_portadas_id" => $this->config->item('portada:canal'), "origen_id" => $canal_id));
+                        if (count($objPortada) > 0) {
+                            $this->portada_m->update($objPortada->id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                        }
+                        $this->procesos_lib->curlGenerarCanalesXId($canal_id);
+                        echo json_encode(array("value" => "1"));
+                    } else {
+                        echo json_encode(array("value" => "3")); //no tiene otras secciones publicadas
                     }
-                    $this->procesos_lib->curlGenerarCanalesXId($canal_id);
-                    echo json_encode(array("value" => "1"));
                 } else {
                     echo json_encode(array("value" => "2")); //no tiene la sección destacado publicado
                 }
@@ -3242,6 +3255,42 @@ class Admin extends Admin_Controller {
                 echo json_encode(array("value" => "0")); //no tiene maestros activos
             }
         }
+    }
+
+    /**
+     * Método para verificar si hay otra sección publicada ademas de la sección destacado
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param int $canal_id
+     * @return boolean
+     */
+    private function tiene_otra_seccion_publicada($canal_id) {
+        $returnValue = FALSE;
+        $objPortadaCanal = $this->portada_m->get_by(array("canales_id" => $canal_id, "origen_id" => $canal_id, "tipo_portadas_id" => $this->config->item('portada:canal')));
+        if (count($objPortadaCanal) > 0) {
+            $objColeccionSecciones = $this->secciones_m->where_not_in('tipo_secciones_id', array($this->config->item('seccion:destacado')))->get_by(array("portadas_id" => $objPortadaCanal->id, "estado" => $this->config->item('estado:publicado')));
+            if (count($objColeccionSecciones) > 0) {
+                $returnValue = TRUE;
+            }
+        }
+        return $returnValue;
+    }
+
+    /**
+     * Método para verificar si hay otra sección publicada ademas de la sección destacado
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param int $portada_id
+     * @return boolean
+     */
+    private function tiene_seccion_publicada($portada_id) {
+        $returnValue = FALSE;
+        $objPortadaCanal = $this->portada_m->get($portada_id);
+        if (count($objPortadaCanal) > 0) {
+            $objColeccionSecciones = $this->secciones_m->where_not_in('tipo_secciones_id', array($this->config->item('seccion:destacado')))->get_by(array("portadas_id" => $objPortadaCanal->id, "estado" => $this->config->item('estado:publicado')));
+            if (count($objColeccionSecciones) > 0) {
+                $returnValue = TRUE;
+            }
+        }
+        return $returnValue;
     }
 
     /**
@@ -3254,9 +3303,22 @@ class Admin extends Admin_Controller {
     private function tiene_destacado_publicado($canal_id, $tipo) {
         $returnValue = FALSE;
         if ($tipo == 'canal') {
-            $objPortadaCanal = $this->portada_m->get_by(array("canales_id" => $canal_id, "origen_id" => $canal_id, "tipo_portadas_id" => $this->config->item('portada:canal'), "estado" => $this->config->item('estado:publicado')));
+            $objPortadaCanal = $this->portada_m->get_by(array("canales_id" => $canal_id, "origen_id" => $canal_id, "tipo_portadas_id" => $this->config->item('portada:canal')));
             if (count($objPortadaCanal) > 0) {
-                $returnValue = TRUE;
+                $objColeccionSecciones = $this->secciones_m->get_by(array("portadas_id" => $objPortadaCanal->id, "tipo_secciones_id" => $this->config->item('seccion:destacado'), "estado" => $this->config->item('estado:publicado')));
+                if (count($objColeccionSecciones) > 0) {
+                    $returnValue = TRUE;
+                }
+            }
+        } else {
+            if ($tipo == 'programa') {
+                $objPortadaPrograma = $this->portada_m->get_by(array("origen_id" => $canal_id, "tipo_portadas_id" => $this->config->item('portada:programa')));
+                if (count($objPortadaPrograma) > 0) {
+                    $objColeccionSecciones = $this->secciones_m->get_by(array("portadas_id" => $objPortadaPrograma->id, "tipo_secciones_id" => $this->config->item('seccion:destacado'), "estado" => $this->config->item('estado:publicado')));
+                    if (count($objColeccionSecciones) > 0) {
+                        $returnValue = TRUE;
+                    }
+                }
             }
         }
         return $returnValue;
@@ -3565,8 +3627,73 @@ class Admin extends Admin_Controller {
      */
     public function publicar_portada($portada_id) {
         if ($this->input->is_ajax_request()) {
-            $this->portada_m->update($portada_id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
-            echo json_encode(array("value" => "1"));
+            //obtenemos el objeto portada para obtener el canal
+            $objPortada = $this->portada_m->get($portada_id);
+            if (count($objPortada) > 0) {
+                //verificamos si es la portada de un programa o un canal
+                if ($objPortada->tipo_portadas_id == $this->config->item('portada:canal')) {
+                    //verificamos q al menos un maestro esté publicado para activarlo
+                    $lista_maestros_publicados = $this->vw_maestro_video_m->get_many_by(array("v" => "v", "canales_id" => $objPortada->canales_id, "estado" => $this->config->item('video:publicado')));
+                    if (count($lista_maestros_publicados) > 0) {
+                        //validamos que tenga la sección destacado publicada
+                        if ($this->tiene_destacado_publicado($objPortada->canales_id, 'canal')) {
+                            //validamos que tenga otra sección este publicado ademas del destacado
+                            if ($this->tiene_otra_seccion_publicada($objPortada->canales_id)) {
+                                //recorremos los videos para agregar a las secciones
+                                //llamamos al metodo de agregar video de la libreria sincronizar
+                                //iteramos todos los videos encontramos de la variable $lista_maestros_publicados
+                                foreach ($lista_maestros_publicados as $puntero => $objVideoVista) {
+                                    $this->sincronizar_lib->agregar_video($objVideoVista->id);
+                                }
+                                $this->canales_m->update($objPortada->canales_id, array("estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                $this->portada_m->update($portada_id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                $this->procesos_lib->curlGenerarCanalesXId($objPortada->canales_id);
+                                echo json_encode(array("value" => "1"));
+                            } else {
+                                echo json_encode(array("value" => "4")); //no tiene secciones publicadas
+                            }
+                        } else {
+                            echo json_encode(array("value" => "3")); //no tiene sección destacado
+                        }
+                    } else {
+                        echo json_encode(array("value" => "2")); //no tiene videos en estado publicado
+                    }
+                } else {
+                    //verificamos que el canal este activo
+                    $objCanal = $this->canales_m->get(array("id" => $objPortada->canales_id, "estado" => $this->config->item('estado:publicado')));
+                    if (count($objCanal) > 0) {
+                        //portada de tipo programa
+                        //verificamos q al menos un maestro esté publicado para activarlo
+                        $lista_maestros_publicados = $this->vw_maestro_video_m->get_many_by(array("v" => "v", "gm3" => $objPortada->origen_id, "estado" => $this->config->item('video:publicado')));
+                        if (count($lista_maestros_publicados) > 0) {
+                            //validamos que tenga la sección destacado publicada
+                            if ($this->tiene_destacado_publicado($objPortada->origen_id, 'programa')) {
+                                //validamos que tenga otra sección este publicado ademas del destacado
+                                if ($this->tiene_seccion_publicada($objPortada->id)) {
+                                    //recorremos los videos para agregar a las secciones
+                                    //llamamos al metodo de agregar video de la libreria sincronizar
+                                    //iteramos todos los videos encontramos de la variable $lista_maestros_publicados
+                                    foreach ($lista_maestros_publicados as $puntero => $objVideoVista) {
+                                        $this->sincronizar_lib->agregar_video($objVideoVista->id);
+                                    }
+                                    $this->portada_m->update($portada_id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                    echo json_encode(array("value" => "1"));
+                                } else {
+                                    echo json_encode(array("value" => "4")); //no tiene secciones publicadas
+                                }
+                            } else {
+                                echo json_encode(array("value" => "3")); //no tiene sección destacado
+                            }
+                        } else {
+                            echo json_encode(array("value" => "2")); //no tiene videos en estado publicado
+                        }
+                    } else {
+                        echo json_encode(array("value" => "5")); //El canal no está publicado
+                    }
+                }
+            } else {
+                echo json_encode(array("value" => "6")); //No se encontró la portada
+            }
         }
     }
 
@@ -4249,9 +4376,9 @@ class Admin extends Admin_Controller {
                 } else {
                     $objImagen = $this->obtenerImagenMaestro($maestro_id, $seccion_id);
                     if (count($objImagen) > 0) {
-                        $maestroEnSeccion = $this->detalle_secciones_m->get_many_by(array("grupo_maestros_id"=>$maestro_id, "secciones_id"=>$seccion_id));
+                        $maestroEnSeccion = $this->detalle_secciones_m->get_many_by(array("grupo_maestros_id" => $maestro_id, "secciones_id" => $seccion_id));
                         //if ($this->maestroAgregadoSeccion($maestro_id, $seccion_id, 0)) {
-                        if (count($maestroEnSeccion)>0) {
+                        if (count($maestroEnSeccion) > 0) {
                             if ($this->es_seccion_excluyente($seccion_id)) {
                                 $tipo_maestro_registrado = $this->obtener_tipo_maestro_registrado($seccion_id);
                                 if ($tipo_maestro_registrado > 0) {
@@ -4301,9 +4428,9 @@ class Admin extends Admin_Controller {
             } else {
                 $objImagen = $this->obtenerImagenMaestro($maestro_id, $seccion_id);
                 if (count($objImagen) > 0) {
-                    $maestroEnSeccion = $this->detalle_secciones_m->get_many_by(array("grupo_maestros_id"=>$maestro_id, "secciones_id"=>$seccion_id));
+                    $maestroEnSeccion = $this->detalle_secciones_m->get_many_by(array("grupo_maestros_id" => $maestro_id, "secciones_id" => $seccion_id));
                     //if ($this->maestroAgregadoSeccion($maestro_id, $seccion_id, 0)) {
-                    if (count($maestroEnSeccion)>0) {
+                    if (count($maestroEnSeccion) > 0) {
                         if ($this->es_seccion_excluyente($seccion_id)) {//se aplica para todas las secciones de tipo coleccion
                             $tipo_maestro_registrado = $this->obtener_tipo_maestro_registrado($seccion_id);
                             if ($tipo_maestro_registrado > 0) {
@@ -5993,9 +6120,9 @@ class Admin extends Admin_Controller {
             $objImagen = $this->obtenerImagenMaestro($canal_item, $seccion_id, 'canal');
             $returnValue = 1;
             if (count($objImagen) > 0) {
-                $canalEnSeccion = $this->detalle_secciones_m->get_many_by(array("canales_id"=>$canal_item, "secciones_id"=>$seccion_id));
+                $canalEnSeccion = $this->detalle_secciones_m->get_many_by(array("canales_id" => $canal_item, "secciones_id" => $seccion_id));
                 //if ($this->canalAgregadoSeccion($canal_item, $seccion_id, 0)) {
-                if (count($canalEnSeccion)>0) {
+                if (count($canalEnSeccion) > 0) {
                     $objDetalleSeccion = $this->detalle_secciones_m->get_by(array("canales_id" => $canal_item, "secciones_id" => $seccion_id));
                     $peso = $this->obtenerPeso($seccion_id);
                     $this->detalle_secciones_m->update($objDetalleSeccion->id, array("imagenes_id" => $objImagen->id, "peso" => $peso, "estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
@@ -6030,9 +6157,9 @@ class Admin extends Admin_Controller {
             $objImagen = $this->obtenerImagenMaestro($video_id, $seccion_id, 'video');
             $returnValue = 1;
             if (count($objImagen) > 0) {
-                $videoEnSeccion = $this->detalle_secciones_m->get_many_by(array("videos_id"=>$video_id, "secciones_id"=>$seccion_id));
+                $videoEnSeccion = $this->detalle_secciones_m->get_many_by(array("videos_id" => $video_id, "secciones_id" => $seccion_id));
                 //if ($this->videoAgregadoSeccion($video_id, $seccion_id, 0)) {
-                if (count($videoEnSeccion)>0) {
+                if (count($videoEnSeccion) > 0) {
                     if ($this->es_seccion_excluyente($seccion_id)) {
                         $tipo_maestro_registrado = $this->obtener_tipo_maestro_registrado($seccion_id);
                         if ($tipo_maestro_registrado > 0) {

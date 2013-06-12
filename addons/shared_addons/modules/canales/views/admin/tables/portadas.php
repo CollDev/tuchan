@@ -76,8 +76,8 @@
                                 break;
                         endswitch;
                         ?>
-                        <td style="width: 30%;"><div id="portada_boton_<?php echo $post->id; ?>"><?php echo $link; ?></div><!--<span onclick="agregar_seccion(<?php //echo $post->id;              ?>);
-                                        return false;" > <?php //echo $objCanal->tipo_canales_id == $this->config->item('canal:mi_canal') ? 'Añadir seccion' : '';              ?></span>--></td>
+                        <td style="width: 30%;"><div id="portada_boton_<?php echo $post->id; ?>"><?php echo $link; ?></div><!--<span onclick="agregar_seccion(<?php //echo $post->id;                ?>);
+                                        return false;" > <?php //echo $objCanal->tipo_canales_id == $this->config->item('canal:mi_canal') ? 'Añadir seccion' : '';                ?></span>--></td>
                     </tr>
                 </table>
             </h3>
@@ -107,12 +107,12 @@
                                     break;
                             }
                             ?>
-                            <?php if($objSeccion->tipo_secciones_id == $this->config->item('seccion:destacado')): ?>
+                            <?php if ($objSeccion->tipo_secciones_id == $this->config->item('seccion:destacado')): ?>
                                 <tr class="nodrag" id="<?php echo $objSeccion->id ?>">
-                            <?php else:?>
-                                    <tr id="<?php echo $objSeccion->id ?>">
-                            <?php endif;?>
-                            
+                                <?php else: ?>
+                                <tr id="<?php echo $objSeccion->id ?>">
+                                <?php endif; ?>
+
                                 <td style="width: 5%;"><?php echo $indice + 1; ?></td>
                                 <td style="width: 28%;"><?php echo $objSeccion->nombre; ?></td>
                                 <td style="width: 30%;"><?php echo strip_tags($objSeccion->descripcion); ?></td>
@@ -247,20 +247,40 @@
                                             //data: indexOrder,
                                             success: function(respuesta)
                                             {
-                                                if (respuesta.value == 1) {
-                                                    //location.reload();
-                                                    $("#" + tipo + "_" + portada_id).empty();
-                                                    $("#" + tipo + "_" + portada_id).html('Publicado');
-                                                    var htmlButton = '';
-                                                    htmlButton += '<a href="/admin/canales/previsualizar_portada/" target ="_blank" class="modal-large mode_preview">Previsualizar</a>';
-                                                    htmlButton += '<a href="#" onclick="return false;" class="link_portada mode_edit">Editar</a>';
-                                                    //htmlButton += '<a href="#" onclick="eliminar_portada(' + portada_id + ',\'portada\');return false;" class="link_portada mode_delete">Eliminar</a>';
-                                                    htmlButton += '<a href="#" class="link_portada mode_add" onclick="agregar_seccion(' + portada_id + ');return false;">Añadir sección</a>';
-                                                    $("#" + tipo + "_boton_" + portada_id).html(htmlButton);
-                                                    $('.link_portada').click(function(e) {
-                                                        e.stopPropagation();
-                                                        //Your Code here(For example a call to your function)
-                                                    });
+                                                switch (respuesta.value) {
+                                                    case 1 :
+                                                        //location.reload();
+                                                        $("#" + tipo + "_" + portada_id).empty();
+                                                        $("#" + tipo + "_" + portada_id).html('Publicado');
+                                                        var htmlButton = '';
+                                                        htmlButton += '<a href="/admin/canales/previsualizar_portada/" target ="_blank" class="modal-large mode_preview">Previsualizar</a>';
+                                                        htmlButton += '<a href="#" onclick="return false;" class="link_portada mode_edit">Editar</a>';
+                                                        //htmlButton += '<a href="#" onclick="eliminar_portada(' + portada_id + ',\'portada\');return false;" class="link_portada mode_delete">Eliminar</a>';
+                                                        htmlButton += '<a href="#" class="link_portada mode_add" onclick="agregar_seccion(' + portada_id + ');return false;">Añadir sección</a>';
+                                                        $("#" + tipo + "_boton_" + portada_id).html(htmlButton);
+                                                        $('.link_portada').click(function(e) {
+                                                            e.stopPropagation();
+                                                            //Your Code here(For example a call to your function)
+                                                        });
+                                                        break;
+                                                    case 2:
+                                                        showMessage('error', 'No se puede publicar. No tiene videos publicados', 2000, '');
+                                                        break;
+                                                    case 3:
+                                                        showMessage('error', 'No se puede publicar. No tiene sección destacado publicado', 2000, '');
+                                                        break;
+                                                    case 4:
+                                                        showMessage('error', 'No se puede publicar. No tiene secciones publicadas', 2000, '');
+                                                        break;
+                                                    case 5:
+                                                        showMessage('error', 'No se puede publicar. El canal no está publicado', 2000, '');
+                                                        break;
+                                                    case 6:
+                                                        showMessage('error', 'No se puede publicar. No se encontró la portada', 2000, '');
+                                                        break;
+                                                    default :
+                                                        showMessage('error', 'No se puede publicar. Ocurrio un error inesperado', 2000, '');
+                                                        break;
                                                 }
                                             } //end success
                                         }); //end AJAX   
@@ -346,6 +366,40 @@
                                         }); //end AJAX   
                                     }
                                 });
+                            }
+                            function showMessage(type, message, duration, pathurl) {
+                                if (type == 'error') {
+                                    jError(
+                                            message,
+                                            {
+                                                autoHide: true, // added in v2.0
+                                                TimeShown: duration,
+                                                HorizontalPosition: 'center',
+                                                VerticalPosition: 'top',
+                                                onCompleted: function() { // added in v2.0
+                                                    //alert('jNofity is completed !');
+                                                }
+                                            }
+                                    );
+                                } else {
+                                    if (type == 'exit') {
+                                        jSuccess(
+                                                message,
+                                                {
+                                                    autoHide: true, // added in v2.0
+                                                    TimeShown: duration,
+                                                    HorizontalPosition: 'center',
+                                                    VerticalPosition: 'top',
+                                                    onCompleted: function() { // added in v2.0
+                                                        if (pathurl.length > 0) {
+                                                            $(location).attr('href', '<?php echo BASE_URL; ?>' + pathurl);
+                                                            //window.location('<?php echo BASE_URL; ?>'+pathurl);
+                                                        }
+                                                    }
+                                                }
+                                        );
+                                    }
+                                }
                             }
     </script>
 <?php endif; ?>
