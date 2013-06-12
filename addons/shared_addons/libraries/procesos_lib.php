@@ -1833,6 +1833,27 @@ class Procesos_lib extends MX_Controller {
         }
         echo "</table>";
     }
+    
+    public function publicarPendientes(){
+        $this->_publicarPendientes();
+         
+    }
+    
+    private function _publicarPendientes(){
+        
+        $listavideos =  Liquid::obtenerVideosNoPublished("3b540fec2d40b445f91432821079128d");
+        
+        foreach ($listavideos as $value) {                     
+            $videos = $this->videos_mp->getVideosxCodigo($value["id"]);
+            
+            if (count($videos)!=0){
+                $retorno = Liquid::updatePublishedMediaNode($videos);           
+                echo $retorno;
+            }
+        }
+    }
+    
+    
 
     public function getMaestroDetalles() {
         $videos = $this->grupo_maestros_mp->getMaestroDetalles();

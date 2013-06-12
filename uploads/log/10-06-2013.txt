@@ -1,0 +1,1036 @@
+22:45:57 > entro a _obtenerImagesUrlVideosXId:  81
+22:45:57 > Liquid retorna no publicado para el video 81
+22:45:57 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=81
+22:45:57 >  antes de actualizar_video: 81
+22:45:57 > ini - curlGenerarSeccionesMiCanalXSeccionId: 2948
+22:45:57 > ini - curlGenerarCanalesXId: 368
+22:45:57 > ini - curlGenerarSeccionesMiCanalXSeccionId: 2886
+22:45:57 > actualizar_video: 81
+22:45:57 > _generarVideosXId: 81
+22:45:57 > relacionados tags: serie-comedia-Dennise-Dibos-Doña-Nelly
+22:45:57 > private curlGenerarSeccionesMiCanalXSeccionId: 2948
+22:45:57 > dato entrada    : 2948 -- cantidad   : 1 -- 
+22:45:57 > mongo_se: 51b649d1c8437edd2d000000
+22:45:57 > estado_migracion: 9
+22:45:57 > relacionados cantidad: 0
+22:45:57 > -> id_mongo de seccion 51b649d1c8437edd2d000000
+22:45:57 > -> id_mongo de seccion 51b649d1c8437edd2d000000
+22:45:57 > despues de actualizar_video: 81
+22:45:57 > idtemp1,38
+22:45:57 > 9  -  1
+22:45:57 > idtemp1,37
+22:45:57 > entro a actualizar
+22:45:57 > dato entrada    : 2940 -- cantidad   : 1 -- 
+22:45:57 > mongo_se: 51b649d1c8437e2505000001
+22:45:57 > estado_migracion: 2
+22:45:57 > -> id_mongo de seccion 51b649d1c8437e2505000001
+22:45:57 > -> id_mongo de seccion 51b649d1c8437e2505000001
+22:45:57 > idtemp1,12
+22:45:57 > idtemp1,9
+22:45:57 > private curlGenerarSeccionesMiCanalXSeccionId: 2886
+22:45:57 > idtemp1,11
+22:45:57 > dato entrada    : 2886 -- cantidad   : 1 -- 
+22:45:57 > mongo_se: 51b649d1c8437ee12e000000
+22:45:57 > estado_migracion: 9
+22:45:57 > -> id_mongo de seccion 51b649d1c8437ee12e000000
+22:45:57 > -> id_mongo de seccion 51b649d1c8437ee12e000000
+22:45:57 > idtemp1,16
+22:45:57 > dato entrada    : 2941 -- cantidad   : 1 -- 
+22:45:57 > -> id_mongo de seccion 51a4ee8ba43916145e000004
+22:45:57 > dato entrada    : 2942 -- cantidad   : 1 -- 
+22:45:57 > -> id_mongo de seccion 51b65725c8437e0137000002
+22:45:57 > idtemp1,9
+22:45:57 > dato entrada    : 2943 -- cantidad   : 1 -- 
+22:45:57 > -> id_mongo de seccion 51a4ee8ba439163e63000005
+22:45:57 > dato entrada    : 2944 -- cantidad   : 1 -- 
+22:45:57 > mongo_se: 51b649d1c8437e2505000003
+22:45:57 > estado_migracion: 2
+22:45:57 > -> id_mongo de seccion 51b649d1c8437e2505000003
+22:45:57 > -> id_mongo de seccion 51b649d1c8437e2505000003
+22:45:57 > idtemp1,4
+22:45:57 > idtemp2,86
+22:45:57 > idtemp2,14
+22:45:57 > idtemp2,20
+22:45:57 > dato entrada    : 2945 -- cantidad   : 1 -- 
+22:45:57 > dato entrada    : 2946 -- cantidad   : 1 -- 
+22:45:57 > dato entrada    : 2947 -- cantidad   : 1 -- 
+22:45:57 > idtemp1,15
+22:45:57 > mongo_se: 51b649d2c8437e2505000004
+22:45:57 > estado_migracion: 2
+22:45:57 > -> id_mongo de seccion 51b649d2c8437e2505000004
+22:45:57 > -> id_mongo de seccion 51b649d2c8437e2505000004
+22:45:57 > idtemp2,86
+22:45:57 > idtemp2,81
+22:45:57 > idtemp2,20
+22:45:57 > idtemp2,14
+22:45:57 > dato entrada    : 2948 -- cantidad   : 1 -- 
+22:45:57 > mongo_se: 51b649d1c8437edd2d000000
+22:45:57 > estado_migracion: 2
+22:45:57 > -> id_mongo de seccion 51b649d1c8437edd2d000000
+22:45:57 > -> id_mongo de seccion 51b649d1c8437edd2d000000
+22:45:57 > idtemp1,38
+22:45:57 > idtemp1,37
+22:45:57 > idtemp1,12
+22:45:57 > idtemp1,11
+22:46:36 > entro a _obtenerImagesUrlVideosXId:  81
+22:46:36 > Liquid retorna no publicado para el video 81
+22:46:36 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=81
+22:46:36 >  antes de actualizar_video: 81
+22:46:36 > ini - curlGenerarSeccionesMiCanalXSeccionId: 2948
+22:46:36 > ini - curlGenerarCanalesXId: 368
+22:46:36 > ini - curlGenerarSeccionesMiCanalXSeccionId: 2886
+22:46:36 > actualizar_video: 81
+22:46:36 > _generarVideosXId: 81
+22:46:36 > relacionados tags: serie-comedia-Dennise-Dibos-Doña-Nelly
+22:46:36 > private curlGenerarSeccionesMiCanalXSeccionId: 2948
+22:46:36 > relacionados cantidad: 0
+22:46:36 > dato entrada    : 2948 -- cantidad   : 1 -- 
+22:46:36 > mongo_se: 51b649d1c8437edd2d000000
+22:46:36 > estado_migracion: 9
+22:46:36 > -> id_mongo de seccion 51b649d1c8437edd2d000000
+22:46:36 > despues de actualizar_video: 81
+22:46:36 > -> id_mongo de seccion 51b649d1c8437edd2d000000
+22:46:36 > idtemp1,38
+22:46:36 > 9  -  1
+22:46:36 > entro a actualizar
+22:46:36 > dato entrada    : 2940 -- cantidad   : 1 -- 
+22:46:36 > idtemp1,37
+22:46:36 > mongo_se: 51b649d1c8437e2505000001
+22:46:36 > estado_migracion: 2
+22:46:36 > -> id_mongo de seccion 51b649d1c8437e2505000001
+22:46:36 > -> id_mongo de seccion 51b649d1c8437e2505000001
+22:46:36 > idtemp1,9
+22:46:36 > private curlGenerarSeccionesMiCanalXSeccionId: 2886
+22:46:36 > idtemp1,12
+22:46:36 > dato entrada    : 2886 -- cantidad   : 1 -- 
+22:46:36 > mongo_se: 51b649d1c8437ee12e000000
+22:46:36 > estado_migracion: 9
+22:46:36 > -> id_mongo de seccion 51b649d1c8437ee12e000000
+22:46:36 > -> id_mongo de seccion 51b649d1c8437ee12e000000
+22:46:36 > idtemp1,11
+22:46:36 > idtemp1,16
+22:46:36 > dato entrada    : 2941 -- cantidad   : 1 -- 
+22:46:36 > -> id_mongo de seccion 51a4ee8ba43916145e000004
+22:46:36 > dato entrada    : 2942 -- cantidad   : 1 -- 
+22:46:36 > -> id_mongo de seccion 51b6574cc8437e6e37000003
+22:46:36 > idtemp1,9
+22:46:36 > dato entrada    : 2943 -- cantidad   : 1 -- 
+22:46:36 > -> id_mongo de seccion 51a4ee8ba439163e63000005
+22:46:36 > dato entrada    : 2944 -- cantidad   : 1 -- 
+22:46:36 > mongo_se: 51b649d1c8437e2505000003
+22:46:36 > estado_migracion: 2
+22:46:36 > -> id_mongo de seccion 51b649d1c8437e2505000003
+22:46:36 > idtemp1,4
+22:46:36 > -> id_mongo de seccion 51b649d1c8437e2505000003
+22:46:36 > idtemp2,86
+22:46:36 > idtemp2,14
+22:46:36 > idtemp2,20
+22:46:36 > idtemp1,15
+22:46:36 > dato entrada    : 2945 -- cantidad   : 1 -- 
+22:46:36 > dato entrada    : 2946 -- cantidad   : 1 -- 
+22:46:36 > dato entrada    : 2947 -- cantidad   : 1 -- 
+22:46:36 > mongo_se: 51b649d2c8437e2505000004
+22:46:36 > estado_migracion: 2
+22:46:36 > -> id_mongo de seccion 51b649d2c8437e2505000004
+22:46:36 > -> id_mongo de seccion 51b649d2c8437e2505000004
+22:46:36 > idtemp2,86
+22:46:36 > idtemp2,81
+22:46:36 > idtemp2,20
+22:46:36 > idtemp2,14
+22:46:36 > dato entrada    : 2948 -- cantidad   : 1 -- 
+22:46:36 > mongo_se: 51b649d1c8437edd2d000000
+22:46:36 > estado_migracion: 2
+22:46:36 > -> id_mongo de seccion 51b649d1c8437edd2d000000
+22:46:36 > -> id_mongo de seccion 51b649d1c8437edd2d000000
+22:46:36 > idtemp1,38
+22:46:36 > idtemp1,37
+22:46:36 > idtemp1,12
+22:46:36 > idtemp1,11
+22:46:59 > entro a _obtenerImagesUrlVideosXId:  81
+22:46:59 > Liquid retorna no publicado para el video 81
+22:46:59 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=81
+22:46:59 >  antes de actualizar_video: 81
+22:47:00 > ini - curlGenerarSeccionesMiCanalXSeccionId: 2948
+22:47:00 > ini - curlGenerarCanalesXId: 368
+22:47:00 > ini - curlGenerarSeccionesMiCanalXSeccionId: 2886
+22:47:00 > actualizar_video: 81
+22:47:00 > _generarVideosXId: 81
+22:47:00 > relacionados tags: serie-comedia-Dennise-Dibos-Doña-Nelly
+22:47:00 > relacionados cantidad: 0
+22:47:00 > despues de actualizar_video: 81
+22:47:00 > private curlGenerarSeccionesMiCanalXSeccionId: 2948
+22:47:00 > dato entrada    : 2948 -- cantidad   : 1 -- 
+22:47:00 > mongo_se: 51b649d1c8437edd2d000000
+22:47:00 > estado_migracion: 9
+22:47:00 > 9  -  1
+22:47:00 > entro a actualizar
+22:47:00 > dato entrada    : 2940 -- cantidad   : 1 -- 
+22:47:00 > mongo_se: 51b649d1c8437e2505000001
+22:47:00 > estado_migracion: 2
+22:47:00 > -> id_mongo de seccion 51b649d1c8437edd2d000000
+22:47:00 > -> id_mongo de seccion 51b649d1c8437edd2d000000
+22:47:00 > -> id_mongo de seccion 51b649d1c8437e2505000001
+22:47:00 > -> id_mongo de seccion 51b649d1c8437e2505000001
+22:47:00 > idtemp1,38
+22:47:00 > idtemp1,9
+22:47:00 > idtemp1,37
+22:47:00 > dato entrada    : 2941 -- cantidad   : 1 -- 
+22:47:00 > -> id_mongo de seccion 51a4ee8ba43916145e000004
+22:47:00 > idtemp1,12
+22:47:00 > dato entrada    : 2942 -- cantidad   : 1 -- 
+22:47:00 > -> id_mongo de seccion 51b65764c8437ef537000002
+22:47:00 > private curlGenerarSeccionesMiCanalXSeccionId: 2886
+22:47:00 > dato entrada    : 2943 -- cantidad   : 1 -- 
+22:47:00 > dato entrada    : 2886 -- cantidad   : 1 -- 
+22:47:00 > mongo_se: 51b649d1c8437ee12e000000
+22:47:00 > estado_migracion: 9
+22:47:00 > -> id_mongo de seccion 51a4ee8ba439163e63000005
+22:47:00 > idtemp1,11
+22:47:00 > -> id_mongo de seccion 51b649d1c8437ee12e000000
+22:47:00 > -> id_mongo de seccion 51b649d1c8437ee12e000000
+22:47:00 > idtemp1,16
+22:47:00 > dato entrada    : 2944 -- cantidad   : 1 -- 
+22:47:00 > mongo_se: 51b649d1c8437e2505000003
+22:47:00 > estado_migracion: 2
+22:47:00 > -> id_mongo de seccion 51b649d1c8437e2505000003
+22:47:00 > -> id_mongo de seccion 51b649d1c8437e2505000003
+22:47:00 > idtemp2,86
+22:47:00 > idtemp2,14
+22:47:00 > idtemp2,20
+22:47:00 > idtemp1,9
+22:47:00 > dato entrada    : 2945 -- cantidad   : 1 -- 
+22:47:00 > dato entrada    : 2946 -- cantidad   : 1 -- 
+22:47:00 > dato entrada    : 2947 -- cantidad   : 1 -- 
+22:47:00 > mongo_se: 51b649d2c8437e2505000004
+22:47:00 > estado_migracion: 2
+22:47:00 > -> id_mongo de seccion 51b649d2c8437e2505000004
+22:47:00 > -> id_mongo de seccion 51b649d2c8437e2505000004
+22:47:00 > idtemp2,86
+22:47:00 > idtemp1,4
+22:47:00 > idtemp2,81
+22:47:00 > idtemp2,20
+22:47:00 > idtemp2,14
+22:47:00 > dato entrada    : 2948 -- cantidad   : 1 -- 
+22:47:00 > mongo_se: 51b649d1c8437edd2d000000
+22:47:00 > estado_migracion: 2
+22:47:00 > -> id_mongo de seccion 51b649d1c8437edd2d000000
+22:47:00 > -> id_mongo de seccion 51b649d1c8437edd2d000000
+22:47:00 > idtemp1,15
+22:47:00 > idtemp1,38
+22:47:00 > idtemp1,37
+22:47:00 > idtemp1,12
+22:47:00 > idtemp1,11
+22:47:45 > entro a _obtenerImagesUrlVideosXId:  81
+22:47:45 > Liquid retorna no publicado para el video 81
+22:47:45 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=81
+22:47:45 >  antes de actualizar_video: 81
+22:47:46 > ini - curlGenerarSeccionesMiCanalXSeccionId: 2948
+22:47:46 > ini - curlGenerarCanalesXId: 368
+22:47:46 > ini - curlGenerarSeccionesMiCanalXSeccionId: 2886
+22:47:46 > actualizar_video: 81
+22:47:46 > _generarVideosXId: 81
+22:47:46 > relacionados tags: serie-comedia-Dennise-Dibos-Doña-Nelly
+22:47:46 > relacionados cantidad: 0
+22:47:46 > despues de actualizar_video: 81
+22:47:46 > private curlGenerarSeccionesMiCanalXSeccionId: 2948
+22:47:46 > dato entrada    : 2948 -- cantidad   : 1 -- 
+22:47:46 > mongo_se: 51b649d1c8437edd2d000000
+22:47:46 > estado_migracion: 9
+22:47:46 > -> id_mongo de seccion 51b649d1c8437edd2d000000
+22:47:46 > -> id_mongo de seccion 51b649d1c8437edd2d000000
+22:47:46 > idtemp1,38
+22:47:46 > 9  -  1
+22:47:46 > entro a actualizar
+22:47:46 > private curlGenerarSeccionesMiCanalXSeccionId: 2886
+22:47:46 > dato entrada    : 2940 -- cantidad   : 1 -- 
+22:47:46 > mongo_se: 51b649d1c8437e2505000001
+22:47:46 > estado_migracion: 2
+22:47:46 > dato entrada    : 2886 -- cantidad   : 1 -- 
+22:47:46 > -> id_mongo de seccion 51b649d1c8437e2505000001
+22:47:46 > mongo_se: 51b649d1c8437ee12e000000
+22:47:46 > estado_migracion: 9
+22:47:46 > -> id_mongo de seccion 51b649d1c8437e2505000001
+22:47:46 > idtemp1,37
+22:47:46 > -> id_mongo de seccion 51b649d1c8437ee12e000000
+22:47:46 > -> id_mongo de seccion 51b649d1c8437ee12e000000
+22:47:46 > idtemp1,9
+22:47:46 > idtemp1,16
+22:47:46 > idtemp1,12
+22:47:46 > dato entrada    : 2941 -- cantidad   : 1 -- 
+22:47:46 > -> id_mongo de seccion 51a4ee8ba43916145e000004
+22:47:46 > idtemp1,11
+22:47:46 > dato entrada    : 2942 -- cantidad   : 1 -- 
+22:47:46 > -> id_mongo de seccion 51b65792c8437e0237000003
+22:47:46 > idtemp1,9
+22:47:46 > dato entrada    : 2943 -- cantidad   : 1 -- 
+22:47:46 > -> id_mongo de seccion 51a4ee8ba439163e63000005
+22:47:46 > dato entrada    : 2944 -- cantidad   : 1 -- 
+22:47:46 > mongo_se: 51b649d1c8437e2505000003
+22:47:46 > estado_migracion: 2
+22:47:46 > -> id_mongo de seccion 51b649d1c8437e2505000003
+22:47:46 > -> id_mongo de seccion 51b649d1c8437e2505000003
+22:47:46 > idtemp2,86
+22:47:46 > idtemp1,4
+22:47:46 > idtemp2,14
+22:47:46 > idtemp2,20
+22:47:46 > dato entrada    : 2945 -- cantidad   : 1 -- 
+22:47:46 > dato entrada    : 2946 -- cantidad   : 1 -- 
+22:47:46 > dato entrada    : 2947 -- cantidad   : 1 -- 
+22:47:46 > idtemp1,15
+22:47:46 > mongo_se: 51b649d2c8437e2505000004
+22:47:46 > estado_migracion: 2
+22:47:46 > -> id_mongo de seccion 51b649d2c8437e2505000004
+22:47:46 > -> id_mongo de seccion 51b649d2c8437e2505000004
+22:47:46 > idtemp2,86
+22:47:46 > idtemp2,81
+22:47:46 > idtemp2,20
+22:47:46 > idtemp2,14
+22:47:46 > dato entrada    : 2948 -- cantidad   : 1 -- 
+22:47:46 > mongo_se: 51b649d1c8437edd2d000000
+22:47:46 > estado_migracion: 2
+22:47:46 > -> id_mongo de seccion 51b649d1c8437edd2d000000
+22:47:46 > -> id_mongo de seccion 51b649d1c8437edd2d000000
+22:47:46 > idtemp1,38
+22:47:46 > idtemp1,37
+22:47:46 > idtemp1,12
+22:47:46 > idtemp1,11
+22:47:48 > entro a _obtenerImagesUrlVideosXId:  81
+22:47:48 > Liquid retorna no publicado para el video 81
+22:47:48 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=81
+22:47:48 >  antes de actualizar_video: 81
+22:47:48 > ini - curlGenerarSeccionesMiCanalXSeccionId: 2948
+22:47:48 > ini - curlGenerarCanalesXId: 368
+22:47:48 > ini - curlGenerarSeccionesMiCanalXSeccionId: 2886
+22:47:48 > actualizar_video: 81
+22:47:48 > _generarVideosXId: 81
+22:47:48 > relacionados tags: serie-comedia-Dennise-Dibos-Doña-Nelly
+22:47:48 > relacionados cantidad: 0
+22:47:48 > despues de actualizar_video: 81
+22:47:48 > private curlGenerarSeccionesMiCanalXSeccionId: 2948
+22:47:48 > dato entrada    : 2948 -- cantidad   : 1 -- 
+22:47:48 > mongo_se: 51b649d1c8437edd2d000000
+22:47:48 > estado_migracion: 9
+22:47:48 > -> id_mongo de seccion 51b649d1c8437edd2d000000
+22:47:48 > -> id_mongo de seccion 51b649d1c8437edd2d000000
+22:47:48 > 9  -  1
+22:47:48 > entro a actualizar
+22:47:48 > idtemp1,38
+22:47:48 > dato entrada    : 2940 -- cantidad   : 1 -- 
+22:47:48 > mongo_se: 51b649d1c8437e2505000001
+22:47:48 > estado_migracion: 2
+22:47:48 > -> id_mongo de seccion 51b649d1c8437e2505000001
+22:47:48 > -> id_mongo de seccion 51b649d1c8437e2505000001
+22:47:48 > private curlGenerarSeccionesMiCanalXSeccionId: 2886
+22:47:48 > idtemp1,9
+22:47:48 > idtemp1,37
+22:47:48 > dato entrada    : 2886 -- cantidad   : 1 -- 
+22:47:48 > mongo_se: 51b649d1c8437ee12e000000
+22:47:48 > estado_migracion: 9
+22:47:48 > -> id_mongo de seccion 51b649d1c8437ee12e000000
+22:47:48 > -> id_mongo de seccion 51b649d1c8437ee12e000000
+22:47:48 > idtemp1,12
+22:47:48 > idtemp1,16
+22:47:48 > dato entrada    : 2941 -- cantidad   : 1 -- 
+22:47:48 > -> id_mongo de seccion 51a4ee8ba43916145e000004
+22:47:48 > idtemp1,11
+22:47:48 > dato entrada    : 2942 -- cantidad   : 1 -- 
+22:47:48 > -> id_mongo de seccion 51b65794c8437ef537000003
+22:47:48 > dato entrada    : 2943 -- cantidad   : 1 -- 
+22:47:48 > -> id_mongo de seccion 51a4ee8ba439163e63000005
+22:47:48 > idtemp1,9
+22:47:48 > dato entrada    : 2944 -- cantidad   : 1 -- 
+22:47:48 > mongo_se: 51b649d1c8437e2505000003
+22:47:48 > estado_migracion: 2
+22:47:48 > -> id_mongo de seccion 51b649d1c8437e2505000003
+22:47:48 > -> id_mongo de seccion 51b649d1c8437e2505000003
+22:47:48 > idtemp2,86
+22:47:48 > idtemp2,14
+22:47:48 > idtemp1,4
+22:47:48 > idtemp2,20
+22:47:48 > dato entrada    : 2945 -- cantidad   : 1 -- 
+22:47:48 > dato entrada    : 2946 -- cantidad   : 1 -- 
+22:47:48 > dato entrada    : 2947 -- cantidad   : 1 -- 
+22:47:48 > mongo_se: 51b649d2c8437e2505000004
+22:47:48 > estado_migracion: 2
+22:47:48 > -> id_mongo de seccion 51b649d2c8437e2505000004
+22:47:48 > -> id_mongo de seccion 51b649d2c8437e2505000004
+22:47:48 > idtemp2,86
+22:47:48 > idtemp2,81
+22:47:48 > idtemp2,20
+22:47:48 > idtemp1,15
+22:47:48 > idtemp2,14
+22:47:48 > dato entrada    : 2948 -- cantidad   : 1 -- 
+22:47:48 > mongo_se: 51b649d1c8437edd2d000000
+22:47:48 > estado_migracion: 2
+22:47:48 > -> id_mongo de seccion 51b649d1c8437edd2d000000
+22:47:48 > -> id_mongo de seccion 51b649d1c8437edd2d000000
+22:47:48 > idtemp1,38
+22:47:48 > idtemp1,37
+22:47:48 > idtemp1,12
+22:47:48 > idtemp1,11
+22:53:25 > entro a _obtenerImagesUrlVideosXId:  81
+22:53:25 > Liquid retorna no publicado para el video 81
+22:53:25 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=81
+22:53:25 >  antes de actualizar_video: 81
+22:53:25 > ini - curlGenerarSeccionesMiCanalXSeccionId: 2948
+22:53:25 > ini - curlGenerarCanalesXId: 368
+22:53:25 > ini - curlGenerarSeccionesMiCanalXSeccionId: 2886
+22:53:25 > actualizar_video: 81
+22:53:25 > _generarVideosXId: 81
+22:53:25 > relacionados tags: serie-comedia-Dennise-Dibos-Doña-Nelly
+22:53:25 > relacionados cantidad: 0
+22:53:25 > despues de actualizar_video: 81
+22:53:25 > private curlGenerarSeccionesMiCanalXSeccionId: 2948
+22:53:25 > dato entrada    : 2948 -- cantidad   : 1 -- 
+22:53:25 > mongo_se: 51b649d1c8437edd2d000000
+22:53:25 > estado_migracion: 9
+22:53:25 > -> id_mongo de seccion 51b649d1c8437edd2d000000
+22:53:25 > -> id_mongo de seccion 51b649d1c8437edd2d000000
+22:53:25 > 9  -  1
+22:53:25 > idtemp1,38
+22:53:25 > entro a actualizar
+22:53:25 > dato entrada    : 2940 -- cantidad   : 1 -- 
+22:53:25 > mongo_se: 51b649d1c8437e2505000001
+22:53:25 > estado_migracion: 2
+22:53:25 > -> id_mongo de seccion 51b649d1c8437e2505000001
+22:53:25 > -> id_mongo de seccion 51b649d1c8437e2505000001
+22:53:25 > idtemp1,9
+22:53:25 > idtemp1,37
+22:53:25 > idtemp1,12
+22:53:25 > dato entrada    : 2941 -- cantidad   : 1 -- 
+22:53:25 > -> id_mongo de seccion 51a4ee8ba43916145e000004
+22:53:25 > private curlGenerarSeccionesMiCanalXSeccionId: 2886
+22:53:25 > idtemp1,11
+22:53:25 > dato entrada    : 2886 -- cantidad   : 1 -- 
+22:53:25 > dato entrada    : 2942 -- cantidad   : 1 -- 
+22:53:25 > mongo_se: 51b649d1c8437ee12e000000
+22:53:25 > estado_migracion: 9
+22:53:25 > -> id_mongo de seccion 51b658e5c8437eaa37000003
+22:53:25 > -> id_mongo de seccion 51b649d1c8437ee12e000000
+22:53:25 > -> id_mongo de seccion 51b649d1c8437ee12e000000
+22:53:25 > dato entrada    : 2943 -- cantidad   : 1 -- 
+22:53:25 > idtemp1,16
+22:53:25 > -> id_mongo de seccion 51a4ee8ba439163e63000005
+22:53:25 > dato entrada    : 2944 -- cantidad   : 1 -- 
+22:53:25 > mongo_se: 51b649d1c8437e2505000003
+22:53:25 > estado_migracion: 2
+22:53:25 > -> id_mongo de seccion 51b649d1c8437e2505000003
+22:53:25 > -> id_mongo de seccion 51b649d1c8437e2505000003
+22:53:25 > idtemp2,86
+22:53:25 > idtemp2,14
+22:53:25 > idtemp1,9
+22:53:25 > idtemp2,20
+22:53:25 > dato entrada    : 2945 -- cantidad   : 1 -- 
+22:53:25 > dato entrada    : 2946 -- cantidad   : 1 -- 
+22:53:25 > dato entrada    : 2947 -- cantidad   : 1 -- 
+22:53:25 > mongo_se: 51b649d2c8437e2505000004
+22:53:25 > estado_migracion: 2
+22:53:25 > -> id_mongo de seccion 51b649d2c8437e2505000004
+22:53:25 > -> id_mongo de seccion 51b649d2c8437e2505000004
+22:53:25 > idtemp1,4
+22:53:25 > idtemp2,86
+22:53:25 > idtemp2,81
+22:53:25 > idtemp2,20
+22:53:25 > idtemp2,14
+22:53:25 > idtemp1,15
+22:53:25 > dato entrada    : 2948 -- cantidad   : 1 -- 
+22:53:25 > mongo_se: 51b649d1c8437edd2d000000
+22:53:25 > estado_migracion: 2
+22:53:25 > -> id_mongo de seccion 51b649d1c8437edd2d000000
+22:53:25 > -> id_mongo de seccion 51b649d1c8437edd2d000000
+22:53:25 > idtemp1,38
+22:53:25 > idtemp1,37
+22:53:25 > idtemp1,12
+22:53:25 > idtemp1,11
+22:53:28 > entro a _obtenerImagesUrlVideosXId:  81
+22:53:28 > Liquid retorna no publicado para el video 81
+22:53:28 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=81
+22:53:28 >  antes de actualizar_video: 81
+22:53:29 > ini - curlGenerarSeccionesMiCanalXSeccionId: 2948
+22:53:29 > ini - curlGenerarCanalesXId: 368
+22:53:29 > ini - curlGenerarSeccionesMiCanalXSeccionId: 2886
+22:53:29 > actualizar_video: 81
+22:53:29 > _generarVideosXId: 81
+22:53:29 > relacionados tags: serie-comedia-Dennise-Dibos-Doña-Nelly
+22:53:29 > relacionados cantidad: 0
+22:53:29 > despues de actualizar_video: 81
+22:53:29 > private curlGenerarSeccionesMiCanalXSeccionId: 2948
+22:53:29 > 9  -  1
+22:53:29 > dato entrada    : 2948 -- cantidad   : 1 -- 
+22:53:29 > mongo_se: 51b649d1c8437edd2d000000
+22:53:29 > estado_migracion: 9
+22:53:29 > entro a actualizar
+22:53:29 > -> id_mongo de seccion 51b649d1c8437edd2d000000
+22:53:29 > -> id_mongo de seccion 51b649d1c8437edd2d000000
+22:53:29 > dato entrada    : 2940 -- cantidad   : 1 -- 
+22:53:29 > idtemp1,38
+22:53:29 > mongo_se: 51b649d1c8437e2505000001
+22:53:29 > estado_migracion: 2
+22:53:29 > -> id_mongo de seccion 51b649d1c8437e2505000001
+22:53:29 > -> id_mongo de seccion 51b649d1c8437e2505000001
+22:53:29 > private curlGenerarSeccionesMiCanalXSeccionId: 2886
+22:53:29 > dato entrada    : 2886 -- cantidad   : 1 -- 
+22:53:29 > mongo_se: 51b649d1c8437ee12e000000
+22:53:29 > estado_migracion: 9
+22:53:29 > idtemp1,9
+22:53:29 > -> id_mongo de seccion 51b649d1c8437ee12e000000
+22:53:29 > -> id_mongo de seccion 51b649d1c8437ee12e000000
+22:53:29 > idtemp1,16
+22:53:29 > idtemp1,37
+22:53:29 > idtemp1,9
+22:53:29 > idtemp1,12
+22:53:29 > dato entrada    : 2941 -- cantidad   : 1 -- 
+22:53:29 > -> id_mongo de seccion 51a4ee8ba43916145e000004
+22:53:29 > idtemp1,4
+22:53:29 > dato entrada    : 2942 -- cantidad   : 1 -- 
+22:53:29 > -> id_mongo de seccion 51b658e9c8437eac38000000
+22:53:29 > idtemp1,11
+22:53:29 > dato entrada    : 2943 -- cantidad   : 1 -- 
+22:53:29 > -> id_mongo de seccion 51a4ee8ba439163e63000005
+22:53:29 > idtemp1,15
+22:53:29 > dato entrada    : 2944 -- cantidad   : 1 -- 
+22:53:29 > mongo_se: 51b649d1c8437e2505000003
+22:53:29 > estado_migracion: 2
+22:53:29 > -> id_mongo de seccion 51b649d1c8437e2505000003
+22:53:29 > -> id_mongo de seccion 51b649d1c8437e2505000003
+22:53:29 > idtemp2,86
+22:53:29 > idtemp2,14
+22:53:29 > idtemp2,20
+22:53:29 > dato entrada    : 2945 -- cantidad   : 1 -- 
+22:53:29 > dato entrada    : 2946 -- cantidad   : 1 -- 
+22:53:29 > dato entrada    : 2947 -- cantidad   : 1 -- 
+22:53:29 > mongo_se: 51b649d2c8437e2505000004
+22:53:29 > estado_migracion: 2
+22:53:29 > -> id_mongo de seccion 51b649d2c8437e2505000004
+22:53:29 > -> id_mongo de seccion 51b649d2c8437e2505000004
+22:53:29 > idtemp2,86
+22:53:29 > idtemp2,81
+22:53:29 > idtemp2,20
+22:53:29 > idtemp2,14
+22:53:29 > dato entrada    : 2948 -- cantidad   : 1 -- 
+22:53:29 > mongo_se: 51b649d1c8437edd2d000000
+22:53:29 > estado_migracion: 2
+22:53:29 > -> id_mongo de seccion 51b649d1c8437edd2d000000
+22:53:29 > -> id_mongo de seccion 51b649d1c8437edd2d000000
+22:53:29 > idtemp1,38
+22:53:29 > idtemp1,37
+22:53:29 > idtemp1,12
+22:53:29 > idtemp1,11
+23:31:44 > entro a _obtenerImagesUrlVideosXId:  81
+23:31:44 > Liquid retorna no publicado para el video 81
+23:31:44 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=81
+23:31:44 >  antes de actualizar_video: 81
+23:31:44 > ini - curlGenerarSeccionesMiCanalXSeccionId: 2948
+23:31:44 > ini - curlGenerarCanalesXId: 368
+23:31:44 > ini - curlGenerarSeccionesMiCanalXSeccionId: 2886
+23:31:44 > actualizar_video: 81
+23:31:44 > _generarVideosXId: 81
+23:31:44 > relacionados tags: serie-comedia-Dennise-Dibos-Doña-Nelly
+23:31:44 > relacionados cantidad: 0
+23:31:44 > private curlGenerarSeccionesMiCanalXSeccionId: 2948
+23:31:44 > despues de actualizar_video: 81
+23:31:44 > dato entrada    : 2948 -- cantidad   : 1 -- 
+23:31:44 > mongo_se: 51b649d1c8437edd2d000000
+23:31:44 > estado_migracion: 9
+23:31:44 > -> id_mongo de seccion 51b649d1c8437edd2d000000
+23:31:44 > -> id_mongo de seccion 51b649d1c8437edd2d000000
+23:31:44 > idtemp1,38
+23:31:44 > idtemp1,37
+23:31:44 > 9  -  1
+23:31:44 > idtemp1,12
+23:31:44 > entro a actualizar
+23:31:44 > dato entrada    : 2940 -- cantidad   : 1 -- 
+23:31:44 > mongo_se: 51b649d1c8437e2505000001
+23:31:44 > estado_migracion: 2
+23:31:44 > -> id_mongo de seccion 51b649d1c8437e2505000001
+23:31:44 > -> id_mongo de seccion 51b649d1c8437e2505000001
+23:31:44 > idtemp1,11
+23:31:44 > idtemp1,9
+23:31:44 > private curlGenerarSeccionesMiCanalXSeccionId: 2886
+23:31:44 > dato entrada    : 2886 -- cantidad   : 1 -- 
+23:31:44 > mongo_se: 51b649d1c8437ee12e000000
+23:31:44 > estado_migracion: 9
+23:31:44 > -> id_mongo de seccion 51b649d1c8437ee12e000000
+23:31:44 > -> id_mongo de seccion 51b649d1c8437ee12e000000
+23:31:44 > idtemp1,16
+23:31:44 > dato entrada    : 2941 -- cantidad   : 1 -- 
+23:31:44 > -> id_mongo de seccion 51a4ee8ba43916145e000004
+23:31:44 > dato entrada    : 2942 -- cantidad   : 1 -- 
+23:31:44 > -> id_mongo de seccion 51b661e0c8437e693a000000
+23:31:44 > dato entrada    : 2943 -- cantidad   : 1 -- 
+23:31:44 > -> id_mongo de seccion 51a4ee8ba439163e63000005
+23:31:44 > idtemp1,9
+23:31:44 > dato entrada    : 2944 -- cantidad   : 1 -- 
+23:31:44 > mongo_se: 51b649d1c8437e2505000003
+23:31:44 > estado_migracion: 2
+23:31:44 > -> id_mongo de seccion 51b649d1c8437e2505000003
+23:31:44 > -> id_mongo de seccion 51b649d1c8437e2505000003
+23:31:44 > idtemp2,86
+23:31:44 > idtemp1,4
+23:31:44 > idtemp2,14
+23:31:44 > idtemp2,20
+23:31:44 > dato entrada    : 2945 -- cantidad   : 1 -- 
+23:31:44 > dato entrada    : 2946 -- cantidad   : 1 -- 
+23:31:44 > idtemp1,15
+23:31:44 > dato entrada    : 2947 -- cantidad   : 1 -- 
+23:31:44 > mongo_se: 51b649d2c8437e2505000004
+23:31:44 > estado_migracion: 2
+23:31:44 > -> id_mongo de seccion 51b649d2c8437e2505000004
+23:31:44 > -> id_mongo de seccion 51b649d2c8437e2505000004
+23:31:44 > idtemp2,86
+23:31:44 > idtemp2,81
+23:31:44 > idtemp2,20
+23:31:44 > idtemp2,14
+23:31:44 > dato entrada    : 2948 -- cantidad   : 1 -- 
+23:31:44 > mongo_se: 51b649d1c8437edd2d000000
+23:31:44 > estado_migracion: 2
+23:31:44 > -> id_mongo de seccion 51b649d1c8437edd2d000000
+23:31:44 > -> id_mongo de seccion 51b649d1c8437edd2d000000
+23:31:44 > idtemp1,38
+23:31:44 > idtemp1,37
+23:31:44 > idtemp1,12
+23:31:44 > idtemp1,11
+23:31:46 > entro a _obtenerImagesUrlVideosXId:  81
+23:31:46 > Liquid retorna no publicado para el video 81
+23:31:46 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=81
+23:31:46 >  antes de actualizar_video: 81
+23:31:46 > ini - curlGenerarSeccionesMiCanalXSeccionId: 2948
+23:31:46 > ini - curlGenerarCanalesXId: 368
+23:31:46 > ini - curlGenerarSeccionesMiCanalXSeccionId: 2886
+23:31:46 > actualizar_video: 81
+23:31:46 > _generarVideosXId: 81
+23:31:46 > relacionados tags: serie-comedia-Dennise-Dibos-Doña-Nelly
+23:31:46 > private curlGenerarSeccionesMiCanalXSeccionId: 2948
+23:31:46 > relacionados cantidad: 0
+23:31:46 > dato entrada    : 2948 -- cantidad   : 1 -- 
+23:31:46 > mongo_se: 51b649d1c8437edd2d000000
+23:31:46 > estado_migracion: 9
+23:31:46 > despues de actualizar_video: 81
+23:31:46 > -> id_mongo de seccion 51b649d1c8437edd2d000000
+23:31:46 > -> id_mongo de seccion 51b649d1c8437edd2d000000
+23:31:46 > idtemp1,38
+23:31:46 > idtemp1,37
+23:31:46 > private curlGenerarSeccionesMiCanalXSeccionId: 2886
+23:31:46 > idtemp1,12
+23:31:46 > dato entrada    : 2886 -- cantidad   : 1 -- 
+23:31:46 > mongo_se: 51b649d1c8437ee12e000000
+23:31:46 > estado_migracion: 9
+23:31:46 > 9  -  1
+23:31:46 > -> id_mongo de seccion 51b649d1c8437ee12e000000
+23:31:46 > -> id_mongo de seccion 51b649d1c8437ee12e000000
+23:31:46 > entro a actualizar
+23:31:46 > idtemp1,11
+23:31:46 > idtemp1,16
+23:31:46 > dato entrada    : 2940 -- cantidad   : 1 -- 
+23:31:46 > mongo_se: 51b649d1c8437e2505000001
+23:31:46 > estado_migracion: 2
+23:31:46 > -> id_mongo de seccion 51b649d1c8437e2505000001
+23:31:46 > -> id_mongo de seccion 51b649d1c8437e2505000001
+23:31:46 > idtemp1,9
+23:31:46 > idtemp1,9
+23:31:46 > dato entrada    : 2941 -- cantidad   : 1 -- 
+23:31:46 > -> id_mongo de seccion 51a4ee8ba43916145e000004
+23:31:46 > dato entrada    : 2942 -- cantidad   : 1 -- 
+23:31:46 > -> id_mongo de seccion 51b661e2c8437ea73a000000
+23:31:46 > dato entrada    : 2943 -- cantidad   : 1 -- 
+23:31:46 > idtemp1,4
+23:31:46 > -> id_mongo de seccion 51a4ee8ba439163e63000005
+23:31:46 > dato entrada    : 2944 -- cantidad   : 1 -- 
+23:31:46 > mongo_se: 51b649d1c8437e2505000003
+23:31:46 > estado_migracion: 2
+23:31:46 > -> id_mongo de seccion 51b649d1c8437e2505000003
+23:31:46 > -> id_mongo de seccion 51b649d1c8437e2505000003
+23:31:46 > idtemp2,86
+23:31:46 > idtemp2,14
+23:31:46 > idtemp1,15
+23:31:46 > idtemp2,20
+23:31:46 > dato entrada    : 2945 -- cantidad   : 1 -- 
+23:31:46 > dato entrada    : 2946 -- cantidad   : 1 -- 
+23:31:46 > dato entrada    : 2947 -- cantidad   : 1 -- 
+23:31:46 > mongo_se: 51b649d2c8437e2505000004
+23:31:46 > estado_migracion: 2
+23:31:46 > -> id_mongo de seccion 51b649d2c8437e2505000004
+23:31:46 > -> id_mongo de seccion 51b649d2c8437e2505000004
+23:31:46 > idtemp2,86
+23:31:46 > idtemp2,81
+23:31:46 > idtemp2,20
+23:31:46 > idtemp2,14
+23:31:46 > dato entrada    : 2948 -- cantidad   : 1 -- 
+23:31:46 > mongo_se: 51b649d1c8437edd2d000000
+23:31:46 > estado_migracion: 2
+23:31:46 > -> id_mongo de seccion 51b649d1c8437edd2d000000
+23:31:46 > -> id_mongo de seccion 51b649d1c8437edd2d000000
+23:31:46 > idtemp1,38
+23:31:46 > idtemp1,37
+23:31:46 > idtemp1,12
+23:31:46 > idtemp1,11
+23:31:49 > entro a _obtenerImagesUrlVideosXId:  81
+23:31:49 > Liquid retorna no publicado para el video 81
+23:31:49 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=81
+23:31:49 >  antes de actualizar_video: 81
+23:31:49 > ini - curlGenerarSeccionesMiCanalXSeccionId: 2948
+23:31:49 > ini - curlGenerarCanalesXId: 368
+23:31:49 > ini - curlGenerarSeccionesMiCanalXSeccionId: 2886
+23:31:49 > actualizar_video: 81
+23:31:49 > _generarVideosXId: 81
+23:31:49 > relacionados tags: serie-comedia-Dennise-Dibos-Doña-Nelly
+23:31:49 > relacionados cantidad: 0
+23:31:49 > private curlGenerarSeccionesMiCanalXSeccionId: 2948
+23:31:49 > despues de actualizar_video: 81
+23:31:49 > dato entrada    : 2948 -- cantidad   : 1 -- 
+23:31:49 > mongo_se: 51b649d1c8437edd2d000000
+23:31:49 > estado_migracion: 9
+23:31:49 > -> id_mongo de seccion 51b649d1c8437edd2d000000
+23:31:49 > -> id_mongo de seccion 51b649d1c8437edd2d000000
+23:31:49 > idtemp1,38
+23:31:49 > 9  -  1
+23:31:49 > entro a actualizar
+23:31:49 > idtemp1,37
+23:31:50 > dato entrada    : 2940 -- cantidad   : 1 -- 
+23:31:50 > mongo_se: 51b649d1c8437e2505000001
+23:31:50 > estado_migracion: 2
+23:31:50 > -> id_mongo de seccion 51b649d1c8437e2505000001
+23:31:50 > -> id_mongo de seccion 51b649d1c8437e2505000001
+23:31:50 > private curlGenerarSeccionesMiCanalXSeccionId: 2886
+23:31:50 > dato entrada    : 2886 -- cantidad   : 1 -- 
+23:31:50 > mongo_se: 51b649d1c8437ee12e000000
+23:31:50 > estado_migracion: 9
+23:31:50 > idtemp1,9
+23:31:50 > idtemp1,12
+23:31:50 > -> id_mongo de seccion 51b649d1c8437ee12e000000
+23:31:50 > -> id_mongo de seccion 51b649d1c8437ee12e000000
+23:31:50 > idtemp1,16
+23:31:50 > idtemp1,11
+23:31:50 > idtemp1,9
+23:31:50 > dato entrada    : 2941 -- cantidad   : 1 -- 
+23:31:50 > -> id_mongo de seccion 51a4ee8ba43916145e000004
+23:31:50 > dato entrada    : 2942 -- cantidad   : 1 -- 
+23:31:50 > -> id_mongo de seccion 51b661e6c8437e6e37000004
+23:31:50 > idtemp1,4
+23:31:50 > dato entrada    : 2943 -- cantidad   : 1 -- 
+23:31:50 > -> id_mongo de seccion 51a4ee8ba439163e63000005
+23:31:50 > dato entrada    : 2944 -- cantidad   : 1 -- 
+23:31:50 > mongo_se: 51b649d1c8437e2505000003
+23:31:50 > estado_migracion: 2
+23:31:50 > -> id_mongo de seccion 51b649d1c8437e2505000003
+23:31:50 > -> id_mongo de seccion 51b649d1c8437e2505000003
+23:31:50 > idtemp1,15
+23:31:50 > idtemp2,86
+23:31:50 > idtemp2,14
+23:31:50 > idtemp2,20
+23:31:50 > dato entrada    : 2945 -- cantidad   : 1 -- 
+23:31:50 > dato entrada    : 2946 -- cantidad   : 1 -- 
+23:31:50 > dato entrada    : 2947 -- cantidad   : 1 -- 
+23:31:50 > mongo_se: 51b649d2c8437e2505000004
+23:31:50 > estado_migracion: 2
+23:31:50 > -> id_mongo de seccion 51b649d2c8437e2505000004
+23:31:50 > -> id_mongo de seccion 51b649d2c8437e2505000004
+23:31:50 > idtemp2,86
+23:31:50 > idtemp2,81
+23:31:50 > idtemp2,20
+23:31:50 > idtemp2,14
+23:31:50 > dato entrada    : 2948 -- cantidad   : 1 -- 
+23:31:50 > mongo_se: 51b649d1c8437edd2d000000
+23:31:50 > estado_migracion: 2
+23:31:50 > -> id_mongo de seccion 51b649d1c8437edd2d000000
+23:31:50 > -> id_mongo de seccion 51b649d1c8437edd2d000000
+23:31:50 > idtemp1,38
+23:31:50 > idtemp1,37
+23:31:50 > idtemp1,12
+23:31:50 > idtemp1,11
+23:31:51 > entro a _obtenerImagesUrlVideosXId:  81
+23:31:51 > Liquid retorna no publicado para el video 81
+23:31:51 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=81
+23:31:51 >  antes de actualizar_video: 81
+23:31:51 > ini - curlGenerarSeccionesMiCanalXSeccionId: 2948
+23:31:51 > ini - curlGenerarCanalesXId: 368
+23:31:51 > ini - curlGenerarSeccionesMiCanalXSeccionId: 2886
+23:31:51 > actualizar_video: 81
+23:31:51 > _generarVideosXId: 81
+23:31:51 > relacionados tags: serie-comedia-Dennise-Dibos-Doña-Nelly
+23:31:51 > relacionados cantidad: 0
+23:31:51 > despues de actualizar_video: 81
+23:31:51 > 9  -  1
+23:31:51 > entro a actualizar
+23:31:51 > dato entrada    : 2940 -- cantidad   : 1 -- 
+23:31:51 > mongo_se: 51b649d1c8437e2505000001
+23:31:51 > estado_migracion: 2
+23:31:51 > -> id_mongo de seccion 51b649d1c8437e2505000001
+23:31:51 > -> id_mongo de seccion 51b649d1c8437e2505000001
+23:31:51 > idtemp1,9
+23:31:51 > private curlGenerarSeccionesMiCanalXSeccionId: 2886
+23:31:51 > private curlGenerarSeccionesMiCanalXSeccionId: 2948
+23:31:51 > dato entrada    : 2886 -- cantidad   : 1 -- 
+23:31:51 > mongo_se: 51b649d1c8437ee12e000000
+23:31:51 > estado_migracion: 9
+23:31:51 > dato entrada    : 2948 -- cantidad   : 1 -- 
+23:31:51 > mongo_se: 51b649d1c8437edd2d000000
+23:31:51 > estado_migracion: 9
+23:31:51 > -> id_mongo de seccion 51b649d1c8437ee12e000000
+23:31:51 > -> id_mongo de seccion 51b649d1c8437ee12e000000
+23:31:51 > -> id_mongo de seccion 51b649d1c8437edd2d000000
+23:31:51 > -> id_mongo de seccion 51b649d1c8437edd2d000000
+23:31:51 > idtemp1,16
+23:31:51 > idtemp1,38
+23:31:51 > idtemp1,37
+23:31:51 > idtemp1,9
+23:31:51 > dato entrada    : 2941 -- cantidad   : 1 -- 
+23:31:51 > -> id_mongo de seccion 51a4ee8ba43916145e000004
+23:31:51 > dato entrada    : 2942 -- cantidad   : 1 -- 
+23:31:51 > idtemp1,12
+23:31:51 > idtemp1,4
+23:31:51 > -> id_mongo de seccion 51b661e7c8437eaa37000004
+23:31:51 > dato entrada    : 2943 -- cantidad   : 1 -- 
+23:31:51 > idtemp1,11
+23:31:51 > -> id_mongo de seccion 51a4ee8ba439163e63000005
+23:31:51 > idtemp1,15
+23:31:51 > dato entrada    : 2944 -- cantidad   : 1 -- 
+23:31:51 > mongo_se: 51b649d1c8437e2505000003
+23:31:51 > estado_migracion: 2
+23:31:51 > -> id_mongo de seccion 51b649d1c8437e2505000003
+23:31:51 > -> id_mongo de seccion 51b649d1c8437e2505000003
+23:31:51 > idtemp2,86
+23:31:51 > idtemp2,14
+23:31:51 > idtemp2,20
+23:31:51 > dato entrada    : 2945 -- cantidad   : 1 -- 
+23:31:51 > dato entrada    : 2946 -- cantidad   : 1 -- 
+23:31:51 > dato entrada    : 2947 -- cantidad   : 1 -- 
+23:31:51 > mongo_se: 51b649d2c8437e2505000004
+23:31:51 > estado_migracion: 2
+23:31:51 > -> id_mongo de seccion 51b649d2c8437e2505000004
+23:31:51 > -> id_mongo de seccion 51b649d2c8437e2505000004
+23:31:51 > idtemp2,86
+23:31:51 > idtemp2,81
+23:31:51 > idtemp2,20
+23:31:51 > idtemp2,14
+23:31:51 > dato entrada    : 2948 -- cantidad   : 1 -- 
+23:31:51 > mongo_se: 51b649d1c8437edd2d000000
+23:31:51 > estado_migracion: 2
+23:31:51 > -> id_mongo de seccion 51b649d1c8437edd2d000000
+23:31:51 > -> id_mongo de seccion 51b649d1c8437edd2d000000
+23:31:51 > idtemp1,38
+23:31:51 > idtemp1,37
+23:31:51 > idtemp1,12
+23:31:51 > idtemp1,11
+23:33:37 > entro a _obtenerImagesUrlVideosXId:  81
+23:33:37 > Liquid retorna no publicado para el video 81
+23:33:37 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=81
+23:33:37 >  antes de actualizar_video: 81
+23:33:38 > ini - curlGenerarSeccionesMiCanalXSeccionId: 2948
+23:33:38 > ini - curlGenerarCanalesXId: 368
+23:33:38 > ini - curlGenerarSeccionesMiCanalXSeccionId: 2886
+23:33:38 > actualizar_video: 81
+23:33:38 > _generarVideosXId: 81
+23:33:38 > relacionados tags: serie-comedia-Dennise-Dibos-Doña-Nelly
+23:33:38 > private curlGenerarSeccionesMiCanalXSeccionId: 2948
+23:33:38 > relacionados cantidad: 0
+23:33:38 > dato entrada    : 2948 -- cantidad   : 1 -- 
+23:33:38 > mongo_se: 51b649d1c8437edd2d000000
+23:33:38 > estado_migracion: 9
+23:33:38 > -> id_mongo de seccion 51b649d1c8437edd2d000000
+23:33:38 > -> id_mongo de seccion 51b649d1c8437edd2d000000
+23:33:38 > despues de actualizar_video: 81
+23:33:38 > idtemp1,38
+23:33:38 > 9  -  1
+23:33:38 > entro a actualizar
+23:33:38 > idtemp1,37
+23:33:38 > dato entrada    : 2940 -- cantidad   : 1 -- 
+23:33:38 > mongo_se: 51b649d1c8437e2505000001
+23:33:38 > estado_migracion: 2
+23:33:38 > private curlGenerarSeccionesMiCanalXSeccionId: 2886
+23:33:38 > -> id_mongo de seccion 51b649d1c8437e2505000001
+23:33:38 > -> id_mongo de seccion 51b649d1c8437e2505000001
+23:33:38 > dato entrada    : 2886 -- cantidad   : 1 -- 
+23:33:38 > mongo_se: 51b649d1c8437ee12e000000
+23:33:38 > estado_migracion: 9
+23:33:38 > idtemp1,9
+23:33:38 > idtemp1,12
+23:33:38 > -> id_mongo de seccion 51b649d1c8437ee12e000000
+23:33:38 > -> id_mongo de seccion 51b649d1c8437ee12e000000
+23:33:38 > idtemp1,16
+23:33:38 > idtemp1,11
+23:33:38 > dato entrada    : 2941 -- cantidad   : 1 -- 
+23:33:38 > -> id_mongo de seccion 51a4ee8ba43916145e000004
+23:33:38 > idtemp1,9
+23:33:38 > dato entrada    : 2942 -- cantidad   : 1 -- 
+23:33:38 > -> id_mongo de seccion 51b66252c8437e0537000001
+23:33:38 > dato entrada    : 2943 -- cantidad   : 1 -- 
+23:33:38 > -> id_mongo de seccion 51a4ee8ba439163e63000005
+23:33:38 > dato entrada    : 2944 -- cantidad   : 1 -- 
+23:33:38 > mongo_se: 51b649d1c8437e2505000003
+23:33:38 > estado_migracion: 2
+23:33:38 > idtemp1,4
+23:33:38 > -> id_mongo de seccion 51b649d1c8437e2505000003
+23:33:38 > -> id_mongo de seccion 51b649d1c8437e2505000003
+23:33:38 > idtemp2,86
+23:33:38 > idtemp2,14
+23:33:38 > idtemp2,20
+23:33:38 > idtemp1,15
+23:33:38 > dato entrada    : 2945 -- cantidad   : 1 -- 
+23:33:38 > dato entrada    : 2946 -- cantidad   : 1 -- 
+23:33:38 > dato entrada    : 2947 -- cantidad   : 1 -- 
+23:33:38 > mongo_se: 51b649d2c8437e2505000004
+23:33:38 > estado_migracion: 2
+23:33:38 > -> id_mongo de seccion 51b649d2c8437e2505000004
+23:33:38 > -> id_mongo de seccion 51b649d2c8437e2505000004
+23:33:38 > idtemp2,86
+23:33:38 > idtemp2,81
+23:33:38 > idtemp2,20
+23:33:38 > idtemp2,14
+23:33:38 > dato entrada    : 2948 -- cantidad   : 1 -- 
+23:33:38 > mongo_se: 51b649d1c8437edd2d000000
+23:33:38 > estado_migracion: 2
+23:33:38 > -> id_mongo de seccion 51b649d1c8437edd2d000000
+23:33:38 > -> id_mongo de seccion 51b649d1c8437edd2d000000
+23:33:38 > idtemp1,38
+23:33:38 > idtemp1,37
+23:33:38 > idtemp1,12
+23:33:38 > idtemp1,11
+23:33:41 > entro a _obtenerImagesUrlVideosXId:  81
+23:33:41 > Liquid retorna no publicado para el video 81
+23:33:41 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=81
+23:33:41 >  antes de actualizar_video: 81
+23:33:41 > ini - curlGenerarSeccionesMiCanalXSeccionId: 2948
+23:33:41 > ini - curlGenerarCanalesXId: 368
+23:33:41 > ini - curlGenerarSeccionesMiCanalXSeccionId: 2886
+23:33:41 > actualizar_video: 81
+23:33:41 > _generarVideosXId: 81
+23:33:41 > relacionados tags: serie-comedia-Dennise-Dibos-Doña-Nelly
+23:33:41 > relacionados cantidad: 0
+23:33:41 > private curlGenerarSeccionesMiCanalXSeccionId: 2948
+23:33:41 > dato entrada    : 2948 -- cantidad   : 1 -- 
+23:33:41 > despues de actualizar_video: 81
+23:33:41 > mongo_se: 51b649d1c8437edd2d000000
+23:33:41 > estado_migracion: 9
+23:33:41 > -> id_mongo de seccion 51b649d1c8437edd2d000000
+23:33:41 > -> id_mongo de seccion 51b649d1c8437edd2d000000
+23:33:41 > idtemp1,38
+23:33:41 > idtemp1,37
+23:33:41 > 9  -  1
+23:33:41 > private curlGenerarSeccionesMiCanalXSeccionId: 2886
+23:33:41 > entro a actualizar
+23:33:41 > dato entrada    : 2886 -- cantidad   : 1 -- 
+23:33:41 > mongo_se: 51b649d1c8437ee12e000000
+23:33:41 > estado_migracion: 9
+23:33:41 > idtemp1,12
+23:33:41 > -> id_mongo de seccion 51b649d1c8437ee12e000000
+23:33:41 > -> id_mongo de seccion 51b649d1c8437ee12e000000
+23:33:41 > dato entrada    : 2940 -- cantidad   : 1 -- 
+23:33:41 > mongo_se: 51b649d1c8437e2505000001
+23:33:41 > estado_migracion: 2
+23:33:41 > -> id_mongo de seccion 51b649d1c8437e2505000001
+23:33:41 > -> id_mongo de seccion 51b649d1c8437e2505000001
+23:33:41 > idtemp1,16
+23:33:41 > idtemp1,9
+23:33:41 > idtemp1,11
+23:33:41 > idtemp1,9
+23:33:41 > dato entrada    : 2941 -- cantidad   : 1 -- 
+23:33:41 > -> id_mongo de seccion 51a4ee8ba43916145e000004
+23:33:41 > idtemp1,4
+23:33:41 > dato entrada    : 2942 -- cantidad   : 1 -- 
+23:33:41 > -> id_mongo de seccion 51b66255c8437e693a000001
+23:33:41 > dato entrada    : 2943 -- cantidad   : 1 -- 
+23:33:41 > -> id_mongo de seccion 51a4ee8ba439163e63000005
+23:33:41 > idtemp1,15
+23:33:41 > dato entrada    : 2944 -- cantidad   : 1 -- 
+23:33:41 > mongo_se: 51b649d1c8437e2505000003
+23:33:41 > estado_migracion: 2
+23:33:41 > -> id_mongo de seccion 51b649d1c8437e2505000003
+23:33:41 > -> id_mongo de seccion 51b649d1c8437e2505000003
+23:33:41 > idtemp2,86
+23:33:41 > idtemp2,14
+23:33:41 > idtemp2,20
+23:33:41 > dato entrada    : 2945 -- cantidad   : 1 -- 
+23:33:41 > dato entrada    : 2946 -- cantidad   : 1 -- 
+23:33:41 > dato entrada    : 2947 -- cantidad   : 1 -- 
+23:33:41 > mongo_se: 51b649d2c8437e2505000004
+23:33:41 > estado_migracion: 2
+23:33:41 > -> id_mongo de seccion 51b649d2c8437e2505000004
+23:33:41 > -> id_mongo de seccion 51b649d2c8437e2505000004
+23:33:41 > idtemp2,86
+23:33:41 > idtemp2,81
+23:33:41 > idtemp2,20
+23:33:41 > idtemp2,14
+23:33:41 > dato entrada    : 2948 -- cantidad   : 1 -- 
+23:33:41 > mongo_se: 51b649d1c8437edd2d000000
+23:33:41 > estado_migracion: 2
+23:33:41 > -> id_mongo de seccion 51b649d1c8437edd2d000000
+23:33:41 > -> id_mongo de seccion 51b649d1c8437edd2d000000
+23:33:41 > idtemp1,38
+23:33:41 > idtemp1,37
+23:33:41 > idtemp1,12
+23:33:41 > idtemp1,11
+23:46:15 > entro a _obtenerImagesUrlVideosXId:  81
+23:46:15 > Liquid retorna no publicado para el video 81
+23:46:15 > query setEstadosVideos  update default_cms_videos set estado=2,estado_liquid =6 where id=81
+23:46:15 >  antes de actualizar_video: 81
+23:46:15 > ini - curlGenerarSeccionesMiCanalXSeccionId: 2948
+23:46:15 > ini - curlGenerarCanalesXId: 368
+23:46:15 > ini - curlGenerarSeccionesMiCanalXSeccionId: 2886
+23:46:15 > actualizar_video: 81
+23:46:15 > _generarVideosXId: 81
+23:46:15 > relacionados tags: serie-comedia-Dennise-Dibos-Doña-Nelly
+23:46:15 > relacionados cantidad: 0
+23:46:15 > despues de actualizar_video: 81
+23:46:15 > private curlGenerarSeccionesMiCanalXSeccionId: 2948
+23:46:15 > dato entrada    : 2948 -- cantidad   : 1 -- 
+23:46:15 > mongo_se: 51b649d1c8437edd2d000000
+23:46:15 > estado_migracion: 9
+23:46:15 > -> id_mongo de seccion 51b649d1c8437edd2d000000
+23:46:15 > -> id_mongo de seccion 51b649d1c8437edd2d000000
+23:46:15 > idtemp1,38
+23:46:15 > idtemp1,37
+23:46:15 > private curlGenerarSeccionesMiCanalXSeccionId: 2886
+23:46:15 > dato entrada    : 2886 -- cantidad   : 1 -- 
+23:46:15 > mongo_se: 51b649d1c8437ee12e000000
+23:46:15 > estado_migracion: 9
+23:46:15 > -> id_mongo de seccion 51b649d1c8437ee12e000000
+23:46:15 > -> id_mongo de seccion 51b649d1c8437ee12e000000
+23:46:15 > 9  -  1
+23:46:15 > entro a actualizar
+23:46:15 > idtemp1,16
+23:46:15 > idtemp1,12
+23:46:15 > dato entrada    : 2940 -- cantidad   : 1 -- 
+23:46:15 > mongo_se: 51b649d1c8437e2505000001
+23:46:15 > estado_migracion: 2
+23:46:15 > -> id_mongo de seccion 51b649d1c8437e2505000001
+23:46:15 > -> id_mongo de seccion 51b649d1c8437e2505000001
+23:46:15 > idtemp1,11
+23:46:15 > idtemp1,9
+23:46:15 > idtemp1,9
+23:46:15 > idtemp1,4
+23:46:15 > dato entrada    : 2941 -- cantidad   : 1 -- 
+23:46:15 > -> id_mongo de seccion 51a4ee8ba43916145e000004
+23:46:15 > dato entrada    : 2942 -- cantidad   : 1 -- 
+23:46:15 > -> id_mongo de seccion 51b66547c8437ec53b000000
+23:46:15 > idtemp1,15
+23:46:15 > dato entrada    : 2943 -- cantidad   : 1 -- 
+23:46:15 > -> id_mongo de seccion 51a4ee8ba439163e63000005
+23:46:15 > dato entrada    : 2944 -- cantidad   : 1 -- 
+23:46:15 > mongo_se: 51b649d1c8437e2505000003
+23:46:15 > estado_migracion: 2
+23:46:15 > -> id_mongo de seccion 51b649d1c8437e2505000003
+23:46:15 > -> id_mongo de seccion 51b649d1c8437e2505000003
+23:46:15 > idtemp2,86
+23:46:15 > idtemp2,14
+23:46:15 > idtemp2,20
+23:46:15 > dato entrada    : 2945 -- cantidad   : 1 -- 
+23:46:15 > dato entrada    : 2946 -- cantidad   : 1 -- 
+23:46:15 > dato entrada    : 2947 -- cantidad   : 1 -- 
+23:46:15 > mongo_se: 51b649d2c8437e2505000004
+23:46:15 > estado_migracion: 2
+23:46:15 > -> id_mongo de seccion 51b649d2c8437e2505000004
+23:46:15 > -> id_mongo de seccion 51b649d2c8437e2505000004
+23:46:15 > idtemp2,86
+23:46:15 > idtemp2,81
+23:46:15 > idtemp2,20
+23:46:15 > idtemp2,14
+23:46:15 > dato entrada    : 2948 -- cantidad   : 1 -- 
+23:46:15 > mongo_se: 51b649d1c8437edd2d000000
+23:46:15 > estado_migracion: 2
+23:46:15 > -> id_mongo de seccion 51b649d1c8437edd2d000000
+23:46:15 > -> id_mongo de seccion 51b649d1c8437edd2d000000
+23:46:15 > idtemp1,38
+23:46:15 > idtemp1,37
+23:46:15 > idtemp1,12
+23:46:15 > idtemp1,11
