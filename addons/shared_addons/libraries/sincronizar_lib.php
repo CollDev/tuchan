@@ -106,7 +106,13 @@ class Sincronizar_lib extends MX_Controller {
         $objVideo = $this->videos_m->get($video_id);
         if (count($objVideo) > 0) {
             //verificamo si el canal al que pertenece esta publicado
-            $objCanal = $this->canales_m->get_by(array("id" => $objVideo->canales_id, "estado" => $this->config->item('estado:publicado')));
+            //verificamos si el origen es del CMS para solo listar el canal sin importar el estado
+            if($ref == 'cms'){
+                $objCanal = $this->canales_m->get_by(array("id" => $objVideo->canales_id));
+            }else{
+                //validamos que el origen no es del cms y obtenemos el canal en modo publicado
+                $objCanal = $this->canales_m->get_by(array("id" => $objVideo->canales_id, "estado" => $this->config->item('estado:publicado')));
+            }
             if (count($objCanal) > 0) {
                 //verificamos que tenga imagenes en la tabla imagenes
                 $imagenes_video = $this->imagen_m->get_many_by(array("videos_id" => $video_id, "estado" => $this->config->item('estado:publicado')));

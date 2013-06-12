@@ -6,7 +6,7 @@
     </div> 
 </section>
 <?php if ($this->session->userdata['group'] == 'admin'): ?>
-        <!--<section class="menu"><?php //echo anchor('/admin/canales/canal/', lang('canales:new'))  ?></section>-->
+            <!--<section class="menu"><?php //echo anchor('/admin/canales/canal/', lang('canales:new'))   ?></section>-->
 <?php endif; ?>
 <section class="item">
     <?php template_partial('filters'); ?>
@@ -148,7 +148,11 @@
                                 if (respuesta.value == 2) {
                                     showMessage('error', 'No se puede publicar. No tiene la sección destacado publicado', 2000, '');
                                 } else {
-                                    showMessage('error', 'No se puede publicar. No tiene videos publicados', 2000, '');
+                                    if (respuesta.value == 3) {
+                                        showMessage('error', 'No se puede publicar. No tiene secciones publicadas', 2000, '');
+                                    } else {
+                                        showMessage('error', 'No se puede publicar. No tiene videos publicados', 2000, '');
+                                    }
                                 }
                             }
                         } //end success
