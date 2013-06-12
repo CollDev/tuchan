@@ -1,5 +1,5 @@
 <?php
-            
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class MiCanal_mp extends CI_Model {
@@ -52,6 +52,7 @@ class MiCanal_mp extends CI_Model {
                 $query = "call sp_obtenerdatos(" . $id . ")";
                 break;            
         }
+
 
 
         $objresult = $this->db->query($query);

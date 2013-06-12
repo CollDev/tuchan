@@ -1,4 +1,5 @@
 <?php
+
 set_time_limit(TIME_LIMIT);
 
 class Procesos_lib extends MX_Controller {
@@ -24,7 +25,7 @@ class Procesos_lib extends MX_Controller {
         $this->load->library("Procesos/ffmpeg");
         $this->load->library("Procesos/log");
         $this->load->library('portadas_lib');
-        //$this->load->library('sincronizar_lib');
+        $this->load->library('sincronizar_lib');
     }
 
     public function index() {

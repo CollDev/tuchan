@@ -1,5 +1,5 @@
 <?php
-            
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Canal_mp extends CI_Model {

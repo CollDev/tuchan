@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 set_time_limit(TIME_LIMIT);
 
