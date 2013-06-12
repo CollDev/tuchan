@@ -18,14 +18,14 @@ class Procesos_lib extends MX_Controller {
         $this->load->model('video_tags_mp');
         $this->load->model('grupo_maestros_mp');
 
-
-
         $this->load->library("Procesos/proceso");
         $this->load->library("Procesos/liquid");
         $this->load->library("Procesos/ffmpeg");
+        $this->load->library("Procesos/youtube");
+        
         $this->load->library("Procesos/log");
         $this->load->library('portadas_lib');
-        //$this->load->library('sincronizar_lib');
+        $this->load->library('sincronizar_lib');
     }
 
     public function index() {
@@ -176,6 +176,7 @@ class Procesos_lib extends MX_Controller {
                     $this->curlUploadVideosXId($id);
                 } elseif ($video[0]->estado_liquid == $this->config->item('v_l:subiendo') || $video[0]->estado_liquid == $this->config->item('v_l:subido')) {
                     Log::erroLog("no hay datos me voy a curlVerificaVideosLiquidXId " . $id);
+                    sleep(30);
                     $this->curlVerificaVideosLiquidXId($id);
                 }
             } else {
@@ -384,7 +385,7 @@ class Procesos_lib extends MX_Controller {
                     $this->videos_mp->setEstadosVideos($value->id, $this->config->item('v_e:publicado'), $this->config->item('v_l:publicado'));
                     Log::erroLog(" antes de actualizar_video: " . $id);
                     //$this->portadas_lib->actualizar_video($value->id, FALSE);
-                    //$this->sincronizar_lib->agregar_video($value->id, 'pro');
+                    $this->sincronizar_lib->agregar_video($value->id, 'pro');
                     Log::erroLog("actualizar_video: " . $id);
                 }
             }
@@ -1861,8 +1862,15 @@ class Procesos_lib extends MX_Controller {
         }
     }
     
-    
+    public function obtenerVideoYoutube($id){
+        $this->_obtenerVideoYoutube($id);
+    }
 
+    private function _obtenerVideoYoutube($id){
+             
+        Youtube::obtenerVideo($id);
+    }
+    
     public function getMaestroDetalles() {
         $videos = $this->grupo_maestros_mp->getMaestroDetalles();
 
