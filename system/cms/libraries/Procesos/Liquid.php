@@ -94,13 +94,13 @@ class Liquid {
         $fecha = date('Y-m-d H:i:s');
         $date = date("Y-m-d\TH:i:sP", strtotime($fecha));
 
-        $post = "<Media><title>Titulo</title><description>Descripcion</description><published>true</published><publishDate>" . $date . "</publishDate></Media>";
+        $post = "<Media><title>Titulo</title><description>Descripcion</description><published>TRUE</published><publishDate>" . $date . "</publishDate></Media>";
         //echo $url . "<br>";
         return self::postXML($url, $post);
     }
 
     function updatePublishedMediaNode($datos) {
-        PUBLISHED:
+        //PUBLISHED:
 
         $fecha = date('Y-m-d H:i:s');
         $date = date("Y-m-d\TH:i:sP", strtotime($fecha));
@@ -126,7 +126,7 @@ class Liquid {
 
         if ($pos === false) {
             Log::erroLog("no paso SUCCESS");
-            goto PUBLISHED;
+            //goto PUBLISHED;
             return FALSE;
         } else {
             Log::erroLog("paso SUCCESS");
@@ -213,6 +213,47 @@ class Liquid {
             return $mediaarr;
         } catch (Exception $exc) {
             return "";
+        }
+    }
+    
+    
+    
+    function obtenerVideosNoPublished($apikey) {
+
+
+        if (!empty($apikey)) {
+
+
+            $ini = 0;
+            // max valor de $inc = 50
+            $inc = 50;
+            $flat = 1;
+
+            $arraydatos = array();
+
+            do {
+                $url = APIURL . "/medias/?key=" . $apikey . "&filter=id;title&search=published:false&first=" . $ini . "&limit=" . $inc;
+
+                error_log($url);
+
+                $response = self::getCurl($url);
+                if ($response != FALSE) {
+                    $mediaxml = new SimpleXMLElement($response);
+                    $mediaarr = json_decode(json_encode($mediaxml), true);
+                        
+                    foreach ($mediaarr["Media"] as $value) {
+                        array_push($arraydatos, $value);
+                    }
+                   
+                    $ini = $ini + $inc;
+                }else{
+                       break;
+                }
+            } while (true);
+
+            return $arraydatos;
+        } else {
+            return array();
         }
     }
 
@@ -568,7 +609,7 @@ class Liquid {
 
             Log::erroLog("http_code: " . $info['http_code']);
             Log::erroLog("content_type: " . $info['content_type']);
-            Log::erroLog("curl_errno: " . curl_errno($ch));
+            //Log::erroLog("curl_errno: " . curl_errno($ch));
 
             if ($info['http_code'] == '200') {
                 return $result;

@@ -116,6 +116,10 @@ class curlProceso extends MX_Controller {
         $this->procesos_lib->generarSeccionesMiCanalXSeccionId($id);
     }
     
+    public function publicarPendientes(){
+        $this->procesos_lib->publicarPendientes();
+    }
+    
     public function getDB(){
         echo "<pre>";
         print_r($this->db);

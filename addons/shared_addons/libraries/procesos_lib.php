@@ -25,7 +25,7 @@ class Procesos_lib extends MX_Controller {
         $this->load->library("Procesos/ffmpeg");
         $this->load->library("Procesos/log");
         $this->load->library('portadas_lib');
-        $this->load->library('sincronizar_lib');
+        //$this->load->library('sincronizar_lib');
     }
 
     public function index() {
@@ -131,7 +131,9 @@ class Procesos_lib extends MX_Controller {
 
     public function procesoVideosXId($id) {
         Log::erroLog("id: " . $id);
+        Log::erroLog("entro _convertirVideosXId: " . $id);
         $this->_convertirVideosXId($id);
+        Log::erroLog("salio _convertirVideosXId " . $id);
 //        $this->_uploadVideosXId($id);
         Log::erroLog("entro a curl upload video: " . $id);
         $this->curlUploadVideosXId($id);
@@ -197,19 +199,25 @@ class Procesos_lib extends MX_Controller {
     }
 
     protected function _convertirVideosXId($id) {
+        
+         Log::erroLog("_convertirVideosXId: " . $id);
 
         if (!empty($id)) {
-            $this->videos_mp->setEstadosVideos($id, $this->config->item('v_e:codificando'), $id, $this->config->item('v_l:codificando'));
+            Log::erroLog("video antes de conversion : " . $id. "  ");
+            $this->videos_mp->setEstadosVideos($id, $this->config->item('v_e:codificando'), $this->config->item('v_l:codificando'));
+            Log::erroLog("video despues de conversion : " . $id. "  ");
             if (Ffmpeg::convertVideotoMp4($id)) {
+                Log::erroLog("video: " . $id. "convertido correctamente ");
                 $this->videos_mp->setEstadosVideos($id, $this->config->item('v_e:codificando'), $this->config->item('v_l:codificado'));
             } else {
+                Log::erroLog("video: " . $id. "no convertido correctamente ");
                 $this->videos_mp->setEstadosVideos($id, $this->config->item('v_e:codificando'), -1);
             }
         }
     }
 
     protected function _uploadVideosXId($id) {
-
+        Log::erroLog("entro a protected uploadVideosXId: " . $id);
         $resultado = $this->videos_mp->getVideosMp4XId($id);
 //        Log::erroLog('-------------------lista de videos mp4---------------------');
 //        Log::erroLog(print_r($resultado, true));
@@ -376,7 +384,7 @@ class Procesos_lib extends MX_Controller {
                     $this->videos_mp->setEstadosVideos($value->id, $this->config->item('v_e:publicado'), $this->config->item('v_l:publicado'));
                     Log::erroLog(" antes de actualizar_video: " . $id);
                     //$this->portadas_lib->actualizar_video($value->id, FALSE);
-                    $this->sincronizar_lib->agregar_video($value->id, 'pro');
+                    //$this->sincronizar_lib->agregar_video($value->id, 'pro');
                     Log::erroLog("actualizar_video: " . $id);
                 }
             }
@@ -1833,6 +1841,27 @@ class Procesos_lib extends MX_Controller {
         }
         echo "</table>";
     }
+    
+    public function publicarPendientes(){
+        $this->_publicarPendientes();
+         
+    }
+    
+    private function _publicarPendientes(){
+        
+        $listavideos =  Liquid::obtenerVideosNoPublished("3b540fec2d40b445f91432821079128d");
+        
+        foreach ($listavideos as $value) {                     
+            $videos = $this->videos_mp->getVideosxCodigo($value["id"]);
+            
+            if (count($videos)!=0){
+                $retorno = Liquid::updatePublishedMediaNode($videos);           
+                echo $retorno;
+            }
+        }
+    }
+    
+    
 
     public function getMaestroDetalles() {
         $videos = $this->grupo_maestros_mp->getMaestroDetalles();

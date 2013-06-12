@@ -39,6 +39,15 @@ class Videos_mp extends CI_Model {
                     FROM default_cms_videos vi WHERE vi.id =" . $id;
         return $this->db->query($query)->result();
     }
+    
+    public function getVideosxCodigo($codigo) {
+        
+        $query ="SELECT vi.id,vi.titulo,vi.descripcion,vi.codigo,ca.apikey FROM " . $this->_table . " vi 
+                INNER JOIN " . $this->_table_canales . " ca ON  vi.canales_id=ca.id
+                WHERE  vi.codigo='" . $codigo."'";
+        
+        return $this->db->query($query)->result();
+    }    
 
     public function getVideosxIdConKey($id) {
         $query = "SELECT vi.*,ca.apikey,ca.playerkey FROM default_cms_videos vi INNER JOIN default_cms_canales ca ON vi.canales_id =  ca.id WHERE vi.id=" . $id;
