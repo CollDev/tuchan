@@ -3229,14 +3229,14 @@ class Admin extends Admin_Controller {
             if (count($lista_maestros_publicados) > 0) {
                 //validamos que tenga la sección destacado publicada
                 if ($this->tiene_destacado_publicado($canal_id, 'canal')) {
+                    //recorremos los videos para agregar a las secciones
+                    //llamamos al metodo de agregar video de la libreria sincronizar
+                    //iteramos todos los videos encontramos de la variable $lista_maestros_publicados
+                    foreach ($lista_maestros_publicados as $puntero => $objVideoVista) {
+                        $this->sincronizar_lib->agregar_video($objVideoVista->id);
+                    }
                     //validamos que tenga otra sección este publicado ademas del destacado
                     if ($this->tiene_otra_seccion_publicada($canal_id)) {
-                        //recorremos los videos para agregar a las secciones
-                        //llamamos al metodo de agregar video de la libreria sincronizar
-                        //iteramos todos los videos encontramos de la variable $lista_maestros_publicados
-                        foreach ($lista_maestros_publicados as $puntero => $objVideoVista) {
-                            $this->sincronizar_lib->agregar_video($objVideoVista->id);
-                        }
                         $this->canales_m->update($canal_id, array("estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
                         //publicamos la portada del canal
                         $objPortada = $this->portada_m->get_by(array("tipo_portadas_id" => $this->config->item('portada:canal'), "origen_id" => $canal_id));
