@@ -52,7 +52,7 @@ class Sincronizar_lib extends MX_Controller {
                 $objPortadaCanal = $this->portada_m->get_by(array("origen_id" => $objCanal->id, "canales_id" => $objCanal->id, "tipo_portadas_id" => $this->config->item('portada:canal')));
                 if (count($objPortadaCanal) > 0) {
                     //validamos que la portada este publicada
-                    if ($objPortadaCanal->estado == $this->config->item('estado:publicado')) {
+                    //if ($objPortadaCanal->estado == $this->config->item('estado:publicado')) {
                         //obtenemos la sección video de la portada canal
                         $objSeccionVideo = $this->secciones_m->get_by(array("portadas_id" => $objPortadaCanal->id, "tipo_secciones_id" => $this->config->item('seccion:video')));
                         if (count($objSeccionVideo) > 0) {
@@ -84,7 +84,7 @@ class Sincronizar_lib extends MX_Controller {
                                 $this->secciones_m->update($objSeccionVideo->id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
                             }
                         }
-                    }
+                    //}
                 }
             }
         }
@@ -192,7 +192,7 @@ class Sincronizar_lib extends MX_Controller {
             $objPortadaCanal = $this->portada_m->get_by(array("origen_id" => $objVistaVideo->canales_id, "canales_id" => $objVistaVideo->canales_id, "tipo_portadas_id" => $this->config->item('portada:canal')));
             if (count($objPortadaCanal) > 0) {
                 //validamos que la portada este publicada
-                if ($objPortadaCanal->estado == $this->config->item('estado:publicado')) {
+                //if ($objPortadaCanal->estado == $this->config->item('estado:publicado')) {
                     //obtenemos la seccion lista de la portada canal
                     $objSeccionLista = $this->secciones_m->get_by(array("portadas_id" => $objPortadaCanal->id, "tipo_secciones_id" => $this->config->item('seccion:lista')));
                     if (count($objSeccionLista) > 0) {
@@ -224,7 +224,7 @@ class Sincronizar_lib extends MX_Controller {
                             $this->secciones_m->update($objSeccionLista->id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
                         }
                     }
-                }
+                //}
             }
         }
     }
@@ -253,7 +253,7 @@ class Sincronizar_lib extends MX_Controller {
             $objPortadaCanal = $this->portada_m->get_by(array("origen_id" => $objVistaVideo->canales_id, "canales_id" => $objVistaVideo->canales_id, "tipo_portadas_id" => $this->config->item('portada:canal')));
             if (count($objPortadaCanal) > 0) {
                 //validamos que la portada este publicada
-                if ($objPortadaCanal->estado == $this->config->item('estado:publicado')) {
+                //if ($objPortadaCanal->estado == $this->config->item('estado:publicado')) {
                     //obtenemos la seccion coleccion del maestro de la portada canal
                     $objSeccionColeccion = $this->secciones_m->get_by(array("portadas_id" => $objPortadaCanal->id, "tipo_secciones_id" => $this->config->item('seccion:coleccion'), "grupo_maestros_id" => $objVistaVideo->gm2));
                     if (count($objSeccionColeccion) > 0) {
@@ -285,7 +285,7 @@ class Sincronizar_lib extends MX_Controller {
                             $this->secciones_m->update($objSeccionColeccion->id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
                         }
                     }
-                }
+                //}
             }
         }
     }
@@ -893,7 +893,7 @@ class Sincronizar_lib extends MX_Controller {
             $objPortadaCanal = $this->portada_m->get_by(array("canales_id" => $objVistaVideo->canales_id, "origen_id" => $objVistaVideo->canales_id, "tipo_portadas_id" => $this->config->item('portada:canal')));
             if (count($objPortadaCanal) > 0) {
                 //verificamos si la portada esta publicada
-                if ($objPortadaCanal->estado == $this->config->item('estado:publicado')) {
+                //if ($objPortadaCanal->estado == $this->config->item('estado:publicado')) {
                     //buscamos la sección coleccion del canal para el maestro coleccion que fue asignado
                     $objSeccionColeccionCanal = $this->secciones_m->get_by(array("portadas_id" => $objPortadaCanal->id, "tipo_secciones_id" => $this->config->item('seccion:coleccion'), "grupo_maestros_id" => $objVistaVideo->gm2));
                     if (count($objSeccionColeccionCanal) > 0) {
@@ -926,7 +926,7 @@ class Sincronizar_lib extends MX_Controller {
                             $this->secciones_m->update($objSeccionColeccionCanal->id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
                         }
                     }
-                }
+                //}
             }
         }
     }
