@@ -4056,10 +4056,21 @@ class Admin extends Admin_Controller {
         }
     }
 
+    /**
+     * Método para publicar una sección, antes validando q tenga un detalle de sección publicada
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param int $seccion_id
+     */
     public function publicar_seccion($seccion_id) {
         if ($this->input->is_ajax_request()) {
-            $this->secciones_m->update($seccion_id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
-            echo json_encode(array("value" => "1"));
+            //obtenemos los detalles de la seccion
+            $objColeccionDetalleSeccion = $this->detalle_secciones_m->get_many_by(array("secciones_id" => $seccion_id, "estado" => $this->config->item('estado:publicado')));
+            if (count($objColeccionDetalleSeccion) > 0) {
+                $this->secciones_m->update($seccion_id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                echo json_encode(array("value" => "1"));
+            } else {
+                echo json_encode(array("value" => "2")); //la seccion no tiene elementos activados
+            }
         }
     }
 
