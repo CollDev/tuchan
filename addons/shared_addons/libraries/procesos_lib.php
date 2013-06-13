@@ -1844,7 +1844,8 @@ class Procesos_lib extends MX_Controller {
     }
     
     public function publicarPendientes(){
-        $this->_publicarPendientes();
+        $this->videoYoutube("");
+       // $this->_publicarPendientes();
          
     }
     
@@ -1862,8 +1863,47 @@ class Procesos_lib extends MX_Controller {
         }
     }
     
-    public function obtenerVideoYoutube($id){
-        $this->_obtenerVideoYoutube($id);
+    public function videoYoutube($url){
+         error_log("entro");
+        
+        $limpiar= array(
+            "http://www.youtube.com/",
+            "https://www.youtube.com/",
+            "http://youtu.be/",
+            "https://youtu.be/"
+            );
+            
+        $url = "http://www.youtube.com/watch?v=_cxySGSJRV8";
+       //$url= "http://youtu.be/9qDAe-MInkQ";
+        
+        $url = trim(str_replace($limpiar, "", $url));
+           
+         error_log($url);
+                
+        if(!empty($url)){
+            
+            $datos = explode("?",$url);           
+            parse_str($datos[1],$datos2);        
+            
+            error_log($datos2["v"]);
+
+            if(!empty($datos2["v"])){
+                 $this->curlObtenerVideoYoutube($datos2["v"]);
+            }
+                      
+        }        
+       
+    }
+    
+    public function curlObtenerVideoYoutube($v){
+        Log::erroLog("ini - obtenerVideoYoutube: " . $v);
+        $ruta = base_url("curlproceso/obtenerVideoYoutube/" .$v);
+        shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");
+        Log::erroLog("fin - obtenerVideoYoutube: " . $v);
+    }
+        
+    public function obtenerVideoYoutube($v){                       
+              $this->_obtenerVideoYoutube($v);       
     }
 
     private function _obtenerVideoYoutube($id){
