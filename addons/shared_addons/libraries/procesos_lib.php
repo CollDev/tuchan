@@ -159,7 +159,6 @@ class Procesos_lib extends MX_Controller {
     }
 
     public function verificaVideosLiquidXId($id) {
-
         Log::erroLog("entro a : verificaVideosLiquidXId " . $id);
 
         $video = $this->videos_mp->getVideosxIdConKey($id);
@@ -176,7 +175,7 @@ class Procesos_lib extends MX_Controller {
                     $this->curlUploadVideosXId($id);
                 } elseif ($video[0]->estado_liquid == $this->config->item('v_l:subiendo') || $video[0]->estado_liquid == $this->config->item('v_l:subido')) {
                     Log::erroLog("no hay datos me voy a curlVerificaVideosLiquidXId " . $id);
-                    sleep(30);
+                    sleep(180);
                     $this->curlVerificaVideosLiquidXId($id);
                 }
             } else {
@@ -185,7 +184,7 @@ class Procesos_lib extends MX_Controller {
                     Log::erroLog("al fin algo continuo el publishd " . $id);
                     $this->continuaProcesoVideos($id);
                 } else {
-                    sleep(30);
+                    sleep(180);
                     Log::erroLog("aun sin nada me curlVerificaVideosLiquidXId " . $id);
                     $this->curlVerificaVideosLiquidXId($id);
                 }
