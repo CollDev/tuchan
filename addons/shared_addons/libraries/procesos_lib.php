@@ -1863,22 +1863,24 @@ class Procesos_lib extends MX_Controller {
         }
     }
     
-    public function videoYoutube($url){
-         error_log("entro");
+    public function videoYoutube($id,$url){
         
-        $limpiar= array(
+         $url = "http://www.youtube.com/watch?v=_cxySGSJRV8";
+       //$url= "http://youtu.be/9qDAe-MInkQ";
+               
+        $limpiarurl= array(
             "http://www.youtube.com/",
-            "https://www.youtube.com/",
+            "https://www.youtube.com/"
+            );
+        
+        $limpiarurllite= array(
             "http://youtu.be/",
             "https://youtu.be/"
-            );
+            );        
             
-        $url = "http://www.youtube.com/watch?v=_cxySGSJRV8";
-       //$url= "http://youtu.be/9qDAe-MInkQ";
-        
+             
         $url = trim(str_replace($limpiar, "", $url));
-           
-         error_log($url);
+                    
                 
         if(!empty($url)){
             
@@ -1888,27 +1890,33 @@ class Procesos_lib extends MX_Controller {
             error_log($datos2["v"]);
 
             if(!empty($datos2["v"])){
-                 $this->curlObtenerVideoYoutube($datos2["v"]);
+                 $this->curlObtenerVideoYoutube($id,$datos2["v"]);
             }
                       
-        }        
-       
+        }               
     }
     
-    public function curlObtenerVideoYoutube($v){
+    public function curlObtenerVideoYoutube($id,$v){
         Log::erroLog("ini - obtenerVideoYoutube: " . $v);
-        $ruta = base_url("curlproceso/obtenerVideoYoutube/" .$v);
+        $ruta = base_url("curlproceso/obtenerVideoYoutube/".$id."/" .$v);
         shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");
         Log::erroLog("fin - obtenerVideoYoutube: " . $v);
     }
         
-    public function obtenerVideoYoutube($v){                       
-              $this->_obtenerVideoYoutube($v);       
+    public function obtenerVideoYoutube($id,$v){                       
+              $this->_obtenerVideoYoutube($id,$v);       
     }
 
-    private function _obtenerVideoYoutube($id){
+    private function _obtenerVideoYoutube($id,$v){
              
-        Youtube::obtenerVideo($id);
+        $data = Youtube::obtenerVideo($v);
+        
+        if(!empty($data)){
+            $retorno = Youtube::descargaVideo($id,$data);
+            if($retorno==TRUE){
+                $this->_uploadVideosXId($id);
+            }            
+        }        
     }
     
     public function getMaestroDetalles() {
