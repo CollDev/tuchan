@@ -33,13 +33,20 @@ class Youtube {
 
 
         $my_video_info = 'http://www.youtube.com/get_video_info?&video_id=' . $my_id;
-        $my_video_info = self::curlGet($my_video_info);
+        $page = self::curlGet($my_video_info);
+        $array =explode("&",urldecode($page));
 
-        echo $my_video_info;
+        print_r( $array);
+        
+        var_dump(array_search('token',$array));
+        
+        
+
+        //echo $token;
         
         /* TODO: Check return from curl for status code */
 
-        var_dump(parse_str($my_video_info));
+       
     }
 
 }
