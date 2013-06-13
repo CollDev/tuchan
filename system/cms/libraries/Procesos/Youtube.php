@@ -1,5 +1,7 @@
 <?php
 set_time_limit(TIME_LIMIT);
+
+
 class Youtube {
 
     function descargaVideo($id,$data ) {
@@ -21,8 +23,8 @@ class Youtube {
             curl_setopt($ch, CURLOPT_HEADER, false);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);
-            curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 60);
-            curl_setopt($ch, CURLOPT_TIMEOUT, 0);
+//            curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 60);
+//            curl_setopt($ch, CURLOPT_TIMEOUT, 0);
             curl_setopt($ch, CURLOPT_FILE, $fp);
 
             curl_exec($ch);
