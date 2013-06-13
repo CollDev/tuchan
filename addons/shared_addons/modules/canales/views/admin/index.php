@@ -107,7 +107,7 @@
                         {
                             if (respuesta.value == 1) {
                                 //location.reload();
-                                $("#" + tipo + "_" + canal_id).empty();
+                                $("#" + tipo + "_estado_" + canal_id).empty();
                                 $("#" + tipo + "_estado_" + canal_id).html('Borrador');
                                 var htmlButton = '';
                                 htmlButton += '<a href="/admin/canales/canal/' + canal_id + '"  class="mode_edit">Editar</a>';
@@ -136,7 +136,7 @@
                         {
                             if (respuesta.value == 1) {
                                 //location.reload();
-                                $("#" + tipo + "_" + canal_id).empty();
+                                $("#" + tipo + "_estado_" + canal_id).empty();
                                 $("#" + tipo + "_estado_" + canal_id).html('Publicado');
                                 var htmlButton = '';
                                 htmlButton += '<a href="/admin/canales/canal/' + canal_id + '"  class="mode_edit">Editar</a>';
