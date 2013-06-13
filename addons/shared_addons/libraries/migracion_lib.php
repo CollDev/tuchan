@@ -182,7 +182,7 @@ class Migracion_lib extends MX_Controller {
                         
                         //registramos en las secciones con la libreria portadas_lib
                         //$this->portadas_lib->agregar_video($objBeanVideoSaved->id);
-                        $this->sincronizar_lib->agregar_video($objBeanVideoSaved->id);
+                        $this->sincronizar_lib->agregar_video($objBeanVideoSaved->id, 'importacion');
                         //disparamos el proceso para la publicacion en el motor
                         $this->procesos_lib->curlActualizarVideosXId($objBeanVideoSaved->id);
                         $contador++;
