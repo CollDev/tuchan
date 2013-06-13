@@ -2568,6 +2568,12 @@ class Admin extends Admin_Controller {
         return $returnValue;
     }
 
+    /**
+     * Método para eliminar un detalle sección x su ID
+     * al no encontrar ningun item publicado conserva el estado borrador
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param int $detalle_seccion_id
+     */
     public function quitar_detalle_seccion($detalle_seccion_id) {
         if ($this->input->is_ajax_request()) {
             $objDetalleSeccion = $this->detalle_secciones_m->get($detalle_seccion_id);
@@ -2579,11 +2585,18 @@ class Admin extends Admin_Controller {
                     if ($objMaestro->tipo_grupo_maestro_id == $this->config->item('videos:programa')) {
                         $this->detalle_secciones_m->delete_by("secciones_id", $objDetalleSeccion->secciones_id);
                     } else {
-                        $this->detalle_secciones_m->update($detalle_seccion_id, array("estado" => $this->config->item('estado:borrador')));
+                        //$this->detalle_secciones_m->update($detalle_seccion_id, array("estado" => $this->config->item('estado:borrador')));
+                        $this->detalle_secciones_m->delete($detalle_seccion_id);
                     }
                 }
             } else {
-                $this->detalle_secciones_m->update($detalle_seccion_id, array("estado" => $this->config->item('estado:borrador')));
+                //$this->detalle_secciones_m->update($detalle_seccion_id, array("estado" => $this->config->item('estado:borrador')));
+                $this->detalle_secciones_m->delete($detalle_seccion_id);
+            }
+            //verificamos que la sección no tenga items para despublicarlo
+            $objColeccionDetalleSeccion = $this->detalle_secciones_m->get_many_by(array("secciones_id"=>$objSeccion->id, "estado"=>$this->config->item('estado:publicado')));
+            if(count($objColeccionDetalleSeccion)>0){
+                $this->secciones_m->update($objSeccion->id, array("estado"=>$this->config->item('estado:borrador')));
             }
             echo json_encode(array("value" => 1));
         }
@@ -2591,6 +2604,7 @@ class Admin extends Admin_Controller {
 
     /**
      * metodo para actualizar la informacio de la cabecera de secciones
+     * @author Johnny Huamani <johnny1402@gmail.com>
      */
     public function actualizar_seccion() {
         if ($this->input->is_ajax_request()) {
@@ -2602,6 +2616,7 @@ class Admin extends Admin_Controller {
 
     /**
      * metodo para validar y agregar items al detalle de una seccion
+     * @author Johnny Huamani <johnny1402@gmail.com>
      */
     public function agregar_item_maestro() {
         if ($this->input->is_ajax_request()) {
@@ -4056,10 +4071,21 @@ class Admin extends Admin_Controller {
         }
     }
 
+    /**
+     * Método para publicar una sección, antes validando q tenga un detalle de sección publicada
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param int $seccion_id
+     */
     public function publicar_seccion($seccion_id) {
         if ($this->input->is_ajax_request()) {
-            $this->secciones_m->update($seccion_id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
-            echo json_encode(array("value" => "1"));
+            //obtenemos los detalles de la seccion
+            $objColeccionDetalleSeccion = $this->detalle_secciones_m->get_many_by(array("secciones_id" => $seccion_id, "estado" => $this->config->item('estado:publicado')));
+            if (count($objColeccionDetalleSeccion) > 0) {
+                $this->secciones_m->update($seccion_id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                echo json_encode(array("value" => "1"));
+            } else {
+                echo json_encode(array("value" => "2")); //la seccion no tiene elementos activados
+            }
         }
     }
 
@@ -4299,6 +4325,12 @@ class Admin extends Admin_Controller {
         return $returnValue;
     }
 
+    /**
+     * Método para agregar un maestro al detalle de la sección
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param int $maestro_id
+     * @param int $seccion_id
+     */
     public function agregarMaestroASeccion($maestro_id, $seccion_id) {
         if ($this->input->is_ajax_request()) {
             $user_id = (int) $this->session->userdata('user_id');
@@ -4379,7 +4411,8 @@ class Admin extends Admin_Controller {
                         $maestroEnSeccion = $this->detalle_secciones_m->get_many_by(array("grupo_maestros_id" => $maestro_id, "secciones_id" => $seccion_id));
                         //if ($this->maestroAgregadoSeccion($maestro_id, $seccion_id, 0)) {
                         if (count($maestroEnSeccion) > 0) {
-                            if ($this->es_seccion_excluyente($seccion_id)) {
+                            //if ($this->es_seccion_excluyente($seccion_id)) {
+                            if (FALSE) {
                                 $tipo_maestro_registrado = $this->obtener_tipo_maestro_registrado($seccion_id);
                                 if ($tipo_maestro_registrado > 0) {
                                     //obtenemos el tipo del maestro que se quiere registrar en este detalle seccion
@@ -4431,7 +4464,8 @@ class Admin extends Admin_Controller {
                     $maestroEnSeccion = $this->detalle_secciones_m->get_many_by(array("grupo_maestros_id" => $maestro_id, "secciones_id" => $seccion_id));
                     //if ($this->maestroAgregadoSeccion($maestro_id, $seccion_id, 0)) {
                     if (count($maestroEnSeccion) > 0) {
-                        if ($this->es_seccion_excluyente($seccion_id)) {//se aplica para todas las secciones de tipo coleccion
+                        //if ($this->es_seccion_excluyente($seccion_id)) {//se aplica para todas las secciones de tipo coleccion
+                        if (FALSE) {
                             $tipo_maestro_registrado = $this->obtener_tipo_maestro_registrado($seccion_id);
                             if ($tipo_maestro_registrado > 0) {
                                 //obtenemos el tipo del maestro que se quiere registrar en este detalle seccion
@@ -6114,6 +6148,12 @@ class Admin extends Admin_Controller {
         }
     }
 
+    /**
+     * Método para agregar un canal a un detalle de sección
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param int $canal_item
+     * @param int $seccion_id
+     */
     public function agregarCanalASeccion($canal_item, $seccion_id) {
         if ($this->input->is_ajax_request()) {
             $user_id = (int) $this->session->userdata('user_id');
@@ -6151,6 +6191,12 @@ class Admin extends Admin_Controller {
         }
     }
 
+    /**
+     * Método para agregar un video al detalle sección y publicar automaticamente a la sección
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param int $video_id
+     * @param int $seccion_id
+     */
     public function agregarVideoASeccion($video_id, $seccion_id) {
         if ($this->input->is_ajax_request()) {
             $user_id = (int) $this->session->userdata('user_id');
@@ -6160,7 +6206,8 @@ class Admin extends Admin_Controller {
                 $videoEnSeccion = $this->detalle_secciones_m->get_many_by(array("videos_id" => $video_id, "secciones_id" => $seccion_id));
                 //if ($this->videoAgregadoSeccion($video_id, $seccion_id, 0)) {
                 if (count($videoEnSeccion) > 0) {
-                    if ($this->es_seccion_excluyente($seccion_id)) {
+                    //if ($this->es_seccion_excluyente($seccion_id)) {// esto hace entrar a un filtro donde una sección solo puede contener un video o una lista, pero no los dos
+                    if (FALSE) {//se comento la linea anterior para que la sección no sea excluyente
                         $tipo_maestro_registrado = $this->obtener_tipo_maestro_registrado($seccion_id);
                         if ($tipo_maestro_registrado > 0) {
                             if ($this->config->item('videos:video') == $tipo_maestro_registrado) {

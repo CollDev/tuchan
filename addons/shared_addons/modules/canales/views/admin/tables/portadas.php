@@ -361,6 +361,10 @@
                                                     htmlButton += '<a title="Editar" href="admin/canales/seccion/' + canal_id + '/' + seccion_id + '" class="mode_edit">Editar</a>';
                                                     htmlButton += '<a href="#" onclick="eliminar_seccion(' + seccion_id + ', \'seccion\');return false;" class="mode_delete">Eliminar</a>';
                                                     $("#" + tipo + "_boton_" + seccion_id).html(htmlButton);
+                                                }else{
+                                                    if (respuesta.value == 2) {
+                                                        showMessage('error', 'No se puede publicar. No se encontró elementos activos en su detalle', 2000, '');
+                                                    }
                                                 }
                                             } //end success
                                         }); //end AJAX   
