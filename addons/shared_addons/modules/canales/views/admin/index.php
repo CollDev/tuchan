@@ -108,7 +108,7 @@
                             if (respuesta.value == 1) {
                                 //location.reload();
                                 $("#" + tipo + "_" + canal_id).empty();
-                                $("#" + tipo + "_" + canal_id).html('Borrador');
+                                $("#" + tipo + "_estado_" + canal_id).html('Borrador');
                                 var htmlButton = '';
                                 htmlButton += '<a href="/admin/canales/canal/' + canal_id + '"  class="mode_edit">Editar</a>';
                                 htmlButton += '<a href="/admin/canales/previsualizar_canal/' + canal_id + '" target ="_blank" class="mode_preview modal-large">V.Previa</a>';
@@ -137,7 +137,7 @@
                             if (respuesta.value == 1) {
                                 //location.reload();
                                 $("#" + tipo + "_" + canal_id).empty();
-                                $("#" + tipo + "_" + canal_id).html('Publicado');
+                                $("#" + tipo + "_estado_" + canal_id).html('Publicado');
                                 var htmlButton = '';
                                 htmlButton += '<a href="/admin/canales/canal/' + canal_id + '"  class="mode_edit">Editar</a>';
                                 htmlButton += '<a href="/admin/canales/previsualizar_canal/' + canal_id + '" target ="_blank" class="mode_preview modal-large">V.Previa</a>';
