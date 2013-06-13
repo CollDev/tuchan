@@ -97,7 +97,7 @@ class Sincronizar_lib extends MX_Controller {
      */
     public function agregar_video($video_id, $ref = 'cms') {
         //cargamos el config si el origen de llamada es diferente al cms
-        if ($ref != 'cms') {
+        if ($ref != 'cms' && $ref != 'importacion') {
             $this->config->load('videos/uploads');
             $user_id = 1; //usuario administrador
         } else {
