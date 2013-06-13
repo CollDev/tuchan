@@ -4670,7 +4670,7 @@ class Admin extends Admin_Controller {
             $objMaestro = $this->grupo_maestro_m->get($maestro_id);
             if (count($objMaestro) > 0) {
                 //verificamos que tipo de maestro es
-                if ($objMaestro->tipo_grupo_maestros_id == $this->config->item('videos:programa')) {
+                if ($objMaestro->tipo_grupo_maestro_id == $this->config->item('videos:programa')) {
                     $objCanal = $this->canales_m->get_by(array("id" => $objMaestro->canales_id, "estado" => $this->config->item('estado:publicado')));
                     if (count($objCanal) > 0) {
                         //portada de tipo programa
