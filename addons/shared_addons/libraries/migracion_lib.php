@@ -57,6 +57,7 @@ class Migracion_lib extends MX_Controller {
         $this->search = $this->config->item('migracion:tag');
         $this->load->library('procesos_lib');
         $this->load->library('portadas_lib');
+        $this->load->library('sincronizar_lib');
         $this->load->library("Procesos/log");
     }
 
@@ -180,7 +181,8 @@ class Migracion_lib extends MX_Controller {
                         $this->registrar_tags($objBeanVideoSaved->id, $objVideo->tags);
                         
                         //registramos en las secciones con la libreria portadas_lib
-                        $this->portadas_lib->agregar_video($objBeanVideoSaved->id);
+                        //$this->portadas_lib->agregar_video($objBeanVideoSaved->id);
+                        $this->sincronizar_lib->agregar_video($objBeanVideoSaved->id);
                         //disparamos el proceso para la publicacion en el motor
                         $this->procesos_lib->curlActualizarVideosXId($objBeanVideoSaved->id);
                         $contador++;
