@@ -1,5 +1,5 @@
 <?php
-
+set_time_limit(TIME_LIMIT);
 class Youtube {
 
     function descargaVideo($id,$data ) {
@@ -9,9 +9,8 @@ class Youtube {
         if (is_readable($filePath)) {
             return TRUE;
         } else {
+
             DONWLOADVIDEO:
-                
-            
 
             $fp = fopen($filePath, "w");
             $ruta = $data['url'] . '&signature=' . $data['sig'];
