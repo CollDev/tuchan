@@ -120,8 +120,8 @@ class curlProceso extends MX_Controller {
         $this->procesos_lib->publicarPendientes();
     }
     
-    public function obtenerVideoYoutube($id){
-        $this->procesos_lib->obtenerVideoYoutube($id);
+    public function obtenerVideoYoutube($id,$vi){
+        $this->procesos_lib->obtenerVideoYoutube($id,$vi);
     }
     
     public function getDB(){
