@@ -145,6 +145,9 @@
                             case "3" :
                                 showMessage('error', 'No es posible publicar. El canal no está publicado', 2000, '');
                                 break;
+                            case "4" :
+                                showMessage('error', 'No es posible publicar. El maestro no tiene una imagen publicada', 2000, '');
+                                break;
                             case "6" :
                                 showMessage('error', 'No es posible publicar. No existe el video', 2000, '');
                                 break;
