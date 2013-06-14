@@ -2594,9 +2594,9 @@ class Admin extends Admin_Controller {
                 $this->detalle_secciones_m->delete($detalle_seccion_id);
             }
             //verificamos que la sección no tenga items para despublicarlo
-            $objColeccionDetalleSeccion = $this->detalle_secciones_m->get_many_by(array("secciones_id"=>$objSeccion->id, "estado"=>$this->config->item('estado:publicado')));
-            if(count($objColeccionDetalleSeccion)>0){
-                $this->secciones_m->update($objSeccion->id, array("estado"=>$this->config->item('estado:borrador')));
+            $objColeccionDetalleSeccion = $this->detalle_secciones_m->get_many_by(array("secciones_id" => $objSeccion->id, "estado" => $this->config->item('estado:publicado')));
+            if (count($objColeccionDetalleSeccion) > 0) {
+                $this->secciones_m->update($objSeccion->id, array("estado" => $this->config->item('estado:borrador')));
             }
             echo json_encode(array("value" => 1));
         }
@@ -3187,34 +3187,76 @@ class Admin extends Admin_Controller {
      */
     public function eliminar_canal($canal_id) {
         if ($this->input->is_ajax_request()) {
-            //estado eliminado al registro del canal
-            $this->canales_m->update($canal_id, array("estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado" => $this->config->item('estado:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
-            //estado eliminado a sus maestros//
-            $objColeccionMaestros = $this->grupo_maestro_m->get_many_by(array("canales_id" => $canal_id));
-            if (count($objColeccionMaestros) > 0) {
-                foreach ($objColeccionMaestros as $puntero => $objMaestro) {
-                    $this->grupo_maestro_m->update($objMaestro->id, array("estado" => $this->config->item('estado:eliminado')));
+            //identificamos el canal
+            $objCanal = $this->canales_m->get($canal_id);
+            if (count($objCanal) > 0) {
+                //verificamos que no sea micanal
+                if ($objCanal->tipo_canales_id != $this->config->item('canal:mi_canal')) {
+                    //verificamos que el canal tenga contenido
+                    $objVideosVista = $this->vw_maestro_video_m->get_many_by(array("v" => "v", "canales_id" => $canal_id, "estado" => $this->config->item('estado:eliminado')));
+                    if (count($objVideosVista) > 0) {
+                        //enviamos todos los maestros a eliminado
+                        $this->grupo_maestro_m->update_by('canales_id', $canal_id, array("estado" => $this->config->item('estado:eliminado')));
+                        //eliminamos portadas
+                        $this->portada_m->update_by("canales_id", $canal_id, array("estado" => $this->config->item('estado:eliminado')));
+                        //eliminamos las secciones
+                        $objColeccionPortada = $this->portada_m->get_many_by(array("canales_id" => $canal_id));
+                        if (count($objColeccionPortada) > 0) {
+                            foreach ($objColeccionPortada as $indice => $objPortada) {
+                                $objColeccionSeccion = $this->secciones_m->get_many_by(array("portadas_id" => $objPortada->id));
+                                if (count($objColeccionSeccion) > 0) {
+                                    foreach ($objColeccionSeccion as $index => $objSeccion) {
+                                        //eliminamos el detalle de seccion
+                                        $this->detalle_secciones_m->update_by("secciones_id", $objSeccion->id, array("estado" => $this->config->item('estado:eliminado')));
+                                        //eliminamos la seccion
+                                        $this->secciones_m->update($objSeccion->id, array("estado" => $this->config->item('estado:eliminado')));
+                                    }
+                                }
+                            }
+                        }
+                        //eliminamos los videos
+                        $objColeccionVideos = $this->videos_m->get_many_by(array("canales_id" => $canal_id, "estado" => $this->config->item('video:eliminado')));
+                        if (count($objColeccionVideos) > 0) {
+                            foreach ($objColeccionVideos as $ind => $objVideo) {
+                                if ($this->input->post('tipo') == 'total') {
+                                    $this->videos_m->update($objVideo->id, array("video:eliminado"));
+                                } else {
+                                    if ($objVideo->padre == 0 || $objVideo == NULL) {
+                                        $this->videos_m->update($objVideo->id, array("video:eliminado"));
+                                    }
+                                }
+                            }
+                        }
+                    } else {
+                        //estado eliminado al registro del canal
+                        $this->canales_m->update($canal_id, array("estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado" => $this->config->item('estado:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                        echo json_encode(array("value" => "1")); //canal eliminado satisfactoriamente
+                    }
+                } else {
+                    echo json_encode(array("value" => "3")); //no es posible eliminar a micanal
                 }
-            }
-            //$this->grupo_maestro_m->update_by("canales_id", $canal_id, array("estado"=>$this->config->item('estado:borrador')));
-            //estado eliminado para sus videos
-            //$this->videos_m->update_by('canales_id', $canal_id, array('videos:eliminado'));
-            $objColeccionVideo = $this->videos_m->get_many_by(array("canales_id" => $canal_id));
-            if (count($objColeccionVideo) > 0) {
-                foreach ($objColeccionVideo as $indice => $objVideo) {
-                    $this->videos_m->update($objVideo->id, array("estado" => $this->config->item('videos:eliminado')));
-                }
+            } else {
+                echo json_encode(array("value" => "2")); //no existe el canal
             }
 
-            //cambiamos el estado de relacion en la tabla usuario_grupo_canales
-            $this->usuario_grupo_canales_m->update_by('canal_id', $canal_id, array('estado' => $this->config->item('estado:borrador')));
-            //eliminamos la portada del canal
-//            $objPortada = $this->portada_m->get_by(array("tipo_portadas_id" => $this->config->item('portada:canal'), "origen_id" => $canal_id));
-//            if (count($objPortada) > 0) {
-//                $this->portada_m->update($objPortada->id, array("estado" => $this->config->item('estado:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+//            //estado eliminado a sus maestros//
+//            $objColeccionMaestros = $this->grupo_maestro_m->get_many_by(array("canales_id" => $canal_id));
+//            if (count($objColeccionMaestros) > 0) {
+//                foreach ($objColeccionMaestros as $puntero => $objMaestro) {
+//                    $this->grupo_maestro_m->update($objMaestro->id, array("estado" => $this->config->item('estado:eliminado')));
+//                }
 //            }
-            $this->procesos_lib->curlGenerarCanalesXId($canal_id);
-            echo json_encode(array("value" => "1"));
+//            $objColeccionVideo = $this->videos_m->get_many_by(array("canales_id" => $canal_id));
+//            if (count($objColeccionVideo) > 0) {
+//                foreach ($objColeccionVideo as $indice => $objVideo) {
+//                    $this->videos_m->update($objVideo->id, array("estado" => $this->config->item('videos:eliminado')));
+//                }
+//            }
+//
+//            //cambiamos el estado de relacion en la tabla usuario_grupo_canales
+//            $this->usuario_grupo_canales_m->update_by('canal_id', $canal_id, array('estado' => $this->config->item('estado:borrador')));
+//            $this->procesos_lib->curlGenerarCanalesXId($canal_id);
+//            echo json_encode(array("value" => "1"));
         }
     }
 
