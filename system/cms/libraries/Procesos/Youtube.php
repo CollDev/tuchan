@@ -99,6 +99,7 @@ class Youtube {
 
         if (empty($varia['url_encoded_fmt_stream_map'])) {
             if ($contador == 10) {
+                sleep(5);
                 return FALSE;
             } else {
                 $contador++;
