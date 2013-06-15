@@ -21,6 +21,11 @@
     <div id="filter-stage">
         <?php template_partial('organizar_videos'); ?>
     </div>
+    <div id="dialog-confirm" title="Eliminar maestro" style="display: none;">
+        <p><span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 20px 0;"></span>¿Qué tipo de eliminación desea resolver?</p>
+        <p><span style="float: left; margin: 0 7px 0 0; font-weight: bold">Total:</span><span>total incluye los clips agregados</span></p>
+        <p><span style="float: left; margin: 0 7px 0 0; font-weight: bold">Parcial:</span><span>no incluye los clips agregados</span></p>
+    </div>    
 </section>
 <script type="text/javascript">
     $(document).ready(function() {
@@ -72,7 +77,7 @@
         }
     }
 
-    function eliminar(maestro_id, tipo) {
+    function eliminar_maestro(maestro_id, tipo, tipo_eliminacion) {
         jConfirm("Seguro que deseas eliminar este Item?", "Organizar videos", function(r) {
             if (r) {
                 var tipo_item = tipo;
@@ -90,15 +95,38 @@
                     type: "POST",
                     url: post_url,
                     dataType: 'json',
-                    //data: indexOrder,
+                    data: 'tipo=' + tipo_eliminacion,
                     success: function(respuesta)
                     {
-                        if (respuesta.value == 1) {
-                            //location.reload();
-                            $("#item_" + tipo_item + "_" + maestro_id).empty();
+                        switch (respuesta.value) {
+                            case "1":
+                                $("#item_" + tipo_item + "_" + maestro_id).empty();
+                                break;
                         }
                     } //end success
                 }); //end AJAX   
+            }
+        });
+    }
+
+    function eliminar(maestro_id, tipo) {
+        $("#dialog-confirm").dialog({
+            resizable: false,
+            height: 230,
+            width: 350,
+            modal: true,
+            buttons: {
+                "Total": function() {
+                    eliminar_maestro(maestro_id, tipo, 'total');
+                    $(this).dialog("close");
+                },
+                "Parcial": function() {
+                    eliminar_maestro(maestro_id, tipo, 'parcial');
+                    $(this).dialog("close");
+                },
+                'Cancelar': function() {
+                    $(this).dialog("close");
+                }
             }
         });
     }
