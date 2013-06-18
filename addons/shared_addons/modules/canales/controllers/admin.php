@@ -7162,11 +7162,23 @@ class Admin extends Admin_Controller {
                             if (count($videos) > 0) {
                                 echo json_encode(array("value" => "2")); //tiene contenido
                             } else {
-                                //eliminamos el maestro
-                                $this->grupo_maestro_m->delete($id);
-                                //eliminamos la lista de las secciones de portada
-                                $this->detalle_secciones_m->delete_by('grupo_maestros_id', $id);
-                                echo json_encode(array("value" => "1")); //done
+                                //verificamos que no tenga un maestro relacionado
+                                $objColeccionMaestroDetalle = $this->grupo_detalle_m->get_many_by(array("grupo_maestro_padre" => $objMaestro->id));
+                                if (count($objColeccionMaestroDetalle) > 0) {
+                                    echo json_encode(array("value" => "2")); //tiene contenido
+                                } else {
+                                    //verificamos que no tenga un maestro relacionado
+                                    $objColeccionMaestroDetalle = $this->grupo_detalle_m->get_many_by(array("grupo_maestro_id" => $objMaestro->id));
+                                    if (count($objColeccionMaestroDetalle) > 0) {
+                                        echo json_encode(array("value" => "2")); //tiene contenido
+                                    } else {
+                                        //eliminamos el maestro
+                                        $this->grupo_maestro_m->delete($id);
+                                        //eliminamos la lista de las secciones de portada
+                                        $this->detalle_secciones_m->delete_by('grupo_maestros_id', $id);
+                                        echo json_encode(array("value" => "1")); //done
+                                    }
+                                }
                             }
                         } else {
                             if ($objMaestro->tipo_grupo_maestro_id == $this->config->item('videos:coleccion')) {
@@ -7175,19 +7187,31 @@ class Admin extends Admin_Controller {
                                 if (count($videos) > 0) {
                                     echo json_encode(array("value" => "2")); //tiene contenido
                                 } else {
-                                    //eliminamos el maestro
-                                    $this->grupo_maestro_m->delete($id);
-                                    //eliminamos las secciones de tipo coleccion
-                                    $secciones_coleccion = $this->secciones_m->get_many_by(array("grupo_maestros_id" => $id));
-                                    if (count($secciones_coleccion) > 0) {
-                                        foreach ($secciones_coleccion as $puntero => $objSec) {
-                                            //eliminamos los detalles de seccion
-                                            $this->detalle_secciones_m->delete_by('secciones_id', $objSec->id);
-                                            //eliminamos la seccion
-                                            $this->secciones_m->delete($objSec->id);
+                                    //verificamos que no tenga un maestro relacionado
+                                    $objColeccionMaestroDetalle = $this->grupo_detalle_m->get_many_by(array("grupo_maestro_padre" => $objMaestro->id));
+                                    if (count($objColeccionMaestroDetalle) > 0) {
+                                        echo json_encode(array("value" => "2")); //tiene contenido
+                                    } else {
+                                        //verificamos que no tenga un maestro relacionado
+                                        $objColeccionMaestroDetalle = $this->grupo_detalle_m->get_many_by(array("grupo_maestro_id" => $objMaestro->id));
+                                        if (count($objColeccionMaestroDetalle) > 0) {
+                                            echo json_encode(array("value" => "2")); //tiene contenido
+                                        } else {
+                                            //eliminamos el maestro
+                                            $this->grupo_maestro_m->delete($id);
+                                            //eliminamos las secciones de tipo coleccion
+                                            $secciones_coleccion = $this->secciones_m->get_many_by(array("grupo_maestros_id" => $id));
+                                            if (count($secciones_coleccion) > 0) {
+                                                foreach ($secciones_coleccion as $puntero => $objSec) {
+                                                    //eliminamos los detalles de seccion
+                                                    $this->detalle_secciones_m->delete_by('secciones_id', $objSec->id);
+                                                    //eliminamos la seccion
+                                                    $this->secciones_m->delete($objSec->id);
+                                                }
+                                            }
+                                            echo json_encode(array("value" => "1")); //done
                                         }
                                     }
-                                    echo json_encode(array("value" => "1")); //done
                                 }
                             } else {
                                 if ($objMaestro->tipo_grupo_maestro_id == $this->config->item('videos:programa')) {
@@ -7196,8 +7220,35 @@ class Admin extends Admin_Controller {
                                     if (count($videos) > 0) {
                                         echo json_encode(array("value" => "2")); //tiene contenido
                                     } else {
-                                        
-                                        echo json_encode(array("value" => "1")); //done
+                                        //verificamos que no tenga un maestro relacionado
+                                        $objColeccionMaestroDetalle = $this->grupo_detalle_m->get_many_by(array("grupo_maestro_padre" => $objMaestro->id));
+                                        if (count($objColeccionMaestroDetalle) > 0) {
+                                            echo json_encode(array("value" => "2")); //tiene contenido
+                                        } else {
+                                            //eliminamos el maestro
+                                            $this->grupo_maestro_m->delete($id);
+                                            //listamos su portada para eliminarlo
+                                            $objPortadaPrograma = $this->portada_m->get_many_by(array("tipo_portadas_id" => $this->config->item('portada:programa'), "origen_id" => $objMaestro->id));
+                                            if (count($objPortadaPrograma) > 0) {
+                                                foreach ($objPortadaPrograma as $puntero => $objPortada) {
+                                                    //obtenemos las secciones x cada portada
+                                                    $coleccion_secciones = $this->secciones_m->get_many_by(array("portadas_id" => $objPortada->id));
+                                                    if (count($coleccion_secciones) > 0) {
+                                                        foreach ($coleccion_secciones as $indice => $objSeccion) {
+                                                            //eliminamos los detalles de seccion
+                                                            $this->detalle_secciones_m->delete_by('secciones_id', $objSeccion->id);
+                                                            //eliminamos la seccion
+                                                            $this->secciones_m->delete($objSeccion->id);
+                                                        }
+                                                    }
+                                                    //eliminamos la portada
+                                                    $this->portada_m->delete($objPortada->id);
+                                                }
+                                            }
+                                            //eliminamos los items de los detalles de seccion de la portada del canal
+                                            $this->detalle_secciones_m->delete_by(array("grupo_maestros_id"=>$objMaestro->id));
+                                            echo json_encode(array("value" => "1")); //done
+                                        }
                                     }
                                 }
                             }
