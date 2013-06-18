@@ -110,7 +110,7 @@ class Liquid {
         $url = APIURL . "/medias/" .$codigo . "?key=" . $apikey;
         $post = "<Media><published>FALSE</published></Media>";
         //echo $url . "<br>";
-        error_log($url);
+        //error_log($url);
         return self::postXML($url, $post);        
     }
 
