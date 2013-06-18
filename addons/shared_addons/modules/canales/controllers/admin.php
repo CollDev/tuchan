@@ -6792,12 +6792,42 @@ class Admin extends Admin_Controller {
      */
     public function restaurar($id, $tipo) {
         if ($this->input->is_ajax_request()) {
-            if ($tipo == 'maestro') {
-                $this->grupo_maestro_m->update($id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado_migracion" => $this->config->item('migracion:actualizado'), "estado" => $this->config->item('estado:borrador')));
-            } else {
-                $this->videos_m->update($id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado_migracion" => $this->config->item('migracion:actualizado'), "estado" => $this->config->item('video:borrador')));
+            switch ($tipo) {
+                case 'canal':
+                    break;
+                case 'maestro':
+                    $objMaestro = $this->grupo_maestro_m->get($id);
+                    if (count($objMaestro) > 0) {
+                        if ($objMaestro->tipo_grupo_maestro_id == $this->config->item('videos:lista')) {
+                            //cambiamos de estado al maestro lista
+                            $this->grupo_maestro_m->update($objMaestro->id, array("estado" => $this->config->item('estado:borrador')));
+                            //listamos los videos del maestro lista para restaurarlos
+                            $videos_lista = $this->vw_maestro_video_m->get_many_by(array("v" => "v", "gm1" => $objMaestro->id));
+                            if (count($videos_lista) > 0) {
+                                foreach ($videos_lista as $puntero => $objVistaVideo) {
+                                    $this->videos_m->update($objVistaVideo->id, array("estado" => $this->config->item('video:borrador')));
+                                    //los videos que se encuentran en el detalle seccion los restauramos
+                                    //$this->detalle_secciones_m->update_by('videos_id', $objVistaVideo->id, array("estado"=>$this->config->item('estado:publicado')));
+                                }
+                            }
+                        } else {
+                            if ($objMaestro->tipo_grupo_maestro_id == $this->config->item('videos:coleccion')) {
+                                
+                            } else {
+                                if ($objMaestro->tipo_grupo_maestro_id == $this->config->item('videos:programa')) {
+                                    
+                                }
+                            }
+                        }
+                    } else {
+                        echo json_encode(array("value" => "2")); //no existe el maestro
+                    }
+                    $this->grupo_maestro_m->update($id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado_migracion" => $this->config->item('migracion:actualizado'), "estado" => $this->config->item('estado:borrador')));
+                    break;
+                case 'video':
+                    $this->videos_m->update($id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado_migracion" => $this->config->item('migracion:actualizado'), "estado" => $this->config->item('video:borrador')));
+                    break;
             }
-            echo json_encode(array("value" => "1"));
         }
     }
 
@@ -7246,7 +7276,7 @@ class Admin extends Admin_Controller {
                                                 }
                                             }
                                             //eliminamos los items de los detalles de seccion de la portada del canal
-                                            $this->detalle_secciones_m->delete_by(array("grupo_maestros_id"=>$objMaestro->id));
+                                            $this->detalle_secciones_m->delete_by(array("grupo_maestros_id" => $objMaestro->id));
                                             echo json_encode(array("value" => "1")); //done
                                         }
                                     }
