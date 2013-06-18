@@ -752,13 +752,13 @@ class Admin extends Admin_Controller {
                     $listLogo = $this->imagen_m->get_many_by(array("canales_id" => $objBeanCanal->id, "tipo_imagen_id" => $this->config->item('imagen:logo')));
                     if (count($listLogo) > 0) {
                         foreach ($listLogo as $j => $objImg) {
-                            $this->imagen_m->update($objImg->id, array("estado" => $this->config->item('estado:borrador')));
+                            $this->imagen_m->update($objImg->id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado" => $this->config->item('estado:borrador')));
                         }
                     }
                     $listIso = $this->imagen_m->get_many_by(array("canales_id" => $objBeanCanal->id, "tipo_imagen_id" => $this->config->item('imagen:iso')));
                     if (count($listIso) > 0) {
                         foreach ($listIso as $j => $objIso) {
-                            $this->imagen_m->update($objIso->id, array("estado" => $this->config->item('estado:borrador')));
+                            $this->imagen_m->update($objIso->id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado" => $this->config->item('estado:borrador')));
                         }
                     }
                     $arrayImagenSaved = $this->saveImages($array_images, $objBeanCanal->id);
@@ -769,7 +769,7 @@ class Admin extends Admin_Controller {
                         $listIso = $this->imagen_m->get_many_by(array("canales_id" => $objBeanCanal->id, "tipo_imagen_id" => $this->config->item('imagen:iso')));
                         if (count($listIso) > 0) {
                             foreach ($listIso as $j => $objIso) {
-                                $this->imagen_m->update($objIso->id, array("estado" => $this->config->item('estado:borrador')));
+                                $this->imagen_m->update($objIso->id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado" => $this->config->item('estado:borrador')));
                             }
                         }
                         $arrayImagenSaved = $this->saveImages($array_images, $objBeanCanal->id);
@@ -780,7 +780,7 @@ class Admin extends Admin_Controller {
                             $listLogo = $this->imagen_m->get_many_by(array("canales_id" => $objBeanCanal->id, "tipo_imagen_id" => $this->config->item('imagen:logo')));
                             if (count($listLogo) > 0) {
                                 foreach ($listLogo as $j => $objImg) {
-                                    $this->imagen_m->update($objImg->id, array("estado" => $this->config->item('estado:borrador')));
+                                    $this->imagen_m->update($objImg->id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado" => $this->config->item('estado:borrador')));
                                 }
                             }
                             $arrayImagenSaved = $this->saveImages($array_images, $objBeanCanal->id);
@@ -934,9 +934,9 @@ class Admin extends Admin_Controller {
                     }
                     $path_single_element = implode('/', $array_path);
                     if ($objImagen->tipo_imagen_id == $this->config->item('imagen:iso') || $objImagen->tipo_imagen_id == $this->config->item('imagen:logo')) {
-                        $this->imagen_m->update($objImagen->id, array("imagen" => $path_single_element, "procedencia" => "0", "estado" => $this->config->item('estado:publicado')));
+                        $this->imagen_m->update($objImagen->id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "imagen" => $path_single_element, "procedencia" => "0", "estado" => $this->config->item('estado:publicado')));
                     } else {
-                        $this->imagen_m->update($objImagen->id, array("imagen" => $path_single_element, "procedencia" => "0"));
+                        $this->imagen_m->update($objImagen->id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "imagen" => $path_single_element, "procedencia" => "0"));
                     }
                 }
             }
@@ -1057,7 +1057,7 @@ class Admin extends Admin_Controller {
                             $objBeanDetalleSecciones->fecha_migracion = '0000-00-00 00:00:00';
                             $objBeanDetalleSecciones->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
                             $objBeanDetalleSeccionesSaved = $this->detalle_secciones_m->save($objBeanDetalleSecciones);
-                            $this->secciones_m->update($objBeanSeccionSaved->id, array("estado" => $this->config->item('estado:publicado')));
+                            $this->secciones_m->update($objBeanSeccionSaved->id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado" => $this->config->item('estado:publicado')));
                             //$this->portada_m->update($objBeanPortadaSaved->id, array("estado" => "1"));
                         }
                     } else { //seccion programas
@@ -1089,8 +1089,8 @@ class Admin extends Admin_Controller {
                                     $objBeanDetalleSecciones->fecha_migracion = '0000-00-00 00:00:00';
                                     $objBeanDetalleSecciones->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
                                     $objBeanDetalleSeccionesSaved = $this->detalle_secciones_m->save($objBeanDetalleSecciones);
-                                    $this->portada_m->update($objBeanPortadaSaved->id, array("estado" => $this->config->item('estado:publicado')));
-                                    $this->secciones_m->update($objBeanSeccionSaved->id, array("estado" => $this->config->item('estado:publicado')));
+                                    $this->portada_m->update($objBeanPortadaSaved->id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado" => $this->config->item('estado:publicado')));
+                                    $this->secciones_m->update($objBeanSeccionSaved->id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado" => $this->config->item('estado:publicado')));
                                 }
                             }
                             //$this->portada_m->update($objBeanPortadaSaved->id, array("estado" => "1"));
@@ -1158,8 +1158,8 @@ class Admin extends Admin_Controller {
                                         $objBeanDetalleSecciones->fecha_migracion = '0000-00-00 00:00:00';
                                         $objBeanDetalleSecciones->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
                                         $objBeanDetalleSeccionesSaved = $this->detalle_secciones_m->save($objBeanDetalleSecciones);
-                                        $this->portada_m->update($objBeanPortadaSaved->id, array("estado" => $this->config->item('estado:publicado')));
-                                        $this->secciones_m->update($objBeanSeccionSaved->id, array("estado" => $this->config->item('estado:publicado')));
+                                        $this->portada_m->update($objBeanPortadaSaved->id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado" => $this->config->item('estado:publicado')));
+                                        $this->secciones_m->update($objBeanSeccionSaved->id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado" => $this->config->item('estado:publicado')));
                                         $exite_item = true;
                                     }
                                 }
@@ -1668,7 +1668,7 @@ class Admin extends Admin_Controller {
                 unset($array_path[0]);
             }
             $path_single_element = implode('/', $array_path);
-            $this->imagen_m->update($objBeanImageSaved->id, array("imagen" => $path_single_element));
+            $this->imagen_m->update($objBeanImageSaved->id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "imagen" => $path_single_element));
             //eliminamos la imagen local
             unlink($path_image);
             //echo json_encode(array("error" => "0"));
@@ -1688,9 +1688,9 @@ class Admin extends Admin_Controller {
             if (count($listaImagen) > 0) {
                 foreach ($listaImagen as $index => $objImagen) {
                     if ($objImagen->id == $imagen_id) {
-                        $this->imagen_m->update($objImagen->id, array("estado" => $this->config->item('estado:publicado')));
+                        $this->imagen_m->update($objImagen->id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado" => $this->config->item('estado:publicado')));
                     } else {
-                        $this->imagen_m->update($objImagen->id, array("estado" => $this->config->item('estado:borrador')));
+                        $this->imagen_m->update($objImagen->id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado" => $this->config->item('estado:borrador')));
                     }
                 }
             }
@@ -1926,10 +1926,10 @@ class Admin extends Admin_Controller {
 
     public function actualizar_destacado() {
         //actualizar la seccion
-        $this->secciones_m->update($this->input->post('seccion_id'), array('nombre' => $this->input->post('nombre'), 'descripcion' => $this->input->post('descripcion')));
+        $this->secciones_m->update($this->input->post('seccion_id'), array("fecha_actualizacion" => date("Y-m-d H:i:s"), 'nombre' => $this->input->post('nombre'), 'descripcion' => $this->input->post('descripcion')));
         //obtener el ID del detalle de la sección para el update
         $objDetalleSeccion = $this->detalle_secciones_m->get_by(array("secciones_id" => $this->input->post('seccion_id')));
-        $this->detalle_secciones_m->update($objDetalleSeccion->id, array("descripcion_item" => $this->input->post('descripcion_portada')));
+        $this->detalle_secciones_m->update($objDetalleSeccion->id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "descripcion_item" => $this->input->post('descripcion_portada')));
         echo json_encode(array('value' => '1'));
     }
 
@@ -2596,7 +2596,7 @@ class Admin extends Admin_Controller {
             //verificamos que la sección no tenga items para despublicarlo
             $objColeccionDetalleSeccion = $this->detalle_secciones_m->get_many_by(array("secciones_id" => $objSeccion->id, "estado" => $this->config->item('estado:publicado')));
             if (count($objColeccionDetalleSeccion) > 0) {
-                $this->secciones_m->update($objSeccion->id, array("estado" => $this->config->item('estado:borrador')));
+                $this->secciones_m->update($objSeccion->id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado" => $this->config->item('estado:borrador')));
             }
             echo json_encode(array("value" => 1));
         }
@@ -3172,7 +3172,7 @@ class Admin extends Admin_Controller {
                             $objBeanDetalleSecciones->fecha_migracion = '0000-00-00 00:00:00';
                             $objBeanDetalleSecciones->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
                             $objBeanDetalleSeccionesSaved = $this->detalle_secciones_m->save($objBeanDetalleSecciones);
-                            $this->secciones_m->update($objBeanSeccionSaved->id, array("estado" => $this->config->item('estado:publicado')));
+                            $this->secciones_m->update($objBeanSeccionSaved->id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado" => $this->config->item('estado:publicado')));
                         }
                     }
                 }
@@ -3209,7 +3209,7 @@ class Admin extends Admin_Controller {
                                         //eliminamos el detalle de seccion
                                         $this->detalle_secciones_m->update_by("secciones_id", $objSeccion->id, array("estado" => $this->config->item('estado:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
                                         //eliminamos la seccion
-                                        $this->secciones_m->update($objSeccion->id, array("estado" => $this->config->item('estado:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                        $this->secciones_m->update($objSeccion->id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado" => $this->config->item('estado:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
                                     }
                                 }
                             }
@@ -3219,20 +3219,20 @@ class Admin extends Admin_Controller {
                         if (count($objColeccionVideos) > 0) {
                             foreach ($objColeccionVideos as $ind => $objVideo) {
                                 if ($this->input->post('tipo') == 'total') {
-                                    $this->videos_m->update($objVideo->id, array("estado" => $this->config->item('video:eliminado'), "estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                    $this->videos_m->update($objVideo->id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado" => $this->config->item('video:eliminado'), "estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado_migracion" => $this->config->item('migracion:actualizado')));
                                 } else {
                                     if ($objVideo->padre == 0 || $objVideo == NULL) {
-                                        $this->videos_m->update($objVideo->id, array("estado" => $this->config->item('video:eliminado'), "estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                        $this->videos_m->update($objVideo->id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado" => $this->config->item('video:eliminado'), "estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado_migracion" => $this->config->item('migracion:actualizado')));
                                     }
                                 }
                             }
                         }
                         //eliminamos el canal
-                        $this->canales_m->update($canal_id, array("estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado" => $this->config->item('estado:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                        $this->canales_m->update($canal_id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado" => $this->config->item('estado:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
                         echo json_encode(array("value" => "1")); //canal eliminado satisfactoriamente                        
                     } else {
                         //estado eliminado al registro del canal
-                        $this->canales_m->update($canal_id, array("estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado" => $this->config->item('estado:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                        $this->canales_m->update($canal_id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado" => $this->config->item('estado:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
                         echo json_encode(array("value" => "1")); //canal eliminado satisfactoriamente
                     }
                 } else {
@@ -3265,11 +3265,11 @@ class Admin extends Admin_Controller {
 
     public function restablecer_canal($canal_id) {
         if ($this->input->is_ajax_request()) {
-            $this->canales_m->update($canal_id, array("estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado" => $this->config->item('estado:borrador'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+            $this->canales_m->update($canal_id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado" => $this->config->item('estado:borrador'), "estado_migracion" => $this->config->item('migracion:actualizado')));
             //eliminamos la portada del canal
             $objPortada = $this->portada_m->get_by(array("tipo_portadas_id" => $this->config->item('portada:canal'), "origen_id" => $canal_id));
             if (count($objPortada) > 0) {
-                $this->portada_m->update($objPortada->id, array("estado" => $this->config->item('estado:borrador'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                $this->portada_m->update($objPortada->id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado" => $this->config->item('estado:borrador'), "estado_migracion" => $this->config->item('migracion:actualizado')));
             }
             echo json_encode(array("value" => "1"));
         }
@@ -3297,11 +3297,11 @@ class Admin extends Admin_Controller {
                     }
                     //validamos que tenga otra sección este publicado ademas del destacado
                     if ($this->tiene_otra_seccion_publicada($canal_id)) {
-                        $this->canales_m->update($canal_id, array("estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                        $this->canales_m->update($canal_id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
                         //publicamos la portada del canal
                         $objPortada = $this->portada_m->get_by(array("tipo_portadas_id" => $this->config->item('portada:canal'), "origen_id" => $canal_id));
                         if (count($objPortada) > 0) {
-                            $this->portada_m->update($objPortada->id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                            $this->portada_m->update($objPortada->id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
                         }
                         $this->procesos_lib->curlGenerarCanalesXId($canal_id);
                         echo json_encode(array("value" => "1"));
@@ -3667,14 +3667,14 @@ class Admin extends Admin_Controller {
      */
     public function eliminar_portada($portada_id) {
         if ($this->input->is_ajax_request()) {
-            $this->portada_m->update($portada_id, array("estado" => $this->config->item('estado:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+            $this->portada_m->update($portada_id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado" => $this->config->item('estado:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
             echo json_encode(array("value" => "1"));
         }
     }
 
     public function restablecer_portada($portada_id) {
         if ($this->input->is_ajax_request()) {
-            $this->portada_m->update($portada_id, array("estado" => $this->config->item('estado:borrador'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+            $this->portada_m->update($portada_id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado" => $this->config->item('estado:borrador'), "estado_migracion" => $this->config->item('migracion:actualizado')));
             echo json_encode(array("value" => "1"));
         }
     }
@@ -3705,8 +3705,8 @@ class Admin extends Admin_Controller {
                                 foreach ($lista_maestros_publicados as $puntero => $objVideoVista) {
                                     $this->sincronizar_lib->agregar_video($objVideoVista->id);
                                 }
-                                $this->canales_m->update($objPortada->canales_id, array("estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
-                                $this->portada_m->update($portada_id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                $this->canales_m->update($objPortada->canales_id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                $this->portada_m->update($portada_id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
                                 $this->procesos_lib->curlGenerarCanalesXId($objPortada->canales_id);
                                 echo json_encode(array("value" => "1"));
                             } else {
@@ -3736,7 +3736,7 @@ class Admin extends Admin_Controller {
                                     foreach ($lista_maestros_publicados as $puntero => $objVideoVista) {
                                         $this->sincronizar_lib->agregar_video($objVideoVista->id);
                                     }
-                                    $this->portada_m->update($portada_id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                    $this->portada_m->update($portada_id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
                                     echo json_encode(array("value" => "1"));
                                 } else {
                                     echo json_encode(array("value" => "4")); //no tiene secciones publicadas
@@ -4104,14 +4104,14 @@ class Admin extends Admin_Controller {
      */
     public function eliminar_seccion($seccion_id) {
         if ($this->input->is_ajax_request()) {
-            $this->secciones_m->update($seccion_id, array("estado" => $this->config->item('estado:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+            $this->secciones_m->update($seccion_id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado" => $this->config->item('estado:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
             echo json_encode(array("value" => "1"));
         }
     }
 
     public function restablecer_seccion($seccion_id) {
         if ($this->input->is_ajax_request()) {
-            $this->secciones_m->update($seccion_id, array("estado" => $this->config->item('estado:borrador'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+            $this->secciones_m->update($seccion_id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado" => $this->config->item('estado:borrador'), "estado_migracion" => $this->config->item('migracion:actualizado')));
             echo json_encode(array("value" => "1"));
         }
     }
@@ -4126,7 +4126,7 @@ class Admin extends Admin_Controller {
             //obtenemos los detalles de la seccion
             $objColeccionDetalleSeccion = $this->detalle_secciones_m->get_many_by(array("secciones_id" => $seccion_id, "estado" => $this->config->item('estado:publicado')));
             if (count($objColeccionDetalleSeccion) > 0) {
-                $this->secciones_m->update($seccion_id, array("estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                $this->secciones_m->update($seccion_id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
                 echo json_encode(array("value" => "1"));
             } else {
                 echo json_encode(array("value" => "2")); //la seccion no tiene elementos activados
@@ -6793,9 +6793,9 @@ class Admin extends Admin_Controller {
     public function restaurar($id, $tipo) {
         if ($this->input->is_ajax_request()) {
             if ($tipo == 'maestro') {
-                $this->grupo_maestro_m->update($id, array("estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado_migracion" => $this->config->item('migracion:actualizado'), "estado" => $this->config->item('estado:borrador')));
+                $this->grupo_maestro_m->update($id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado_migracion" => $this->config->item('migracion:actualizado'), "estado" => $this->config->item('estado:borrador')));
             } else {
-                $this->videos_m->update($id, array("estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado_migracion" => $this->config->item('migracion:actualizado'), "estado" => $this->config->item('video:borrador')));
+                $this->videos_m->update($id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado_migracion" => $this->config->item('migracion:actualizado'), "estado" => $this->config->item('video:borrador')));
             }
             echo json_encode(array("value" => "1"));
         }
@@ -6808,8 +6808,27 @@ class Admin extends Admin_Controller {
      */
     public function eliminar_video($video_id) {
         if ($this->input->is_ajax_request()) {
-            $this->videos_m->update($video_id, array("estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado" => $this->config->item('video:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
-            $this->procesos_lib->curlDesactivarVideosXId($video_id);
+            $objVideo = $this->videos_m->get($video_id);
+            if (count($objVideo) > 0) {
+                if ($this->input->post('tipo') == 'total') {
+                    if ($objVideo->id != NULL) {
+                        //eliminamos la coleccion relacionada al programa
+                        $this->videos_m->update($objVideo->id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado" => $this->config->item('video:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                        $this->detalle_secciones_m->update_by("videos_id", $video_id, array("estado" => $this->config->item('video:eliminado')));
+                        $this->procesos_lib->curlDesactivarVideosXId($video_id);
+                    }
+                } else {
+                    //eliminación parcial
+                    if ($objVideo->id != NULL) {
+                        //eliminamos la coleccion relacionada al programa
+                        if ($objVideo->padre != NULL || $objVideo->padre == 0) {
+                            $this->videos_m->update($objVideo->id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado" => $this->config->item('video:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                            $this->detalle_secciones_m->update_by("videos_id", $video_id, array("estado" => $this->config->item('video:eliminado')));
+                            $this->procesos_lib->curlDesactivarVideosXId($video_id);
+                        }
+                    }
+                }
+            }
             echo json_encode(array("value" => "1"));
         }
     }
@@ -6830,46 +6849,128 @@ class Admin extends Admin_Controller {
                         $objColeccion = $this->vw_maestro_video_m->get_many_by(array("v" => "v", "gm3" => $maestro_id, "estado" => $this->config->item('video:publicado')));
                         if (count($objColeccion) > 0) {
                             foreach ($objColeccion as $puntero => $objVistaVideo) {
+                                if ($objVistaVideo->gm1 != NULL) {
+                                    //eliminamos la lista relacionada al programa
+                                    $this->grupo_maestro_m->update($objVistaVideo->gm1, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado" => $this->config->item('estado:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                }
+                                if ($objVistaVideo->gm2 != NULL) {
+                                    //eliminamos la coleccion relacionada al programa
+                                    $this->grupo_maestro_m->update($objVistaVideo->gm2, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado" => $this->config->item('estado:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                }
+                                if ($objVistaVideo->gm3 != NULL) {
+                                    //eliminamos  el programa
+                                    $this->grupo_maestro_m->update($objVistaVideo->gm3, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado" => $this->config->item('estado:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                }
                                 if ($this->input->post('tipo') == 'total') {
-                                    if ($objVistaVideo->gm1 != NULL) {
-                                        //eliminamos la lista relacionada al programa
-                                        $this->grupo_maestro_m->update($objVistaVideo->gm1, array("estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado" => $this->config->item('estado:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
-                                    }
-                                    if ($objVistaVideo->gm2 != NULL) {
-                                        //eliminamos la coleccion relacionada al programa
-                                        $this->grupo_maestro_m->update($objVistaVideo->gm2, array("estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado" => $this->config->item('estado:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
-                                    }
-                                    if ($objVistaVideo->gm3 != NULL) {
-                                        //eliminamos  el programa
-                                        $this->grupo_maestro_m->update($objVistaVideo->gm3, array("estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado" => $this->config->item('estado:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
-                                    }
                                     if ($objVistaVideo->id != NULL) {
                                         //eliminamos la coleccion relacionada al programa
-                                        $this->videos_m->update($objVistaVideo->id, array("estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado" => $this->config->item('video:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
-                                    }
-                                    //eliminación de la portada del programa
-                                    $objPortadaPrograma = $this->portada_m->get_by(array("tipo_portadas_id" => $this->config->item('portada:programa'), "origen_id" => $objVistaVideo->gm3));
-                                    if (count($objPortadaPrograma) > 0) {
-                                        $objColeccionSecciones = $this->secciones_m->get_many_by(array("portadas_id" => $objPortadaPrograma->id));
-                                        if (count($objColeccionSecciones) > 0) {
-                                            foreach ($objColeccionSecciones as $index => $objSeccion) {
-                                                //eliminamos los detalles de la seccion
-                                                $this->detalle_secciones_m->update_by("secciones_id", $objSeccion->id, array("estado" => $this->config->item('estado:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
-                                                //eliminamos la seccion
-                                                $this->secciones_m->update($objSeccion->id, array("estado" => $this->config->item('estado:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
-                                            }
-                                        }
-                                        //eliminamos la portada
-                                        $this->portada_m->update($objPortadaPrograma->id, array("estado" => $this->config->item('estado:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                        $this->videos_m->update($objVistaVideo->id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado" => $this->config->item('video:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
                                     }
                                 } else {
                                     //eliminación parcial
+                                    if ($objVistaVideo->id != NULL) {
+                                        //eliminamos la coleccion relacionada al programa
+                                        $objVideo = $this->videos_m->get($objVistaVideo->id);
+                                        if ($objVideo->padre != NULL || $objVideo->padre == 0) {
+                                            $this->videos_m->update($objVideo->id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado" => $this->config->item('video:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                        }
+                                    }
+                                }
+                                //eliminación de la portada del programa
+                                $objPortadaPrograma = $this->portada_m->get_by(array("tipo_portadas_id" => $this->config->item('portada:programa'), "origen_id" => $objVistaVideo->gm3));
+                                if (count($objPortadaPrograma) > 0) {
+                                    $objColeccionSecciones = $this->secciones_m->get_many_by(array("portadas_id" => $objPortadaPrograma->id));
+                                    if (count($objColeccionSecciones) > 0) {
+                                        foreach ($objColeccionSecciones as $index => $objSeccion) {
+                                            //eliminamos los detalles de la seccion
+                                            $this->detalle_secciones_m->update_by("secciones_id", $objSeccion->id, array("estado" => $this->config->item('estado:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                            //eliminamos la seccion
+                                            $this->secciones_m->update($objSeccion->id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado" => $this->config->item('estado:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                        }
+                                    }
+                                    //eliminamos la portada
+                                    $this->portada_m->update($objPortadaPrograma->id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado" => $this->config->item('estado:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
                                 }
                             }
                         } else {
                             //eliminamos el maestro programa
-                            $this->grupo_maestro_m->update($maestro_id, array("estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado" => $this->config->item('estado:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                            $this->grupo_maestro_m->update($maestro_id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado" => $this->config->item('estado:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
                         }
+                        echo json_encode(array("value" => "1")); //done!!
+                        break;
+                    case $this->config->item('videos:coleccion'):
+                        //verificamos si tiene contenido
+                        $objColeccion = $this->vw_maestro_video_m->get_many_by(array("v" => "v", "gm2" => $maestro_id, "estado" => $this->config->item('video:publicado')));
+                        if (count($objColeccion) > 0) {
+                            foreach ($objColeccion as $puntero => $objVistaVideo) {
+                                if ($objVistaVideo->gm1 != NULL) {
+                                    //eliminamos la lista relacionada al programa
+                                    $this->grupo_maestro_m->update($objVistaVideo->gm1, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "fecha_actualizacion" => date("Y-m-d H:i:s"), "estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado" => $this->config->item('estado:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                }
+                                if ($objVistaVideo->gm2 != NULL) {
+                                    //eliminamos la coleccion relacionada al programa
+                                    $this->grupo_maestro_m->update($objVistaVideo->gm2, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado" => $this->config->item('estado:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                }
+                                if ($this->input->post('tipo') == 'total') {
+                                    if ($objVistaVideo->id != NULL) {
+                                        //eliminamos la coleccion relacionada al programa
+                                        $this->videos_m->update($objVistaVideo->id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado" => $this->config->item('video:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                    }
+                                } else {
+                                    //eliminación parcial
+                                    if ($objVistaVideo->id != NULL) {
+                                        //eliminamos la coleccion relacionada al programa
+                                        $objVideo = $this->videos_m->get($objVistaVideo->id);
+                                        if ($objVideo->padre != NULL || $objVideo->padre == 0) {
+                                            $this->videos_m->update($objVideo->id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado" => $this->config->item('video:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                        }
+                                    }
+                                }
+                                //eliminamos las secciones de tipo coleccion
+                                if ($objVistaVideo->gm2 != NULL) {
+                                    $objColeccionSecciones = $this->secciones_m->get_many_by(array("tipo_secciones_id" => $this->config->item('seccion:coleccion'), "grupo_maestros_id" => $objVistaVideo->gm2, "estado" => $this->config->item('estado:publicado')));
+                                    if (count($objColeccionSecciones) > 0) {
+                                        foreach ($objColeccionSecciones as $indi => $oSeccion) {
+                                            //eliminamos los detalles de la seccion
+                                            $this->detalle_secciones_m->update_by("secciones_id", $oSeccion->id, array("estado" => $this->config->item('estado:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                            //eliminamos la seccion
+                                            $this->secciones_m->update($oSeccion->id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado" => $this->config->item('estado:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        echo json_encode(array("value" => "1")); //done!!
+                        break;
+                    case $this->config->item('videos:lista'):
+                        //verificamos si tiene contenido
+                        $objColeccion = $this->vw_maestro_video_m->get_many_by(array("v" => "v", "gm1" => $maestro_id, "estado" => $this->config->item('video:publicado')));
+                        if (count($objColeccion) > 0) {
+                            foreach ($objColeccion as $puntero => $objVistaVideo) {
+                                if ($objVistaVideo->gm1 != NULL) {
+                                    //eliminamos la lista relacionada al programa
+                                    $this->grupo_maestro_m->update($objVistaVideo->gm1, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "fecha_actualizacion" => date("Y-m-d H:i:s"), "estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado" => $this->config->item('estado:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                }
+                                if ($this->input->post('tipo') == 'total') {
+                                    if ($objVistaVideo->id != NULL) {
+                                        //eliminamos la coleccion relacionada al programa
+                                        $this->videos_m->update($objVistaVideo->id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado" => $this->config->item('video:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                    }
+                                } else {
+                                    //eliminación parcial
+                                    if ($objVistaVideo->id != NULL) {
+                                        //eliminamos la coleccion relacionada al programa
+                                        $objVideo = $this->videos_m->get($objVistaVideo->id);
+                                        if ($objVideo->padre != NULL || $objVideo->padre == 0) {
+                                            $this->videos_m->update($objVideo->id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado" => $this->config->item('video:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                        }
+                                    }
+                                }
+                                //cambiamos al estado eliminado los detalles seccion que tienen la lista
+                                $this->detalle_secciones_m->update_by("grupo_maestros_id", $maestro_id, array("estado" => $this->config->item('estado:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                            }
+                        }
+                        echo json_encode(array("value" => "1")); //done!!
                         break;
                     default:
                         break;
@@ -6889,7 +6990,7 @@ class Admin extends Admin_Controller {
      */
     public function publicar_video($video_id) {
         if ($this->input->is_ajax_request()) {
-            $this->videos_m->update($video_id, array("estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado" => $this->config->item('video:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+            $this->videos_m->update($video_id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado" => $this->config->item('video:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
             $this->procesos_lib->curlActivarVideosXId($video_id);
             echo json_encode(array("value" => "1"));
         }
@@ -7052,22 +7153,93 @@ class Admin extends Admin_Controller {
         if ($this->input->is_ajax_request()) {
             switch ($tipo) {
                 case 'maestro':
-                    //Elimininamos todos los maestros en detalle secciones
-                    //primero verificamos que no tenga ningun video en estado publicado
+                    //identificamos que tipo de maestro es
+                    $objMaestro = $this->grupo_maestro_m->get($id);
+                    if (count($objMaestro) > 0) {
+                        if ($objMaestro->tipo_grupo_maestro_id == $this->config->item('videos:lista')) {
+                            //verificamos si tiene contenido
+                            $videos = $this->vw_maestro_video_m->get_many_by(array("v" => "v", "gm1" => $id));
+                            if (count($videos) > 0) {
+                                echo json_encode(array("value" => "2")); //tiene contenido
+                            } else {
+                                //eliminamos el maestro
+                                $this->grupo_maestro_m->delete($id);
+                                //eliminamos la lista de las secciones de portada
+                                $this->detalle_secciones_m->delete_by('grupo_maestros_id', $id);
+                                echo json_encode(array("value" => "1")); //done
+                            }
+                        } else {
+                            if ($objMaestro->tipo_grupo_maestro_id == $this->config->item('videos:coleccion')) {
+                                //verificamos si tiene contenido
+                                $videos = $this->vw_maestro_video_m->get_many_by(array("v" => "v", "gm2" => $id));
+                                if (count($videos) > 0) {
+                                    echo json_encode(array("value" => "2")); //tiene contenido
+                                } else {
+                                    //eliminamos el maestro
+                                    $this->grupo_maestro_m->delete($id);
+                                    //eliminamos las secciones de tipo coleccion
+                                    $secciones_coleccion = $this->secciones_m->get_many_by(array("grupo_maestros_id" => $id));
+                                    if (count($secciones_coleccion) > 0) {
+                                        foreach ($secciones_coleccion as $puntero => $objSec) {
+                                            //eliminamos los detalles de seccion
+                                            $this->detalle_secciones_m->delete_by('secciones_id', $objSec->id);
+                                            //eliminamos la seccion
+                                            $this->secciones_m->delete($objSec->id);
+                                        }
+                                    }
+                                    echo json_encode(array("value" => "1")); //done
+                                }
+                            } else {
+                                if ($objMaestro->tipo_grupo_maestro_id == $this->config->item('videos:programa')) {
+                                    //verificamos si tiene contenido
+                                    $videos = $this->vw_maestro_video_m->get_many_by(array("v" => "v", "gm3" => $id));
+                                    if (count($videos) > 0) {
+                                        echo json_encode(array("value" => "2")); //tiene contenido
+                                    } else {
+                                        
+                                        echo json_encode(array("value" => "1")); //done
+                                    }
+                                }
+                            }
+                        }
+                    }
                     break;
                 case 'video':
                     //Eliminamos todo los videos en los detalles secciones
-                    $this->detalle_secciones_m->delete_by(array("videos_id" => $id));
+                    $this->detalle_secciones_m->delete_by("videos_id", $id);
                     //Eliminamos los videos que estén en la tabla grupo detalle
-                    $this->grupo_detalle_m->delete_by(array("video_id" => $id));
+                    $this->grupo_detalle_m->delete_by("video_id", $id);
                     //Eliminamos sus imagenes
-                    //$this->imagen_m->delete_by(array("videos_id" => $id));
+                    $this->imagen_m->delete_by("videos_id", $id);
                     //Eliminamos sus tags relacionados
-                    $this->video_tags_m->delete_by(array("videos_id" => $id));
+                    $this->video_tags_m->delete_by("videos_id", $id);
                     //eliminamos el video
                     $this->videos_m->delete($id);
+                    echo json_encode(array("value" => "1")); //tiene contenido
                     break;
                 case 'canal':
+                    $objColeccionVistaVideo = $this->vw_maestro_video_m->get_many_by(array("v" => "v", "canales_id" => $id));
+                    if (count($objColeccionVistaVideo) > 0) {
+                        echo json_encode(array("value" => "2")); //tiene contenido
+                    } else {
+                        $this->canales_m->delete($id);
+                        //eliminamos sus portadas, secciones y detalle secciones
+                        $objColeccionPortadas = $this->portada_m->get_many_by(array("canales_id" => $id));
+                        if (count($objColeccionPortadas) > 0) {
+                            foreach ($objColeccionPortadas as $puntero => $objPortada) {
+                                $coleccion_secciones = $this->secciones_m->get_many_by(array("portadas_id" => $objPortada->id));
+                                if (count($coleccion_secciones) > 0) {
+                                    foreach ($coleccion_secciones as $index => $objSeccion) {
+                                        $this->detalle_secciones_m->delete_by('secciones_id', $objSeccion->id);
+                                        $this->secciones_m->delete($objSeccion->id);
+                                    }
+                                }
+                                //eliminamos la portada
+                                $this->portada_m->delete($objPortada->id);
+                            }
+                        }
+                        echo json_encode(array("value" => "1")); //done
+                    }
                     break;
                 case 'portada':
                     break;
@@ -7125,7 +7297,7 @@ class Admin extends Admin_Controller {
      */
     public function editar_portada($portada_id) {
         if ($this->input->is_ajax_request()) {
-            $this->portada_m->update($portada_id, array("nombre" => $this->input->post('nombre'), "descripcion" => $this->input->post('descripcion'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+            $this->portada_m->update($portada_id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "nombre" => $this->input->post('nombre'), "descripcion" => $this->input->post('descripcion'), "estado_migracion" => $this->config->item('migracion:actualizado')));
             echo json_encode(array("value" => "1", "portada_id" => $portada_id, "nombre" => $this->input->post('nombre'), "descripcion" => $this->input->post('descripcion')));
         }
     }
@@ -7174,7 +7346,7 @@ class Admin extends Admin_Controller {
                                 //actualizamos las nuevas posiciones
                                 $cont = 0;
                                 foreach ($array_seccion_id as $peso => $s_id) {
-                                    $this->secciones_m->update($s_id, array("peso" => $array_original[$cont], "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                    $this->secciones_m->update($s_id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "peso" => $array_original[$cont], "estado_migracion" => $this->config->item('migracion:actualizado')));
                                     $this->procesos_lib->curlActualizarPesoSeccion($s_id, $cont);
                                     $cont++;
                                 }
