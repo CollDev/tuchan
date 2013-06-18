@@ -38,7 +38,7 @@ class Liquid {
             } elseif ($info['http_code'] == '500') {
                 sleep(15);
                 Log::erroLog("publishd datos genericos");
-                return self::updatePublishedMedia($url);
+                return self::updatePublishedMediaGeneral($url);
             } else {
                 sleep(5);
                 Log::erroLog("no paso publish");
@@ -90,7 +90,7 @@ class Liquid {
         }
     }
 
-    function updatePublishedMedia($url) {
+    function updatePublishedMediaGeneral($url) {
         $fecha = date('Y-m-d H:i:s');
         $date = date("Y-m-d\TH:i:sP", strtotime($fecha));
 
@@ -99,9 +99,18 @@ class Liquid {
         return self::postXML($url, $post);
     }
     
-    function updateUnpublishedMedia($url){
+    function updatePublishedMedia($apikey,$codigo){
+        $url = APIURL . "/medias/" . $codigo . "?key=" . $apikey;
         $post = "<Media><published>FALSE</published></Media>";
         //echo $url . "<br>";
+        return self::postXML($url, $post);        
+    }
+    
+    function updateUnpublishedMedia($apikey,$codigo){
+        $url = APIURL . "/medias/" .$codigo . "?key=" . $apikey;
+        $post = "<Media><published>FALSE</published></Media>";
+        //echo $url . "<br>";
+        error_log($url);
         return self::postXML($url, $post);        
     }
 

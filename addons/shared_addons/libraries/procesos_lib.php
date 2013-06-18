@@ -1966,16 +1966,17 @@ class Procesos_lib extends MX_Controller {
     public function publishedVideosXId($id){
         $video = $this->videos_mp->getVideosxIdConKey($id);
         
-        if(count($video)>0){
-            
-            print_r($video);
-            
+        if(count($video)>0 && !empty($video[0]->codigo)){            
+            Liquid::updatePublishedMedia($video[0]->apikey,$video[0]->codigo);
         }
     }
     
     public function unpublishedVideosXId($id){
-        
-        
+        $video = $this->videos_mp->getVideosxIdConKey($id);
+         
+        if(count($video)>0 && !empty($video[0]->codigo)){            
+            Liquid::updateUnpublishedMedia($video[0]->apikey,$video[0]->codigo);            
+        }        
     }
     
     
