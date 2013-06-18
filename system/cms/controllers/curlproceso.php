@@ -99,13 +99,21 @@ class curlProceso extends MX_Controller {
     public  function generarCanalesXId($id){
         $this->procesos_lib->generarCanalesXId($id);
     }
+     
+    public function activarVideosXId($id){
+        $this->procesos_lib->activarVideosXId($id);
+    }
     
     public function desactivarVideosXId($id){
         $this->procesos_lib->desactivarVideosXId($id);
     }
     
-    public function activarVideosXId($id){
-        $this->procesos_lib->activarVideosXId($id);
+    public function publishedVideosXId($id){
+        $this->procesos_lib->publishedVideosXId($id);
+    }
+    
+    public function unpublishedVideosXId($id){
+        $this->procesos_lib->unpublishedVideosXId($id);
     }
     
     public function generarPortadasMiCanalXId($id){

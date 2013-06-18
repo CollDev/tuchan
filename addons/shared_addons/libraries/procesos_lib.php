@@ -237,7 +237,7 @@ class Procesos_lib extends MX_Controller {
                     Log::erroLog("return media " . trim($retorno));
                 } else {
                     Log::erroLog("exception de upload  getObtenerMediaXId " . $value->id . "," . $value->apikey);
-                    sleep(20);
+                    sleep(60);
                     $mediaarray = Liquid::getObtenerMediaXId($value->id, $value->apikey);
 
                     $mediaxml = new SimpleXMLElement($mediaarray);
@@ -440,19 +440,19 @@ class Procesos_lib extends MX_Controller {
         }
     }
 
-    protected function _publishVideos() {
-        $resultado = $this->videos_mp->getVideosNoPublicados();
-        //echo print_r($resultado) . "\n";
-        if (count($resultado) > 0) {
-            foreach ($resultado as $value) {
-                $retorno = Liquid::updatePublishedMediaNode($value);
-                //var_dump($retorno);
-                if ($retorno != FALSE) {
-                    $this->videos_mp->setEstadosVideos($value->id, 1, 5);
-                }
-            }
-        }
-    }
+//    protected function _publishVideos() {
+//        $resultado = $this->videos_mp->getVideosNoPublicados();
+//        //echo print_r($resultado) . "\n";
+//        if (count($resultado) > 0) {
+//            foreach ($resultado as $value) {
+//                $retorno = Liquid::updatePublishedMediaNode($value);
+//                //var_dump($retorno);
+//                if ($retorno != FALSE) {
+//                    $this->videos_mp->setEstadosVideos($value->id, 1, 5);
+//                }
+//            }
+//        }
+//    }
 
     protected function _obtenerImagesUrlVideos() {
 
@@ -1962,5 +1962,24 @@ class Procesos_lib extends MX_Controller {
         }
         fclose($file);
     }
+    
+    public function publishedVideosXId($id){
+        $video = $this->videos_mp->getVideosxIdConKey($id);
+        
+        if(count($video)>0){
+            
+            print_r($video);
+            
+        }
+    }
+    
+    public function unpublishedVideosXId($id){
+        
+        
+    }
+    
+    
+    
+    
 }
 ?>

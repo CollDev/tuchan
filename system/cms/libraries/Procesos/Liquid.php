@@ -98,6 +98,12 @@ class Liquid {
         //echo $url . "<br>";
         return self::postXML($url, $post);
     }
+    
+    function updateUnpublishedMedia($url){
+        $post = "<Media><published>FALSE</published></Media>";
+        //echo $url . "<br>";
+        return self::postXML($url, $post);        
+    }
 
     function updatePublishedMediaNode($datos) {
         //PUBLISHED:
@@ -215,8 +221,6 @@ class Liquid {
             return "";
         }
     }
-    
-    
     
     function obtenerVideosNoPublished($apikey) {
 
