@@ -98,20 +98,21 @@ class Liquid {
         //echo $url . "<br>";
         return self::postXML($url, $post);
     }
-    
-    function updatePublishedMedia($apikey,$codigo){
+
+    function updatePublishedMedia($apikey, $codigo) {
+        $url = APIURL . "/medias/" . $codigo . "?key=" . $apikey;
+
+        $post = "<Media><published>FALSE</published></Media>";
+
+        Log::erroLog("url: " . $url);
+        return self::postXML($url, $post);
+    }
+
+    function updateUnpublishedMedia($apikey, $codigo) {
         $url = APIURL . "/medias/" . $codigo . "?key=" . $apikey;
         $post = "<Media><published>FALSE</published></Media>";
-        //echo $url . "<br>";
-        return self::postXML($url, $post);        
-    }
-    
-    function updateUnpublishedMedia($apikey,$codigo){
-        $url = APIURL . "/medias/" .$codigo . "?key=" . $apikey;
-        $post = "<Media><published>FALSE</published></Media>";
-        //echo $url . "<br>";
-        //error_log($url);
-        return self::postXML($url, $post);        
+        Log::erroLog("url: " . $url);
+        return self::postXML($url, $post);
     }
 
     function updatePublishedMediaNode($datos) {
@@ -199,10 +200,10 @@ class Liquid {
             $mediaarr = json_decode(json_encode($mediaxml), true);
 
             $media = $mediaarr["media"]["@attributes"]["id"];
-            Log::erroLog("media " . $media . " " . $id_video);                       
+            Log::erroLog("media " . $media . " " . $id_video);
 
             if (!empty($media)) {
-                return trim($media);                 
+                return trim($media);
             }
         } catch (Exception $exc) {
             Log::erroLog("return FALSE de Exception");
@@ -230,7 +231,7 @@ class Liquid {
             return "";
         }
     }
-    
+
     function obtenerVideosNoPublished($apikey) {
 
 
@@ -253,14 +254,14 @@ class Liquid {
                 if ($response != FALSE) {
                     $mediaxml = new SimpleXMLElement($response);
                     $mediaarr = json_decode(json_encode($mediaxml), true);
-                        
+
                     foreach ($mediaarr["Media"] as $value) {
                         array_push($arraydatos, $value);
                     }
-                   
+
                     $ini = $ini + $inc;
-                }else{
-                       break;
+                } else {
+                    break;
                 }
             } while (true);
 
@@ -423,7 +424,7 @@ class Liquid {
                             $urlimg = $value2["url"] . "\n";
                             break 2;
                         }
-                    }   
+                    }
                 }
             }
         }
@@ -504,13 +505,13 @@ class Liquid {
         }
         return $duration;
     }
-    
-    function getPublished($mediaarr = array()) {       
-            if(!empty($mediaarr["published"])){
-                return (strtoupper($mediaarr["published"])=='TRUE')?TRUE:FALSE;    
-            }  else {
-                return NULL;    
-            }        
+
+    function getPublished($mediaarr = array()) {
+        if (!empty($mediaarr["published"])) {
+            return (strtoupper($mediaarr["published"]) == 'TRUE') ? TRUE : FALSE;
+        } else {
+            return NULL;
+        }
     }
 
     function getVerificarLiquidPostUpload($media, $apiKey) {
@@ -577,16 +578,16 @@ class Liquid {
             goto GETCURL;
         }
     }
-    
-    function getObtenerMedia($mediaarr,$id) {
-        $media='';
+
+    function getObtenerMedia($mediaarr, $id) {
+        $media = '';
 
         if (!empty($mediaarr["Media"])) {
             foreach ($mediaarr["Media"] as $value) {
 
                 if (isset($value["id"])) {
 
-                    if ($value["title"]==$id) {                        
+                    if ($value["title"] == $id) {
                         $media = $value["id"];
                         break;
                     }
@@ -594,7 +595,7 @@ class Liquid {
 
                     foreach ($value as $value2) {
 
-                        if ($value2["title"]==$id) {                            
+                        if ($value2["title"] == $id) {
                             $media = $value2["id"];
                             break 2;
                         }
@@ -602,7 +603,7 @@ class Liquid {
                 }
             }
         }
-        return $media;        
+        return $media;
     }
 
     function getCurl($url) {
