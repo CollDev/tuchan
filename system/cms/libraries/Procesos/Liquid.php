@@ -102,7 +102,7 @@ class Liquid {
     function updatePublishedMedia($apikey, $codigo) {
         $url = APIURL . "/medias/" . $codigo . "?key=" . $apikey;
 
-        $post = "<Media><published>FALSE</published></Media>";
+        $post = "<Media><published>true</published></Media>";
 
         Log::erroLog("url: " . $url);
         return self::postXML($url, $post);
@@ -110,7 +110,7 @@ class Liquid {
 
     function updateUnpublishedMedia($apikey, $codigo) {
         $url = APIURL . "/medias/" . $codigo . "?key=" . $apikey;
-        $post = "<Media><published>FALSE</published></Media>";
+        $post = "<Media><published>false</published></Media>";
         Log::erroLog("url: " . $url);
         return self::postXML($url, $post);
     }
