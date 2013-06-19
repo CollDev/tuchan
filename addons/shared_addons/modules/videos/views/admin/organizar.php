@@ -78,8 +78,8 @@
     }
 
     function eliminar_maestro(maestro_id, tipo, tipo_eliminacion) {
-        jConfirm("Seguro que deseas eliminar este Item?", "Organizar videos", function(r) {
-            if (r) {
+        //jConfirm("Seguro que deseas eliminar este Item?", "Organizar videos", function(r) {
+            //if (r) {
                 var tipo_item = tipo;
                 if (tipo == 'v') {
                     tipo = 'video';
@@ -105,8 +105,8 @@
                         }
                     } //end success
                 }); //end AJAX   
-            }
-        });
+            //}
+        //});
     }
 
     function eliminar(maestro_id, tipo) {
