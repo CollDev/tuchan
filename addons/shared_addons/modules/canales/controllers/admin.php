@@ -6794,6 +6794,44 @@ class Admin extends Admin_Controller {
         if ($this->input->is_ajax_request()) {
             switch ($tipo) {
                 case 'canal':
+                    $objCanal = $this->canales_m->get($id);
+                    if (count($objCanal) > 0) {
+                        //obtenemos la ultima fecha_actualizacion del canal
+                        $fecha_actualizacion = $objCanal->fecha_actualizacion;
+                        //restauramos el canal
+                        $this->canales_m->update($objCanal->id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado" => $this->config->item('estado:borrador'), "estado_migracion" => $this->config->item('migracion:actualizado'), "estado_migracion_sphinx" => $this->config->item('sphinx:actualizar')));
+                        //listamos los videos del maestro lista para restaurarlos
+                        $videos_lista = $this->vw_maestro_video_m->get_many_by(array("v" => "v", "canales_id" => $objCanal->id));
+                        if (count($videos_lista) > 0) {
+                            foreach ($videos_lista as $punteroC => $objVistaVideoC) {
+                                //los videos restablecemos al estado borrador
+                                $this->videos_m->update($objVistaVideoC->id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado" => $this->config->item('video:borrador'), "estado_migracion" => $this->config->item('migracion:actualizado'), "estado_migracion_sphinx" => $this->config->item('sphinx:actualizar')));
+                                //verificamos las listas para restablerlas
+                                if ($objVistaVideoC->gm1 != NULL) {
+                                    $this->grupo_maestro_m->update($objVistaVideoC->gm1, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado" => $this->config->item('estado:borrador'), "estado_migracion" => $this->config->item('migracion:actualizado'), "estado_migracion_sphinx" => $this->config->item('sphinx:actualizar')));
+                                }
+                                //verificamos las colecciones para restablerlas
+                                if ($objVistaVideoC->gm2 != NULL) {
+                                    $this->grupo_maestro_m->update($objVistaVideoC->gm2, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado" => $this->config->item('estado:borrador'), "estado_migracion" => $this->config->item('migracion:actualizado'), "estado_migracion_sphinx" => $this->config->item('sphinx:actualizar')));
+                                }
+                                //verificamos los programas para restablerlas
+                                if ($objVistaVideoC->gm3 != NULL) {
+                                    $this->grupo_maestro_m->update($objVistaVideoC->gm3, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado" => $this->config->item('estado:borrador'), "estado_migracion" => $this->config->item('migracion:actualizado'), "estado_migracion_sphinx" => $this->config->item('sphinx:actualizar')));
+                                    //restablecemos la portada del programa
+                                    $objPortadaPrograma = $this->portada_m->get_by(array("tipo_portadas_id" => $this->config->item('portada:programa'), "origen_id" => $objVistaVideoC->gm3));
+                                    if (count($objPortadaPrograma) > 0) {
+                                        //restauramos la portada
+                                        $this->portada_m->update($objPortadaPrograma->id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado" => $this->config->item('estado:borrador'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                        //restauramos las secciones
+                                        $this->secciones_m->update_by('portadas_id', $objPortadaPrograma->id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), 'estado' => $this->config->item('estado:borrador'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                                    }
+                                }
+                            }
+                        }
+                        echo json_encode(array("value" => "1")); //done
+                    } else {
+                        echo json_encode(array("value" => "2")); //no existe el canal
+                    }
                     break;
                 case 'maestro':
                     $objMaestro = $this->grupo_maestro_m->get($id);
@@ -6810,19 +6848,62 @@ class Admin extends Admin_Controller {
                                     //$this->detalle_secciones_m->update_by('videos_id', $objVistaVideo->id, array("estado"=>$this->config->item('estado:publicado')));
                                 }
                             }
+                            echo json_encode(array("value" => "1")); //done
                         } else {
                             if ($objMaestro->tipo_grupo_maestro_id == $this->config->item('videos:coleccion')) {
-                                
+                                //cambiamos de estado al maestro lista
+                                $this->grupo_maestro_m->update($objMaestro->id, array("estado" => $this->config->item('estado:borrador')));
+                                //listamos los videos del maestro lista para restaurarlos
+                                $videos_lista = $this->vw_maestro_video_m->get_many_by(array("v" => "v", "gm2" => $objMaestro->id));
+                                if (count($videos_lista) > 0) {
+                                    foreach ($videos_lista as $puntero2 => $objVistaVideo2) {
+                                        //los videos restablecemos al estado borrador
+                                        $this->videos_m->update($objVistaVideo2->id, array("estado" => $this->config->item('video:borrador')));
+                                        //verificamos las listas para restablerlas
+                                        if ($objVistaVideo2->gm1 != NULL) {
+                                            $this->grupo_maestro_m->update($objMaestro->gm1, array("estado" => $this->config->item('estado:borrador')));
+                                        }
+                                    }
+                                }
+                                //habilitamos las secciones de esta coleccion
+                                $this->secciones_m->update_by('grupo_maestros_id', $objMaestro->id, array("estado" => $this->config->item('estado:borrador')));
+                                echo json_encode(array("value" => "1")); //done
                             } else {
                                 if ($objMaestro->tipo_grupo_maestro_id == $this->config->item('videos:programa')) {
-                                    
+                                    //cambiamos de estado al maestro lista
+                                    $this->grupo_maestro_m->update($objMaestro->id, array("estado" => $this->config->item('estado:borrador')));
+                                    //listamos los videos del maestro lista para restaurarlos
+                                    $videos_lista = $this->vw_maestro_video_m->get_many_by(array("v" => "v", "gm3" => $objMaestro->id));
+                                    if (count($videos_lista) > 0) {
+                                        foreach ($videos_lista as $puntero3 => $objVistaVideo3) {
+                                            //los videos restablecemos al estado borrador
+                                            $this->videos_m->update($objVistaVideo3->id, array("estado" => $this->config->item('video:borrador')));
+                                            //verificamos las colecciones para restablerlas
+                                            if ($objVistaVideo3->gm2 != NULL) {
+                                                $this->grupo_maestro_m->update($objMaestro->gm2, array("estado" => $this->config->item('estado:borrador')));
+                                            }
+                                            //verificamos las listas para restablerlas
+                                            if ($objVistaVideo3->gm1 != NULL) {
+                                                $this->grupo_maestro_m->update($objMaestro->gm1, array("estado" => $this->config->item('estado:borrador')));
+                                            }
+                                        }
+                                    }
+                                    //restablecemos la portada del programa
+                                    $objPortadaPrograma = $this->portada_m->get_by(array("tipo_portadas_id" => $this->config->item('portada:programa'), "origen_id" => $objMaestro->id));
+                                    if (count($objPortadaPrograma) > 0) {
+                                        //restauramos la portada
+                                        $this->portada_m->update($objPortadaPrograma->id, array("estado" => $this->config->item('estado:borrador')));
+                                        //restauramos las secciones
+                                        $this->secciones_m->update_by('portadas_id', $objPortadaPrograma->id, array('estado' => $this->config->item('estado:borrador')));
+                                    }
                                 }
+                                echo json_encode(array("value" => "1")); //done
                             }
                         }
                     } else {
                         echo json_encode(array("value" => "2")); //no existe el maestro
                     }
-                    $this->grupo_maestro_m->update($id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado_migracion" => $this->config->item('migracion:actualizado'), "estado" => $this->config->item('estado:borrador')));
+                    //$this->grupo_maestro_m->update($id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado_migracion" => $this->config->item('migracion:actualizado'), "estado" => $this->config->item('estado:borrador')));
                     break;
                 case 'video':
                     $this->videos_m->update($id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado_migracion" => $this->config->item('migracion:actualizado'), "estado" => $this->config->item('video:borrador')));
