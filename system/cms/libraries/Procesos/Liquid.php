@@ -562,11 +562,11 @@ class Liquid {
         GETCURL:
 
 
-        if ($contador == 50) {
+        if ($contador == 1) {
             return false;
         }
 
-        $url = APIURL . "/medias/?key=" . $apikey . "&filter=id;postDate;title&search=title:" . $id . ";postDate:%3C" . $strman . ";postDate:%3E" . $straye;
+        $url = APIURL . "/medias/?key=" . $apikey . "&filter=id;po1stDate;title&search=title:" . $id . ";postDate:%3C" . $strman . ";postDate:%3E" . $straye;
 
         $retorno = self::getCurl($url);
 
@@ -574,7 +574,7 @@ class Liquid {
             return $retorno;
         } else {
 
-            sleep(10);
+            sleep(300);
             $contador++;
             goto GETCURL;
         }
@@ -583,26 +583,21 @@ class Liquid {
     function getObtenerMedia($mediaarr, $id) {
         $media = '';
 
-        if (!empty($mediaarr["Media"])) {
-            foreach ($mediaarr["Media"] as $value) {
-
-                if (isset($value["id"])) {
-
-                    if ($value["title"] == $id) {
-                        $media = $value["id"];
-                        break;
+        if (count($mediaarr["Media"])>0) {
+                if (isset($mediaarr["Media"]["id"])) {
+            
+                    if ($mediaarr["Media"]["title"] == $id) {
+                        $media = $mediaarr["Media"]["id"];                      
                     }
                 } else {
 
-                    foreach ($value as $value2) {
-
-                        if ($value2["title"] == $id) {
-                            $media = $value2["id"];
-                            break 2;
+                    foreach ($mediaarr["Media"] as $value) {                        
+                        if ($value["title"] == $id) {
+                            $media = $value["id"];
+                            break ;
                         }
                     }
                 }
-            }
         }
         return $media;
     }

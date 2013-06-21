@@ -238,20 +238,25 @@ class Procesos_lib extends MX_Controller {
                 } else {
                     Log::erroLog("exception de upload  getObtenerMediaXId " . $value->id . "," . $value->apikey);
                     sleep(60);
+                    
                     $mediaarray = Liquid::getObtenerMediaXId($value->id, $value->apikey);
+                    
+                    if($mediaarray !=FALSE){
+                        $mediaxml = new SimpleXMLElement($mediaarray);
+                        $mediaarr = json_decode(json_encode($mediaxml), TRUE);
 
-                    $mediaxml = new SimpleXMLElement($mediaarray);
-                    $mediaarr = json_decode(json_encode($mediaxml), TRUE);
+                        $media = Liquid::getObtenerMedia($mediaarr, $value->id);
 
-                    $media = Liquid::getObtenerMedia($mediaarr, $value->id);
+                        Log::erroLog("Media encontrada: " . $media);
 
-                    Log::erroLog("Media encontrada: " . $media);
-
-                    if (!empty($media)) {
-                        Log::erroLog("entro a : updateMediaVideosXId por error" . $value->id . "/" . $media);
-                        $ruta = base_url("curlproceso/updateMediaVideosXId/" . $value->id . "/" . $media);
-                        shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");
-                    } else {
+                        if (!empty($media)) {
+                            Log::erroLog("entro a : updateMediaVideosXId por error" . $value->id . "/" . $media);
+                            $ruta = base_url("curlproceso/updateMediaVideosXId/" . $value->id . "/" . $media);
+                            shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");
+                        } else {
+                            $this->videos_mp->setEstadosVideos($value->id, $this->config->item('v_e:error'), $this->config->item('v_l:subiendo'));
+                        }
+                    }  else {
                         $this->videos_mp->setEstadosVideos($value->id, $this->config->item('v_e:error'), $this->config->item('v_l:subiendo'));
                     }
                 }
