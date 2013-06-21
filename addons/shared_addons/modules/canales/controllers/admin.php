@@ -7584,6 +7584,15 @@ class Admin extends Admin_Controller {
             echo json_encode($return);
         }
     }
+    
+    public function limpiar_portada()
+    {
+        $this->detalle_secciones_m->limpiar();
+        $videos = $this->videos_m->get_many_by(array('estado' => $this->config->item('video:publicado')));
+        foreach($videos as $video) {
+            $this->sincronizar_lib->agregar_video($video->id);
+        }
+    }
 }
 
 /* End of file admin.php */
