@@ -21,4 +21,9 @@ class Imagenes_mp extends CI_Model {
         return $this->db->query($query)->result();             
     }
 
+    function getImagenesGrupoMaestrosXId($id){
+        $query = "SELECT REPLACE(nombre,' ','') AS 'nombre',imagen,procedencia FROM default_cms_imagenes  im INNER JOIN default_cms_tipo_imagen ti ON im.tipo_imagen_id = ti.id WHERE im.estado=1 AND  grupo_maestros_id =". $id;
+        return $this->db->query($query)->result();             
+    }    
+    
 }    

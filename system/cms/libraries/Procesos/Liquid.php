@@ -111,7 +111,7 @@ class Liquid {
     function updateUnpublishedMedia($apikey, $codigo) {
         $url = APIURL . "/medias/" . $codigo . "?key=" . $apikey;
         $post = "<Media><published>false</published></Media>";
-        Log::erroLog("url: " . $url);
+        Log::erroLog("url: " .  $url);
         return self::postXML($url, $post);
     }
 
@@ -348,6 +348,7 @@ class Liquid {
                 }
             }
         }
+        
         if (count($result) > 0) {
             sort($result);
             return $result;

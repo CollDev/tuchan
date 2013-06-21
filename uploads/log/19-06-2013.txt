@@ -1,0 +1,1884 @@
+15:36:33 > 2  -  1
+15:36:34 > dato entrada    : 67 -- cantidad   : 1 -- 
+15:36:34 > mongo_se: 51a3eed9a439164658000003
+15:36:34 > estado_migracion: 2
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e6614000001
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e6614000001
+15:36:34 > idtemp1,1
+15:36:34 > idtemp1,9
+15:36:34 > idtemp1,14
+15:36:34 > idtemp1,4
+15:36:34 > dato entrada    : 68 -- cantidad   : 1 -- 
+15:36:34 > mongo_se: 51a3f065a439164458000005
+15:36:34 > estado_migracion: 2
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e6614000002
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e6614000002
+15:36:34 > idtemp1,9
+15:36:34 > idtemp1,14
+15:36:34 > idtemp1,4
+15:36:34 > dato entrada    : 70 -- cantidad   : 1 -- 
+15:36:34 > mongo_se: 51a3f065a439164458000006
+15:36:34 > estado_migracion: 2
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e6614000003
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e6614000003
+15:36:34 > idtemp1,9
+15:36:34 > idtemp1,38
+15:36:34 > idtemp1,37
+15:36:34 > idtemp1,12
+15:36:34 > idtemp1,11
+15:36:34 > dato entrada    : 71 -- cantidad   : 1 -- 
+15:36:34 > mongo_se: 51a3ef7ba439164258000004
+15:36:34 > estado_migracion: 9
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e6614000004
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e6614000004
+15:36:34 > idtemp3,6
+15:36:34 > idtemp3,2
+15:36:34 > idtemp3,4
+15:36:34 > idtemp3,5
+15:36:34 > idtemp3,3
+15:36:34 > idtemp3,8
+15:36:34 > dato entrada    : 72 -- cantidad   : 1 -- 
+15:36:34 > mongo_se: 51a3f065a439164458000007
+15:36:34 > estado_migracion: 2
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e6614000005
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e6614000005
+15:36:34 > idtemp1,1
+15:36:34 > idtemp1,83
+15:36:34 > idtemp1,28
+15:36:34 > idtemp1,23
+15:36:34 > idtemp1,19
+15:36:34 > idtemp1,13
+15:36:34 > idtemp1,3
+15:36:34 > dato entrada    : 73 -- cantidad   : 1 -- 
+15:36:34 > mongo_se: 51a3f065a439164458000008
+15:36:34 > estado_migracion: 2
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e6614000006
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e6614000006
+15:36:34 > idtemp1,4
+15:36:34 > idtemp1,84
+15:36:34 > idtemp1,62
+15:36:34 > idtemp1,46
+15:36:34 > idtemp1,44
+15:36:34 > idtemp1,35
+15:36:34 > idtemp1,6
+15:36:34 > dato entrada    : 74 -- cantidad   : 1 -- 
+15:36:34 > mongo_se: 51a3f065a439164458000009
+15:36:34 > estado_migracion: 2
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e6614000007
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e6614000007
+15:36:34 > idtemp1,14
+15:36:34 > idtemp1,85
+15:36:34 > idtemp1,55
+15:36:34 > idtemp1,48
+15:36:34 > idtemp1,39
+15:36:34 > idtemp1,29
+15:36:34 > idtemp1,27
+15:36:34 > dato entrada    : 2881 -- cantidad   : 1 -- 
+15:36:34 > mongo_se: 51a3f065a43916445800000a
+15:36:34 > estado_migracion: 2
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e6614000008
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e6614000008
+15:36:34 > idtemp2,2
+15:36:34 > idtemp2,86
+15:36:34 > idtemp2,9
+15:36:34 > idtemp2,14
+15:36:34 > idtemp2,8
+15:36:34 > idtemp2,24
+15:36:34 > idtemp2,104
+15:36:34 > idtemp2,11
+15:36:34 > idtemp2,55
+15:36:34 > idtemp2,148
+15:36:34 > idtemp2,66
+15:36:34 > idtemp2,171
+15:36:34 > idtemp2,120
+15:36:34 > idtemp2,105
+15:36:34 > idtemp2,13
+15:36:34 > idtemp2,52
+15:36:34 > idtemp2,32
+15:36:34 > idtemp2,143
+15:36:34 > idtemp2,135
+15:36:34 > idtemp2,244
+15:36:34 > idtemp2,250
+15:36:34 > idtemp2,169
+15:36:34 > idtemp2,118
+15:36:34 > idtemp2,72
+15:36:34 > idtemp2,221
+15:36:34 > idtemp2,20
+15:36:34 > idtemp2,35
+15:36:34 > idtemp2,12
+15:36:34 > idtemp2,238
+15:36:34 > idtemp2,201
+15:36:34 > idtemp2,188
+15:36:34 > idtemp2,95
+15:36:34 > idtemp2,159
+15:36:34 > idtemp2,147
+15:36:34 > idtemp2,92
+15:36:34 > dato entrada    : 2884 -- cantidad   : 1 -- 
+15:36:34 > mongo_se: 51a3f065a43916445800000b
+15:36:34 > estado_migracion: 2
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e6614000009
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e6614000009
+15:36:34 > idtemp2,188
+15:36:34 > idtemp2,200
+15:36:34 > idtemp2,139
+15:36:34 > idtemp2,143
+15:36:34 > idtemp2,148
+15:36:34 > idtemp2,169
+15:36:34 > idtemp2,171
+15:36:34 > idtemp2,159
+15:36:34 > idtemp2,160
+15:36:34 > idtemp2,138
+15:36:34 > idtemp2,195
+15:36:34 > idtemp2,118
+15:36:34 > idtemp2,120
+15:36:34 > idtemp2,104
+15:36:34 > idtemp2,105
+15:36:34 > idtemp2,86
+15:36:34 > idtemp2,81
+15:36:34 > idtemp2,20
+15:36:34 > idtemp2,14
+15:36:34 > idtemp2,168
+15:36:34 > idtemp2,193
+15:36:34 > idtemp2,66
+15:36:34 > idtemp2,52
+15:36:34 > idtemp2,35
+15:36:34 > idtemp2,24
+15:36:34 > idtemp2,92
+15:36:34 > idtemp2,32
+15:36:34 > idtemp2,72
+15:36:34 > idtemp2,55
+15:36:34 > idtemp2,91
+15:36:34 > idtemp2,2
+15:36:34 > idtemp2,8
+15:36:34 > idtemp2,184
+15:36:34 > idtemp2,9
+15:36:34 > idtemp2,11
+15:36:34 > idtemp2,12
+15:36:34 > idtemp2,13
+15:36:34 > dato entrada    : 2939 -- cantidad   : 1 -- 
+15:36:34 > mongo_se: 51a43aaba439164063000001
+15:36:34 > estado_migracion: 2
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e661400000a
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e661400000a
+15:36:34 > idtemp2,13
+15:36:34 > idtemp2,9
+15:36:34 > idtemp2,12
+15:36:34 > idtemp2,11
+15:36:34 > dato entrada    : 3046 -- cantidad   : 1 -- 
+15:36:34 > -> id_mongo de seccion 51a677afa43916cb30000003
+15:36:34 > idtemp1,9
+15:36:34 > idtemp1,1
+15:36:34 > idtemp1,14
+15:36:34 > idtemp1,4
+15:36:34 > dato entrada    : 3047 -- cantidad   : 1 -- 
+15:36:34 > mongo_se: 51a6a6d5a43916186f000001
+15:36:34 > estado_migracion: 2
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e661400000b
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e661400000b
+15:36:34 > idtemp1,34
+15:36:34 > idtemp1,61
+15:36:34 > idtemp1,45
+15:36:34 > idtemp1,43
+15:36:34 > idtemp1,41
+15:36:34 > 2  -  1
+15:36:34 > 2  -  1
+15:36:34 > dato entrada    : 2811 -- cantidad   : 1 -- 
+15:36:34 > mongo_se: 51a3f065a43916445800000e
+15:36:34 > estado_migracion: 2
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e661400000e
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e661400000e
+15:36:34 > idtemp1,9
+15:36:34 > dato entrada    : 2838 -- cantidad   : 1 -- 
+15:36:34 > mongo_se: 51a3f065a43916445800000f
+15:36:34 > estado_migracion: 2
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e661400000f
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e661400000f
+15:36:34 > idtemp2,86
+15:36:34 > idtemp2,81
+15:36:34 > idtemp2,20
+15:36:34 > idtemp2,14
+15:36:34 > dato entrada    : 2835 -- cantidad   : 1 -- 
+15:36:34 > dato entrada    : 3048 -- cantidad   : 1 -- 
+15:36:34 > -> id_mongo de seccion 51a6aa9da43916736f000001
+15:36:34 > idtemp1,9
+15:36:34 > 2  -  1
+15:36:34 > dato entrada    : 2812 -- cantidad   : 1 -- 
+15:36:34 > mongo_se: 51a3f065a439164458000012
+15:36:34 > estado_migracion: 2
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e6614000011
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e6614000011
+15:36:34 > idtemp1,14
+15:36:34 > idtemp1,4
+15:36:34 > idtemp1,1
+15:36:34 > dato entrada    : 2842 -- cantidad   : 1 -- 
+15:36:34 > mongo_se: 51a3f065a439164458000013
+15:36:34 > estado_migracion: 2
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e6614000012
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e6614000012
+15:36:34 > idtemp2,171
+15:36:34 > idtemp2,148
+15:36:34 > idtemp2,143
+15:36:34 > idtemp2,159
+15:36:34 > idtemp2,138
+15:36:34 > idtemp2,118
+15:36:34 > idtemp2,104
+15:36:34 > idtemp2,66
+15:36:34 > idtemp2,52
+15:36:34 > idtemp2,35
+15:36:34 > idtemp2,92
+15:36:34 > idtemp2,24
+15:36:34 > idtemp2,72
+15:36:34 > idtemp2,55
+15:36:34 > idtemp2,91
+15:36:34 > idtemp2,2
+15:36:34 > idtemp2,8
+15:36:34 > dato entrada    : 2839 -- cantidad   : 1 -- 
+15:36:34 > dato entrada    : 3095 -- cantidad   : 1 -- 
+15:36:34 > mongo_se: 51aa173ea43916150a000002
+15:36:34 > estado_migracion: 2
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e6614000013
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e6614000013
+15:36:34 > idtemp1,1
+15:36:34 > idtemp1,4
+15:36:34 > idtemp1,14
+15:36:34 > 2  -  1
+15:36:34 > dato entrada    : 2813 -- cantidad   : 1 -- 
+15:36:34 > mongo_se: 51a3f065a439164458000016
+15:36:34 > estado_migracion: 2
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e6614000015
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e6614000015
+15:36:34 > dato entrada    : 2843 -- cantidad   : 1 -- 
+15:36:34 > dato entrada    : 2846 -- cantidad   : 1 -- 
+15:36:34 > 2  -  1
+15:36:34 > dato entrada    : 2814 -- cantidad   : 1 -- 
+15:36:34 > mongo_se: 51a3f065a43916445800001a
+15:36:34 > estado_migracion: 2
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e6614000017
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e6614000017
+15:36:34 > dato entrada    : 2847 -- cantidad   : 1 -- 
+15:36:34 > dato entrada    : 2850 -- cantidad   : 1 -- 
+15:36:34 > 2  -  1
+15:36:34 > dato entrada    : 2815 -- cantidad   : 1 -- 
+15:36:34 > mongo_se: 51a3f065a43916445800001e
+15:36:34 > estado_migracion: 2
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e6614000019
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e6614000019
+15:36:34 > dato entrada    : 2851 -- cantidad   : 1 -- 
+15:36:34 > dato entrada    : 2854 -- cantidad   : 1 -- 
+15:36:34 > 2  -  1
+15:36:34 > dato entrada    : 2816 -- cantidad   : 1 -- 
+15:36:34 > mongo_se: 51a3f065a439164458000022
+15:36:34 > estado_migracion: 2
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e661400001b
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e661400001b
+15:36:34 > idtemp1,7
+15:36:34 > dato entrada    : 2855 -- cantidad   : 1 -- 
+15:36:34 > dato entrada    : 2858 -- cantidad   : 1 -- 
+15:36:34 > mongo_se: 51a3f065a439164458000024
+15:36:34 > estado_migracion: 2
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e661400001c
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e661400001c
+15:36:34 > idtemp2,9
+15:36:34 > idtemp2,11
+15:36:34 > idtemp2,12
+15:36:34 > idtemp2,13
+15:36:34 > 2  -  1
+15:36:34 > dato entrada    : 2817 -- cantidad   : 1 -- 
+15:36:34 > mongo_se: 51a3f065a439164458000026
+15:36:34 > estado_migracion: 2
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e661400001e
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e661400001e
+15:36:34 > idtemp1,32
+15:36:34 > idtemp1,16
+15:36:34 > idtemp1,15
+15:36:34 > dato entrada    : 2863 -- cantidad   : 1 -- 
+15:36:34 > mongo_se: 51a3f065a439164458000027
+15:36:34 > estado_migracion: 2
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e661400001f
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e661400001f
+15:36:34 > idtemp2,105
+15:36:34 > idtemp2,120
+15:36:34 > idtemp2,32
+15:36:34 > idtemp2,244
+15:36:34 > idtemp2,221
+15:36:34 > idtemp2,250
+15:36:34 > idtemp2,169
+15:36:34 > idtemp2,201
+15:36:34 > idtemp2,238
+15:36:34 > idtemp2,147
+15:36:34 > idtemp2,188
+15:36:34 > dato entrada    : 2866 -- cantidad   : 1 -- 
+15:36:34 > mongo_se: 51a3f065a439164458000028
+15:36:34 > estado_migracion: 2
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e6614000020
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e6614000020
+15:36:34 > idtemp2,200
+15:36:34 > idtemp2,188
+15:36:34 > idtemp2,169
+15:36:34 > idtemp2,139
+15:36:34 > idtemp2,160
+15:36:34 > idtemp2,120
+15:36:34 > idtemp2,195
+15:36:34 > idtemp2,105
+15:36:34 > idtemp2,193
+15:36:34 > idtemp2,32
+15:36:34 > dato entrada    : 3106 -- cantidad   : 1 -- 
+15:36:34 > mongo_se: 51aa652da439161957000001
+15:36:34 > estado_migracion: 2
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e6614000021
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e6614000021
+15:36:34 > idtemp1,32
+15:36:34 > idtemp1,15
+15:36:34 > idtemp1,16
+15:36:34 > 2  -  1
+15:36:34 > dato entrada    : 2818 -- cantidad   : 1 -- 
+15:36:34 > mongo_se: 51a3f065a43916445800002a
+15:36:34 > estado_migracion: 2
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e6614000023
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e6614000023
+15:36:34 > idtemp1,51
+15:36:34 > dato entrada    : 2867 -- cantidad   : 1 -- 
+15:36:34 > dato entrada    : 2870 -- cantidad   : 1 -- 
+15:36:34 > mongo_se: 51a3f065a43916445800002c
+15:36:34 > estado_migracion: 2
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e6614000024
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e6614000024
+15:36:34 > idtemp2,184
+15:36:34 > 2  -  1
+15:36:34 > dato entrada    : 2819 -- cantidad   : 1 -- 
+15:36:34 > mongo_se: 51a3f065a43916445800002e
+15:36:34 > estado_migracion: 2
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e6614000026
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e6614000026
+15:36:34 > idtemp1,64
+15:36:34 > dato entrada    : 2871 -- cantidad   : 1 -- 
+15:36:34 > dato entrada    : 2874 -- cantidad   : 1 -- 
+15:36:34 > 2  -  1
+15:36:34 > dato entrada    : 2820 -- cantidad   : 1 -- 
+15:36:34 > mongo_se: 51a3f065a439164458000032
+15:36:34 > estado_migracion: 2
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e6614000028
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e6614000028
+15:36:34 > idtemp1,50
+15:36:34 > dato entrada    : 2875 -- cantidad   : 1 -- 
+15:36:34 > dato entrada    : 2878 -- cantidad   : 1 -- 
+15:36:34 > mongo_se: 51a3f065a439164458000034
+15:36:34 > estado_migracion: 2
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e6614000029
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e6614000029
+15:36:34 > idtemp2,168
+15:36:34 > 2  -  1
+15:36:34 > dato entrada    : 2885 -- cantidad   : 1 -- 
+15:36:34 > mongo_se: 51a3f22da439165d5c000003
+15:36:34 > estado_migracion: 2
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e661400002b
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e661400002b
+15:36:34 > idtemp1,90
+15:36:34 > idtemp1,89
+15:36:34 > idtemp1,86
+15:36:34 > idtemp1,15
+15:36:34 > idtemp1,9
+15:36:34 > idtemp1,4
+15:36:34 > idtemp1,16
+15:36:34 > idtemp1,84
+15:36:34 > idtemp1,87
+15:36:34 > dato entrada    : 2886 -- cantidad   : 1 -- 
+15:36:34 > mongo_se: 51b649d1c8437ee12e000000
+15:36:34 > estado_migracion: 2
+15:36:34 > -> id_mongo de seccion 51b649d1c8437ee12e000000
+15:36:34 > -> id_mongo de seccion 51b649d1c8437ee12e000000
+15:36:34 > idtemp1,16
+15:36:34 > idtemp1,9
+15:36:34 > idtemp1,4
+15:36:34 > idtemp1,15
+15:36:34 > dato entrada    : 2887 -- cantidad   : 1 -- 
+15:36:34 > mongo_se: 51a3f238a43916625c000001
+15:36:34 > estado_migracion: 2
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e661400002c
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e661400002c
+15:36:34 > idtemp1,90
+15:36:34 > idtemp1,89
+15:36:34 > idtemp1,86
+15:36:34 > idtemp1,80
+15:36:34 > idtemp1,69
+15:36:34 > idtemp1,46
+15:36:34 > idtemp1,38
+15:36:34 > idtemp1,35
+15:36:34 > idtemp1,11
+15:36:34 > idtemp1,6
+15:36:34 > idtemp1,12
+15:36:34 > idtemp1,37
+15:36:34 > idtemp1,62
+15:36:34 > idtemp1,76
+15:36:34 > idtemp1,84
+15:36:34 > idtemp1,87
+15:36:34 > dato entrada    : 2888 -- cantidad   : 1 -- 
+15:36:34 > mongo_se: 51a3f238a439165f5c000001
+15:36:34 > estado_migracion: 2
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e661400002d
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e661400002d
+15:36:34 > idtemp1,90
+15:36:34 > idtemp1,87
+15:36:34 > idtemp1,84
+15:36:34 > idtemp1,76
+15:36:34 > idtemp1,46
+15:36:34 > idtemp1,38
+15:36:34 > idtemp1,35
+15:36:34 > idtemp1,11
+15:36:34 > idtemp1,6
+15:36:34 > idtemp1,12
+15:36:34 > idtemp1,37
+15:36:34 > idtemp1,62
+15:36:34 > idtemp1,69
+15:36:34 > idtemp1,80
+15:36:34 > idtemp1,86
+15:36:34 > idtemp1,89
+15:36:34 > dato entrada    : 2889 -- cantidad   : 1 -- 
+15:36:34 > mongo_se: 51a90ab4a43916212f000001
+15:36:34 > estado_migracion: 2
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e661400002e
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e661400002e
+15:36:34 > dato entrada    : 2890 -- cantidad   : 1 -- 
+15:36:34 > mongo_se: 51a794cfa439168659000001
+15:36:34 > estado_migracion: 2
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e661400002f
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e661400002f
+15:36:34 > idtemp2,86
+15:36:34 > idtemp2,14
+15:36:34 > idtemp2,8
+15:36:34 > idtemp2,143
+15:36:34 > idtemp2,135
+15:36:34 > idtemp2,250
+15:36:34 > idtemp2,20
+15:36:34 > idtemp2,95
+15:36:34 > idtemp2,238
+15:36:34 > dato entrada    : 2891 -- cantidad   : 1 -- 
+15:36:34 > dato entrada    : 2892 -- cantidad   : 1 -- 
+15:36:34 > dato entrada    : 2893 -- cantidad   : 1 -- 
+15:36:34 > mongo_se: 51a794a3a43916a501000003
+15:36:34 > estado_migracion: 2
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e6614000030
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e6614000030
+15:36:34 > idtemp2,143
+15:36:34 > idtemp2,138
+15:36:34 > idtemp2,86
+15:36:34 > idtemp2,81
+15:36:34 > idtemp2,20
+15:36:34 > idtemp2,14
+15:36:34 > idtemp2,91
+15:36:34 > idtemp2,8
+15:36:34 > 2  -  1
+15:36:34 > dato entrada    : 2894 -- cantidad   : 1 -- 
+15:36:34 > mongo_se: 51a3e08fa439164358000001
+15:36:34 > estado_migracion: 2
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e6614000032
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e6614000032
+15:36:34 > idtemp1,1
+15:36:34 > idtemp1,18
+15:36:34 > idtemp1,64
+15:36:34 > idtemp1,88
+15:36:34 > dato entrada    : 2895 -- cantidad   : 1 -- 
+15:36:34 > mongo_se: 51b64b13c8437e1830000000
+15:36:34 > estado_migracion: 2
+15:36:34 > -> id_mongo de seccion 51b64b13c8437e1830000000
+15:36:34 > -> id_mongo de seccion 51b64b13c8437e1830000000
+15:36:34 > idtemp1,64
+15:36:34 > idtemp1,1
+15:36:34 > idtemp1,18
+15:36:34 > dato entrada    : 2896 -- cantidad   : 1 -- 
+15:36:34 > mongo_se: 51a3e09da439164458000001
+15:36:34 > estado_migracion: 2
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e6614000033
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e6614000033
+15:36:34 > idtemp1,83
+15:36:34 > idtemp1,74
+15:36:34 > idtemp1,66
+15:36:34 > idtemp1,59
+15:36:34 > idtemp1,28
+15:36:34 > idtemp1,23
+15:36:34 > idtemp1,13
+15:36:34 > idtemp1,3
+15:36:34 > idtemp1,19
+15:36:34 > idtemp1,25
+15:36:34 > idtemp1,73
+15:36:34 > idtemp1,78
+15:36:34 > idtemp1,82
+15:36:34 > idtemp1,88
+15:36:34 > dato entrada    : 2897 -- cantidad   : 1 -- 
+15:36:34 > mongo_se: 51a3e09da439164358000003
+15:36:34 > estado_migracion: 2
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e6614000034
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e6614000034
+15:36:34 > idtemp1,83
+15:36:34 > idtemp1,74
+15:36:34 > idtemp1,66
+15:36:34 > idtemp1,59
+15:36:34 > idtemp1,28
+15:36:34 > idtemp1,23
+15:36:34 > idtemp1,13
+15:36:34 > idtemp1,3
+15:36:34 > idtemp1,19
+15:36:34 > idtemp1,25
+15:36:34 > idtemp1,73
+15:36:34 > idtemp1,78
+15:36:34 > idtemp1,82
+15:36:34 > idtemp1,88
+15:36:34 > dato entrada    : 2898 -- cantidad   : 1 -- 
+15:36:34 > -> id_mongo de seccion 51a60ba1a43916145e000006
+15:36:34 > dato entrada    : 2899 -- cantidad   : 1 -- 
+15:36:34 > dato entrada    : 2900 -- cantidad   : 1 -- 
+15:36:34 > dato entrada    : 2901 -- cantidad   : 1 -- 
+15:36:34 > dato entrada    : 2902 -- cantidad   : 1 -- 
+15:36:34 > mongo_se: 51a795aca439167959000001
+15:36:34 > estado_migracion: 2
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e6614000035
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e6614000035
+15:36:34 > idtemp2,148
+15:36:34 > idtemp2,195
+15:36:34 > idtemp2,118
+15:36:34 > idtemp2,104
+15:36:34 > idtemp2,193
+15:36:34 > idtemp2,66
+15:36:34 > idtemp2,52
+15:36:34 > idtemp2,35
+15:36:34 > idtemp2,32
+15:36:34 > idtemp2,24
+15:36:34 > idtemp2,2
+15:36:34 > 2  -  1
+15:36:34 > entro a actualizar
+15:36:34 > dato entrada    : 2903 -- cantidad   : 1 -- 
+15:36:34 > mongo_se: 51b64b13c8437edd2d000002
+15:36:34 > estado_migracion: 2
+15:36:34 > -> id_mongo de seccion 51b64b13c8437edd2d000002
+15:36:34 > -> id_mongo de seccion 51b64b13c8437edd2d000002
+15:36:34 > idtemp1,1
+15:36:34 > dato entrada    : 2904 -- cantidad   : 1 -- 
+15:36:34 > mongo_se: 51b64b13c8437edd2d000003
+15:36:34 > estado_migracion: 2
+15:36:34 > -> id_mongo de seccion 51b64b13c8437edd2d000003
+15:36:34 > -> id_mongo de seccion 51b64b13c8437edd2d000003
+15:36:34 > idtemp2,332
+15:36:34 > idtemp2,329
+15:36:34 > idtemp2,327
+15:36:34 > idtemp2,325
+15:36:34 > idtemp2,319
+15:36:34 > idtemp2,283
+15:36:34 > idtemp2,279
+15:36:34 > idtemp2,275
+15:36:34 > idtemp2,155
+15:36:34 > idtemp2,153
+15:36:34 > idtemp2,149
+15:36:34 > idtemp2,125
+15:36:34 > idtemp2,123
+15:36:34 > idtemp2,121
+15:36:34 > idtemp2,118
+15:36:34 > idtemp2,113
+15:36:34 > idtemp2,110
+15:36:34 > idtemp2,106
+15:36:34 > idtemp2,104
+15:36:34 > idtemp2,107
+15:36:34 > idtemp2,111
+15:36:34 > idtemp2,115
+15:36:34 > idtemp2,119
+15:36:34 > idtemp2,122
+15:36:34 > idtemp2,124
+15:36:34 > idtemp2,148
+15:36:34 > idtemp2,152
+15:36:34 > idtemp2,154
+15:36:34 > idtemp2,272
+15:36:34 > idtemp2,276
+15:36:34 > idtemp2,282
+15:36:34 > idtemp2,316
+15:36:34 > idtemp2,322
+15:36:34 > idtemp2,324
+15:36:34 > idtemp2,326
+15:36:34 > idtemp2,328
+15:36:34 > idtemp2,330
+15:36:34 > dato entrada    : 2905 -- cantidad   : 1 -- 
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e6614000036
+15:36:34 > dato entrada    : 2906 -- cantidad   : 1 -- 
+15:36:34 > mongo_se: 51b64b14c8437edd2d000005
+15:36:34 > estado_migracion: 2
+15:36:34 > -> id_mongo de seccion 51b64b14c8437edd2d000005
+15:36:34 > -> id_mongo de seccion 51b64b14c8437edd2d000005
+15:36:34 > idtemp2,155
+15:36:34 > idtemp2,153
+15:36:34 > idtemp2,149
+15:36:34 > idtemp2,125
+15:36:34 > idtemp2,123
+15:36:34 > idtemp2,121
+15:36:34 > idtemp2,118
+15:36:34 > idtemp2,113
+15:36:34 > idtemp2,110
+15:36:34 > idtemp2,106
+15:36:34 > idtemp2,104
+15:36:34 > idtemp2,107
+15:36:34 > idtemp2,111
+15:36:34 > idtemp2,115
+15:36:34 > idtemp2,119
+15:36:34 > idtemp2,122
+15:36:34 > idtemp2,124
+15:36:34 > idtemp2,148
+15:36:34 > idtemp2,152
+15:36:34 > idtemp2,154
+15:36:34 > dato entrada    : 2907 -- cantidad   : 1 -- 
+15:36:34 > dato entrada    : 2908 -- cantidad   : 1 -- 
+15:36:34 > dato entrada    : 2909 -- cantidad   : 1 -- 
+15:36:34 > dato entrada    : 2910 -- cantidad   : 1 -- 
+15:36:34 > dato entrada    : 2911 -- cantidad   : 1 -- 
+15:36:34 > mongo_se: 51b64b13c8437ecb2d000000
+15:36:34 > estado_migracion: 2
+15:36:34 > -> id_mongo de seccion 51b64b13c8437ecb2d000000
+15:36:34 > -> id_mongo de seccion 51b64b13c8437ecb2d000000
+15:36:34 > idtemp1,88
+15:36:34 > idtemp1,83
+15:36:34 > idtemp2,332
+15:36:34 > idtemp2,329
+15:36:34 > idtemp2,327
+15:36:34 > idtemp2,325
+15:36:34 > idtemp2,319
+15:36:34 > idtemp2,283
+15:36:34 > idtemp2,279
+15:36:34 > idtemp2,275
+15:36:34 > idtemp1,28
+15:36:34 > idtemp1,23
+15:36:34 > idtemp1,19
+15:36:34 > idtemp1,13
+15:36:34 > idtemp1,3
+15:36:34 > idtemp2,272
+15:36:34 > idtemp2,276
+15:36:34 > idtemp2,282
+15:36:34 > idtemp2,316
+15:36:34 > idtemp2,322
+15:36:34 > idtemp2,324
+15:36:34 > idtemp2,326
+15:36:34 > idtemp2,328
+15:36:34 > idtemp2,330
+15:36:34 > 2  -  1
+15:36:34 > entro a actualizar
+15:36:34 > dato entrada    : 2912 -- cantidad   : 1 -- 
+15:36:34 > mongo_se: 51b64b24c8437e2505000008
+15:36:34 > estado_migracion: 2
+15:36:34 > -> id_mongo de seccion 51b64b24c8437e2505000008
+15:36:34 > -> id_mongo de seccion 51b64b24c8437e2505000008
+15:36:34 > idtemp1,4
+15:36:34 > dato entrada    : 2913 -- cantidad   : 1 -- 
+15:36:34 > mongo_se: 51b64b24c8437e2505000009
+15:36:34 > estado_migracion: 2
+15:36:34 > -> id_mongo de seccion 51b64b24c8437e2505000009
+15:36:34 > -> id_mongo de seccion 51b64b24c8437e2505000009
+15:36:34 > idtemp2,321
+15:36:34 > idtemp2,318
+15:36:34 > idtemp2,315
+15:36:34 > idtemp2,313
+15:36:34 > idtemp2,289
+15:36:34 > idtemp2,287
+15:36:34 > idtemp2,285
+15:36:34 > idtemp2,233
+15:36:34 > idtemp2,219
+15:36:34 > idtemp2,214
+15:36:34 > idtemp2,146
+15:36:34 > idtemp2,144
+15:36:34 > idtemp2,142
+15:36:34 > idtemp2,137
+15:36:34 > idtemp2,135
+15:36:34 > idtemp2,100
+15:36:34 > idtemp2,95
+15:36:34 > idtemp2,94
+15:36:34 > idtemp2,99
+15:36:34 > idtemp2,134
+15:36:34 > idtemp2,136
+15:36:34 > idtemp2,138
+15:36:34 > idtemp2,143
+15:36:34 > idtemp2,145
+15:36:34 > idtemp2,212
+15:36:34 > idtemp2,215
+15:36:34 > idtemp2,232
+15:36:34 > idtemp2,284
+15:36:34 > idtemp2,288
+15:36:34 > idtemp2,301
+15:36:34 > idtemp2,314
+15:36:34 > idtemp2,317
+15:36:34 > idtemp2,320
+15:36:34 > dato entrada    : 2914 -- cantidad   : 1 -- 
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e6614000037
+15:36:34 > dato entrada    : 2915 -- cantidad   : 1 -- 
+15:36:34 > mongo_se: 51b64b24c8437e250500000b
+15:36:34 > estado_migracion: 2
+15:36:34 > -> id_mongo de seccion 51b64b24c8437e250500000b
+15:36:34 > -> id_mongo de seccion 51b64b24c8437e250500000b
+15:36:34 > idtemp2,233
+15:36:34 > idtemp2,219
+15:36:34 > idtemp2,214
+15:36:34 > idtemp2,146
+15:36:34 > idtemp2,144
+15:36:34 > idtemp2,142
+15:36:34 > idtemp2,137
+15:36:34 > idtemp2,135
+15:36:34 > idtemp2,100
+15:36:34 > idtemp2,95
+15:36:34 > idtemp2,94
+15:36:34 > idtemp2,99
+15:36:34 > idtemp2,134
+15:36:34 > idtemp2,136
+15:36:34 > idtemp2,138
+15:36:34 > idtemp2,143
+15:36:34 > idtemp2,145
+15:36:34 > idtemp2,212
+15:36:34 > idtemp2,215
+15:36:34 > idtemp2,232
+15:36:34 > dato entrada    : 2916 -- cantidad   : 1 -- 
+15:36:34 > dato entrada    : 2917 -- cantidad   : 1 -- 
+15:36:34 > dato entrada    : 2918 -- cantidad   : 1 -- 
+15:36:34 > dato entrada    : 2919 -- cantidad   : 1 -- 
+15:36:34 > dato entrada    : 2920 -- cantidad   : 1 -- 
+15:36:34 > mongo_se: 51b64b24c8437efa2f000000
+15:36:34 > estado_migracion: 2
+15:36:34 > -> id_mongo de seccion 51b64b24c8437efa2f000000
+15:36:34 > -> id_mongo de seccion 51b64b24c8437efa2f000000
+15:36:34 > idtemp1,87
+15:36:34 > idtemp1,84
+15:36:34 > idtemp1,44
+15:36:34 > idtemp2,321
+15:36:34 > idtemp2,318
+15:36:34 > idtemp2,315
+15:36:34 > idtemp2,313
+15:36:34 > idtemp2,289
+15:36:34 > idtemp2,287
+15:36:34 > idtemp2,285
+15:36:34 > idtemp1,62
+15:36:34 > idtemp1,46
+15:36:34 > idtemp1,35
+15:36:34 > idtemp1,6
+15:36:34 > idtemp2,284
+15:36:34 > idtemp2,288
+15:36:34 > idtemp2,301
+15:36:34 > idtemp2,314
+15:36:34 > idtemp2,317
+15:36:34 > idtemp2,320
+15:36:34 > 2  -  1
+15:36:34 > dato entrada    : 2921 -- cantidad   : 1 -- 
+15:36:34 > mongo_se: 51a40e92a43916115e000001
+15:36:34 > estado_migracion: 2
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e6614000039
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e6614000039
+15:36:34 > idtemp1,7
+15:36:34 > dato entrada    : 2922 -- cantidad   : 1 -- 
+15:36:34 > mongo_se: 51b64b2ac8437ee12e000001
+15:36:34 > estado_migracion: 2
+15:36:34 > -> id_mongo de seccion 51b64b2ac8437ee12e000001
+15:36:34 > -> id_mongo de seccion 51b64b2ac8437ee12e000001
+15:36:34 > idtemp1,7
+15:36:34 > dato entrada    : 2923 -- cantidad   : 1 -- 
+15:36:34 > -> id_mongo de seccion 51a6b5f1a43916186f000003
+15:36:34 > idtemp2,133
+15:36:34 > dato entrada    : 2924 -- cantidad   : 1 -- 
+15:36:34 > -> id_mongo de seccion 51aa3de6a43916170a000008
+15:36:34 > dato entrada    : 2925 -- cantidad   : 1 -- 
+15:36:34 > mongo_se: 51b64be9c8437e1830000010
+15:36:34 > estado_migracion: 2
+15:36:34 > -> id_mongo de seccion 51b64be9c8437e1830000010
+15:36:34 > -> id_mongo de seccion 51b64be9c8437e1830000010
+15:36:34 > idtemp2,133
+15:36:34 > dato entrada    : 2926 -- cantidad   : 1 -- 
+15:36:34 > dato entrada    : 2927 -- cantidad   : 1 -- 
+15:36:34 > dato entrada    : 2928 -- cantidad   : 1 -- 
+15:36:34 > dato entrada    : 2929 -- cantidad   : 1 -- 
+15:36:34 > 2  -  1
+15:36:34 > entro a actualizar
+15:36:34 > dato entrada    : 2930 -- cantidad   : 1 -- 
+15:36:34 > mongo_se: 51b64b2ac8437e250500000d
+15:36:34 > estado_migracion: 2
+15:36:34 > -> id_mongo de seccion 51b64b2ac8437e250500000d
+15:36:34 > -> id_mongo de seccion 51b64b2ac8437e250500000d
+15:36:34 > idtemp1,7
+15:36:34 > dato entrada    : 2931 -- cantidad   : 1 -- 
+15:36:34 > -> id_mongo de seccion 51a411eaa43916165e000005
+15:36:34 > dato entrada    : 2932 -- cantidad   : 1 -- 
+15:36:34 > dato entrada    : 2933 -- cantidad   : 1 -- 
+15:36:34 > -> id_mongo de seccion 51a411eaa439163f63000001
+15:36:34 > dato entrada    : 2934 -- cantidad   : 1 -- 
+15:36:34 > dato entrada    : 2935 -- cantidad   : 1 -- 
+15:36:34 > dato entrada    : 2936 -- cantidad   : 1 -- 
+15:36:34 > dato entrada    : 2937 -- cantidad   : 1 -- 
+15:36:34 > dato entrada    : 2938 -- cantidad   : 1 -- 
+15:36:34 > mongo_se: 51b64b2ac8437efa2f000001
+15:36:34 > estado_migracion: 2
+15:36:34 > -> id_mongo de seccion 51b64b2ac8437efa2f000001
+15:36:34 > -> id_mongo de seccion 51b64b2ac8437efa2f000001
+15:36:34 > idtemp1,77
+15:36:34 > idtemp2,12
+15:36:34 > idtemp2,9
+15:36:34 > idtemp2,11
+15:36:34 > idtemp2,13
+15:36:34 > 2  -  1
+15:36:34 > entro a actualizar
+15:36:34 > dato entrada    : 2940 -- cantidad   : 1 -- 
+15:36:34 > mongo_se: 51b649d1c8437e2505000001
+15:36:34 > estado_migracion: 2
+15:36:34 > -> id_mongo de seccion 51b649d1c8437e2505000001
+15:36:34 > -> id_mongo de seccion 51b649d1c8437e2505000001
+15:36:34 > idtemp1,9
+15:36:34 > dato entrada    : 2941 -- cantidad   : 1 -- 
+15:36:34 > -> id_mongo de seccion 51a4ee8ba43916145e000004
+15:36:34 > dato entrada    : 2942 -- cantidad   : 1 -- 
+15:36:34 > -> id_mongo de seccion 51c1d002c8437e661400003a
+15:36:34 > dato entrada    : 2943 -- cantidad   : 1 -- 
+15:36:34 > -> id_mongo de seccion 51a4ee8ba439163e63000005
+15:36:34 > dato entrada    : 2944 -- cantidad   : 1 -- 
+15:36:34 > mongo_se: 51b649d1c8437e2505000003
+15:36:34 > estado_migracion: 2
+15:36:34 > -> id_mongo de seccion 51b649d1c8437e2505000003
+15:36:34 > -> id_mongo de seccion 51b649d1c8437e2505000003
+15:36:34 > idtemp2,86
+15:36:34 > idtemp2,14
+15:36:34 > idtemp2,20
+15:36:34 > dato entrada    : 2945 -- cantidad   : 1 -- 
+15:36:34 > dato entrada    : 2946 -- cantidad   : 1 -- 
+15:36:34 > dato entrada    : 2947 -- cantidad   : 1 -- 
+15:36:34 > mongo_se: 51b649d2c8437e2505000004
+15:36:34 > estado_migracion: 2
+15:36:34 > -> id_mongo de seccion 51b649d2c8437e2505000004
+15:36:34 > -> id_mongo de seccion 51b649d2c8437e2505000004
+15:36:34 > idtemp2,86
+15:36:34 > idtemp2,81
+15:36:34 > idtemp2,20
+15:36:34 > idtemp2,14
+15:36:34 > dato entrada    : 2948 -- cantidad   : 1 -- 
+15:36:34 > mongo_se: 51b649d1c8437edd2d000000
+15:36:34 > estado_migracion: 2
+15:36:34 > -> id_mongo de seccion 51b649d1c8437edd2d000000
+15:36:34 > -> id_mongo de seccion 51b649d1c8437edd2d000000
+15:36:34 > idtemp1,38
+15:36:35 > idtemp1,37
+15:36:35 > idtemp1,12
+15:36:35 > idtemp1,11
+15:36:35 > 2  -  1
+15:36:35 > dato entrada    : 2949 -- cantidad   : 1 -- 
+15:36:35 > mongo_se: 51a53cdca439160c77000001
+15:36:35 > estado_migracion: 2
+15:36:35 > -> id_mongo de seccion 51c1d003c8437e661400003c
+15:36:35 > -> id_mongo de seccion 51c1d003c8437e661400003c
+15:36:35 > idtemp1,14
+15:36:35 > idtemp1,85
+15:36:35 > dato entrada    : 2950 -- cantidad   : 1 -- 
+15:36:35 > mongo_se: 51b64b68c8437e4231000001
+15:36:35 > estado_migracion: 2
+15:36:35 > -> id_mongo de seccion 51b64b68c8437e4231000001
+15:36:35 > -> id_mongo de seccion 51b64b68c8437e4231000001
+15:36:35 > idtemp1,14
+15:36:35 > dato entrada    : 2951 -- cantidad   : 1 -- 
+15:36:35 > mongo_se: 51a62e35a439160d77000003
+15:36:35 > estado_migracion: 2
+15:36:35 > -> id_mongo de seccion 51c1d003c8437e661400003d
+15:36:35 > -> id_mongo de seccion 51c1d003c8437e661400003d
+15:36:35 > idtemp1,85
+15:36:35 > dato entrada    : 2952 -- cantidad   : 1 -- 
+15:36:35 > mongo_se: 51a62e35a43916185e00000a
+15:36:35 > estado_migracion: 2
+15:36:35 > -> id_mongo de seccion 51c1d003c8437e661400003e
+15:36:35 > -> id_mongo de seccion 51c1d003c8437e661400003e
+15:36:35 > idtemp1,85
+15:36:35 > dato entrada    : 2953 -- cantidad   : 1 -- 
+15:36:35 > -> id_mongo de seccion 51c1d003c8437e661400003f
+15:36:35 > dato entrada    : 2954 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 2955 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 2956 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 2957 -- cantidad   : 1 -- 
+15:36:35 > 2  -  1
+15:36:35 > entro a actualizar
+15:36:35 > dato entrada    : 2958 -- cantidad   : 1 -- 
+15:36:35 > mongo_se: 51b64b68c8437e1830000004
+15:36:35 > estado_migracion: 2
+15:36:35 > -> id_mongo de seccion 51b64b68c8437e1830000004
+15:36:35 > -> id_mongo de seccion 51b64b68c8437e1830000004
+15:36:35 > idtemp1,14
+15:36:35 > dato entrada    : 2959 -- cantidad   : 1 -- 
+15:36:35 > mongo_se: 51b64b68c8437e1830000005
+15:36:35 > estado_migracion: 2
+15:36:35 > -> id_mongo de seccion 51b64b68c8437e1830000005
+15:36:35 > -> id_mongo de seccion 51b64b68c8437e1830000005
+15:36:35 > idtemp2,352
+15:36:35 > idtemp2,350
+15:36:35 > idtemp2,348
+15:36:35 > idtemp2,346
+15:36:35 > idtemp2,306
+15:36:35 > idtemp2,303
+15:36:35 > idtemp2,297
+15:36:35 > idtemp2,293
+15:36:35 > idtemp2,290
+15:36:35 > idtemp2,181
+15:36:35 > idtemp2,178
+15:36:35 > idtemp2,173
+15:36:35 > idtemp2,165
+15:36:35 > idtemp2,161
+15:36:35 > idtemp2,158
+15:36:35 > idtemp2,102
+15:36:35 > idtemp2,98
+15:36:35 > idtemp2,96
+15:36:35 > idtemp2,93
+15:36:35 > idtemp2,97
+15:36:35 > idtemp2,101
+15:36:35 > idtemp2,103
+15:36:35 > idtemp2,159
+15:36:35 > idtemp2,163
+15:36:35 > idtemp2,171
+15:36:35 > idtemp2,177
+15:36:35 > idtemp2,180
+15:36:35 > idtemp2,182
+15:36:35 > idtemp2,291
+15:36:35 > idtemp2,296
+15:36:35 > idtemp2,300
+15:36:35 > idtemp2,304
+15:36:35 > idtemp2,345
+15:36:35 > idtemp2,347
+15:36:35 > idtemp2,349
+15:36:35 > idtemp2,351
+15:36:35 > dato entrada    : 2960 -- cantidad   : 1 -- 
+15:36:35 > -> id_mongo de seccion 51c1d003c8437e6614000040
+15:36:35 > dato entrada    : 2961 -- cantidad   : 1 -- 
+15:36:35 > mongo_se: 51b64b68c8437e1830000007
+15:36:35 > estado_migracion: 2
+15:36:35 > -> id_mongo de seccion 51b64b68c8437e1830000007
+15:36:35 > -> id_mongo de seccion 51b64b68c8437e1830000007
+15:36:35 > idtemp2,181
+15:36:35 > idtemp2,178
+15:36:35 > idtemp2,173
+15:36:35 > idtemp2,165
+15:36:35 > idtemp2,161
+15:36:35 > idtemp2,158
+15:36:35 > idtemp2,102
+15:36:35 > idtemp2,98
+15:36:35 > idtemp2,96
+15:36:35 > idtemp2,93
+15:36:35 > idtemp2,97
+15:36:35 > idtemp2,101
+15:36:35 > idtemp2,103
+15:36:35 > idtemp2,159
+15:36:35 > idtemp2,163
+15:36:35 > idtemp2,171
+15:36:35 > idtemp2,177
+15:36:35 > idtemp2,180
+15:36:35 > idtemp2,182
+15:36:35 > dato entrada    : 2962 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 2963 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 2964 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 2965 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 3009 -- cantidad   : 1 -- 
+15:36:35 > mongo_se: 51b64b68c8437ecb2d000005
+15:36:35 > estado_migracion: 2
+15:36:35 > -> id_mongo de seccion 51b64b68c8437ecb2d000005
+15:36:35 > -> id_mongo de seccion 51b64b68c8437ecb2d000005
+15:36:35 > idtemp1,91
+15:36:35 > idtemp1,85
+15:36:35 > idtemp2,352
+15:36:35 > idtemp2,350
+15:36:35 > idtemp2,348
+15:36:35 > idtemp2,346
+15:36:35 > idtemp2,306
+15:36:35 > idtemp2,303
+15:36:35 > idtemp2,297
+15:36:35 > idtemp2,293
+15:36:35 > idtemp2,290
+15:36:35 > idtemp1,27
+15:36:35 > idtemp1,29
+15:36:35 > idtemp1,39
+15:36:35 > idtemp1,48
+15:36:35 > idtemp1,55
+15:36:35 > idtemp2,291
+15:36:35 > idtemp2,296
+15:36:35 > idtemp2,300
+15:36:35 > idtemp2,304
+15:36:35 > idtemp2,345
+15:36:35 > idtemp2,347
+15:36:35 > idtemp2,349
+15:36:35 > idtemp2,351
+15:36:35 > 2  -  1
+15:36:35 > entro a actualizar
+15:36:35 > dato entrada    : 2966 -- cantidad   : 1 -- 
+15:36:35 > mongo_se: 51b64d30c8437ef633000008
+15:36:35 > estado_migracion: 2
+15:36:35 > -> id_mongo de seccion 51b64d30c8437ef633000008
+15:36:35 > -> id_mongo de seccion 51b64d30c8437ef633000008
+15:36:35 > idtemp1,15
+15:36:35 > dato entrada    : 2967 -- cantidad   : 1 -- 
+15:36:35 > mongo_se: 51b64d30c8437ef633000009
+15:36:35 > estado_migracion: 2
+15:36:35 > -> id_mongo de seccion 51b64d30c8437ef633000009
+15:36:35 > -> id_mongo de seccion 51b64d30c8437ef633000009
+15:36:35 > idtemp2,281
+15:36:35 > idtemp2,278
+15:36:35 > idtemp2,274
+15:36:35 > idtemp2,270
+15:36:35 > idtemp2,265
+15:36:35 > idtemp2,242
+15:36:35 > idtemp2,237
+15:36:35 > idtemp2,234
+15:36:35 > idtemp2,230
+15:36:35 > idtemp2,229
+15:36:35 > idtemp2,231
+15:36:35 > idtemp2,235
+15:36:35 > idtemp2,238
+15:36:35 > idtemp2,261
+15:36:35 > idtemp2,267
+15:36:35 > idtemp2,273
+15:36:35 > idtemp2,277
+15:36:35 > idtemp2,280
+15:36:35 > dato entrada    : 2968 -- cantidad   : 1 -- 
+15:36:35 > -> id_mongo de seccion 51a90663a439164366000003
+15:36:35 > dato entrada    : 2969 -- cantidad   : 1 -- 
+15:36:35 > mongo_se: 51b64d30c8437ef63300000a
+15:36:35 > estado_migracion: 2
+15:36:35 > -> id_mongo de seccion 51b64d30c8437ef63300000a
+15:36:35 > -> id_mongo de seccion 51b64d30c8437ef63300000a
+15:36:35 > idtemp2,237
+15:36:35 > idtemp2,230
+15:36:35 > idtemp2,231
+15:36:35 > idtemp2,235
+15:36:35 > dato entrada    : 2970 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 2971 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 2972 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 2973 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 3085 -- cantidad   : 1 -- 
+15:36:35 > mongo_se: 51b64d30c8437ebc2f000012
+15:36:35 > estado_migracion: 2
+15:36:35 > -> id_mongo de seccion 51b64d30c8437ebc2f000012
+15:36:35 > -> id_mongo de seccion 51b64d30c8437ebc2f000012
+15:36:35 > idtemp1,80
+15:36:35 > idtemp1,69
+15:36:35 > idtemp2,281
+15:36:35 > idtemp2,278
+15:36:35 > idtemp2,274
+15:36:35 > idtemp2,270
+15:36:35 > idtemp2,265
+15:36:35 > idtemp2,242
+15:36:35 > idtemp2,237
+15:36:35 > idtemp2,234
+15:36:35 > idtemp2,230
+15:36:35 > idtemp2,229
+15:36:35 > idtemp2,231
+15:36:35 > idtemp2,235
+15:36:35 > idtemp2,238
+15:36:35 > idtemp2,261
+15:36:35 > idtemp2,267
+15:36:35 > idtemp2,273
+15:36:35 > idtemp2,277
+15:36:35 > idtemp2,280
+15:36:35 > 2  -  1
+15:36:35 > entro a actualizar
+15:36:35 > dato entrada    : 2974 -- cantidad   : 1 -- 
+15:36:35 > mongo_se: 51b66f95c8437ecc3c000010
+15:36:35 > estado_migracion: 2
+15:36:35 > -> id_mongo de seccion 51b66f95c8437ecc3c000010
+15:36:35 > -> id_mongo de seccion 51b66f95c8437ecc3c000010
+15:36:35 > idtemp1,16
+15:36:35 > dato entrada    : 2975 -- cantidad   : 1 -- 
+15:36:35 > mongo_se: 51b66f95c8437ecc3c000011
+15:36:35 > estado_migracion: 2
+15:36:35 > -> id_mongo de seccion 51b66f95c8437ecc3c000011
+15:36:35 > -> id_mongo de seccion 51b66f95c8437ecc3c000011
+15:36:35 > idtemp2,344
+15:36:35 > idtemp2,342
+15:36:35 > idtemp2,340
+15:36:35 > idtemp2,338
+15:36:35 > idtemp2,336
+15:36:35 > idtemp2,334
+15:36:35 > idtemp1,89
+15:36:35 > idtemp2,311
+15:36:35 > idtemp2,309
+15:36:35 > idtemp2,305
+15:36:35 > idtemp2,299
+15:36:35 > idtemp2,295
+15:36:35 > idtemp2,292
+15:36:35 > idtemp2,250
+15:36:35 > idtemp2,294
+15:36:35 > idtemp2,298
+15:36:35 > idtemp2,302
+15:36:35 > idtemp2,308
+15:36:35 > idtemp2,310
+15:36:35 > idtemp2,312
+15:36:35 > idtemp2,333
+15:36:35 > idtemp2,335
+15:36:35 > idtemp2,337
+15:36:35 > idtemp2,339
+15:36:35 > idtemp2,341
+15:36:35 > idtemp2,343
+15:36:35 > dato entrada    : 2976 -- cantidad   : 1 -- 
+15:36:35 > mongo_se: 51b66f95c8437ecc3c000012
+15:36:35 > estado_migracion: 2
+15:36:35 > -> id_mongo de seccion 51b66f95c8437ecc3c000012
+15:36:35 > -> id_mongo de seccion 51b66f95c8437ecc3c000012
+15:36:35 > idtemp1,89
+15:36:35 > dato entrada    : 2977 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 2978 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 2979 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 2980 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 2981 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 3096 -- cantidad   : 1 -- 
+15:36:35 > mongo_se: 51b66f95c8437e463d000009
+15:36:35 > estado_migracion: 2
+15:36:35 > -> id_mongo de seccion 51b66f95c8437e463d000009
+15:36:35 > -> id_mongo de seccion 51b66f95c8437e463d000009
+15:36:35 > idtemp1,90
+15:36:35 > idtemp1,86
+15:36:35 > idtemp1,76
+15:36:35 > idtemp2,344
+15:36:35 > idtemp2,342
+15:36:35 > idtemp2,340
+15:36:35 > idtemp2,338
+15:36:35 > idtemp2,336
+15:36:35 > idtemp2,334
+15:36:35 > idtemp1,89
+15:36:35 > idtemp2,311
+15:36:35 > idtemp2,309
+15:36:35 > idtemp2,305
+15:36:35 > idtemp2,299
+15:36:35 > idtemp2,295
+15:36:35 > idtemp2,292
+15:36:35 > idtemp2,250
+15:36:35 > idtemp2,294
+15:36:35 > idtemp2,298
+15:36:35 > idtemp2,302
+15:36:35 > idtemp2,308
+15:36:35 > idtemp2,310
+15:36:35 > idtemp2,312
+15:36:35 > idtemp2,333
+15:36:35 > idtemp2,335
+15:36:35 > idtemp2,337
+15:36:35 > idtemp2,339
+15:36:35 > idtemp2,341
+15:36:35 > idtemp2,343
+15:36:35 > 2  -  1
+15:36:35 > dato entrada    : 2982 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 2983 -- cantidad   : 1 -- 
+15:36:35 > mongo_se: 51a608a9a439163f6300000f
+15:36:35 > estado_migracion: 2
+15:36:35 > -> id_mongo de seccion 51c1d003c8437e6614000042
+15:36:35 > -> id_mongo de seccion 51c1d003c8437e6614000042
+15:36:35 > idtemp2,307
+15:36:35 > idtemp2,266
+15:36:35 > idtemp2,263
+15:36:35 > idtemp2,220
+15:36:35 > idtemp2,217
+15:36:35 > idtemp2,213
+15:36:35 > idtemp2,210
+15:36:35 > idtemp2,207
+15:36:35 > idtemp2,199
+15:36:35 > idtemp2,196
+15:36:35 > idtemp2,194
+15:36:35 > idtemp2,183
+15:36:35 > idtemp2,193
+15:36:35 > idtemp2,195
+15:36:35 > idtemp2,197
+15:36:35 > idtemp2,206
+15:36:35 > idtemp2,208
+15:36:35 > idtemp2,211
+15:36:35 > idtemp2,216
+15:36:35 > idtemp2,218
+15:36:35 > idtemp2,262
+15:36:35 > idtemp2,264
+15:36:35 > idtemp2,268
+15:36:35 > idtemp2,271
+15:36:35 > dato entrada    : 2984 -- cantidad   : 1 -- 
+15:36:35 > -> id_mongo de seccion 51a6093fa43916185e000005
+15:36:35 > dato entrada    : 2985 -- cantidad   : 1 -- 
+15:36:35 > mongo_se: 51a608a9a439160977000001
+15:36:35 > estado_migracion: 2
+15:36:35 > -> id_mongo de seccion 51c1d003c8437e6614000043
+15:36:35 > -> id_mongo de seccion 51c1d003c8437e6614000043
+15:36:35 > idtemp2,217
+15:36:35 > idtemp2,213
+15:36:35 > idtemp2,210
+15:36:35 > idtemp2,207
+15:36:35 > idtemp2,199
+15:36:35 > idtemp2,196
+15:36:35 > idtemp2,194
+15:36:35 > idtemp2,183
+15:36:35 > idtemp2,193
+15:36:35 > idtemp2,195
+15:36:35 > idtemp2,197
+15:36:35 > idtemp2,206
+15:36:35 > idtemp2,208
+15:36:35 > idtemp2,211
+15:36:35 > idtemp2,216
+15:36:35 > idtemp2,218
+15:36:35 > dato entrada    : 2986 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 2987 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 2988 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 2989 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 3007 -- cantidad   : 1 -- 
+15:36:35 > mongo_se: 51a7d735a43916977a000004
+15:36:35 > estado_migracion: 2
+15:36:35 > -> id_mongo de seccion 51c1d003c8437e6614000044
+15:36:35 > -> id_mongo de seccion 51c1d003c8437e6614000044
+15:36:35 > idtemp2,307
+15:36:35 > idtemp2,266
+15:36:35 > idtemp2,263
+15:36:35 > idtemp2,220
+15:36:35 > idtemp2,217
+15:36:35 > idtemp2,213
+15:36:35 > idtemp2,210
+15:36:35 > idtemp2,207
+15:36:35 > idtemp2,199
+15:36:35 > idtemp2,196
+15:36:35 > idtemp2,194
+15:36:35 > idtemp2,183
+15:36:35 > idtemp2,193
+15:36:35 > idtemp2,195
+15:36:35 > idtemp2,197
+15:36:35 > idtemp2,206
+15:36:35 > idtemp2,208
+15:36:35 > idtemp2,211
+15:36:35 > idtemp2,216
+15:36:35 > idtemp2,218
+15:36:35 > idtemp2,262
+15:36:35 > idtemp2,264
+15:36:35 > idtemp2,268
+15:36:35 > idtemp2,271
+15:36:35 > dato entrada    : 3008 -- cantidad   : 1 -- 
+15:36:35 > mongo_se: 51a7d735a43916a777000001
+15:36:35 > estado_migracion: 2
+15:36:35 > -> id_mongo de seccion 51c1d003c8437e6614000045
+15:36:35 > -> id_mongo de seccion 51c1d003c8437e6614000045
+15:36:35 > idtemp2,307
+15:36:35 > idtemp2,266
+15:36:35 > idtemp2,263
+15:36:35 > idtemp2,220
+15:36:35 > idtemp2,217
+15:36:35 > idtemp2,213
+15:36:35 > idtemp2,210
+15:36:35 > idtemp2,207
+15:36:35 > idtemp2,199
+15:36:35 > idtemp2,196
+15:36:35 > idtemp2,194
+15:36:35 > idtemp2,183
+15:36:35 > idtemp2,193
+15:36:35 > idtemp2,195
+15:36:35 > idtemp2,197
+15:36:35 > idtemp2,206
+15:36:35 > idtemp2,208
+15:36:35 > idtemp2,211
+15:36:35 > idtemp2,216
+15:36:35 > idtemp2,218
+15:36:35 > idtemp2,262
+15:36:35 > idtemp2,264
+15:36:35 > idtemp2,268
+15:36:35 > idtemp2,271
+15:36:35 > 2  -  1
+15:36:35 > entro a actualizar
+15:36:35 > dato entrada    : 2990 -- cantidad   : 1 -- 
+15:36:35 > mongo_se: 51b66f94c8437ef53700001b
+15:36:35 > estado_migracion: 2
+15:36:35 > -> id_mongo de seccion 51b66f94c8437ef53700001b
+15:36:35 > -> id_mongo de seccion 51b66f94c8437ef53700001b
+15:36:35 > idtemp1,18
+15:36:35 > dato entrada    : 2991 -- cantidad   : 1 -- 
+15:36:35 > mongo_se: 51b66f94c8437ef53700001c
+15:36:35 > estado_migracion: 2
+15:36:35 > -> id_mongo de seccion 51b66f94c8437ef53700001c
+15:36:35 > -> id_mongo de seccion 51b66f94c8437ef53700001c
+15:36:35 > idtemp2,377
+15:36:35 > idtemp2,255
+15:36:35 > idtemp2,253
+15:36:35 > idtemp2,249
+15:36:35 > idtemp2,247
+15:36:35 > idtemp2,245
+15:36:35 > idtemp2,243
+15:36:35 > idtemp2,244
+15:36:35 > idtemp2,246
+15:36:35 > idtemp2,248
+15:36:35 > idtemp2,252
+15:36:35 > idtemp2,254
+15:36:35 > idtemp2,256
+15:36:35 > dato entrada    : 2992 -- cantidad   : 1 -- 
+15:36:35 > -> id_mongo de seccion 51c1d003c8437e6614000046
+15:36:35 > dato entrada    : 2993 -- cantidad   : 1 -- 
+15:36:35 > -> id_mongo de seccion 51c1d003c8437e6614000047
+15:36:35 > dato entrada    : 2994 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 2995 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 2996 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 2997 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 3094 -- cantidad   : 1 -- 
+15:36:35 > mongo_se: 51b66f94c8437e7d3d000017
+15:36:35 > estado_migracion: 2
+15:36:35 > -> id_mongo de seccion 51b66f94c8437e7d3d000017
+15:36:35 > -> id_mongo de seccion 51b66f94c8437e7d3d000017
+15:36:35 > idtemp1,96
+15:36:35 > idtemp1,78
+15:36:35 > idtemp1,73
+15:36:35 > idtemp1,74
+15:36:35 > idtemp2,377
+15:36:35 > idtemp2,255
+15:36:35 > idtemp2,253
+15:36:35 > idtemp2,249
+15:36:35 > idtemp2,247
+15:36:35 > idtemp2,245
+15:36:35 > idtemp2,243
+15:36:35 > idtemp2,244
+15:36:35 > idtemp2,246
+15:36:35 > idtemp2,248
+15:36:35 > idtemp2,252
+15:36:35 > idtemp2,254
+15:36:35 > idtemp2,256
+15:36:35 > 2  -  1
+15:36:35 > dato entrada    : 2998 -- cantidad   : 1 -- 
+15:36:35 > mongo_se: 51a6435fa43916175e000015
+15:36:35 > estado_migracion: 2
+15:36:35 > -> id_mongo de seccion 51c1d003c8437e6614000049
+15:36:35 > -> id_mongo de seccion 51c1d003c8437e6614000049
+15:36:35 > idtemp1,34
+15:36:35 > dato entrada    : 2999 -- cantidad   : 1 -- 
+15:36:35 > mongo_se: 51b64bb9c8437efa2f000008
+15:36:35 > estado_migracion: 2
+15:36:35 > -> id_mongo de seccion 51b64bb9c8437efa2f000008
+15:36:35 > -> id_mongo de seccion 51b64bb9c8437efa2f000008
+15:36:35 > idtemp1,34
+15:36:35 > dato entrada    : 3000 -- cantidad   : 1 -- 
+15:36:35 > mongo_se: 51a670c6a43916d75e000001
+15:36:35 > estado_migracion: 2
+15:36:35 > -> id_mongo de seccion 51c1d003c8437e661400004a
+15:36:35 > -> id_mongo de seccion 51c1d003c8437e661400004a
+15:36:35 > idtemp1,41
+15:36:35 > idtemp1,43
+15:36:35 > dato entrada    : 3001 -- cantidad   : 1 -- 
+15:36:35 > mongo_se: 51a670c6a43916ee5e000001
+15:36:35 > estado_migracion: 2
+15:36:35 > -> id_mongo de seccion 51c1d003c8437e661400004b
+15:36:35 > -> id_mongo de seccion 51c1d003c8437e661400004b
+15:36:35 > idtemp1,41
+15:36:35 > idtemp1,43
+15:36:35 > dato entrada    : 3002 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 3003 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 3004 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 3005 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 3006 -- cantidad   : 1 -- 
+15:36:35 > mongo_se: 51a796e0a43916a901000001
+15:36:35 > estado_migracion: 2
+15:36:35 > -> id_mongo de seccion 51c1d003c8437e661400004c
+15:36:35 > -> id_mongo de seccion 51c1d003c8437e661400004c
+15:36:35 > idtemp2,200
+15:36:35 > idtemp2,139
+15:36:35 > idtemp2,120
+15:36:35 > idtemp2,105
+15:36:35 > 2  -  1
+15:36:35 > dato entrada    : 3010 -- cantidad   : 1 -- 
+15:36:35 > mongo_se: 51a64295a43916155e000008
+15:36:35 > estado_migracion: 2
+15:36:35 > -> id_mongo de seccion 51c1d003c8437e661400004e
+15:36:35 > -> id_mongo de seccion 51c1d003c8437e661400004e
+15:36:35 > idtemp1,30
+15:36:35 > idtemp1,32
+15:36:35 > dato entrada    : 3011 -- cantidad   : 1 -- 
+15:36:35 > mongo_se: 51b64c32c8437ee12e000013
+15:36:35 > estado_migracion: 2
+15:36:35 > -> id_mongo de seccion 51b64c32c8437ee12e000013
+15:36:35 > -> id_mongo de seccion 51b64c32c8437ee12e000013
+15:36:35 > idtemp1,32
+15:36:35 > idtemp1,30
+15:36:35 > dato entrada    : 3012 -- cantidad   : 1 -- 
+15:36:35 > mongo_se: 51a7bcbaa439160407000001
+15:36:35 > estado_migracion: 2
+15:36:35 > -> id_mongo de seccion 51c1d003c8437e661400004f
+15:36:35 > -> id_mongo de seccion 51c1d003c8437e661400004f
+15:36:35 > idtemp1,70
+15:36:35 > dato entrada    : 3013 -- cantidad   : 1 -- 
+15:36:35 > mongo_se: 51a7bcbaa439164607000001
+15:36:35 > estado_migracion: 2
+15:36:35 > -> id_mongo de seccion 51c1d003c8437e6614000050
+15:36:35 > -> id_mongo de seccion 51c1d003c8437e6614000050
+15:36:35 > idtemp1,70
+15:36:35 > dato entrada    : 3014 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 3015 -- cantidad   : 1 -- 
+15:36:35 > mongo_se: 51aa244fa439161c0a000002
+15:36:35 > estado_migracion: 2
+15:36:35 > -> id_mongo de seccion 51c1d003c8437e6614000051
+15:36:35 > -> id_mongo de seccion 51c1d003c8437e6614000051
+15:36:35 > idtemp2,169
+15:36:35 > idtemp2,221
+15:36:35 > idtemp2,188
+15:36:35 > dato entrada    : 3016 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 3017 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 3018 -- cantidad   : 1 -- 
+15:36:35 > mongo_se: 51aa2453a439168408000003
+15:36:35 > estado_migracion: 2
+15:36:35 > -> id_mongo de seccion 51c1d003c8437e6614000052
+15:36:35 > -> id_mongo de seccion 51c1d003c8437e6614000052
+15:36:35 > idtemp2,188
+15:36:35 > idtemp2,169
+15:36:35 > idtemp2,160
+15:36:35 > 2  -  1
+15:36:35 > entro a actualizar
+15:36:35 > dato entrada    : 3019 -- cantidad   : 1 -- 
+15:36:35 > mongo_se: 51b64c32c8437e4b31000008
+15:36:35 > estado_migracion: 2
+15:36:35 > -> id_mongo de seccion 51b64c32c8437e4b31000008
+15:36:35 > -> id_mongo de seccion 51b64c32c8437e4b31000008
+15:36:35 > idtemp1,30
+15:36:35 > dato entrada    : 3020 -- cantidad   : 1 -- 
+15:36:35 > mongo_se: 51b64c32c8437e4b31000009
+15:36:35 > estado_migracion: 2
+15:36:35 > -> id_mongo de seccion 51b64c32c8437e4b31000009
+15:36:35 > -> id_mongo de seccion 51b64c32c8437e4b31000009
+15:36:35 > idtemp2,192
+15:36:35 > idtemp2,190
+15:36:35 > idtemp2,188
+15:36:35 > idtemp2,175
+15:36:35 > idtemp2,169
+15:36:35 > idtemp2,166
+15:36:35 > idtemp2,162
+15:36:35 > idtemp2,160
+15:36:35 > idtemp2,164
+15:36:35 > idtemp2,167
+15:36:35 > idtemp2,174
+15:36:35 > idtemp2,176
+15:36:35 > idtemp2,189
+15:36:35 > idtemp2,191
+15:36:35 > dato entrada    : 3021 -- cantidad   : 1 -- 
+15:36:35 > -> id_mongo de seccion 51c1d003c8437e6614000053
+15:36:35 > dato entrada    : 3022 -- cantidad   : 1 -- 
+15:36:35 > mongo_se: 51b64c32c8437e4b3100000b
+15:36:35 > estado_migracion: 2
+15:36:35 > -> id_mongo de seccion 51b64c32c8437e4b3100000b
+15:36:35 > -> id_mongo de seccion 51b64c32c8437e4b3100000b
+15:36:35 > idtemp2,192
+15:36:35 > idtemp2,190
+15:36:35 > idtemp2,188
+15:36:35 > idtemp2,175
+15:36:35 > idtemp2,169
+15:36:35 > idtemp2,166
+15:36:35 > idtemp2,162
+15:36:35 > idtemp2,160
+15:36:35 > idtemp2,164
+15:36:35 > idtemp2,167
+15:36:35 > idtemp2,174
+15:36:35 > idtemp2,176
+15:36:35 > idtemp2,189
+15:36:35 > idtemp2,191
+15:36:35 > dato entrada    : 3023 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 3024 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 3025 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 3026 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 3027 -- cantidad   : 1 -- 
+15:36:35 > mongo_se: 51b64c32c8437e4a3100000c
+15:36:35 > estado_migracion: 2
+15:36:35 > -> id_mongo de seccion 51b64c32c8437e4a3100000c
+15:36:35 > -> id_mongo de seccion 51b64c32c8437e4a3100000c
+15:36:35 > idtemp1,58
+15:36:35 > idtemp1,54
+15:36:35 > idtemp1,49
+15:36:35 > idtemp2,192
+15:36:35 > idtemp2,190
+15:36:35 > idtemp2,188
+15:36:35 > idtemp2,175
+15:36:35 > idtemp2,169
+15:36:35 > idtemp2,166
+15:36:35 > idtemp2,162
+15:36:35 > idtemp2,160
+15:36:35 > idtemp2,164
+15:36:35 > idtemp2,167
+15:36:35 > idtemp2,174
+15:36:35 > idtemp2,176
+15:36:35 > idtemp2,189
+15:36:35 > idtemp2,191
+15:36:35 > 2  -  1
+15:36:35 > entro a actualizar
+15:36:35 > dato entrada    : 3028 -- cantidad   : 1 -- 
+15:36:35 > mongo_se: 51b64d0dc8437eba34000004
+15:36:35 > estado_migracion: 2
+15:36:35 > -> id_mongo de seccion 51b64d0dc8437eba34000004
+15:36:35 > -> id_mongo de seccion 51b64d0dc8437eba34000004
+15:36:35 > idtemp1,32
+15:36:35 > dato entrada    : 3029 -- cantidad   : 1 -- 
+15:36:35 > mongo_se: 51b64d0dc8437eba34000005
+15:36:35 > estado_migracion: 2
+15:36:35 > -> id_mongo de seccion 51b64d0dc8437eba34000005
+15:36:35 > -> id_mongo de seccion 51b64d0dc8437eba34000005
+15:36:35 > idtemp2,368
+15:36:35 > idtemp2,366
+15:36:35 > idtemp2,364
+15:36:35 > idtemp2,362
+15:36:35 > idtemp2,360
+15:36:35 > idtemp2,358
+15:36:35 > idtemp2,356
+15:36:35 > idtemp2,354
+15:36:35 > idtemp2,240
+15:36:35 > idtemp2,236
+15:36:35 > idtemp2,227
+15:36:35 > idtemp2,222
+15:36:35 > idtemp2,221
+15:36:35 > idtemp2,223
+15:36:35 > idtemp2,228
+15:36:35 > idtemp2,239
+15:36:35 > idtemp2,241
+15:36:35 > idtemp2,355
+15:36:35 > idtemp2,359
+15:36:35 > idtemp2,361
+15:36:35 > idtemp2,363
+15:36:35 > idtemp2,365
+15:36:35 > idtemp2,367
+15:36:35 > dato entrada    : 3030 -- cantidad   : 1 -- 
+15:36:35 > -> id_mongo de seccion 51c1d003c8437e6614000054
+15:36:35 > dato entrada    : 3031 -- cantidad   : 1 -- 
+15:36:35 > mongo_se: 51b64d0dc8437eba34000007
+15:36:35 > estado_migracion: 2
+15:36:35 > -> id_mongo de seccion 51b64d0dc8437eba34000007
+15:36:35 > -> id_mongo de seccion 51b64d0dc8437eba34000007
+15:36:35 > idtemp2,236
+15:36:35 > idtemp2,227
+15:36:35 > idtemp2,222
+15:36:35 > idtemp2,221
+15:36:35 > idtemp2,223
+15:36:35 > idtemp2,228
+15:36:35 > dato entrada    : 3032 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 3033 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 3034 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 3035 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 3036 -- cantidad   : 1 -- 
+15:36:35 > mongo_se: 51b64d0dc8437eb934000005
+15:36:35 > estado_migracion: 2
+15:36:35 > -> id_mongo de seccion 51b64d0dc8437eb934000005
+15:36:35 > -> id_mongo de seccion 51b64d0dc8437eb934000005
+15:36:35 > idtemp1,94
+15:36:35 > idtemp1,93
+15:36:35 > idtemp1,92
+15:36:35 > idtemp1,70
+15:36:35 > idtemp1,63
+15:36:35 > idtemp2,368
+15:36:35 > idtemp2,366
+15:36:35 > idtemp2,364
+15:36:35 > idtemp2,362
+15:36:35 > idtemp2,360
+15:36:35 > idtemp2,358
+15:36:35 > idtemp2,356
+15:36:35 > idtemp2,354
+15:36:35 > idtemp2,240
+15:36:35 > idtemp2,236
+15:36:35 > idtemp2,227
+15:36:35 > idtemp2,222
+15:36:35 > idtemp2,221
+15:36:35 > idtemp2,223
+15:36:35 > idtemp2,228
+15:36:35 > idtemp2,239
+15:36:35 > idtemp2,241
+15:36:35 > idtemp2,355
+15:36:35 > idtemp2,359
+15:36:35 > idtemp2,361
+15:36:35 > idtemp2,363
+15:36:35 > idtemp2,365
+15:36:35 > idtemp2,367
+15:36:35 > 2  -  1
+15:36:35 > entro a actualizar
+15:36:35 > dato entrada    : 3037 -- cantidad   : 1 -- 
+15:36:35 > mongo_se: 51b64bb9c8437e4231000009
+15:36:35 > estado_migracion: 2
+15:36:35 > -> id_mongo de seccion 51b64bb9c8437e4231000009
+15:36:35 > -> id_mongo de seccion 51b64bb9c8437e4231000009
+15:36:35 > idtemp1,34
+15:36:35 > dato entrada    : 3038 -- cantidad   : 1 -- 
+15:36:35 > mongo_se: 51b64bb9c8437e423100000a
+15:36:35 > estado_migracion: 2
+15:36:35 > -> id_mongo de seccion 51b64bb9c8437e423100000a
+15:36:35 > -> id_mongo de seccion 51b64bb9c8437e423100000a
+15:36:35 > idtemp2,376
+15:36:35 > idtemp2,374
+15:36:35 > idtemp2,372
+15:36:35 > idtemp2,370
+15:36:35 > idtemp2,209
+15:36:35 > idtemp2,204
+15:36:35 > idtemp2,202
+15:36:35 > idtemp2,200
+15:36:35 > idtemp2,157
+15:36:35 > idtemp2,151
+15:36:35 > idtemp2,147
+15:36:35 > idtemp2,140
+15:36:35 > idtemp2,132
+15:36:35 > idtemp2,130
+15:36:35 > idtemp2,128
+15:36:35 > idtemp2,126
+15:36:35 > idtemp2,117
+15:36:35 > idtemp2,114
+15:36:35 > idtemp2,109
+15:36:35 > idtemp2,105
+15:36:35 > idtemp2,108
+15:36:35 > idtemp2,112
+15:36:35 > idtemp2,116
+15:36:35 > idtemp2,120
+15:36:35 > idtemp2,127
+15:36:35 > idtemp2,129
+15:36:35 > idtemp2,131
+15:36:35 > idtemp2,139
+15:36:35 > idtemp2,141
+15:36:35 > idtemp2,150
+15:36:35 > idtemp2,156
+15:36:35 > idtemp2,198
+15:36:35 > idtemp2,201
+15:36:35 > idtemp2,203
+15:36:35 > idtemp2,205
+15:36:35 > idtemp2,369
+15:36:35 > idtemp2,371
+15:36:35 > idtemp2,373
+15:36:35 > idtemp2,375
+15:36:35 > dato entrada    : 3039 -- cantidad   : 1 -- 
+15:36:35 > -> id_mongo de seccion 51c1d003c8437e6614000055
+15:36:35 > dato entrada    : 3040 -- cantidad   : 1 -- 
+15:36:35 > mongo_se: 51b64bb9c8437e423100000c
+15:36:35 > estado_migracion: 2
+15:36:35 > -> id_mongo de seccion 51b64bb9c8437e423100000c
+15:36:35 > -> id_mongo de seccion 51b64bb9c8437e423100000c
+15:36:35 > idtemp2,209
+15:36:35 > idtemp2,204
+15:36:35 > idtemp2,202
+15:36:35 > idtemp2,200
+15:36:35 > idtemp2,157
+15:36:35 > idtemp2,151
+15:36:35 > idtemp2,147
+15:36:35 > idtemp2,140
+15:36:35 > idtemp2,132
+15:36:35 > idtemp2,130
+15:36:35 > idtemp2,128
+15:36:35 > idtemp2,126
+15:36:35 > idtemp2,117
+15:36:35 > idtemp2,114
+15:36:35 > idtemp2,109
+15:36:35 > idtemp2,105
+15:36:35 > idtemp2,108
+15:36:35 > idtemp2,112
+15:36:35 > idtemp2,116
+15:36:35 > idtemp2,120
+15:36:35 > idtemp2,127
+15:36:35 > idtemp2,129
+15:36:35 > idtemp2,131
+15:36:35 > idtemp2,139
+15:36:35 > idtemp2,141
+15:36:35 > idtemp2,150
+15:36:35 > idtemp2,156
+15:36:35 > idtemp2,198
+15:36:35 > idtemp2,201
+15:36:35 > idtemp2,203
+15:36:35 > idtemp2,205
+15:36:35 > dato entrada    : 3041 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 3042 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 3043 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 3044 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 3045 -- cantidad   : 1 -- 
+15:36:35 > mongo_se: 51b64bb9c8437e2505000016
+15:36:35 > estado_migracion: 2
+15:36:35 > -> id_mongo de seccion 51b64bb9c8437e2505000016
+15:36:35 > -> id_mongo de seccion 51b64bb9c8437e2505000016
+15:36:35 > idtemp1,95
+15:36:35 > idtemp1,61
+15:36:35 > idtemp1,45
+15:36:35 > idtemp2,376
+15:36:35 > idtemp2,374
+15:36:35 > idtemp2,372
+15:36:35 > idtemp2,370
+15:36:35 > idtemp2,209
+15:36:35 > idtemp2,204
+15:36:35 > idtemp2,202
+15:36:35 > idtemp2,200
+15:36:35 > idtemp2,157
+15:36:35 > idtemp2,151
+15:36:35 > idtemp2,147
+15:36:35 > idtemp2,140
+15:36:35 > idtemp1,43
+15:36:35 > idtemp1,41
+15:36:35 > idtemp2,132
+15:36:35 > idtemp2,130
+15:36:35 > idtemp2,128
+15:36:35 > idtemp2,126
+15:36:35 > idtemp2,120
+15:36:35 > idtemp2,127
+15:36:35 > idtemp2,129
+15:36:35 > idtemp2,131
+15:36:35 > idtemp2,139
+15:36:35 > idtemp2,141
+15:36:35 > idtemp2,150
+15:36:35 > idtemp2,156
+15:36:35 > idtemp2,198
+15:36:35 > idtemp2,201
+15:36:35 > idtemp2,203
+15:36:35 > idtemp2,205
+15:36:35 > idtemp2,369
+15:36:35 > idtemp2,371
+15:36:35 > idtemp2,373
+15:36:35 > idtemp2,375
+15:36:35 > 2  -  1
+15:36:35 > dato entrada    : 3049 -- cantidad   : 1 -- 
+15:36:35 > mongo_se: 51a7c107a439163f74000001
+15:36:35 > estado_migracion: 2
+15:36:35 > -> id_mongo de seccion 51c1d003c8437e6614000057
+15:36:35 > -> id_mongo de seccion 51c1d003c8437e6614000057
+15:36:35 > idtemp1,51
+15:36:35 > idtemp1,50
+15:36:35 > dato entrada    : 3050 -- cantidad   : 1 -- 
+15:36:35 > mongo_se: 51b64c37c8437e250500001d
+15:36:35 > estado_migracion: 2
+15:36:35 > -> id_mongo de seccion 51b64c37c8437e250500001d
+15:36:35 > -> id_mongo de seccion 51b64c37c8437e250500001d
+15:36:35 > idtemp1,51
+15:36:35 > idtemp1,50
+15:36:35 > dato entrada    : 3051 -- cantidad   : 1 -- 
+15:36:35 > -> id_mongo de seccion 51a7c3ada439164652000001
+15:36:35 > dato entrada    : 3052 -- cantidad   : 1 -- 
+15:36:35 > -> id_mongo de seccion 51a7c3ada439167325000001
+15:36:35 > dato entrada    : 3053 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 3054 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 3055 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 3056 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 3057 -- cantidad   : 1 -- 
+15:36:35 > 2  -  1
+15:36:35 > entro a actualizar
+15:36:35 > dato entrada    : 3058 -- cantidad   : 1 -- 
+15:36:35 > mongo_se: 51b64c37c8437e1830000014
+15:36:35 > estado_migracion: 2
+15:36:35 > -> id_mongo de seccion 51b64c37c8437e1830000014
+15:36:35 > -> id_mongo de seccion 51b64c37c8437e1830000014
+15:36:35 > idtemp1,50
+15:36:35 > dato entrada    : 3059 -- cantidad   : 1 -- 
+15:36:35 > -> id_mongo de seccion 51a7c674a43916f614000003
+15:36:35 > idtemp2,179
+15:36:35 > idtemp2,170
+15:36:35 > idtemp2,168
+15:36:35 > idtemp2,172
+15:36:35 > dato entrada    : 3060 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 3061 -- cantidad   : 1 -- 
+15:36:35 > -> id_mongo de seccion 51a7c674a439169014000001
+15:36:35 > idtemp2,179
+15:36:35 > idtemp2,170
+15:36:35 > idtemp2,168
+15:36:35 > idtemp2,172
+15:36:35 > dato entrada    : 3062 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 3063 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 3064 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 3065 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 3074 -- cantidad   : 1 -- 
+15:36:35 > mongo_se: 51b64c37c8437ec733000003
+15:36:35 > estado_migracion: 2
+15:36:35 > -> id_mongo de seccion 51b64c37c8437ec733000003
+15:36:35 > -> id_mongo de seccion 51b64c37c8437ec733000003
+15:36:35 > idtemp1,53
+15:36:35 > idtemp2,179
+15:36:35 > idtemp2,170
+15:36:35 > idtemp2,168
+15:36:35 > idtemp2,172
+15:36:35 > 2  -  1
+15:36:35 > entro a actualizar
+15:36:35 > dato entrada    : 3066 -- cantidad   : 1 -- 
+15:36:35 > mongo_se: 51b64c73c8437eb934000001
+15:36:35 > estado_migracion: 2
+15:36:35 > -> id_mongo de seccion 51b64c73c8437eb934000001
+15:36:35 > -> id_mongo de seccion 51b64c73c8437eb934000001
+15:36:35 > idtemp1,51
+15:36:35 > dato entrada    : 3067 -- cantidad   : 1 -- 
+15:36:35 > -> id_mongo de seccion 51a7ed8ca43916d73d000001
+15:36:35 > idtemp2,187
+15:36:35 > idtemp2,185
+15:36:35 > idtemp2,184
+15:36:35 > idtemp2,186
+15:36:35 > dato entrada    : 3068 -- cantidad   : 1 -- 
+15:36:35 > -> id_mongo de seccion 51c1d003c8437e6614000058
+15:36:35 > dato entrada    : 3069 -- cantidad   : 1 -- 
+15:36:35 > -> id_mongo de seccion 51a7ed8ca43916253d000001
+15:36:35 > idtemp2,187
+15:36:35 > idtemp2,185
+15:36:35 > idtemp2,184
+15:36:35 > idtemp2,186
+15:36:35 > dato entrada    : 3070 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 3071 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 3072 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 3073 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 3075 -- cantidad   : 1 -- 
+15:36:35 > mongo_se: 51b64c73c8437eb634000000
+15:36:35 > estado_migracion: 2
+15:36:35 > -> id_mongo de seccion 51b64c73c8437eb634000000
+15:36:35 > -> id_mongo de seccion 51b64c73c8437eb634000000
+15:36:35 > idtemp1,57
+15:36:35 > idtemp2,185
+15:36:35 > idtemp2,186
+15:36:35 > 2  -  1
+15:36:35 > entro a actualizar
+15:36:35 > dato entrada    : 3076 -- cantidad   : 1 -- 
+15:36:35 > mongo_se: 51b64d0fc8437eb934000007
+15:36:35 > estado_migracion: 2
+15:36:35 > -> id_mongo de seccion 51b64d0fc8437eb934000007
+15:36:35 > -> id_mongo de seccion 51b64d0fc8437eb934000007
+15:36:35 > idtemp1,64
+15:36:35 > dato entrada    : 3077 -- cantidad   : 1 -- 
+15:36:35 > mongo_se: 51b64d0fc8437eb934000008
+15:36:35 > estado_migracion: 2
+15:36:35 > -> id_mongo de seccion 51b64d0fc8437eb934000008
+15:36:35 > -> id_mongo de seccion 51b64d0fc8437eb934000008
+15:36:35 > idtemp2,225
+15:36:35 > idtemp2,224
+15:36:35 > dato entrada    : 3078 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 3079 -- cantidad   : 1 -- 
+15:36:35 > mongo_se: 51b64d0fc8437eb934000009
+15:36:35 > estado_migracion: 2
+15:36:35 > -> id_mongo de seccion 51b64d0fc8437eb934000009
+15:36:35 > -> id_mongo de seccion 51b64d0fc8437eb934000009
+15:36:35 > idtemp2,225
+15:36:35 > idtemp2,224
+15:36:35 > dato entrada    : 3080 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 3081 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 3082 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 3083 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 3084 -- cantidad   : 1 -- 
+15:36:35 > mongo_se: 51b64d0fc8437eb634000003
+15:36:35 > estado_migracion: 2
+15:36:35 > -> id_mongo de seccion 51b64d0fc8437eb634000003
+15:36:35 > -> id_mongo de seccion 51b64d0fc8437eb634000003
+15:36:35 > idtemp1,66
+15:36:35 > idtemp2,225
+15:36:35 > idtemp2,224
+15:36:35 > 0  -  0
+15:36:35 > 2  -  1
+15:36:35 > dato entrada    : 3097 -- cantidad   : 1 -- 
+15:36:35 > mongo_se: 51ab9528a43916237a000001
+15:36:35 > estado_migracion: 2
+15:36:35 > -> id_mongo de seccion 51c1d003c8437e661400005b
+15:36:35 > -> id_mongo de seccion 51c1d003c8437e661400005b
+15:36:35 > idtemp1,79
+15:36:35 > dato entrada    : 3098 -- cantidad   : 1 -- 
+15:36:35 > mongo_se: 51b66f97c8437ef93c000017
+15:36:35 > estado_migracion: 2
+15:36:35 > -> id_mongo de seccion 51b66f97c8437ef93c000017
+15:36:35 > -> id_mongo de seccion 51b66f97c8437ef93c000017
+15:36:35 > idtemp1,79
+15:36:35 > dato entrada    : 3099 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 3100 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 3101 -- cantidad   : 1 -- 
+15:36:35 > mongo_se: 51ac943fa439162f7a000001
+15:36:35 > estado_migracion: 2
+15:36:35 > -> id_mongo de seccion 51c1d003c8437e661400005c
+15:36:35 > -> id_mongo de seccion 51c1d003c8437e661400005c
+15:36:35 > idtemp2,260
+15:36:35 > dato entrada    : 3102 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 3103 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 3104 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 3105 -- cantidad   : 1 -- 
+15:36:35 > 2  -  1
+15:36:35 > entro a actualizar
+15:36:35 > dato entrada    : 3107 -- cantidad   : 1 -- 
+15:36:35 > mongo_se: 51b66f97c8437e963c000019
+15:36:35 > estado_migracion: 2
+15:36:35 > -> id_mongo de seccion 51b66f97c8437e963c000019
+15:36:35 > -> id_mongo de seccion 51b66f97c8437e963c000019
+15:36:35 > dato entrada    : 3108 -- cantidad   : 1 -- 
+15:36:35 > mongo_se: 51b66f97c8437e963c00001a
+15:36:35 > estado_migracion: 2
+15:36:35 > -> id_mongo de seccion 51b66f97c8437e963c00001a
+15:36:35 > -> id_mongo de seccion 51b66f97c8437e963c00001a
+15:36:35 > idtemp2,353
+15:36:35 > idtemp2,260
+15:36:35 > dato entrada    : 3109 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 3110 -- cantidad   : 1 -- 
+15:36:35 > mongo_se: 51b66f97c8437ea33c000019
+15:36:35 > estado_migracion: 2
+15:36:35 > -> id_mongo de seccion 51b66f97c8437ea33c000019
+15:36:35 > -> id_mongo de seccion 51b66f97c8437ea33c000019
+15:36:35 > idtemp2,353
+15:36:35 > idtemp2,260
+15:36:35 > dato entrada    : 3111 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 3112 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 3113 -- cantidad   : 1 -- 
+15:36:35 > dato entrada    : 3114 -- cantidad   : 1 -- 
