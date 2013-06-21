@@ -6,12 +6,12 @@
 #*.swp
 
 # También es posible ignorar todos los subdirectorios y archivos en un directorio determinado
-uploads/videos/*
+uploads/default/files/
+uploads/log/
+uploads/temp/
+uploads/videos/
+
 system/cms/logs/
 system/cms/cache/default/
-nbproject/
-system/cms/config/database.php
-system/cms/config/mongodb.php
 
-system/cms/config/database.php
-system/cms/config/mongodb.php
+nbproject/
