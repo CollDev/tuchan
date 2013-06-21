@@ -100,4 +100,9 @@ class Detalle_secciones_m extends MY_Model {
         return $result;        
     }
 
+    public function limpiar()
+    {
+        $sql = 'DELETE FROM ' . $this->_table;
+        $this->db->query($sql);
+    }
 }
