@@ -111,7 +111,7 @@ class Liquid {
     function updateUnpublishedMedia($apikey, $codigo) {
         $url = APIURL . "/medias/" . $codigo . "?key=" . $apikey;
         $post = "<Media><published>false</published></Media>";
-        Log::erroLog("url: " .  $url);
+        Log::erroLog("url: " . $url);
         return self::postXML($url, $post);
     }
 
@@ -348,7 +348,7 @@ class Liquid {
                 }
             }
         }
-        
+
         if (count($result) > 0) {
             sort($result);
             return $result;
@@ -558,15 +558,13 @@ class Liquid {
         $straye = date("Ymd", $ayer) . "000000<br>";
         $strman = date("Ymd", $mañana) . "235959<br>";
 
-
         GETCURL:
 
-
-        if ($contador == 1) {
+        if ($contador == 20) {
             return false;
         }
 
-        $url = APIURL . "/medias/?key=" . $apikey . "&filter=id;po1stDate;title&search=title:" . $id . ";postDate:%3C" . $strman . ";postDate:%3E" . $straye;
+        $url = APIURL . "/medias/?key=" . $apikey . "&filter=id;postDate;title&search=title:" . $id . ";postDate:%3C" . $strman . ";postDate:%3E" . $straye;
 
         $retorno = self::getCurl($url);
 
@@ -583,21 +581,21 @@ class Liquid {
     function getObtenerMedia($mediaarr, $id) {
         $media = '';
 
-        if (count($mediaarr["Media"])>0) {
-                if (isset($mediaarr["Media"]["id"])) {
-            
-                    if ($mediaarr["Media"]["title"] == $id) {
-                        $media = $mediaarr["Media"]["id"];                      
-                    }
-                } else {
+        if (count($mediaarr["Media"]) > 0) {
+            if (isset($mediaarr["Media"]["id"])) {
 
-                    foreach ($mediaarr["Media"] as $value) {                        
-                        if ($value["title"] == $id) {
-                            $media = $value["id"];
-                            break ;
-                        }
+                if ($mediaarr["Media"]["title"] == $id) {
+                    $media = $mediaarr["Media"]["id"];
+                }
+            } else {
+
+                foreach ($mediaarr["Media"] as $value) {
+                    if ($value["title"] == $id) {
+                        $media = $value["id"];
+                        break;
                     }
                 }
+            }
         }
         return $media;
     }
