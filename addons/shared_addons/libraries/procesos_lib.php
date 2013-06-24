@@ -21,11 +21,11 @@ class Procesos_lib extends MX_Controller {
         $this->load->library("Procesos/proceso");
         $this->load->library("Procesos/liquid");
         $this->load->library("Procesos/ffmpeg");
-        //$this->load->library("Procesos/youtube");
-        
+        $this->load->library("Procesos/youtube");
+
         $this->load->library("Procesos/log");
         $this->load->library('portadas_lib');
-        //$this->load->library('sincronizar_lib');
+        $this->load->library('sincronizar_lib');
     }
 
     public function index() {
@@ -159,6 +159,7 @@ class Procesos_lib extends MX_Controller {
     }
 
     public function verificaVideosLiquidXId($id) {
+
         Log::erroLog("entro a : verificaVideosLiquidXId " . $id);
 
         $video = $this->videos_mp->getVideosxIdConKey($id);
@@ -175,7 +176,7 @@ class Procesos_lib extends MX_Controller {
                     $this->curlUploadVideosXId($id);
                 } elseif ($video[0]->estado_liquid == $this->config->item('v_l:subiendo') || $video[0]->estado_liquid == $this->config->item('v_l:subido')) {
                     Log::erroLog("no hay datos me voy a curlVerificaVideosLiquidXId " . $id);
-                    sleep(180);
+                    sleep(30);
                     $this->curlVerificaVideosLiquidXId($id);
                 }
             } else {
@@ -184,7 +185,7 @@ class Procesos_lib extends MX_Controller {
                     Log::erroLog("al fin algo continuo el publishd " . $id);
                     $this->continuaProcesoVideos($id);
                 } else {
-                    sleep(180);
+                    sleep(30);
                     Log::erroLog("aun sin nada me curlVerificaVideosLiquidXId " . $id);
                     $this->curlVerificaVideosLiquidXId($id);
                 }
@@ -199,18 +200,18 @@ class Procesos_lib extends MX_Controller {
     }
 
     protected function _convertirVideosXId($id) {
-        
-         Log::erroLog("_convertirVideosXId: " . $id);
+
+        Log::erroLog("_convertirVideosXId: " . $id);
 
         if (!empty($id)) {
-            Log::erroLog("video antes de conversion : " . $id. "  ");
+            Log::erroLog("video antes de conversion : " . $id . "  ");
             $this->videos_mp->setEstadosVideos($id, $this->config->item('v_e:codificando'), $this->config->item('v_l:codificando'));
-            Log::erroLog("video despues de conversion : " . $id. "  ");
+            Log::erroLog("video despues de conversion : " . $id . "  ");
             if (Ffmpeg::convertVideotoMp4($id)) {
-                Log::erroLog("video: " . $id. "convertido correctamente ");
+                Log::erroLog("video: " . $id . "convertido correctamente ");
                 $this->videos_mp->setEstadosVideos($id, $this->config->item('v_e:codificando'), $this->config->item('v_l:codificado'));
             } else {
-                Log::erroLog("video: " . $id. "no convertido correctamente ");
+                Log::erroLog("video: " . $id . "no convertido correctamente ");
                 $this->videos_mp->setEstadosVideos($id, $this->config->item('v_e:codificando'), -1);
             }
         }
@@ -236,21 +237,26 @@ class Procesos_lib extends MX_Controller {
                     Log::erroLog("return media " . trim($retorno));
                 } else {
                     Log::erroLog("exception de upload  getObtenerMediaXId " . $value->id . "," . $value->apikey);
-                    sleep(20);
+                    sleep(60);
+                    
                     $mediaarray = Liquid::getObtenerMediaXId($value->id, $value->apikey);
+                    
+                    if($mediaarray !=FALSE){
+                        $mediaxml = new SimpleXMLElement($mediaarray);
+                        $mediaarr = json_decode(json_encode($mediaxml), TRUE);
 
-                    $mediaxml = new SimpleXMLElement($mediaarray);
-                    $mediaarr = json_decode(json_encode($mediaxml), TRUE);
+                        $media = Liquid::getObtenerMedia($mediaarr, $value->id);
 
-                    $media = Liquid::getObtenerMedia($mediaarr, $value->id);
+                        Log::erroLog("Media encontrada: " . $media);
 
-                    Log::erroLog("Media encontrada: " . $media);
-
-                    if (!empty($media)) {
-                        Log::erroLog("entro a : updateMediaVideosXId por error" . $value->id . "/" . $media);
-                        $ruta = base_url("curlproceso/updateMediaVideosXId/" . $value->id . "/" . $media);
-                        shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");
-                    } else {
+                        if (!empty($media)) {
+                            Log::erroLog("entro a : updateMediaVideosXId por error" . $value->id . "/" . $media);
+                            $ruta = base_url("curlproceso/updateMediaVideosXId/" . $value->id . "/" . $media);
+                            shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");
+                        } else {
+                            $this->videos_mp->setEstadosVideos($value->id, $this->config->item('v_e:error'), $this->config->item('v_l:subiendo'));
+                        }
+                    }  else {
                         $this->videos_mp->setEstadosVideos($value->id, $this->config->item('v_e:error'), $this->config->item('v_l:subiendo'));
                     }
                 }
@@ -295,7 +301,7 @@ class Procesos_lib extends MX_Controller {
 
         if (count($resultado) > 0) {
             foreach ($resultado as $value) {
-                
+
                 $mediaarr = array();
 
                 ////error_log("dentro de " . $value->id);
@@ -384,7 +390,7 @@ class Procesos_lib extends MX_Controller {
                     $this->videos_mp->setEstadosVideos($value->id, $this->config->item('v_e:publicado'), $this->config->item('v_l:publicado'));
                     Log::erroLog(" antes de actualizar_video: " . $id);
                     //$this->portadas_lib->actualizar_video($value->id, FALSE);
-                    //$this->sincronizar_lib->agregar_video($value->id, 'pro');
+                    $this->sincronizar_lib->agregar_video($value->id, 'pro');
                     Log::erroLog("actualizar_video: " . $id);
                 }
             }
@@ -439,19 +445,19 @@ class Procesos_lib extends MX_Controller {
         }
     }
 
-    protected function _publishVideos() {
-        $resultado = $this->videos_mp->getVideosNoPublicados();
-        //echo print_r($resultado) . "\n";
-        if (count($resultado) > 0) {
-            foreach ($resultado as $value) {
-                $retorno = Liquid::updatePublishedMediaNode($value);
-                //var_dump($retorno);
-                if ($retorno != FALSE) {
-                    $this->videos_mp->setEstadosVideos($value->id, 1, 5);
-                }
-            }
-        }
-    }
+//    protected function _publishVideos() {
+//        $resultado = $this->videos_mp->getVideosNoPublicados();
+//        //echo print_r($resultado) . "\n";
+//        if (count($resultado) > 0) {
+//            foreach ($resultado as $value) {
+//                $retorno = Liquid::updatePublishedMediaNode($value);
+//                //var_dump($retorno);
+//                if ($retorno != FALSE) {
+//                    $this->videos_mp->setEstadosVideos($value->id, 1, 5);
+//                }
+//            }
+//        }
+//    }
 
     protected function _obtenerImagesUrlVideos() {
 
@@ -523,310 +529,305 @@ class Procesos_lib extends MX_Controller {
 //    public function generarPortadasMiCanal() {
 //        $this->_generarPortadasMiCanal();
 //    }
-
-
-
-    private function _generarPortadasMiCanal() {
-
-        $resquery = $this->micanal_mp->queryMysql(1, "");
-
-        if (count($resquery) > 0) {
-
-
-
-            foreach ($resquery as $value) {
-                Log::erroLog($value->estado_migracion . "  -  " . $value->estado);
-
-                if (($value->estado_migracion == 0 or $value->estado_migracion == 9 ) && $value->estado == 1) {
-
-                    $array = array();
-
-                    $array["tipo"] = "portada";
-                    $array["nombre"] = ($value->nombre);
-                    $array["estado"] = "1";
-
-
-                    $resquery2 = $this->micanal_mp->queryMysqlTipoPortadas($value->tipo_portadas_id, $value->origen_id);
-
-
-
-                    if (count($resquery2) > 0) {
-
-                        $row2 = $resquery2;
-
-                        if (isset($row2->nombre)) {
-                            $array["canal"] = ($row2[0]->nombre);
-                        } else {
-                            $array["canal"] = "";
-                        }
-
-                        $array["tipo_portadas_id"] = $value->tipo_portadas_id;
-
-
-                        switch ($value->tipo_portadas_id) {
-                            case '1':
-                                $array["canal"] = ($row2[0]->nombre);
-                                $array["alias"] = "";
-                                break;
-
-                            case '2':
-                                $array["canal"] = ($row2[0]->nombre);
-                                $array["alias"] = $row2[0]->alias;
-                                break;
-
-                            case '4':
-                                $array["id_pro"] = $row2[0]->id;
-                                $array["canal"] = ($row2[0]->nombre);
-                                $array["alias"] = $row2[0]->alias;
-                                $array["categoria"] = $row2[0]->alias_ca;
-                                $array["programa"] = ($row2[0]->nombre);
-                                $array["descripcion"] = ($row2[0]->descripcion);
-                                break;
-
-                            case '5':
-
-
-
-                                $array["canal"] = ($row2[0]->nombre);
-                                $array["alias"] = $row2[0]->alias;
-                                $array["canal_des"] = ($row2[0]->descripcion);
-                                $array["canal_cv"] = ($row2[0]->canal_cv);
-
-                                break;
-                        }
-                    }
-
-
-                    $objmongo = $array;
-
-
-
-                    if ($value->estado == 1) {
-                        if ($value->estado_migracion == 0) {
-                            $id_mongo = $this->micanal_mp->setItemCollection($objmongo);
-                            $this->micanal_mp->updateIdMongoPortadas($value->id, $id_mongo);
-                            $this->micanal_mp->updateEstadoMigracionPortadas($value->id);
-                        } elseif ($value->estado_migracion == 9) {
-                            $id_mongo = new MongoId($value->id_mongo);
-                            Log::erroLog("entro a actualizar");
-                            $this->micanal_mp->setItemCollectionUpdate($objmongo, array('_id' => $id_mongo));
-                            $this->micanal_mp->updateEstadoMigracionPortadasActualizacion($value->id);
-                        }
-                    }
-                    unset($objmongo);
-                    unset($array);
-                } elseif ($value->estado == 0 || $value->estado == 2) {
-                    //eliminacion item en coleccion micanal                    
-                    $id_mongo = new MongoId($value->id_mongo);
-                    $this->micanal_mp->setItemCollectionUpdate(array("estado" => "0"), array('_id' => $id_mongo));
-                    //$this->micanal_mp->SetItemCollectionDelete(array('_id' => $id_mongo));
-                    $this->micanal_mp->updateEstadoMigracionPortadasActualizacion($value->id);
-                }
-            }
-        }
-    }
-
+//    private function _generarPortadasMiCanal() {
+//
+//        $resquery = $this->micanal_mp->queryMysql(1, "");
+//
+//        if (count($resquery) > 0) {
+//
+//
+//
+//            foreach ($resquery as $value) {
+//                Log::erroLog($value->estado_migracion . "  -  " . $value->estado);
+//
+//                if (($value->estado_migracion == 0 or $value->estado_migracion == 9 ) && $value->estado == 1) {
+//
+//                    $array = array();
+//
+//                    $array["tipo"] = "portada";
+//                    $array["nombre"] = ($value->nombre);
+//                    $array["estado"] = "1";
+//
+//
+//                    $resquery2 = $this->micanal_mp->queryMysqlTipoPortadas($value->tipo_portadas_id, $value->origen_id);
+//
+//
+//
+//                    if (count($resquery2) > 0) {
+//
+//                        $row2 = $resquery2;
+//
+//                        if (isset($row2->nombre)) {
+//                            $array["canal"] = ($row2[0]->nombre);
+//                        } else {
+//                            $array["canal"] = "";
+//                        }
+//
+//                        $array["tipo_portadas_id"] = $value->tipo_portadas_id;
+//
+//
+//                        switch ($value->tipo_portadas_id) {
+//                            case '1':
+//                                $array["canal"] = ($row2[0]->nombre);
+//                                $array["alias"] = "";
+//                                break;
+//
+//                            case '2':
+//                                $array["canal"] = ($row2[0]->nombre);
+//                                $array["alias"] = $row2[0]->alias;
+//                                break;
+//
+//                            case '4':
+//                                $array["id_pro"] = $row2[0]->id;
+//                                $array["canal"] = ($row2[0]->nombre);
+//                                $array["alias"] = $row2[0]->alias;
+//                                $array["categoria"] = $row2[0]->alias_ca;
+//                                $array["programa"] = ($row2[0]->nombre);
+//                                $array["descripcion"] = ($row2[0]->descripcion);
+//                                break;
+//
+//                            case '5':
+//
+//
+//
+//                                $array["canal"] = ($row2[0]->nombre);
+//                                $array["alias"] = $row2[0]->alias;
+//                                $array["canal_des"] = ($row2[0]->descripcion);
+//                                $array["canal_cv"] = ($row2[0]->canal_cv);
+//
+//                                break;
+//                        }
+//                    }
+//
+//
+//                    $objmongo = $array;
+//
+//
+//
+//                    if ($value->estado == 1) {
+//                        if ($value->estado_migracion == 0) {
+//                            $id_mongo = $this->micanal_mp->setItemCollection($objmongo);
+//                            $this->micanal_mp->updateIdMongoPortadas($value->id, $id_mongo);
+//                            $this->micanal_mp->updateEstadoMigracionPortadas($value->id);
+//                        } elseif ($value->estado_migracion == 9) {
+//                            $id_mongo = new MongoId($value->id_mongo);
+//                            Log::erroLog("entro a actualizar");
+//                            $this->micanal_mp->setItemCollectionUpdate($objmongo, array('_id' => $id_mongo));
+//                            $this->micanal_mp->updateEstadoMigracionPortadasActualizacion($value->id);
+//                        }
+//                    }
+//                    unset($objmongo);
+//                    unset($array);
+//                } elseif ($value->estado == 0 || $value->estado == 2) {
+//                    //eliminacion item en coleccion micanal                    
+//                    $id_mongo = new MongoId($value->id_mongo);
+//                    $this->micanal_mp->setItemCollectionUpdate(array("estado" => "0"), array('_id' => $id_mongo));
+//                    //$this->micanal_mp->SetItemCollectionDelete(array('_id' => $id_mongo));
+//                    $this->micanal_mp->updateEstadoMigracionPortadasActualizacion($value->id);
+//                }
+//            }
+//        }
+//    }
 //    public function generarSeccionesMiCanal() {
 //        $this->_generarSeccionesMiCanal();
 //    }
 //    public function actualizarDetalleSecciones() {
 //        $this->_generarDetalleSeccionesMiCanal();
 //    }
-
-    private function _generarSeccionesMiCanal() {
-
-        $array = array();
-
-
-        $resquery = $this->micanal_mp->queryMysql(2, "");
-
-        if (count($resquery) != 0) {
-
-            foreach ($resquery as $value) {
-
-                if (($value->estado_migracion == 0 || $value->estado_migracion == 9) && $value->estado == 1) {
-
-                    $array["tipo"] = "seccion";
-                    $array["nombre"] = $value->nombre;
-                    $array["peso"] = $value->peso;
-                    $array["template"] = $value->templates_id;
-                    $array["padre"] = $value->mongo_po;
-                    $array["estado"] = "1";
-
-                    $array["alias_pa"] = $value->alias_pa;
-                    $array["alias_se"] = $this->urls_amigables($value->nombre);
-
-                    //echo $value->tipo_portadas_id . " - " . $value->tipo_secciones_id;
-
-                    if ($value->tipo_portadas_id == 5 and $value->tipo_secciones_id == 1) {
-
-
-                        $datos2 = $this->micanal_mp->queryMysql(5, $value->origen_id);
-
-                        if (count($datos2) == 1) {
-                            $array["canal_des"] = $datos2[0]->canal_des;
-                            $array["canal_cv"] = $datos2[0]->canal_cv;
-                            $array["canal_img"] = "http://" . $this->config->item('server:elemento') . "/" . $datos2[0]->canal_img;
-                        }
-                    }
-
-
-                    switch ($value->tipo_secciones_id) {
-                        case '2':
-                            $array["alias"] = "programa/" . $this->urls_amigables($value->nombre);
-                            break;
-                        case '6':
-                            $array["alias"] = "seccion/" . $this->urls_amigables($value->nombre);
-                            break;
-                        case '7':
-                            $array["alias"] = "seccion/" . $this->urls_amigables($value->nombre);
-                            break;
-                        case '8':
-                            $array["alias"] = "seccion/" . $this->urls_amigables($value->nombre);
-                            break;
-                        case '9':
-                            $array["alias"] = "seccion/" . $this->urls_amigables($value->nombre);
-                            break;
-                        default:
-                            $array["alias"] = "#";
-                            break;
-                    }
-
-                    $item = array();
-
-                    $array["item"] = $item;
-                    $objmongo = $array;
-
-
-                    $id_mongo = "";
-
-                    if ($value->mongo_se == "") {
-                        $id_mongo = $this->micanal_mp->SetItemCollection($objmongo);
-                        $this->micanal_mp->updateIdMongoSecciones($value->id, $id_mongo);
-                        $this->secciones_mp->updateEstadoMigracionSeccion($value->id);
-                    } elseif ($value->estado_migracion == 9 || $value->estado_migracion == 2) {
-                        $id_mongo = $value->mongo_se;
-                        $mongoid = new MongoId($id_mongo);
-                        $this->micanal_mp->SetItemCollectionUpdate($objmongo, array('_id' => $mongoid));
-                        $this->secciones_mp->updateEstadoMigracionSeccionActualizacion($value->id);
-                    }
-
-                    Log::erroLog($id_mongo);
-                    $mongoid = new MongoId($id_mongo);
-
-                    $this->_generarDetalleSeccionesMiCanalXSeccionId($value->id, $id_mongo);
-
-//                    if ($value->estado_migracion == 0) {
-//                        $id_mongo = $this->micanal_mp->SetItemCollection($objmongo);
-//                        $array["id_mongo"] = $id_mongo;
-//                        $array["id"] = $value->id;
-//                        $this->micanal_mp->updateIdMongoSecciones($value->id, $id_mongo);
-//                        $this->micanal_mp->updateEstadoMigracionPortadas($value->id);
-//                    } elseif ($value->estado_migracion == 9) {
-//                        $id_mongo = new MongoId($value->id_mongo);
-//                        $this->micanal_mp->SetItemCollectionUpdate($objmongo, array('_id' => $id_mongo));
-//                        $this->updateEstadoMigracionPortadasActualizacion($value->id);
+//    private function _generarSeccionesMiCanal() {
+//
+//        $array = array();
+//
+//
+//        $resquery = $this->micanal_mp->queryMysql(2, "");
+//
+//        if (count($resquery) != 0) {
+//
+//            foreach ($resquery as $value) {
+//
+//                if (($value->estado_migracion == 0 || $value->estado_migracion == 9) && $value->estado == 1) {
+//
+//                    $array["tipo"] = "seccion";
+//                    $array["nombre"] = $value->nombre;
+//                    $array["peso"] = $value->peso;
+//                    $array["template"] = $value->templates_id;
+//                    $array["padre"] = $value->mongo_po;
+//                    $array["estado"] = "1";
+//
+//                    $array["alias_pa"] = $value->alias_pa;
+//                    $array["alias_se"] = $this->urls_amigables($value->nombre);
+//
+//                    //echo $value->tipo_portadas_id . " - " . $value->tipo_secciones_id;
+//
+//                    if ($value->tipo_portadas_id == 5 and $value->tipo_secciones_id == 1) {
+//
+//
+//                        $datos2 = $this->micanal_mp->queryMysql(5, $value->origen_id);
+//
+//                        if (count($datos2) == 1) {
+//                            $array["canal_des"] = $datos2[0]->canal_des;
+//                            $array["canal_cv"] = $datos2[0]->canal_cv;
+//                            $array["canal_img"] = "http://" . $this->config->item('server:elemento') . "/" . $datos2[0]->canal_img;
+//                        }
 //                    }
 //
 //
-//                    $this->_generarDetalleSeccionesMiCanalXSeccionId($value->id);
-
-                    unset($array);
-                    unset($objmongo);
-                } elseif ($value->estado == 2) {
-
-                    $id_mongo = new MongoId($value->mongo_se);
-                    $this->micanal_mp->setItemCollectionUpdate(array("estado" => "0"), array('_id' => $id_mongo));
-                    //$this->conexionmongodb->SetItemCollectionDelete(array('_id' => $id_mongo));
-                    $this->updateEstadoMigracionActualizacion($value->id);
-                }
-            }
-        }
-    }
-
-    private function _generarDetalleSeccionesMiCanal() {
-
-        $resquery = $this->micanal_mp->queryMysql(3, "");
-
-
-        foreach ($resquery as $value) {
-            //echo "seccion_id" . $value->id . "; mongo:" . $value->id_mongo . "\n";
-            $resquery2 = $this->micanal_mp->queryMysql(4, $value->id);
-
-
-            $item = array();
-
-            foreach ($resquery2 as $value2) {
-                $arrtemp = array();
-
-                //echo "\n estado" . $value2->estado . "\n";
-
-                if ($value2->estado == 1) {
-
-
-                    if ($value2->grupo_maestros_id != "" && $value2->videos_id == "") {
-                        $idtemp = "1," . $value2->grupo_maestros_id;
-                    } elseif ($value2->grupo_maestros_id == "" && $value2->videos_id != "") {
-                        $idtemp = "2," . $value2->videos_id;
-                    }
-
-
-
-                    $resquery3 = $this->micanal_mp->queryProcedure(4, $idtemp);
-                    $row3 = $resquery3;
-
-                    $arrtemp["canal"] = ($row3[0]->xcanal);
-                    $arrtemp["fecha"] = $row3[0]->xfechatransmision;
-                    $arrtemp["coleccion"] = ($row3[0]->xcoleccion);
-                    $arrtemp["programa"] = ($row3[0]->xprograma);
-                    $arrtemp["lista_reproduccion"] = ($row3[0]->xlistareproduccionalias);
-                    $arrtemp["duracion"] = $row3[0]->xduracion;
-                    $arrtemp["categoria"] = $row3[0]->xcategoria;
-                    $arrtemp["descripcion"] = (strip_tags($row3[0]->xdescripcion));
-                    $arrtemp["reproducciones"] = ($row3[0]->xvi_rep);
-                    $arrtemp["comentarios"] = ($row3[0]->xvi_com);
-                    $arrtemp["valoracion"] = ($row3[0]->xvi_val);
-                    $arrtemp["video"] = ($row3[0]->xvideo);
-
-                    $urltemp = "";
-                    if ($value->tipo_secciones_id == 1 && $value->tipo_portadas_id == 5) {
-                        $urltemp = "programa/" . $row3[0]->xprogramaalias;
-                    } elseif ($value->tipo_secciones_id == 2 && $value->tipo_portadas_id == 5) {
-                        $urltemp = "programa/" . $row3[0]->xprogramaalias;
-                    } else {
-
-                        if ($row3[0]->xfechatransmision == $row3[0]->xlistareproduccionalias) {
-                            $urltemp = $row3[0]->xprogramaalias . "/" . $row3[0]->xfechatransmision . "-" . $row3[0]->xvideoalias;
-                        } else {
-                            $urltemp = $row3[0]->xprogramaalias . "/" . $row3[0]->xlistareproduccionalias . "/" . $row3[0]->xfechatransmision . "-" . $row3[0]->xvideoalias;
-                        }
-                    }
-                    $arrtemp["url"] = $urltemp;
-                    if ($value2->procedencia == 0) {
-                        $arrtemp["imagen"] = "http://" . $this->config->item('server:elemento') . "/" . $value2->imagen;
-                    } else {
-                        $arrtemp["imagen"] = $value2->imagen;
-                    }
-
-                    array_push($item, $arrtemp);
-                }
-
-                if ($value2->estado_migracion == 0) {
-                    //echo "ingresando : " . $value2->id . "\n";
-                    $this->micanal_mp->updateEstadoMigracionDetalleSecciones($value2->id);
-                } elseif ($value2->estado_migracion == 9 || $value2->estado_migracion == 2) {
-                    //echo "actualizando : " . $value2->id . "\n";
-                    $this->micanal_mp->updateEstadoMigracionDetalleSeccionesActualizacion($value2->id);
-                }
-            }
-
-            $where = array("_id" => new MongoId($value->id_mongo));
-
-            $set = array("item" => $item);
-            $this->micanal_mp->SetItemCollectionUpdate($set, $where);
-        }
-    }
-
+//                    switch ($value->tipo_secciones_id) {
+//                        case '2':
+//                            $array["alias"] = "programa/" . $this->urls_amigables($value->nombre);
+//                            break;
+//                        case '6':
+//                            $array["alias"] = "seccion/" . $this->urls_amigables($value->nombre);
+//                            break;
+//                        case '7':
+//                            $array["alias"] = "seccion/" . $this->urls_amigables($value->nombre);
+//                            break;
+//                        case '8':
+//                            $array["alias"] = "seccion/" . $this->urls_amigables($value->nombre);
+//                            break;
+//                        case '9':
+//                            $array["alias"] = "seccion/" . $this->urls_amigables($value->nombre);
+//                            break;
+//                        default:
+//                            $array["alias"] = "#";
+//                            break;
+//                    }
+//
+//                    $item = array();
+//
+//                    $array["item"] = $item;
+//                    $objmongo = $array;
+//
+//
+//                    $id_mongo = "";
+//
+//                    if ($value->mongo_se == "") {
+//                        $id_mongo = $this->micanal_mp->SetItemCollection($objmongo);
+//                        $this->micanal_mp->updateIdMongoSecciones($value->id, $id_mongo);
+//                        $this->secciones_mp->updateEstadoMigracionSeccion($value->id);
+//                    } elseif ($value->estado_migracion == 9 || $value->estado_migracion == 2) {
+//                        $id_mongo = $value->mongo_se;
+//                        $mongoid = new MongoId($id_mongo);
+//                        $this->micanal_mp->SetItemCollectionUpdate($objmongo, array('_id' => $mongoid));
+//                        $this->secciones_mp->updateEstadoMigracionSeccionActualizacion($value->id);
+//                    }
+//
+//                    Log::erroLog($id_mongo);
+//                    $mongoid = new MongoId($id_mongo);
+//
+//                    $this->_generarDetalleSeccionesMiCanalXSeccionId($value->id, $id_mongo);
+//
+////                    if ($value->estado_migracion == 0) {
+////                        $id_mongo = $this->micanal_mp->SetItemCollection($objmongo);
+////                        $array["id_mongo"] = $id_mongo;
+////                        $array["id"] = $value->id;
+////                        $this->micanal_mp->updateIdMongoSecciones($value->id, $id_mongo);
+////                        $this->micanal_mp->updateEstadoMigracionPortadas($value->id);
+////                    } elseif ($value->estado_migracion == 9) {
+////                        $id_mongo = new MongoId($value->id_mongo);
+////                        $this->micanal_mp->SetItemCollectionUpdate($objmongo, array('_id' => $id_mongo));
+////                        $this->updateEstadoMigracionPortadasActualizacion($value->id);
+////                    }
+////
+////
+////                    $this->_generarDetalleSeccionesMiCanalXSeccionId($value->id);
+//
+//                    unset($array);
+//                    unset($objmongo);
+//                } elseif ($value->estado == 2) {
+//
+//                    $id_mongo = new MongoId($value->mongo_se);
+//                    $this->micanal_mp->setItemCollectionUpdate(array("estado" => "0"), array('_id' => $id_mongo));
+//                    //$this->conexionmongodb->SetItemCollectionDelete(array('_id' => $id_mongo));
+//                    $this->updateEstadoMigracionActualizacion($value->id);
+//                }
+//            }
+//        }
+//    }
+//
+//    private function _generarDetalleSeccionesMiCanal() {
+//
+//        $resquery = $this->micanal_mp->queryMysql(3, "");
+//
+//
+//        foreach ($resquery as $value) {
+//            //echo "seccion_id" . $value->id . "; mongo:" . $value->id_mongo . "\n";
+//            $resquery2 = $this->micanal_mp->queryMysql(4, $value->id);
+//
+//
+//            $item = array();
+//
+//            foreach ($resquery2 as $value2) {
+//                $arrtemp = array();
+//
+//                //echo "\n estado" . $value2->estado . "\n";
+//
+//                if ($value2->estado == 1) {
+//
+//
+//                    if ($value2->grupo_maestros_id != "" && $value2->videos_id == "") {
+//                        $idtemp = "1," . $value2->grupo_maestros_id;
+//                    } elseif ($value2->grupo_maestros_id == "" && $value2->videos_id != "") {
+//                        $idtemp = "2," . $value2->videos_id;
+//                    }
+//
+//
+//
+//                    $resquery3 = $this->micanal_mp->queryProcedure(4, $idtemp);
+//                    $row3 = $resquery3;
+//
+//                    $arrtemp["canal"] = ($row3[0]->xcanal);
+//                    $arrtemp["fecha"] = $row3[0]->xfechatransmision;
+//                    $arrtemp["coleccion"] = ($row3[0]->xcoleccion);
+//                    $arrtemp["programa"] = ($row3[0]->xprograma);
+//                    $arrtemp["lista_reproduccion"] = ($row3[0]->xlistareproduccionalias);
+//                    $arrtemp["duracion"] = $row3[0]->xduracion;
+//                    $arrtemp["categoria"] = $row3[0]->xcategoria;
+//                    $arrtemp["descripcion"] = (strip_tags($row3[0]->xdescripcion));
+//                    $arrtemp["reproducciones"] = ($row3[0]->xvi_rep);
+//                    $arrtemp["comentarios"] = ($row3[0]->xvi_com);
+//                    $arrtemp["valoracion"] = ($row3[0]->xvi_val);
+//                    $arrtemp["video"] = ($row3[0]->xvideo);
+//
+//                    $urltemp = "";
+//                    if ($value->tipo_secciones_id == 1 && $value->tipo_portadas_id == 5) {
+//                        $urltemp = "programa/" . $row3[0]->xprogramaalias;
+//                    } elseif ($value->tipo_secciones_id == 2 && $value->tipo_portadas_id == 5) {
+//                        $urltemp = "programa/" . $row3[0]->xprogramaalias;
+//                    } else {
+//
+//                        if ($row3[0]->xfechatransmision == $row3[0]->xlistareproduccionalias) {
+//                            $urltemp = $row3[0]->xprogramaalias . "/" . $row3[0]->xfechatransmision . "-" . $row3[0]->xvideoalias;
+//                        } else {
+//                            $urltemp = $row3[0]->xprogramaalias . "/" . $row3[0]->xlistareproduccionalias . "/" . $row3[0]->xfechatransmision . "-" . $row3[0]->xvideoalias;
+//                        }
+//                    }
+//                    $arrtemp["url"] = $urltemp;
+//                    if ($value2->procedencia == 0) {
+//                        $arrtemp["imagen"] = "http://" . $this->config->item('server:elemento') . "/" . $value2->imagen;
+//                    } else {
+//                        $arrtemp["imagen"] = $value2->imagen;
+//                    }
+//
+//                    array_push($item, $arrtemp);
+//                }
+//
+//                if ($value2->estado_migracion == 0) {
+//                    //echo "ingresando : " . $value2->id . "\n";
+//                    $this->micanal_mp->updateEstadoMigracionDetalleSecciones($value2->id);
+//                } elseif ($value2->estado_migracion == 9 || $value2->estado_migracion == 2) {
+//                    //echo "actualizando : " . $value2->id . "\n";
+//                    $this->micanal_mp->updateEstadoMigracionDetalleSeccionesActualizacion($value2->id);
+//                }
+//            }
+//
+//            $where = array("_id" => new MongoId($value->id_mongo));
+//
+//            $set = array("item" => $item);
+//            $this->micanal_mp->SetItemCollectionUpdate($set, $where);
+//        }
+//    }
+//
     public function actualizarPortadasMiCanal() {
         $portadas = $this->portadas_mp->getPortadas();
 
@@ -986,9 +987,10 @@ class Procesos_lib extends MX_Controller {
                     $array["nombre"] = $value->nombre;
                     $array["peso"] = $value->peso;
                     $array["template"] = $value->templates_id;
+                    $array["tipo_portadas_id"] = $value->tipo_portadas_id;
+                    $array["tipo_secciones_id"] = $value->tipo_secciones_id;
+                    
                     $array["padre"] = $value->mongo_po;
-
-
                     $array["alias_pa"] = $value->alias_pa;
                     $array["alias_se"] = $this->urls_amigables($value->nombre);
                     $array["estado"] = "1";
@@ -1074,8 +1076,6 @@ class Procesos_lib extends MX_Controller {
         $item = array();
 
         foreach ($resquery2 as $value2) {
-
-
 
             $arrtemp = array();
 
@@ -1392,11 +1392,11 @@ class Procesos_lib extends MX_Controller {
                 $this->canal_mp->SetItemCollectionUpdate($set, $where);
 
                 $playlist = $this->videos_mp->getVideosPlaylist($value->id);
-                
+
                 $arrayplaylist = array();
 
                 $i = 0;
-                foreach ($playlist as $codigo) { 
+                foreach ($playlist as $codigo) {
                     $arrayplaylist[$i] = new MongoId($codigo->id_mongo);
                     $i++;
                 }
@@ -1463,8 +1463,8 @@ class Procesos_lib extends MX_Controller {
                     $objmongo['nivel'] = "0";
                     $objmongo['apikey'] = $value->apikey;
                     $objmongo['playerkey'] = $value->playerkey;
-                    $objmongo['canal_cv'] = $value->canal_cv;
-                    $objmongo['canal_cs'] = $value->canal_cs;
+                    $objmongo['cv'] = $value->canal_cv;
+                    $objmongo['cs'] = $value->canal_cs;
 
                     //error_log($value->canal_cv);
 
@@ -1489,63 +1489,66 @@ class Procesos_lib extends MX_Controller {
         }
     }
 
-//    public function generarProgramasXId($id){
-//        $this->_generarProgramasXId($id);
-//    }
-//    
-//    private function _generarProgramasXId($id){
-//        
-//        ////error_log("id: " . $id);
-//        
-//        $programa= $this->grupo_maestros_mp->getProgramasXId($id);
-//
-//        if (count($programa) > 0) {
-//
-//            foreach ($programa as $value) {
-//                ////error_log("estado: " . $value->estado . " >> ". $value->estado_migracion );
-//                
-//                if (($value->estado_migracion == 0 or $value->estado_migracion == 9 ) && $value->estado == 1) {
-//
-//                    $objmongo = array();
-//                    $objmongo['canal'] =strip_tags($value->nombre_ca);
-//                    $objmongo['nombre'] =strip_tags($value->nombre);
-//                    $objmongo['descripcion'] =strip_tags($value->descripcion);
-//                    $objmongo['url'] = $value->alias;
-//                    $objmongo['estado'] = "1";
-//                    $objmongo['padre'] = $value->idmongo_ca;
-//                    $objmongo['nivel'] = "1";
-//                    
-//                    if ($value->estado == 1) {
-//                        if (empty($value->id_mongo)) {
-//                            $id_mongo = $this->canal_mp->setItemCollection($objmongo);
-//                            $this->canal_mp->updateIdMongoCanales($value->id, $id_mongo);
-//                            $this->canal_mp->updateEstadoMigracionCanales($value->id);
-//                        } else {
-//                            $id_mongo = new MongoId($value->id_mongo);
-//                            $this->canal_mp->setItemCollectionUpdate($objmongo, array('_id' => $id_mongo));
-//                            $this->canal_mp->updateEstadoMigracionCanalesActualizacion($value->id);
-//                        }
-//                        
-//                    }
-//                    unset($objmongo);
-//                    
-//                } elseif ($value->estado == 2) {
-//                    $id_mongo = new MongoId($value->id_mongo);
-//                    $this->canal_mp->setItemCollectionUpdate(array("estado" => "0"), array('_id' => $id_mongo));                    
-//                    $this->canal_mp->updateEstadoMigracionCanalesActualizacion($value->id);
-//                }
-//            }
-//        }
-//    }
-//        
-//    public function generarColeccionesXId($id){
-//        $this->_generarColeccionesXId($id);
-//    }
-//    
-//    private function _generarColeccionesXId($id){
-//        
-//        
-//    }
+    public function generarProgramasXId($id) {
+        $this->_generarProgramasXId($id);
+    }
+
+    private function _generarProgramasXId($id) {
+
+        $programa = $this->grupo_maestros_mp->getGrupoMaestroXId(3, $id);
+
+        if (count($programa) > 0) {
+
+            foreach ($programa as $value) {
+
+                if (($value->estado_migracion == 0 or $value->estado_migracion == 9 ) && $value->estado == 1) {
+
+                    $imagenes = $this->imagenes_mp->getImagenesGrupoMaestrosXId($id);
+
+                    foreach ($imagenes as $value2) {
+                        $objmongo[$value2->nombre] = "http://" . $this->config->item('server:elemento') . "/" . $value2->imagen;
+                    }
+
+                    $objmongo = array();
+                    $objmongo['canal'] = strip_tags($value->nombre_ca);
+                    $objmongo['nombre'] = strip_tags($value->nombre);
+                    $objmongo['descripcion'] = strip_tags($value->descripcion);
+                    $objmongo['url'] = $value->alias;
+                    $objmongo['estado'] = $value->estado;
+                    $objmongo['padre'] = $value->idmongo_ca;
+                    $objmongo['nivel'] = "1";
+                    $objmongo['cv'] = $value->vi;
+
+
+
+                    if (!($this->canal_mp->existe_id_mongo($value->id_mongo))) {
+                        $id_mongo = $this->canal_mp->setItemCollection($objmongo);
+                        $this->canal_mp->updateIdMongoCanales($value->id, $id_mongo);
+                        $this->canal_mp->updateEstadoMigracionCanales($value->id);
+                    } else {
+                        $id_mongo = new MongoId($value->id_mongo);
+                        $this->canal_mp->setItemCollectionUpdate($objmongo, array('_id' => $id_mongo));
+                        $this->canal_mp->updateEstadoMigracionCanalesActualizacion($value->id);
+                    }
+
+
+                    unset($objmongo);
+                } elseif ($value->estado == 0 || $value->estado == 2) {
+                    $id_mongo = new MongoId($value->id_mongo);
+                    $this->canal_mp->setItemCollectionUpdate(array("estado" => "0"), array('_id' => $id_mongo));
+                    $this->canal_mp->updateEstadoMigracionCanalesActualizacion($value->id);
+                }
+            }
+        }
+    }
+
+    public function generarColeccionesXId($id) {
+        $this->_generarColeccionesXId($id);
+    }
+
+    private function _generarColeccionesXId($id) {
+        
+    }
 
     public function curlGenerarVideosXId($id) {
         
@@ -1662,7 +1665,7 @@ class Procesos_lib extends MX_Controller {
             }
 
             $playlist = $this->videos_mp->getVideosPlaylist($id);
-                 
+
             $arrayplaylist = array();
 
             $i = 0;
@@ -1796,7 +1799,7 @@ class Procesos_lib extends MX_Controller {
     }
 
     private function _actualizarSecciones6789() {
-        $this->micanal_mp->queryProcedure(1,"");
+        $this->micanal_mp->queryProcedure(1, "");
         $secciones = $this->secciones_mp->getSeccionesTipo6789();
         foreach ($secciones as $value) {
             $this->_generarSeccionesMiCanalXSeccionId($value->id);
@@ -1841,35 +1844,81 @@ class Procesos_lib extends MX_Controller {
         }
         echo "</table>";
     }
-    
-    public function publicarPendientes(){
-        $this->_publicarPendientes();
-         
+
+    public function publicarPendientes() {
+        $this->_publicarPendientes("");
+        // $this->_publicarPendientes();
     }
-    
-    private function _publicarPendientes(){
-        
-        $listavideos =  Liquid::obtenerVideosNoPublished("3b540fec2d40b445f91432821079128d");
-        
-        foreach ($listavideos as $value) {                     
+
+    private function _publicarPendientes() {
+
+        $listavideos = Liquid::obtenerVideosNoPublished("3b540fec2d40b445f91432821079128d");
+
+        foreach ($listavideos as $value) {
             $videos = $this->videos_mp->getVideosxCodigo($value["id"]);
-            
-            if (count($videos)!=0){
-                $retorno = Liquid::updatePublishedMediaNode($videos);           
+
+            if (count($videos) != 0) {
+                $retorno = Liquid::updatePublishedMediaNode($videos);
                 echo $retorno;
             }
         }
     }
-    
-    public function obtenerVideoYoutube($id){
-        $this->_obtenerVideoYoutube($id);
+
+    public function videoYoutube($id, $url) {
+
+        $url = "http://www.youtube.com/watch?v=_cxySGSJRV8";
+        //$url= "http://youtu.be/9qDAe-MInkQ";
+
+        $limpiarurl = array(
+            "http://www.youtube.com/",
+            "https://www.youtube.com/"
+        );
+
+        $limpiarurllite = array(
+            "http://youtu.be/",
+            "https://youtu.be/"
+        );
+
+
+        $url = trim(str_replace($limpiar, "", $url));
+
+
+        if (!empty($url)) {
+
+            $datos = explode("?", $url);
+            parse_str($datos[1], $datos2);
+
+            error_log($datos2["v"]);
+
+            if (!empty($datos2["v"])) {
+                $this->curlObtenerVideoYoutube($id, $datos2["v"]);
+            }
+        }
     }
 
-    private function _obtenerVideoYoutube($id){
-             
-        Youtube::obtenerVideo($id);
+    public function curlObtenerVideoYoutube($id, $v) {
+        Log::erroLog("ini - obtenerVideoYoutube: " . $v);
+        $ruta = base_url("curlproceso/obtenerVideoYoutube/" . $id . "/" . $v);
+        shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");
+        Log::erroLog("fin - obtenerVideoYoutube: " . $v);
     }
-    
+
+    public function obtenerVideoYoutube($id, $v) {
+        $this->_obtenerVideoYoutube($id, $v);
+    }
+
+    private function _obtenerVideoYoutube($id, $v) {
+
+        $data = Youtube::obtenerVideo($v);
+
+        if (!empty($data)) {
+            $retorno = Youtube::descargaVideo($id, $data);
+            if ($retorno == TRUE) {
+                $this->_uploadVideosXId($id);
+            }
+        }
+    }
+
     public function getMaestroDetalles() {
         $videos = $this->grupo_maestros_mp->getMaestroDetalles();
 
@@ -1913,5 +1962,23 @@ class Procesos_lib extends MX_Controller {
         }
         fclose($file);
     }
+
+    public function publishedVideosXId($id) {
+        $video = $this->videos_mp->getVideosxIdConKey($id);
+
+        if (count($video) > 0 && !empty($video[0]->codigo)) {
+            print_r(Liquid::updatePublishedMedia($video[0]->apikey, $video[0]->codigo));
+        }
+    }
+
+    public function unpublishedVideosXId($id) {
+        $video = $this->videos_mp->getVideosxIdConKey($id);
+
+        if (count($video) > 0 && !empty($video[0]->codigo)) {
+            print_r(Liquid::updateUnpublishedMedia($video[0]->apikey, $video[0]->codigo));
+        }
+    }
+
 }
+
 ?>

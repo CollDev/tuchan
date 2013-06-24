@@ -38,7 +38,7 @@ class Liquid {
             } elseif ($info['http_code'] == '500') {
                 sleep(15);
                 Log::erroLog("publishd datos genericos");
-                return self::updatePublishedMedia($url);
+                return self::updatePublishedMediaGeneral($url);
             } else {
                 sleep(5);
                 Log::erroLog("no paso publish");
@@ -90,12 +90,28 @@ class Liquid {
         }
     }
 
-    function updatePublishedMedia($url) {
+    function updatePublishedMediaGeneral($url) {
         $fecha = date('Y-m-d H:i:s');
         $date = date("Y-m-d\TH:i:sP", strtotime($fecha));
 
         $post = "<Media><title>Titulo</title><description>Descripcion</description><published>TRUE</published><publishDate>" . $date . "</publishDate></Media>";
         //echo $url . "<br>";
+        return self::postXML($url, $post);
+    }
+
+    function updatePublishedMedia($apikey, $codigo) {
+        $url = APIURL . "/medias/" . $codigo . "?key=" . $apikey;
+
+        $post = "<Media><published>true</published></Media>";
+
+        Log::erroLog("url: " . $url);
+        return self::postXML($url, $post);
+    }
+
+    function updateUnpublishedMedia($apikey, $codigo) {
+        $url = APIURL . "/medias/" . $codigo . "?key=" . $apikey;
+        $post = "<Media><published>false</published></Media>";
+        Log::erroLog("url: " . $url);
         return self::postXML($url, $post);
     }
 
@@ -184,10 +200,10 @@ class Liquid {
             $mediaarr = json_decode(json_encode($mediaxml), true);
 
             $media = $mediaarr["media"]["@attributes"]["id"];
-            Log::erroLog("media " . $media . " " . $id_video);                       
+            Log::erroLog("media " . $media . " " . $id_video);
 
             if (!empty($media)) {
-                return trim($media);                 
+                return trim($media);
             }
         } catch (Exception $exc) {
             Log::erroLog("return FALSE de Exception");
@@ -215,9 +231,7 @@ class Liquid {
             return "";
         }
     }
-    
-    
-    
+
     function obtenerVideosNoPublished($apikey) {
 
 
@@ -240,14 +254,14 @@ class Liquid {
                 if ($response != FALSE) {
                     $mediaxml = new SimpleXMLElement($response);
                     $mediaarr = json_decode(json_encode($mediaxml), true);
-                        
+
                     foreach ($mediaarr["Media"] as $value) {
                         array_push($arraydatos, $value);
                     }
-                   
+
                     $ini = $ini + $inc;
-                }else{
-                       break;
+                } else {
+                    break;
                 }
             } while (true);
 
@@ -334,6 +348,7 @@ class Liquid {
                 }
             }
         }
+
         if (count($result) > 0) {
             sort($result);
             return $result;
@@ -410,7 +425,7 @@ class Liquid {
                             $urlimg = $value2["url"] . "\n";
                             break 2;
                         }
-                    }   
+                    }
                 }
             }
         }
@@ -491,13 +506,13 @@ class Liquid {
         }
         return $duration;
     }
-    
-    function getPublished($mediaarr = array()) {       
-            if(!empty($mediaarr["published"])){
-                return (strtoupper($mediaarr["published"])=='TRUE')?TRUE:FALSE;    
-            }  else {
-                return NULL;    
-            }        
+
+    function getPublished($mediaarr = array()) {
+        if (!empty($mediaarr["published"])) {
+            return (strtoupper($mediaarr["published"]) == 'TRUE') ? TRUE : FALSE;
+        } else {
+            return NULL;
+        }
     }
 
     function getVerificarLiquidPostUpload($media, $apiKey) {
@@ -543,11 +558,9 @@ class Liquid {
         $straye = date("Ymd", $ayer) . "000000<br>";
         $strman = date("Ymd", $mañana) . "235959<br>";
 
-
         GETCURL:
 
-
-        if ($contador == 50) {
+        if ($contador == 20) {
             return false;
         }
 
@@ -559,37 +572,32 @@ class Liquid {
             return $retorno;
         } else {
 
-            sleep(10);
+            sleep(300);
             $contador++;
             goto GETCURL;
         }
     }
-    
-    function getObtenerMedia($mediaarr,$id) {
-        $media='';
 
-        if (!empty($mediaarr["Media"])) {
-            foreach ($mediaarr["Media"] as $value) {
+    function getObtenerMedia($mediaarr, $id) {
+        $media = '';
 
-                if (isset($value["id"])) {
+        if (count($mediaarr["Media"]) > 0) {
+            if (isset($mediaarr["Media"]["id"])) {
 
-                    if ($value["title"]==$id) {                        
+                if ($mediaarr["Media"]["title"] == $id) {
+                    $media = $mediaarr["Media"]["id"];
+                }
+            } else {
+
+                foreach ($mediaarr["Media"] as $value) {
+                    if ($value["title"] == $id) {
                         $media = $value["id"];
                         break;
-                    }
-                } else {
-
-                    foreach ($value as $value2) {
-
-                        if ($value2["title"]==$id) {                            
-                            $media = $value2["id"];
-                            break 2;
-                        }
                     }
                 }
             }
         }
-        return $media;        
+        return $media;
     }
 
     function getCurl($url) {
