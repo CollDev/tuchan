@@ -21,7 +21,7 @@ class Procesos_lib extends MX_Controller {
         $this->load->library("Procesos/proceso");
         $this->load->library("Procesos/liquid");
         $this->load->library("Procesos/ffmpeg");
-        $this->load->library("Procesos/youtube");
+        //$this->load->library("Procesos/youtube");
 
         $this->load->library("Procesos/log");
         $this->load->library('portadas_lib');
