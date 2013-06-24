@@ -7532,6 +7532,67 @@ class Admin extends Admin_Controller {
         }
     }
 
+    
+    public function ibope()
+    {
+        $canales = $this->canales_m->get_many_by(array('estado'=> $this->config->item('estado:publicado')));
+        foreach($canales as $canal) {
+            $imagen = $this->imagen_m->get_by(array('canales_id' => $canal->id, 'estado' => $this->config->item('estado:publicado'), 'tipo_imagen_id' => $this->config->item('imagen:iso')));
+            if (count($imagen) == 0) {
+                $logo = $this->config->item('url:iso');
+            } else {
+                $logo = $this->config->item('protocolo:http') . $this->config->item('server:elemento') . '/' . $imagen->imagen;
+            }
+            $canal->logo = $logo;
+        }
+        //do we need to unset the layout because the request is ajax?
+        $this->input->is_ajax_request() and $this->template->set_layout(FALSE);
+
+        $this->template
+                ->title($this->module_details['name'])
+                //->append_js('admin/filter.js')
+                //->append_js('module::jquery.ddslick.min.js')
+                //->set_partial('filters', 'admin/partials/filters')
+                ->set_partial('lista_canales', 'admin/tables/ibope')
+                ->append_js('module::scripts.js')
+                //->append_css('module::jquery.alerts.css')
+                //->set('pagination', $pagination)
+                //->set('estados', $estados)
+                ->set('canales', $canales);
+        $this->input->is_ajax_request() ? $this->template->build('admin/tables/canales') : $this->template->build('admin/ibope');
+    }
+    /**
+     * Actualiza campo ibope en canal
+     * 
+     * @return json Respuesta de éxito o error
+     */
+    public function actualizar_ibope()
+    {
+        if ($this->input->is_ajax_request()) {
+            //var_dump($this->input->get());
+            $updated = FALSE;
+            if (is_numeric($this->input->get('ibope'))) {
+                $updated = $this->canales_m->update($this->input->get('canal_id'), array('ibope' => $this->input->get('ibope')));
+            }
+            //var_dump($this->input->get('canal_id'));
+            if ($updated) {
+                $return = array('type' => 'exit', 'message' => 'Canal actualizado.');
+            } else {
+                $return = array('type' => 'error', 'message' => 'Error al actualizar canal.');
+            }
+        
+            echo json_encode($return);
+        }
+    }
+    
+    public function limpiar_portada()
+    {
+        $this->detalle_secciones_m->limpiar();
+        $videos = $this->videos_m->get_many_by(array('estado' => $this->config->item('video:publicado')));
+        foreach($videos as $video) {
+            $this->sincronizar_lib->agregar_video($video->id);
+        }
+    }
 }
 
 /* End of file admin.php */
