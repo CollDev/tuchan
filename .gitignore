@@ -2,15 +2,15 @@
 #.DS_Store
 
 # O usar comodines
-#*~
-#*.swp
+*~
+*.orig
 
 # También es posible ignorar todos los subdirectorios y archivos en un directorio determinado
+nbproject/
 uploads/default/files/
 uploads/log/
 uploads/temp/
 uploads/videos/
 
-system/cms/logs/
 system/cms/cache/default/
-nbproject/
+system/cms/logs/
