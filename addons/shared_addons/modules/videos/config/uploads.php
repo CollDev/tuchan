@@ -76,6 +76,7 @@ $config['imagen:formatos'] = 'jpg|png|jpeg';
 $config['procedencia:liquid'] = '1';
 $config['procedencia:elemento'] = '0';
 $config['procedencia:migracion'] = '1';
+$config['procedencia:youtube'] = '2';
 
 //tipos de tag
 $config['tag:tematicas'] = '1';
