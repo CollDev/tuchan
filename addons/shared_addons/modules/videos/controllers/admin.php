@@ -3394,6 +3394,7 @@ class Admin extends Admin_Controller {
         if ($this->input->is_ajax_request()) {
             $returnValue = 0;
             $maestro_id = 0;
+            $maestro_tipo = 0; 
             $canal_id = $this->input->post('canal_id');
             $user_id = (int) $this->session->userdata('user_id');
             if ($this->input->post('maestro_id') > 0) {//editare un  maestro
@@ -3424,7 +3425,8 @@ class Admin extends Admin_Controller {
                         "estado_migracion_sphinx" => $this->config->item('sphinx:actualizar')));
                     $returnValue = 0;
                     $this->guardarTagsMaestro($objBeanMaestro, $this->input->post());
-                    $maestro_id = $this->input->post('maestro_id');
+                    $maestro_tipo = $objBeanMaestro->tipo_grupo_maestro_id;
+                    $maestro_id = $this->input->post('maestro_id');                    
                 }
             } else {//registrar un nuevo maestro
                 if ($this->existeNombreMaestro($this->input->post('titulo'), $this->input->post('canal_id'), $this->input->post('maestro_id'))) {
@@ -3508,7 +3510,9 @@ class Admin extends Admin_Controller {
                                     }
                                 }
                             }
+                            $maestro_tipo = $objBeanMaestroSaved->tipo_grupo_maestro_id;
                             $maestro_id = $objBeanMaestroSaved->id;
+                            
                         }
                         //verificamos si es destacado para notificarle que registre
                         $post_recibido = $this->input->post();
@@ -3520,14 +3524,16 @@ class Admin extends Admin_Controller {
                         }
                         //disparamos la funcion para registrar en las portadas y secciones
                         //$this->portadas_lib->agregar_maestro($objBeanMaestroSaved->id, $es_destacado);
-
+                       
                         $returnValue = 0;
                     } else {
                         $returnValue = 2; //no se encontró en los temporales
                     }
                 }
             }
-            echo json_encode(array("value" => $returnValue, "maestro_id" => $maestro_id, "canal_id" => $canal_id));
+            $this->procesos_lib->curlGenerarGrupoMaestrosXId($maestro_tipo, $maestro_id);
+            
+           echo json_encode(array("value" => $returnValue, "maestro_id" => $maestro_id, "canal_id" => $canal_id));
         }
     }
 
