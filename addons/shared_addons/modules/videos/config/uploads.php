@@ -130,6 +130,7 @@ $config['video:verificar'] = '0';
 
 //submenus
 $config['submenu:carga_unitaria'] = 'Subir video';
+$config['submenu:carga_youtube'] = 'Agregar video YouTube';
 
 //Migración
 //$config['migracion:no_canal'] = '1';
