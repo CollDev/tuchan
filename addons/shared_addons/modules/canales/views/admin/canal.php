@@ -1,25 +1,45 @@
 <section class="title"> 
-    <div style ="float: left;">
+    <div>
+        <ul class="main_menu">
         <?php
-        if ($objCanal->id > 0):
-            if ($objCanal->tipo_canales_id != $this->config->item('canal:mi_canal')):
-                echo anchor('admin/videos/carga_unitaria/' . $objCanal->id, $this->config->item('submenu:carga_unitaria'), array('class' => ''));
-                echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
-            endif;
-            /*    echo anchor('admin/videos/carga_masiva/' . $canal_id, 'Carga masiva', array('class' => ''));
-              echo '&nbsp;&nbsp;|&nbsp;&nbsp;'; */
-            echo anchor('admin/videos/organizar/' . $objCanal->id, 'Organizar videos', array('class' => ''));
-            echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
-            echo anchor('admin/canales/portada/' . $objCanal->id, 'Portadas', array('class' => ''));
-            echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
-            echo anchor('/admin/videos/grupo_maestro/' . $objCanal->id, 'Crear programas', array('class' => ''));
-        endif;
-        ?>        
-    </div>
-    <div style="float: right;">
+        if ($objCanal->id > 0) {
+            if ($objCanal->tipo_canales_id != $this->config->item('canal:mi_canal')) {
+        ?>
+            <li>
+        <?php echo anchor('admin/videos/carga_unitaria/' . $objCanal->id, $this->config->item('submenu:carga_unitaria'), array('class' => '')); ?>
+            </li>
+            <li>
+        <?php echo anchor('admin/videos/carga_youtube/' . $objCanal->id, $this->config->item('submenu:carga_youtube'), array('class' => '')); ?>
+            </li>
+        <?php
+            }
+        ?>
+            <li>
+        <?php echo anchor('admin/videos/organizar/' . $objCanal->id, 'Organizar videos', array('class' => '')); ?>
+            </li>
+            <li>
+        <?php echo anchor('admin/canales/portada/' . $objCanal->id, 'Portadas', array('class' => '')); ?>
+            </li>
+            <li>
+        <?php echo anchor('/admin/videos/grupo_maestro/' . $objCanal->id, 'Crear programas', array('class' => '')); ?>
+            </li>
+        <?php
+        }
+        ?>
+            <li class="alast"></li>
+            <li class="last">
         <?php echo anchor('admin/canales/papelera/' . $objCanal->id, 'Papelera', array('class' => '')); ?>
-    </div>     
+            </li>
+        </ul>
+    </div>
 </section>
+<script type="text/javascript">
+    var ul_width = parseInt($('section.title div ul.main_menu').css('width'));
+    var lilast_pos = $('section.title div ul.main_menu li.last').position();
+ 
+    var anew_width = ul_width - lilast_pos.left;
+    $('section.title div ul.main_menu li.alast').css('width',anew_width);
+</script>
 <section class="item">
 
     <?php
