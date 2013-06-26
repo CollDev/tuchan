@@ -83,18 +83,18 @@ class Youtube {
     }
 
     function obtenerVideo($v) {
-        error_log($v);
+         Log::erroLog($v);
         $url_info = 'http://www.youtube.com/get_video_info?&video_id=' . $v;
-        error_log($url_info);
+         Log::erroLog($url_info);
 
         $contador = 0;
 
         INICIO:
-        error_log("contador : " . $contador);
+         Log::erroLog("contador : " . $contador);
 
         $page = self::curlGet($url_info);
 
-        error_log("page : " . $page);
+         Log::erroLog("page : " . $page);
 
         parse_str($page, $varia);
 
