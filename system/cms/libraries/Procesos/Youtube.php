@@ -1,10 +1,9 @@
 <?php
 set_time_limit(TIME_LIMIT);
 
-
 class Youtube {
 
-    function descargaVideo($id,$data ) {
+    function descargaVideo($id, $data) {
 
         $filePath = PATH_VIDEOS . $id . ".mp4";
 
@@ -23,10 +22,7 @@ class Youtube {
             curl_setopt($ch, CURLOPT_HEADER, false);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);
-//            curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 60);
-//            curl_setopt($ch, CURLOPT_TIMEOUT, 0);
             curl_setopt($ch, CURLOPT_FILE, $fp);
-
             curl_exec($ch);
             curl_close($ch);
             fclose($fp);
@@ -44,12 +40,13 @@ class Youtube {
     }
 
     function url_exists($url) {
-        if (file_get_contents($url, FALSE, NULL, 0, 0) === false)
+        if (file_get_contents($url, FALSE, NULL, 0, 0) === false) {
             return false;
+        }
         return true;
     }
 
-    function curlGet($URL) {
+    function curlGet($url) {
         $header[0] = "Accept: text/xml,application/xml,application/xhtml+xml,";
         $header[0] .= "text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5";
         $header[] = "Cache-Control: max-age=0";
@@ -63,11 +60,9 @@ class Youtube {
         $choice2 = array_rand($browsers);
         $browser = $browsers[$choice2];
 
-        //$ckfile = tempnam("/tmp", "CURLCOOKIE");
-
         $ch = curl_init();
 
-        curl_setopt($ch, CURLOPT_URL, $URL);
+        curl_setopt($ch, CURLOPT_URL, $url);
 
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 15);
@@ -88,18 +83,24 @@ class Youtube {
     }
 
     function obtenerVideo($v) {
+        error_log($v);
         $url_info = 'http://www.youtube.com/get_video_info?&video_id=' . $v;
+        error_log($url_info);
+
         $contador = 0;
 
         INICIO:
+        error_log("contador : " . $contador);
 
         $page = self::curlGet($url_info);
+
+        error_log("page : " . $page);
 
         parse_str($page, $varia);
 
         if (empty($varia['url_encoded_fmt_stream_map'])) {
             if ($contador == 10) {
-                sleep(5);
+                sleep(10);
                 return FALSE;
             } else {
                 $contador++;
@@ -112,7 +113,6 @@ class Youtube {
         $streams = explode(',', $streams);
         $format = "video/mp4";
         foreach ($streams as $key => $stream) {
-
             parse_str($stream, $data); //decode the stream
 
             if (stripos($data['type'], $format) !== false) {

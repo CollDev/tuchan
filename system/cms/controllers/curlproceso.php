@@ -99,6 +99,18 @@ class curlProceso extends MX_Controller {
     public  function generarCanalesXId($id){
         $this->procesos_lib->generarCanalesXId($id);
     }
+    
+    public function actualizarGrupoMaestros(){
+        $this->procesos_lib->actualizarGrupoMaestros();
+    }
+    
+    public function generarGrupoMaestrosXId($tgm,$id){        
+        $this->procesos_lib->generarGrupoMaestrosXId($tgm,$id);
+    }
+    
+    public function generarProgramasXId($id){
+        $this->procesos_lib->generarProgramasXId($id);
+    }
      
     public function activarVideosXId($id){
         $this->procesos_lib->activarVideosXId($id);
@@ -128,8 +140,12 @@ class curlProceso extends MX_Controller {
         $this->procesos_lib->publicarPendientes();
     }
     
-    public function obtenerVideoYoutube($id,$vi){
+        public function obtenerVideoYoutube($id,$vi){
         $this->procesos_lib->obtenerVideoYoutube($id,$vi);
+    }
+    
+    public function videoYoutube($id){  
+        $this->procesos_lib->videoYoutube($id);
     }
     
     public function getDB(){
