@@ -83,6 +83,7 @@ $lang['videos:label_personajes'] = 'Etiquetas personajes';
 $lang['videos:progress'] = 'Progreso';
 $lang['videos:action'] = 'Acción';
 $lang['videos:video'] = 'Video';
+$lang['videos:youtube_url'] = 'Dirección YouTube';
 $lang['videos:description'] = 'Description';
 $lang['videos:source'] = 'Fuentes';
 $lang['videos:add'] = 'Añadir';

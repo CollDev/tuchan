@@ -99,23 +99,18 @@
                 );
                 echo form_input($titulo);
                 ?>
-
-                <!-- fragmento -->
-                <br/>
-                <label for="fragmento"><?php echo lang('videos:fragmento_label'); ?></label>
-                <?php echo form_error('fragmento'); ?><br />
-                <?php
-                //$valores = array(lang("videos:select_fragment"), "1", "2", "3", "4", "5", "6", "7", "8", "9", "10");
-                $fragmentos = array_merge(array(lang("videos:select_fragment")), $this->config->item('fragmento'));
-                ?>
-                <?php echo form_dropdown('fragmento', $fragmentos, $objBeanForm->fragmento, 'onChange="addTitle()"'); ?>        
-                <br /><br />
+                <br /><br /><br />
                 <?php if ($objBeanForm->video_id == 0) { ?>
                     <!-- video -->
-                    <label for="video"><?php echo lang('videos:video'); ?><span class="required">*</span></label>
+                    <label for="video"><?php echo lang('videos:youtube_url'); ?><span class="required">*</span></label>
                     <?php
-                    $video = array('name' => 'video', 'id' => 'video');
-                    echo form_upload($video);
+                    $video = array(
+                        'name' => 'video',
+                        'id' => 'video',
+                        'maxlength' => '100',
+                        'style' => 'width:556px;'
+                    );
+                    echo form_input($video);
                 }
                 ?>
 
@@ -141,98 +136,11 @@
                     <?php endif ?>
                 <?php endif ?>
 
-                <?php if ($objBeanForm->video_id > 0) { ?>
-                    <!-- imagen -->
-    <!--                    <label for="imagen"><?php //echo lang('videos:avatar');         ?></label>-->
-                    <?php
-//                    $imagen = array('name' => 'addImage', 'id' => 'addImage', 'type' => 'hidden', 'value' => 'Agrega nuevas imagenes a tu video');
-//                    echo '<div style="float:left;">' . form_input($imagen) . '</div>';
-                    ?>
-                    <!--                    <div  class="loaderAjax" id="loaderAjax" style="display: none; float: left;">
-                                            <img src="uploads/imagenes/loading.gif">
-                                        </div>
-                                        <div style="clear: both;"></div>
-                                        <div id="contenedorImage">
-                    <?php //if (count($objBeanForm->avatar) > 0) { ?>
-                                                <select id="listaImagenes"></select>
-                    <?php //} ?>
-                                        </div>-->
-
-                    <?php
-                }
-                ?>
-
-                <br />
-                <!-- fecha de transmisión -->
-                <label for="fec_trans"><?php echo lang('videos:fecha_transmision_label'); ?></label>
-                <div style="float:left;">
-                    <?php
-                    $fec_trans = array(
-                        'name' => 'fec_trans',
-                        'id' => 'fec_trans',
-                        'value' => $objBeanForm->fec_trans,
-                        'class' => 'selectedDate'
-                    );
-                    echo form_input($fec_trans);
-                    ?>
-                </div>
-                <div style="float:left;">
-                    <!-- horario de tranmisión -->
-                    <!--<label for="horario_transmision"><?php echo lang('videos:horaio_transmision'); ?></label>-->
-                    <?php echo lang('videos:inicio'); ?>
-                    <?php
-                    $hora_trans_ini = array(
-                        'name' => 'hora_trans_ini',
-                        'id' => 'hora_trans_ini',
-                        'value' => $objBeanForm->hora_trans_ini,
-                        'class' => 'selectedHour',
-                        'style' => 'width:140px;'
-                    );
-                    echo form_input($hora_trans_ini);
-                    ?>
-                </div>
-                <div style="float:right;">
-                    <?php echo lang('videos:fin'); ?>
-                    <?php
-                    $hora_trans_fin = array(
-                        'name' => 'hora_trans_fin',
-                        'id' => 'hora_trans_fin',
-                        'value' => $objBeanForm->hora_trans_fin,
-                        'class' => 'selectedHour',
-                        'style' => 'width:140px;'
-                    );
-                    echo form_input($hora_trans_fin);
-                    ?>
-                </div>
-                <br /><br /><br />
                 <!-- descripcion -->
+                <br /><br /><br />
                 <label for="descripcion"><?php echo lang('videos:description'); ?><span class="required">*</span></label>
                 <?php echo form_textarea(array('id' => 'descripcion', 'name' => 'descripcion', 'value' => $objBeanForm->descripcion, 'rows' => 5, 'class' => 'wysiwyg-simple')); ?>
-                <!-- tags tematicos -->
-                <br/></br>
-                <label for="tematicas"><?php echo lang('videos:etiquetas_tematicas_label'); ?> <span class="required">*</span></label>
-                <div class="input"><?php echo form_input('tematicas', $objBeanForm->tematicas, 'id="tematicas"') ?></div>
-                <?php
-                /* $tematicas = array(
-                  'name' => 'tematicas',
-                  'id' => 'tematicas',
-                  'value' => set_value('tematicas'),
-                  'maxlength' => '250',
-                  'style'=>'width:556px;',
-                  );
-                  echo form_input($tematicas); */
-                ?>
-                <?php
-                /* $personajes = array(
-                  'name' => 'personajes',
-                  'id' => 'personajes',
-                  'value' => set_value('personajes'),
-                  'maxlength' => '250',
-                  'style'=>'width:556px;',
-                  'class' => 'wysiwyg-simple'
-                  );
-                  echo form_input($personajes); */
-                ?>
+                
                 <?php if (count($objClips) > 0 && $objBeanForm->video_id > 0) : ?>
                     <br /><br />
                     <!-- Lista de clips -->
@@ -260,130 +168,17 @@
                     </table>
                 <?php endif ?>
             </div>
-
             <div class="right_arm">
-
-                <!-- categoria -->
-                <label for="categoria"><?php echo lang('videos:categoria_label'); ?>*</label>
-                <?php echo form_error('categoria'); ?><br />
-                <?php echo form_dropdown('categoria', $categoria, $objBeanForm->categoria); ?>
-
-                <br/><br/>
-                <!-- programa -->
-                <label for="programa"><?php echo lang('videos:programa_label'); ?></label>
-                <?php echo form_error('programa'); ?><br/>
-                <?php
-                $js = 'onChange="generate_collection();"';
-                echo form_dropdown('programa', $programa, $objBeanForm->programa, $js);
-                //echo form_dropdown('programa', $programa, $objBeanForm->programa); 
-                ?>
-
-                <!-- boton añadir -->
-                <div class="i_plus">
-                    <?php
-                    echo form_input(array('class' => 'h_text', 'name' => 'txt_programa', 'id' => 'txt_programa'));
-                    $attr = array('class' => 'plus_item btn blue', 'type' => 'button', 'onclick' => 'addMaestro(\'programa\')');
-                    echo anchor('#', '+ ' . lang('videos:add'), $attr)
-                    ?>                
-                </div>            
-                <!-- coleccion -->
-                <br/><br/>
-                <label for="coleccion"><?php echo lang('videos:collection'); ?></label>
-                <?php echo form_error('coleccion'); ?><br/>
-                <?php
-                $js = 'onChange="generate_list();" id="coleccion"';
-                echo form_dropdown('coleccion', $coleccion, $objBeanForm->coleccion, $js);
-                ?>
-
-                <!-- boton añadir -->
-                <div class="i_plus">
-                    <?php
-                    echo form_input(array('class' => 'h_text', 'name' => 'txt_coleccion', 'id' => 'txt_coleccion'));
-                    $attr = array('class' => 'plus_item btn blue', 'type' => 'button', 'onclick' => 'addMaestro(\'coleccion\')');
-                    echo anchor('#', '+ ' . lang('videos:add'), $attr)
-                    ?>                
-                </div>
-
-                <!-- lista de reproducción -->
-                <br/>
-                <label for="lista_rep"><?php echo lang('videos:lista_reprod_label'); ?></label>
-                <?php echo form_error('lista_rep'); ?><br/>
-                <?php
-                echo form_dropdown('lista', $lista_rep, $objBeanForm->lista);
-                ?>
-
-                <!-- botón añadir -->
-                <div class="i_plus">
-                    <?php
-                    echo form_input(array('class' => 'h_text', 'name' => 'txt_lista', 'id' => 'txt_lista'));
-                    $attr = array('class' => 'plus_item btn blue', 'type' => 'button', 'onclick' => 'addMaestro(\'lista\')');
-                    echo anchor('#', '+ ' . lang('videos:add'), $attr)
-                    ?>
-                </div>
-
-                <!-- tipo -->
-                <!--        <br /><br />
-                        <label for="tipo"><?php //echo lang('videos:tipo_label');          ?></label>
-                <?php //echo form_error('tipo'); ?><br/>
-                <?php //echo form_dropdown('tipo', $tipo, $objBeanForm->tipo); ?> -->
-                <input type="hidden" name="int_tipo_video" id="int_tipo_video" value="<?php echo $objBeanForm->tipo; ?>" >
-
-
+                <!-- tags tematicos -->
+                <label for="tematicas"><?php echo lang('videos:etiquetas_tematicas_label'); ?> <span class="required">*</span></label>
+                <div class="input"><?php echo form_input('tematicas', $objBeanForm->tematicas, 'id="tematicas"') ?></div>
+                
                 <!-- tags personajes -->
-                <br/><br /><br /><br />
+                <br /><br /><br />
                 <label for="personajes"><?php echo lang('videos:etiquetas_personajes_label'); ?><span class="required">*</span></label>
                 <div class="input"><?php echo form_input('personajes', $objBeanForm->personajes, 'id="personajes"') ?></div>        
 
-
-                <!-- fuente -->
-                <br/>
-                <div style="display: none;">
-                    <label for="fuente"><?php echo lang('videos:fuente_label'); ?><span class="required">*</span></label>
-                    <?php
-                    echo form_dropdown('fuente', $fuente, $objBeanForm->canal_id);
-                    ?>
-                </div>
-                <!-- fecha de publicación -->
-                <br/><br/>
-        <!--        <label for="fecha_publicacion"><?php //echo lang('videos:fecha_publicacion_label');           ?></label>-->
-                <?php //echo lang('videos:inicio'); ?>
-                <?php
-                $fec_pub_ini = array(
-                    'type' => 'hidden',
-                    'name' => 'fec_pub_ini',
-                    'id' => 'fec_pub_ini',
-                    'value' => $objBeanForm->fec_pub_ini,
-                    'class' => 'selectedDateTime'
-                );
-                echo form_input($fec_pub_ini);
-                ?>
-
-                <?php //echo lang('videos:fin'); ?>
-                <?php
-                $fec_pub_fin = array(
-                    'type' => 'hidden',
-                    'name' => 'fec_pub_fin',
-                    'id' => 'fec_pub_fin',
-                    'value' => $objBeanForm->fec_pub_fin,
-                    'class' => 'selectedDateTime'
-                );
-                echo form_input($fec_pub_fin);
-                ?>
-
-                <!-- ubicacion -->
-        <!--        <label><?php //echo lang('videos:ubicacion_label');           ?></label>-->
-                <?php
-                $ubicacion = array(
-                    'type' => 'hidden',
-                    'name' => 'ubicacion',
-                    'id' => 'ubicacion',
-                    'value' => $objBeanForm->ubicacion,
-                    'style' => 'width:556px;',
-                );
-                echo form_input($ubicacion);
-                ?>        
             </div>
-
             <div class="main_opt">            
                 <!--                <div id="btnSave" style="float: left; padding-right: 10px;">
                                     <a href="javascript:saveVideo();" class="btn orange" type="button"><?php //echo lang('buttons.save');  ?></a>
