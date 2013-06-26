@@ -1,21 +1,41 @@
 <section class="title"> 
-    <div style ="float: left;">
+    <div>
+        <ul class="main_menu">
         <?php
-        if ($objCanal->tipo_canales_id != $this->config->item('canal:mi_canal')):
-            echo anchor('admin/videos/carga_unitaria/' . $canal_id, $this->config->item('submenu:carga_unitaria'), array('class' => ''));
-            echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
-        endif;
-        echo anchor('admin/videos/organizar/' . $canal_id, 'Organizar videos', array('class' => ''));
-        echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
-        echo anchor('admin/canales/portada/' . $canal_id, 'Portadas', array('class' => ''));
-        echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
-        echo anchor('/admin/videos/grupo_maestro/' . $canal_id, 'Crear programas', array('class' => ''));
-        ?>        
-    </div>
-    <div style="float: right;">
+        if ($objCanal->tipo_canales_id != $this->config->item('canal:mi_canal')) {
+         ?>
+            <li>
+        <?php echo anchor('admin/videos/carga_unitaria/' . $canal_id, $this->config->item('submenu:carga_unitaria'), array('class' => '')); ?>
+            </li>
+            <li>
+        <?php echo anchor('admin/videos/carga_youtube/' . $canal_id, $this->config->item('submenu:carga_youtube'), array('class' => '')); ?>
+            </li>
+        <?php
+        }
+        ?>
+            <li class="active">
+        <?php echo anchor('admin/videos/organizar/' . $canal_id, 'Organizar videos', array('class' => '')); ?>
+            </li>
+            <li>
+        <?php echo anchor('admin/canales/portada/' . $canal_id, 'Portadas', array('class' => '')); ?>
+            </li>
+            <li>
+        <?php echo anchor('/admin/videos/grupo_maestro/' . $canal_id, 'Crear programas', array('class' => '')); ?>
+            </li>
+            <li class="alast"></li>
+            <li class="last">
         <?php echo anchor('admin/canales/papelera/' . $canal_id, 'Papelera', array('class' => '')); ?>
-    </div>     
+            </li>
+        </ul>
+    </div>
 </section>
+<script type="text/javascript">
+    var ul_width = parseInt($('section.title div ul.main_menu').css('width'));
+    var lilast_pos = $('section.title div ul.main_menu li.last').position();
+ 
+    var anew_width = ul_width - lilast_pos.left;
+    $('section.title div ul.main_menu li.alast').css('width',anew_width);
+</script>
 <section class="item">
     <?php template_partial('filters'); ?>
     <div id="filter-stage">

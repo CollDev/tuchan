@@ -8,10 +8,10 @@
         <?php
         if ($canal->tipo_canales_id != $this->config->item('canal:mi_canal')) {
         ?>
-            <li class="active">
+            <li>
         <?php echo anchor('admin/videos/carga_unitaria/' . $canal->id, $this->config->item('submenu:carga_unitaria'), array('class' => '')); ?>
             </li>
-            <li>
+            <li class="active">
         <?php echo anchor('admin/videos/carga_youtube/' . $canal->id, $this->config->item('submenu:carga_youtube'), array('class' => '')); ?>
             </li>
         <?php
