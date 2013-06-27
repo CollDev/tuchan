@@ -35,6 +35,10 @@ class curlProceso extends MX_Controller {
          Log::erroLog("fin en curl - updateMediaVideosXId".$id);
     }   
     
+    public function updateEstadoVideosXId($id,$ev,$el){
+        $this->procesos_lib->updateEstadoVideosXId($id,$ev,$el);
+    }
+    
     public function updateErrorVideosXId($id){
         
     }

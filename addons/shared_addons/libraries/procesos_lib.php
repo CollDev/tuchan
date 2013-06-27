@@ -1101,7 +1101,7 @@ class Procesos_lib extends MX_Controller {
                     $arrtemp["programa"] = $row3[0]->xprograma;
                     $arrtemp["lista_reproduccion"] = $row3[0]->xlistareproduccionalias;
                     //$arrtemp["duracion"] = $row3[0]->xduracion;                    
-                    $arrtemp["duracion"] = (!empty($row3[0]->xduracion_lr))?$row3[0]->xduracion_lr:$row3[0]->xduracion;
+                    $arrtemp["duracion"] = (!empty($row3[0]->xduracion_lr)) ? $row3[0]->xduracion_lr : $row3[0]->xduracion;
                     $arrtemp["categoria"] = $row3[0]->xcategoria;
                     $arrtemp["descripcion"] = (!empty($value2->descripcion_item)) ? strip_tags($value2->descripcion_item) : strip_tags($row3[0]->xdescripcion);
                     $arrtemp["reproducciones"] = $row3[0]->xvi_rep;
@@ -1924,16 +1924,32 @@ class Procesos_lib extends MX_Controller {
 
         if (!empty($data)) {
 
-
             $this->videos_mp->setEstadosVideos($id, $this->config->item('v_e:codificando'), $this->config->item('v_l:codificando'));
             $retorno = Youtube::descargaVideo($id, $data);
             if ($retorno == TRUE) {
-                $this->videos_mp->setEstadosVideos($id, $this->config->item('v_e:codificando'), $this->config->item('v_l:codificado'));
+                $this->curlUpdateEstadoVideosXId($id, $this->config->item('v_e:codificando'), $this->config->item('v_l:codificado'));
+                //$this->videos_mp->setEstadosVideos($id, $this->config->item('v_e:codificando'), $this->config->item('v_l:codificado'));
                 $this->curlUploadVideosXId($id);
             } else {
-                $this->videos_mp->setEstadosVideos($id, $this->config->item('v_e:codificando'), -1);
+                $this->curlUpdateEstadoVideosXId($id, $this->config->item('v_e:codificando'), -1);                
             }
         }
+    }
+
+    public function curlUpdateEstadoVideosXId($id, $ev, $el) {
+        Log::erroLog("ini - updateEstadoVideosXId: " . $id . "/" . $ev . "/" . $el);
+        $ruta = base_url("curlproceso/updateEstadoVideosXId/" . $id . "/" . $ev . "/" . $el);
+        $retorno = shell_exec("curl " . $ruta );
+        Log::erroLog("retorno de updateEstadoVideosXId: " .  $retorno);
+    }
+
+    public function updateEstadoVideosXId($id, $ev, $el) {
+        $this->_updateEstadoVideosXId($id, $ev, $el);
+    }
+
+    private function _updateEstadoVideosXId($id, $ev, $el) {
+        $this->videos_mp->setEstadosVideos($id, $ev, $el);
+        echo "OK";
     }
 
     public function getMaestroDetalles() {
