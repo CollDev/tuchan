@@ -2812,6 +2812,34 @@ class Admin extends Admin_Controller {
             return $returnValue;
         }
     }
+    
+    public function verificarVideoYouTube($canal_id, $video_id, $post = NULL) {
+        $returnValue = false;
+        $fromView = false;
+        if ($post == NULL) {
+            $post = $this->input->post();
+            $fromView = true;
+        }
+
+        if ($this->videos_m->existVideo($post['titulo'], $canal_id, $video_id)) {
+            $objVideo2 = $this->videos_m->like('titulo', $post['titulo'], 'none')->get_by(array());
+            if (count($objVideo2) > 0) {
+                if ($objVideo2->id != $video_id) {
+                    $returnValue = true;
+                }
+            }
+        }
+
+        if ($fromView) {
+            if ($returnValue) {
+                echo json_encode(array("errorValue" => "1"));
+            } else {
+                echo json_encode(array("errorValue" => "0"));
+            }
+        } else {
+            return $returnValue;
+        }
+    }
 
     public function maestro($canal_id) {
 

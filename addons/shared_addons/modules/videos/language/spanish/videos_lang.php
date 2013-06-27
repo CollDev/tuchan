@@ -84,7 +84,7 @@ $lang['videos:progress'] = 'Progreso';
 $lang['videos:action'] = 'Acción';
 $lang['videos:video'] = 'Video';
 $lang['videos:youtube_url'] = 'Dirección YouTube';
-$lang['videos:description'] = 'Description';
+$lang['videos:descripcion'] = 'Descripción';
 $lang['videos:source'] = 'Fuentes';
 $lang['videos:add'] = 'Añadir';
 
@@ -107,12 +107,15 @@ $lang['videos:select_channel'] = 'Seleccione canal.';
 $lang['videos:add_video_success'] = 'El video se registro en forma satisfactoria. En unos momentos será redirigido a la lista de videos.';
 $lang['videos:not_found_video'] = 'El archivo no se pudo subir.';
 $lang['videos:format_invalid'] = 'El formato del archivo no es el correcto.';
+$lang['videos:youtube_invalid'] = 'La dirección de YouTube no es válida.';
+$lang['videos:bad_dates'] = 'La hora "fin de la transmisión" no debe ser menor que "hora inicial"';
 $lang['videos:size_invalid'] = 'El tamaño del archivo no es el correcto.';
 $lang['videos:edit_video_success'] = 'Los cambios se guardaron satisfactoriamente';
 
 //validaciones formulario envios unitario
 $lang['videos:require_title'] = 'Ingrese un título';
 $lang['videos:require_video'] = 'Examine un video para subir al servidor.';
+$lang['videos:require_youtube'] = 'Ingrese una dirección de YouTube.';
 $lang['videos:require_category'] = 'Seleccione una categoría.';
 $lang['videos:require_tematicas'] = 'Ingrese las temáticas.';
 $lang['videos:require_personajes'] = 'Ingrese personajes.';
