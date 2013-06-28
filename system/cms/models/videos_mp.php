@@ -50,8 +50,21 @@ class Videos_mp extends CI_Model {
     }    
 
     public function getVideosxIdConKey($id) {
-        $query = "SELECT vi.*,ca.apikey,ca.playerkey FROM default_cms_videos vi INNER JOIN default_cms_canales ca ON vi.canales_id =  ca.id WHERE vi.id=" . $id;
+        $query = "SELECT vi.*,ca.id as 'canal_id' , ca.apikey,ca.playerkey FROM default_cms_videos vi INNER JOIN default_cms_canales ca ON vi.canales_id =  ca.id WHERE vi.id=" . $id;
         return $this->db->query($query)->result();
+    }
+    
+    
+    public function getVideosXIdDatos($id){
+        $query  ="SELECT ca.id AS 'canal_id',ca.id_mongo AS 'id_mongo_ca',gm.id AS 'gm_id',gm.id_mongo AS 'id_mongo_gm',gm.`tipo_grupo_maestro_id`
+	FROM default_cms_grupo_detalles gd 	
+	INNER JOIN default_cms_videos vi ON vi.id =  gd.video_id
+	INNER JOIN default_cms_canales ca ON ca.id =  vi.canales_id
+	INNER JOIN default_vw_maestros_videos vmv ON vmv.id=vi.id 
+	INNER JOIN default_cms_grupo_maestros gm ON vmv.gm3 = gm.id
+	WHERE  v='v' AND gd.video_id = ". $id;
+        return $this->db->query($query)->result();
+        
     }
 
     public function getVideosNuevos() {
@@ -101,7 +114,7 @@ class Videos_mp extends CI_Model {
     }
 
     public function getVideosObtenerDatosXId($id) {
-        $query = "SELECT vi.id,vi.estado,vi.codigo,vi.ruta,vi.rutasplitter,vi.duracion,ca.apikey,(select count(im.id) from " . $this->_table_imagenes . " im  WHERE im.videos_id=vi.id and im.procedencia=1) as 'imag'
+        $query = "SELECT vi.id,vi.estado,vi.codigo,vi.ruta,vi.rutasplitter,vi.duracion,ca.id as 'canal_id' , ca.apikey,(select count(im.id) from " . $this->_table_imagenes . " im  WHERE im.videos_id=vi.id and im.procedencia=1) as 'imag'
                     FROM " . $this->_table . " vi  
                     INNER  JOIN " . $this->_table_canales . " ca ON  vi.canales_id=ca.id
                     WHERE  vi.id=" . $id; //vi.estado_liquid=5 and

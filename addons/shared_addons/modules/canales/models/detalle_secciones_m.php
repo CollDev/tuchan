@@ -102,7 +102,7 @@ class Detalle_secciones_m extends MY_Model {
 
     public function limpiar()
     {
-        $sql = 'DELETE FROM ' . $this->_table;
+            $sql = 'DELETE FROM ' . $this->_table . " where videos_id is not null";
         $this->db->query($sql);
     }
 }

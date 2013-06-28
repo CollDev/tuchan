@@ -74,10 +74,7 @@ class Canal_mp extends CI_Model {
         $this->db->query($query);
     }
 
-    function updateIdMongoGrupoMaestros($id, $id_mongo) {
-        $query = "update " . $this->_table_grupo_maestros . " set id_mongo='" . $id_mongo . "' where id=" . $id;
-        $this->db->query($query);
-    }
+
 
     function updateEstadoMigracionGrupoMaestros($id) {
         $query = "update " . $this->_table_grupo_maestros . " set estado_migracion=2,fecha_migracion=now() where id=" . $id;

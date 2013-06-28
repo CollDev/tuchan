@@ -1,10 +1,20 @@
 <section class="title">
-    <div style ="float: left;">
+    <div>
+        <ul class="main_menu">
+            <li class="alast"></li>
+            <li class="last">
+                <?php echo anchor('admin/canales/papelera/', 'Papelera', array('class' => '')); ?>
+            </li>
+        </ul>
     </div>
-    <div style="float: right;">
-        <?php echo anchor('admin/canales/papelera/', 'Papelera', array('class' => '')); ?>
-    </div> 
 </section>
+<script type="text/javascript">
+    var ul_width = parseInt($('section.title div ul.main_menu').css('width'));
+    var lilast_pos = $('section.title div ul.main_menu li.last').position();
+ 
+    var anew_width = ul_width - lilast_pos.left;
+    $('section.title div ul.main_menu li.alast').css('width',anew_width);
+</script>
 <?php if ($this->session->userdata['group'] == 'admin'): ?>
                                     <!--<section class="menu"><?php //echo anchor('/admin/canales/canal/', lang('canales:new'))         ?></section>-->
 <?php endif; ?>

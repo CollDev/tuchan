@@ -35,6 +35,10 @@ class curlProceso extends MX_Controller {
          Log::erroLog("fin en curl - updateMediaVideosXId".$id);
     }   
     
+    public function updateEstadoVideosXId($id,$ev,$el){
+        $this->procesos_lib->updateEstadoVideosXId($id,$ev,$el);
+    }
+    
     public function updateErrorVideosXId($id){
         
     }
@@ -100,12 +104,32 @@ class curlProceso extends MX_Controller {
         $this->procesos_lib->generarCanalesXId($id);
     }
     
+    public function actualizarGrupoMaestros(){
+        $this->procesos_lib->actualizarGrupoMaestros();
+    }
+    
+    public function generarGrupoMaestrosXId($tgm,$id){        
+        $this->procesos_lib->generarGrupoMaestrosXId($tgm,$id);
+    }
+    
+    public function generarProgramasXId($id){
+        $this->procesos_lib->generarProgramasXId($id);
+    }
+     
+    public function activarVideosXId($id){
+        $this->procesos_lib->activarVideosXId($id);
+    }
+    
     public function desactivarVideosXId($id){
         $this->procesos_lib->desactivarVideosXId($id);
     }
     
-    public function activarVideosXId($id){
-        $this->procesos_lib->activarVideosXId($id);
+    public function publishedVideosXId($id){
+        $this->procesos_lib->publishedVideosXId($id);
+    }
+    
+    public function unpublishedVideosXId($id){
+        $this->procesos_lib->unpublishedVideosXId($id);
     }
     
     public function generarPortadasMiCanalXId($id){
@@ -118,6 +142,14 @@ class curlProceso extends MX_Controller {
     
     public function publicarPendientes(){
         $this->procesos_lib->publicarPendientes();
+    }
+    
+        public function obtenerVideoYoutube($id,$vi){
+        $this->procesos_lib->obtenerVideoYoutube($id,$vi);
+    }
+    
+    public function videoYoutube($id){  
+        $this->procesos_lib->videoYoutube($id);
     }
     
     public function getDB(){
