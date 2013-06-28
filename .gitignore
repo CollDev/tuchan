@@ -1,13 +1,17 @@
-$ cat .gitignore
-
 # Podemos especificar archivos individuales
 #.DS_Store
 
 # O usar comodines
-#*~
-#*.swp
+*~
+*.orig
 
 # También es posible ignorar todos los subdirectorios y archivos en un directorio determinado
-uploads/videos/*
-system/cms/cache/**/* 
-/nbproject/private/
+nbproject/
+uploads/default/files/
+uploads/log/
+uploads/imagenes/
+uploads/temp/
+uploads/videos/
+
+system/cms/cache/default/
+system/cms/logs/

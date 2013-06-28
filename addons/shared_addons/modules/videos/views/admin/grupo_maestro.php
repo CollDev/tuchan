@@ -1,23 +1,41 @@
 <section class="title"> 
-    <div style ="float: left;">
+    <div>
+        <ul class="main_menu">
         <?php
-        if ($objCanal->tipo_canales_id != $this->config->item('canal:mi_canal')):
-            echo anchor('admin/videos/carga_unitaria/' . $objCanal->id, $this->config->item('submenu:carga_unitaria'), array('class' => ''));
-            echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
-        endif;
-        /*    echo anchor('admin/videos/carga_masiva/' . $canal_id, 'Carga masiva', array('class' => ''));
-          echo '&nbsp;&nbsp;|&nbsp;&nbsp;'; */
-        echo anchor('admin/videos/organizar/' . $objCanal->id, 'Organizar videos', array('class' => ''));
-        echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
-        echo anchor('admin/canales/portada/' . $objCanal->id, 'Portadas', array('class' => ''));
-        echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
-        echo anchor('/admin/videos/grupo_maestro/' . $objCanal->id, 'Crear programas', array('class' => ''));
-        ?>        
-    </div>
-    <div style="float: right;">
+        if ($objCanal->tipo_canales_id != $this->config->item('canal:mi_canal')) {
+        ?>
+            <li>
+        <?php  echo anchor('admin/videos/carga_unitaria/' . $objCanal->id, $this->config->item('submenu:carga_unitaria'), array('class' => '')); ?>
+            </li>
+            <li>
+        <?php echo anchor('admin/videos/carga_youtube/' . $objCanal->id, $this->config->item('submenu:carga_youtube'), array('class' => '')); ?>
+            </li>
+        <?php 
+        }
+         ?>
+            <li>
+        <?php echo anchor('admin/videos/organizar/' . $objCanal->id, 'Organizar videos', array('class' => '')); ?>
+            </li>
+            <li>
+        <?php echo anchor('admin/canales/portada/' . $objCanal->id, 'Portadas', array('class' => '')); ?>
+            </li>
+            <li class="active">
+        <?php echo anchor('/admin/videos/grupo_maestro/' . $objCanal->id, 'Crear programas', array('class' => '')); ?>
+            </li>
+            <li class="alast"></li>
+            <li class="last">
         <?php echo anchor('admin/canales/papelera/' . $objCanal->id, 'Papelera', array('class' => '')); ?>
-    </div>     
+            </li>
+        </ul>
+    </div>
 </section>
+<script type="text/javascript">
+    var ul_width = parseInt($('section.title div ul.main_menu').css('width'));
+    var lilast_pos = $('section.title div ul.main_menu li.last').position();
+ 
+    var anew_width = ul_width - lilast_pos.left;
+    $('section.title div ul.main_menu li.alast').css('width',anew_width);
+</script>
 <?php
 if ($objMaestro->id > 0):
     $title_tab = 'Editar ' . $objMaestro->nombre;
@@ -370,9 +388,9 @@ else:
                             value: editorText
                         }).appendTo('#formMaestro');
 <?php if ($objMaestro->id > 0): ?>
-                            var nombre_imagen = 'aaa';
+                        var nombre_imagen = 'aaa';
 <?php else: ?>
-                            var nombre_imagen = $.trim(values['imagen_maestro']);
+                        var nombre_imagen = $.trim(values['imagen_maestro']);
 <?php endif; ?>
                         var titulo = $.trim($("#titulo").val());
                         values['tematicas'] = $.trim(values['tematicas']);
@@ -392,6 +410,13 @@ else:
                                             if (values['categoria'].length > 0) {
                                                 if (values['tipo_grupo'] == '1') {
                                                     var tipo_master = 'Lista de reproducción';
+                                                    if (values['fec_pub_ini'] === '') {
+                                                        showMessage('error', '<?php echo lang('videos:require_inicio') ?>', 2000, '');
+                                                        return false;
+                                                    } else if (values['fec_pub_fin'] === '') {
+                                                        showMessage('error', '<?php echo lang('videos:require_fin') ?>', 2000, '');
+                                                        return false;
+                                                    }
                                                 } else {
                                                     if (values['tipo_grupo'] == '2') {
                                                         var tipo_master = 'Colección';
@@ -400,12 +425,12 @@ else:
                                                     }
                                                 }
 <?php if ($objMaestro->id == 0): ?>
-                                                    jConfirm("Seguro que desea crear un maestro de tipo: " + tipo_master, "Crear Maestro", function(r) {
-                                                        if (r) {
+                                                jConfirm("Seguro que desea crear un maestro de tipo: " + tipo_master, "Crear Maestro", function(r) {
+                                                    if (r) {
 <?php endif; ?>
                                                         var serializedData = $('#formMaestro').serialize();
 <?php if ($objMaestro->id == 0): ?>
-                                                            loading('#loading');
+                                                        loading('#loading');
 <?php endif; ?>
                                                         //var post_url = "/admin/videos/save_maestro/"+values['txt_'+type_video]+"/"+values['canal_id']+"/"+values['categoria']+"/"+type_video;
                                                         var post_url = "/admin/videos/guardar_maestro/";
@@ -429,8 +454,8 @@ else:
                                                             } //end success
                                                         }); //end AJAX
 <?php if ($objMaestro->id == 0): ?>
-                                                        }
-                                                    });
+                                                    }
+                                                });
 <?php endif; ?>
                                             } else {
                                                 showMessage('error', '<?php echo lang('videos:require_category') ?>', 2000, '');
