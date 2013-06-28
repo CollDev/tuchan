@@ -392,6 +392,8 @@ class Procesos_lib extends MX_Controller {
                     //$this->portadas_lib->actualizar_video($value->id, FALSE);
                     $this->sincronizar_lib->agregar_video($value->id, 'pro');
                     Log::erroLog("actualizar_video: " . $id);
+                    
+                    $this->_actualizarCantidadVideosXCanalId($value->canal_id);
                 }
             }
         }
@@ -1775,8 +1777,9 @@ class Procesos_lib extends MX_Controller {
         $this->_generarVideosXId($id);
     }
 
-    public function activarVideosXId($id) {
-        $this->_activarVideosXId($id);
+    public function activarVideosXId($id) {        
+        $this->_activarVideosXId($id);     
+        $this->_actualizarCantidadVideosXVideosId($id);
     }
 
     private function _activarVideosXId($id) {
@@ -1784,13 +1787,14 @@ class Procesos_lib extends MX_Controller {
     }
 
     public function curlActivarVideosXId($id) {
-        Log::erroLog("ini - curlDesactivarVideosXId: " . $id);
+        Log::erroLog("ini - _activarVideosXId: " . $id);
         $ruta = base_url("curlproceso/activarVideosXId/" . $id);
         shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");
     }
 
     public function desactivarVideosXId($id) {
         $this->_desactivarVideosXId($id);
+        $this->_actualizarCantidadVideosXVideosId($id);
     }
 
     private function _desactivarVideosXId($id) {
@@ -1927,9 +1931,11 @@ class Procesos_lib extends MX_Controller {
             $this->videos_mp->setEstadosVideos($id, $this->config->item('v_e:codificando'), $this->config->item('v_l:codificando'));
             $retorno = Youtube::descargaVideo($id, $data);
             if ($retorno == TRUE) {
-                $this->curlUpdateEstadoVideosXId($id, $this->config->item('v_e:codificando'), $this->config->item('v_l:codificado'));
+                $retorno  = $this->curlUpdateEstadoVideosXId($id, $this->config->item('v_e:codificando'), $this->config->item('v_l:codificado'));
                 //$this->videos_mp->setEstadosVideos($id, $this->config->item('v_e:codificando'), $this->config->item('v_l:codificado'));
-                $this->curlUploadVideosXId($id);
+                if($retorno === "OK"){
+                    $this->curlUploadVideosXId($id);
+                }                
             } else {
                 $this->curlUpdateEstadoVideosXId($id, $this->config->item('v_e:codificando'), -1);                
             }
@@ -1941,6 +1947,7 @@ class Procesos_lib extends MX_Controller {
         $ruta = base_url("curlproceso/updateEstadoVideosXId/" . $id . "/" . $ev . "/" . $el);
         $retorno = shell_exec("curl " . $ruta );
         Log::erroLog("retorno de updateEstadoVideosXId: " .  $retorno);
+        return $retorno;
     }
 
     public function updateEstadoVideosXId($id, $ev, $el) {
@@ -1951,30 +1958,67 @@ class Procesos_lib extends MX_Controller {
         $this->videos_mp->setEstadosVideos($id, $ev, $el);
         echo "OK";
     }
-
-    public function getMaestroDetalles() {
-        $videos = $this->grupo_maestros_mp->getMaestroDetalles();
-
-        echo "<table border=1><tr><td>id</td><td>grupo_maestro_id</td><td>cant</td>";
-
-        foreach ($videos as $value) {
-            echo "<tr><td>" . $value->id . "</td><td>" . $value->grupo_maestro_id . "</td><td>" . $value->cant . "</td></tr>";
-        }
-        echo "</table>";
-    }
-
-    public function getMaestroDetallesXId($id) {
-        $videos = $this->grupo_maestros_mp->getMaestroDetallesXId($id);
-
-        foreach ($videos as $value) {
-            echo "<pre>" . print_r($value) . "</pre>";
+    
+    private function _actualizarCantidadVideosXVideosId($id){
+        $video = $this->videos_mp->getVideosXIdDatos($id);
+       
+        foreach ($video as $value) {
+            $this->_actualizarCantidadVideosXCanalId($value->canal_id);
+            $this->_actualizarCantidadVideosXGmId(3,$value->gm_id);
         }
     }
-
-    public function deleteMaestroDetallesXId($id) {
-        $this->grupo_maestros_mp->deleteMaestroDetallesXId($id);
-        echo "ok";
+    
+    private function _actualizarCantidadVideosXGmId($tgm,$id){
+        $gm = $this->grupo_maestros_mp->getCantidadVideosXMaestroId($tgm,$id);
+                
+        foreach ($gm as $value) {            
+            Log::erroLog("id: " .$id);
+            Log::erroLog("cv: " . $value->cv);
+            Log::erroLog("id_mongo: " . $value->id_mongo);
+            $objmongo = array();
+            $objmongo['cv'] = $value->cv;
+            $id_mongo = new MongoId($value->id_mongo);
+            $this->canal_mp->setItemCollectionUpdate($objmongo, array('_id' => $id_mongo));
+            $this->canal_mp->updateEstadoMigracionCanalesActualizacion($value->id);
+        }        
     }
+    
+    private function _actualizarCantidadVideosXCanalId($id) {
+
+        $canal = $this->canales_mp->getCantVideosXCanalId($id);               
+
+        if (count($canal) > 0) {
+            $objmongo = array();
+            $objmongo['cv'] = $canal[0]->cv;
+            $id_mongo = new MongoId($canal[0]->id_mongo);
+            $this->canal_mp->setItemCollectionUpdate($objmongo, array('_id' => $id_mongo));
+            $this->canal_mp->updateEstadoMigracionCanalesActualizacion($canal[0]->id);
+        }
+    }
+
+//    public function getMaestroDetalles() {
+//        $videos = $this->grupo_maestros_mp->getMaestroDetalles();
+//
+//        echo "<table border=1><tr><td>id</td><td>grupo_maestro_id</td><td>cant</td>";
+//
+//        foreach ($videos as $value) {
+//            echo "<tr><td>" . $value->id . "</td><td>" . $value->grupo_maestro_id . "</td><td>" . $value->cant . "</td></tr>";
+//        }
+//        echo "</table>";
+//    }
+//
+//    public function getMaestroDetallesXId($id) {
+//        $videos = $this->grupo_maestros_mp->getMaestroDetallesXId($id);
+//
+//        foreach ($videos as $value) {
+//            echo "<pre>" . print_r($value) . "</pre>";
+//        }
+//    }
+//
+//    public function deleteMaestroDetallesXId($id) {
+//        $this->grupo_maestros_mp->deleteMaestroDetallesXId($id);
+//        echo "ok";
+//    }
 
     public function datosVideos($id) {
         print_r($this->canal_mp->queryProcedure(4, $id));
@@ -1988,7 +2032,7 @@ class Procesos_lib extends MX_Controller {
     public function showLog($date) {
         $ruta = $this->config->item('path:log') . $date . ".txt";
 
-        $file = fopen($ruta, "r") or exit("ERRO AL ABRIR EL ARCHIVO");
+        $file = fopen($ruta, "r") or exit("ERROR AL ABRIR EL ARCHIVO");
 
         while (!feof($file)) {
             echo fgets($file) . "<br />";

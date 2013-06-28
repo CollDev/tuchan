@@ -22,6 +22,14 @@ class Grupo_Maestros_mp extends CI_Model {
         return $this->db->query($query)->result();  
     }
     
+    function getCantidadVideosXMaestroId($tgm,$id){
+        $query= "SELECT gm.id,gm.id_mongo,(SELECT COUNT(id) FROM ".$this->_view_maestro_videos." vmv  WHERE  vmv.estado=2 and vmv.gm3 = ".$id."  AND vmv.v='v') AS 'cv'
+                        FROM ". $this->_table." gm INNER JOIN ". $this->_table_canales." ca ON gm.canales_id = ca.id
+                        WHERE gm.tipo_grupo_maestro_id=".$tgm." AND gm.id =".$id;
+        
+        return $this->db->query($query)->result();  
+    }
+    
     function getMaestroDetalles(){
         $query = "SELECT id,grupo_maestro_id , COUNT(grupo_maestro_padre)  AS 'cant' FROM default_cms_grupo_detalles GROUP BY grupo_maestro_id ORDER BY cant DESC";
         return $this->db->query($query)->result();        
