@@ -59,15 +59,13 @@
     <?php if ($objBeanForm->error) { ?>
         <div> <?php echo $objBeanForm->message; ?></div>
     <?php } ?>
-    <!--FORM CARGA UNITARIA-->
+    <!--FORM CARGA YOUTUBE-->
     <?php
     // Canales_id       
     $hidden = array('canal_id' => $canal->id);
 
     $attributes = array('class' => 'frm', 'id' => 'frm', 'name' => 'frm', "method" => "post");
-    //echo form_open_multipart('admin/videos/carga_unitaria/' . $canal->id, $attributes, $hidden);
     echo form_open_multipart('file.php', $attributes, $hidden);
-    //echo form_open_multipart('admin/videos/carga_unitaria/', $attributes, $hidden);
     ?>
     <!--APC hidden field-->
     <input type="hidden" name="APC_UPLOAD_PROGRESS" id="progress_key" value="<?php echo $up_id; ?>"/>
@@ -99,23 +97,19 @@
                 );
                 echo form_input($titulo);
                 ?>
-
-                <!-- fragmento -->
-                <br/>
-                <label for="fragmento"><?php echo lang('videos:fragmento_label'); ?></label>
-                <?php echo form_error('fragmento'); ?><br />
-                <?php
-                //$valores = array(lang("videos:select_fragment"), "1", "2", "3", "4", "5", "6", "7", "8", "9", "10");
-                $fragmentos = array_merge(array(lang("videos:select_fragment")), $this->config->item('fragmento'));
-                ?>
-                <?php echo form_dropdown('fragmento', $fragmentos, $objBeanForm->fragmento, 'onChange="addTitle()"'); ?>        
-                <br /><br />
+                <br /><br /><br />
                 <?php if ($objBeanForm->video_id == 0) { ?>
                     <!-- video -->
-                    <label for="video"><?php echo lang('videos:video'); ?><span class="required">*</span></label>
+                    <label for="video"><?php echo lang('videos:youtube_url'); ?> <span class="required">*</span></label>
                     <?php
-                    $video = array('name' => 'video', 'id' => 'video');
-                    echo form_upload($video);
+                    $video = array(
+                        'name' => 'video',
+                        'id' => 'video',
+                        'maxlength' => '100',
+                        'style' => 'width:556px;',
+                        'data-regexp' => "(http://)?(www\.)?(youtube|yimg|youtu)\.([A-Za-z]{2,4}|[A-Za-z]{2}\.[A-Za-z]{2})/(watch\?v=)?[A-Za-z0-9\-_]{6,12}(&[A-Za-z0-9\-_]{1,}=[A-Za-z0-9\-_]{1,})*",
+                    );
+                    echo form_input($video);
                 }
                 ?>
 
@@ -141,98 +135,11 @@
                     <?php endif ?>
                 <?php endif ?>
 
-                <?php if ($objBeanForm->video_id > 0) { ?>
-                    <!-- imagen -->
-    <!--                    <label for="imagen"><?php //echo lang('videos:avatar');         ?></label>-->
-                    <?php
-//                    $imagen = array('name' => 'addImage', 'id' => 'addImage', 'type' => 'hidden', 'value' => 'Agrega nuevas imagenes a tu video');
-//                    echo '<div style="float:left;">' . form_input($imagen) . '</div>';
-                    ?>
-                    <!--                    <div  class="loaderAjax" id="loaderAjax" style="display: none; float: left;">
-                                            <img src="uploads/imagenes/loading.gif">
-                                        </div>
-                                        <div style="clear: both;"></div>
-                                        <div id="contenedorImage">
-                    <?php //if (count($objBeanForm->avatar) > 0) { ?>
-                                                <select id="listaImagenes"></select>
-                    <?php //} ?>
-                                        </div>-->
-
-                    <?php
-                }
-                ?>
-
-                <br />
-                <!-- fecha de transmisión -->
-                <label for="fec_trans"><?php echo lang('videos:fecha_transmision_label'); ?></label>
-                <div style="float:left;">
-                    <?php
-                    $fec_trans = array(
-                        'name' => 'fec_trans',
-                        'id' => 'fec_trans',
-                        'value' => $objBeanForm->fec_trans,
-                        'class' => 'selectedDate'
-                    );
-                    echo form_input($fec_trans);
-                    ?>
-                </div>
-                <div style="float:left;">
-                    <!-- horario de tranmisión -->
-                    <!--<label for="horario_transmision"><?php echo lang('videos:horaio_transmision'); ?></label>-->
-                    <?php echo lang('videos:inicio'); ?>
-                    <?php
-                    $hora_trans_ini = array(
-                        'name' => 'hora_trans_ini',
-                        'id' => 'hora_trans_ini',
-                        'value' => $objBeanForm->hora_trans_ini,
-                        'class' => 'selectedHour',
-                        'style' => 'width:140px;'
-                    );
-                    echo form_input($hora_trans_ini);
-                    ?>
-                </div>
-                <div style="float:right;">
-                    <?php echo lang('videos:fin'); ?>
-                    <?php
-                    $hora_trans_fin = array(
-                        'name' => 'hora_trans_fin',
-                        'id' => 'hora_trans_fin',
-                        'value' => $objBeanForm->hora_trans_fin,
-                        'class' => 'selectedHour',
-                        'style' => 'width:140px;'
-                    );
-                    echo form_input($hora_trans_fin);
-                    ?>
-                </div>
-                <br /><br /><br />
                 <!-- descripcion -->
-                <label for="descripcion"><?php echo lang('videos:description'); ?><span class="required">*</span></label>
+                <br /><br /><br />
+                <label for="descripcion"><?php echo lang('videos:descripcion'); ?> <span class="required">*</span></label>
                 <?php echo form_textarea(array('id' => 'descripcion', 'name' => 'descripcion', 'value' => $objBeanForm->descripcion, 'rows' => 5, 'class' => 'wysiwyg-simple')); ?>
-                <!-- tags tematicos -->
-                <br/></br>
-                <label for="tematicas"><?php echo lang('videos:etiquetas_tematicas_label'); ?> <span class="required">*</span></label>
-                <div class="input"><?php echo form_input('tematicas', $objBeanForm->tematicas, 'id="tematicas"') ?></div>
-                <?php
-                /* $tematicas = array(
-                  'name' => 'tematicas',
-                  'id' => 'tematicas',
-                  'value' => set_value('tematicas'),
-                  'maxlength' => '250',
-                  'style'=>'width:556px;',
-                  );
-                  echo form_input($tematicas); */
-                ?>
-                <?php
-                /* $personajes = array(
-                  'name' => 'personajes',
-                  'id' => 'personajes',
-                  'value' => set_value('personajes'),
-                  'maxlength' => '250',
-                  'style'=>'width:556px;',
-                  'class' => 'wysiwyg-simple'
-                  );
-                  echo form_input($personajes); */
-                ?>
+                
                 <?php if (count($objClips) > 0 && $objBeanForm->video_id > 0) : ?>
                     <br /><br />
                     <!-- Lista de clips -->
@@ -260,147 +167,29 @@
                     </table>
                 <?php endif ?>
             </div>
-
             <div class="right_arm">
-
                 <!-- categoria -->
-                <label for="categoria"><?php echo lang('videos:categoria_label'); ?>*</label>
+                <label for="categoria"><?php echo lang('videos:categoria_label'); ?> <span class="required">*</span></label>
                 <?php echo form_error('categoria'); ?><br />
                 <?php echo form_dropdown('categoria', $categoria, $objBeanForm->categoria); ?>
 
-                <br/><br/>
-                <!-- programa -->
-                <label for="programa"><?php echo lang('videos:programa_label'); ?></label>
-                <?php echo form_error('programa'); ?><br/>
-                <?php
-                $js = 'onChange="generate_collection();"';
-                echo form_dropdown('programa', $programa, $objBeanForm->programa, $js);
-                //echo form_dropdown('programa', $programa, $objBeanForm->programa); 
-                ?>
-
-                <!-- boton añadir -->
-                <div class="i_plus">
-                    <?php
-                    echo form_input(array('class' => 'h_text', 'name' => 'txt_programa', 'id' => 'txt_programa'));
-                    $attr = array('class' => 'plus_item btn blue', 'type' => 'button', 'onclick' => 'addMaestro(\'programa\')');
-                    echo anchor('#', '+ ' . lang('videos:add'), $attr)
-                    ?>                
-                </div>            
-                <!-- coleccion -->
-                <br/><br/>
-                <label for="coleccion"><?php echo lang('videos:collection'); ?></label>
-                <?php echo form_error('coleccion'); ?><br/>
-                <?php
-                $js = 'onChange="generate_list();" id="coleccion"';
-                echo form_dropdown('coleccion', $coleccion, $objBeanForm->coleccion, $js);
-                ?>
-
-                <!-- boton añadir -->
-                <div class="i_plus">
-                    <?php
-                    echo form_input(array('class' => 'h_text', 'name' => 'txt_coleccion', 'id' => 'txt_coleccion'));
-                    $attr = array('class' => 'plus_item btn blue', 'type' => 'button', 'onclick' => 'addMaestro(\'coleccion\')');
-                    echo anchor('#', '+ ' . lang('videos:add'), $attr)
-                    ?>                
-                </div>
-
-                <!-- lista de reproducción -->
-                <br/>
-                <label for="lista_rep"><?php echo lang('videos:lista_reprod_label'); ?></label>
-                <?php echo form_error('lista_rep'); ?><br/>
-                <?php
-                echo form_dropdown('lista', $lista_rep, $objBeanForm->lista);
-                ?>
-
-                <!-- botón añadir -->
-                <div class="i_plus">
-                    <?php
-                    echo form_input(array('class' => 'h_text', 'name' => 'txt_lista', 'id' => 'txt_lista'));
-                    $attr = array('class' => 'plus_item btn blue', 'type' => 'button', 'onclick' => 'addMaestro(\'lista\')');
-                    echo anchor('#', '+ ' . lang('videos:add'), $attr)
-                    ?>
-                </div>
-
-                <!-- tipo -->
-                <!--        <br /><br />
-                        <label for="tipo"><?php //echo lang('videos:tipo_label');          ?></label>
-                <?php //echo form_error('tipo'); ?><br/>
-                <?php //echo form_dropdown('tipo', $tipo, $objBeanForm->tipo); ?> -->
-                <input type="hidden" name="int_tipo_video" id="int_tipo_video" value="<?php echo $objBeanForm->tipo; ?>" >
-
-
+                <br /><br/><br />
+                <!-- tags tematicos -->
+                <label for="tematicas"><?php echo lang('videos:etiquetas_tematicas_label'); ?> <span class="required">*</span></label>
+                <div class="input"><?php echo form_input('tematicas', $objBeanForm->tematicas, 'id="tematicas"') ?></div>
+                
                 <!-- tags personajes -->
-                <br/><br /><br /><br />
-                <label for="personajes"><?php echo lang('videos:etiquetas_personajes_label'); ?><span class="required">*</span></label>
+                <br /><br /><br />
+                <label for="personajes"><?php echo lang('videos:etiquetas_personajes_label'); ?></label>
                 <div class="input"><?php echo form_input('personajes', $objBeanForm->personajes, 'id="personajes"') ?></div>        
 
-
-                <!-- fuente -->
-                <br/>
-                <div style="display: none;">
-                    <label for="fuente"><?php echo lang('videos:fuente_label'); ?><span class="required">*</span></label>
-                    <?php
-                    echo form_dropdown('fuente', $fuente, $objBeanForm->canal_id);
-                    ?>
-                </div>
-                <!-- fecha de publicación -->
-                <br/><br/>
-        <!--        <label for="fecha_publicacion"><?php //echo lang('videos:fecha_publicacion_label');           ?></label>-->
-                <?php //echo lang('videos:inicio'); ?>
-                <?php
-                $fec_pub_ini = array(
-                    'type' => 'hidden',
-                    'name' => 'fec_pub_ini',
-                    'id' => 'fec_pub_ini',
-                    'value' => $objBeanForm->fec_pub_ini,
-                    'class' => 'selectedDateTime'
-                );
-                echo form_input($fec_pub_ini);
-                ?>
-
-                <?php //echo lang('videos:fin'); ?>
-                <?php
-                $fec_pub_fin = array(
-                    'type' => 'hidden',
-                    'name' => 'fec_pub_fin',
-                    'id' => 'fec_pub_fin',
-                    'value' => $objBeanForm->fec_pub_fin,
-                    'class' => 'selectedDateTime'
-                );
-                echo form_input($fec_pub_fin);
-                ?>
-
-                <!-- ubicacion -->
-        <!--        <label><?php //echo lang('videos:ubicacion_label');           ?></label>-->
-                <?php
-                $ubicacion = array(
-                    'type' => 'hidden',
-                    'name' => 'ubicacion',
-                    'id' => 'ubicacion',
-                    'value' => $objBeanForm->ubicacion,
-                    'style' => 'width:556px;',
-                );
-                echo form_input($ubicacion);
-                ?>        
             </div>
-
             <div class="main_opt">            
-                <!--                <div id="btnSave" style="float: left; padding-right: 10px;">
-                                    <a href="javascript:saveVideo();" class="btn orange" type="button"><?php //echo lang('buttons.save');  ?></a>
-                                </div>-->
-                <div  style="float: left;">
-                    <?php
-                    //$attr = array('class' => 'btn orange', 'type' => 'button');
-                    //echo anchor("#", lang('buttons.cancel'), $attr);
-                    ?>                    
-                </div>
-
+                <div  style="float: left;"></div>
             </div>
-
             <script type="text/javascript" >
                 function mostrar_titulo() {
-                    var vista = 'Carga_unitaria';
-                    var post_url = "/admin/canales/mostrar_titulo/<?php echo $canal->id; ?>/" + vista;
+                    var post_url = "/admin/canales/mostrar_titulo/<?php echo $canal->id; ?>/" + 'carga_youtube';
                     $.ajax({
                         type: "POST",
                         url: post_url,
@@ -409,8 +198,8 @@
                         success: function(respuesta) //we're calling the response json array 'cities'
                         {
                             $(".subbar > .wrapper").html(respuesta);
-                        } //end success
-                    }); //end AJAX              
+                        }
+                    });
                 }
                 function activeImageVideo(imagen_id) {
                     var values = {};
@@ -437,8 +226,7 @@
                     });
 
                     var serializedData = $('#frm').serialize();
-                    //var post_url = "/admin/videos/save_maestro/"+values['txt_'+type_video]+"/"+values['canal_id']+"/"+values['categoria']+"/"+type_video;
-                    var post_url = "/admin/videos/verificarVideo/" + values['canal_id'] + "/" + values['video_id'];
+                    var post_url = "/admin/videos/verificarVideoYouTube/" + values['canal_id'] + "/" + values['video_id'];
                     //var r;
                     $.post(post_url, serializedData, function(data) {
                         if (data.errorValue == '0') {
@@ -476,9 +264,8 @@
                     while (new Date().getTime() < start + delay)
                         ;
                 }
-                /*
-                 * 
-                 * @returns {undefined}
+                /**
+                 * Guarda información y el video subido
                  */
                 function saveVideo() {
                     $("#btnSave").html('<a href="#" class="btn silver" onclick="return false;" type="button"><?php echo lang('buttons.save'); ?><img src="<?php echo BASE_URL ?>system/cms/themes/pyrocms/img/save.png" /></a>');
@@ -498,128 +285,50 @@
                     var inputfile = $("#video").val();
                     values['tematicas'] = $.trim(values['tematicas']);
                     values['personajes'] = $.trim(values['personajes']);
-                    values['hora_trans_fin'] = $.trim(values['hora_trans_fin']);
-                    values['hora_trans_ini'] = $.trim(values['hora_trans_ini']);
-                    var hfin = $.trim($("#hora_trans_fin").val());
-                    var hini = $.trim($("#hora_trans_ini").val());
-                    var hora_valida = true;
-                    if (hfin.length > 0 && hini.length > 0) {
-                        if (hfin > hini || (hfin == '00:00:00' && hini == '00:00:00')) {
-                            hora_valida = true;
-                        } else {
-                            hora_valida = false;
-                        }
-                    } else {
-                        hora_valida = true;
+                    var $pass = true;
+                    var $message = '';
+                    //validando si es video YouTube
+                    var regExp = $('input#video').data('regexp');
+                    var re = new RegExp(regExp);
+                    //validamos el ckeditor
+                    var editorText = CKEDITOR.instances.descripcion.getData();
+                    editorText = $.trim(editorText);
+                    var regex = /(<([^>]+)>)/ig;
+                    var editorText2 = editorText.replace(regex, "");
+                    editorText2 = $.trim(editorText2);
+                    editorText2 = editorText2.replace(/(&nbsp;)*/g, "");
+                    
+                    //validando si se ingresó título
+                    if (titulo.length === 0) {
+                        $message = '<?php echo lang('videos:require_title') ?>';
+                        $pass = false;
+                    } else if (inputfile.length === 0) {
+                        $message = '<?php echo lang('videos:require_youtube') ?>';
+                        $pass = false;
+                    } else if (!inputfile.match(re)) {
+                        $message = '<?php echo lang('videos:youtube_invalid') ?>';
+                        $pass = false;
+                    } else if (editorText.length === 0 && editorText2.length === 0) {
+                        $message = '<?php echo lang('videos:require_description') ?>';
+                        $pass = false;
+                    } else if (values['categoria'] === 0) {
+                        $message = '<?php echo lang('videos:require_category') ?>';
+                        $pass = false;
+                    } else if (values['tematicas'].length === 0) {
+                        $message = '<?php echo lang('videos:require_tematicas') ?>';
+                        $pass = false;
                     }
 
-                    if (hora_valida) {
-                        if (titulo.length > 0) {
-                            //validamos el input file
-                            if (inputfile.length > 0) {
-                                //verificamos si el formato del archivo es valido
-                                var arrayFile = inputfile.split('.');
-                                var ext = arrayFile[arrayFile.length - 1];
-                                if ((ext && /^(mp4|mpg|flv|avi|wmv)$/.test(ext))) {
-                                    //validamos el ckeditor
-                                    var editorText = CKEDITOR.instances.descripcion.getData();
-                                    editorText = $.trim(editorText);
-                                    var regex = /(<([^>]+)>)/ig;
-                                    var editorText2 = editorText.replace(regex, "");
-                                    editorText2 = $.trim(editorText2);
-                                    editorText2 = editorText2.replace(/(&nbsp;)*/g, "");
-                                    if (editorText.length > 0 && editorText2.length > 0) {
-                                        //validamos que este seleccionada una categoria
-                                        if (values['categoria'] > 0) {
-                                            //validamos tematicas
-                                            if (values['tematicas'].length > 0) {
-                                                //validamos personajes
-                                                if (values['personajes'].length > 0) {
-                                                    //validamos el tipo de video
-                                                    if (values['int_tipo_video'] > 0) {
-                                                        //validamos la fuente del video
-                                                        if (values['fuente'] > 0) {
-                                                            //var repite = $("#existe_fragmento").val();
-                                                            //console.log(repite);
-                                                            if (true) {
-<?php //if ($objBeanForm->video_id > 0) {   ?>
-                                                                if ($("#video_id").val() > 0) {
-                                                                    var serializedData = $('#frm').serialize();
-                                                                    //var post_url = "/admin/videos/save_maestro/"+values['txt_'+type_video]+"/"+values['canal_id']+"/"+values['categoria']+"/"+type_video;
-                                                                    var post_url = "/admin/videos/updateVideo/" + values['canal_id'] + "/" + values['video_id'];
-                                                                    $.ajax({
-                                                                        type: "POST",
-                                                                        url: post_url,
-                                                                        dataType: 'json',
-                                                                        data: serializedData,
-                                                                        success: function(returnValue) //we're calling the response json array 'cities'
-                                                                        {
-                                                                            //console.log(returnValue.value);
-                                                                            if (returnValue.value == '0') {
-                                                                                var url = "admin/canales/videos/" + values['canal_id'];
-                                                                                showMessage('exit', '<?php echo lang('videos:edit_video_success') ?>', 1000, url);
-                                                                            } else {
-                                                                                showMessage('error', '<?php echo lang('videos:fragment_exist') ?>', 2000, '');
-                                                                                $("#btnSave").html('<a href="javascript:saveVideo();" class="btn orange" type="button"><?php echo lang('buttons.save'); ?><img src="<?php echo BASE_URL ?>system/cms/themes/pyrocms/img/save.png" /></a>');
-                                                                            }
-                                                                        } //end success
-                                                                    }); //end AJAX                                                    
-<?php //} else {   ?>
-                                                                } else {
-                                                                    //$('#frm').submit();
-                                                                    existeFragmento();
-<?php //}   ?>
-                                                                }
-                                                            } else {
-                                                                showMessage('error', '<?php echo lang('videos:fragment_exist') ?>', 2000, '');
-                                                                $("#btnSave").html('<a href="javascript:saveVideo();" class="btn orange" type="button"><?php echo lang('buttons.save'); ?><img src="<?php echo BASE_URL ?>system/cms/themes/pyrocms/img/save.png" /></a>');
-                                                            }
-                                                        } else {
-                                                            showMessage('error', '<?php echo lang('videos:require_source') ?>', 2000, '');
-                                                            $("#btnSave").html('<a href="javascript:saveVideo();" class="btn orange" type="button"><?php echo lang('buttons.save'); ?><img src="<?php echo BASE_URL ?>system/cms/themes/pyrocms/img/save.png" /></a>');
-                                                        }
-                                                    } else {
-                                                        showMessage('error', '<?php echo lang('videos:require_type') ?>', 2000, '');
-                                                        $("#btnSave").html('<a href="javascript:saveVideo();" class="btn orange" type="button"><?php echo lang('buttons.save'); ?><img src="<?php echo BASE_URL ?>system/cms/themes/pyrocms/img/save.png" /></a>');
-                                                    }
-                                                } else {
-                                                    showMessage('error', '<?php echo lang('videos:require_personajes') ?>', 2000, '');
-                                                    $("#btnSave").html('<a href="javascript:saveVideo();" class="btn orange" type="button"><?php echo lang('buttons.save'); ?><img src="<?php echo BASE_URL ?>system/cms/themes/pyrocms/img/save.png" /></a>');
-                                                }
-                                            } else {
-                                                showMessage('error', '<?php echo lang('videos:require_tematicas') ?>', 2000, '');
-                                                $("#btnSave").html('<a href="javascript:saveVideo();" class="btn orange" type="button"><?php echo lang('buttons.save'); ?><img src="<?php echo BASE_URL ?>system/cms/themes/pyrocms/img/save.png" /></a>');
-                                            }
-                                        } else {
-                                            showMessage('error', '<?php echo lang('videos:require_category') ?>', 2000, '');
-                                            $("#btnSave").html('<a href="javascript:saveVideo();" class="btn orange" type="button"><?php echo lang('buttons.save'); ?><img src="<?php echo BASE_URL ?>system/cms/themes/pyrocms/img/save.png" /></a>');
-                                        }
-                                    } else {
-                                        showMessage('error', '<?php echo lang('videos:require_description') ?>', 2000, '');
-                                        $("#btnSave").html('<a href="javascript:saveVideo();" class="btn orange" type="button"><?php echo lang('buttons.save'); ?><img src="<?php echo BASE_URL ?>system/cms/themes/pyrocms/img/save.png" /></a>');
-                                    }
-                                    //aquí enviamos el mensaje de validación del formato del archivo
-                                } else {
-                                    showMessage('error', '<?php echo lang('videos:format_invalid') ?>', 2000, '');
-                                    $("#btnSave").html('<a href="javascript:saveVideo();" class="btn orange" type="button"><?php echo lang('buttons.save'); ?><img src="<?php echo BASE_URL ?>system/cms/themes/pyrocms/img/save.png" /></a>');
-                                }
-                            } else {
-                                showMessage('error', '<?php echo lang('videos:require_video') ?>', 2000, '');
-                                $("#btnSave").html('<a href="javascript:saveVideo();" class="btn orange" type="button"><?php echo lang('buttons.save'); ?><img src="<?php echo BASE_URL ?>system/cms/themes/pyrocms/img/save.png" /></a>');
-                            }
-
-                        } else {
-                            showMessage('error', '<?php echo lang('videos:require_title') ?>', 2000, '');
-                            $("#btnSave").html('<a href="javascript:saveVideo();" class="btn orange" type="button"><?php echo lang('buttons.save'); ?><img src="<?php echo BASE_URL ?>system/cms/themes/pyrocms/img/save.png" /></a>');
-                        }
+                    if ($pass) {
+                        existeFragmento();
                     } else {
-                        showMessage('error', 'La hora fin de la transmisión no debe ser menor a la hora inicial', 2000, '');
+                        showMessage('error', $message, 2000, '');
                         $("#btnSave").html('<a href="javascript:saveVideo();" class="btn orange" type="button"><?php echo lang('buttons.save'); ?><img src="<?php echo BASE_URL ?>system/cms/themes/pyrocms/img/save.png" /></a>');
                     }
                 }
+
                 /**
                  * funcion para agregar nuevos programas, colecciones, listas
-                 * @returns {undefined}
                  */
                 function addMaestro(type_video) {
                     if ($('#txt_' + type_video).css('display') == 'inline' || $('#txt_' + type_video).css('display') == 'inline-block') {
@@ -913,7 +622,7 @@
                     }).appendTo('#frm');
                     var serializedData = $('#frm').serialize();
                     //var post_url = "/admin/videos/save_maestro/"+values['txt_'+type_video]+"/"+values['canal_id']+"/"+values['categoria']+"/"+type_video;
-                    var post_url = "/admin/videos/carga_unitaria/" + values['canal_id'] + "/" + values['video_id'];
+                    var post_url = "/admin/videos/carga_youtube/" + values['canal_id'] + "/" + values['video_id'];
                     $.ajax({
                         type: "POST",
                         url: post_url,
