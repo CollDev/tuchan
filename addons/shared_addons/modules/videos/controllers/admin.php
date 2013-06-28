@@ -602,15 +602,19 @@ class Admin extends Admin_Controller {
             $objBeanVideo = new stdClass();
             $objBeanVideo->id = NULL;
             $objBeanVideo->tipo_videos_id = $this->input->post('int_tipo_video');
+            $objBeanVideo->categorias_id = $this->input->post('categoria');
             $objBeanVideo->usuarios_id = $user_id;
             $objBeanVideo->canales_id = $this->input->post('canal_id');
             $objBeanVideo->titulo = $this->input->post('titulo');
             $objBeanVideo->alias = url_title(strtolower(convert_accented_characters($this->input->post('titulo'))));
             $objBeanVideo->descripcion = $this->input->post('descripcion_updated');
-            $objBeanVideo->fragmento = $this->input->post('fragmento');
-            $objBeanVideo->fecha_publicacion_inicio = date("H:i:s", strtotime($this->input->post('fec_pub_ini')));
-            $objBeanVideo->fecha_publicacion_fin = date("H:i:s", strtotime($this->input->post('fec_pub_fin')));
-            $objBeanVideo->ubicacion = $this->input->post('ubicacion');
+            $objBeanVideo->fragmento = 0;
+            $objBeanVideo->fecha_publicacion_inicio = date("H:i:s", strtotime('1970-12-31 00:00:00'));
+            $objBeanVideo->fecha_publicacion_fin = date("H:i:s", strtotime('1970-12-31 00:00:00'));
+            $objBeanVideo->fecha_transmision = date("Y-m-d H:i:s", strtotime('1970-12-31 00:00:00'));
+            $objBeanVideo->horario_transmision_inicio = date("H:i:s", strtotime('1970-12-31 00:00:00'));
+            $objBeanVideo->horario_transmision_fin = date("H:i:s", strtotime('1970-12-31 00:00:00'));
+            $objBeanVideo->ubicacion = 0;
             $objBeanVideo->estado = $this->config->item('status:codificando');
             $objBeanVideo->estado_liquid = $this->config->item('liquid:nuevo');
             $objBeanVideo->fecha_registro = date("Y-m-d H:i:s");
@@ -620,13 +624,10 @@ class Admin extends Admin_Controller {
             $objBeanVideo->estado_migracion_sphinx_des = 0;
             $objBeanVideo->padre = 0;
             $objBeanVideo->estado_migracion_sphinx = $this->config->item('sphinx:nuevo');
+            
             $objBeanVideoSaved = $this->videos_m->save_video($objBeanVideo);
-            //giardamos los tags de tematica y personajes
+            //guardando los tags de tematica y personajes
             $this->_saveTagsTematicaPersonajes($objBeanVideoSaved, $this->input->post());
-            //guardamos en la tabla grupo detalle
-            $this->_saveVideoMaestroDetalle($objBeanVideoSaved, $this->input->post());
-            //cambiar nombre del video por el ID del registro del video 
-            $this->renameVideo($objBeanVideoSaved, $archivo_video['basename']);
             echo json_encode(array("error" => "0"));
          } else {
             //validamos que existan el video y/o el canal
@@ -651,13 +652,12 @@ class Admin extends Admin_Controller {
                 $objBeanForm->titulo = $objVideo->titulo;
                 $objBeanForm->video = '';
                 $objBeanForm->descripcion = $objVideo->descripcion;
-                $objBeanForm->fragmento = $objVideo->fragmento;
                 $objBeanForm->tematicas = $this->_getTag($video_id, $this->config->item('tag:tematicas'));
-                $objBeanForm->fec_pub_ini = date("d-m-Y H:i:s", strtotime($objVideo->fecha_publicacion_inicio)); //$objVideo->fecha_publicacion_inicio;
-                $objBeanForm->fec_pub_fin = date("d-m-Y H:i:s", strtotime($objVideo->fecha_publicacion_fin)); //$objVideo->fecha_publicacion_fin;
-                $objBeanForm->fec_trans = date("d-m-Y", strtotime($objVideo->fecha_transmision)); //$objVideo->fecha_transmision;
                 $objBeanForm->canal_id = $canal_id;
                 $objBeanForm->keywords = '';
+                $objBeanForm->programa = 0;
+                $objBeanForm->coleccion = 0;
+                $objBeanForm->lista = 0;
                 $objBeanForm->error = $error;
                 $objBeanForm->padre = 0;
                 $objBeanForm->message = $message;
