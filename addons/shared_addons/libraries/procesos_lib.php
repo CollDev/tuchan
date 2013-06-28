@@ -393,7 +393,7 @@ class Procesos_lib extends MX_Controller {
                     $this->sincronizar_lib->agregar_video($value->id, 'pro');
                     Log::erroLog("actualizar_video: " . $id);
                     
-                    $this->_actualizarCantidadVideosXCanalId($value->canal_id);
+                    $this->_actualizarCantidadVideosXVideosId($id);
                 }
             }
         }
