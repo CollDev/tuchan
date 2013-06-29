@@ -49,5 +49,10 @@ class Grupo_Maestros_mp extends CI_Model {
          $query = "delete from default_cms_grupo_detalles WHERE  id =".$id;  
         return $this->db->query($query);     
     }
+    
+     public function getExisteGrupoMaestroXIdMongo($id){
+        $query = "select * from " . $this->_table . " where id_mongo = '".$id."'";
+        return  $this->db->query($query)->num_rows();
+    }
         
 }    

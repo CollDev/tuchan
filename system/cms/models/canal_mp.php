@@ -120,9 +120,13 @@ class Canal_mp extends CI_Model {
     public function setItemCollectionDelete($id) {
          $this->mongo_db->delete_where($this->_tabla,array("id"=>$id));       
     }
+    
+    public function setItemCollectionDeleteXIdMongo($id) {
+         $this->mongo_db->delete_where($this->_tabla,array("_id"=>$id));       
+    }
 
     public function getItemCollection($id_mongo) {
-        return $this->mongo_db->delete_where($this->_tabla,$id_mongo);
+        return $this->mongo_db->get_where($this->_tabla,$id_mongo);
     }
 
     /**
@@ -154,5 +158,9 @@ class Canal_mp extends CI_Model {
         } else {
             return FALSE;
         }
-    }    
+    }  
+    
+    public function getCanal(){
+        return $this->mongo_db->get($this->_tabla);;       
+    }
 }

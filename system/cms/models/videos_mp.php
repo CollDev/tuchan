@@ -200,5 +200,8 @@ class Videos_mp extends CI_Model {
         return $this->db->query($query)->result();
     }
     
-     
+     public function getExisteVideosXIdMongo($id){
+        $query = "select * from " . $this->_table . " where id_mongo = '".$id."'";
+        return  $this->db->query($query)->num_rows();
+    }
 }
