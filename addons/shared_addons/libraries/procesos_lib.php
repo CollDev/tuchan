@@ -237,9 +237,12 @@ class Procesos_lib extends MX_Controller {
                     Log::erroLog("return media " . trim($retorno));
                 } else {
                     Log::erroLog("exception de upload  getObtenerMediaXId " . $value->id . "," . $value->apikey);
-                    sleep(60);
-
-                    $mediaarray = Liquid::getObtenerMediaXId($value->id, $value->apikey);
+                  
+                    $contador = 0 ; 
+                    BUSQUEDAMEDIA:
+                    
+                    sleep(300);
+                    $mediaarray = Liquid::getObtenerMediaXId($value->id, $value->apikey);                                       
 
                     if ($mediaarray != FALSE) {
                         $mediaxml = new SimpleXMLElement($mediaarray);
@@ -254,10 +257,19 @@ class Procesos_lib extends MX_Controller {
                             $ruta = base_url("curlproceso/updateMediaVideosXId/" . $value->id . "/" . $media);
                             shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");
                         } else {
-                            $this->videos_mp->setEstadosVideos($value->id, $this->config->item('v_e:error'), $this->config->item('v_l:subiendo'));
+                            
+                            if($contador==10){
+                                //$this->videos_mp->setEstadosVideos($value->id, $this->config->item('v_e:error'), $this->config->item('v_l:subiendo'));
+                                $this->curlUpdateEstadoVideosXId($value->id, $this->config->item('v_e:error'), $this->config->item('v_l:subiendo'));
+                            }  else {
+                                $contador++;
+                                goto BUSQUEDAMEDIA;
+
+                            }
                         }
                     } else {
-                        $this->videos_mp->setEstadosVideos($value->id, $this->config->item('v_e:error'), $this->config->item('v_l:subiendo'));
+                            //$this->videos_mp->setEstadosVideos($value->id, $this->config->item('v_e:error'), $this->config->item('v_l:subiendo'));
+                            $this->curlUpdateEstadoVideosXId($value->id, $this->config->item('v_e:error'), $this->config->item('v_l:subiendo'));                                                
                     }
                 }
             }
@@ -392,8 +404,10 @@ class Procesos_lib extends MX_Controller {
                     //$this->portadas_lib->actualizar_video($value->id, FALSE);
                     $this->sincronizar_lib->agregar_video($value->id, 'pro');
                     Log::erroLog("actualizar_video: " . $id);
-
+                     
+                    error_log("inin _ video añadido: " .$id);
                     $this->_actualizarCantidadVideosXVideosId($id);
+                    error_log("fin  _ video añadido: " .$id);
                 }
             }
         }
