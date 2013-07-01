@@ -1666,9 +1666,9 @@ class Procesos_lib extends MX_Controller {
             
             
                     Log::erroLog("actualizar_video: " . $id);                     
-                    error_log("inin _ video añadido: " .$id);
+                    //error_log("inin _ video añadido: " .$id);
                     $this->_actualizarCantidadVideosXVideosId($id);
-                    error_log("fin  _ video añadido: " .$id);
+                    //error_log("fin  _ video añadido: " .$id);
         } else {
             if ($this->canal_mp->existe_id($id)) {
                 $this->canal_mp->setItemCollectionDelete($id);
@@ -1979,8 +1979,8 @@ class Procesos_lib extends MX_Controller {
         $video = $this->videos_mp->getVideosXIdDatos($id);
 
         foreach ($video as $value) {
-            error_log("value->canal_id:  " .$value->canal_id);  
-            error_log("value->gm_id:  " .$value->gm_id);
+            //error_log("value->canal_id:  " .$value->canal_id);  
+            //error_log("value->gm_id:  " .$value->gm_id);
             $this->_actualizarCantidadVideosXCanalId($value->canal_id);
             
             if(!empty($value->gm_id)){
