@@ -7570,16 +7570,27 @@ class Admin extends Admin_Controller {
     public function actualizar_ibope()
     {
         if ($this->input->is_ajax_request()) {
-            //var_dump($this->input->get());
             $updated = FALSE;
             if (is_numeric($this->input->get('ibope'))) {
-                $updated = $this->canales_m->update($this->input->get('canal_id'), array('ibope' => $this->input->get('ibope')));
-            }
-            //var_dump($this->input->get('canal_id'));
-            if ($updated) {
-                $return = array('type' => 'exit', 'message' => 'Canal actualizado.');
+                if(preg_match('/^\d+$/',$this->input->get('ibope'))) {
+                    if ($this->canales_m->get($this->input->get('canal_id'))->ibope !== $this->input->get('ibope')) {
+                        $updated = $this->canales_m->update($this->input->get('canal_id'), array('ibope' => $this->input->get('ibope')));
+                    } else {
+                        echo json_encode(array('type' => 'info', 'message' => 'Ingrese otro valor.'));
+                        return;
+                    }
+                } else {
+                    echo json_encode(array('type' => 'error', 'message' => 'Ingrese un número entero.'));
+                    return;
+                }
             } else {
-                $return = array('type' => 'error', 'message' => 'Error al actualizar canal.');
+                echo json_encode(array('type' => 'error', 'message' => 'Ingrese un número.'));
+                return;
+            }
+            if ($updated) {
+                $return = array('type' => 'exit', 'message' => 'Ibope actualizado.');
+            } else {
+                $return = array('type' => 'error', 'message' => 'Error al actualizar ibope.');
             }
         
             echo json_encode($return);

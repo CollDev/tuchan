@@ -6,7 +6,6 @@
             <th>Nombre</th>
             <th>texto</th>
             <th>boton</th>
-            <th>Id</th>
         </tr>
     </thead>
     <tbody>
@@ -25,13 +24,10 @@ foreach($canales as $canal) {
                 <?php echo $canal->nombre; ?>                
             </td>
             <td>
-                <input class="input" id="input_canal_<?php echo $canal->id; ?>" type="text"/>
+                <input class="input" id="input_canal_<?php echo $canal->id; ?>" type="text" value="<?php echo $canal->ibope; ?>" />
             </td>
             <td>
                 <button class="btn blue enviar_canal" id="btn_canal_<?php echo $canal->id; ?>">Enviar</button>
-            </td>
-            <td>
-                <?php echo $canal->id; ?>                
             </td>
         </tr>
 <?php
