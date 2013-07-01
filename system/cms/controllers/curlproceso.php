@@ -173,5 +173,13 @@ class curlProceso extends MX_Controller {
         
     }
     
+    public function publicarPorIbope()
+    {
+        $this->procesos_lib->publicarPorIbope();
+    }
+    
+    public function generarVideosXId($id)
+    {
+        $this->procesos_lib->generarVideosXId($id);
+    }
 }
-?>

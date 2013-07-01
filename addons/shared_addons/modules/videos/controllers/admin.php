@@ -623,6 +623,7 @@ class Admin extends Admin_Controller {
             $objBeanVideo->estado_migracion_sphinx_tit = 0; //
             $objBeanVideo->estado_migracion_sphinx_des = 0;
             $objBeanVideo->padre = 0;
+            $objBeanVideo->procedencia = 2;
             $objBeanVideo->estado_migracion_sphinx = $this->config->item('sphinx:nuevo');
             
             $objBeanVideoSaved = $this->videos_m->save_video($objBeanVideo);
@@ -662,6 +663,7 @@ class Admin extends Admin_Controller {
                 $objBeanForm->error = $error;
                 $objBeanForm->padre = 0;
                 $objBeanForm->message = $message;
+                $objBeanVideo->procedencia = $this->config->item('procedencia:youtube');
                 $objBeanForm->tiene_imagen = $this->_tieneAvatar($video_id);
                 if ($objBeanForm->tiene_imagen) {
                     $objBeanForm->avatar = $this->_getListImagen($video_id);
@@ -685,6 +687,7 @@ class Admin extends Admin_Controller {
                     $objBeanForm->error = $error;
                     $objBeanForm->message = $message;
                     $objBeanForm->keywords = '';
+                    $objBeanVideo->procedencia = $this->config->item('procedencia:youtube');
                     $objBeanForm->padre = $this->input->post('padre');
                 } else {
                     $objBeanForm->video_id = $video_id;
@@ -713,6 +716,7 @@ class Admin extends Admin_Controller {
                     $objBeanForm->message = $message;
                     $objBeanForm->keywords = '';
                     $objBeanForm->padre = 0;
+                    $objBeanVideo->procedencia = $this->config->item('procedencia:youtube');
                 }
             }
             // Obtener nombre del canal según id

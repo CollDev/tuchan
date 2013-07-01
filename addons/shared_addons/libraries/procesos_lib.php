@@ -2141,6 +2141,22 @@ class Procesos_lib extends MX_Controller {
         }
     }
 
+    public function publicarPorIbope()
+    {
+        $videos = $this->videos_mp->getTransmisionMenorIbope();
+        foreach ($videos as $video) {
+            $this->curlGenerarVideosXId($video->id);
+        }
+    }
+    
+    public function curlGenerarVideosXId($id) {
+        Log::erroLog("ini - generarVideosXId: " . $id);
+        $ruta = base_url("curlproceso/generarVideosXId/" . $id);
+        shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");
+        Log::erroLog("fin - generarVideosXId");
+    }
+    
+    public function generarVideosXId($id) {
+        $this->_generarVideosXId($id);
+    }
 }
-
-?>
