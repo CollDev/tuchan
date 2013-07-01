@@ -500,14 +500,16 @@
                     var hfin = $.trim($("#hora_trans_fin").val());
                     var hini = $.trim($("#hora_trans_ini").val());
                     var hora_valida = true;
-                    if (hfin.length > 0 && hini.length > 0) {
-                        if (hfin > hini || (hfin === '00:00:00' && hini === '00:00:00')) {
+                    if (hfin.length > 0 || hini.length > 0) {
+                        if (hfin > hini) {
                             hora_valida = true;
                         } else {
                             hora_valida = false;
                         }
-                    } else {
+                    } else if (hfin === '00:00:00' && hini === '00:00:00') {
                         hora_valida = true;
+                    } else {
+                        hora_valida = false;
                     }
                     var $pass = true;
                     var $message = '';
