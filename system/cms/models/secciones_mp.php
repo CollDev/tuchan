@@ -32,4 +32,9 @@ class Secciones_mp extends CI_Model {
             $query= "update ". $this->_table. " set estado_migracion=2, fecha_migracion_actualizacion= now() where id=" .$id;
             $this->db->query($query);        
     }
+    
+    public function getExisteSeccionesXIdMongo($id){
+        $query = "select * from " . $this->_table . " where id_mongo = '".$id."'";
+        return  $this->db->query($query)->num_rows();
+    }
 }

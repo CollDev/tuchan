@@ -297,8 +297,7 @@
                     var editorText2 = editorText.replace(regex, "");
                     editorText2 = $.trim(editorText2);
                     editorText2 = editorText2.replace(/(&nbsp;)*/g, "");
-                    
-                    //validando si se ingresó título
+
                     if (titulo.length === 0) {
                         $message = '<?php echo lang('videos:require_title') ?>';
                         $pass = false;
@@ -311,7 +310,7 @@
                     } else if (editorText.length === 0 && editorText2.length === 0) {
                         $message = '<?php echo lang('videos:require_description') ?>';
                         $pass = false;
-                    } else if (values['categoria'] === 0) {
+                    } else if (values['categoria'] === '0') {
                         $message = '<?php echo lang('videos:require_category') ?>';
                         $pass = false;
                     } else if (values['tematicas'].length === 0) {

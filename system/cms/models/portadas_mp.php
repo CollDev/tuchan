@@ -22,4 +22,9 @@ class Portadas_mp extends CI_Model {
         $query  = "SELECT id FROM ". $this->_table." WHERE tipo_portadas_id = 1";
         return $this->db->query($query)->result();
     }
+    
+    public function getExistePortadaXIdMongo($id){
+        $query = "select * from " . $this->_table . " where id_mongo = '".$id."'";
+        return  $this->db->query($query)->num_rows();
+    }
 }    

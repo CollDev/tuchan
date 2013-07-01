@@ -6907,6 +6907,7 @@ class Admin extends Admin_Controller {
                     break;
                 case 'video':
                     $this->videos_m->update($id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado_migracion" => $this->config->item('migracion:actualizado'), "estado" => $this->config->item('video:borrador')));
+                    echo json_encode(array("value" => "1")); //done
                     break;
             }
         }

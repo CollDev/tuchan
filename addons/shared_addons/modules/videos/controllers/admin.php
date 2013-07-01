@@ -628,6 +628,7 @@ class Admin extends Admin_Controller {
             $objBeanVideoSaved = $this->videos_m->save_video($objBeanVideo);
             //guardando los tags de tematica y personajes
             $this->_saveTagsTematicaPersonajes($objBeanVideoSaved, $this->input->post());
+            $this->procesos_lib->videoYoutube($objBeanVideoSaved->id,$this->input->post('video'));
             echo json_encode(array("error" => "0"));
          } else {
             //validamos que existan el video y/o el canal

@@ -31,5 +31,10 @@ class Canales_mp extends CI_Model {
                 (gm1 IS NULL AND gm2 IS NULL  AND gm3 IS NULL  AND tipo_grupo=2 ) OR (gm1 IS NULL AND gm2 IS NULL  AND gm3 IS NULL  AND tipo_grupo=1 ))";
         return $this->db->query($query)->result();
     }
+    
+    public function getExisteCanalXIdMongo($id){
+        $query = "select * from " . $this->_table . " where id_mongo = '".$id."'";
+        return  $this->db->query($query)->num_rows();
+    }
 
 }

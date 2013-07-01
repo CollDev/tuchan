@@ -212,5 +212,13 @@ class MiCanal_mp extends CI_Model {
             return FALSE;
         }
     }
+    
+    public function getMiCanal(){
+        return $this->mongo_db->get($this->_tabla);;       
+    }
+    
+     public function setItemCollectionDeleteXIdMongo($id) {
+         $this->mongo_db->delete_where($this->_tabla,array("_id"=>$id));       
+    }
 
 }

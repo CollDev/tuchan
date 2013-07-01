@@ -152,6 +152,10 @@ class curlProceso extends MX_Controller {
         $this->procesos_lib->videoYoutube($id);
     }
     
+    public function limpiarMongo(){
+        $this->procesos_lib->limpiarMongo();
+    }
+    
     public function getDB(){
         echo "<pre>";
         print_r($this->db);
