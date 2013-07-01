@@ -52,18 +52,20 @@
                     <td class="collapse" id="video_<?php echo $video->id; ?>"><?php echo lang('videos:'.$video->estado.'_estado'); ?></td>
 
                     <td id="accion_<?php echo $video->id; ?>">
-
-                        <?php if ($video->estado == $this->config->item('video:borrador') || $video->estado == $this->config->item('video:publicado')) : ?>                                
-                            <?php echo anchor('/admin/canales/visualizar_video/' . $video->id, lang('global:preview'), 'class="mode_preview modal-large_custom" onclick="return false;"'); ?>
-                            <?php echo anchor('/admin/videos/corte_video/' . $canal->id . '/' . $video->id . '/', lang('global:cortar'), 'class="mode_cut"'); ?>
-                            <?php echo anchor('#', lang('publish_label'), 'class="mode_publish" onclick="publicar_video(' . $video->id . ');return false;"'); ?>
-                        <?php endif; ?>
-                        <?php if($video->estado == $this->config->item('video:error')): ?>
-                            <?php echo anchor('#', lang('general_error_label'), ' title="'.  lang('global:forward').'" class="mode_restore" onclick="reenviar_video(' . $video->id . ');return false;"'); ?>
-                        <?php endif; ?>
-                        <?php echo anchor('/admin/videos/carga_unitaria/' . $canal->id . '/' . $video->id . '/', lang('global:edit'), 'class="mode_edit"'); ?>
-                        <?php echo anchor('#', lang('global:delete'), 'onclick="eliminar_video(' . $video->id . ');return false;" class="mode_delete"'); ?>
-
+                        <?php
+                        if ($video->estado == $this->config->item('video:borrador') || $video->estado == $this->config->item('video:publicado')) {
+                            echo anchor('/admin/canales/visualizar_video/' . $video->id, lang('global:preview'), 'class="mode_preview modal-large_custom" onclick="return false;"');
+                            echo anchor('/admin/videos/corte_video/' . $canal->id . '/' . $video->id . '/', lang('global:cortar'), 'class="mode_cut"');
+                            if ($video->estado == $this->config->item('video:borrador')) {
+                                echo anchor('#', lang('publish_label'), 'class="mode_publish" onclick="publicar_video(' . $video->id . ');return false;"');
+                            }
+                        }
+                        if($video->estado == $this->config->item('video:error')) {
+                            echo anchor('#', lang('general_error_label'), ' title="'.  lang('global:forward').'" class="mode_restore" onclick="reenviar_video(' . $video->id . ');return false;"');
+                        }
+                        echo anchor('/admin/videos/carga_unitaria/' . $canal->id . '/' . $video->id . '/', lang('global:edit'), 'class="mode_edit"');
+                        echo anchor('#', lang('global:delete'), 'onclick="eliminar_video(' . $video->id . ');return false;" class="mode_delete"');
+                        ?>
                     </td>
                 </tr>
     <?php endforeach; ?>
