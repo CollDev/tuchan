@@ -663,7 +663,7 @@ class Admin extends Admin_Controller {
                 $objBeanForm->error = $error;
                 $objBeanForm->padre = 0;
                 $objBeanForm->message = $message;
-                $objBeanVideo->procedencia = $this->config->item('procedencia:youtube');
+                $objBeanForm->procedencia = $this->config->item('procedencia:youtube');
                 $objBeanForm->tiene_imagen = $this->_tieneAvatar($video_id);
                 if ($objBeanForm->tiene_imagen) {
                     $objBeanForm->avatar = $this->_getListImagen($video_id);
@@ -687,7 +687,7 @@ class Admin extends Admin_Controller {
                     $objBeanForm->error = $error;
                     $objBeanForm->message = $message;
                     $objBeanForm->keywords = '';
-                    $objBeanVideo->procedencia = $this->config->item('procedencia:youtube');
+                    $objBeanForm->procedencia = $this->config->item('procedencia:youtube');
                     $objBeanForm->padre = $this->input->post('padre');
                 } else {
                     $objBeanForm->video_id = $video_id;
@@ -716,7 +716,7 @@ class Admin extends Admin_Controller {
                     $objBeanForm->message = $message;
                     $objBeanForm->keywords = '';
                     $objBeanForm->padre = 0;
-                    $objBeanVideo->procedencia = $this->config->item('procedencia:youtube');
+                    $objBeanForm->procedencia = $this->config->item('procedencia:youtube');
                 }
             }
             // Obtener nombre del canal según id
