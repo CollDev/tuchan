@@ -248,7 +248,7 @@ class Liquid {
             do {
                 $url = APIURL . "/medias/?key=" . $apikey . "&filter=id;title&search=published:false&first=" . $ini . "&limit=" . $inc;
 
-                error_log($url);
+                //error_log($url);
 
                 $response = self::getCurl($url);
                 if ($response != FALSE) {

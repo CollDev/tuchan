@@ -35,11 +35,13 @@ class Videos_mp extends CI_Model {
         $query = "SELECT vi.ruta,vi.id,vi.id_mongo,vi.estado_migracion,vi.estado, (SELECT GROUP_CONCAT(ta.nombre)
                     FROM default_cms_video_tags vt INNER JOIN default_cms_tags ta ON vt.tags_id = ta.id  
                     WHERE vt.videos_id=vi.id) AS 'etiquetas',
-                    ( SELECT  imagen FROM default_cms_imagenes im WHERE im.tipo_imagen_id=5 AND canales_id=vi.canales_id and im.estado=1 ) AS 'imagen'				
-                    FROM default_cms_videos vi WHERE vi.id =" . $id;
+                    ( SELECT  imagen FROM default_cms_imagenes im WHERE im.tipo_imagen_id=5 AND canales_id=vi.canales_id AND im.estado=1 ) AS 'imagen'				
+                    ,IF((DATE_ADD(CONCAT(fecha_transmision,' ',horario_transmision_inicio) , INTERVAL ibope HOUR)<NOW()),1,0) AS 'est_tra'
+                    FROM default_cms_videos vi  INNER JOIN default_cms_canales ca ON ca.id = vi.canales_id
+                    WHERE vi.id =" . $id;
         return $this->db->query($query)->result();
     }
-    
+
     public function getVideosxCodigo($codigo) {
         
         $query ="SELECT vi.id,vi.titulo,vi.descripcion,vi.codigo,ca.apikey FROM " . $this->_table . " vi 
@@ -204,9 +206,7 @@ class Videos_mp extends CI_Model {
     public function getTransmisionMenorIbope()
     {
         $query = "SELECT vi.id,vi.id_mongo FROM " . $this->_table_canales . " ca INNER JOIN " . $this->_table_videos . " vi ON ca.id = vi.canales_id 
-            WHERE  (ca.ibope + vi.fecha_transmision) < NOW() AND vi.id_mongo IS NULL AND vi.estado = '2'
-            ORDER BY vi.fecha_transmision DESC";
-        
+            WHERE ( DATE_ADD(CONCAT(fecha_transmision,' ',horario_transmision_inicio), INTERVAL ca.ibope HOUR )<NOW()) AND vi.id_mongo IS NULL AND vi.estado = '2'";        
         return $this->db->query($query)->result();
     }
 }
