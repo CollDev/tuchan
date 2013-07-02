@@ -373,7 +373,7 @@ class Procesos_lib extends MX_Controller {
 
                         $datos["videos_id"] = $value->id;
                         $datos["procedencia"] = 1;
-                        $datos["estado"] = $value->estado;
+                        $datos["estado"] = ESTADO_ACTIVO;
                         $datos["fecha_registro"] = date('Y-m-d H:i:s');
 
                         foreach ($imagenes as $value2) {
@@ -1591,8 +1591,7 @@ class Procesos_lib extends MX_Controller {
         if (count($video) > 0) {
             foreach ($video as $value) {
 
-
-                if ($value->estado == 1 || $value->estado == 2) {
+                if (($value->estado == 1 || $value->estado == 2) && $value->est_tra == ESTADO_ACTIVO) {
                     $datovideo = $this->canal_mp->queryProcedure(4, $value->id);
                     $objmongo['id'] = $value->id;
                     $objmongo['canal'] = ($datovideo[0]->xcanal);
@@ -2141,6 +2140,22 @@ class Procesos_lib extends MX_Controller {
         }
     }
 
+    public function publicarPorIbope()
+    {
+        $videos = $this->videos_mp->getTransmisionMenorIbope();
+        foreach ($videos as $video) {
+            $this->curlGenerarVideosXId($video->id);
+        }
+    }
+    
+    public function curlGenerarVideosXId($id) {
+        Log::erroLog("ini - generarVideosXId: " . $id);
+        $ruta = base_url("curlproceso/generarVideosXId/" . $id);
+        shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");
+        Log::erroLog("fin - generarVideosXId");
+    }
+    
+    public function generarVideosXId($id) {
+        $this->_generarVideosXId($id);
+    }
 }
-
-?>

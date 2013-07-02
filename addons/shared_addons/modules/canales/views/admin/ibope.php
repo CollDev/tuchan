@@ -9,28 +9,24 @@
 </section>
 <script type="text/javascript">
     function showMessage(type, message, duration, pathurl) {
-        if (type == 'error') {
-            jError(
-                    message,
-                    {
-                        autoHide: true, // added in v2.0
-                        TimeShown: duration,
-                        HorizontalPosition: 'center',
-                        VerticalPosition: 'top',
-                    }
-            );
-        } else {
-            if (type == 'exit') {
-                jSuccess(
-                        message,
-                        {
-                            autoHide: true, // added in v2.0
-                            TimeShown: duration,
-                            HorizontalPosition: 'center',
-                            VerticalPosition: 'top',
-                        }
-                );
-            }
+        var configs = {
+            autoHide: true, // added in v2.0
+            TimeShown: duration,
+            HorizontalPosition: 'center',
+            VerticalPosition: 'top',
         }
-    }    
+        if (type === 'error') {
+            jError(
+                message, configs
+            );
+        } else  if (type === 'exit') {
+            jSuccess(
+                message, configs
+            );
+        } else if (type === 'info') {
+            jNotify(
+                message, configs
+            );
+        }
+    }
 </script>
