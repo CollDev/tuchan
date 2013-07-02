@@ -373,7 +373,7 @@ class Procesos_lib extends MX_Controller {
 
                         $datos["videos_id"] = $value->id;
                         $datos["procedencia"] = 1;
-                        $datos["estado"] = $value->estado;
+                        $datos["estado"] = ESTADO_ACTIVO;
                         $datos["fecha_registro"] = date('Y-m-d H:i:s');
 
                         foreach ($imagenes as $value2) {
