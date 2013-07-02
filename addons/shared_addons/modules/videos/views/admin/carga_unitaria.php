@@ -206,7 +206,7 @@
                 </div>
                 <br /><br /><br />
                 <!-- descripcion -->
-                <label for="descripcion"><?php echo lang('videos:description'); ?> <span class="required">*</span></label>
+                <label for="descripcion"><?php echo lang('videos:descripcion'); ?> <span class="required">*</span></label>
                 <?php echo form_textarea(array('id' => 'descripcion', 'name' => 'descripcion', 'value' => $objBeanForm->descripcion, 'rows' => 5, 'class' => 'wysiwyg-simple')); ?>
                 <!-- tags tematicos -->
                 <br/></br>
