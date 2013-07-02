@@ -200,4 +200,13 @@ class Videos_mp extends CI_Model {
         $query = "select * from " . $this->_table . " where id_mongo = '".$id."'";
         return  $this->db->query($query)->num_rows();
     }
+    
+    public function getTransmisionMenorIbope()
+    {
+        $query = "SELECT vi.id,vi.id_mongo FROM " . $this->_table_canales . " ca INNER JOIN " . $this->_table_videos . " vi ON ca.id = vi.canales_id 
+            WHERE  (ca.ibope + vi.fecha_transmision) < NOW() AND vi.id_mongo IS NULL AND vi.estado = '2'
+            ORDER BY vi.fecha_transmision DESC";
+        
+        return $this->db->query($query)->result();
+    }
 }

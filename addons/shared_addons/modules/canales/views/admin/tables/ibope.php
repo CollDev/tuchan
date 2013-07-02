@@ -4,8 +4,8 @@
             <th>Indice</th>
             <th>Logo</th>
             <th>Nombre</th>
-            <th>texto</th>
-            <th>boton</th>
+            <th>Horas</th>
+            <th>Acciones</th>
         </tr>
     </thead>
     <tbody>
