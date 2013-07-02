@@ -37,7 +37,7 @@ Asset::js(array('codemirror/codemirror.js',
 	pyro.foreign_characters			= <?php echo json_encode(accented_characters()); ?>
 </script>
 
-<?php Asset::css(array('plugins.css', 'jquery/colorbox.css', 'codemirror.css')); ?>
+<?php Asset::css(array('plugins.css', 'jquery/colorbox.css', 'codemirror.css', 'styles.css')); ?>
 
 <?php echo Asset::render(); ?>
 
