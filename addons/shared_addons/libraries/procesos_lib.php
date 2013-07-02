@@ -373,7 +373,7 @@ class Procesos_lib extends MX_Controller {
 
                         $datos["videos_id"] = $value->id;
                         $datos["procedencia"] = 1;
-                        $datos["estado"] = $value->estado;
+                        $datos["estado"] = ESTADO_ACTIVO;
                         $datos["fecha_registro"] = date('Y-m-d H:i:s');
 
                         foreach ($imagenes as $value2) {
@@ -1591,8 +1591,7 @@ class Procesos_lib extends MX_Controller {
         if (count($video) > 0) {
             foreach ($video as $value) {
 
-
-                if ($value->estado == 1 || $value->estado == 2) {
+                if (($value->estado == 1 || $value->estado == 2) && $value->est_tra == ESTADO_ACTIVO) {
                     $datovideo = $this->canal_mp->queryProcedure(4, $value->id);
                     $objmongo['id'] = $value->id;
                     $objmongo['canal'] = ($datovideo[0]->xcanal);
@@ -1666,9 +1665,9 @@ class Procesos_lib extends MX_Controller {
             
             
                     Log::erroLog("actualizar_video: " . $id);                     
-                    error_log("inin _ video añadido: " .$id);
+                    //error_log("inin _ video añadido: " .$id);
                     $this->_actualizarCantidadVideosXVideosId($id);
-                    error_log("fin  _ video añadido: " .$id);
+                    //error_log("fin  _ video añadido: " .$id);
         } else {
             if ($this->canal_mp->existe_id($id)) {
                 $this->canal_mp->setItemCollectionDelete($id);
@@ -1979,8 +1978,8 @@ class Procesos_lib extends MX_Controller {
         $video = $this->videos_mp->getVideosXIdDatos($id);
 
         foreach ($video as $value) {
-            error_log("value->canal_id:  " .$value->canal_id);  
-            error_log("value->gm_id:  " .$value->gm_id);
+            //error_log("value->canal_id:  " .$value->canal_id);  
+            //error_log("value->gm_id:  " .$value->gm_id);
             $this->_actualizarCantidadVideosXCanalId($value->canal_id);
             
             if(!empty($value->gm_id)){
