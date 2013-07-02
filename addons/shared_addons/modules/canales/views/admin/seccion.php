@@ -41,13 +41,15 @@
     $('section.title div ul.main_menu li.alast').css('width',anew_width);
 </script>
 <section class="item">
+    <p class="portada_seccion"><?php echo $portada_seccion; ?></p>
+    <hr class="portada_seccion">
     <?php
     $attributes = array('class' => 'frm', 'id' => 'frmSeccion', 'name' => 'frmSeccion');
     echo form_open_multipart('admin/portadas/guardar_seccion/' . $objSeccion->id, $attributes);
     ?>
     <div class="main_opt">
         <!-- titulo -->
-        <label for="titulo"><?php echo lang('canales:nombre_label'); ?> <span class="required">*</span></label>
+        <label for="nombre"><?php echo lang('canales:nombre_label'); ?> <span class="required">*</span></label>
         <?php
         $titulo = array(
             'name' => 'nombre',
@@ -59,6 +61,7 @@
         );
         echo form_input($titulo);
         ?>
+        <br /><br />
         <!-- titulo -->
         <label for="descripcion"><?php echo lang('canales:descripcion_label'); ?> <span class="required">*</span></label>
         <?php
@@ -111,8 +114,7 @@
                         mostrar_titulo();
                     });
                     function mostrar_titulo() {
-                        var vista = 'detalle_seccion';
-                        var post_url = "/admin/canales/mostrar_titulo/<?php echo $canal_id; ?>/" + vista;
+                        var post_url = "/admin/canales/mostrar_titulo/<?php echo $canal_id; ?>/" + 'detalle_seccion';
                         $.ajax({
                             type: "POST",
                             url: post_url,

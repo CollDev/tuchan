@@ -1866,8 +1866,10 @@ class Admin extends Admin_Controller {
         //cargamos el objetos seccion
         if ($seccion_id > 0) {
             $objSeccion = $this->secciones_m->get($seccion_id);
+            $objPortada = $this->portada_m->get($objSeccion->portadas_id);
         }
         $title = $this->module_details['name'] = 'Sección - ' . $objSeccion->nombre;
+        $portada_seccion = $objPortada->nombre . ' - ' . $objSeccion->nombre;
         //agregamos el detalle de la seccion como un atributo al objeto
         //$objSeccion->detalle = $this->detalle_secciones_m->order_by('peso', 'ASC')->get_many_by(array("secciones_id" => $objSeccion->id));
 
@@ -1919,7 +1921,8 @@ class Admin extends Admin_Controller {
                 ->set('pagination', $pagination)
                 ->set('ultimo', $ultimo)
                 ->set('primer', $primero)
-                ->set('title', $title);
+                ->set('title', $title)
+                ->set('portada_seccion', $portada_seccion);
         $this->input->is_ajax_request() ? $this->template->build('admin/tables/secciones') : $this->template->build('admin/seccion');
         //}
     }
