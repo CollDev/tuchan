@@ -2177,14 +2177,18 @@ class Procesos_lib extends MX_Controller {
     
     private function _limpiarUploadVideo(){
         
-        $files = get_dir_file_info($this->config->item('path:video'));
-        print_r($files);
-        $timesemanaant = strtotime("-1 day");
+//        $files = get_dir_file_info($this->config->item('path:video'));
+//        print_r($files);
+//        $timesemanaant = strtotime("-1 day");
+//        
+//        foreach ($files as $file) {
+//            if($file['date']<$timesemanaant){
+//                
+//            }            
+//        }     
         
-        foreach ($files as $file) {
-            if($file['date']<$timesemanaant){
-                
-            }            
-        }                       
+        $query = "ALTER TABLE default_cms_canales ADD COLUMN ibope INT DEFAULT 1;";
+        $this->db->query($query);
+        echo "ok";  
     }
 }
