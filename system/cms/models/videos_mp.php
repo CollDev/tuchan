@@ -30,7 +30,15 @@ class Videos_mp extends CI_Model {
         $query = " SELECT vi.*,ca.apikey,ca.playerkey FROM default_cms_videos vi INNER JOIN default_cms_canales ca ON vi.canales_id =  ca.id WHERE vi.estado = 2 and vi.estado_liquid=6";
         return $this->db->query($query)->result();
     }
-
+    
+    public function getVideosActivosPublicadosUlt7Dias(){
+        $query = "SELECT vi.*,ca.apikey,ca.playerkey
+                  FROM default_cms_videos vi INNER JOIN default_cms_canales ca ON vi.canales_id =  ca.id WHERE vi.estado = 2 AND vi.estado_liquid=6
+                  AND (DATE_ADD(CONCAT(vi.fecha_transmision,' ',vi.horario_transmision_inicio) ,INTERVAL ca.ibope HOUR)) >  (DATE_SUB(NOW(),INTERVAL 7 DAY)) 
+                  AND (DATE_ADD(CONCAT(vi.fecha_transmision,' ',vi.horario_transmision_inicio) ,INTERVAL ca.ibope HOUR)) <= NOW();";
+        return $this->db->query($query)->result();
+    }
+    
     public function getVideosxId($id) {
         $query = "SELECT vi.ruta,vi.id,vi.id_mongo,vi.estado_migracion,vi.estado, (SELECT GROUP_CONCAT(ta.nombre)
                     FROM default_cms_video_tags vt INNER JOIN default_cms_tags ta ON vt.tags_id = ta.id  

@@ -26,6 +26,8 @@ class Procesos_lib extends MX_Controller {
         $this->load->library("Procesos/log");
         $this->load->library('portadas_lib');
         $this->load->library('sincronizar_lib');
+        
+        $this->load->helper('file');
     }
 
     public function index() {
@@ -82,36 +84,46 @@ class Procesos_lib extends MX_Controller {
     }
 
     private function _actualizarVisualizacion() {
-        $arrvideos = $this->videos_mp->getVideosActivosPublicados();
+        $arrvideos = $this->videos_mp->getVideosActivosPublicadosUlt7Dias();
 
         foreach ($arrvideos as $value) {
             $cantidad = Liquid::obtenernumberOfViewsXVideo($value->codigo, $value->apikey);
-            $this->_curlSetReproducciones($value->id, $cantidad);
+            
+            if($cantidad != $value->reproducciones){
+                $this->_setReproduccionesMongoVideosXIdMongo($value->id,$value->id_mongo, $cantidad);
+            }            
         }
     }
 
     /* Actualizar Visualizaciones Liquid  -  FIN */
 
-    private function _curlSetReproducciones($id, $cant) {
+    private function _curlSetReproducciones($id,$id_mongo, $cant) {
         Log::erroLog("_curlSetReproducciones: " . $id . ", cant: " . $cant);
-        $ruta = base_url("curlproceso/setReproduccionesVideosXId/" . $id . "/" . $cant);
+        $ruta = base_url("curlproceso/setReproduccionesVideosXId/" . $id . "/" .$id_mongo ."/". $cant);
         shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");
     }
 
-    public function setReproduccionesVideosXId($id, $cant) {
+    public function setReproduccionesVideosXId($id, $id_mongo, $cant) {
         $this->videos_mp->setReproduccionesVideosXId($id, $cant);
-        $this->_generarVideosXId($id);
+        $this->_setReproduccionesMongoVideosXIdMongo($id_mongo,$cant);
+    }
+    
+    private function _setReproduccionesMongoVideosXIdMongo($id_mongo,$cant){
+       Log::erroLog("entro a _setReproduccionesMongoVideosXIdMongo");
+       $id_mongo = new MongoId($id_mongo);   
+       $objmongo['reproducciones'] = $cant; 
+       $this->micanal_mp->setItemCollectionUpdate($objmongo, array('_id' => $id_mongo));
     }
 
     /* Actualizar Comentarios Valoracion   -  INICIO */
 
     private function _actualizarComentariosValorizacion() {
-        $videos = $this->videos_mp->getVideosActivos();
+        $videos = $this->videos_mp->getVideosActivosPublicadosUlt7Dias();
         foreach ($videos as $value) {
             $id_mongo = new MongoId($value->id_mongo);
             $videomongo = $this->canal_mp->getItemCollection($id_mongo);
-            $comentarios = ($videomongo[0]["comentarios"] == "") ? 0 : $videomongo[0]["comentarios"];
-            $valoracion = ($videomongo[0]["valoracion"] == "") ? 0 : $videomongo[0]["valoracion"];
+            $comentarios = (!isset($videomongo[0]["comentarios"])) ? 0 : $videomongo[0]["comentarios"];
+            $valoracion = (!isset($videomongo[0]["valoracion"] )) ? 0 : $videomongo[0]["valoracion"];
             $this->videos_mp->setComentariosValorizacion($value->id, $comentarios, $valoracion);
         }
     }
@@ -2157,5 +2169,22 @@ class Procesos_lib extends MX_Controller {
     
     public function generarVideosXId($id) {
         $this->_generarVideosXId($id);
+    }
+    
+    public function limpiarUploadVideo(){
+        $this->_limpiarUploadVideo();
+    }
+    
+    private function _limpiarUploadVideo(){
+        
+        $files = get_dir_file_info($this->config->item('path:video'));
+        print_r($files);
+        $timesemanaant = strtotime("-1 day");
+        
+        foreach ($files as $file) {
+            if($file['date']<$timesemanaant){
+                
+            }            
+        }                       
     }
 }
