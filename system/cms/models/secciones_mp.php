@@ -37,4 +37,9 @@ class Secciones_mp extends CI_Model {
         $query = "select * from " . $this->_table . " where id_mongo = '".$id."'";
         return  $this->db->query($query)->num_rows();
     }
+    
+    public function updateSeccionesTipo6789(){
+        $query = "update " .$this->_table. " set estado = 1 WHERE tipo=0 AND tipo_secciones_id IN (6,7,8,9)";
+        return $this->db->query($query);
+    }
 }

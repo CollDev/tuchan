@@ -1835,14 +1835,24 @@ class Procesos_lib extends MX_Controller {
     }
 
     public function actualizarSecciones6789() {
+        Log::erroLog("_activarSecciones6789");
+        $this->_activarSecciones6789();
+        
         Log::erroLog("_actualizarVisualizacion");
         $this->_actualizarVisualizacion();
+        
         Log::erroLog("_actualizarComentariosValorizacion");
         $this->_actualizarComentariosValorizacion();
+        
         Log::erroLog("_actualizarSecciones6789");
         $this->_actualizarSecciones6789();
+        
         Log::erroLog("_publicidadVideosMasVistos");
         $this->_publicidadVideosMasVistos();
+    }
+    
+    private function _activarSecciones6789(){
+        $this->secciones_mp->updateSeccionesTipo6789();
     }
 
     private function _actualizarSecciones6789() {
