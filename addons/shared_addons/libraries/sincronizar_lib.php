@@ -782,17 +782,19 @@ class Sincronizar_lib extends MX_Controller {
             $objBeanDetalleSeccion->fecha_migracion = '0000-00-00 00:00:00';
             $objBeanDetalleSeccion->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
             $this->detalle_secciones_m->save($objBeanDetalleSeccion);
+            
             Log::erroLog("INSERTADO DETALLE SECCION");
             $this->secciones_m->update($objSeccion->id, array("fecha_actualizacion"=>date("Y-m-d H:i:s"),"estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
             Log::erroLog("SECCION ACTUALIZADA");
+            
+            $this->sort_detalle_seccion($objVistaVideo->gm3, $objSeccion->id);
         }
         
         //preguntamos si el programa cuenta con una imagen XL o S para estar apto a publicar
         $objImagenXLPrograma = $this->imagen_m->where_in('tipo_imagen_id', array($this->config->item('imagen:extralarge')))->get_by(array("estado" => $this->config->item('estado:publicado'), "grupo_maestros_id" => $objVistaVideo->gm3));
         $objImagenSPrograma = $this->imagen_m->where_in('tipo_imagen_id', array($this->config->item('imagen:small')))->get_by(array("estado" => $this->config->item('estado:publicado'), "grupo_maestros_id" => $objVistaVideo->gm3));
         //verificamos si tiene portada del programa
-        //$objPortadaPrograma = $this->portada_m->get_by(array("origen_id" => $objVistaVideo->gm3, "tipo_portadas_id" => $this->config->item('portada:programa')));
-        $objPortadaPrograma = $this->portada_m->get_by(array("origen_id" => $objVistaVideo->gm3));
+        $objPortadaPrograma = $this->portada_m->get_by(array("origen_id" => $objVistaVideo->gm3, "tipo_portadas_id" => $this->config->item('portada:programa')));
         if (count($objPortadaPrograma) > 0) {
             Log::erroLog("count(objPortadaPrograma) > 0");
             //validamos que esté en estado publicado
@@ -1029,4 +1031,45 @@ class Sincronizar_lib extends MX_Controller {
         echo "</pre>";
     }
 
+    /**
+     * Sorts an array but last parameter first
+     * 
+     * @param string $elem_1
+     * @param string $elem_2
+     * @param string $but
+     * @return int
+     */
+    function sortArrayBut($elem_1, $elem_2, $but) {
+        if($elem_1 == $elem_2) return 0;
+
+        if($elem_2 == $but) return 1;
+
+        if(($elem_1 > $elem_2) || ($elem_1 == $but)) {
+            return 1;
+        } else {
+            return -1;
+        }
+    }
+
+    /**
+     * Sorts a detalle secciones
+     * 
+     * @param int $programa_id
+     * @param int $secciones_id
+     */
+    private function sort_detalle_seccion($programa_id, $secciones_id)
+    {
+        $objDetalleSecciones = $this->detalle_secciones_m->order_by('peso', 'ASC')->get_many_by(array("secciones_id" => $secciones_id));
+        if (count($objDetalleSecciones) > 0) {
+            $peso = 2;
+            foreach ($objDetalleSecciones as $puntero => $objDetalleSeccion) {
+                if ($objDetalleSeccion->grupo_maestros_id == $programa_id) {
+                    $this->detalle_secciones_m->update($objDetalleSeccion->id, array("peso" => 1, "estado_migracion" => $this->config->item('migracion:actualizado')));
+                } else {
+                    $this->detalle_secciones_m->update($objDetalleSeccion->id, array("peso" => $peso, "estado_migracion" => $this->config->item('migracion:actualizado')));
+                    $peso++;
+                }
+            }
+        }
+    }
 }
