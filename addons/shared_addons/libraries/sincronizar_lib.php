@@ -762,32 +762,42 @@ class Sincronizar_lib extends MX_Controller {
         Log::erroLog("objVistaVideo->gm1" . var_dump($objVistaVideo->gm1));
         $objGrupoMaestro = $this->grupo_maestro_m->get_by(array("id" => $objVistaVideo->gm3));//gm1 lista gm3 programa
         if ($objGrupoMaestro->tipo_grupo_maestro_id == 3) {
-            Log::erroLog("this->grupo_maestros_m->get_by(array('tipo_grupo_maestro_id' => objVistaVideo->gm1)) == 1");
-            $objSeccion = $this->secciones_m->get_by(array('grupo_maestros_id' => $objVistaVideo->gm3));
-            $objImagenLista = $this->imagen_m->get_by(array("grupo_maestros_id" => $objVistaVideo->gm1, "tipo_imagen_id" => $this->config->item('imagen:small'), "estado" => $this->config->item('estado:publicado')));
-            //registramos el detalle seccion de la seccion destacado
-            $objBeanDetalleSeccion = new stdClass();
-            $objBeanDetalleSeccion->id = NULL;
-            $objBeanDetalleSeccion->secciones_id = $objSeccion->id;
-            $objBeanDetalleSeccion->videos_id = NULL;
-            $objBeanDetalleSeccion->grupo_maestros_id = $objVistaVideo->gm1;
-            $objBeanDetalleSeccion->canales_id = NULL;
-            $objBeanDetalleSeccion->imagenes_id = $objImagenLista->id;
-            $objBeanDetalleSeccion->peso = $this->obtenerPeso($objSeccion->id);
-            $objBeanDetalleSeccion->descripcion_item = '';
-            $objBeanDetalleSeccion->estado = $this->config->item('estado:publicado');
-            $objBeanDetalleSeccion->fecha_registro = date("Y-m-d H:i:s");
-            $objBeanDetalleSeccion->usuario_registro = $user_id;
-            $objBeanDetalleSeccion->estado_migracion = $this->config->item('migracion:nuevo');
-            $objBeanDetalleSeccion->fecha_migracion = '0000-00-00 00:00:00';
-            $objBeanDetalleSeccion->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
-            $this->detalle_secciones_m->save($objBeanDetalleSeccion);
-            
-            Log::erroLog("INSERTADO DETALLE SECCION");
-            $this->secciones_m->update($objSeccion->id, array("fecha_actualizacion"=>date("Y-m-d H:i:s"),"estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
-            Log::erroLog("SECCION ACTUALIZADA");
-            
-            $this->sort_detalle_seccion($objVistaVideo->gm3, $objSeccion->id);
+            Log::erroLog("bjGrupoMaestro->tipo_grupo_maestro_id == 3");
+            $objGrupoDetalles = $this->grupo_detalle_m->get_many_by(array('grupo_maestro_padre' => $objVistaVideo->gm1));
+            $objCanales = $this->canales_m->get_by(array('id' => $objGrupoMaestro->canal_id));
+            $allowed = false;
+            foreach ($objGrupoDetalles as $objGrupoDetalle) {
+                if (strtotime(date("Y-m-d H:i:s")) > $this->add_hours_to_date($objGrupoDetalle->fecha_transmision . ' ' . $objGrupoDetalle->horario_transmision_inicio, $objCanales->ibope) ) {
+                    $allowed = true;
+                }
+            }
+            if ($allowed) {
+                $objSeccion = $this->secciones_m->get_by(array('grupo_maestros_id' => $objVistaVideo->gm3));
+                $objImagenLista = $this->imagen_m->get_by(array("grupo_maestros_id" => $objVistaVideo->gm1, "tipo_imagen_id" => $this->config->item('imagen:small'), "estado" => $this->config->item('estado:publicado')));
+                //registramos el detalle seccion de la seccion destacado
+                $objBeanDetalleSeccion = new stdClass();
+                $objBeanDetalleSeccion->id = NULL;
+                $objBeanDetalleSeccion->secciones_id = $objSeccion->id;
+                $objBeanDetalleSeccion->videos_id = NULL;
+                $objBeanDetalleSeccion->grupo_maestros_id = $objVistaVideo->gm1;
+                $objBeanDetalleSeccion->canales_id = NULL;
+                $objBeanDetalleSeccion->imagenes_id = $objImagenLista->id;
+                $objBeanDetalleSeccion->peso = $this->obtenerPeso($objSeccion->id);
+                $objBeanDetalleSeccion->descripcion_item = '';
+                $objBeanDetalleSeccion->estado = $this->config->item('estado:publicado');
+                $objBeanDetalleSeccion->fecha_registro = date("Y-m-d H:i:s");
+                $objBeanDetalleSeccion->usuario_registro = $user_id;
+                $objBeanDetalleSeccion->estado_migracion = $this->config->item('migracion:nuevo');
+                $objBeanDetalleSeccion->fecha_migracion = '0000-00-00 00:00:00';
+                $objBeanDetalleSeccion->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
+                $this->detalle_secciones_m->save($objBeanDetalleSeccion);
+
+                Log::erroLog("INSERTADO DETALLE SECCION");
+                $this->secciones_m->update($objSeccion->id, array("fecha_actualizacion"=>date("Y-m-d H:i:s"),"estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                Log::erroLog("SECCION ACTUALIZADA");
+
+                $this->sort_detalle_seccion($objVistaVideo->gm3, $objSeccion->id);
+            }
         }
         
         //preguntamos si el programa cuenta con una imagen XL o S para estar apto a publicar
@@ -1071,5 +1081,17 @@ class Sincronizar_lib extends MX_Controller {
                 }
             }
         }
+    }
+    
+    /**
+     * Adds hours to date
+     * 
+     * @param datetime $originalDate Datetime from database
+     * @param integer $hours Amount of hours to add
+     * @return type
+     */
+    function add_hours_to_date($originalDate, $hours){
+        $stringdate = strtotime($originalDate);
+        return strtotime(date("Y-m-d", mktime(date("H",$stringdate) + $hours, 0, 0, 0, 0, 0)) . ' ' . date("H:i:s", mktime(date("H",$stringdate) + $hours, 0, 0, 0, 0, 0)));
     }
 }
