@@ -232,8 +232,6 @@ class Procesos_lib extends MX_Controller {
     protected function _uploadVideosXId($id) {
         Log::erroLog("entro a protected uploadVideosXId: " . $id);
         $resultado = $this->videos_mp->getVideosMp4XId($id);
-//        Log::erroLog('-------------------lista de videos mp4---------------------');
-//        Log::erroLog(print_r($resultado, true));
         if (count($resultado) > 0) {
             foreach ($resultado as $value) {
 
@@ -246,7 +244,7 @@ class Procesos_lib extends MX_Controller {
                     Log::erroLog("entro a : updateMediaVideosXId " . $value->id . "/" . $retorno);
                     $ruta = base_url("curlproceso/updateMediaVideosXId/" . $value->id . "/" . $retorno);
                     shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");
-                    Log::erroLog("return media " . trim($retorno));
+                    Log::erroLog("return media " . trim($retorno)); 
                 } else {
                     Log::erroLog("exception de upload  getObtenerMediaXId " . $value->id . "," . $value->apikey);
                   

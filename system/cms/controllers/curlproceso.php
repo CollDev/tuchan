@@ -26,7 +26,7 @@ class curlProceso extends MX_Controller {
     public function uploadVideosXId($id){        
          Log::erroLog("ini en curl - uploadVideosXId".$id);
         $this->procesos_lib->uploadVideosXId($id);
-         Log::erroLog("ini en curl - uploadVideosXId".$id);
+         Log::erroLog("fin en curl - uploadVideosXId".$id);
     }
     
     public function updateMediaVideosXId($id,$media){
