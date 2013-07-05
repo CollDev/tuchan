@@ -353,18 +353,15 @@
                                             success: function(respuesta)
                                             {
                                                 if (respuesta.value == 1) {
-                                                    //location.reload();
                                                     var canal_id = '<?php echo $canal_id; ?>';
-                                                    $("#" + tipo + "_" + seccion_id).empty();
-                                                    $("#" + tipo + "_" + seccion_id).html('Publicado');
+                                                    $("#" + tipo + "_" + seccion_id).empty().html('Publicado');
                                                     var htmlButton = '<a href="/admin/canales/previsualizar_seccion/" target ="_blank" class="modal-large mode_preview">Previsualizar</a>';
                                                     htmlButton += '<a title="Editar" href="admin/canales/seccion/' + canal_id + '/' + seccion_id + '" class="mode_edit">Editar</a>';
                                                     htmlButton += '<a href="#" onclick="eliminar_seccion(' + seccion_id + ', \'seccion\');return false;" class="mode_delete">Eliminar</a>';
                                                     $("#" + tipo + "_boton_" + seccion_id).html(htmlButton);
-                                                }else{
-                                                    if (respuesta.value == 2) {
-                                                        showMessage('error', 'No se puede publicar. No se encontró elementos activos en su detalle', 2000, '');
-                                                    }
+                                                    showMessage('exit', 'Publicado satisfactoriamente.', 2000, '');
+                                                } else if (respuesta.value == 2) {
+                                                    showMessage('error', 'No se puede publicar. No se encontró elementos activos en su detalle', 2000, '');
                                                 }
                                             } //end success
                                         }); //end AJAX   
