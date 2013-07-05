@@ -125,8 +125,8 @@ class Canal_mp extends CI_Model {
          $this->mongo_db->delete_where($this->_tabla,array("_id"=>$id));       
     }
 
-    public function getItemCollection($id_mongo) {
-        return $this->mongo_db->get_where($this->_tabla,$id_mongo);
+    public function getItemCollection($id) {
+        return $this->mongo_db->get_where($this->_tabla,array("_id"=>$id));
     }
 
     /**

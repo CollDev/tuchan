@@ -52,6 +52,7 @@ class Liquid {
     }
 
     function getXml($url) {
+        $i = 0;
         try {
             GET_XML:
 
@@ -64,15 +65,9 @@ class Liquid {
 
 
             Log::erroLog("url get " . $url);
-            Log::erroLog("get entro error liquid titulo");
-
+            
             $result = curl_exec($ch);
             $info = curl_getinfo($ch);
-
-
-            Log::erroLog("http_code: " . $info['http_code']);
-            Log::erroLog("content_type: " . $info['content_type']);
-            Log::erroLog("curl_errno: " . curl_errno($ch));
 
             if ($info['http_code'] == '200' && $info["content_type"] == 'application/xml') {
                 curl_close($ch);
@@ -80,10 +75,15 @@ class Liquid {
                 Log::erroLog(" result : " . $result);
                 return $result;
             } else {
-                sleep(5);
-                Log::erroLog(" no paso get");
 
-                goto GET_XML;
+                if ($i == 10) {
+                    return FALSE;
+                } else {
+                    $i++;
+                    Log::erroLog(" no paso get");
+                    sleep(5);
+                    goto GET_XML;
+                }
             }
         } catch (Exception $exc) {
             return "";
@@ -309,11 +309,14 @@ class Liquid {
 
             $url = APIURL . "/medias/" . $media . "?key=" . $apiKey . "&filter=id;numberOfViews";
             $response = self::getXml($url);
-            $mediaxml = new SimpleXMLElement($response);
-            $mediaarr = json_decode(json_encode($mediaxml), true);
+            if ($response != FALSE) {
+                $mediaxml = new SimpleXMLElement($response);
+                $mediaarr = json_decode(json_encode($mediaxml), true);
 
-            $cantidad = $mediaarr["numberOfViews"];
-
+                $cantidad = $mediaarr["numberOfViews"];
+            } else {
+                $cantidad = 0;
+            }
             return $cantidad;
         } else {
             return 0;
@@ -527,14 +530,12 @@ class Liquid {
             curl_setopt($ch, CURLOPT_TIMEOUT, 15);
 
             Log::erroLog("entro getVerificarLiquidPostUpload " . $url);
-            Log::erroLog("get entro error liquid titulo");
+           
 
             $result = curl_exec($ch);
             $info = curl_getinfo($ch);
 
-            Log::erroLog("http_code: " . $info['http_code']);
-            Log::erroLog("content_type: " . $info['content_type']);
-            Log::erroLog("curl_errno: " . curl_errno($ch));
+           
 
             if ($info['http_code'] == '200' && $info["content_type"] == 'application/xml') {
                 Log::erroLog("return true");

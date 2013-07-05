@@ -88,6 +88,10 @@ class curlProceso extends MX_Controller {
         $this->procesos_lib->actualizarPortadasMiCanal();
     }
     
+    public function actualizarPortadasMiCanalXId($id){
+        $this->procesos_lib->actualizarPortadasMiCanalXId($id);
+    }
+    
     public function actualizarPesoSeccion($id,$peso){
         $this->procesos_lib->actualizarPesoSeccion($id,$peso);
     }
@@ -181,5 +185,9 @@ class curlProceso extends MX_Controller {
     public function generarVideosXId($id)
     {
         $this->procesos_lib->generarVideosXId($id);
+    }
+    
+    public function limpiarUploadVideo(){
+        $this->procesos_lib->limpiarUploadVideo();
     }
 }
