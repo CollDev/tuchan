@@ -7609,6 +7609,11 @@ class Admin extends Admin_Controller {
             $this->sincronizar_lib->agregar_video($video->id);
         }
     }
+    
+    public function prueba()
+    {
+        $this->sincronizar_lib->prueba();
+    }
 }
 
 /* End of file admin.php */

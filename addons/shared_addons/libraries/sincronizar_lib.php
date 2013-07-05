@@ -759,18 +759,26 @@ class Sincronizar_lib extends MX_Controller {
             Log::erroLog("ref != 'cms' && ref != 'importacion' false");
             $user_id = (int) $this->session->userdata('user_id');
         }
-        Log::erroLog("objVistaVideo->gm1" . var_dump($objVistaVideo->gm1));
+        Log::erroLog("objVistaVideo->gm1: " . $objVistaVideo->gm1);
+        Log::erroLog("objVistaVideo->gm3: " . $objVistaVideo->gm3);
         $objGrupoMaestro = $this->grupo_maestro_m->get_by(array("id" => $objVistaVideo->gm3));//gm1 lista gm3 programa
         if ($objGrupoMaestro->tipo_grupo_maestro_id == 3) {
             Log::erroLog("bjGrupoMaestro->tipo_grupo_maestro_id == 3");
             $objGrupoDetalles = $this->grupo_detalle_m->get_many_by(array('grupo_maestro_padre' => $objVistaVideo->gm1));
-            $objCanales = $this->canales_m->get_by(array('id' => $objGrupoMaestro->canal_id));
+            Log::erroLog("objGrupoMaestro->canales_id: " . $objGrupoMaestro->canales_id);
+            $objCanales = $this->canales_m->get_by(array('id' => $objGrupoMaestro->canales_id));
             $allowed = false;
             foreach ($objGrupoDetalles as $objGrupoDetalle) {
-                if (strtotime(date("Y-m-d H:i:s")) > $this->add_hours_to_date($objGrupoDetalle->fecha_transmision . ' ' . $objGrupoDetalle->horario_transmision_inicio, $objCanales->ibope) ) {
+                Log::erroLog("objGrupoDetalle->video_id: " . $objGrupoDetalle->video_id);
+                $objVideos = $this->videos_m->get_by(array('id' => $objGrupoDetalle->video_id));
+                Log::erroLog('fecha transmision: ' . $objVideos->fecha_transmision . ' ' . $objVideos->horario_transmision_inicio);
+                Log::erroLog('valida mayor: ' . strtotime(date("Y-m-d H:i:s")) . ' > ' . $this->add_hours_to_date($objVideos->fecha_transmision . ' ' . $objVideos->horario_transmision_inicio, $objCanales->ibope));
+                Log::erroLog('verdadero o falso: ' . print_r(strtotime(date("Y-m-d H:i:s")) > $this->add_hours_to_date($objVideos->fecha_transmision . ' ' . $objVideos->horario_transmision_inicio, $objCanales->ibope) ));
+                if (strtotime(date("Y-m-d H:i:s")) > $this->add_hours_to_date($objVideos->fecha_transmision . ' ' . $objVideos->horario_transmision_inicio, $objCanales->ibope)) {
                     $allowed = true;
                 }
             }
+            Log::erroLog("allowed: " . print_r($allowed));
             if ($allowed) {
                 $objSeccion = $this->secciones_m->get_by(array('grupo_maestros_id' => $objVistaVideo->gm3));
                 $objImagenLista = $this->imagen_m->get_by(array("grupo_maestros_id" => $objVistaVideo->gm1, "tipo_imagen_id" => $this->config->item('imagen:small'), "estado" => $this->config->item('estado:publicado')));
@@ -1091,7 +1099,25 @@ class Sincronizar_lib extends MX_Controller {
      * @return type
      */
     function add_hours_to_date($originalDate, $hours){
-        $stringdate = strtotime($originalDate);
-        return strtotime(date("Y-m-d", mktime(date("H",$stringdate) + $hours, 0, 0, 0, 0, 0)) . ' ' . date("H:i:s", mktime(date("H",$stringdate) + $hours, 0, 0, 0, 0, 0)));
+        return ($hours * 3600) + strtotime($originalDate);
+    }
+    
+    function prueba()
+    {
+        $objGrupoDetalles = $this->grupo_detalle_m->get_many_by(array('grupo_maestro_padre' => 607));
+        $objCanales = $this->canales_m->get_by(array('id' => 1));
+        $allowed = false;
+        foreach ($objGrupoDetalles as $objGrupoDetalle) {
+            echo 'id: ' . $objGrupoDetalle->id . "<br>";
+            $objVideos = $this->videos_m->get_by(array('id' => $objGrupoDetalle->video_id));
+            if (strtotime(date("Y-m-d H:i:s")) > $this->add_hours_to_date($objVideos->fecha_transmision . ' ' . $objVideos->horario_transmision_inicio, $objCanales->ibope) ) {
+                $allowed = true;
+            }
+        }
+        if ($allowed) {
+            echo 'allowed';
+        } else {
+            echo 'not allowed';
+        }
     }
 }
