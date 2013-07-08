@@ -1,0 +1,12 @@
+hr.portada_seccion, p.portada_seccion
+{
+    font-size: 20px;
+    margin: 6px !important;
+    padding: 0;
+}
+
+div.three-col
+{
+    display: inline-block;
+    vertical-align: top;
+}
