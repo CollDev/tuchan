@@ -85,7 +85,6 @@
         </ul>
         <div id="tabs-1"  style="width: 100%;">    
             <div class="left_arm">
-
                 <!-- titulo -->
                 <label for="titulo"><?php echo lang('videos:title'); ?> <span class="required">*</span></label>
                 <?php
@@ -95,77 +94,58 @@
                     'value' => $objBeanForm->titulo,
                     'maxlength' => '100',
                     'style' => 'width:556px;'
-                        //'readonly'=>'readonly'
                 );
                 echo form_input($titulo);
                 ?>
-
                 <!-- fragmento -->
-                <br/>
+                <br /><br />
                 <label for="fragmento"><?php echo lang('videos:fragmento_label'); ?></label>
-                <?php echo form_error('fragmento'); ?><br />
                 <?php
-                //$valores = array(lang("videos:select_fragment"), "1", "2", "3", "4", "5", "6", "7", "8", "9", "10");
+                echo form_error('fragmento');
                 $fragmentos = array_merge(array(lang("videos:select_fragment")), $this->config->item('fragmento'));
+                echo form_dropdown('fragmento', $fragmentos, $objBeanForm->fragmento, 'onChange="addTitle()"');
                 ?>
-                <?php echo form_dropdown('fragmento', $fragmentos, $objBeanForm->fragmento, 'onChange="addTitle()"'); ?>        
                 <br /><br />
                 <?php if ($objBeanForm->video_id == 0) { ?>
-                    <!-- video -->
-                    <label for="video"><?php echo lang('videos:video'); ?> <span class="required">*</span></label>
-                    <?php
+                <!-- video -->
+                <label for="video"><?php echo lang('videos:video'); ?> <span class="required">*</span></label>
+                <?php
                     $video = array('name' => 'video', 'id' => 'video');
                     echo form_upload($video);
+                ?>
+                <div class="progress_upload" style="display: none; clear: both;">
+                    <div class="bar"></div >
+                    <div class="percent">0%</div >
+                </div>
+                <div id="status"></div>
+                <?php
                 }
                 ?>
-
+                
                 <!-- iFrame del video sólo para los publicados -->
                 <?php if ($objBeanForm->video_id > 0) : ?>
                     <?php if ($objBeanForm->estado == ESTADO_PUBLICADO) : ?>
-                        <div class="embed_video">
-                            <textarea class="embed_content" readonly="readonly">[iframe width="560" height="315" src="<?php echo $this->config->item('motor') . '/embed/' . $objBeanForm->video_id ?>" frameborder="0" allowfullscreen][/iframe]</textarea>
-                        </div>
-                        <script>
-                            if ($('.embed_content').length == 1) {
-                                var embed = $(".embed_content").val();
+                <br /><br />
+                <div class="embed_video">
+                    <textarea class="embed_content" readonly="readonly">[iframe width="560" height="315" src="<?php echo $this->config->item('motor') . '/embed/' . $objBeanForm->video_id ?>" frameborder="0" allowfullscreen][/iframe]</textarea>
+                </div>
+                <script>
+                    if ($('.embed_content').length == 1) {
+                        var embed = $(".embed_content").val();
 
-                                embed = embed.replace("[", "<");
-                                embed = embed.replace("]", "/>");
-                                embed = embed.replace("[", "<");
-                                embed = embed.replace("]", "/>");
-                                $(".embed_content").val(embed);
-                            }
-                        </script>
-
-
+                        embed = embed.replace("[", "<");
+                        embed = embed.replace("]", "/>");
+                        embed = embed.replace("[", "<");
+                        embed = embed.replace("]", "/>");
+                        $(".embed_content").val(embed);
+                    }
+                </script>
                     <?php endif ?>
                 <?php endif ?>
-
-                <?php if ($objBeanForm->video_id > 0) { ?>
-                    <!-- imagen -->
-    <!--                    <label for="imagen"><?php //echo lang('videos:avatar');         ?></label>-->
-                    <?php
-//                    $imagen = array('name' => 'addImage', 'id' => 'addImage', 'type' => 'hidden', 'value' => 'Agrega nuevas imagenes a tu video');
-//                    echo '<div style="float:left;">' . form_input($imagen) . '</div>';
-                    ?>
-                    <!--                    <div  class="loaderAjax" id="loaderAjax" style="display: none; float: left;">
-                                            <img src="uploads/imagenes/loading.gif">
-                                        </div>
-                                        <div style="clear: both;"></div>
-                                        <div id="contenedorImage">
-                    <?php //if (count($objBeanForm->avatar) > 0) { ?>
-                                                <select id="listaImagenes"></select>
-                    <?php //} ?>
-                                        </div>-->
-
-                    <?php
-                }
-                ?>
-
-                <br />
+                <br /><br />
                 <!-- fecha de transmisión -->
-                <label for="fec_trans"><?php echo lang('videos:fecha_transmision_label'); ?></label>
-                <div style="float:left;">
+                <div class="three-col">
+                    <label for="fec_trans"><?php echo lang('videos:fecha_transmision_label'); ?></label>
                     <?php
                     $fec_trans = array(
                         'name' => 'fec_trans',
@@ -176,10 +156,8 @@
                     echo form_input($fec_trans);
                     ?>
                 </div>
-                <div style="float:left;">
-                    <!-- horario de tranmisión -->
-                    <!--<label for="horario_transmision"><?php echo lang('videos:horaio_transmision'); ?></label>-->
-                    <?php echo lang('videos:inicio'); ?>
+                <div class="three-col">
+                    <label for="hora_trans_ini"><?php echo lang('videos:inicio'); ?></label>
                     <?php
                     $hora_trans_ini = array(
                         'name' => 'hora_trans_ini',
@@ -191,8 +169,8 @@
                     echo form_input($hora_trans_ini);
                     ?>
                 </div>
-                <div style="float:right;">
-                    <?php echo lang('videos:fin'); ?>
+                <div class="three-col">
+                    <label for="hora_trans_fin"><?php echo lang('videos:fin'); ?></label>
                     <?php
                     $hora_trans_fin = array(
                         'name' => 'hora_trans_fin',
@@ -365,7 +343,7 @@
                     'name' => 'fec_pub_fin',
                     'id' => 'fec_pub_fin',
                     'value' => $objBeanForm->fec_pub_fin,
-                    'class' => 'selectedDateTime'
+                    'class' => 'selectedDateTime',
                 );
                 echo form_input($fec_pub_fin);
                 ?>
@@ -383,20 +361,9 @@
                 echo form_input($ubicacion);
                 ?>        
             </div>
-
             <div class="main_opt">            
-                <!--                <div id="btnSave" style="float: left; padding-right: 10px;">
-                                    <a href="javascript:saveVideo();" class="btn orange" type="button"><?php //echo lang('buttons.save');  ?></a>
-                                </div>-->
-                <div  style="float: left;">
-                    <?php
-                    //$attr = array('class' => 'btn orange', 'type' => 'button');
-                    //echo anchor("#", lang('buttons.cancel'), $attr);
-                    ?>                    
-                </div>
-
+                <div  style="float: left;"></div>
             </div>
-
             <script type="text/javascript" >
                 function mostrar_titulo() {
                     var post_url = "/admin/canales/mostrar_titulo/<?php echo $canal->id; ?>/" + 'carga_unitaria';
@@ -1007,21 +974,6 @@
                     }
                 }
             </script>
-
-            <div class="progress_upload" style="display: none; clear: both;">
-                <div class="bar"></div >
-                <div class="percent">0%</div >
-            </div>
-
-            <div id="status"></div>
-            <!--Include the iframe-->
-            <!--            <br />
-                        <div style="clear: both;">
-                            <iframe id="upload_frame" name="upload_frame" frameborder="0" border="0" src="" scrolling="no" scrollbar="no" > </iframe>
-                        </div>
-                        
-                        <br />-->
-            <!---->
         </div>
         <?php if ($objBeanForm->video_id > 0): ?>
             <div id="tabs-2"  style="width: 100%;">
@@ -1039,4 +991,3 @@
     <?php } ?>    
     <?php echo form_close() ?>
 </section>
-

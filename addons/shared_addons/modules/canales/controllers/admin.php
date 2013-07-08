@@ -3723,7 +3723,7 @@ class Admin extends Admin_Controller {
                     }
                 } else {
                     //verificamos que el canal este activo
-                    $objCanal = $this->canales_m->get(array("id" => $objPortada->canales_id, "estado" => $this->config->item('estado:publicado')));
+                    $objCanal = $this->canales_m->get($objPortada->canales_id, array("estado" => $this->config->item('estado:publicado')));
                     if (count($objCanal) > 0) {
                         //portada de tipo programa
                         //verificamos q al menos un maestro esté publicado para activarlo
@@ -4389,7 +4389,8 @@ class Admin extends Admin_Controller {
             if ($objPortada->tipo_portadas_id == $this->config->item('portada:principal')) {
 
                 if ($objSeccion->tipo_secciones_id == $this->config->item('seccion:programa')) {
-
+                    //provisional
+                    $this->secciones_m->update($seccion_id, array('grupo_maestros_id' => $maestro_id));
                     $objImagen = $this->obtenerImagenMaestro($maestro_id, $seccion_id);
 
                     if (count($objImagen) > 0) {
@@ -7607,6 +7608,11 @@ class Admin extends Admin_Controller {
         foreach($videos as $video) {
             $this->sincronizar_lib->agregar_video($video->id);
         }
+    }
+    
+    public function prueba()
+    {
+        $this->sincronizar_lib->prueba();
     }
 }
 

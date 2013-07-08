@@ -237,7 +237,7 @@
                          * @param int detalle_seccion_id
                          * @param int indexOrder
                          * @param int peso
-                         * @returns html             
+                         * @returns html
                          * */
                         function subir(detalle_seccion_id) {
                             var post_url = "/admin/canales/subir_detalle_seccion/" + detalle_seccion_id;

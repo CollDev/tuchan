@@ -96,61 +96,79 @@ class Sincronizar_lib extends MX_Controller {
      * @param int $video_id
      */
     public function agregar_video($video_id, $ref = 'cms') {
+        Log::erroLog("ini - agregar_video: video_id: " . $video_id . ", ref: " . $ref . ' - ' . date("Y-m-d H:i:s"));
         //cargamos el config si el origen de llamada es diferente al cms
         if ($ref != 'cms' && $ref != 'importacion') {
+            Log::erroLog("$ref != 'cms' && $ref != 'importacion' true");
             $this->config->load('videos/uploads');
             $user_id = 1; //usuario administrador
         } else {
+            Log::erroLog("$ref != 'cms' && $ref != 'importacion' false");
             $user_id = (int) $this->session->userdata('user_id');
         }
         $objVideo = $this->videos_m->get($video_id);
         if (count($objVideo) > 0) {
+            Log::erroLog("count objVideo > 0");
             //verificamo si el canal al que pertenece esta publicado
             //verificamos si el origen es del CMS para solo listar el canal sin importar el estado
             if($ref == 'cms'){
+                Log::erroLog("ref == cms true");
                 $objCanal = $this->canales_m->get_by(array("id" => $objVideo->canales_id));
-            }else{
+            } else {
+                Log::erroLog("ref == cms false");
                 //validamos que el origen no es del cms y obtenemos el canal en modo publicado
                 $objCanal = $this->canales_m->get_by(array("id" => $objVideo->canales_id, "estado" => $this->config->item('estado:publicado')));
             }
             if (count($objCanal) > 0) {
+                Log::erroLog("objCanal > 0");
                 //verificamos que tenga imagenes en la tabla imagenes
                 $imagenes_video = $this->imagen_m->get_many_by(array("videos_id" => $video_id, "estado" => $this->config->item('estado:publicado')));
                 if (count($imagenes_video) > 0) {
+                    Log::erroLog("imagenes_video > 0");
                     //verificamos que el video esté en un estado publicado
                     if ($objVideo->estado == $this->config->item('video:publicado')) {
+                        Log::erroLog("objVideo estado publicado");
                         //obtenemos su lista
                         $objVistaVideo = $this->vw_maestro_video_m->get_by(array("v" => "v", "id" => $video_id));
                         if (count($objVistaVideo) > 0) {
+                            Log::erroLog("objVistaVideo > 0");
                             //verificamos que el video sea directo al canal
                             if ($objVistaVideo->gm1 == NULL && $objVistaVideo->gm2 == NULL && $objVistaVideo->gm3 == NULL) {
+                                Log::erroLog("publicar_video_canal");
                                 //agregamos el video a la sección video del canal
                                 $this->publicar_video_canal($objVistaVideo, $ref);
                             } else {
                                 if ($objVistaVideo->gm1 != NULL && $objVistaVideo->gm2 == NULL && $objVistaVideo->gm3 == NULL) {
+                                    Log::erroLog("publicar_lista_canal");
                                     //identificamos que es un video de una lista, cuya lista es directa al canal
                                     $this->publicar_lista_canal($objVistaVideo, $ref);
                                 } else {
                                     if ($objVistaVideo->gm1 == NULL && $objVistaVideo->gm2 != NULL && $objVistaVideo->gm3 == NULL) {
+                                        Log::erroLog("publicar_coleccion_canal");
                                         //identificamos que es un video directa a una coleccion que es directa al canal
                                         $this->publicar_coleccion_canal($objVistaVideo, $ref);
                                     } else {
                                         if ($objVistaVideo->gm1 == NULL && $objVistaVideo->gm2 == NULL && $objVistaVideo->gm3 != NULL) {
+                                            Log::erroLog("publicar_programa_canal");
                                             //identificamos que el video pertenece a un programa del canal
                                             $this->publicar_programa_canal($objVistaVideo, $ref);
                                         } else {
                                             if ($objVistaVideo->gm1 != NULL && $objVistaVideo->gm2 != NULL && $objVistaVideo->gm3 == NULL) {
+                                                Log::erroLog("publicar_lista_coleccion_canal");
                                                 //identificamos que el video pertenece a una lista-coleccion-canal
                                                 $this->publicar_lista_coleccion_canal($objVistaVideo, $ref);
                                             } else {
                                                 //identificamos que es de tipo video-lista-programa-canal
                                                 if ($objVistaVideo->gm1 != NULL && $objVistaVideo->gm2 == NULL && $objVistaVideo->gm3 != NULL) {
+                                                    Log::erroLog("publicar_video_lista_programa_canal");
                                                     $this->publicar_video_lista_programa_canal($objVistaVideo, $ref);
                                                 } else {
                                                     if ($objVistaVideo->gm1 == NULL && $objVistaVideo->gm2 != NULL && $objVistaVideo->gm3 != NULL) {
+                                                        Log::erroLog("publicar_video_coleccion_programa_canal");
                                                         //identificamos que es de tipo video-coleccion-programa_canal
                                                         $this->publicar_video_coleccion_programa_canal($objVistaVideo, $ref);
                                                     } else {
+                                                        Log::erroLog("publicar_video_lista_coleccion_programa_canal");
                                                         $this->publicar_video_lista_coleccion_programa_canal($objVistaVideo, $ref);
                                                     }
                                                 }
@@ -164,6 +182,7 @@ class Sincronizar_lib extends MX_Controller {
                 }
             }
         }
+        Log::erroLog("fin - agregar_video: video_id: " . $video_id . ", ref: " . $ref . ' - ' . date("Y-m-d H:i:s"));
     }
 
     /**
@@ -730,34 +749,92 @@ class Sincronizar_lib extends MX_Controller {
      * @param string $ref
      */
     private function publicar_video_lista_coleccion_programa_canal($objVistaVideo, $ref) {
+        Log::erroLog("ini - publicar_video_lista_coleccion_programa_canal ref: " . $ref . ' - ' . date("Y-m-d H:i:s") . var_dump($objVistaVideo->gm1));
         //cargamos el config si el origen de llamada es diferente al cms
         if ($ref != 'cms' && $ref != 'importacion') {
+            Log::erroLog("ref != 'cms' && ref != 'importacion' true");
             //$this->config->load('videos/uploads');
             $user_id = 1; //usuario administrador
         } else {
+            Log::erroLog("ref != 'cms' && ref != 'importacion' false");
             $user_id = (int) $this->session->userdata('user_id');
         }
+        Log::erroLog("objVistaVideo->gm1: " . $objVistaVideo->gm1);
+        Log::erroLog("objVistaVideo->gm3: " . $objVistaVideo->gm3);
+        $objGrupoMaestro = $this->grupo_maestro_m->get_by(array("id" => $objVistaVideo->gm3));//gm1 lista gm3 programa
+        if ($objGrupoMaestro->tipo_grupo_maestro_id == 3) {
+            Log::erroLog("bjGrupoMaestro->tipo_grupo_maestro_id == 3");
+            $objGrupoDetalles = $this->grupo_detalle_m->get_many_by(array('grupo_maestro_padre' => $objVistaVideo->gm1));
+            Log::erroLog("objGrupoMaestro->canales_id: " . $objGrupoMaestro->canales_id);
+            $objCanales = $this->canales_m->get_by(array('id' => $objGrupoMaestro->canales_id));
+            $allowed = false;
+            foreach ($objGrupoDetalles as $objGrupoDetalle) {
+                Log::erroLog("objGrupoDetalle->video_id: " . $objGrupoDetalle->video_id);
+                $objVideos = $this->videos_m->get_by(array('id' => $objGrupoDetalle->video_id));
+                Log::erroLog('fecha transmision: ' . $objVideos->fecha_transmision . ' ' . $objVideos->horario_transmision_inicio);
+                Log::erroLog('valida mayor: ' . strtotime(date("Y-m-d H:i:s")) . ' > ' . $this->add_hours_to_date($objVideos->fecha_transmision . ' ' . $objVideos->horario_transmision_inicio, $objCanales->ibope));
+                Log::erroLog('verdadero o falso: ' . print_r(strtotime(date("Y-m-d H:i:s")) > $this->add_hours_to_date($objVideos->fecha_transmision . ' ' . $objVideos->horario_transmision_inicio, $objCanales->ibope) ));
+                if (strtotime(date("Y-m-d H:i:s")) > $this->add_hours_to_date($objVideos->fecha_transmision . ' ' . $objVideos->horario_transmision_inicio, $objCanales->ibope)) {
+                    $allowed = true;
+                }
+            }
+            Log::erroLog("allowed: " . print_r($allowed));
+            if ($allowed) {
+                $objSeccion = $this->secciones_m->get_by(array('grupo_maestros_id' => $objVistaVideo->gm3));
+                $objImagenLista = $this->imagen_m->get_by(array("grupo_maestros_id" => $objVistaVideo->gm1, "tipo_imagen_id" => $this->config->item('imagen:small'), "estado" => $this->config->item('estado:publicado')));
+                //registramos el detalle seccion de la seccion destacado
+                $objBeanDetalleSeccion = new stdClass();
+                $objBeanDetalleSeccion->id = NULL;
+                $objBeanDetalleSeccion->secciones_id = $objSeccion->id;
+                $objBeanDetalleSeccion->videos_id = NULL;
+                $objBeanDetalleSeccion->grupo_maestros_id = $objVistaVideo->gm1;
+                $objBeanDetalleSeccion->canales_id = NULL;
+                $objBeanDetalleSeccion->imagenes_id = $objImagenLista->id;
+                $objBeanDetalleSeccion->peso = $this->obtenerPeso($objSeccion->id);
+                $objBeanDetalleSeccion->descripcion_item = '';
+                $objBeanDetalleSeccion->estado = $this->config->item('estado:publicado');
+                $objBeanDetalleSeccion->fecha_registro = date("Y-m-d H:i:s");
+                $objBeanDetalleSeccion->usuario_registro = $user_id;
+                $objBeanDetalleSeccion->estado_migracion = $this->config->item('migracion:nuevo');
+                $objBeanDetalleSeccion->fecha_migracion = '0000-00-00 00:00:00';
+                $objBeanDetalleSeccion->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
+                $this->detalle_secciones_m->save($objBeanDetalleSeccion);
+
+                Log::erroLog("INSERTADO DETALLE SECCION");
+                $this->secciones_m->update($objSeccion->id, array("fecha_actualizacion"=>date("Y-m-d H:i:s"),"estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                Log::erroLog("SECCION ACTUALIZADA");
+
+                $this->sort_detalle_seccion($objVistaVideo->gm3, $objSeccion->id);
+            }
+        }
+        
         //preguntamos si el programa cuenta con una imagen XL o S para estar apto a publicar
         $objImagenXLPrograma = $this->imagen_m->where_in('tipo_imagen_id', array($this->config->item('imagen:extralarge')))->get_by(array("estado" => $this->config->item('estado:publicado'), "grupo_maestros_id" => $objVistaVideo->gm3));
         $objImagenSPrograma = $this->imagen_m->where_in('tipo_imagen_id', array($this->config->item('imagen:small')))->get_by(array("estado" => $this->config->item('estado:publicado'), "grupo_maestros_id" => $objVistaVideo->gm3));
         //verificamos si tiene portada del programa
         $objPortadaPrograma = $this->portada_m->get_by(array("origen_id" => $objVistaVideo->gm3, "tipo_portadas_id" => $this->config->item('portada:programa')));
         if (count($objPortadaPrograma) > 0) {
+            Log::erroLog("count(objPortadaPrograma) > 0");
             //validamos que esté en estado publicado
             if ($objPortadaPrograma->estado != $this->config->item('estado:publicado')) {
+                Log::erroLog("objPortadaPrograma->estado != this->config->item('estado:publicado')");
                 //verificamos que el programa tenga las imagenes S y XL
                 if (count($objImagenXLPrograma) > 0 && count($objImagenSPrograma) > 0) {
+                    Log::erroLog("count(objImagenXLPrograma) > 0 && count(objImagenSPrograma) > 0");
                     //verificamos si el programa está registrado en el destacado de la portada programa
                     $objSeccionDestacadoPrograma = $this->secciones_m->get_by(array("portadas_id" => $objPortadaPrograma->id, "tipo_secciones_id" => $this->config->item('seccion:destacado')));
                     if (count($objSeccionDestacadoPrograma) > 0) {
+                        Log::erroLog("count(objSeccionDestacadoPrograma) > 0");
                         //obtenemos el detalle seccion del destacado de un programa
                         $detalle_seccion = $this->detalle_secciones_m->get_by(array("secciones_id" => $objSeccionDestacadoPrograma->id, "grupo_maestros_id" => $objVistaVideo->gm3));
                         if (count($detalle_seccion) > 0) {
+                            Log::erroLog("count(detalle_seccion) > 0 true");
                             //actualizamos el detalle seccion destacado
                             $this->detalle_secciones_m->update($detalle_seccion->id, array("imagenes_id" => $objImagenXLPrograma->id, "estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
                             //activamos la sección destacado
                             $this->secciones_m->update($objSeccionDestacadoPrograma->id, array("fecha_actualizacion"=>date("Y-m-d H:i:s"),"estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
                         } else {
+                            Log::erroLog("count(detalle_seccion) > 0 false");
                             //registramos el detalle seccion de la seccion destacado
                             $objBeanDetalleSeccion = new stdClass();
                             $objBeanDetalleSeccion->id = NULL;
@@ -782,20 +859,25 @@ class Sincronizar_lib extends MX_Controller {
                 }
             }
             if (count($objImagenXLPrograma) > 0 && count($objImagenSPrograma) > 0) {
+                Log::erroLog("count(objImagenXLPrograma) > 0 && count(objImagenSPrograma) > 0");
                 //verificamos la imagen de la lista
                 $objImagenLista = $this->imagen_m->get_by(array("grupo_maestros_id" => $objVistaVideo->gm1, "tipo_imagen_id" => $this->config->item('imagen:small'), "estado" => $this->config->item('estado:publicado')));
                 if (count($objImagenLista) > 0) {
+                    Log::erroLog("count(objImagenLista) > 0");
                     //obtenemos el objecto seccion coleccion de la portada programa
                     $objSeccionColeccionPrograma = $this->secciones_m->get_by(array("portadas_id" => $objPortadaPrograma->id, "tipo_secciones_id" => $this->config->item('seccion:coleccion'), "grupo_maestros_id" => $objVistaVideo->gm2));
                     if (count($objSeccionColeccionPrograma) > 0) {
+                        Log::erroLog("count(objSeccionColeccionPrograma) > 0");
                         //obtenemos el detalle seccion coleccion de la portada programa
                         $detalle_seccion = $this->detalle_secciones_m->get_by(array("secciones_id" => $objSeccionColeccionPrograma->id, "grupo_maestros_id" => $objVistaVideo->gm1));
                         if (count($detalle_seccion) > 0) {
+                            Log::erroLog("count(detalle_seccion) > 0 true");
                             //actualizamos el detalle sección
                             $this->detalle_secciones_m->update($detalle_seccion->id, array("imagenes_id" => $objImagenLista->id, "estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
                             //activamos la sección destacado
                             $this->secciones_m->update($objSeccionColeccionPrograma->id, array("fecha_actualizacion"=>date("Y-m-d H:i:s"),"estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
                         } else {
+                            Log::erroLog("count(detalle_seccion) > 0 false");
                             //registramos el video en esta sección
                             $objBeanDetalleSeccion = new stdClass();
                             $objBeanDetalleSeccion->id = NULL;
@@ -830,18 +912,23 @@ class Sincronizar_lib extends MX_Controller {
                 //primero obtenemos la portada del canal
                 $objPortadaCanal = $this->portada_m->get_by(array("tipo_portadas_id" => $this->config->item('portada:canal'), "origen_id" => $objVistaVideo->canales_id, "canales_id" => $objVistaVideo->canales_id));
                 if (count($objPortadaCanal) > 0) {
+                    Log::erroLog("count(objPortadaCanal) > 0");
                     //verificamos que el programa tenga una imagen small por lo menos
                     if (count($objImagenSPrograma) > 0) {
+                        Log::erroLog("count(objImagenSPrograma) > 0");
                         //obtenemos la seccion programa de la portada del canal
                         $objSeccionProgramaCanal = $this->secciones_m->get_by(array("portadas_id" => $objPortadaCanal->id, "tipo_secciones_id" => $this->config->item('seccion:programa')));
                         if (count($objSeccionProgramaCanal) > 0) {
+                            Log::erroLog("count(objSeccionProgramaCanal) > 0");
                             $detalle_seccion_programa = $this->detalle_secciones_m->get_by(array("secciones_id" => $objSeccionProgramaCanal->id, "grupo_maestros_id" => $objVistaVideo->gm3));
                             if (count($detalle_seccion_programa) > 0) {
+                                Log::erroLog("count(detalle_seccion_programa) > 0 true");
                                 //actualizamos el detalle sección
                                 $this->detalle_secciones_m->update($detalle_seccion_programa->id, array("estado" => $this->config->item('estado:publicado'), "imagenes_id" => $objImagenSPrograma->id, "estado_migracion" => $this->config->item('migracion:actualizado')));
                                 //activamos la sección programa de la portada canal
                                 $this->secciones_m->update($objSeccionProgramaCanal->id, array("fecha_actualizacion"=>date("Y-m-d H:i:s"),"estado" => $this->config->item('estado:publicado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
                             } else {
+                                Log::erroLog("count(detalle_seccion_programa) > 0 false");
                                 //registramos el programa al detalle sección
                                 $objBeanDetalleSeccion = new stdClass();
                                 $objBeanDetalleSeccion->id = NULL;
@@ -867,6 +954,7 @@ class Sincronizar_lib extends MX_Controller {
                 }
             }
         }
+        Log::erroLog("fin - publicar_video_lista_coleccion_programa_canal ref: " . $ref . ' - ' . date("Y-m-d H:i:s"));
     }
 
     /**
@@ -961,4 +1049,75 @@ class Sincronizar_lib extends MX_Controller {
         echo "</pre>";
     }
 
+    /**
+     * Sorts an array but last parameter first
+     * 
+     * @param string $elem_1
+     * @param string $elem_2
+     * @param string $but
+     * @return int
+     */
+    function sortArrayBut($elem_1, $elem_2, $but) {
+        if($elem_1 == $elem_2) return 0;
+
+        if($elem_2 == $but) return 1;
+
+        if(($elem_1 > $elem_2) || ($elem_1 == $but)) {
+            return 1;
+        } else {
+            return -1;
+        }
+    }
+
+    /**
+     * Sorts a detalle secciones
+     * 
+     * @param int $programa_id
+     * @param int $secciones_id
+     */
+    private function sort_detalle_seccion($programa_id, $secciones_id)
+    {
+        $objDetalleSecciones = $this->detalle_secciones_m->order_by('peso', 'ASC')->get_many_by(array("secciones_id" => $secciones_id));
+        if (count($objDetalleSecciones) > 0) {
+            $peso = 2;
+            foreach ($objDetalleSecciones as $puntero => $objDetalleSeccion) {
+                if ($objDetalleSeccion->grupo_maestros_id == $programa_id) {
+                    $this->detalle_secciones_m->update($objDetalleSeccion->id, array("peso" => 1, "estado_migracion" => $this->config->item('migracion:actualizado')));
+                } else {
+                    $this->detalle_secciones_m->update($objDetalleSeccion->id, array("peso" => $peso, "estado_migracion" => $this->config->item('migracion:actualizado')));
+                    $peso++;
+                }
+            }
+        }
+    }
+    
+    /**
+     * Adds hours to date
+     * 
+     * @param datetime $originalDate Datetime from database
+     * @param integer $hours Amount of hours to add
+     * @return type
+     */
+    function add_hours_to_date($originalDate, $hours){
+        return ($hours * 3600) + strtotime($originalDate);
+    }
+    
+    function prueba()
+    {
+        $objGrupoDetalles = $this->grupo_detalle_m->get_many_by(array('grupo_maestro_padre' => 607));
+        $objCanales = $this->canales_m->get_by(array('id' => 1));
+        $allowed = false;
+        foreach ($objGrupoDetalles as $objGrupoDetalle) {
+            echo 'id: ' . $objGrupoDetalle->id . "<br>";
+            $objVideos = $this->videos_m->get_by(array('id' => $objGrupoDetalle->video_id));
+            if (strtotime(date("Y-m-d H:i:s")) > $this->add_hours_to_date($objVideos->fecha_transmision . ' ' . $objVideos->horario_transmision_inicio, $objCanales->ibope) ) {
+                $allowed = true;
+            }
+        }
+        if ($allowed) {
+            echo 'allowed';
+        } else {
+            echo 'not allowed';
+        }
+    }
 }

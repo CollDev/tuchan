@@ -333,7 +333,6 @@ class Admin extends Admin_Controller {
     public function carga_unitaria($canal_id = 0, $video_id = 0) {
         $error = false;
         $message = '';
-        //if ($this->input->post()) {
         if ($this->input->is_ajax_request()) {
             $ruta_video = $this->config->item('path:video') . $this->input->post('name_file_upload');
             $archivo_video = pathinfo($ruta_video);
@@ -365,7 +364,7 @@ class Admin extends Admin_Controller {
                         $objBeanVideo->fecha_registro = date("Y-m-d H:i:s");
                         $objBeanVideo->usuario_registro = $user_id;
                         $objBeanVideo->estado_migracion = 0; //estado para mongoDB
-                        $objBeanVideo->estado_migracion_sphinx_tit = 0; //
+                        $objBeanVideo->estado_migracion_sphinx_tit = 0;
                         $objBeanVideo->estado_migracion_sphinx_des = 0;
                         $objBeanVideo->padre = 0;
                         $objBeanVideo->estado_migracion_sphinx = $this->config->item('sphinx:nuevo');
@@ -864,7 +863,7 @@ class Admin extends Admin_Controller {
                         $objBeanVideo->estado_migracion = 0; //estado para mongoDB
                         //$objBeanVideo->fecha_migracion ='';
                         //$objBeanVideo->fecha_migracion_actualizacion ='';
-                        $objBeanVideo->estado_migracion_sphinx_tit = 0; //
+                        $objBeanVideo->estado_migracion_sphinx_tit = 0;
                         //$objBeanVideo->fecha_migracion_sphinx_tit ='';
                         //$objBeanVideo->fecha_migracion_actualizacion_sphinx_tit ='';
                         $objBeanVideo->estado_migracion_sphinx_des = 0;

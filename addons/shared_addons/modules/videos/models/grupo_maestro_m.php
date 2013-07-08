@@ -118,4 +118,9 @@ class Grupo_maestro_m extends MY_Model {
         //$this->procesos_lib->actualizarDetalleSecciones();
     }    
 
+    public function get_by_tipo_grupo_maestro_id($id)
+    {
+        $query = "SELECT * FROM ". $this->_table . " WHERE `id` = '" . $id . "';";
+        return $this->db->query($query)->result();
+    }
 }
