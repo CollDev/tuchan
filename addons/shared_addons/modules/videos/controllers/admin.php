@@ -596,7 +596,7 @@ class Admin extends Admin_Controller {
 
     public function carga_youtube($canal_id = 0, $video_id = 0) {
         $error = false;
-        $message = '';
+        $message = '';          
         if ($this->input->is_ajax_request()) {
             $user_id = (int) $this->session->userdata('user_id');
             $objBeanVideo = new stdClass();
@@ -611,7 +611,8 @@ class Admin extends Admin_Controller {
             $objBeanVideo->fragmento = 0;
             $objBeanVideo->fecha_publicacion_inicio = date("H:i:s", strtotime('1970-12-31 00:00:00'));
             $objBeanVideo->fecha_publicacion_fin = date("H:i:s", strtotime('1970-12-31 00:00:00'));
-            $objBeanVideo->fecha_transmision = date("Y-m-d H:i:s", strtotime('1970-12-31 00:00:00'));
+            //$objBeanVideo->fecha_transmision = date("Y-m-d H:i:s", strtotime('1970-12-31 00:00:00'));
+            $objBeanVideo->fecha_transmision = date("Y-m-d", strtotime('-1 day',strtotime(date('Y-m-d H:i:s'))));                    
             $objBeanVideo->horario_transmision_inicio = date("H:i:s", strtotime('1970-12-31 00:00:00'));
             $objBeanVideo->horario_transmision_fin = date("H:i:s", strtotime('1970-12-31 00:00:00'));
             $objBeanVideo->ubicacion = 0;
@@ -631,7 +632,7 @@ class Admin extends Admin_Controller {
             $this->_saveTagsTematicaPersonajes($objBeanVideoSaved, $this->input->post());
             $this->procesos_lib->videoYoutube($objBeanVideoSaved->id,$this->input->post('video'));
             echo json_encode(array("error" => "0"));
-         } else {
+         } else {             
             //validamos que existan el video y/o el canal
             //creamos un objeto vacio que nos servira de recipiente
             $objBeanForm = new stdClass();

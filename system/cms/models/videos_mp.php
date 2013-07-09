@@ -145,7 +145,7 @@ class Videos_mp extends CI_Model {
     }
 
     public function setEstadosVideos($id = "", $estado = "", $estado_liquid = "") {
-        $query = "update " . $this->_table . " set estado=" . $estado . ",estado_liquid =" . $estado_liquid . " where id=" . $id;
+        $query = "update " . $this->_table . " set estado=" . $estado . ",estado_liquid =" . $estado_liquid . " where id=" . $id. " and estado_liquid = " . ($estado_liquid - 1);
         $this->db->query($query);
         Log::erroLog("query setEstadosVideos  " . $query);
     }
@@ -169,7 +169,7 @@ class Videos_mp extends CI_Model {
     }
     
     function setDuracionVideos($id = "", $duracion = "") {
-        $query = "update " . $this->_table . " set duracion= SEC_TO_TIME(" . $duracion . ") where id=" . $id;
+        $query = "update " . $this->_table . " set duracion = SEC_TO_TIME(" . $duracion . ") where id = " . $id;
         $this->db->query($query);
         Log::erroLog("setDuracionVideos  " . $query);
     }
