@@ -6,6 +6,7 @@ class Canal_mp extends CI_Model {
 
     private $_tabla = 'canal';
     protected $_table_canales = 'default_cms_canales';
+    protected $_table = 'default_cms_canales';
     protected $_table_grupo_maestros = 'default_cms_grupo_maestros';
     protected $_table_videos = 'default_cms_videos';
     protected $_table_grupo_detalles = 'default_cms_grupo_detalles';
@@ -162,5 +163,16 @@ class Canal_mp extends CI_Model {
     
     public function getCanal(){
         return $this->mongo_db->get($this->_tabla);;       
+    }
+
+    public function getCanalesList($where = array(), $order = NULL) {
+        $this->db->select("*");
+        $this->db->from($this->_table);
+        $this->db->where($where);
+        if ($order != NULL) {
+            $this->db->order_by($order);
+        }
+        
+        return $this->db->get()->result();
     }
 }

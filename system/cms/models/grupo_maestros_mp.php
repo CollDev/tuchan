@@ -54,5 +54,59 @@ class Grupo_Maestros_mp extends CI_Model {
         $query = "select * from " . $this->_table . " where id_mongo = '".$id."'";
         return  $this->db->query($query)->num_rows();
     }
+    
+    public function getProgramasList($where = array(), $order = NULL) {
+        $this->db->select("*");
+        $this->db->from($this->_table);
+        $this->db->where($where);
+        if ($order != NULL) {
+            $this->db->order_by($order);
+        }
         
+        return $this->db->get()->result();
+    }
+
+    public function getColeccionesDropDown($arrayCollection)
+    {
+        $returnValue = array();
+        if (count($arrayCollection) > 0) {
+            $array_id_maestro = array();
+            foreach ($arrayCollection as $index => $objCollection) {
+                if ($objCollection->grupo_maestro_id != NULL) {
+                    if ($this->isType($objCollection->grupo_maestro_id, 2)) {
+                        array_push($array_id_maestro, $objCollection->grupo_maestro_id);
+                    }
+                }
+            }
+            if (count($array_id_maestro) > 0) {
+                $arrayCollectionMaestro = $this->getListCollection($array_id_maestro);
+            } else {
+                $arrayCollectionMaestro = array();
+            }
+            if (count($arrayCollectionMaestro) > 0) {
+                foreach ($arrayCollectionMaestro as $indice => $objMaestro) {
+                    if ($objMaestro->estado < 2) {
+                        $returnValue[$objMaestro->id] = $objMaestro->nombre;
+                    }
+                }
+            }
+        }
+        
+        return $returnValue;
+    }
+    
+    public function getListCollection($array_id_maestro) {
+        $query="SELECT * FROM ".$this->_table." WHERE id IN (".implode(',',$array_id_maestro).")";
+        
+        return $this->db->query($query)->result();
+    }
+    
+    public function get_by($by)
+    {
+        $key = array_keys($by);
+        $value = array_values($by);
+        $query = "SELECT * FROM default_cms_grupo_maestros WHERE `" . $key[0] . "` = '" . $value[0] . "';";
+        
+        return $this->db->query($query)->result();
+    }
 }    
