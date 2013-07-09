@@ -32,8 +32,8 @@ class Grupo_detalle_m extends MY_Model {
         if ($order != NULL) {
             $this->db->order_by($order);
         }
-        $resultValue = $this->db->get()->result();
-        return $resultValue;
+        
+        return $this->db->get()->result();
     }
     
     public function vd($var){

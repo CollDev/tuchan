@@ -503,6 +503,7 @@ class Admin extends Admin_Controller {
             // Obtener nombre del canal según id
             $canal = $this->canales_m->get($canal_id);
             $arrayCategory = $this->categoria_m->getCategoryDropDown(array("categorias_id" => "0"), 'nombre');
+            $arrayCategory[0] = lang('videos:select_category');
             $arrayTipo = $this->tipo_video_m->getTipoDropDown(array(), 'nombre');
             //listamos las listas dependientes con datos filtrados
             if ($video_id > 0) {
@@ -721,6 +722,7 @@ class Admin extends Admin_Controller {
             // Obtener nombre del canal según id
             $canal = $this->canales_m->get($canal_id);
             $arrayCategory = $this->categoria_m->getCategoryDropDown(array("categorias_id" => "0"), 'nombre');
+            $arrayCategory[0] = lang('videos:select_category');
             $arrayTipo = $this->tipo_video_m->getTipoDropDown(array(), 'nombre');
             //listamos las listas dependientes con datos filtrados
             if ($video_id > 0) {
@@ -1037,6 +1039,7 @@ class Admin extends Admin_Controller {
         // Obtener nombre del canal según id
         $canal = $this->canales_m->get($canal_id);
         $arrayCategory = $this->categoria_m->getCategoryDropDown(array("categorias_id" => "0"), 'nombre');
+        $arrayCategory[0] = lang('videos:select_category');
         $arrayTipo = $this->tipo_video_m->getTipoDropDown(array(), 'nombre');
 
         //$arrayTipoMaestro = $this->tipo_maestro_m->getTipoDropDown(array(), 'nombre');
@@ -3133,6 +3136,7 @@ class Admin extends Admin_Controller {
         $items = $this->itemsMaestros($maestro_id);
         //categorias
         $categorias = $this->categoria_m->getCategoryDropDown(array("categorias_id" => "0"), 'nombre');
+        $categorias[0] = lang('videos:select_category');
         //listamos las imagenes
         $lista_imagenes = $this->listaImagenes($maestro_id);
 
