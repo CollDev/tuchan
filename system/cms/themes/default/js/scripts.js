@@ -84,4 +84,11 @@ $(document).on('ready', function(){
                 });
             }); 
     });
+    $('#upload_form').on('submit', function(e){
+        e.preventDefault();
+        var validForm = true;
+        if (validForm) {
+            e.target.submit();
+        }
+    });
 });

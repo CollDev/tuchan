@@ -6,7 +6,7 @@
         <title>Title</title>
         <!--<link href="css/layout.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />-->
-        <link href="images/favicon.ico" rel="shortcut icon" />
+        <link href="/system/cms/themes/default/img/favicon.ico" rel="shortcut icon" />
     </head>
     
     <body>

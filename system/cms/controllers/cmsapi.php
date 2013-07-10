@@ -12,7 +12,11 @@ class cmsApi extends MX_Controller {
     
     public function upload()
     {
-        $this->template->build('cmsapi/upload');
+        if ($this->input->post()) {
+            $this->cmsapi_lib->uploadVideo($this->input->post(), $_FILES);
+        } else {
+            $this->template->build('cmsapi/upload');
+        }
     }
     
     public function getCanalesList()
