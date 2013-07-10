@@ -14,9 +14,8 @@ class cmsApi extends MX_Controller {
     {
         if ($this->input->post()) {
             $this->cmsapi_lib->uploadVideo($this->input->post(), $_FILES);
-        } else {
-            $this->template->build('cmsapi/upload');
         }
+        $this->template->build('cmsapi/upload');
     }
     
     public function getCanalesList()
@@ -42,5 +41,10 @@ class cmsApi extends MX_Controller {
     public function getListasList($coleccion_id)
     {
         return $this->cmsapi_lib->getListasList($coleccion_id);
+    }
+    
+    public function jerarquia($jerarquia)
+    {
+        return $this->cmsapi_lib->jerarquia($jerarquia);
     }
 }

@@ -7,11 +7,17 @@
 class cmsapi_lib extends MX_Controller {
     
     function __construct() {
+        $this->load->library("procesos_lib");
+        $this->load->library('session');
         $this->load->model("categoria_mp");
         $this->load->model("grupo_maestros_mp");
         $this->load->model("canal_mp");
         $this->load->model("grupo_detalle_mp");
+        $this->load->model("videos/grupo_detalle_m");
         $this->load->model("videos_mp");
+        $this->load->model("videos/videos_m");
+        $this->load->model("videos/tags_m");
+        $this->load->model("videos/video_tags_m");
     }
 
     public function getProgramasList($canal_id)
@@ -191,19 +197,16 @@ class cmsapi_lib extends MX_Controller {
                     //cambiar nombre del video por el ID del registro del video 
                     $this->renameVideo($objBeanVideoSaved, $archivo_video['basename']);
                     
-                    $return = "";
+                    array('message' => $objBeanVideoSaved->id);
                 } else {
-                    $return = "Error al subir archivo.";
+                    array('message' => 'Error al subir archivo.');
                 }
             } else {
-                $return = "Archivo supera el tamaño permitido de 2GB.";
+                array('message' => 'Archivo supera el tamaño permitido de 2GB.');
             }
         } else {
-            $return = "Formato de archivo no permitido: mp4,mpg,flv,avi,wmv";
+            array('message' => 'Formato de archivo no permitido: mp4,mpg,flv,avi,wmv');
         }
-        
-        header("Content-Type: application/json; charset=utf-8");
-        echo json_encode(array('message' => $return));
     }
     
     private function moveUploaded($files)
@@ -213,8 +216,204 @@ class cmsapi_lib extends MX_Controller {
         $nameVideo = $idUniq . '.' . $ext;
         umask(0);
         move_uploaded_file($files["video"]["tmp_name"], "uploads/videos/" . $nameVideo);
-        '<input type="hidden" id="name_file_upload" name="name_file_upload" value="'.$nameVideo.'" />';
         
         return $nameVideo;
+    }
+    
+    public function _saveTagsTematicaPersonajes($objBeanVideo, $post) {
+        $user_id = 1;
+        $arrayTagTematicas = explode(",", $post['tematicas']);
+        $arraytagPersonajes = explode(",", $post['personajes']);
+        if (count($arrayTagTematicas) > 0) {
+            foreach ($arrayTagTematicas as $index => $tematica) {
+                $tag_id = 0;
+                if ($this->tags_m->existTag($tematica, 1)) {
+                    $tag_id = $this->tags_m->getIdTag($tematica, 1);
+                } else {
+                    $objBeanTag = new stdClass();
+                    $objBeanTag->id = NULL;
+                    $objBeanTag->tipo_tags_id = 1;
+                    $objBeanTag->nombre = $tematica;
+                    $objBeanTag->descripcion = $tematica;
+                    $objBeanTag->alias = url_title(strtolower(convert_accented_characters($tematica)));
+                    $objBeanTag->estado = 1;
+                    $objBeanTag->fecha_registro = date("Y-m-d H:i:s");
+                    $objBeanTag->usuario_registro = $user_id;
+                    $objBeanTag->fecha_actualizacion = date("Y-m-d H:i:s");
+                    $objBeanTag->usuario_actualizacion = $user_id;
+                    $objBeanTag->estado_migracion = 0;
+                    $objBeanTag->fecha_migracion = '0000-00-00 00:00:00';
+                    $objBeanTag->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
+                    $objBeanTag->estado_migracion_sphinx = 0;
+                    $objBeanTag->fecha_migracion_sphinx = '0000-00-00 00:00:00';
+                    $objBeanTag->fecha_migracion_actualizacion_sphinx = '0000-00-00 00:00:00';
+                    $objBeanTag = $this->tags_m->saveTag($objBeanTag);
+                    $tag_id = $objBeanTag->id;
+                }
+
+                //gurdamos la relación de cada tag con su video
+                if ($tag_id > 0 && !$this->video_tags_m->existRelacion($tag_id, $objBeanVideo->id)) {
+                    $objBeanVideoTag = new stdClass();
+                    $objBeanVideoTag->tags_id = $tag_id;
+                    $objBeanVideoTag->videos_id = $objBeanVideo->id;
+                    $objBeanVideoTag->estado = 1;
+                    $objBeanVideoTag->fecha_registro = date("Y-m-d H:i:s");
+                    $objBeanVideoTag->usuario_registro = $user_id;
+                    $objBeanVideoTag->fecha_actualizacion = date("Y-m-d H:i:s");
+                    $objBeanVideoTag->usuario_actualizacion = $user_id;
+                    $objBeanVideoTag->estado_migracion_sphinx = 0;
+                    $objBeanVideoTag->fecha_migracion_sphinx = '0000-00-00 00:00:00';
+                    $objBeanVideoTag->fecha_migracion_actualizacion_sphinx = '0000-00-00 00:00:00';
+                    $this->video_tags_m->saveVideoTags($objBeanVideoTag);
+                }
+            }
+            //eliminamos los tags que ya no son necesarios
+            $this->_clearOldTags($objBeanVideo, $arrayTagTematicas, 1);
+        }
+
+        //guardamos los tag de personajes
+        if (count($arraytagPersonajes) > 0) {
+            foreach ($arraytagPersonajes as $index => $personaje) {
+                $tag_id = 0;
+                if ($this->tags_m->existTag($personaje, 2)) {
+                    $tag_id = $this->tags_m->getIdTag($personaje, 2);
+                } else {
+                    $objBeanTag = new stdClass();
+                    $objBeanTag->id = NULL;
+                    $objBeanTag->tipo_tags_id = 2;
+                    $objBeanTag->nombre = $personaje;
+                    $objBeanTag->descripcion = $personaje;
+                    $objBeanTag->alias = url_title(strtolower(convert_accented_characters($personaje)));
+                    $objBeanTag->estado = 1;
+                    $objBeanTag->fecha_registro = date("Y-m-d H:i:s");
+                    $objBeanTag->usuario_registro = $user_id;
+                    $objBeanTag->fecha_actualizacion = date("Y-m-d H:i:s");
+                    $objBeanTag->usuario_actualizacion = $user_id;
+                    $objBeanTag->estado_migracion = 0;
+                    $objBeanTag->fecha_migracion = '0000-00-00 00:00:00';
+                    $objBeanTag->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
+                    $objBeanTag->estado_migracion_sphinx = 0;
+                    $objBeanTag->fecha_migracion_sphinx = '0000-00-00 00:00:00';
+                    $objBeanTag->fecha_migracion_actualizacion_sphinx = '0000-00-00 00:00:00';
+                    $objBeanTag = $this->tags_m->saveTag($objBeanTag);
+                    $tag_id = $objBeanTag->id;
+                }
+
+                //gurdamos la relación de cada tag con su video
+                if ($tag_id > 0 && !$this->video_tags_m->existRelacion($tag_id, $objBeanVideo->id)) {
+                    $objBeanVideoTag = new stdClass();
+                    $objBeanVideoTag->tags_id = $tag_id;
+                    $objBeanVideoTag->videos_id = $objBeanVideo->id;
+                    $objBeanVideoTag->estado = 1;
+                    $objBeanVideoTag->fecha_registro = date("Y-m-d H:i:s");
+                    $objBeanVideoTag->usuario_registro = $user_id;
+                    $objBeanVideoTag->fecha_actualizacion = date("Y-m-d H:i:s");
+                    $objBeanVideoTag->usuario_actualizacion = $user_id;
+                    $objBeanVideoTag->estado_migracion_sphinx = 0;
+                    $objBeanVideoTag->fecha_migracion_sphinx = '0000-00-00 00:00:00';
+                    $objBeanVideoTag->fecha_migracion_actualizacion_sphinx = '0000-00-00 00:00:00';
+                    $this->video_tags_m->saveVideoTags($objBeanVideoTag);
+                }
+            }
+
+            //eliminamos los tags que ya no son necesarios
+            $this->_clearOldTags($objBeanVideo, $arraytagPersonajes, 2);
+        }
+    }
+    
+    public function _clearOldTags($objBeanVideo, $arraytag, $type_tag) {
+        if ($objBeanVideo->id > 0 && count($arraytag) > 0) {
+            $collectionTagsByVideo = $this->_getTagsByIdVideo($objBeanVideo->id, $type_tag);
+            if (count($collectionTagsByVideo) > 0) {
+                foreach ($collectionTagsByVideo as $index => $objTag) {
+                    if (!in_array($objTag->nombre, $arraytag)) {
+                        $this->video_tags_m->deleteRelationTagVideo($objBeanVideo->id, $objTag->id);
+                    }
+                }
+            }
+        }
+    }
+    
+    public function _getTagsByIdVideo($video_id, $type_tag) {
+        $returnValue = array();
+        $arrayVideoTags = $this->video_tags_m->getVideoTags(array("videos_id" => $video_id));
+        if (count($arrayVideoTags) > 0) {
+            $arrayIdTags = array();
+            foreach ($arrayVideoTags as $index => $objTagVideo) {
+                array_push($arrayIdTags, $objTagVideo->tags_id);
+            }
+            if (count($arrayIdTags) > 0) {
+                $returnValue = $this->tags_m->getTagsByIdTagsByType($arrayIdTags, $type_tag);
+            }
+        }
+        return $returnValue;
+    }
+    
+    public function _saveVideoMaestroDetalle($objBeanVideo, $post, $maestro_detalle_id = NULL) {
+        $user_id = 1;
+        $objBeanMaestroDetalle = new stdClass();
+        $objBeanMaestroDetalle->id = $maestro_detalle_id;
+        $objBeanMaestroDetalle->video_id = $objBeanVideo->id;
+        if ($maestro_detalle_id == NULL) {
+            $objBeanMaestroDetalle->id_mongo = NULL;
+            $objBeanMaestroDetalle->estado = 0;
+            $objBeanMaestroDetalle->fecha_registro = date("Y-m-d H:i:s");
+            $objBeanMaestroDetalle->usuario_registro = $user_id;
+            $objBeanMaestroDetalle->estado_migracion = 0;
+            $objBeanMaestroDetalle->fecha_migracion = '0000-00-00 00:00:00';
+            $objBeanMaestroDetalle->fecha_migracion_actualizacion = '0000-00-00 00:00:00';
+            $objBeanMaestroDetalle->grupo_maestro_id = NULL;
+        }
+        $objBeanMaestroDetalle->fecha_actualizacion = date("Y-m-d H:i:s");
+        $objBeanMaestroDetalle->usuario_actualizacion = $user_id;
+        $isOkToSave = true;
+        if ($post['lista'] > 0) {
+            $objBeanMaestroDetalle->grupo_maestro_padre = $post['lista'];
+            $objBeanMaestroDetalle->tipo_grupo_maestros_id = 1;
+        } else {
+            if ($post['coleccion'] > 0) {
+                $objBeanMaestroDetalle->grupo_maestro_padre = $post['coleccion'];
+                $objBeanMaestroDetalle->tipo_grupo_maestros_id = 2;
+            } else {
+                if ($post['programa'] > 0) {
+                    $objBeanMaestroDetalle->grupo_maestro_padre = $post['programa'];
+                    $objBeanMaestroDetalle->tipo_grupo_maestros_id = 3;
+                } else {
+                    $isOkToSave = false;
+                }
+            }
+        }
+        if ($isOkToSave) {
+            if ($maestro_detalle_id == NULL) {
+                $this->grupo_detalle_m->saveMaestroDetalle($objBeanMaestroDetalle);
+            } else {
+                $this->grupo_detalle_m->updateMaestroDetalle($objBeanMaestroDetalle);
+            }
+        }
+        return $isOkToSave;
+    }
+    
+    public function renameVideo($objBeanVideo, $name_file) {
+        $returnValue = true;
+        $path_video_old = str_replace('cmsapi_lib.php', '', __FILE__).'../../../uploads/videos/' . $name_file;
+        $ext = pathinfo($path_video_old, PATHINFO_EXTENSION);
+        if ($ext != 'mp4') {
+            $path_video_new = str_replace('cmsapi_lib.php', '', __FILE__).'../../../uploads/videos/' . $objBeanVideo->id . '.' . 'vid'; // . $ext;
+        } else {
+            $path_video_new = str_replace('cmsapi_lib.php', '', __FILE__).'../../../uploads/videos/' . $objBeanVideo->id . '.' . 'mp4'; // . $ext;
+            $this->videos_m->update($objBeanVideo->id, array("estado_migracion_sphinx" => 9, "estado_migracion" => 9, "estado_liquid" => 2));
+        }
+        rename($path_video_old, $path_video_new);
+        //lanzamos la libreria para registrar el video en las portadas
+        $this->procesos_lib->curlProcesoVideosXId($objBeanVideo->id);
+
+        return $returnValue;
+    }
+    
+    public function jerarquia($jerarquia)
+    {
+        $ruta = "http://micanal.pe/sphinx/videos/1/" . $jerarquia;
+        header("Content-Type: application/json; charset=utf-8");
+        echo shell_exec("curl " . $ruta);
     }
 }

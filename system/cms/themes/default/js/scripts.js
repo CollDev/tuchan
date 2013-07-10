@@ -91,4 +91,26 @@ $(document).on('ready', function(){
             e.target.submit();
         }
     });
+    $('#search_form').on('submit', function(e){
+        e.preventDefault();
+        if ($('#termino').val() !== '') {
+            $.getJSON("/cmsapi/termino/" + $('#termino').val())
+                .done(function(res){
+                    console.log(res);
+                });
+        }
+        if ($('#jerarquia').val() !== '') {
+            $.getJSON("/cmsapi/jerarquia/" + $('#jerarquia').val())
+                .done(function(res){
+                    console.log(res);
+                });
+        }
+        if ($('#fecha_inicio').val() !== '') {
+            
+            $.getJSON("/cmsapi/fecha/" + $('#fecha_inicio').val())
+                .done(function(res){
+                    console.log(res);
+                });
+        }
+    });
 });
