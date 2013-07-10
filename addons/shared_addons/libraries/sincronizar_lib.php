@@ -778,9 +778,21 @@ class Sincronizar_lib extends MX_Controller {
                     $allowed = true;
                 }
             }
+            
+            $objSeccion = $this->secciones_m->get_by(array('grupo_maestros_id' => $objVistaVideo->gm3));
+            $objDetalleSecciones = $this->detalle_secciones_m->get_by(array("grupo_maestros_id" => $objVistaVideo->gm1,"secciones_id"=>$objSeccion->id));
+            
+            if(count($objDetalleSecciones)==0){
+                $allowed=TRUE;
+            }  else {
+                $allowed=FALSE;
+            }
+            
             Log::erroLog("allowed: " . print_r($allowed));
+            
+                       
             if ($allowed) {
-                $objSeccion = $this->secciones_m->get_by(array('grupo_maestros_id' => $objVistaVideo->gm3));
+                
                 $objImagenLista = $this->imagen_m->get_by(array("grupo_maestros_id" => $objVistaVideo->gm1, "tipo_imagen_id" => $this->config->item('imagen:small'), "estado" => $this->config->item('estado:publicado')));
                 //registramos el detalle seccion de la seccion destacado
                 $objBeanDetalleSeccion = new stdClass();
