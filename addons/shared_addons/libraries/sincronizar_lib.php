@@ -778,9 +778,21 @@ class Sincronizar_lib extends MX_Controller {
                     $allowed = true;
                 }
             }
+            
+            $objSeccion = $this->secciones_m->get_by(array('grupo_maestros_id' => $objVistaVideo->gm3));
+            $objDetalleSecciones = $this->detalle_secciones_m->get_by(array("grupo_maestros_id" => $objVistaVideo->gm1,"secciones_id"=>$objSeccion->id));
+            
+            if(count($objDetalleSecciones)==0){
+                $allowed=TRUE;
+            }  else {
+                $allowed=FALSE;
+            }
+            
             Log::erroLog("allowed: " . print_r($allowed));
+            
+                       
             if ($allowed) {
-                $objSeccion = $this->secciones_m->get_by(array('grupo_maestros_id' => $objVistaVideo->gm3));
+                
                 $objImagenLista = $this->imagen_m->get_by(array("grupo_maestros_id" => $objVistaVideo->gm1, "tipo_imagen_id" => $this->config->item('imagen:small'), "estado" => $this->config->item('estado:publicado')));
                 //registramos el detalle seccion de la seccion destacado
                 $objBeanDetalleSeccion = new stdClass();
@@ -1100,24 +1112,5 @@ class Sincronizar_lib extends MX_Controller {
      */
     function add_hours_to_date($originalDate, $hours){
         return ($hours * 3600) + strtotime($originalDate);
-    }
-    
-    function prueba()
-    {
-        $objGrupoDetalles = $this->grupo_detalle_m->get_many_by(array('grupo_maestro_padre' => 607));
-        $objCanales = $this->canales_m->get_by(array('id' => 1));
-        $allowed = false;
-        foreach ($objGrupoDetalles as $objGrupoDetalle) {
-            echo 'id: ' . $objGrupoDetalle->id . "<br>";
-            $objVideos = $this->videos_m->get_by(array('id' => $objGrupoDetalle->video_id));
-            if (strtotime(date("Y-m-d H:i:s")) > $this->add_hours_to_date($objVideos->fecha_transmision . ' ' . $objVideos->horario_transmision_inicio, $objCanales->ibope) ) {
-                $allowed = true;
-            }
-        }
-        if ($allowed) {
-            echo 'allowed';
-        } else {
-            echo 'not allowed';
-        }
     }
 }
