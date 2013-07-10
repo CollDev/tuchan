@@ -15,10 +15,8 @@ if (false) {
                     <select id="lista_canales" name="canal_id">
                         <option value="0">Seleccione canal</option>
                     </select>
-                    <br>
                     <label for="titulo">Título</label>
                     <input id="titulo" name="titulo" placeholder="Ingrese un título para el video" required type="text" />
-                    <br>
                     <label for="fragmento">Fragmento</label>
                     <select id="fragmento" name="fragmento">
                         <option value="0">Seleccione un fragmento</option>
@@ -38,28 +36,21 @@ if (false) {
                         <option value="14">14</option>
                         <option value="15">15</option>
                     </select>
-                    <br>
-                    <label for="video">Video</label>
+                    <label for="video">Video</label><br>
                     <input id="video" name="video" type="file" />
                     <br>
                     <label for="fecha_transmision">Fecha de transmisión</label>
                     <input id="fec_trans" name="fec_trans" type="date" />
-                    <br>
                     <label for="fecha_transmision_inicio">Fecha de transmisión inicio</label>
                     <input id="hora_trans_ini" name="hora_trans_ini" type="date" />
-                    <br>
                     <label for="fecha_transmision_fin">Fecha de transmisión fin</label>
                     <input id="hora_trans_fin" name="hora_trans_fin" type="date" />
-                    <br>
                     <label for="descripcion">Descripcion</label>
                     <input id="descripcion" name="descripcion" placeholder="Una síntesis del video" required type="text" />
-                    <br>
                     <label for="tematica">Tematica</label>
                     <input id="tematicas" name="tematicas" placeholder="Los temas tratados" required type="text" />
-                    <br>
                     <label for="personajes">Personajes</label>
                     <input id="personajes" name="personajes" placeholder="Principales y secundarios" required type="text" />
-                    <br>
                 </fieldset>
                 <fieldset>
                     <legend>Jerarquía</legend>
@@ -67,17 +58,14 @@ if (false) {
                     <select id="lista_categorias" name="categoria">
                         <option value="0">Seleccione categoría</option>
                     </select>
-                    <br>
                     <label for="lista_programas">Programas</label>
                     <select id="lista_programas" name="programa">
                         <option value="0">Seleccione programa</option>
                     </select>
-                    <br>
                     <label for="lista_colecciones">Colecciones</label>
                     <select id="lista_colecciones" name="coleccion">
                         <option value="0">Seleccione colección</option>
                     </select>
-                    <br>
                     <label for="lista_listas">Listas</label>
                     <select id="lista_listas" name="lista">
                         <option value="0">Seleccione listas</option>
@@ -85,7 +73,7 @@ if (false) {
                 </fieldset>
                 <fieldset>
                     <legend>Enviar el formulario</legend>
-                    <button>Subir video</button>
+                    <button class="btn btn-default">Subir video</button>
                 </fieldset>
                 <input type="hidden" name="padre" value="0" />
                 <input type="hidden" name="video_id" value="0" />
@@ -114,13 +102,12 @@ if (false) {
                     <legend>Fecha</legend>
                     <label for="busca_termino">Fecha inicio</label>
                     <input id="fecha_inicio" type="text" name="fecha_inicio" placeholder="Ingrese una fecha" />
-                    <br>
                     <label for="busca_termino">Fecha fin</label>
                     <input id="fecha_fin" type="text" name="fecha_fin" placeholder="Ingrese una fecha" />
                 </fieldset>
                 <fieldset>
                     <legend>Enviar el formulario</legend>
-                    <button>Buscar</button>
+                    <button class="btn btn-default">Buscar</button>
                 </fieldset>
             </fieldset>
         </form>
