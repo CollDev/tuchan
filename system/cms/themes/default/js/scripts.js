@@ -2,7 +2,7 @@ $(document).on('ready', function(){
     $.getJSON("/cmsapi/getcanaleslist")
         .done(function(res){
             $.each(res, function(key, value){
-                $('#lista_canales')
+                $('#canal_id')
                     .append($('<option>', { value : key })
                     .text(value));
             });
@@ -11,7 +11,7 @@ $(document).on('ready', function(){
         .done(function(res){
             $.each(res, function(key, value){
                 if ($.isNumeric(key)) {
-                    $('#lista_categorias')
+                    $('#categoria')
                         .append($('<option>', { value : key })
                         .text(value));
                 } else {
@@ -21,67 +21,83 @@ $(document).on('ready', function(){
                             .append($('<option>', { value : keyg })
                             .text(valueg));
                     });
-                    $('#lista_categorias')
+                    $('#categoria')
                         .append(optiong);
                     optiong = null;
                 }
             });
         });    
-    $('#lista_canales').on('change', function(){
-        $('#lista_programas').trigger('change');
-        $('#lista_colecciones').trigger('change');
-        $('#lista_listas').trigger('change');
+    $('#canal_id').on('change', function(){
+        $('#programa').trigger('change');
+        $('#coleccion').trigger('change');
+        $('#lista').trigger('change');
         var canal_id = $(this).find(":selected").val();
         $.getJSON("/cmsapi/getprogramaslist/" + canal_id)
             .done(function(res){
-                $('#lista_programas')
+                $('#programa')
                     .find('option')
                     .remove();
-                $('#lista_programas')
+                $('#programa')
                     .append($('<option>', { value : '0' })
                     .text('Seleccione programa'));
                 $.each(res, function(key, value){
-                    $('#lista_programas')
+                    $('#programa')
                         .append($('<option>', { value : key })
                         .text(value));
                 });
             });
     });
-    $('#lista_programas').on('change', function(){
-        $('#lista_colecciones').trigger('change');
-        $('#lista_listas').trigger('change');
+    $('#programa').on('change', function(){
+        $('#coleccion').trigger('change');
+        $('#lista').trigger('change');
         var programa_id = $(this).find(":selected").val();
         $.getJSON("/cmsapi/getcoleccioneslist/" + programa_id)
             .done(function(res){
-                $('#lista_colecciones')
+                $('#coleccion')
                     .find('option')
                     .remove();
-                $('#lista_colecciones')
+                $('#coleccion')
                     .append($('<option>', { value : '0' })
                     .text('Seleccione colección'));
                 $.each(res, function(key, value){
-                    $('#lista_colecciones')
+                    $('#coleccion')
                         .append($('<option>', { value : key })
                         .text(value));
                 });
             }); 
     });
-    $('#lista_colecciones').on('change', function(){
-        $('#lista_listas').trigger('change');
+    $('#coleccion').on('change', function(){
+        $('#lista').trigger('change');
         var coleccion_id = $(this).find(":selected").val();
         $.getJSON("/cmsapi/getlistaslist/" + coleccion_id)
             .done(function(res){
-                $('#lista_listas')
+                $('#lista')
                     .find('option')
                     .remove();
-                $('#lista_listas')
+                $('#lista')
                     .append($('<option>', { value : '0' })
                     .text('Seleccione lista'));
                 $.each(res, function(key, value){
-                    $('#lista_listas')
+                    $('#lista')
                         .append($('<option>', { value : key })
                         .text(value));
                 });
             }); 
+    });
+    $('#upload_form').on('submit', function(e){
+        e.preventDefault();
+        var validForm = true;
+        if (validForm) {
+            e.target.submit();
+        }
+    });
+    $('#search_form').on('submit', function(e){
+        e.preventDefault();
+        if ($('#jerarquia').val() !== '') {
+            $.getJSON("/cmsapi/jerarquia/" + $('#jerarquia').val())
+                .done(function(res){
+                    console.log(res);
+                });
+        }
     });
 });

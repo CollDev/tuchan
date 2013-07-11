@@ -4,14 +4,19 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Title</title>
-        <!--<link href="css/layout.css" rel="stylesheet" />
-        <link href="css/styles.css" rel="stylesheet" />-->
-        <link href="images/favicon.ico" rel="shortcut icon" />
+        <link href="/system/cms/themes/default/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="/system/cms/themes/default/css/styles.css" rel="stylesheet" />
+        <link href="/system/cms/themes/default/img/favicon.ico" rel="shortcut icon" />
     </head>
     
     <body>
+        <div class="container">
+            <div class="row">
         <?php echo $content; ?>
+            </div>
+        </div>
         <script src="/system/cms/themes/default/js/jquery.js"></script>
+        <script src="/system/cms/themes/default/bootstrap/js/bootstrap.min.js"></script>
         <script src="/system/cms/themes/default/js/scripts.js"></script>
     </body>
 </html>

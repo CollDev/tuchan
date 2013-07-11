@@ -12,6 +12,9 @@ class cmsApi extends MX_Controller {
     
     public function upload()
     {
+        if ($this->input->post()) {
+            $this->cmsapi_lib->uploadVideo($this->input->post(), $_FILES);
+        }
         $this->template->build('cmsapi/upload');
     }
     
@@ -38,5 +41,10 @@ class cmsApi extends MX_Controller {
     public function getListasList($coleccion_id)
     {
         return $this->cmsapi_lib->getListasList($coleccion_id);
+    }
+    
+    public function jerarquia($jerarquia)
+    {
+        return $this->cmsapi_lib->jerarquia($jerarquia);
     }
 }
