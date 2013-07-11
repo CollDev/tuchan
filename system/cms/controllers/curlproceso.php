@@ -189,5 +189,9 @@ class curlProceso extends MX_Controller {
     public function limpiarUploadVideo() {
         $this->procesos_lib->limpiarUploadVideo();
     }
+    
+    public function actualizarVersion($tipo,$version){
+        $this->procesos_lib->actualizarVersion($tipo,$version);
+    }
 
 }
