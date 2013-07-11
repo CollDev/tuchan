@@ -93,11 +93,19 @@ $(document).on('ready', function(){
     });
     $('#search_form').on('submit', function(e){
         e.preventDefault();
-        if ($('#jerarquia').val() !== '') {
-            $.getJSON("/cmsapi/jerarquia/" + $('#jerarquia').val())
-                .done(function(res){
-                    console.log(res);
+        if ($('#termino').val() !== '') {
+            $("div#search_results").html('<div class="text-center"><img src="/system/cms/themes/default/img/loading.gif" /></div>');
+            $.getJSON("/cmsapi/search/" + $('#termino').val())
+                .done(function(data){
+                    $.get("/system/cms/themes/default/js/mustache_templates/cmsapi/search_results.html", function(template){
+                        var results = $.mustache(template, data);
+                        $("div#search_results").html('').append(results);
+                    });
                 });
         }
     });
+    $('ul#myTab li a').on('click', function(){
+        $(this).blur();
+    });
+    $("a[rel=tooltip]").tooltip('toggle');
 });

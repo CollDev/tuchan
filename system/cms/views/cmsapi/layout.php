@@ -10,12 +10,11 @@
     </head>
     
     <body>
-        <div class="container">
-            <div class="row">
-        <?php echo $content; ?>
-            </div>
+        <div class="container wrap">
+            <?php echo $content; ?>
         </div>
         <script src="/system/cms/themes/default/js/jquery.js"></script>
+        <script src="/system/cms/themes/default/js/jquery.mustache.js"></script>
         <script src="/system/cms/themes/default/bootstrap/js/bootstrap.min.js"></script>
         <script src="/system/cms/themes/default/js/scripts.js"></script>
     </body>

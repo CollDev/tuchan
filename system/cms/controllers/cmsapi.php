@@ -43,8 +43,8 @@ class cmsApi extends MX_Controller {
         return $this->cmsapi_lib->getListasList($coleccion_id);
     }
     
-    public function jerarquia($jerarquia)
+    public function search($search)
     {
-        return $this->cmsapi_lib->jerarquia($jerarquia);
+        return $this->cmsapi_lib->search($search);
     }
 }
