@@ -22,13 +22,13 @@ class Sphinx_m extends CI_Model {
         if($fechaini!=null){
             list($dia1, $mes1, $año1) = explode('-', $fechaini);
             //$fechaini = mktime(0, 0, 0, $mes1, $dia1, $año1);  
-            $fechaini =  strtotime($año1.'-'.$mes1.'-'.$dia1.' 05:00:00');            
+            $fechaini =  strtotime($año1.'-'.$mes1.'-'.$dia1.' 00:00:00');            
         }   
         
         if($fechafin!=null){
             list($dia2, $mes2, $año2) = explode('-', $fechafin);
             //$fechafin = mktime(0, 0, 0, $mes2, $dia2,  $año2);
-            $fechafin =  strtotime($año2.'-'.$mes2.'-'.$dia2.' 05:00:00');  
+            $fechafin =  strtotime($año2.'-'.$mes2.'-'.$dia2.' 00:00:00');  
         }
         
         
