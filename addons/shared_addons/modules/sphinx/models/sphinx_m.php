@@ -66,10 +66,10 @@ class Sphinx_m extends CI_Model {
         
         if(!empty($fechaini) && !empty($fechafin)){
             error_log("SetFilterRange ");
-             $cl->SetFilterRange('fechaint', $fechaini, $fechafin);
+             $cl->SetFilterRange('fecha', $fechaini, $fechafin);
         }elseif(!empty($fechaini) && empty($fechafin)) {
             error_log("SetFilter " . $fechaini);
-            $cl->SetFilter('fechaint', $fechaini);
+            $cl->SetFilter('fecha', array($fechaini));
         }else{
             error_log("nada");          
         }
@@ -112,7 +112,7 @@ class Sphinx_m extends CI_Model {
 //                    } else {
 //                        $arraytemp["categorias_al"] = $res[$i]["attrs"]["categorias_al"];
 //                    }
-
+                    error_log($res[$i]["attrs"]["fechaint"]);
                     $arraytemp["fecha"] = $res[$i]["attrs"]["fecha_format"];
                     $arraytemp["fecha_u"] = $res[$i]["attrs"]["fecha"];
                     $arraytemp["comentarios"] = $res[$i]["attrs"]["comentarios"];

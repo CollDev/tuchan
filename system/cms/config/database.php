@@ -52,6 +52,9 @@ $db[PYRO_DEVELOPMENT] = array(
 	'stricton' 		=> TRUE,
 );
 
+
+// El Comercio -  DEV
+
 /*
 $db[PYRO_DEVELOPMENT] = array(
 	'hostname'		=> 	'10.10.38.102',
