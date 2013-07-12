@@ -1,24 +1,7 @@
-.tinytable thead h3 {
-    background: url("images/sort.gif") 7px center no-repeat;
-    cursor: pointer;
-    padding-left: 18px;
-}
-.tinytable .desc, .sortable .asc {
-    background: url("images/header-selected-bg.gif");
-}
-.tinytable .desc h3 {
-    background: url("images/desc.gif") 7px center no-repeat;
-    cursor: pointer;
-    padding-left: 18px;
-}
-.tinytable .asc h3 {
-    background: url("images/asc.gif") 7px  center no-repeat;
-    cursor: pointer;
-    padding-left: 18px;
-}
-.tinytable thead:hover, .tinytable .desc:hover, .tinytable .asc:hover {
-    color: #fff;
-}
-#table img {
-    max-height: 60px;
-}
+.tinytable th {background:url(images/header-bg.gif); text-align:left;color:#fff}
+.tinytable th h3 {font-size:16px;margin:0;font-weight: bold}
+.tinytable td {padding:4px 6px 6px; border-bottom:1px solid #c6d5e1; border-right:1px solid #c6d5e1}
+.tinytable .head h3 {background:url(images/sort.gif) 7px center no-repeat; cursor:pointer; padding-left:18px}
+.tinytable .desc, .tinytable .asc {background:url(images/header-selected-bg.gif)}
+.tinytable .desc h3 {background:url(images/desc.gif) 7px center no-repeat; cursor:pointer; padding-left:18px}
+.tinytable .asc h3 {background:url(images/asc.gif) 7px  center no-repeat; cursor:pointer; padding-left:18px}

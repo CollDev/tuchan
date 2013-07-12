@@ -209,7 +209,7 @@ class cmsapi_lib extends MX_Controller {
             } else {
                 $_SESSION['upload_result']['type'] = 'info';
                 $_SESSION['upload_result']['title'] = 'Video muy extenso';
-                $_SESSION['upload_result']['message'] = 'El tamaño del video supera el tamaño permitido de 2GB.';
+                $_SESSION['upload_result']['message'] = 'El tamaño del video supera el permitido de 2GB.';
             }
         } else {
             $_SESSION['upload_result']['type'] = 'info';
