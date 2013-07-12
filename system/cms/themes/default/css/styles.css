@@ -4,3 +4,6 @@
 div.wrap {
     padding: 2%;
 }
+#tablefooter .pagination, #tablefooter .pager {
+    margin: 4px 0;
+}

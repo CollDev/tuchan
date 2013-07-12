@@ -112,5 +112,4 @@ $(document).on('ready', function(){
     $('ul#myTab li a').on('click', function(){
         $(this).blur();
     });
-    $("a[rel=tooltip]").tooltip('toggle');
 });

@@ -1,40 +1,38 @@
 <div id="tablewrapper">
     <div id="tableheader">
         <div class="search row">
-            <select class="col-sm-2" id="columns" onchange="sorter.search('query')"></select>
-            <input class="col-sm-2" type="text" id="query" onkeyup="sorter.search('query')" />
+            <select class="col-lg-2" id="columns" onchange="sorter.search('query')"></select>
+            <input class="col-lg-2" type="text" id="query" onkeyup="sorter.search('query')" />
         </div>
     </div>
     <div class="row" id="tablefooter">
-        <span class="details">
-            <div class="col-sm-2">Videos del <span id="startrecord"></span>-<span id="endrecord"></span> al <span id="totalrecords"></span></div>
-        </span>
+        <ul class="col-lg-2 pager">
+            <li><a href="#"><div style="white-space:nowrap;">Videos del <span id="startrecord"></span> al <span id="endrecord"></span> de <span id="totalrecords"></span></div></a></li>
+        </ul>
+        <ul class="col-lg-2 pagination pagination">
+            <li><a class="first-page" href="#" onclick="sorter.move(-1,true);"><<</a></li>
+            <li><a class="prev-page" href="#" onclick="sorter.move(-1);"><</a></li>
+            <li><a class="next-page" href="#" onclick="sorter.move(1);">></a></li>
+            <li><a class="last-page" href="#" onclick="sorter.move(1,true);">>></a></li>
+        </ul>
+        <div class="input-group col-lg-3">
+            <select id="results-per-page" onchange="sorter.size(this.value)">
+                <option value="5" selected="selected">5</option>
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+            </select>
+            <span class="input-group-addon">Resultados por página</span>
+        </div>
         <div id="tablenav">
-            <div class="col-sm-2">
-                <img src="/system/cms/themes/default/js/tinytable/images/first.gif" width="16" height="16" alt="First Page" onclick="sorter.move(-1,true)" />
-                <img src="/system/cms/themes/default/js/tinytable/images/previous.gif" width="16" height="16" alt="First Page" onclick="sorter.move(-1)" />
-                <img src="/system/cms/themes/default/js/tinytable/images/next.gif" width="16" height="16" alt="First Page" onclick="sorter.move(1)" />
-                <img src="/system/cms/themes/default/js/tinytable/images/last.gif" width="16" height="16" alt="Last Page" onclick="sorter.move(1,true)" />
-            </div>
-            <a class="btn btn-default col-sm-1" class="pull-right" href="javascript:sorter.showall()">ver todos</a>
-            <div class="input-group col-sm-3">
+            <div class="input-group col-lg-3">
                 <span class="input-group-addon">Pagina</span>
                 <select id="pagedropdown"></select>
                 <div class="page input-group-addon"><span style="display:none" id="currentpage"></span> de <span id="totalpages"></span></div>
             </div>
         </div>
-        <div id="tablelocation">
-            <div class="input-group col-sm-3">
-                <select onchange="sorter.size(this.value)">
-                    <option value="5" selected="selected">5</option>
-                    <option value="10">10</option>
-                    <option value="20">20</option>
-                    <option value="50">50</option>
-                    <option value="100">100</option>
-                </select>
-                <span class="input-group-addon">Resultados por página</span>
-            </div>
-        </div>
+        <a class="btn btn-default col-lg-1" class="pull-right" href="javascript:sorter.showall()">ver todos</a>
     </div>
     <table class="row table table-striped table-bordered table-condensed table-hover" id="table" class="tinytable">
         <thead>
@@ -87,9 +85,6 @@
         navid:'tablenav',
         sortcolumn:1,
         sortdir:1,
-        sum:[8],
-        avg:[6,7,8,9],
-        columns:[{index:7, format:'%', decimals:1},{index:8, format:'$', decimals:0}],
         init:true
     });
 </script>
