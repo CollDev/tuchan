@@ -1,193 +1,197 @@
 <?php
+
 set_time_limit(TIME_LIMIT);
 
 class curlProceso extends MX_Controller {
-    
+
     function __construct() {
         $this->load->library("procesos_lib");
         $this->load->library("Procesos/log");
     }
-    
-    function index(){       
-    }
-   
-    public function corteVideoXId($id_padre, $id_hijo, $inicio, $duracion) {
-        Log::erroLog("ini en curl - corteVideoXId".$id_padre);
-        $this->procesos_lib->corteVideoXId($id_padre, $id_hijo, $inicio, $duracion);
-        Log::erroLog("fin en curl - corteVideoXId".$id_padre);
-    }
-    
-    public function procesoVideosXId($id){
-        Log::erroLog("ini en curl - procesoVideosXId".$id);
-        $this->procesos_lib->procesoVideosXId($id);
-        Log::erroLog("fin en curl - procesoVideosXId".$id);
-    }
-    
-    public function uploadVideosXId($id){        
-         Log::erroLog("ini en curl - uploadVideosXId".$id);
-        $this->procesos_lib->uploadVideosXId($id);
-         Log::erroLog("fin en curl - uploadVideosXId".$id);
-    }
-    
-    public function updateMediaVideosXId($id,$media){
-         Log::erroLog("ini en curl - updateMediaVideosXId".$id);
-         $this->procesos_lib->updateMediaVideosXId($id,$media);
-         Log::erroLog("fin en curl - updateMediaVideosXId".$id);
-    }   
-    
-    public function updateEstadoVideosXId($id,$ev,$el){
-        $this->procesos_lib->updateEstadoVideosXId($id,$ev,$el);
-    }
-    
-    public function updateErrorVideosXId($id){
+
+    function index() {
         
     }
-    
-    public function setReproduccionesVideosXId($id,$cant){
-        Log::erroLog("setReproduccionesVideosXId ".$id. ", cant: ".$cant);
-        $this->procesos_lib->setReproduccionesVideosXId($id,$cant);
+
+    public function corteVideoXId($id_padre, $id_hijo, $inicio, $duracion) {
+        Log::erroLog("ini en curl - corteVideoXId" . $id_padre);
+        $this->procesos_lib->corteVideoXId($id_padre, $id_hijo, $inicio, $duracion);
+        Log::erroLog("fin en curl - corteVideoXId" . $id_padre);
     }
-    
-    public function verificaVideosLiquidXId($id){
+
+    public function procesoVideosXId($id) {
+        Log::erroLog("ini en curl - procesoVideosXId" . $id);
+        $this->procesos_lib->procesoVideosXId($id);
+        Log::erroLog("fin en curl - procesoVideosXId" . $id);
+    }
+
+    public function uploadVideosXId($id) {
+        Log::erroLog("ini en curl - uploadVideosXId" . $id);
+        $this->procesos_lib->uploadVideosXId($id);
+        Log::erroLog("fin en curl - uploadVideosXId" . $id);
+    }
+
+    public function updateMediaVideosXId($id, $media) {
+        Log::erroLog("ini en curl - updateMediaVideosXId" . $id);
+        $this->procesos_lib->updateMediaVideosXId($id, $media);
+        Log::erroLog("fin en curl - updateMediaVideosXId" . $id);
+    }
+
+    public function updateEstadoVideosXId($id, $ev, $el) {
+        $this->procesos_lib->updateEstadoVideosXId($id, $ev, $el);
+    }
+
+    public function updateErrorVideosXId($id) {
+        
+    }
+
+    public function setReproduccionesVideosXId($id, $cant) {
+        Log::erroLog("setReproduccionesVideosXId " . $id . ", cant: " . $cant);
+        $this->procesos_lib->setReproduccionesVideosXId($id, $cant);
+    }
+
+    public function verificaVideosLiquidXId($id) {
         $this->procesos_lib->verificaVideosLiquidXId($id);
     }
-    
-    public function  generarMiCanal(){
+
+    public function generarMiCanal() {
         $this->procesos_lib->generarMiCanal();
     }
-    
-    public function generarCanal(){
+
+    public function generarCanal() {
         $this->procesos_lib->generarCanal();
     }
-    
-    public function estadosVideos(){
+
+    public function estadosVideos() {
         $this->procesos_lib->estadosVideos();
     }
-     
-    public function datosVideos($id){
+
+    public function datosVideos($id) {
         $this->procesos_lib->datosVideos($id);
     }
-    
-    public function datosProFun(){
+
+    public function datosProFun() {
         $this->procesos_lib->showProFun();
     }
-    
-    public function datosLog($date){
+
+    public function datosLog($date) {
         $this->procesos_lib->showLog($date);
     }
-    
-    public function  generarDetalleVideosXId($id, $mongo_id){
+
+    public function generarDetalleVideosXId($id, $mongo_id) {
         $this->procesos_lib->generarDetalleVideosXId($id, $mongo_id);
-    }           
-    
-    public function actualizarSecciones6789(){
+    }
+
+    public function actualizarSecciones6789() {
         $this->procesos_lib->actualizarSecciones6789();
-    }    
-    
-    public function actualizarPortadasMiCanal(){
+    }
+
+    public function actualizarPortadasMiCanal() {
         $this->procesos_lib->actualizarPortadasMiCanal();
     }
-    
-    public function actualizarPortadasMiCanalXId($id){
+
+    public function actualizarPortadasMiCanalXId($id) {
         $this->procesos_lib->actualizarPortadasMiCanalXId($id);
     }
-    
-    public function actualizarPesoSeccion($id,$peso){
-        $this->procesos_lib->actualizarPesoSeccion($id,$peso);
+
+    public function actualizarPesoSeccion($id, $peso) {
+        $this->procesos_lib->actualizarPesoSeccion($id, $peso);
     }
-    
-    public function actualizarVideos(){
+
+    public function actualizarVideos() {
         $this->procesos_lib->actualizarVideos();
     }
-    
-    public function actualizarVideosXId($id){
+
+    public function actualizarVideosXId($id) {
         $this->procesos_lib->actualizarVideosXId($id);
     }
-            
-    public  function generarCanalesXId($id){
+
+    public function generarCanalesXId($id) {
         $this->procesos_lib->generarCanalesXId($id);
     }
-    
-    public function actualizarGrupoMaestros(){
+
+    public function actualizarGrupoMaestros() {
         $this->procesos_lib->actualizarGrupoMaestros();
     }
-    
-    public function generarGrupoMaestrosXId($tgm,$id){        
-        $this->procesos_lib->generarGrupoMaestrosXId($tgm,$id);
+
+    public function generarGrupoMaestrosXId($tgm, $id) {
+        $this->procesos_lib->generarGrupoMaestrosXId($tgm, $id);
     }
-    
-    public function generarProgramasXId($id){
+
+    public function generarProgramasXId($id) {
         $this->procesos_lib->generarProgramasXId($id);
     }
-     
-    public function activarVideosXId($id){
+
+    public function activarVideosXId($id) {
         $this->procesos_lib->activarVideosXId($id);
     }
-    
-    public function desactivarVideosXId($id){
+
+    public function desactivarVideosXId($id) {
         $this->procesos_lib->desactivarVideosXId($id);
     }
-    
-    public function publishedVideosXId($id){
+
+    public function publishedVideosXId($id) {
         $this->procesos_lib->publishedVideosXId($id);
     }
-    
-    public function unpublishedVideosXId($id){
+
+    public function unpublishedVideosXId($id) {
         $this->procesos_lib->unpublishedVideosXId($id);
     }
-    
-    public function generarPortadasMiCanalXId($id){
+
+    public function generarPortadasMiCanalXId($id) {
         $this->procesos_lib->generarPortadasMiCanalXId($id);
     }
-    
-    public function generarSeccionesMiCanalXSeccionId($id){
+
+    public function generarSeccionesMiCanalXSeccionId($id) {
         $this->procesos_lib->generarSeccionesMiCanalXSeccionId($id);
     }
-    
-    public function publicarPendientes(){
+
+    public function publicarPendientes() {
         $this->procesos_lib->publicarPendientes();
     }
-    
-        public function obtenerVideoYoutube($id,$vi){
-        $this->procesos_lib->obtenerVideoYoutube($id,$vi);
+
+    public function obtenerVideoYoutube($id, $vi) {
+        $this->procesos_lib->obtenerVideoYoutube($id, $vi);
     }
-    
-    public function videoYoutube($id){  
+
+    public function videoYoutube($id) {
         $this->procesos_lib->videoYoutube($id);
     }
-    
-    public function limpiarMongo(){
+
+    public function limpiarMongo() {
         $this->procesos_lib->limpiarMongo();
     }
-    
-    public function getDB(){
+
+    public function getDB() {
         echo "<pre>";
         print_r($this->db);
         echo "</pre>";
-        
+
         echo "********************************************************************";
-        
+
         echo "<pre>";
         print_r($this->config);
-        echo "</pre>";        
+        echo "</pre>";
     }
-    
-    public function getphpinfo(){
+
+    public function getphpinfo() {
         phpinfo();
-        
     }
-    
-    public function publicarPorIbope()
-    {
+
+    public function publicarPorIbope() {
         $this->procesos_lib->publicarPorIbope();
     }
-    
-    public function generarVideosXId($id)
-    {
+
+    public function generarVideosXId($id) {
         $this->procesos_lib->generarVideosXId($id);
     }
-    
-    public function limpiarUploadVideo(){
+
+    public function limpiarUploadVideo() {
         $this->procesos_lib->limpiarUploadVideo();
     }
+    
+    public function actualizarVersion($tipo,$version){
+        $this->procesos_lib->actualizarVersion($tipo,$version);
+    }
+
 }

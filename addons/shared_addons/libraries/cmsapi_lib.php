@@ -18,6 +18,7 @@ class cmsapi_lib extends MX_Controller {
         $this->load->model("videos/videos_m");
         $this->load->model("videos/tags_m");
         $this->load->model("videos/video_tags_m");
+        $this->load->model("sphinx/sphinx_m");
     }
 
     public function getProgramasList($canal_id)
@@ -410,9 +411,10 @@ class cmsapi_lib extends MX_Controller {
         return $returnValue;
     }
     
-    public function search($search)
+    public function search($search,$dateini,$datefin)
     {
         header("Content-Type: application/json; charset=utf-8");
-        echo shell_exec("curl " . "http://micanal.pe/sphinx/videos/1/" . $search);
+        //echo shell_exec("curl " . "http://micanal.pe/sphinx/videos/1/" . $search);        
+        echo $this->sphinx_m->busquedaVideos($search,$dateini,$datefin);        
     }
 }

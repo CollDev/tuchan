@@ -94,8 +94,8 @@ $(document).on('ready', function(){
     $('#search_form').on('submit', function(e){
         e.preventDefault();
         if ($('#termino').val() !== '') {
-            $("div#search_results").html('<div class="text-center"><img src="/system/cms/themes/default/img/loading.gif" /></div>');
-            $.getJSON("/cmsapi/search/" + $('#termino').val())
+            $("div#search_results").html('<div class="text-center"><img src="/system/cms/themes/default/img/loading.gif" /></div>');                        
+            $.getJSON("/cmsapi/search/" + $('#termino').val()+ "/"+$("#fecha_inicio").val()+"/"+$("#fecha_fin").val())
                 .done(function(data){
                     $.get("/system/cms/themes/default/js/mustache_templates/cmsapi/search_results.html", function(template){
                         $("div#search_results").html('');

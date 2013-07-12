@@ -10,6 +10,7 @@ class Procesos_lib extends MX_Controller {
         //$this->load->model('models/proceso_m');
         $this->load->model('micanal_mp');
         $this->load->model('canal_mp');
+        $this->load->model('version_mp');
         $this->load->model('canales_mp');
         $this->load->model('videos_mp');
         $this->load->model('imagenes_mp');
@@ -2198,5 +2199,9 @@ class Procesos_lib extends MX_Controller {
         $query = "ALTER TABLE default_cms_canales ADD COLUMN ibope INT DEFAULT 1;";
         $this->db->query($query);
         echo "ok";  
+    }
+    
+    public function actualizarVersion($tipo,$version){
+        $this->version_mp->set_version($tipo,$version);        
     }
 }
