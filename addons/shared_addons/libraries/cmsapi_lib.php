@@ -198,15 +198,23 @@ class cmsapi_lib extends MX_Controller {
                     //cambiar nombre del video por el ID del registro del video 
                     $this->renameVideo($objBeanVideoSaved, $archivo_video['basename']);
                     
-                    array('message' => $objBeanVideoSaved->id);
+                    $_SESSION['upload_result']['type'] = 'success';
+                    $_SESSION['upload_result']['title'] = 'Video subido con éxito';
+                    $_SESSION['upload_result']['message'] = '<a href="http://micanal.pe/embed/' . $objBeanVideoSaved->id . '">El archivo subido estará ubicado aquí</a><br>http://micanal.pe/embed/' . $objBeanVideoSaved->id . '';
                 } else {
-                    array('message' => 'Error al subir archivo.');
+                    $_SESSION['upload_result']['type'] = 'danger';
+                    $_SESSION['upload_result']['title'] = 'Error al subir video.';
+                    $_SESSION['upload_result']['message'] = 'Por favor vuelva a intentarlo en unos minutos';
                 }
             } else {
-                array('message' => 'Archivo supera el tamaño permitido de 2GB.');
+                $_SESSION['upload_result']['type'] = 'info';
+                $_SESSION['upload_result']['title'] = 'Video muy extenso';
+                $_SESSION['upload_result']['message'] = 'El tamaño del video supera el tamaño permitido de 2GB.';
             }
         } else {
-            array('message' => 'Formato de archivo no permitido: mp4,mpg,flv,avi,wmv');
+            $_SESSION['upload_result']['type'] = 'info';
+            $_SESSION['upload_result']['title'] = 'Formato no permitido';
+            $_SESSION['upload_result']['message'] = 'Por favor suba un video: mp4,mpg,flv,avi,wmv';
         }
     }
     

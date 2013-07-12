@@ -1,27 +1,19 @@
-<?php ob_start(); ?>
-<?php if (false) { ?>
-
-                <div class="alert alert-danger fade in">
+<?php
+if(!session_id()) {
+    session_start();
+}
+ob_start();
+if (!empty($_SESSION['upload_result'])) {//Message exists, display it) {
+?>
+                <div class="alert alert-<?php echo $_SESSION['upload_result']['type'] ?> fade in">
                     <button class="close" data-dismiss="alert" type="button">×</button>
-                    <strong>Oh snap!</strong>
-                    Change a few things up and try submitting again.
+                    <strong><?php echo $_SESSION['upload_result']['title'] ?></strong>
+                    <?php echo $_SESSION['upload_result']['message'] ?>
                 </div>
-                <div class="alert alert-success fade in">
-                    <button class="close" data-dismiss="alert" type="button">×</button>
-                    <strong>Well done!</strong>
-                    You successfully read this important alert message.
-                </div>
-                <div class="alert alert-info fade in">
-                    <button class="close" data-dismiss="alert" type="button">×</button>
-                    <strong>Heads up!</strong>
-                    This alert needs your attention, but it's not super important.
-                </div>
-                <div class="alert fade in">
-                    <button class="close" data-dismiss="alert" type="button">×</button>
-                    <strong>Warning!</strong>
-                    Best check yo self, you're not looking too good.
-                </div>
-<?php } ?>
+<?php
+    unset($_SESSION['upload_result']);
+}
+?>
 
                 <ul class="nav nav-tabs" id="myTab">
                     <li class="active"><a href="#upload_form_tab" data-toggle="tab">Subida de video</a></li>
