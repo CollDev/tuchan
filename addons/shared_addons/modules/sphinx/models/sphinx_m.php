@@ -120,6 +120,7 @@ class Sphinx_m extends CI_Model {
                     $arraytemp["tags"] = $res[$i]["attrs"]["tags"];
                     $arraytemp["estado"] = $res[$i]["attrs"]["estado"];
                     $arraytemp["alias"]=$res[$i]["attrs"]["alias"];
+                    $arraytemp["nombre_pr"]=$res[$i]["attrs"]["nombre_pr"];
                     $arraytemp["alias_pr"]=$res[$i]["attrs"]["alias_pr"];
                     $arraytemp["alias_co"]=$res[$i]["attrs"]["alias_co"];
                     $arraytemp["alias_lr"]=$res[$i]["attrs"]["alias_lr"];
