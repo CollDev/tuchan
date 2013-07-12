@@ -98,8 +98,13 @@ $(document).on('ready', function(){
             $.getJSON("/cmsapi/search/" + $('#termino').val())
                 .done(function(data){
                     $.get("/system/cms/themes/default/js/mustache_templates/cmsapi/search_results.html", function(template){
-                        var results = $.mustache(template, data);
-                        $("div#search_results").html('').append(results);
+                        $("div#search_results").html('');
+                        if (data.videos == '') {
+                            var app = '<div class="text-center"><h3>No hay resultados para la búsqueda:</h3><h4>' + $('#termino').val() + '</h4></div>';
+                        } else {
+                            var app = $.mustache(template, data);
+                        }
+                        $("div#search_results").append(app);
                     });
                 });
         }

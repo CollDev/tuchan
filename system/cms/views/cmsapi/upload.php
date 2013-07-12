@@ -172,12 +172,12 @@
                                 <div class="col-sm-7">
                                     <label class="col-sm-2 control-label" for="fecha_inicio">Fecha inicio</label>
                                     <div class="col-sm-4">
-                                        <input id="fecha_inicio" type="text" name="fecha_inicio" />
+                                        <input id="fecha_inicio" type="date" name="fecha_inicio" />
                                         <p class="help-block">Sólo en esta fecha.</p> 
                                     </div>
                                     <label class="col-sm-2 control-label" for="fecha_fin">Fecha fin</label>
                                     <div class="col-sm-4">
-                                        <input id="fecha_fin" type="text" name="fecha_fin" />
+                                        <input id="fecha_fin" type="date" name="fecha_fin" />
                                         <p class="help-block">Dentro del rango</p>
                                     </div>
                                 </div>

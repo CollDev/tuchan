@@ -1,37 +1,95 @@
-<table class="table table-striped table-bordered table-condensed table-hover">
-    <thead>
-        <tr>
-            <th>Imagen</th>
-            <th>Título</th>
-            <th>Categoría</th>
-            <th>Programa</th>
-            <th>Fecha subida</th>
-            <th>Fecha transmisión</th>
-        </tr>
-    </thead>
-    <tbody>
-        {{ #videos }}
-        <tr>
-            <td>
-                <a href="http://micanal.pe/{{ url }}" data-toggle="tooltip" rel="tooltip" title="{{ tags }}" data-placement="top"><img src="{{ imagen }}" /></a>
-            </td>
-            <td>
-                <a href="http://micanal.pe/{{ url }}" data-toggle="tooltip" rel="tooltip" title="{{ tags }}" data-placement="top">{{ nombre_vi }}</a>
-            </td>
-            <td>{{ categorias_no }}</td>
-            <td>{{ programa }}</td>
-            <td>{{ fecha_u }}</td>
-            <td>{{ fecha }}</td>
-        </tr>
-        {{ /videos }}
-    </tbody>
-    <tfoot>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-    </tfoot>
-</table>
-<div class=""></div>
+<div id="tablewrapper">
+    <div id="tableheader">
+        <div class="search row">
+            <select class="col-sm-2" id="columns" onchange="sorter.search('query')"></select>
+            <input class="col-sm-2" type="text" id="query" onkeyup="sorter.search('query')" />
+        </div>
+    </div>
+    <div class="row" id="tablefooter">
+        <span class="details">
+            <div class="col-sm-2">Videos del <span id="startrecord"></span>-<span id="endrecord"></span> al <span id="totalrecords"></span></div>
+        </span>
+        <div id="tablenav">
+            <div class="col-sm-2">
+                <img src="/system/cms/themes/default/js/tinytable/images/first.gif" width="16" height="16" alt="First Page" onclick="sorter.move(-1,true)" />
+                <img src="/system/cms/themes/default/js/tinytable/images/previous.gif" width="16" height="16" alt="First Page" onclick="sorter.move(-1)" />
+                <img src="/system/cms/themes/default/js/tinytable/images/next.gif" width="16" height="16" alt="First Page" onclick="sorter.move(1)" />
+                <img src="/system/cms/themes/default/js/tinytable/images/last.gif" width="16" height="16" alt="Last Page" onclick="sorter.move(1,true)" />
+            </div>
+            <a class="btn btn-default col-sm-1" class="pull-right" href="javascript:sorter.showall()">ver todos</a>
+            <div class="input-group col-sm-3">
+                <span class="input-group-addon">Pagina</span>
+                <select id="pagedropdown"></select>
+                <div class="page input-group-addon"><span style="display:none" id="currentpage"></span> de <span id="totalpages"></span></div>
+            </div>
+        </div>
+        <div id="tablelocation">
+            <div class="input-group col-sm-3">
+                <select onchange="sorter.size(this.value)">
+                    <option value="5" selected="selected">5</option>
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                </select>
+                <span class="input-group-addon">Resultados por página</span>
+            </div>
+        </div>
+    </div>
+    <table class="row table table-striped table-bordered table-condensed table-hover" id="table" class="tinytable">
+        <thead>
+            <tr>
+                <th class="nosort"><h3>Imagen</h3></th>
+                <th><h3>Título</h3></th>
+                <th><h3>Categoría</h3></th>
+                <th><h3>Programa</h3></th>
+                <th><h3>Fecha subida</h3></th>
+                <th><h3>Fecha transmisión</h3></th>
+            </tr>
+        </thead>
+        <tbody>
+            {{ #videos }}
+            <tr>
+                <td>
+                    <a href="http://micanal.pe/{{ url }}" data-toggle="tooltip" rel="tooltip" title="{{ tags }}" data-placement="top"><img src="{{ imagen }}" /></a>
+                </td>
+                <td>
+                    <a href="http://micanal.pe/{{ url }}" data-toggle="tooltip" rel="tooltip" title="{{ tags }}" data-placement="top">{{ nombre_vi }}</a>
+                </td>
+                <td>{{ categorias_no }}</td>
+                <td>{{ programa }}</td>
+                <td>{{ fecha_u }}</td>
+                <td>{{ fecha }}</td>
+            </tr>
+            {{ /videos }}
+        </tbody>
+    </table>
+</div>
+<script type="text/javascript">
+    var sorter = new TINY.table.sorter('sorter','table',{
+        headclass:'head',
+        ascclass:'asc',
+        descclass:'desc',
+        evenclass:'evenrow',
+        oddclass:'oddrow',
+        evenselclass:'evenselected',
+        oddselclass:'oddselected',
+        paginate:true,
+        size:5,
+        colddid:'columns',
+        currentid:'currentpage',
+        totalid:'totalpages',
+        startingrecid:'startrecord',
+        endingrecid:'endrecord',
+        totalrecid:'totalrecords',
+        hoverid:'selectedrow',
+        pageddid:'pagedropdown',
+        navid:'tablenav',
+        sortcolumn:1,
+        sortdir:1,
+        sum:[8],
+        avg:[6,7,8,9],
+        columns:[{index:7, format:'%', decimals:1},{index:8, format:'$', decimals:0}],
+        init:true
+    });
+</script>
