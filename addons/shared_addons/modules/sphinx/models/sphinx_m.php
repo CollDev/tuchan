@@ -31,14 +31,9 @@ class Sphinx_m extends CI_Model {
             $fechafin =  strtotime($año2.'-'.$mes2.'-'.$dia2.' 00:00:00');  
         }
         
-        
-        error_log($palabrabusqueda);
-        error_log($fechaini);
-        error_log($fechafin);
-        
         $palabrabusqueda = urldecode(str_replace("-", " ", $palabrabusqueda));
         
-        $parametros = array();
+//        $parametros = array();
         
 //        if ($parametro == ESTADO_ACTIVO) {
 //            $parametros['estado'] = ESTADO_ACTIVO;
@@ -64,14 +59,10 @@ class Sphinx_m extends CI_Model {
 //            $cl->SetFilter('estado', array(2));
 //        }
         
-        if(!empty($fechaini) && !empty($fechafin)){
-            error_log("SetFilterRange ");
+        if(!empty($fechaini) && !empty($fechafin)){            
              $cl->SetFilterRange('fecha', $fechaini, $fechafin);
-        }elseif(!empty($fechaini) && empty($fechafin)) {
-            error_log("SetFilter " . $fechaini);
+        }elseif(!empty($fechaini) && empty($fechafin)) {        
             $cl->SetFilter('fecha', array($fechaini));
-        }else{
-            error_log("nada");          
         }
         
         $cl->AddQuery($palabrabusqueda, $index);
@@ -133,7 +124,7 @@ class Sphinx_m extends CI_Model {
                     }
 
 
-                    $arraytemp["url"] = $urltemp;
+                    $arraytemp["url"] = $this->config->item('motor')."/".$urltemp;
 
 
                     if ($res[$i]["attrs"]["procedencia"] == 0) {
