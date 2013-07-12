@@ -111,8 +111,7 @@ class Sphinx_m extends CI_Model {
 //                        $arraytemp["categorias_al"] = "entretenimiento";
 //                    } else {
 //                        $arraytemp["categorias_al"] = $res[$i]["attrs"]["categorias_al"];
-//                    }
-                    error_log($res[$i]["attrs"]["fechaint"]);
+//                    }                    
                     $arraytemp["fecha"] = $res[$i]["attrs"]["fecha_format"];
                     $arraytemp["fecha_u"] = $res[$i]["attrs"]["fecha"];
                     $arraytemp["comentarios"] = $res[$i]["attrs"]["comentarios"];
