@@ -3,6 +3,7 @@
         <div class="search row">
             <select class="col-lg-2" id="columns" onchange="sorter.search('query')"></select>
             <input class="col-lg-2" type="text" id="query" onkeyup="sorter.search('query')" />
+            <a class="col-lg-1" href="javascript:sorter.reset()">Reset</a>
         </div>
     </div>
     <div class="row" id="tablefooter">
@@ -41,7 +42,6 @@
                 <th><h3>Título</h3></th>
                 <th><h3>Categoría</h3></th>
                 <th><h3>Programa</h3></th>
-                <th><h3>Fecha subida</h3></th>
                 <th><h3>Fecha transmisión</h3></th>
             </tr>
         </thead>
@@ -55,8 +55,7 @@
                     <a href="http://micanal.pe/{{ url }}" data-toggle="tooltip" rel="tooltip" title="{{ tags }}" data-placement="top">{{ nombre_vi }}</a>
                 </td>
                 <td>{{ categorias_no }}</td>
-                <td>{{ programa }}</td>
-                <td>{{ fecha_u }}</td>
+                <td>{{ nombre_pr }}</td>
                 <td>{{ fecha }}</td>
             </tr>
             {{ /videos }}
