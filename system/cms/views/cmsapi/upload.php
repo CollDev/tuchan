@@ -156,7 +156,7 @@ if (!empty($_SESSION['upload_result'])) {//Message exists, display it) {
                         <div class="row">
                             <form class="form-horizontal" action="" id="search_form">
                                 <div class="col-sm-5">
-                                    <label class="col-sm-4 control-label" for="termino">Términos</label>
+                                    <label class="col-sm-4 control-label" for="termino">Términos    </label>
                                     <div class="col-sm-8">
                                         <input id="termino" type="text" name="termino" placeholder="Ingrese un término" />
                                     </div>
