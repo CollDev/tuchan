@@ -6,33 +6,33 @@
         </div>
     </div>
     <div class="row" id="tablefooter">
-        <ul class="col-lg-2 pager">
-            <li><a href="#"><div style="white-space:nowrap;">Videos del <span id="startrecord"></span> al <span id="endrecord"></span> de <span id="totalrecords"></span></div></a></li>
-        </ul>
-        <ul class="col-lg-2 pagination pagination">
-            <li><a class="first-page" href="#" onclick="sorter.move(-1,true);"><<</a></li>
-            <li><a class="prev-page" href="#" onclick="sorter.move(-1);"><</a></li>
-            <li><a class="next-page" href="#" onclick="sorter.move(1);">></a></li>
-            <li><a class="last-page" href="#" onclick="sorter.move(1,true);">>></a></li>
-        </ul>
         <div class="input-group col-lg-3">
-            <select id="results-per-page" onchange="sorter.size(this.value)">
-                <option value="5" selected="selected">5</option>
-                <option value="10">10</option>
-                <option value="20">20</option>
-                <option value="50">50</option>
-                <option value="100">100</option>
-            </select>
-            <span class="input-group-addon">Resultados por página</span>
-        </div>
+                <select id="results-per-page" onchange="sorter.size(this.value)">
+                    <option value="5" selected="selected">5</option>
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                </select>
+                <span class="input-group-addon">Resultados por página</span>
+            </div>
         <div id="tablenav">
+            <ul class="col-lg-2 pager">
+                <li><a href="#"><div style="white-space:nowrap;">Videos del <span id="startrecord"></span> al <span id="endrecord"></span> de <span id="totalrecords"></span></div></a></li>
+            </ul>
+            <ul class="col-lg-2 pagination pagination">
+                <li><a class="first-page" href="#" onclick="sorter.move(-1,true);"><<</a></li>
+                <li><a class="prev-page" href="#" onclick="sorter.move(-1);"><</a></li>
+                <li><a class="next-page" href="#" onclick="sorter.move(1);">></a></li>
+                <li><a class="last-page" href="#" onclick="sorter.move(1,true);">>></a></li>
+            </ul>
             <div class="input-group col-lg-3">
                 <span class="input-group-addon">Pagina</span>
                 <select id="pagedropdown"></select>
                 <div class="page input-group-addon"><span style="display:none" id="currentpage"></span> de <span id="totalpages"></span></div>
             </div>
         </div>
-        <a class="btn btn-default col-lg-1" class="pull-right" href="javascript:sorter.showall()">ver todos</a>
+        <a class="btn btn-default col-lg-1 pull-right" href="javascript:sorter.showall()">ver todos</a>
     </div>
     <table class="row table table-striped table-bordered table-condensed table-hover tinytable" id="table">
         <thead>
