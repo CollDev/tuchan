@@ -368,6 +368,8 @@ class Admin extends Admin_Controller {
                         $objBeanVideo->estado_migracion_sphinx_des = 0;
                         $objBeanVideo->padre = 0;
                         $objBeanVideo->estado_migracion_sphinx = $this->config->item('sphinx:nuevo');
+                        $objBeanVideo->procedencia = $this->config->item('procedencia:micanal');
+                        
                         $objBeanVideoSaved = $this->videos_m->save_video($objBeanVideo);
                         //giardamos los tags de tematica y personajes
                         $this->_saveTagsTematicaPersonajes($objBeanVideoSaved, $this->input->post());
@@ -419,7 +421,6 @@ class Admin extends Admin_Controller {
                 $objBeanForm->programa = $programa;
                 $objBeanForm->coleccion = $coleccion;
                 $objBeanForm->lista = $lista;
-                //$objBeanForm->fuente = $objVideo->fuente;
                 $objBeanForm->fec_pub_ini = date("d-m-Y H:i:s", strtotime($objVideo->fecha_publicacion_inicio)); //$objVideo->fecha_publicacion_inicio;
                 $objBeanForm->fec_pub_fin = date("d-m-Y H:i:s", strtotime($objVideo->fecha_publicacion_fin)); //$objVideo->fecha_publicacion_fin;
                 $objBeanForm->fec_trans = date("d-m-Y", strtotime($objVideo->fecha_transmision)); //$objVideo->fecha_transmision;
@@ -434,6 +435,7 @@ class Admin extends Admin_Controller {
                 $objBeanForm->message = $message;
                 $objBeanForm->ruta = $objVideo->ruta; /* adicionado */
                 $objBeanForm->tiene_imagen = $this->_tieneAvatar($video_id);
+                $objBeanForm->procedencia = $this->config->item('procedencia:micanal');
                 if ($objBeanForm->tiene_imagen) {
                     $objBeanForm->avatar = $this->_getListImagen($video_id);
                 } else {
@@ -453,7 +455,6 @@ class Admin extends Admin_Controller {
                     $objBeanForm->programa = $this->input->post('programa');
                     $objBeanForm->coleccion = $this->input->post('coleccion');
                     $objBeanForm->lista = $this->input->post('lista');
-                    //$objBeanForm->fuente = $this->input->post('fuente');
                     $objBeanForm->fec_pub_ini = $this->input->post('fec_pub_ini');
                     $objBeanForm->fec_pub_fin = $this->input->post('fec_pub_fin');
                     $objBeanForm->fec_trans = $this->input->post('fec_trans');
@@ -468,6 +469,7 @@ class Admin extends Admin_Controller {
                     $objBeanForm->message = $message;
                     $objBeanForm->keywords = '';
                     $objBeanForm->padre = $this->input->post('padre');
+                    $objBeanForm->procedencia = $this->config->item('procedencia:micanal');
                 } else {
                     $objBeanForm->video_id = $video_id;
                     $objBeanForm->titulo = '';
@@ -496,6 +498,7 @@ class Admin extends Admin_Controller {
                     $objBeanForm->message = $message;
                     $objBeanForm->keywords = '';
                     $objBeanForm->padre = 0;
+                    $objBeanForm->procedencia = $this->config->item('procedencia:micanal');
                 }
             }
 
@@ -624,9 +627,9 @@ class Admin extends Admin_Controller {
             $objBeanVideo->estado_migracion_sphinx_tit = 0; //
             $objBeanVideo->estado_migracion_sphinx_des = 0;
             $objBeanVideo->padre = 0;
-            $objBeanVideo->procedencia = 2;
             $objBeanVideo->estado_migracion_sphinx = $this->config->item('sphinx:nuevo');
-            
+            $objBeanVideo->procedencia = $this->config->item('procedencia:youtube');
+
             $objBeanVideoSaved = $this->videos_m->save_video($objBeanVideo);
             //guardando los tags de tematica y personajes
             $this->_saveTagsTematicaPersonajes($objBeanVideoSaved, $this->input->post());

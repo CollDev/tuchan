@@ -72,9 +72,13 @@ $config['imagen:heightPortada'] = '520';
 $config['imagen:maxSize'] = '5242880';
 $config['imagen:formatos'] = 'jpg|png|jpeg';
 
-//procedencia
+//procedencia imagenes
 $config['procedencia:liquid'] = '1';
 $config['procedencia:elemento'] = '0';
+$config['procedencia:migracion'] = '1';
+
+//procedencia videos
+$config['procedencia:micanal'] = '0';
 $config['procedencia:migracion'] = '1';
 $config['procedencia:youtube'] = '2';
 
