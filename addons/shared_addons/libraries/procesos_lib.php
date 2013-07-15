@@ -92,7 +92,7 @@ class Procesos_lib extends MX_Controller {
                 Log::erroLog("_actualizarVisualizacion: " . $value->id ." - " . $value->id_mongo." - " .$cantidad);
             
             if($cantidad != $value->reproducciones){
-                $this->_setReproduccionesMongoVideosXIdMongo($value->id,$value->id_mongo, $cantidad);
+                $this->setReproduccionesVideosXId($value->id,$value->id_mongo, $cantidad);
             }            
         }
     }
