@@ -89,7 +89,7 @@ class Procesos_lib extends MX_Controller {
 
         foreach ($arrvideos as $value) {
             $cantidad = Liquid::obtenernumberOfViewsXVideo($value->codigo, $value->apikey);
-            Log::erroLog("_actualizarVisualizacion: " . $value->id ." - " . $value->id_mongo." - " .$cantidad);
+                Log::erroLog("_actualizarVisualizacion: " . $value->id ." - " . $value->id_mongo." - " .$cantidad);
             
             if($cantidad != $value->reproducciones){
                 $this->_setReproduccionesMongoVideosXIdMongo($value->id,$value->id_mongo, $cantidad);
@@ -1894,10 +1894,10 @@ class Procesos_lib extends MX_Controller {
     public function estadosVideos() {
         $videos = $this->videos_mp->getVideos();
 
-        echo "<table border=1><tr><td>id</td><td>estado_liquid</td><td>codigo</td><td>estado</td><td>id_mongo</td><td>fecha_migracion</td><td>fecha_migracion_actualizacion</td></tr>";
+        echo "<table border=1><tr><td>id</td><td>estado_liquid</td><td>codigo</td><td>estado</td><td>id_mongo</td><td>fecha_migracion</td><td>fecha_migracion_actualizacion</td><td>reproducciones</td></tr>";
 
         foreach ($videos as $value) {
-            echo "<tr><td>" . $value->id . "</td><td>" . $value->estado_liquid . "</td><td>" . $value->codigo . "</td><td>" . $value->estado . "</td><td>" . $value->id_mongo . "</td><td>" . $value->fecha_migracion . "</td><td>" . $value->fecha_migracion_actualizacion . "</td></tr>";
+            echo "<tr><td>" . $value->id . "</td><td>" . $value->estado_liquid . "</td><td>" . $value->codigo . "</td><td>" . $value->estado . "</td><td>" . $value->id_mongo . "</td><td>" . $value->fecha_migracion . "</td><td>" . $value->fecha_migracion_actualizacion . "</td><td>" . $value->reproducciones . "</td></tr>";
         }
         echo "</table>";
     }
