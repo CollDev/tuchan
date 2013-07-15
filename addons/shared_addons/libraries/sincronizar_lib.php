@@ -780,7 +780,9 @@ class Sincronizar_lib extends MX_Controller {
             }
             
             $objSeccion = $this->secciones_m->get_by(array('grupo_maestros_id' => $objVistaVideo->gm3));
-                       
+            
+           Log::erroLog("array datos de objSeccion");
+           Log::erroLog($objSeccion);
                         
             if ($objSeccion->id != NULL) {
                 $objDetalleSecciones = $this->detalle_secciones_m->get_by(array("grupo_maestros_id" => $objVistaVideo->gm1, "secciones_id" => $objSeccion->id));
