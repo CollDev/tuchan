@@ -22,23 +22,18 @@ class Sphinx_m extends CI_Model {
         if($fechaini!=null){
             list($dia1, $mes1, $año1) = explode('-', $fechaini);
             //$fechaini = mktime(0, 0, 0, $mes1, $dia1, $año1);  
-            $fechaini =  strtotime($año1.'-'.$mes1.'-'.$dia1.' 05:00:00');            
+            $fechaini =  strtotime($año1.'-'.$mes1.'-'.$dia1.' 00:00:00');            
         }   
         
         if($fechafin!=null){
             list($dia2, $mes2, $año2) = explode('-', $fechafin);
             //$fechafin = mktime(0, 0, 0, $mes2, $dia2,  $año2);
-            $fechafin =  strtotime($año2.'-'.$mes2.'-'.$dia2.' 05:00:00');  
+            $fechafin =  strtotime($año2.'-'.$mes2.'-'.$dia2.' 00:00:00');  
         }
-        
-        
-        error_log($palabrabusqueda);
-        error_log($fechaini);
-        error_log($fechafin);
         
         $palabrabusqueda = urldecode(str_replace("-", " ", $palabrabusqueda));
         
-        $parametros = array();
+//        $parametros = array();
         
 //        if ($parametro == ESTADO_ACTIVO) {
 //            $parametros['estado'] = ESTADO_ACTIVO;
@@ -64,14 +59,10 @@ class Sphinx_m extends CI_Model {
 //            $cl->SetFilter('estado', array(2));
 //        }
         
-        if(!empty($fechaini) && !empty($fechafin)){
-            error_log("SetFilterRange ");
+        if(!empty($fechaini) && !empty($fechafin)){            
              $cl->SetFilterRange('fecha', $fechaini, $fechafin);
-        }elseif(!empty($fechaini) && empty($fechafin)) {
-            error_log("SetFilter " . $fechaini);
+        }elseif(!empty($fechaini) && empty($fechafin)) {        
             $cl->SetFilter('fecha', array($fechaini));
-        }else{
-            error_log("nada");          
         }
         
         $cl->AddQuery($palabrabusqueda, $index);
@@ -111,8 +102,7 @@ class Sphinx_m extends CI_Model {
 //                        $arraytemp["categorias_al"] = "entretenimiento";
 //                    } else {
 //                        $arraytemp["categorias_al"] = $res[$i]["attrs"]["categorias_al"];
-//                    }
-                    error_log($res[$i]["attrs"]["fechaint"]);
+//                    }                    
                     $arraytemp["fecha"] = $res[$i]["attrs"]["fecha_format"];
                     $arraytemp["fecha_u"] = $res[$i]["attrs"]["fecha"];
                     $arraytemp["comentarios"] = $res[$i]["attrs"]["comentarios"];
@@ -134,7 +124,7 @@ class Sphinx_m extends CI_Model {
                     }
 
 
-                    $arraytemp["url"] = $urltemp;
+                    $arraytemp["url"] = $this->config->item('motor')."/".$urltemp;
 
 
                     if ($res[$i]["attrs"]["procedencia"] == 0) {
