@@ -780,13 +780,19 @@ class Sincronizar_lib extends MX_Controller {
             }
             
             $objSeccion = $this->secciones_m->get_by(array('grupo_maestros_id' => $objVistaVideo->gm3));
-            $objDetalleSecciones = $this->detalle_secciones_m->get_by(array("grupo_maestros_id" => $objVistaVideo->gm1,"secciones_id"=>$objSeccion->id));
-            
-            if(count($objDetalleSecciones)==0){
-                $allowed=TRUE;
-            }  else {
-                $allowed=FALSE;
+                        
+            if ($objSeccion->id != NULL) {
+                $objDetalleSecciones = $this->detalle_secciones_m->get_by(array("grupo_maestros_id" => $objVistaVideo->gm1, "secciones_id" => $objSeccion->id));
+
+                if (count($objDetalleSecciones) == 0) {
+                    $allowed = TRUE;
+                } else {
+                    $allowed = FALSE;
+                }
+            } else {
+                $allowed = FALSE;
             }
+                
             
             Log::erroLog("allowed: " . print_r($allowed));
             
