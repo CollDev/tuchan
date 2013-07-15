@@ -191,7 +191,8 @@ class Videos_m extends MY_Model {
                     'estado_migracion_sphinx_tit' => $objBeanVideo->estado_migracion_sphinx_tit,
                     'estado_migracion_sphinx_des' => $objBeanVideo->estado_migracion_sphinx_des,
                     'padre' => $objBeanVideo->padre,
-                    'estado_migracion_sphinx' => $objBeanVideo->estado_migracion_sphinx
+                    'estado_migracion_sphinx' => $objBeanVideo->estado_migracion_sphinx,
+                    'procedencia' => $objBeanVideo->procedencia,
         ));
         $objBeanVideo->alias = $objBeanVideo->alias . '-' . $objBeanVideo->id;
         parent::update($objBeanVideo->id, array('alias' => $objBeanVideo->alias));
