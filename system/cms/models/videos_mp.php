@@ -145,7 +145,7 @@ class Videos_mp extends CI_Model {
     }
 
     public function setEstadosVideos($id = "", $estado = "", $estado_liquid = "") {
-        $query = "update " . $this->_table . " set estado=" . $estado . ",estado_liquid =" . $estado_liquid . " where id=" . $id;
+        $query = "update " . $this->_table . " set estado=" . $estado . ",estado_liquid =" . $estado_liquid . " where id=" . $id. " and estado_liquid = " . ($estado_liquid - 1);
         $this->db->query($query);
         Log::erroLog("query setEstadosVideos  " . $query);
     }
@@ -169,7 +169,7 @@ class Videos_mp extends CI_Model {
     }
     
     function setDuracionVideos($id = "", $duracion = "") {
-        $query = "update " . $this->_table . " set duracion= SEC_TO_TIME(" . $duracion . ") where id=" . $id;
+        $query = "update " . $this->_table . " set duracion = SEC_TO_TIME(" . $duracion . ") where id = " . $id;
         $this->db->query($query);
         Log::erroLog("setDuracionVideos  " . $query);
     }
@@ -216,5 +216,81 @@ class Videos_mp extends CI_Model {
         $query = "SELECT vi.id,vi.id_mongo FROM " . $this->_table_canales . " ca INNER JOIN " . $this->_table_videos . " vi ON ca.id = vi.canales_id 
             WHERE ( DATE_ADD(CONCAT(fecha_transmision,' ',horario_transmision_inicio), INTERVAL ca.ibope HOUR )<NOW()) AND vi.id_mongo IS NULL AND vi.estado = '2'";        
         return $this->db->query($query)->result();
+    }
+    
+    public function insertVideo($objBeanVideo)
+    {
+        $query = "INSERT INTO " . $this->_table . " 
+            (
+                `tipo_videos_id`,
+                `categorias_id`,
+                `usuarios_id`,
+                `canales_id`,
+                `titulo`,
+                `alias`,
+                `descripcion`,
+                `fragmento`,
+                `fecha_publicacion_inicio`,
+                `fecha_publicacion_fin`,
+                `fecha_transmision`,
+                `horario_transmision_inicio`,
+                `horario_transmision_fin`,
+                `ubicacion`,
+                `estado`,
+                `estado_liquid`,
+                `fecha_registro`,
+                `usuario_registro`,
+                `estado_migracion`,
+                `estado_migracion_sphinx_tit`,
+                `estado_migracion_sphinx_des`,
+                `padre`,
+                `estado_migracion_sphinx`
+            ) VALUES (
+                '" . $objBeanVideo->tipo_videos_id . "',
+                '" . $objBeanVideo->categorias_id . "',
+                '" . $objBeanVideo->usuarios_id . "',
+                '" . $objBeanVideo->canales_id . "',
+                '" . $objBeanVideo->titulo . "',
+                '" . $objBeanVideo->alias . "',
+                '" . $objBeanVideo->descripcion . "',
+                '" . $objBeanVideo->fragmento . "',
+                '" . $objBeanVideo->fecha_publicacion_inicio . "',
+                '" . $objBeanVideo->fecha_publicacion_fin . "',
+                '" . $objBeanVideo->fecha_transmision . "',
+                '" . $objBeanVideo->horario_transmision_inicio . "',
+                '" . $objBeanVideo->horario_transmision_fin . "',
+                '" . $objBeanVideo->ubicacion . "',
+                '" . $objBeanVideo->estado . "',
+                '" . $objBeanVideo->estado_liquid . "',
+                '" . $objBeanVideo->fecha_registro . "',
+                '" . $objBeanVideo->usuario_registro . "',
+                '" . $objBeanVideo->estado_migracion . "',
+                '" . $objBeanVideo->estado_migracion_sphinx_tit . "',
+                '" . $objBeanVideo->estado_migracion_sphinx_des . "',
+                '" . $objBeanVideo->padre . "',
+                '" . $objBeanVideo->estado_migracion_sphinx . "'
+            );";
+        
+        $this->db->query($query);
+        return $this->db->insert_id();
+    }
+    
+    public function updateVideo($id, $data)
+    {
+        $key = array_keys($data);
+        $value = array_values($data);
+        $query = "UPDATE " . $this->_table . " SET
+                `" . $key[0] . "` = '" . $value[0] . "' 
+                WHERE `id` = '" . $id . "';";
+        
+        $this->db->query($query);
+    }
+    
+    public function save_video($objBeanVideo) {
+        $objBeanVideo->id = $this->insertVideo($objBeanVideo);
+        $objBeanVideo->alias = $objBeanVideo->alias . '-' . $objBeanVideo->id;
+        $this->updateVideo($objBeanVideo->id, array('alias' => $objBeanVideo->alias));
+        
+        return $objBeanVideo;
     }
 }

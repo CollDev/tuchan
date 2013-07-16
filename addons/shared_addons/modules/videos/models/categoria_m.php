@@ -1,7 +1,5 @@
 <?php
-
 defined('BASEPATH') or exit('No direct script access allowed');
-
 /**
  * Modelo categoria
  *
@@ -32,8 +30,8 @@ class Categoria_m extends MY_Model {
         if ($order != NULL) {
             $this->db->order_by($order);
         }
-        $resultValue = $this->db->get()->result();
-        return $resultValue;
+        
+        return $this->db->get()->result();
     }
     /**
      * 
@@ -53,7 +51,7 @@ class Categoria_m extends MY_Model {
                 }
             }
         }
-        $returnValue[0] = lang('videos:select_category');
+
         return $returnValue;
     }
     
@@ -75,6 +73,7 @@ class Categoria_m extends MY_Model {
         if(count($result)>0){
             $returnValue = true;
         }
+        
         return $returnValue;         
     }
 

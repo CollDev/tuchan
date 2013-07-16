@@ -1,0 +1,28 @@
+.tinytable th {
+    background: url(images/header-bg.gif);
+    text-align: left;
+    color: #fff;
+}
+.tinytable th h3 {
+    font-size: 16px;
+    margin: 0;
+    font-weight: bold;
+}
+.tinytable .head h3 {
+    background: url(images/sort.gif) 7px center no-repeat;
+    cursor: pointer;
+    padding-left: 18px;
+}
+.tinytable .desc, .tinytable .asc {
+    background: url(images/header-selected-bg.gif);
+}
+.tinytable .desc h3 {
+    background: url(images/desc.gif) 7px center no-repeat;
+    cursor: pointer;
+    padding-left: 18px;
+}
+.tinytable .asc h3 {
+    background: url(images/asc.gif) 7px  center no-repeat;
+    cursor: pointer;
+    padding-left: 18px;
+}

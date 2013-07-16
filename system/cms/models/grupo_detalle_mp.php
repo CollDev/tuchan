@@ -1,17 +1,11 @@
 <?php
-
 defined('BASEPATH') or exit('No direct script access allowed');
-
 /**
- * Modelo categoria
+ * Modelo grupo detalle
  *
- * metodos para obtener data de la tabla categorias
- *
- * @author		Johnny Huamani <jhuamani@idigital.pe>
- * @author		PyroCMS Dev Team
- * @package		Modules\videos\Models
+ * @author Joe Robles <joe.robles.pdj@gmail.com>
  */
-class Grupo_detalle_m extends MY_Model {
+class Grupo_detalle_mp extends MY_Model {
 
     /**
      *  nombre de la tabla
@@ -25,7 +19,7 @@ class Grupo_detalle_m extends MY_Model {
      * @param string $order
      * @return array
      */
-    public function getGrupoDetalle($where = array(), $order = NULL) {
+    public function getColeccionesList($where = array(), $order = NULL) {
         $this->db->select("*");
         $this->db->from($this->_table);
         $this->db->where($where);
@@ -34,30 +28,6 @@ class Grupo_detalle_m extends MY_Model {
         }
         
         return $this->db->get()->result();
-    }
-    
-    public function vd($var){
-        echo "<pre>";
-        print_r($var);
-        echo "</pre>";
-    }
-
-    /**
-     * 
-     * @param type $where
-     * @param type $order
-     * @return type
-     */
-    public function getGrupoDetalleDropDown($where = array(), $order = NULL) {
-        $returnValue = array();
-        $arrayData = $this->getGrupoDetalle($where, $order);
-        if (count($arrayData) > 0) {
-            foreach ($arrayData as $index => $objTipo) {
-                $returnValue[$objTipo->id] = $objTipo->nombre;
-            }
-        }
-        $returnValue[0] = lang('videos:select_category');
-        return $returnValue;
     }
 
     public function saveMaestroDetalle($objBeanMaestroDetalle) {
@@ -95,7 +65,7 @@ class Grupo_detalle_m extends MY_Model {
         if(count($result)>0){
             $returnValue = true;
         }
+        
         return $returnValue;        
     }
-
 }
