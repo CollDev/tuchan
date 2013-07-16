@@ -133,28 +133,48 @@ TINY.table=function(){
 		for(i;i<t.l;i++){var r=t.r[i]; if(t.a[i].s){r.style.display=x>=s&&x<l?'':'none'; x++}else{r.style.display='none'}}
 	};
 	sorter.prototype.move=function(d,m){
-		this.goto(d==1?(m?this.d:this.g+1):(m?1:this.g-1));
-                if (m) {
-                    if (d > 0) {//last
-                        $("#pagedropdown").val($('#pagedropdown option').size()).attr('selected',true);
-                    } else if (d < 0) {//first
-                        $("#pagedropdown").val(1).attr('selected',true);
+            this.goto(d==1?(m?this.d:this.g+1):(m?1:this.g-1));
+            if (m) {
+                if (d > 0) {//last
+                    $("#pagedropdown").val($('#pagedropdown option').size()).attr('selected',true);
+                    $('.prev-page').parent().removeClass('disabled');
+                    $('.first-page').parent().removeClass('disabled');
+                    $('.next-page').parent().addClass('disabled');
+                    $('.last-page').parent().addClass('disabled');
+                } else if (d < 0) {//first
+                    $("#pagedropdown").val(1).attr('selected',true);
+                    $('.next-page').parent().removeClass('disabled');
+                    $('.last-page').parent().removeClass('disabled');
+                    $('.prev-page').parent().addClass('disabled');
+                    $('.first-page').parent().addClass('disabled');
+                }
+            } else {
+                if (d > 0) {//next
+                    if (parseInt($('#pagedropdown').find(":selected").val()) < $('#pagedropdown option').size() - 1) {
+                        var selsumres = parseInt($('#pagedropdown').find(":selected").val()) + parseInt(d);
+                        $("#pagedropdown").val(selsumres).attr('selected',true);
+                        $('.prev-page').parent().removeClass('disabled');
+                        $('.first-page').parent().removeClass('disabled');
+                    } else if (parseInt($('#pagedropdown').find(":selected").val()) == $('#pagedropdown option').size() - 1){
+                        var selsumres = parseInt($('#pagedropdown').find(":selected").val()) + parseInt(d);
+                        $("#pagedropdown").val(selsumres).attr('selected',true);
+                        $('.next-page').parent().addClass('disabled');
+                        $('.last-page').parent().addClass('disabled');
                     }
-                } else {
-                    if (d > 0) {//next
-                        if (parseInt($('#pagedropdown').find(":selected").val()) < $('#pagedropdown option').size()) {
-                            var selsumres = parseInt($('#pagedropdown').find(":selected").val()) + parseInt(d);
-                            console.log($('#pagedropdown').find(":selected").val());
-                            $("#pagedropdown").val(selsumres).attr('selected',true);
-                        }
-                    } else if (d < 0) {//prev
-                        if (parseInt($('#pagedropdown').find(":selected").val()) !== 1) {
-                            selsumres = parseInt($('#pagedropdown').find(":selected").val()) + parseInt(d);
-                            console.log($('#pagedropdown').find(":selected").val());
-                            $("#pagedropdown").val(selsumres).attr('selected',true);
-                        }
+                } else if (d < 0) {//prev
+                    if (parseInt($('#pagedropdown').find(":selected").val()) > 2) {
+                        selsumres = parseInt($('#pagedropdown').find(":selected").val()) + parseInt(d);
+                        $("#pagedropdown").val(selsumres).attr('selected',true);
+                        $('.next-page').parent().removeClass('disabled');
+                        $('.last-page').parent().removeClass('disabled');
+                    } else if (parseInt($('#pagedropdown').find(":selected").val()) == 2) {
+                        selsumres = parseInt($('#pagedropdown').find(":selected").val()) + parseInt(d);
+                        $("#pagedropdown").val(selsumres).attr('selected',true);
+                        $('.prev-page').parent().addClass('disabled');
+                        $('.first-page').parent().addClass('disabled');
                     }
                 }
+            }
 	};
 	sorter.prototype.goto=function(s){
 		if(s<=this.d&&s>0){this.g=s; this.page((s-1)*this.p.size)}
