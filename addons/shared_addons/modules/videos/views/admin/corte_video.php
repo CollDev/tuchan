@@ -455,7 +455,7 @@
                                                 //validamos personajes
                                                 if (values['personajes'].length > 0) {
                                                     //validamos el tipo de video
-                                                    if (values['tipo'] > 0) {
+                                                    if (true) {//values['tipo'] > 0
                                                         //validamos la fuente del video
                                                         if (values['fuente'] > 0) {
                                                             //var repite = $("#existe_fragmento").val();
