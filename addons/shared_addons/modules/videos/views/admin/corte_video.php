@@ -1,23 +1,35 @@
 <section class="title">
-    <div style ="float: left;">
+    <div>
+        <ul class="main_menu">
         <?php
-        if ($canal->tipo_canales_id != $this->config->item('canal:mi_canal')):
-            echo anchor('admin/videos/carga_unitaria/' . $canal->id, $this->config->item('submenu:carga_unitaria'), array('class' => ''));
-            echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
-        endif;
-        /*    echo anchor('admin/videos/carga_masiva/' . $canal->id, 'Carga masiva', array('class' => ''));
-          echo '&nbsp;&nbsp;|&nbsp;&nbsp;'; */
-        //echo anchor('admin/videos/maestro/' . $canal->id, 'Organizar videos', array('class' => ''));
-        echo anchor('admin/videos/organizar/' . $canal->id, 'Organizar videos', array('class' => ''));
-        echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
-        echo anchor('admin/canales/portada/' . $canal->id, 'Portadas', array('class' => ''));
-        echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
-        echo anchor('/admin/videos/grupo_maestro/' . $canal->id, 'Crear programas', array('class' => ''));
-        ?>        
-    </div>
-    <div style="float: right;">
+        if ($canal->tipo_canales_id != $this->config->item('canal:mi_canal')) {
+        ?>
+            <li>
+        <?php echo anchor('admin/videos/carga_unitaria/' . $canal->id, $this->config->item('submenu:carga_unitaria'), array('class' => '')); ?>
+            </li>
+            <li>
+        <?php echo anchor('admin/videos/carga_youtube/' . $canal->id, $this->config->item('submenu:carga_youtube'), array('class' => '')); ?>
+            </li>
+        <?php
+        }
+        ?>
+            <li>
+        <?php echo anchor('admin/videos/organizar/' . $canal->id, 'Organizar videos', array('class' => '')); ?>
+            </li>
+            <li>
+        <?php echo anchor('admin/canales/portada/' . $canal->id, 'Portadas', array('class' => '')); ?>
+            </li>
+            <li>
+        <?php echo anchor('/admin/videos/grupo_maestro/' . $canal->id, 'Crear programas', array('class' => '')); ?>
+            </li>
+            <li class="active">
+        <?php echo anchor('#', 'Corte video', array('class' => '')); ?>
+            </li>
+            <li class="alast"></li>
+            <li class="last">
         <?php echo anchor('admin/canales/papelera/' . $canal->id, 'Papelera', array('class' => '')); ?>
-    </div> 
+            </li>
+        </ul>
 </section>
 
 <section class="item">
@@ -443,7 +455,7 @@
                                                 //validamos personajes
                                                 if (values['personajes'].length > 0) {
                                                     //validamos el tipo de video
-                                                    if (values['tipo'] > 0) {
+                                                    if (true) {//values['tipo'] > 0
                                                         //validamos la fuente del video
                                                         if (values['fuente'] > 0) {
                                                             //var repite = $("#existe_fragmento").val();

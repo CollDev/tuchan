@@ -368,6 +368,8 @@ class Admin extends Admin_Controller {
                         $objBeanVideo->estado_migracion_sphinx_des = 0;
                         $objBeanVideo->padre = 0;
                         $objBeanVideo->estado_migracion_sphinx = $this->config->item('sphinx:nuevo');
+                        $objBeanVideo->procedencia = $this->config->item('procedencia:micanal');
+                        
                         $objBeanVideoSaved = $this->videos_m->save_video($objBeanVideo);
                         //giardamos los tags de tematica y personajes
                         $this->_saveTagsTematicaPersonajes($objBeanVideoSaved, $this->input->post());
@@ -419,7 +421,6 @@ class Admin extends Admin_Controller {
                 $objBeanForm->programa = $programa;
                 $objBeanForm->coleccion = $coleccion;
                 $objBeanForm->lista = $lista;
-                //$objBeanForm->fuente = $objVideo->fuente;
                 $objBeanForm->fec_pub_ini = date("d-m-Y H:i:s", strtotime($objVideo->fecha_publicacion_inicio)); //$objVideo->fecha_publicacion_inicio;
                 $objBeanForm->fec_pub_fin = date("d-m-Y H:i:s", strtotime($objVideo->fecha_publicacion_fin)); //$objVideo->fecha_publicacion_fin;
                 $objBeanForm->fec_trans = date("d-m-Y", strtotime($objVideo->fecha_transmision)); //$objVideo->fecha_transmision;
@@ -434,6 +435,7 @@ class Admin extends Admin_Controller {
                 $objBeanForm->message = $message;
                 $objBeanForm->ruta = $objVideo->ruta; /* adicionado */
                 $objBeanForm->tiene_imagen = $this->_tieneAvatar($video_id);
+                $objBeanForm->procedencia = $this->config->item('procedencia:micanal');
                 if ($objBeanForm->tiene_imagen) {
                     $objBeanForm->avatar = $this->_getListImagen($video_id);
                 } else {
@@ -453,7 +455,6 @@ class Admin extends Admin_Controller {
                     $objBeanForm->programa = $this->input->post('programa');
                     $objBeanForm->coleccion = $this->input->post('coleccion');
                     $objBeanForm->lista = $this->input->post('lista');
-                    //$objBeanForm->fuente = $this->input->post('fuente');
                     $objBeanForm->fec_pub_ini = $this->input->post('fec_pub_ini');
                     $objBeanForm->fec_pub_fin = $this->input->post('fec_pub_fin');
                     $objBeanForm->fec_trans = $this->input->post('fec_trans');
@@ -468,6 +469,7 @@ class Admin extends Admin_Controller {
                     $objBeanForm->message = $message;
                     $objBeanForm->keywords = '';
                     $objBeanForm->padre = $this->input->post('padre');
+                    $objBeanForm->procedencia = $this->config->item('procedencia:micanal');
                 } else {
                     $objBeanForm->video_id = $video_id;
                     $objBeanForm->titulo = '';
@@ -496,6 +498,7 @@ class Admin extends Admin_Controller {
                     $objBeanForm->message = $message;
                     $objBeanForm->keywords = '';
                     $objBeanForm->padre = 0;
+                    $objBeanForm->procedencia = $this->config->item('procedencia:micanal');
                 }
             }
 
@@ -503,6 +506,7 @@ class Admin extends Admin_Controller {
             // Obtener nombre del canal según id
             $canal = $this->canales_m->get($canal_id);
             $arrayCategory = $this->categoria_m->getCategoryDropDown(array("categorias_id" => "0"), 'nombre');
+            $arrayCategory[0] = lang('videos:select_category');
             $arrayTipo = $this->tipo_video_m->getTipoDropDown(array(), 'nombre');
             //listamos las listas dependientes con datos filtrados
             if ($video_id > 0) {
@@ -595,7 +599,7 @@ class Admin extends Admin_Controller {
 
     public function carga_youtube($canal_id = 0, $video_id = 0) {
         $error = false;
-        $message = '';
+        $message = '';          
         if ($this->input->is_ajax_request()) {
             $user_id = (int) $this->session->userdata('user_id');
             $objBeanVideo = new stdClass();
@@ -610,7 +614,8 @@ class Admin extends Admin_Controller {
             $objBeanVideo->fragmento = 0;
             $objBeanVideo->fecha_publicacion_inicio = date("H:i:s", strtotime('1970-12-31 00:00:00'));
             $objBeanVideo->fecha_publicacion_fin = date("H:i:s", strtotime('1970-12-31 00:00:00'));
-            $objBeanVideo->fecha_transmision = date("Y-m-d H:i:s", strtotime('1970-12-31 00:00:00'));
+            //$objBeanVideo->fecha_transmision = date("Y-m-d H:i:s", strtotime('1970-12-31 00:00:00'));
+            $objBeanVideo->fecha_transmision = date("Y-m-d", strtotime('-1 day',strtotime(date('Y-m-d H:i:s'))));                    
             $objBeanVideo->horario_transmision_inicio = date("H:i:s", strtotime('1970-12-31 00:00:00'));
             $objBeanVideo->horario_transmision_fin = date("H:i:s", strtotime('1970-12-31 00:00:00'));
             $objBeanVideo->ubicacion = 0;
@@ -622,15 +627,15 @@ class Admin extends Admin_Controller {
             $objBeanVideo->estado_migracion_sphinx_tit = 0; //
             $objBeanVideo->estado_migracion_sphinx_des = 0;
             $objBeanVideo->padre = 0;
-            $objBeanVideo->procedencia = 2;
             $objBeanVideo->estado_migracion_sphinx = $this->config->item('sphinx:nuevo');
-            
+            $objBeanVideo->procedencia = $this->config->item('procedencia:youtube');
+
             $objBeanVideoSaved = $this->videos_m->save_video($objBeanVideo);
             //guardando los tags de tematica y personajes
             $this->_saveTagsTematicaPersonajes($objBeanVideoSaved, $this->input->post());
             $this->procesos_lib->videoYoutube($objBeanVideoSaved->id,$this->input->post('video'));
             echo json_encode(array("error" => "0"));
-         } else {
+         } else {             
             //validamos que existan el video y/o el canal
             //creamos un objeto vacio que nos servira de recipiente
             $objBeanForm = new stdClass();
@@ -721,6 +726,7 @@ class Admin extends Admin_Controller {
             // Obtener nombre del canal según id
             $canal = $this->canales_m->get($canal_id);
             $arrayCategory = $this->categoria_m->getCategoryDropDown(array("categorias_id" => "0"), 'nombre');
+            $arrayCategory[0] = lang('videos:select_category');
             $arrayTipo = $this->tipo_video_m->getTipoDropDown(array(), 'nombre');
             //listamos las listas dependientes con datos filtrados
             if ($video_id > 0) {
@@ -867,7 +873,8 @@ class Admin extends Admin_Controller {
                         //$objBeanVideo->fecha_migracion_actualizacion_sphinx_tit ='';
                         $objBeanVideo->estado_migracion_sphinx_des = 0;
                         $objBeanVideo->padre = 0;
-                        $objBeanVideo->estado_migracion_sphinx = $this->config->item('sphinx:nuevo');
+                        $objBeanVideo->estado_migracion_sphinx = $this->config->item('sphinx:nuevo');                        
+                        $objBeanVideo->procedencia = $this->config->item('procedencia:micanal');                                
                         //$objBeanVideo->fecha_migracion_sphinx_des ='';
                         //$objBeanVideo->fecha_migracion_actualizacion_sphinx_des ='';
                         $objBeanVideo = $this->videos_m->save_video($objBeanVideo);
@@ -1037,6 +1044,7 @@ class Admin extends Admin_Controller {
         // Obtener nombre del canal según id
         $canal = $this->canales_m->get($canal_id);
         $arrayCategory = $this->categoria_m->getCategoryDropDown(array("categorias_id" => "0"), 'nombre');
+        $arrayCategory[0] = lang('videos:select_category');
         $arrayTipo = $this->tipo_video_m->getTipoDropDown(array(), 'nombre');
 
         //$arrayTipoMaestro = $this->tipo_maestro_m->getTipoDropDown(array(), 'nombre');
@@ -2648,6 +2656,7 @@ class Admin extends Admin_Controller {
                 $objBeanVideo->estado = 0;
                 $objBeanVideo->padre = $video_id;
                 $objBeanVideo->estado_migracion_sphinx = $this->config->item('sphinx:nuevo');
+                $objBeanVideo->procedencia = $this->config->item('procedencia:micanal');
 
                 // print_r($objBeanVideo);
 
@@ -3133,6 +3142,7 @@ class Admin extends Admin_Controller {
         $items = $this->itemsMaestros($maestro_id);
         //categorias
         $categorias = $this->categoria_m->getCategoryDropDown(array("categorias_id" => "0"), 'nombre');
+        $categorias[0] = lang('videos:select_category');
         //listamos las imagenes
         $lista_imagenes = $this->listaImagenes($maestro_id);
 
