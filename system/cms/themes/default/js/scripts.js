@@ -112,4 +112,14 @@ $(document).on('ready', function(){
     $('a').on('click', function(){
         $(this).blur();
     });
+    $(document).on('keydown', function(event){
+        if(event.which === 27){
+            event.preventDefault();
+            $('table#table tbody tr').removeClass('success');
+            $('a#use-this-video').addClass('disabled');
+        }
+    });
+    $(document).on('click', 'a#use-this-video', function(){
+        console.log('add to hidden');
+    });
 });

@@ -32,7 +32,7 @@
                 <div class="page input-group-addon"><span style="display:none" id="currentpage"></span> de <span id="totalpages"></span></div>
             </div>
         </div>
-        <a class="btn btn-default col-lg-1 pull-right" href="javascript:sorter.showall()">ver todos</a>
+        <a class="btn btn-default col-lg-2 pull-right disabled" href="#" id="use-this-video">Usar este video</a>
     </div>
     <table class="row table table-striped table-bordered table-condensed table-hover tinytable" id="table">
         <thead>
@@ -46,9 +46,9 @@
         </thead>
         <tbody>
             {{ #videos }}
-            <tr>
-                <td align="center">
-                    <a data-placement="top" data-toggle="tooltip" href="{{ url }}" rel="tooltip" target="_blank" title="{{ tags }}"><img src="{{ imagen }}" /></a>
+            <tr id="videoresult_{{ id }}">
+                <td>
+                    <a data-placement="top" data-toggle="tooltip" href="http://micanal.pe/{{ url }}" rel="tooltip" target="_blank" title="{{ tags }}"><img src="{{ imagen }}" /></a>
                 </td>
                 <td>
                     <a data-placement="top" data-toggle="tooltip" href="{{ url }}" rel="tooltip" target="_blank" title="{{ tags }}">{{ nombre_vi }}</a>
@@ -84,5 +84,10 @@
         sortcolumn:1,
         sortdir:1,
         init:true
+    });
+    $('table#table tr').on('click', 'td', function(){
+        $('table#table tbody tr').removeClass('success');
+        $(this).parent().addClass('success');
+        $('a#use-this-video').removeClass('disabled');
     });
 </script>
