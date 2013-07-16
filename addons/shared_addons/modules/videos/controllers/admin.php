@@ -2656,6 +2656,7 @@ class Admin extends Admin_Controller {
                 $objBeanVideo->estado = 0;
                 $objBeanVideo->padre = $video_id;
                 $objBeanVideo->estado_migracion_sphinx = $this->config->item('sphinx:nuevo');
+                $objBeanVideo->procedencia = $this->config->item('procedencia:micanal');
 
                 // print_r($objBeanVideo);
 
