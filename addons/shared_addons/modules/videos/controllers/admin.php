@@ -873,7 +873,8 @@ class Admin extends Admin_Controller {
                         //$objBeanVideo->fecha_migracion_actualizacion_sphinx_tit ='';
                         $objBeanVideo->estado_migracion_sphinx_des = 0;
                         $objBeanVideo->padre = 0;
-                        $objBeanVideo->estado_migracion_sphinx = $this->config->item('sphinx:nuevo');
+                        $objBeanVideo->estado_migracion_sphinx = $this->config->item('sphinx:nuevo');                        
+                        $objBeanVideo->procedencia = $this->config->item('procedencia:micanal');                                
                         //$objBeanVideo->fecha_migracion_sphinx_des ='';
                         //$objBeanVideo->fecha_migracion_actualizacion_sphinx_des ='';
                         $objBeanVideo = $this->videos_m->save_video($objBeanVideo);
