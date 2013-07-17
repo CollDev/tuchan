@@ -21,8 +21,8 @@
                 <li><a href="#"><div style="white-space:nowrap;">Videos del <span id="startrecord"></span> al <span id="endrecord"></span> de <span id="totalrecords"></span></div></a></li>
             </ul>
             <ul class="col-lg-2 pagination pagination">
-                <li><a class="first-page" href="#" onclick="sorter.move(-1,true);"><<</a></li>
-                <li><a class="prev-page" href="#" onclick="sorter.move(-1);"><</a></li>
+                <li class="disabled"><a class="first-page" href="#" onclick="sorter.move(-1,true);"><<</a></li>
+                <li class="disabled"><a class="prev-page" href="#" onclick="sorter.move(-1);"><</a></li>
                 <li><a class="next-page" href="#" onclick="sorter.move(1);">></a></li>
                 <li><a class="last-page" href="#" onclick="sorter.move(1,true);">>></a></li>
             </ul>
@@ -48,7 +48,7 @@
             {{ #videos }}
             <tr id="videoresult_{{ id }}">
                 <td>
-                    <a class="iframe" data-placement="top" data-toggle="tooltip" href="http://micanal.pe/embed/{{ id }}" rel="tooltip" target="_blank" title="{{ tags }}"><img src="{{ imagen }}" /></a>
+                    <a class="iframe" data-placement="top" data-toggle="tooltip" href="http://micanal.pe/embed/{{ id }}" rel="tooltip" target="_blank" title="{{ nombre_vi }}"><img src="{{ imagen }}" /></a>
                 </td>
                 <td>{{ nombre_vi }}</td>
                 <td>{{ categorias_no }}</td>

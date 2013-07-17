@@ -109,7 +109,7 @@ $(document).on('ready', function(){
                 });
         }
     });
-    $('a').on('click', function(){
+    $(document).on('click', 'a', function(){
         $(this).blur();
     });
     $(document).on('keydown', function(event){

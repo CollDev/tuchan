@@ -134,44 +134,54 @@ TINY.table=function(){
 	};
 	sorter.prototype.move=function(d,m){
             this.goto(d==1?(m?this.d:this.g+1):(m?1:this.g-1));
+            function removefirstdisclass() {
+                $('.prev-page').parent().removeClass('disabled');
+                $('.first-page').parent().removeClass('disabled');
+            }
+            function addfirstdisclass() {
+                $('.prev-page').parent().addClass('disabled');
+                $('.first-page').parent().addClass('disabled');
+            }
+            function removelastdisclass() {
+                $('.next-page').parent().removeClass('disabled');
+                $('.last-page').parent().removeClass('disabled');
+            }
+            function addlastdisclass() {
+                $('.next-page').parent().addClass('disabled');
+                $('.last-page').parent().addClass('disabled');
+            }
             if (m) {
                 if (d > 0) {//last
                     $("#pagedropdown").val($('#pagedropdown option').size()).attr('selected',true);
-                    $('.prev-page').parent().removeClass('disabled');
-                    $('.first-page').parent().removeClass('disabled');
-                    $('.next-page').parent().addClass('disabled');
-                    $('.last-page').parent().addClass('disabled');
+                    removefirstdisclass();
+                    addlastdisclass();
                 } else if (d < 0) {//first
                     $("#pagedropdown").val(1).attr('selected',true);
-                    $('.next-page').parent().removeClass('disabled');
-                    $('.last-page').parent().removeClass('disabled');
-                    $('.prev-page').parent().addClass('disabled');
-                    $('.first-page').parent().addClass('disabled');
+                    removelastdisclass();
+                    addfirstdisclass();
                 }
             } else {
                 if (d > 0) {//next
                     if (parseInt($('#pagedropdown').find(":selected").val()) < $('#pagedropdown option').size() - 1) {
                         var selsumres = parseInt($('#pagedropdown').find(":selected").val()) + parseInt(d);
                         $("#pagedropdown").val(selsumres).attr('selected',true);
-                        $('.prev-page').parent().removeClass('disabled');
-                        $('.first-page').parent().removeClass('disabled');
-                    } else if (parseInt($('#pagedropdown').find(":selected").val()) == $('#pagedropdown option').size() - 1){
+                        removefirstdisclass();
+                    } else if (parseInt($('#pagedropdown').find(":selected").val()) === $('#pagedropdown option').size() - 1){
                         var selsumres = parseInt($('#pagedropdown').find(":selected").val()) + parseInt(d);
                         $("#pagedropdown").val(selsumres).attr('selected',true);
-                        $('.next-page').parent().addClass('disabled');
-                        $('.last-page').parent().addClass('disabled');
+                        removefirstdisclass();
+                        addlastdisclass();
                     }
                 } else if (d < 0) {//prev
                     if (parseInt($('#pagedropdown').find(":selected").val()) > 2) {
                         selsumres = parseInt($('#pagedropdown').find(":selected").val()) + parseInt(d);
                         $("#pagedropdown").val(selsumres).attr('selected',true);
-                        $('.next-page').parent().removeClass('disabled');
-                        $('.last-page').parent().removeClass('disabled');
-                    } else if (parseInt($('#pagedropdown').find(":selected").val()) == 2) {
+                        removelastdisclass();
+                    } else if (parseInt($('#pagedropdown').find(":selected").val()) === 2) {
                         selsumres = parseInt($('#pagedropdown').find(":selected").val()) + parseInt(d);
                         $("#pagedropdown").val(selsumres).attr('selected',true);
-                        $('.prev-page').parent().addClass('disabled');
-                        $('.first-page').parent().addClass('disabled');
+                        removelastdisclass();
+                        addfirstdisclass();
                     }
                 }
             }
