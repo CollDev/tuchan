@@ -47,4 +47,9 @@ class cmsApi extends MX_Controller {
     {
         return $this->cmsapi_lib->search($search,$dateini,$datefin);
     }
+    
+    public function corte($video_id)
+    {
+        return $this->cmsapi_lib->corte($video_id);
+    }
 }

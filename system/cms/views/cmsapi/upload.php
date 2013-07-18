@@ -3,7 +3,7 @@ if(!session_id()) {
     session_start();
 }
 ob_start();
-if (!empty($_SESSION['upload_result'])) {//Message exists, display it) {
+if (!empty($_SESSION['upload_result'])) {
 ?>
                 <div class="alert alert-<?php echo $_SESSION['upload_result']['type'] ?> fade in">
                     <button class="close" data-dismiss="alert" type="button">×</button>
@@ -18,6 +18,7 @@ if (!empty($_SESSION['upload_result'])) {//Message exists, display it) {
                 <ul class="nav nav-tabs" id="myTab">
                     <li class="active"><a href="#upload_form_tab" data-toggle="tab">Subida de video</a></li>
                     <li><a href="#search_form_tab" data-toggle="tab">Búsqueda</a></li>
+                    <li class="disabled"><a id="corte_video" href="#cut_form_tab" data-toggle="">Corte de video</a></li>
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane active fade in" id="upload_form_tab">
@@ -179,6 +180,9 @@ if (!empty($_SESSION['upload_result'])) {//Message exists, display it) {
                             </form>
                         </div>
                         <div id="search_results" class="row"></div>
+                    </div>
+                    <div class="tab-pane fade" id="cut_form_tab">
+                        <div id="cut_this_video"></div>
                     </div>
                 </div>
 <?php

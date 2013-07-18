@@ -1,3 +1,6 @@
+$.ajaxSetup({
+    cache: false
+});
 $(document).on('ready', function(){
     $.getJSON("/cmsapi/getcanaleslist")
         .done(function(res){
@@ -94,7 +97,7 @@ $(document).on('ready', function(){
     $('#search_form').on('submit', function(e){
         e.preventDefault();
         if ($('#termino').val() !== '') {
-            $("div#search_results").html('<div class="text-center"><img src="/system/cms/themes/default/img/loading.gif" /></div>');                        
+            $("div#search_results").html('<div class="text-center"><img src="/system/cms/themes/default/img/loading.gif" /></div>');
             $.getJSON("/cmsapi/search/" + $('#termino').val()+ "/"+$("#fecha_inicio").val()+"/"+$("#fecha_fin").val())
                 .done(function(data){
                     $.get("/system/cms/themes/default/js/mustache_templates/cmsapi/search_results.html", function(template){
@@ -122,4 +125,27 @@ $(document).on('ready', function(){
     $(document).on('click', 'a#use-this-video', function(){
         console.log('add to hidden');
     });
+    $(document).on('click', 'a.corte_video', function(){
+        $("div#cut_this_video").html('<div class="text-center"><img src="/system/cms/themes/default/img/loading.gif" /></div>');
+        $('ul#myTab li.disabled a').attr('data-toggle', 'tab').parent().removeClass('disabled');
+        $('ul#myTab li a#corte_video').trigger('click');
+        
+        var $this = this;
+        var tr_id = $($this).parent().parent().attr('id');
+        var split = tr_id.split('_');
+        
+        $.getJSON("/cmsapi/corte/" + split[1])
+            .done(function(data){
+                $.get("/system/cms/themes/default/js/mustache_templates/cmsapi/cut_video.html", function(template){
+                    $("div#cut_this_video").html('');
+                    if (data == '') {
+                        var app = '<div class="text-center"><h3>Seleccione un video válido</h3></div>';
+                    } else {
+                        var app = $.mustache(template, data);
+                    }
+                    $("div#cut_this_video").append(app);
+                });
+            });
+    });
+
 });

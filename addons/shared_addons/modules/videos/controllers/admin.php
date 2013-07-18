@@ -900,54 +900,18 @@ class Admin extends Admin_Controller {
 
         //creamos un objeto vacio que nos servira de recipiente
         $objBeanForm = new stdClass();
-        if ($video_id > 0) {
+        if ($video_id > 0) {/////////////////////////////////////////////////////////////////////////////////////
             //agregar metodo para alimentar al objeto para la edicion
             $lista = 0;
             $coleccion = 0;
             $programa = 0;
-            // verificamos el que el video tenga registros en la tabla detalles de maestro
-            //obtenemos el objeto maestro para obtener el ID y tipo
+            //verificar que el video tenga registros en la tabla detalles de maestro
+            //obtener el objeto maestro para obtener el ID y tipo
             $objGrupoDetalle = $this->grupo_detalle_m->get_by(array("video_id" => $video_id));
             if (count($objGrupoDetalle) > 0) {
                 $lista = $this->getIdMaestro($objGrupoDetalle->grupo_maestro_padre, $this->config->item('videos:lista'));
                 $coleccion = $this->getIdMaestro($objGrupoDetalle->grupo_maestro_padre, $this->config->item('videos:coleccion'));
                 $programa = $this->getIdMaestro($objGrupoDetalle->grupo_maestro_padre, $this->config->item('videos:programa'));
-                //$objMaestro = $this->grupo_maestro_m->get($objGrupoDetalle->grupo_maestro_padre);
-                //$this->vd($objMaestro);
-                /* switch ($objMaestro->tipo_grupo_maestro_id) {
-                  case $this->config->item('videos:lista'):
-                  $lista = $objMaestro->id;
-                  if ($lista > 0) {
-                  $parentGrupoDetalle = $this->grupo_detalle_m->get_by(array("grupo_maestro_id" => $objMaestro->id));
-                  $objParentMaestro = $this->grupo_maestro_m->get($parentGrupoDetalle->grupo_maestro_padre);
-                  if ($objParentMaestro->tipo_grupo_maestro_id == $this->config->item('videos:coleccion')) {
-                  $coleccion = $objParentMaestro->id;
-                  }
-                  }
-                  //obtenemos el programa si existe
-                  if ($coleccion > 0) {
-                  $programaGrupoDetalle = $this->grupo_detalle_m->get_by(array("grupo_maestro_id" => $objParentMaestro->id));
-                  $objProgramaMaestro = $this->grupo_maestro_m->get($programaGrupoDetalle->grupo_maestro_padre);
-                  if ($objProgramaMaestro->tipo_grupo_maestro_id == $this->config->item('videos:programa')) {
-                  $programa = $objProgramaMaestro->id;
-                  }
-                  }
-                  break;
-                  case $this->config->item('videos:coleccion'):
-                  $coleccion = $objMaestro->id;
-                  //obtenemos el programa si existe
-                  if ($coleccion > 0) {
-                  $programaGrupoDetalle = $this->grupo_detalle_m->get_by(array("grupo_maestro_id" => $objMaestro->id));
-                  $objProgramaMaestro = $this->grupo_maestro_m->get($programaGrupoDetalle->grupo_maestro_padre);
-                  if ($objProgramaMaestro->tipo_grupo_maestro_id == $this->config->item('videos:programa')) {
-                  $programa = $objProgramaMaestro->id;
-                  }
-                  }
-                  break;
-                  case $this->config->item('videos:programa'):
-                  $programa = $objMaestro->id;
-                  break;
-                  } */
             }
 
             $objVideo = $this->videos_m->get($video_id);
@@ -1049,7 +1013,7 @@ class Admin extends Admin_Controller {
 
         //$arrayTipoMaestro = $this->tipo_maestro_m->getTipoDropDown(array(), 'nombre');
         //listamos las listas dependientes con datos filtrados
-        if ($video_id > 0) {
+        if ($video_id > 0) {////////////////////////////////////////////////////////////
             //$arrayProgramme = $this->grupo_maestro_m->getCollectionDropDown(array('tipo_grupo_maestro_id' => $this->config->item('videos:programa'), 'canales_id' => $canal_id), 'nombre');
             //$arrayColeccionVideo = $this->getChild($programa, $coleccion, $lista, $this->config->item('videos:coleccion'), true);
             //$arrayList = $this->getChild($programa, $coleccion, $lista, $this->config->item('videos:lista'),true);
