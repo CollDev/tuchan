@@ -2,14 +2,6 @@ $.ajaxSetup({
     cache: false
 });
 $(document).on('ready', function(){
-    $.getJSON("/cmsapi/getcanaleslist")
-        .done(function(res){
-            $.each(res, function(key, value){
-                $('#canal_id')
-                    .append($('<option>', { value : key })
-                    .text(value));
-            });
-        });
     $.getJSON("/cmsapi/getcategoriaslist")
         .done(function(res){
             $.each(res, function(key, value){
@@ -30,12 +22,7 @@ $(document).on('ready', function(){
                 }
             });
         });    
-    $('#canal_id').on('change', function(){
-        $('#programa').trigger('change');
-        $('#coleccion').trigger('change');
-        $('#lista').trigger('change');
-        var canal_id = $(this).find(":selected").val();
-        $.getJSON("/cmsapi/getprogramaslist/" + canal_id)
+        $.getJSON("/cmsapi/getprogramaslist/" + $('#canal_id').val())
             .done(function(res){
                 $('#programa')
                     .find('option')
@@ -49,7 +36,6 @@ $(document).on('ready', function(){
                         .text(value));
                 });
             });
-    });
     $('#programa').on('change', function(){
         $('#coleccion').trigger('change');
         $('#lista').trigger('change');
