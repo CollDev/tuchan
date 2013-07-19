@@ -88,27 +88,51 @@
             'value' => '',
             'maxlength' => '100',
             'style' => 'width:556px;'
+                //'readonly'=>'readonly'
         );
         echo form_input($titulo);
-        if ($objBeanForm->video_id == 0) { ?>
+        ?>
+
+        <!-- fragmento -->
+        <br/>
+        <!-- <label for="fragmento"><?php echo lang('videos:fragmento_label'); ?></label>
+        <?php echo form_error('fragmento'); ?><br />
+        -->
+        <?php
+        $valores = array(lang("videos:select_fragment"), "1", "2", "3", "4", "5", "6", "7", "8", "9", "10");
+        ?>
+        <?php //echo form_dropdown('fragmento', $valores,$objBeanForm->fragmento, 'onChange="addTitle()"'); ?>        
+
+        <?php if ($objBeanForm->video_id == 0) { ?>
             <!-- video -->
             <label for="video"><?php echo lang('videos:video'); ?><span class="required">*</span></label>
-<?php
+            <?php
             $video = array('name' => 'video', 'id' => 'video');
             echo form_upload($video);
         }
-        if ($objBeanForm->video_id > 0) {
+        ?>
+
+        <?php if ($objBeanForm->video_id > 0) { ?>
+            <!-- imagen -->
+            <!--<label for="imagen"><?php //echo lang('videos:avatar');    ?></label>-->
+            <?php
             $imagen = array('name' => 'addImage', 'id' => 'addImage', 'type' => 'button', 'value' => '');
             echo '<div style="float:left;display:none">' . form_input($imagen) . '</div>';
-?>
+            ?>
             <div  class="loaderAjax" id="loaderAjax" style="display: none; float: left;">
                 <img src="uploads/imagenes/loading.gif">
             </div>
             <div style="clear: both;"></div>
-            <div id="contenedorImage"></div>
-<?php
+            <div id="contenedorImage">
+                <?php if (count($objBeanForm->avatar) > 0) { ?>
+                            <!--<select id="listaImagenes"></select>-->
+                <?php } ?>
+            </div>
+
+            <?php
         }
-?>
+        ?>
+
         <br />
         <!-- fecha de transmisión -->
         <label for="fec_trans"><?php echo lang('videos:fecha_transmision_label'); ?></label>
@@ -413,6 +437,8 @@
                             //validamos el input file
                             if (true) {
                                 //verificamos si el formato del archivo es valido
+//                    var arrayFile = inputfile.split('.');
+//                    var ext = arrayFile[arrayFile.length -1];
                                 if (true) {
                                     //validamos el ckeditor
                                     var editorText = CKEDITOR.instances.descripcion.getData();
@@ -428,39 +454,44 @@
                                             if (values['tematicas'].length > 0) {
                                                 //validamos personajes
                                                 if (values['personajes'].length > 0) {
-                                                    //validamos la fuente del video
-                                                    if (values['fuente'] > 0) {
-                                                        //var repite = $("#existe_fragmento").val();
-                                                        //console.log(repite);
-                                                        if (true) {
+                                                    //validamos el tipo de video
+                                                    if (true) {//values['tipo'] > 0
+                                                        //validamos la fuente del video
+                                                        if (values['fuente'] > 0) {
+                                                            //var repite = $("#existe_fragmento").val();
+                                                            //console.log(repite);
+                                                            if (true) {
 <?php if ($objBeanForm->video_id > 0) { ?>
-                                                            var serializedData = $('#frm').serialize();
-                                                            //var post_url = "/admin/videos/save_maestro/"+values['txt_'+type_video]+"/"+values['canal_id']+"/"+values['categoria']+"/"+type_video;
-                                                            var post_url = "/admin/videos/insertCorteVideo/" + values['canal_id'] + "/" + values['video_id'];
-                                                            $.ajax({
-                                                                type: "POST",
-                                                                url: post_url,
-                                                                dataType: 'json',
-                                                                data: serializedData,
-                                                                success: function(returnValue) //we're calling the response json array 'cities'
-                                                                {
-                                                                    //console.log(returnValue.value);
-                                                                    if (returnValue.value == '0') {
-                                                                        showMessage('exit', '<?php echo lang('videos:edit_video_success') ?>', 1000, '');
-                                                                    } else {
-                                                                        showMessage('error', '<?php echo lang('videos:fragment_exist') ?>', 2000, '');
-                                                                    }
-                                                                } //end success
-                                                            }); //end AJAX                                                    
+                                                                    var serializedData = $('#frm').serialize();
+                                                                    //var post_url = "/admin/videos/save_maestro/"+values['txt_'+type_video]+"/"+values['canal_id']+"/"+values['categoria']+"/"+type_video;
+                                                                    var post_url = "/admin/videos/insertCorteVideo/" + values['canal_id'] + "/" + values['video_id'];
+                                                                    $.ajax({
+                                                                        type: "POST",
+                                                                        url: post_url,
+                                                                        dataType: 'json',
+                                                                        data: serializedData,
+                                                                        success: function(returnValue) //we're calling the response json array 'cities'
+                                                                        {
+                                                                            //console.log(returnValue.value);
+                                                                            if (returnValue.value == '0') {
+                                                                                showMessage('exit', '<?php echo lang('videos:edit_video_success') ?>', 1000, '');
+                                                                            } else {
+                                                                                showMessage('error', '<?php echo lang('videos:fragment_exist') ?>', 2000, '');
+                                                                            }
+                                                                        } //end success
+                                                                    }); //end AJAX                                                    
 <?php } else { ?>
-                                                            //$('#frm').submit();
-                                                            existeFragmento();
+                                                                    //$('#frm').submit();
+                                                                    existeFragmento();
 <?php } ?>
+                                                            } else {
+                                                                showMessage('error', '<?php echo lang('videos:fragment_exist') ?>', 2000, '');
+                                                            }
                                                         } else {
-                                                            showMessage('error', '<?php echo lang('videos:fragment_exist') ?>', 2000, '');
+                                                            showMessage('error', '<?php echo lang('videos:require_source') ?>', 2000, '');
                                                         }
                                                     } else {
-                                                        showMessage('error', '<?php echo lang('videos:require_source') ?>', 2000, '');
+                                                        showMessage('error', '<?php echo lang('videos:require_type') ?>', 2000, '');
                                                     }
                                                 } else {
                                                     showMessage('error', '<?php echo lang('videos:require_personajes') ?>', 2000, '');
@@ -481,9 +512,11 @@
                             } else {
                                 showMessage('error', '<?php echo lang('videos:require_video') ?>', 2000, '');
                             }
+
                         } else {
                             showMessage('error', '<?php echo lang('videos:require_title') ?>', 2000, '');
                         }
+
                     }
                 }
                 /**
@@ -909,7 +942,8 @@
                         success: function(returnData) //we're calling the response json array 'cities'
                         {
                             $('select[name="lista"]').empty();
-                            $.each(returnData, function(id, maestro){
+                            $.each(returnData, function(id, maestro)
+                            {
                                 if (id != 'error') {
                                     var opt = $('<option />'); // here we're creating a new select option for each group
                                     opt.val(id);
@@ -968,10 +1002,11 @@
 <script type="text/javascript">
     $(function() {
         $(".mediaspliter-edit").on('click', function(e) {
-            var _this = $(this)
+            var _this = $(this),
                     mediaBlock = _this.closest('div.mediasplitter').addClass('mediasplitter-show');
             new MediaSplitter('#' + mediaBlock.attr('id'));
             _this.closest('p').remove();
         });
     });
 </script>
+

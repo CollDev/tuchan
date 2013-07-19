@@ -133,5 +133,55 @@ $(document).on('ready', function(){
                 });
             });
     });
-
+    function showMessage(type, title) {
+        if (type != '' && title != '') {
+            $('#flash_title').html('').append(title);
+            $("html, body").animate({ scrollTop: 0 }, 600);
+            $('#flash_message').removeClass().addClass('alert').addClass('alert-' + type).delay(600).slideDown().delay(3000).slideUp();
+        }
+    }
+    $(document).on('click', '#submit_cut', function(e){
+        e.preventDefault();
+        var $type = '';
+        var $title = '';
+        var $valid = true;
+        var values = {};
+        $.each($('#cut_form').serializeArray(), function(i, field) {
+            values[field.name] = field.value;
+        });
+        values['tematicas'] = $.trim(values['tematicas']);
+        values['personajes'] = $.trim(values['personajes']);
+        if ($("#dur_corte").val() == '') {
+            $type = 'danger'; $title = 'Debe realizar un corte'; $valid = false;
+        } else if ($("#dur_corte").val() >= Math.round($("#dur_total").val() * 10) / 10) {
+            $type = 'danger'; $title = 'La duracion del nuevo video debe ser diferente al original'; $valid = false;
+        } else if (values['titulo'].length == 0) {
+            $type = 'danger'; $title = 'Ingrese un título'; $valid = false;
+        } else if (values['descripcion'].length == 0) {
+            $type = 'danger'; $title = 'Ingrese la descripción del video.'; $valid = false;
+        } else if (values['tematicas'].length == 0) {
+            $type = 'danger'; $title = 'Ingrese las temáticas.'; $valid = false;
+        } else if (values['personajes'].length == 0) {
+            $type = 'danger'; $title = 'Ingrese personajes.'; $valid = false;
+        }
+        
+        showMessage($type, $title);
+        
+        if ($valid) {
+            $.ajax({
+                type: "POST",
+                url: "/admin/videos/insertCorteVideo/" + values['canal_id'] + "/" + values['video_id'],
+                dataType: 'json',
+                data: $('#cut_form').serialize(),
+                success: function(returnValue) //we're calling the response json array 'cities'
+                {
+                    if (returnValue.value == 0) {
+                        showMessage('success', 'Los cambios se guardaron satisfactoriamente');
+                    } else {
+                        showMessage('warning', 'Ya existe un video con estos datos.');
+                    }
+                }
+            });                                                  
+        }
+    });
 });

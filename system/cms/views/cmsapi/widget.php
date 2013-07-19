@@ -15,6 +15,9 @@ if (!empty($_SESSION['upload_result'])) {
 }
 ?>
 
+                <div id="flash_message" class="alert" style="display: none;">
+                    <strong id="flash_title"></strong>
+                </div>
                 <ul class="nav nav-tabs" id="myTab">
                     <li class="active"><a href="#upload_form_tab" data-toggle="tab">Subida de video</a></li>
                     <li><a href="#search_form_tab" data-toggle="tab">Búsqueda</a></li>

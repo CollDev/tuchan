@@ -52,6 +52,9 @@
                                         <input id="personajes" name="personajes" placeholder="Principales y secundarios" required type="text" value="{{ personajes }}" />
                                     </div>
                                 </div>
+                                <div class="row">
+                                    <button id="submit_cut" class="btn btn-default">Cortar video</button>
+                                </div>
                             </fieldset>
                             <fieldset class="col-sm-6" style="display: none;">
                                 <legend>Jerarquía</legend>
@@ -91,9 +94,6 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <button class="btn btn-default pull-right">Subir video</button>
-                                </div>
                             </fieldset>
                             <fieldset class="col-sm-6">
                                 <legend>Split</legend>
@@ -113,7 +113,7 @@
                                                 </p>
                                             </div>
                                         </div>
-                                        <input name="dur_total" id="dur_total"  value="{{ duracion }}" type="hidden" />
+                                        <input name="dur_total" id="dur_total"  value="" type="hidden" />
                                     </div>
                                 </div>
                             </fieldset>
@@ -126,7 +126,7 @@
                             <input type="hidden" name="int_tipo_video" value="{{ int_tipo_video }}" />
                             <input type="hidden" name="existe_fragmento" value="0" />
                             <input type="hidden" name="video" id="video" value="{{ video_id }}.mp4" />
-                            <input type="hidden" name="APC_UPLOAD_PROGRESS" id="progress_key" value="bb778d225b5b83ba135f0e62d84d86cf"/>
+                            <input type="hidden" name="APC_UPLOAD_PROGRESS" id="progress_key" value="{{ progress_key }}" />
                         </form>
 
                         <script>
@@ -143,10 +143,10 @@
                                     show_bar = 1;
                                 });
                                 //show iframe on form submit
-                                $("#frm").submit(function() {
+                                $("#cut_form").submit(function() {
                                     if (show_bar === 1) {
                                         function set() {
-                                            $('#upload_frame').attr('src', 'upload_frame.php?up_id=bb778d225b5b83ba135f0e62d84d86cf');
+                                            $('#upload_frame').attr('src', 'upload_frame.php?up_id=' + $('#progress_key').val());
                                         }
                                         setTimeout(set);
                                     }

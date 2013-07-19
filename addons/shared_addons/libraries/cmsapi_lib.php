@@ -468,6 +468,7 @@ class cmsapi_lib extends MX_Controller {
             $objBeanForm->keywords = '';
             $objBeanForm->duracion = $objVideo->duracion;
             $objBeanForm->ruta = trim($objVideo->ruta);
+            $objBeanForm->progress_key = uniqid();
             $objBeanForm->tiene_imagen = $this->_tieneAvatar($video_id);
             if ($objBeanForm->tiene_imagen) {
                 $objBeanForm->avatar = $this->_getListImagen($video_id);
@@ -531,4 +532,10 @@ class cmsapi_lib extends MX_Controller {
             return 0;
         }
     }
+    private function seconds_from_time($time)
+    { 
+        list($h, $m, $s) = explode(':', $time); 
+        
+        return ($h * 3600) + ($m * 60) + $s; 
+    } 
 }
