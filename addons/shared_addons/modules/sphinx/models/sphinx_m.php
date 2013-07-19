@@ -16,7 +16,7 @@ class Sphinx_m extends CI_Model {
         $this->CLIENTSPHINX;
     }
 
-    public function busquedaVideos($palabrabusqueda = "",$fechaini = null ,$fechafin =null) {
+    public function busquedaVideos($palabrabusqueda = "",$fechaini = null ,$fechafin =null, $canales_id = null) {
         
         
         if($fechaini!=null){
@@ -32,18 +32,7 @@ class Sphinx_m extends CI_Model {
         }
         
         $palabrabusqueda = urldecode(str_replace("-", " ", $palabrabusqueda));
-        
-//        $parametros = array();
-        
-//        if ($parametro == ESTADO_ACTIVO) {
-//            $parametros['estado'] = ESTADO_ACTIVO;
-//            $parametros["peso_videos"] = 
-//                array('tags' => $this->config->item('peso_tag:sphinx'),
-//                      'titulo' => $this->config->item('peso_titulo:sphinx'),
-//                      'descripcion' => $this->config->item('peso_descripcion:sphinx')
-//                    );
-//        }        
-                  
+                          
         $cl = $this->CLIENTSPHINX;
               
         $index = 'busquedavideos';
@@ -63,6 +52,10 @@ class Sphinx_m extends CI_Model {
              $cl->SetFilterRange('fecha', $fechaini, $fechafin);
         }elseif(!empty($fechaini) && empty($fechafin)) {        
             $cl->SetFilter('fecha', array($fechaini));
+        }
+        
+        if(!empty($canales_id)){
+            $cl->SetFilter('canales_id', array($fechaini));
         }
         
         $cl->AddQuery($palabrabusqueda, $index);

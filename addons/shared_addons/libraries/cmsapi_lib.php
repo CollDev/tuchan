@@ -419,11 +419,11 @@ class cmsapi_lib extends MX_Controller {
         return $returnValue;
     }
     
-    public function search($search,$dateini,$datefin)
+    public function search($search,$dateini,$datefin,$canales_id)
     {
         header("Content-Type: application/json; charset=utf-8");
         //echo shell_exec("curl " . "http://micanal.pe/sphinx/videos/1/" . $search);
-        echo $this->sphinx_m->busquedaVideos($search,$dateini,$datefin);        
+        echo $this->sphinx_m->busquedaVideos($search,$dateini,$datefin,$canales_id);        
     }
     
     public function corte($video_id)
