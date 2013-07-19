@@ -419,9 +419,9 @@ class Procesos_lib extends MX_Controller {
 
     /* MiCanal Mongo - INICIO */
 
-    private function urls_amigables($url) {
+        private function urls_amigables($url) {
         $url = strtolower($url);
-        $find = array('�', '�', '�', '�', '�', '�');
+        $find = array('á', 'é', 'í', 'ó', 'ú', 'ñ');
         $repl = array('a', 'e', 'i', 'o', 'u', 'n');
         $url = str_replace($find, $repl, $url);
         $find = array(' ', '&', '\r\n', '\n', '+');
@@ -1038,7 +1038,7 @@ class Procesos_lib extends MX_Controller {
                     $objmongo['related'] = array();
                     $objmongo['playlist'] = array();
                     $objmongo['clips'] = array();               
-                    $objmongo['playerkey'] = $datovideo[0]->xplayerkey;
+                    $objmongo['playerkeyca'] = $datovideo[0]->xplayerkey;
                     $objmongo['apikey'] = $datovideo[0]->xapikey;
 
                     $objmongo['valoracion'] = $datovideo[0]->xvi_val;
