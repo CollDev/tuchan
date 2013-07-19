@@ -2751,6 +2751,7 @@ class Admin extends Admin_Controller {
                 }
             }
         }
+                
         if ($id_type == 0) {
             if ($this->videos_m->existVideo($post['titulo'], $canal_id, $video_id)) {
                 $objVideo2 = $this->videos_m->like('titulo', $post['titulo'], 'none')->get_by(array());
