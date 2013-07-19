@@ -1,13 +1,13 @@
 <div id="tablewrapper">
     <div id="tableheader">
         <div class="search row">
-            <select class="col-lg-2" id="columns" onchange="sorter.search('query')"></select>
-            <input class="col-lg-2" type="text" id="query" onkeyup="sorter.search('query')" />
+            <select class="col-lg-2" id="columns"></select>
+            <input class="col-lg-2" type="text" id="query" />
         </div>
     </div>
     <div class="row" id="tablefooter">
         <div class="input-group col-lg-3">
-            <select id="results-per-page" onchange="sorter.size(this.value)">
+            <select id="results-per-page">
                 <option value="5" selected="selected">5</option>
                 <option value="10">10</option>
                 <option value="20">20</option>
@@ -21,10 +21,10 @@
                 <li><a href="#"><div style="white-space:nowrap;">Videos del <span id="startrecord"></span> al <span id="endrecord"></span> de <span id="totalrecords"></span></div></a></li>
             </ul>
             <ul class="col-lg-2 pagination pagination">
-                <li><a class="first-page" href="#" onclick="sorter.move(-1,true);"><<</a></li>
-                <li><a class="prev-page" href="#" onclick="sorter.move(-1);"><</a></li>
-                <li><a class="next-page" href="#" onclick="sorter.move(1);">></a></li>
-                <li><a class="last-page" href="#" onclick="sorter.move(1,true);">>></a></li>
+                <li class="disabled"><a class="first-page" href="#"><<</a></li>
+                <li class="disabled"><a class="prev-page" href="#"><</a></li>
+                <li><a class="next-page" href="#">></a></li>
+                <li><a class="last-page" href="#">>></a></li>
             </ul>
             <div class="input-group col-lg-3">
                 <span class="input-group-addon">Pagina</span>
@@ -41,19 +41,21 @@
                 <th><h3>Título</h3></th>
                 <th><h3>Categoría</h3></th>
                 <th><h3>Programa</h3></th>
-                <th><h3>Fecha transmisión</h3></th>
+                <th><h3>Fecha</h3></th>
+                <th><h3>Acciones</h3></th>
             </tr>
         </thead>
         <tbody>
             {{ #videos }}
             <tr id="videoresult_{{ id }}">
                 <td>
-                    <a class="iframe" data-placement="top" data-toggle="tooltip" href="http://micanal.pe/embed/{{ id }}" rel="tooltip" target="_blank" title="{{ tags }}"><img src="{{ imagen }}" /></a>
+                    <a class="iframe" data-placement="top" data-toggle="tooltip" href="http://micanal.pe/embed/{{ id }}" rel="tooltip" target="_blank" title="{{ nombre_vi }}"><img src="{{ imagen }}" /></a>
                 </td>
                 <td>{{ nombre_vi }}</td>
                 <td>{{ categorias_no }}</td>
                 <td>{{ nombre_pr }}</td>
                 <td>{{ fecha }}</td>
+                <td><a class="corte_video" href="#">Corte</a></td>
             </tr>
             {{ /videos }}
         </tbody>
@@ -76,7 +78,6 @@
         startingrecid:'startrecord',
         endingrecid:'endrecord',
         totalrecid:'totalrecords',
-        hoverid:'selectedrow',
         pageddid:'pagedropdown',
         navid:'tablenav',
         sortcolumn:1,
@@ -88,5 +89,12 @@
         $(this).parent().addClass('success');
         $('a#use-this-video').removeClass('disabled');
     });
+    $('.first-page').on('click', function(){ sorter.move(-1,true); });
+    $('.prev-page').on('click', function(){ sorter.move(-1); });
+    $('.next-page').on('click', function(){ sorter.move(1); });
+    $('.last-page').on('click', function(){ sorter.move(1,true); });
+    $('#results-per-page').on('change', function(){ sorter.size(this.value) });
+    $('#columns').on('change', function(){ sorter.search('query') });
+    $('#query').on('keyup', function(){ sorter.search('query') });
     $(".iframe").colorbox({iframe:true, width:"80%", height:"80%"});
 </script>

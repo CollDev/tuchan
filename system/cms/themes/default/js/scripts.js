@@ -1,12 +1,7 @@
+$.ajaxSetup({
+    cache: false
+});
 $(document).on('ready', function(){
-    $.getJSON("/cmsapi/getcanaleslist")
-        .done(function(res){
-            $.each(res, function(key, value){
-                $('#canal_id')
-                    .append($('<option>', { value : key })
-                    .text(value));
-            });
-        });
     $.getJSON("/cmsapi/getcategoriaslist")
         .done(function(res){
             $.each(res, function(key, value){
@@ -27,12 +22,7 @@ $(document).on('ready', function(){
                 }
             });
         });    
-    $('#canal_id').on('change', function(){
-        $('#programa').trigger('change');
-        $('#coleccion').trigger('change');
-        $('#lista').trigger('change');
-        var canal_id = $(this).find(":selected").val();
-        $.getJSON("/cmsapi/getprogramaslist/" + canal_id)
+        $.getJSON("/cmsapi/getprogramaslist/" + $('#canal_id').val())
             .done(function(res){
                 $('#programa')
                     .find('option')
@@ -46,7 +36,6 @@ $(document).on('ready', function(){
                         .text(value));
                 });
             });
-    });
     $('#programa').on('change', function(){
         $('#coleccion').trigger('change');
         $('#lista').trigger('change');
@@ -94,7 +83,7 @@ $(document).on('ready', function(){
     $('#search_form').on('submit', function(e){
         e.preventDefault();
         if ($('#termino').val() !== '') {
-            $("div#search_results").html('<div class="text-center"><img src="/system/cms/themes/default/img/loading.gif" /></div>');                        
+            $("div#search_results").html('<div class="text-center"><img src="/system/cms/themes/default/img/loading.gif" /></div>');
             $.getJSON("/cmsapi/search/" + $('#termino').val()+ "/"+$("#fecha_inicio").val()+"/"+$("#fecha_fin").val())
                 .done(function(data){
                     $.get("/system/cms/themes/default/js/mustache_templates/cmsapi/search_results.html", function(template){
@@ -109,7 +98,7 @@ $(document).on('ready', function(){
                 });
         }
     });
-    $('a').on('click', function(){
+    $(document).on('click', 'a', function(){
         $(this).blur();
     });
     $(document).on('keydown', function(event){
@@ -121,5 +110,78 @@ $(document).on('ready', function(){
     });
     $(document).on('click', 'a#use-this-video', function(){
         console.log('add to hidden');
+    });
+    $(document).on('click', 'a.corte_video', function(){
+        $("div#cut_this_video").html('<div class="text-center"><img src="/system/cms/themes/default/img/loading.gif" /></div>');
+        $('ul#myTab li.disabled a').attr('data-toggle', 'tab').parent().removeClass('disabled');
+        $('ul#myTab li a#corte_video').trigger('click');
+        
+        var $this = this;
+        var tr_id = $($this).parent().parent().attr('id');
+        var split = tr_id.split('_');
+        
+        $.getJSON("/cmsapi/corte/" + split[1])
+            .done(function(data){
+                $.get("/system/cms/themes/default/js/mustache_templates/cmsapi/cut_video.html", function(template){
+                    $("div#cut_this_video").html('');
+                    if (data == '') {
+                        var app = '<div class="text-center"><h3>Seleccione un video válido</h3></div>';
+                    } else {
+                        var app = $.mustache(template, data);
+                    }
+                    $("div#cut_this_video").append(app);
+                });
+            });
+    });
+    function showMessage(type, title) {
+        if (type != '' && title != '') {
+            $('#flash_title').html('').append(title);
+            $("html, body").animate({ scrollTop: 0 }, 600);
+            $('#flash_message').removeClass().addClass('alert').addClass('alert-' + type).delay(600).slideDown().delay(3000).slideUp();
+        }
+    }
+    $(document).on('click', '#submit_cut', function(e){
+        e.preventDefault();
+        var $type = '';
+        var $title = '';
+        var $valid = true;
+        var values = {};
+        $.each($('#cut_form').serializeArray(), function(i, field) {
+            values[field.name] = field.value;
+        });
+        values['tematicas'] = $.trim(values['tematicas']);
+        values['personajes'] = $.trim(values['personajes']);
+        if ($("#dur_corte").val() == '') {
+            $type = 'danger'; $title = 'Debe realizar un corte'; $valid = false;
+        } else if ($("#dur_corte").val() >= Math.round($("#dur_total").val() * 10) / 10) {
+            $type = 'danger'; $title = 'La duracion del nuevo video debe ser diferente al original'; $valid = false;
+        } else if (values['titulo'].length == 0) {
+            $type = 'danger'; $title = 'Ingrese un título'; $valid = false;
+        } else if (values['descripcion'].length == 0) {
+            $type = 'danger'; $title = 'Ingrese la descripción del video.'; $valid = false;
+        } else if (values['tematicas'].length == 0) {
+            $type = 'danger'; $title = 'Ingrese las temáticas.'; $valid = false;
+        } else if (values['personajes'].length == 0) {
+            $type = 'danger'; $title = 'Ingrese personajes.'; $valid = false;
+        }
+        
+        showMessage($type, $title);
+        
+        if ($valid) {
+            $.ajax({
+                type: "POST",
+                url: "/admin/videos/insertCorteVideo/" + values['canal_id'] + "/" + values['video_id'],
+                dataType: 'json',
+                data: $('#cut_form').serialize(),
+                success: function(returnValue) //we're calling the response json array 'cities'
+                {
+                    if (returnValue.value == 0) {
+                        showMessage('success', 'Los cambios se guardaron satisfactoriamente');
+                    } else {
+                        showMessage('warning', 'Ya existe un video con estos datos.');
+                    }
+                }
+            });                                                  
+        }
     });
 });

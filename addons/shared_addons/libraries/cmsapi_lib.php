@@ -154,7 +154,7 @@ class cmsapi_lib extends MX_Controller {
         echo json_encode($returnValue);
     }
     
-    public function uploadVideo($post, $files)
+    public function widget($post, $files)
     {
         $ruta_video = str_replace('cmsapi_lib.php', '', __FILE__).'../../../uploads/videos/' . $this->moveUploaded($files);
         $archivo_video = pathinfo($ruta_video);
@@ -419,10 +419,123 @@ class cmsapi_lib extends MX_Controller {
         return $returnValue;
     }
     
-    public function search($search,$dateini,$datefin)
+    public function search($search,$dateini,$datefin,$canales_id = null)
     {
         header("Content-Type: application/json; charset=utf-8");
-        //echo shell_exec("curl " . "http://micanal.pe/sphinx/videos/1/" . $search);        
-        echo $this->sphinx_m->busquedaVideos($search,$dateini,$datefin);        
+        //echo shell_exec("curl " . "http://micanal.pe/sphinx/videos/1/" . $search);
+        echo $this->sphinx_m->busquedaVideos($search,$dateini,$datefin,$canales_id);        
     }
+    
+    public function corte($video_id)
+    {
+        if ($this->input->post()) {
+            
+        } else if ($this->input->is_ajax_request()) {
+            //agregar metodo para alimentar al objeto para la edicion
+            $lista = 0;
+            $coleccion = 0;
+            $programa = 0;
+            //verificar que el video tenga registros en la tabla detalles de maestro
+            //obtener el objeto maestro para obtener el ID y tipo
+            $objGrupoDetalle = $this->grupo_detalle_mp->get_by(array("video_id" => $video_id));
+            if (count($objGrupoDetalle) > 0) {
+                $lista = $this->getIdMaestro($objGrupoDetalle->grupo_maestro_padre, 1);
+                $coleccion = $this->getIdMaestro($objGrupoDetalle->grupo_maestro_padre, 2);
+                $programa = $this->getIdMaestro($objGrupoDetalle->grupo_maestro_padre, 3);
+            }
+
+            $objVideo = $this->videos_m->get($video_id);
+            $objBeanForm->video_id = $video_id;
+            $objBeanForm->titulo = $objVideo->titulo;
+            $objBeanForm->video = '';
+            $objBeanForm->descripcion = $objVideo->descripcion;
+            $objBeanForm->fragmento = $objVideo->fragmento;
+            $objBeanForm->categoria = $objVideo->categorias_id;
+            $objBeanForm->tematicas = $this->_getTag($video_id, 1);
+            $objBeanForm->personajes = $this->_getTag($video_id, 2);
+            $objBeanForm->tipo = $objVideo->tipo_videos_id;
+            $objBeanForm->programa = $programa;
+            $objBeanForm->coleccion = $coleccion;
+            $objBeanForm->lista = $lista;
+            $objBeanForm->fec_pub_ini = date("d-m-Y H:i:s", strtotime($objVideo->fecha_publicacion_inicio)); //$objVideo->fecha_publicacion_inicio;
+            $objBeanForm->fec_pub_fin = date("d-m-Y H:i:s", strtotime($objVideo->fecha_publicacion_fin)); //$objVideo->fecha_publicacion_fin;
+            $objBeanForm->fec_trans = date("d-m-Y", strtotime($objVideo->fecha_transmision)); //$objVideo->fecha_transmision;
+            $objBeanForm->hora_trans_ini = $objVideo->horario_transmision_inicio;
+            $objBeanForm->hora_trans_fin = $objVideo->horario_transmision_fin;
+            $objBeanForm->ubicacion = $objVideo->ubicacion;
+            $objBeanForm->canal_id = $objVideo->canales_id;
+            $objBeanForm->tipo_maestro = '';
+            $objBeanForm->keywords = '';
+            $objBeanForm->duracion = $objVideo->duracion;
+            $objBeanForm->ruta = trim($objVideo->ruta);
+            $objBeanForm->progress_key = uniqid();
+            $objBeanForm->tiene_imagen = $this->_tieneAvatar($video_id);
+            if ($objBeanForm->tiene_imagen) {
+                $objBeanForm->avatar = $this->_getListImagen($video_id);
+            } else {
+                $objBeanForm->avatar = array();
+            }
+
+            header("Content-Type: application/json; charset=utf-8");
+            echo json_encode($objBeanForm);
+        }
+    }
+    
+    public function _getTag($video_id, $tag_type) {
+        $returnValue = '';
+        $arrayVideoTags = $this->video_tags_m->getVideoTags(array("videos_id" => $video_id));
+        if (count($arrayVideoTags) > 0) {
+            $arrayIdTags = array();
+            foreach ($arrayVideoTags as $index => $Tags) {
+                array_push($arrayIdTags, $Tags->tags_id);
+            }
+
+            $arrayTagsString = $this->tags_m->getListTags($arrayIdTags, $tag_type);
+            $arrayTag = array();
+            if (count($arrayTagsString) > 0) {
+                foreach ($arrayTagsString as $indice => $tag) {
+                    array_push($arrayTag, $tag->nombre);
+                }
+            }
+            $returnValue = implode(",", $arrayTag);
+        }
+
+        return $returnValue;
+    }
+    
+    public function _tieneAvatar($video_id) {
+        $returnValue = false;
+        //$this->config->load('videos/uploads');
+        if ($video_id > 0) {
+            $arrayReturn = $this->imagen_m->getImagen(array("videos_id" => $video_id, "tipo_imagen_id" => $this->config->item('imagen:small')), NULL);
+            if (count($arrayReturn) > 0) {
+                $returnValue = true;
+            }
+        }
+        return $returnValue;
+    }
+    
+    public function getIdMaestro($grupo_maestro_padre, $type) {
+        $objMaestro = $this->grupo_maestro_m->get($grupo_maestro_padre);
+        if (count($objMaestro) > 0) {
+            if ($objMaestro->tipo_grupo_maestro_id == $type) {
+                return $objMaestro->id;
+            } else {
+                $objMaestroDetalle = $this->grupo_detalle_m->get_by(array("grupo_maestro_id" => $objMaestro->id));
+                if (count($objMaestroDetalle) > 0) {
+                    return $this->getIdMaestro($objMaestroDetalle->grupo_maestro_padre, $type);
+                } else {
+                    return 0;
+                }
+            }
+        } else {
+            return 0;
+        }
+    }
+    private function seconds_from_time($time)
+    { 
+        list($h, $m, $s) = explode(':', $time); 
+        
+        return ($h * 3600) + ($m * 60) + $s; 
+    } 
 }

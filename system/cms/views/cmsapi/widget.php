@@ -3,7 +3,7 @@ if(!session_id()) {
     session_start();
 }
 ob_start();
-if (!empty($_SESSION['upload_result'])) {//Message exists, display it) {
+if (!empty($_SESSION['upload_result'])) {
 ?>
                 <div class="alert alert-<?php echo $_SESSION['upload_result']['type'] ?> fade in">
                     <button class="close" data-dismiss="alert" type="button">×</button>
@@ -15,23 +15,19 @@ if (!empty($_SESSION['upload_result'])) {//Message exists, display it) {
 }
 ?>
 
+                <div id="flash_message" class="alert" style="display: none;">
+                    <strong id="flash_title"></strong>
+                </div>
                 <ul class="nav nav-tabs" id="myTab">
                     <li class="active"><a href="#upload_form_tab" data-toggle="tab">Subida de video</a></li>
                     <li><a href="#search_form_tab" data-toggle="tab">Búsqueda</a></li>
+                    <li class="disabled"><a id="corte_video" href="#cut_form_tab" data-toggle="">Corte de video</a></li>
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane active fade in" id="upload_form_tab">
                         <form class="form-horizontal" action="/cmsapi/upload" enctype="multipart/form-data" id="upload_form" method="post">
                             <fieldset class="col-sm-6">
                                 <legend>Metadata</legend>
-                                <div class="row">
-                                    <label class="col-sm-3 control-label" for="canal_id">Canales</label>
-                                    <div class="col-sm-9">
-                                        <select id="canal_id" name="canal_id">
-                                            <option value="0">Seleccione canal</option>
-                                        </select>
-                                    </div>
-                                </div>
                                 <div class="row">
                                     <label class="col-sm-3 control-label" for="titulo">Título</label>
                                     <div class="col-sm-9">
@@ -142,6 +138,7 @@ if (!empty($_SESSION['upload_result'])) {//Message exists, display it) {
                                     <button class="btn btn-default pull-right">Subir video</button>
                                 </div>
                             </fieldset>
+                            <input id="canal_id" type="hidden" name="canal_id" value="<?php echo $canal_id; ?>" />
                             <input type="hidden" name="padre" value="0" />
                             <input type="hidden" name="video_id" value="0" />
                             <input type="hidden" name="ubicacion" value="" />
@@ -179,6 +176,9 @@ if (!empty($_SESSION['upload_result'])) {//Message exists, display it) {
                             </form>
                         </div>
                         <div id="search_results" class="row"></div>
+                    </div>
+                    <div class="tab-pane fade" id="cut_form_tab">
+                        <div id="cut_this_video"></div>
                     </div>
                 </div>
 <?php

@@ -1,5 +1,3 @@
-body { font-family: tahoma, arial; font-size: 12px;}
-
 .mediasplitter { width: 450px; background: #DDD; padding: 0 10px; border-radius: 3px; border: solid 1px #DCDCDC; text-shadow: 0 1px white;  } 
 .mediasplitter-wrapp { display: none;}
 .mediasplitter-show .mediasplitter-wrapp { display: block;}

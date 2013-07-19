@@ -912,42 +912,6 @@ class Admin extends Admin_Controller {
                 $lista = $this->getIdMaestro($objGrupoDetalle->grupo_maestro_padre, $this->config->item('videos:lista'));
                 $coleccion = $this->getIdMaestro($objGrupoDetalle->grupo_maestro_padre, $this->config->item('videos:coleccion'));
                 $programa = $this->getIdMaestro($objGrupoDetalle->grupo_maestro_padre, $this->config->item('videos:programa'));
-                //$objMaestro = $this->grupo_maestro_m->get($objGrupoDetalle->grupo_maestro_padre);
-                //$this->vd($objMaestro);
-                /* switch ($objMaestro->tipo_grupo_maestro_id) {
-                  case $this->config->item('videos:lista'):
-                  $lista = $objMaestro->id;
-                  if ($lista > 0) {
-                  $parentGrupoDetalle = $this->grupo_detalle_m->get_by(array("grupo_maestro_id" => $objMaestro->id));
-                  $objParentMaestro = $this->grupo_maestro_m->get($parentGrupoDetalle->grupo_maestro_padre);
-                  if ($objParentMaestro->tipo_grupo_maestro_id == $this->config->item('videos:coleccion')) {
-                  $coleccion = $objParentMaestro->id;
-                  }
-                  }
-                  //obtenemos el programa si existe
-                  if ($coleccion > 0) {
-                  $programaGrupoDetalle = $this->grupo_detalle_m->get_by(array("grupo_maestro_id" => $objParentMaestro->id));
-                  $objProgramaMaestro = $this->grupo_maestro_m->get($programaGrupoDetalle->grupo_maestro_padre);
-                  if ($objProgramaMaestro->tipo_grupo_maestro_id == $this->config->item('videos:programa')) {
-                  $programa = $objProgramaMaestro->id;
-                  }
-                  }
-                  break;
-                  case $this->config->item('videos:coleccion'):
-                  $coleccion = $objMaestro->id;
-                  //obtenemos el programa si existe
-                  if ($coleccion > 0) {
-                  $programaGrupoDetalle = $this->grupo_detalle_m->get_by(array("grupo_maestro_id" => $objMaestro->id));
-                  $objProgramaMaestro = $this->grupo_maestro_m->get($programaGrupoDetalle->grupo_maestro_padre);
-                  if ($objProgramaMaestro->tipo_grupo_maestro_id == $this->config->item('videos:programa')) {
-                  $programa = $objProgramaMaestro->id;
-                  }
-                  }
-                  break;
-                  case $this->config->item('videos:programa'):
-                  $programa = $objMaestro->id;
-                  break;
-                  } */
             }
 
             $objVideo = $this->videos_m->get($video_id);
@@ -2787,6 +2751,7 @@ class Admin extends Admin_Controller {
                 }
             }
         }
+                
         if ($id_type == 0) {
             if ($this->videos_m->existVideo($post['titulo'], $canal_id, $video_id)) {
                 $objVideo2 = $this->videos_m->like('titulo', $post['titulo'], 'none')->get_by(array());
