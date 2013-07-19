@@ -154,7 +154,7 @@ class cmsapi_lib extends MX_Controller {
         echo json_encode($returnValue);
     }
     
-    public function uploadVideo($post, $files)
+    public function widget($post, $files)
     {
         $ruta_video = str_replace('cmsapi_lib.php', '', __FILE__).'../../../uploads/videos/' . $this->moveUploaded($files);
         $archivo_video = pathinfo($ruta_video);

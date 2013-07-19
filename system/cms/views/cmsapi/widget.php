@@ -26,14 +26,6 @@ if (!empty($_SESSION['upload_result'])) {
                             <fieldset class="col-sm-6">
                                 <legend>Metadata</legend>
                                 <div class="row">
-                                    <label class="col-sm-3 control-label" for="canal_id">Canales</label>
-                                    <div class="col-sm-9">
-                                        <select id="canal_id" name="canal_id">
-                                            <option value="0">Seleccione canal</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="row">
                                     <label class="col-sm-3 control-label" for="titulo">Título</label>
                                     <div class="col-sm-9">
                                         <input id="titulo" name="titulo" placeholder="Ingrese un título para el video" required type="text" />
@@ -143,6 +135,7 @@ if (!empty($_SESSION['upload_result'])) {
                                     <button class="btn btn-default pull-right">Subir video</button>
                                 </div>
                             </fieldset>
+                            <input id="canal_id" type="hidden" name="canal_id" value="<?php echo $canal_id; ?>" />
                             <input type="hidden" name="padre" value="0" />
                             <input type="hidden" name="video_id" value="0" />
                             <input type="hidden" name="ubicacion" value="" />

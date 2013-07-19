@@ -10,17 +10,14 @@ class cmsApi extends MX_Controller {
         $this->load->library("cmsapi_lib");
     }
     
-    public function upload()
+    public function widget($canal_id)
     {
         if ($this->input->post()) {
-            $this->cmsapi_lib->uploadVideo($this->input->post(), $_FILES);
+            $this->cmsapi_lib->widget($this->input->post(), $_FILES);
         }
-        $this->template->build('cmsapi/upload');
-    }
-    
-    public function getCanalesList()
-    {
-        return $this->cmsapi_lib->getCanalesList();
+        $this->template
+                ->set('canal_id', $canal_id)
+                ->build('cmsapi/widget');
     }
 
     public function getProgramasList($canal_id)
