@@ -108,8 +108,9 @@ $(document).on('ready', function(){
             $('a#use-this-video').addClass('disabled');
         }
     });
-    $(document).on('click', 'a#use-this-video', function(){
-        console.log('add to hidden');
+    $(document).on('click', 'a#use-this-video', function(e){
+        e.preventDefault();
+        console.log('add to hidden: video_id = "' + $(this).attr('href') + '"');
     });
     $(document).on('click', 'a.corte_video', function(){
         $("div#cut_this_video").html('<div class="text-center"><img src="/system/cms/themes/default/img/loading.gif" /></div>');
@@ -176,7 +177,11 @@ $(document).on('ready', function(){
                 success: function(returnValue) //we're calling the response json array 'cities'
                 {
                     if (returnValue.value == 0) {
-                        showMessage('success', 'Los cambios se guardaron satisfactoriamente');
+                        showMessage('success', 'El corte se guardó satisfactoriamente');
+                        setTimeout(function(){
+                            var $use_this_video = '<a class="btn btn-default col-lg-2 text-center" href="' + returnValue.video_id + '" id="use-this-video">Usar este corte de video</a>';
+                            $("div#cut_this_video").html('').append($use_this_video);
+                        },4200);
                     } else {
                         showMessage('warning', 'Ya existe un video con estos datos.');
                     }

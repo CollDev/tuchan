@@ -87,7 +87,9 @@
     $('table#table tr').on('click', 'td', function(){
         $('table#table tbody tr').removeClass('success');
         $(this).parent().addClass('success');
-        $('a#use-this-video').removeClass('disabled');
+        var tr_id = $(this).parent().attr('id');
+        var split = tr_id.split('_');
+        $('a#use-this-video').removeClass('disabled').attr('href', split[1]);
     });
     $('.first-page').on('click', function(){ sorter.move(-1,true); });
     $('.prev-page').on('click', function(){ sorter.move(-1); });

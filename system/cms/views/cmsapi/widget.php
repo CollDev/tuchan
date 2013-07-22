@@ -62,6 +62,11 @@ if (!empty($_SESSION['upload_result'])) {
                                     <div class="col-sm-9">
                                         <input id="video" name="video" type="file" />
                                     </div>
+                                    <div class="progress_upload" style="display: none; clear: both;">
+                                    <div class="bar"></div>
+                                    <div class="percent">0%</div>
+                                </div>
+                                <div id="status"></div>
                                 </div>
                                 <div class="row">
                                     <label class="col-sm-3 control-label" for="fec_trans">Fecha de transmisión</label>
