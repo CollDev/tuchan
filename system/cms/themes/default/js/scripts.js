@@ -2,6 +2,14 @@ $.ajaxSetup({
     cache: false
 });
 $(document).on('ready', function(){
+    $.getJSON("/cmsapi/getcanaleslist")
+        .done(function(res){
+            $.each(res, function(key, value){
+                $('#canal_id')
+                    .append($('<option>', { value : key })
+                    .text(value));
+            });
+        });
     $.getJSON("/cmsapi/getcategoriaslist")
         .done(function(res){
             $.each(res, function(key, value){
@@ -10,7 +18,7 @@ $(document).on('ready', function(){
                         .append($('<option>', { value : key })
                         .text(value));
                 } else {
-                    var optiong = $('<optgroup>', { label : key});
+                    var optiong = $('<optgroup>', { label : key });
                     $.each(value, function(keyg, valueg){
                         $(optiong)
                             .append($('<option>', { value : keyg })
@@ -84,7 +92,7 @@ $(document).on('ready', function(){
         e.preventDefault();
         if ($('#termino').val() !== '') {
             $("div#search_results").html('<div class="text-center"><img src="/system/cms/themes/default/img/loading.gif" /></div>');
-            $.getJSON("/cmsapi/search/" + $('#termino').val()+ "/"+$("#fecha_inicio").val()+"/"+$("#fecha_fin").val())
+            $.getJSON("/cmsapi/search/" + $('#termino').val()+ "/"+$("#fecha_inicio").val()+"/"+$("#fecha_fin").val()+"/"+$("#canal_id").val())
                 .done(function(data){
                     $.get("/system/cms/themes/default/js/mustache_templates/cmsapi/search_results.html", function(template){
                         $("div#search_results").html('');
