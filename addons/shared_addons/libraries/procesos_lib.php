@@ -1241,7 +1241,7 @@ class Procesos_lib extends MX_Controller {
         $this->_activarSecciones6789();
         
         Log::erroLog("_actualizarVisualizacion");
-        $this->_actualizarVisualizacion();
+       //$this->_actualizarVisualizacion();
         
         Log::erroLog("_actualizarComentariosValorizacion");
         $this->_actualizarComentariosValorizacion();
