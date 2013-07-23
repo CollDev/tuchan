@@ -43,7 +43,9 @@ class cmsapi_lib extends MX_Controller {
         $arrayData = $this->canal_mp->getCanalesList(array('estado' => 1), 'nombre');
         if (count($arrayData) > 0) {
             foreach ($arrayData as $index => $objTipo) {
-                $returnValue[$objTipo->id] = $objTipo->nombre;
+                if ($objTipo->tipo_canales_id != 5) {
+                    $returnValue[$objTipo->id] = $objTipo->nombre;
+                }
             }
         }
         
@@ -435,7 +437,7 @@ class cmsapi_lib extends MX_Controller {
         
         $fechafin = null;
         if ($datefin != null) {
-            list($dia2, $mes2, $año2) = explode('-', $fechafin);
+            list($dia2, $mes2, $año2) = explode('-', $datefin);
             $fechafin = strtotime($año2 . '-' . $mes2 . '-' . $dia2 . ' 00:00:00');
         }
 
@@ -474,39 +476,44 @@ class cmsapi_lib extends MX_Controller {
             }
 
             $objVideo = $this->videos_m->get($video_id);
-            $objBeanForm->video_id = $video_id;
-            $objBeanForm->titulo = $objVideo->titulo;
-            $objBeanForm->video = '';
-            $objBeanForm->descripcion = $objVideo->descripcion;
-            $objBeanForm->fragmento = $objVideo->fragmento;
-            $objBeanForm->categoria = $objVideo->categorias_id;
-            $objBeanForm->tematicas = $this->_getTag($video_id, 1);
-            $objBeanForm->personajes = $this->_getTag($video_id, 2);
-            $objBeanForm->tipo = $objVideo->tipo_videos_id;
-            $objBeanForm->programa = $programa;
-            $objBeanForm->coleccion = $coleccion;
-            $objBeanForm->lista = $lista;
-            $objBeanForm->fec_pub_ini = date("d-m-Y H:i:s", strtotime($objVideo->fecha_publicacion_inicio)); //$objVideo->fecha_publicacion_inicio;
-            $objBeanForm->fec_pub_fin = date("d-m-Y H:i:s", strtotime($objVideo->fecha_publicacion_fin)); //$objVideo->fecha_publicacion_fin;
-            $objBeanForm->fec_trans = date("d-m-Y", strtotime($objVideo->fecha_transmision)); //$objVideo->fecha_transmision;
-            $objBeanForm->hora_trans_ini = $objVideo->horario_transmision_inicio;
-            $objBeanForm->hora_trans_fin = $objVideo->horario_transmision_fin;
-            $objBeanForm->ubicacion = $objVideo->ubicacion;
-            $objBeanForm->canal_id = $objVideo->canales_id;
-            $objBeanForm->tipo_maestro = '';
-            $objBeanForm->keywords = '';
-            $objBeanForm->duracion = $objVideo->duracion;
-            $objBeanForm->ruta = trim($objVideo->ruta);
-            $objBeanForm->progress_key = uniqid();
-            $objBeanForm->tiene_imagen = $this->_tieneAvatar($video_id);
-            if ($objBeanForm->tiene_imagen) {
-                $objBeanForm->avatar = $this->_getListImagen($video_id);
-            } else {
-                $objBeanForm->avatar = array();
-            }
+            if (count($objVideo) > 0) {
+                $objBeanForm->video_id = $video_id;
+                $objBeanForm->titulo = $objVideo->titulo;
+                $objBeanForm->video = '';
+                $objBeanForm->descripcion = $objVideo->descripcion;
+                $objBeanForm->fragmento = $objVideo->fragmento;
+                $objBeanForm->categoria = $objVideo->categorias_id;
+                $objBeanForm->tematicas = $this->_getTag($video_id, 1);
+                $objBeanForm->personajes = $this->_getTag($video_id, 2);
+                $objBeanForm->tipo = $objVideo->tipo_videos_id;
+                $objBeanForm->programa = $programa;
+                $objBeanForm->coleccion = $coleccion;
+                $objBeanForm->lista = $lista;
+                $objBeanForm->fec_pub_ini = date("d-m-Y H:i:s", strtotime($objVideo->fecha_publicacion_inicio)); //$objVideo->fecha_publicacion_inicio;
+                $objBeanForm->fec_pub_fin = date("d-m-Y H:i:s", strtotime($objVideo->fecha_publicacion_fin)); //$objVideo->fecha_publicacion_fin;
+                $objBeanForm->fec_trans = date("d-m-Y", strtotime($objVideo->fecha_transmision)); //$objVideo->fecha_transmision;
+                $objBeanForm->hora_trans_ini = $objVideo->horario_transmision_inicio;
+                $objBeanForm->hora_trans_fin = $objVideo->horario_transmision_fin;
+                $objBeanForm->ubicacion = $objVideo->ubicacion;
+                $objBeanForm->canal_id = $objVideo->canales_id;
+                $objBeanForm->tipo_maestro = '';
+                $objBeanForm->keywords = '';
+                $objBeanForm->duracion = $objVideo->duracion;
+                $objBeanForm->ruta = trim($objVideo->ruta);
+                $objBeanForm->progress_key = uniqid();
+                $objBeanForm->tiene_imagen = $this->_tieneAvatar($video_id);
+                if ($objBeanForm->tiene_imagen) {
+                    $objBeanForm->avatar = $this->_getListImagen($video_id);
+                } else {
+                    $objBeanForm->avatar = array();
+                }
 
-            header("Content-Type: application/json; charset=utf-8");
-            echo json_encode($objBeanForm);
+                header("Content-Type: application/json; charset=utf-8");
+                echo json_encode($objBeanForm);
+            } else {
+                header("Content-Type: application/json; charset=utf-8");
+                echo json_encode(array());
+            }
         }
     }
     
