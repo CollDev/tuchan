@@ -421,17 +421,38 @@ class cmsapi_lib extends MX_Controller {
     
     public function search($search)           
     {//,$canales_id = null,$dateini=null,$datefin=null
-        
-        
-        
         header("Content-Type: application/json; charset=utf-8");
-        //echo shell_exec("curl " . "http://micanal.pe/sphinx/videos/1/" . $search);
         
         $dateini=$this->input->get('fecha_inicio',TRUE) ;
         $datefin=$this->input->get('fecha_fin',TRUE);
         $canales_id=$this->input->get('canal_id',TRUE);
         
-        echo $this->sphinx_m->busquedaVideos($search,$dateini,$datefin,$canales_id);        
+        $fechaini = null;
+        if ($dateini != null) {
+            list($dia1, $mes1, $año1) = explode('-', $dateini);            
+            $fechaini = strtotime($año1 . '-' . $mes1 . '-' . $dia1 . ' 00:00:00');
+        }
+        
+        $fechafin = null;
+        if ($datefin != null) {
+            list($dia2, $mes2, $año2) = explode('-', $fechafin);
+            $fechafin = strtotime($año2 . '-' . $mes2 . '-' . $dia2 . ' 00:00:00');
+        }
+
+        //$palabrabusqueda = urldecode(str_replace("-", " ", $palabrabusqueda));
+        
+        $parametros = array();
+        
+//        if ($parametro == ESTADO_ACTIVO) {
+            $parametros['estado'] = ESTADO_ACTIVO;
+            $parametros["peso_videos"] =
+                    array('tags' => $this->config->item('peso_tag:sphinx'),
+                        'titulo' => $this->config->item('peso_titulo:sphinx'),
+                        'descripcion' => $this->config->item('peso_descripcion:sphinx')
+            );
+//        }
+        
+        echo $this->sphinx_m->busquedaVideos($parametros,$search,$fechaini,$fechafin,$canales_id);        
     }
     
     public function corte($video_id)

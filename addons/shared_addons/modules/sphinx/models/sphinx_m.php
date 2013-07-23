@@ -17,35 +17,21 @@ class Sphinx_m extends CI_Model {
         $this->CLIENTSPHINX;
     }
 
-    public function busquedaVideos($palabrabusqueda = "", $fechaini = null, $fechafin = null, $canales_id = null) {
-        if ($fechafin != null) {
-            list($dia1, $mes1, $año1) = explode('-', $fechaini);
-            //$fechaini = mktime(0, 0, 0, $mes1, $dia1, $año1);  
-            $fechaini = strtotime($año1 . '-' . $mes1 . '-' . $dia1 . ' 00:00:00');
-        }
-
-        if ($fechafin != null) {
-            list($dia2, $mes2, $año2) = explode('-', $fechafin);
-            //$fechafin = mktime(0, 0, 0, $mes2, $dia2,  $año2);
-            $fechafin = strtotime($año2 . '-' . $mes2 . '-' . $dia2 . ' 00:00:00');
-        }
-
-        $palabrabusqueda = urldecode(str_replace("-", " ", $palabrabusqueda));
+    public function busquedaVideos($parametros,$palabrabusqueda = "", $fechaini = null, $fechafin = null, $canales_id = null) {
+        
 
         $cl = $this->CLIENTSPHINX;
 
         $index = 'busquedavideos';
-        //$cl->SetLimits(0, 100);
-        //$cl->SetSortMode(SPH_SORT_EXTENDED,"fecha desc");
         $cl->SetMatchMode(SPH_MATCH_ALL);
         $cl->SetRankingMode(SPH_RANK_PROXIMITY);
 
-//        if (!empty($parametros["peso_videos"])) {
-//            $cl->SetFieldWeights($parametros["peso_videos"]);
-//        }
-//        if (!empty($parametros["estado"])) {
-//            $cl->SetFilter('estado', array(2));
-//        }
+        if (!empty($parametros["peso_videos"])) {
+            $cl->SetFieldWeights($parametros["peso_videos"]);
+        }
+        if (!empty($parametros["estado"])) {
+            $cl->SetFilter('estado', array(2));
+        }
 
         if (!empty($fechaini) && !empty($fechafin)) {
             $cl->SetFilterRange('fecha', $fechaini, $fechafin);
@@ -85,7 +71,7 @@ class Sphinx_m extends CI_Model {
                     $arraytemp["duracion"] = $res[$i]["attrs"]["duracion"];
                     //$arraytemp["fecha"]=$res[$i]["attrs"]["fecha_transmision"];
                     $arraytemp["nombre_ca"] = $res[$i]["attrs"]["nombre_ca"];
-                    $arraytemp["categorias_id"] = $res[$i]["attrs"]["categorias_id"];
+//                    $arraytemp["categorias_id"] = $res[$i]["attrs"]["categorias_id"];
                     $arraytemp["categorias_no"] = $res[$i]["attrs"]["categorias_no"];
 
 
@@ -145,6 +131,54 @@ class Sphinx_m extends CI_Model {
 
 
             return json_encode($arraygeneral, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP);
+        }
+    }
+
+    public function busquedaRelacionado($parametros, $palabrabusqueda) {        
+
+       
+
+        $cl = $this->CLIENTSPHINX;
+        $index = 'busquedavideos';
+
+        $cl->SetLimits(0, 10);
+        $cl->SetMatchMode(SPH_MATCH_ALL);
+        $cl->SetRankingMode(SPH_RANK_PROXIMITY);
+        $cl->SetSortMode(SPH_SORT_RELEVANCE);
+
+        if (!empty($parametros["peso_videos"])) {
+            $cl->SetFieldWeights($parametros["peso_videos"]);
+        }
+
+        if (!empty($parametros["estado"])) {
+            $cl->SetFilter('estado', array(2));
+        }
+
+        $cl->AddQuery($palabrabusqueda, $index);
+        $cl->ResetFilters();
+
+        $cl->SetArrayResult(TRUE);
+
+        $result = $cl->RunQueries();
+
+
+        if ($result === false) {
+            echo "fallo en Query: " . $cl->GetLastError() . ".n";
+        } else {
+            if ($cl->GetLastWarning()) {
+                echo "WARNING: " . $cl->GetLastWarning() . "";
+            }
+
+
+
+            $arrvideos = array();
+            if (!empty($result[0]["matches"])) {
+                $res = $result[0]["matches"];
+                for ($i = 0; $i < count($res); $i++) {
+                    array_push($arrvideos, $res[$i]["attrs"]["id_mongo"]);
+                }
+            }
+            return $arrvideos;
         }
     }
 
