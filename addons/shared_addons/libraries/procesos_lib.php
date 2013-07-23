@@ -368,7 +368,7 @@ class Procesos_lib extends MX_Controller {
                     $resultado = $this->videos_mp->getVideosNoPublicadosXId($id);
                     if (count($resultado) > 0) {
                         foreach ($resultado as $value) {
-                            Liquid::updatePublishedMediaNode($value);
+                           Liquid::updatePublishedMediaNode($value);
                         }
                     }
                 } elseif ($boolpublished == NULL) {
@@ -1044,7 +1044,7 @@ class Procesos_lib extends MX_Controller {
                     $objmongo['clips'] = array();
                     $objmongo['playerkeyca'] = $datovideo[0]->xplayerkey;
                     $objmongo['apikey'] = $datovideo[0]->xapikey;
-
+                    $objmongo['fragmento'] = (int)($value->fragmento);
                     $objmongo['valoracion'] = $datovideo[0]->xvi_val;
                     $objmongo['publicidad'] = "0";
                     $objmongo['estado'] = ($value->estado == 2) ? "1" : "0";
