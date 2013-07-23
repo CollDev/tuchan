@@ -213,4 +213,31 @@ $(document).on('ready', function() {
             });
         }
     });
+    $("#fecha_transmision").datepicker({ altField: "#fec_trans" });
+    $("#hora_trans_ini").timepicker();
+    $("#hora_trans_fin").timepicker();
+    $("#fec_ini").datepicker({
+        altField: "#fecha_inicio",
+        defaultDate: "+1w",
+        changeMonth: true,
+        numberOfMonths: 1,
+        onClose: function(selectedDate) {
+            $("#fec_fin").datepicker("option", "minDate", selectedDate);
+        }
+    });
+    $("#fec_fin").datepicker({
+        altField: "#fecha_fin",
+        defaultDate: "+1w",
+        changeMonth: true,
+        numberOfMonths: 1,
+        onClose: function(selectedDate) {
+            $("#fec_ini").datepicker("option", "maxDate", selectedDate);
+        }
+    });
+    $(document).on('keypress', "#fec_ini", function(){
+        $("#fecha_inicio").val('');
+    });
+    $(document).on('keypress', "#fec_fin", function(){
+        $("#fecha_fin").val('');
+    });
 });

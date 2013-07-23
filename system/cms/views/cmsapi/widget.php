@@ -25,7 +25,7 @@ if (!empty($_SESSION['upload_result'])) {
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane active fade in" id="upload_form_tab">
-                        <form class="form-horizontal" action="/cmsapi/upload" enctype="multipart/form-data" id="upload_form" method="post">
+                        <form class="form-horizontal" action="" enctype="multipart/form-data" id="upload_form" method="post">
                             <fieldset class="col-sm-6">
                                 <legend>Metadata</legend>
                                 <div class="row">
@@ -34,7 +34,7 @@ if (!empty($_SESSION['upload_result'])) {
                                         <input id="titulo" name="titulo" placeholder="Ingrese un título para el video" required type="text" />
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div class="row hidden">
                                     <label class="col-sm-3 control-label" for="fragmento">Fragmento</label>
                                     <div class="col-sm-9">
                                         <select id="fragmento" name="fragmento">
@@ -69,21 +69,21 @@ if (!empty($_SESSION['upload_result'])) {
                                 <div id="status"></div>
                                 </div>
                                 <div class="row">
-                                    <label class="col-sm-3 control-label" for="fec_trans">Fecha de transmisión</label>
+                                    <label class="col-sm-3 control-label" for="fecha_transmision">Fecha de transmisión</label>
                                     <div class="col-sm-9">
-                                        <input id="fec_trans" name="fec_trans" type="date" />
+                                        <input id="fecha_transmision" name="fecha_transmision" type="date" />
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <label class="col-sm-3 control-label" for="hora_trans_ini">Fecha inicio</label>
+                                    <label class="col-sm-3 control-label" for="hora_trans_ini">Hora inicio</label>
                                     <div class="col-sm-9">
-                                        <input id="hora_trans_ini" name="hora_trans_ini" type="date" />
+                                        <input id="hora_trans_ini" name="hora_trans_ini" type="time" />
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <label class="col-sm-3 control-label" for="hora_trans_fin">Fecha fin</label>
+                                    <label class="col-sm-3 control-label" for="hora_trans_fin">Hora fin</label>
                                     <div class="col-sm-9">
-                                        <input id="hora_trans_fin" name="hora_trans_fin" type="date" />
+                                        <input id="hora_trans_fin" name="hora_trans_fin" type="time" />
                                     </div>
                                 </div>
                                 <div class="row">
@@ -145,6 +145,7 @@ if (!empty($_SESSION['upload_result'])) {
                             </fieldset>
                             <input type="hidden" name="canal_id" value="<?php echo $canal_id; ?>" />
                             <input type="hidden" name="padre" value="0" />
+                            <input type="hidden" name="fec_trans" id="fec_trans" value="" />
                             <input type="hidden" name="video_id" value="0" />
                             <input type="hidden" name="ubicacion" value="" />
                             <input type="hidden" name="fec_pub_fin" value="" />
@@ -164,14 +165,14 @@ if (!empty($_SESSION['upload_result'])) {
                                     </div>
                                 </div>
                                 <div class="col-sm-7">
-                                    <label class="col-sm-2 control-label" for="fecha_inicio">Fecha inicio</label>
+                                    <label class="col-sm-2 control-label" for="fec_ini">Fecha inicio</label>
                                     <div class="col-sm-4">
-                                        <input id="fecha_inicio" type="date" name="fecha_inicio" />
+                                        <input id="fec_ini" type="date" name="fec_ini" />
                                         <p class="help-block">Sólo en esta fecha.</p> 
                                     </div>
-                                    <label class="col-sm-2 control-label" for="fecha_fin">Fecha fin</label>
+                                    <label class="col-sm-2 control-label" for="fec_fin">Fecha fin</label>
                                     <div class="col-sm-4">
-                                        <input id="fecha_fin" type="date" name="fecha_fin" />
+                                        <input id="fec_fin" type="date" name="fec_fin" />
                                         <p class="help-block">Dentro del rango</p>
                                     </div>
                                 </div>
@@ -186,6 +187,8 @@ if (!empty($_SESSION['upload_result'])) {
                                 <div class="col-sm-7">
                                     <button class="btn btn-default pull-right">Buscar</button>
                                 </div>
+                                <input id="fecha_inicio" name="fecha_inicio" type="hidden" value="" />
+                                <input id="fecha_fin" name="fecha_fin" type="hidden" value="" />
                             </form>
                         </div>
                         <div id="search_results" class="row"></div>
