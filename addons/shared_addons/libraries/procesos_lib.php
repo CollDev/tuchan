@@ -8,6 +8,9 @@ class Procesos_lib extends MX_Controller {
         //parent::__construct();
         //$this->database();        
         //$this->load->model('models/proceso_m');
+
+        $this->config->load('sphinx/config');
+
         $this->load->model('micanal_mp');
         $this->load->model('canal_mp');
         $this->load->model('version_mp');
@@ -19,6 +22,8 @@ class Procesos_lib extends MX_Controller {
         $this->load->model('video_tags_mp');
         $this->load->model('grupo_maestros_mp');
 
+        $this->load->model('sphinx/sphinx_m');
+
         $this->load->library("Procesos/proceso");
         $this->load->library("Procesos/liquid");
         $this->load->library("Procesos/ffmpeg");
@@ -27,11 +32,12 @@ class Procesos_lib extends MX_Controller {
         $this->load->library("Procesos/log");
         $this->load->library('portadas_lib');
         $this->load->library('sincronizar_lib');
-        
+
         $this->load->helper('file');
     }
 
     public function index() {
+        
     }
 
     /* Corte video  -  INICIO */
@@ -88,32 +94,32 @@ class Procesos_lib extends MX_Controller {
 
         foreach ($arrvideos as $value) {
             $cantidad = Liquid::obtenernumberOfViewsXVideo($value->codigo, $value->apikey);
-                Log::erroLog("_actualizarVisualizacion: " . $value->id ." - " . $value->id_mongo." - " .$cantidad);
-            
-            if($cantidad != $value->reproducciones){
-                $this->setReproduccionesVideosXId($value->id,$value->id_mongo, $cantidad);
-            }            
+            Log::erroLog("_actualizarVisualizacion: " . $value->id . " - " . $value->id_mongo . " - " . $cantidad);
+
+            if ($cantidad != $value->reproducciones) {
+                $this->setReproduccionesVideosXId($value->id, $value->id_mongo, $cantidad);
+            }
         }
     }
 
     /* Actualizar Visualizaciones Liquid  -  FIN */
 
-    private function _curlSetReproducciones($id,$id_mongo, $cant) {
+    private function _curlSetReproducciones($id, $id_mongo, $cant) {
         Log::erroLog("_curlSetReproducciones: " . $id . ", cant: " . $cant);
-        $ruta = base_url("curlproceso/setReproduccionesVideosXId/" . $id . "/" .$id_mongo ."/". $cant);
+        $ruta = base_url("curlproceso/setReproduccionesVideosXId/" . $id . "/" . $id_mongo . "/" . $cant);
         shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");
     }
 
     public function setReproduccionesVideosXId($id, $id_mongo, $cant) {
         $this->videos_mp->setReproduccionesVideosXId($id, $cant);
-        $this->_setReproduccionesMongoVideosXIdMongo($id_mongo,$cant);
+        $this->_setReproduccionesMongoVideosXIdMongo($id_mongo, $cant);
     }
-    
-    private function _setReproduccionesMongoVideosXIdMongo($id_mongo,$cant){
-       Log::erroLog("entro a _setReproduccionesMongoVideosXIdMongo");
-       $id_mongo = new MongoId($id_mongo);   
-       $objmongo['reproducciones'] = $cant; 
-       $this->micanal_mp->setItemCollectionUpdate($objmongo, array('_id' => $id_mongo));
+
+    private function _setReproduccionesMongoVideosXIdMongo($id_mongo, $cant) {
+        Log::erroLog("entro a _setReproduccionesMongoVideosXIdMongo");
+        $id_mongo = new MongoId($id_mongo);
+        $objmongo['reproducciones'] = $cant;
+        $this->micanal_mp->setItemCollectionUpdate($objmongo, array('_id' => $id_mongo));
     }
 
     /* Actualizar Comentarios Valoracion   -  INICIO */
@@ -124,7 +130,7 @@ class Procesos_lib extends MX_Controller {
             $id_mongo = new MongoId($value->id_mongo);
             $videomongo = $this->canal_mp->getItemCollection($id_mongo);
             $comentarios = (!isset($videomongo[0]["comentarios"])) ? 0 : $videomongo[0]["comentarios"];
-            $valoracion = (!isset($videomongo[0]["valoracion"] )) ? 0 : $videomongo[0]["valoracion"];
+            $valoracion = (!isset($videomongo[0]["valoracion"])) ? 0 : $videomongo[0]["valoracion"];
             $this->videos_mp->setComentariosValorizacion($value->id, $comentarios, $valoracion);
         }
     }
@@ -245,15 +251,15 @@ class Procesos_lib extends MX_Controller {
                     Log::erroLog("entro a : updateMediaVideosXId " . $value->id . "/" . $retorno);
                     $ruta = base_url("curlproceso/updateMediaVideosXId/" . $value->id . "/" . $retorno);
                     shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");
-                    Log::erroLog("return media " . trim($retorno)); 
+                    Log::erroLog("return media " . trim($retorno));
                 } else {
                     Log::erroLog("exception de upload  getObtenerMediaXId " . $value->id . "," . $value->apikey);
-                  
-                    $contador = 0 ; 
+
+                    $contador = 0;
                     BUSQUEDAMEDIA:
-                    
+
                     sleep(300);
-                    $mediaarray = Liquid::getObtenerMediaXId($value->id, $value->apikey);                                       
+                    $mediaarray = Liquid::getObtenerMediaXId($value->id, $value->apikey);
 
                     if ($mediaarray != FALSE) {
                         $mediaxml = new SimpleXMLElement($mediaarray);
@@ -268,19 +274,18 @@ class Procesos_lib extends MX_Controller {
                             $ruta = base_url("curlproceso/updateMediaVideosXId/" . $value->id . "/" . $media);
                             shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");
                         } else {
-                            
-                            if($contador==10){
+
+                            if ($contador == 10) {
                                 //$this->videos_mp->setEstadosVideos($value->id, $this->config->item('v_e:error'), $this->config->item('v_l:subiendo'));
                                 $this->curlUpdateEstadoVideosXId($value->id, $this->config->item('v_e:error'), $this->config->item('v_l:subiendo'));
-                            }  else {
+                            } else {
                                 $contador++;
                                 goto BUSQUEDAMEDIA;
-
                             }
                         }
                     } else {
-                            //$this->videos_mp->setEstadosVideos($value->id, $this->config->item('v_e:error'), $this->config->item('v_l:subiendo'));
-                            $this->curlUpdateEstadoVideosXId($value->id, $this->config->item('v_e:error'), $this->config->item('v_l:subiendo'));                                                
+                        //$this->videos_mp->setEstadosVideos($value->id, $this->config->item('v_e:error'), $this->config->item('v_l:subiendo'));
+                        $this->curlUpdateEstadoVideosXId($value->id, $this->config->item('v_e:error'), $this->config->item('v_l:subiendo'));
                     }
                 }
             }
@@ -394,12 +399,12 @@ class Procesos_lib extends MX_Controller {
 
                             if ($imagenpadre == NULL) {
                                 $imagenpadre = $this->imagenes_mp->setImagenVideos($datos);
-                                
+
                                 $this->portadas_lib->agregar_imagen_video_lista($id, $imagenpadre);
                                 Log::erroLog("id imagen padre: " . $datos["imagen_padre"]);
                             } else {
                                 $video_hijo_id = $this->imagenes_mp->setImagenVideos($datos);
-                               
+
                                 $this->portadas_lib->agregar_imagen_video_lista($id, $video_hijo_id);
                             }
                         }
@@ -419,7 +424,7 @@ class Procesos_lib extends MX_Controller {
 
     /* MiCanal Mongo - INICIO */
 
-        private function urls_amigables($url) {
+    private function urls_amigables($url) {
         $url = strtolower($url);
         $find = array('á', 'é', 'í', 'ó', 'ú', 'ñ');
         $repl = array('a', 'e', 'i', 'o', 'u', 'n');
@@ -848,7 +853,6 @@ class Procesos_lib extends MX_Controller {
         }
     }
 
-
     public function actualizarGrupoMaestros() {
         $this->_actualizarGrupoMaestros();
     }
@@ -1033,11 +1037,11 @@ class Procesos_lib extends MX_Controller {
                     $objmongo['reproducciones'] = $datovideo[0]->xvi_rep;
                     $objmongo['lista_reproduccion'] = ($datovideo[0]->xlistareproduccion);
                     $objmongo['duracion'] = $datovideo[0]->xduracion;
-                    $objmongo['media'] = $datovideo[0]->xcodigo;              
+                    $objmongo['media'] = $datovideo[0]->xcodigo;
                     $objmongo['comentarios'] = $datovideo[0]->xvi_com;
                     $objmongo['related'] = array();
                     $objmongo['playlist'] = array();
-                    $objmongo['clips'] = array();               
+                    $objmongo['clips'] = array();
                     $objmongo['playerkeyca'] = $datovideo[0]->xplayerkey;
                     $objmongo['apikey'] = $datovideo[0]->xapikey;
 
@@ -1079,9 +1083,9 @@ class Procesos_lib extends MX_Controller {
                     $this->canal_mp->setItemCollectionUpdate(array("estado" => "0"), array('_id' => $id_mongo));
                 }
             }
-            
-                    Log::erroLog("actualizar_video: " . $id);                     
-                    $this->_actualizarCantidadVideosXVideosId($id);
+
+            Log::erroLog("actualizar_video: " . $id);
+            $this->_actualizarCantidadVideosXVideosId($id);
         } else {
             if ($this->canal_mp->existe_id($id)) {
                 $this->canal_mp->setItemCollectionDelete($id);
@@ -1104,7 +1108,7 @@ class Procesos_lib extends MX_Controller {
             $imagenes = $this->imagenes_mp->getImagenesVideos($id);
 
             foreach ($imagenes as $rowx) {
-                    if ($rowx->procedencia == 0) {
+                if ($rowx->procedencia == 0) {
                     $arrimagen[$rowx->ancho . "x" . $rowx->alto] = "http://" . $this->config->item('server:elemento') . "/" . $rowx->imagen;
                 } else {
                     $arrimagen[$rowx->ancho . "x" . $rowx->alto] = $rowx->imagen;
@@ -1129,27 +1133,37 @@ class Procesos_lib extends MX_Controller {
 
             $tags = $this->video_tags_mp->getTagsVideosXId($id);
 
-            Log::erroLog("relacionados tags: " . str_replace(" ", "-", $tags[0]->tags));
+            Log::erroLog("relacionados tags: " . $tags[0]->tags);
 
-            $url = $this->config->item('motor') . "/sphinx/relacionados/nada/" . str_replace(" ", "-", $tags[0]->tags);
+//            $url = $this->config->item('motor') . "/sphinx/relacionados/nada/" . str_replace(" ", "-", $tags[0]->tags);
+//
+//            $ch = curl_init();
+//            curl_setopt($ch, CURLOPT_URL, $url);
+//            curl_setopt($ch, CURLOPT_FAILONERROR, 1);
+//            curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+//            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+//            curl_setopt($ch, CURLOPT_TIMEOUT, 15);
+//
+//            $result = curl_exec($ch);
+//            $info = curl_getinfo($ch);
+//
+//
+//            if ($info['http_code'] == '200') {
+//                $resultado = json_decode($result);
+//            } else {
+//                $resultado = array();
+//            }
 
-            $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL, $url);
-            curl_setopt($ch, CURLOPT_FAILONERROR, 1);
-            curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-            curl_setopt($ch, CURLOPT_TIMEOUT, 15);
+            $parametros = array();
 
-            $result = curl_exec($ch);
-            $info = curl_getinfo($ch);
+            $parametros['estado'] = ESTADO_ACTIVO;
+            $parametros["peso_videos"] =
+                    array('tags' => $this->config->item('peso_tag:sphinx'),
+                        'titulo' => $this->config->item('peso_titulo:sphinx'),
+                        'descripcion' => $this->config->item('peso_descripcion:sphinx')
+            );
 
-
-            if ($info['http_code'] == '200') {
-                $resultado = json_decode($result);
-            } else {
-                $resultado = array();
-            }
-
+            $resultado = $this->sphinx_m->busquedaRelacionado($parametros, $tags[0]->tags);
 
             $arrayrelacionados = array();
 
@@ -1239,21 +1253,21 @@ class Procesos_lib extends MX_Controller {
     public function actualizarSecciones6789() {
         Log::erroLog("_activarSecciones6789");
         $this->_activarSecciones6789();
-        
+
         Log::erroLog("_actualizarVisualizacion");
         $this->_actualizarVisualizacion();
-        
+
         Log::erroLog("_actualizarComentariosValorizacion");
         $this->_actualizarComentariosValorizacion();
-        
+
         Log::erroLog("_actualizarSecciones6789");
         $this->_actualizarSecciones6789();
-        
+
         Log::erroLog("_publicidadVideosMasVistos");
         $this->_publicidadVideosMasVistos();
     }
-    
-    private function _activarSecciones6789(){
+
+    private function _activarSecciones6789() {
         $this->secciones_mp->updateSeccionesTipo6789();
     }
 
@@ -1324,8 +1338,6 @@ class Procesos_lib extends MX_Controller {
     }
 
     public function videoYoutube($id, $url = "") {
-
-        //$url = "http://youtu.be/Fqt1XQ1ItJI";
 
         $limpiarurl = array(
             "http://www.youtube.com/watch?",
@@ -1403,8 +1415,8 @@ class Procesos_lib extends MX_Controller {
 
         foreach ($video as $value) {
             $this->_actualizarCantidadVideosXCanalId($value->canal_id);
-            
-            if(!empty($value->gm_id)){
+
+            if (!empty($value->gm_id)) {
                 $this->_actualizarCantidadVideosXGmId(3, $value->gm_id);
             }
         }
@@ -1562,31 +1574,30 @@ class Procesos_lib extends MX_Controller {
         }
     }
 
-    public function publicarPorIbope()
-    {
+    public function publicarPorIbope() {
         $videos = $this->videos_mp->getTransmisionMenorIbope();
         foreach ($videos as $video) {
             $this->curlGenerarVideosXId($video->id);
         }
     }
-    
+
     public function curlGenerarVideosXId($id) {
         Log::erroLog("ini - generarVideosXId: " . $id);
         $ruta = base_url("curlproceso/generarVideosXId/" . $id);
         shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");
         Log::erroLog("fin - generarVideosXId");
     }
-    
+
     public function generarVideosXId($id) {
         $this->_generarVideosXId($id);
     }
-    
-    public function limpiarUploadVideo(){
+
+    public function limpiarUploadVideo() {
         $this->_limpiarUploadVideo();
     }
-    
-    private function _limpiarUploadVideo(){
-        
+
+    private function _limpiarUploadVideo() {
+
 //        $files = get_dir_file_info($this->config->item('path:video'));
 //        print_r($files);
 //        $timesemanaant = strtotime("-1 day");
@@ -1596,13 +1607,14 @@ class Procesos_lib extends MX_Controller {
 //                
 //            }            
 //        }     
-        
+
         $query = "ALTER TABLE default_cms_canales ADD COLUMN ibope INT DEFAULT 1;";
         $this->db->query($query);
-        echo "ok";  
+        echo "ok";
     }
-    
-    public function actualizarVersion($tipo,$version){
-        $this->version_mp->set_version($tipo,$version);        
+
+    public function actualizarVersion($tipo, $version) {
+        $this->version_mp->set_version($tipo, $version);
     }
+
 }

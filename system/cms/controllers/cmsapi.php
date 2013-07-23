@@ -20,6 +20,11 @@ class cmsApi extends MX_Controller {
                 ->build('cmsapi/widget');
     }
 
+    public function getCanalesList()
+    {
+        return $this->cmsapi_lib->getCanalesList();
+    }
+
     public function getProgramasList($canal_id)
     {
         return $this->cmsapi_lib->getProgramasList($canal_id);

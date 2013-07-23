@@ -9,7 +9,6 @@
         <link href="/system/cms/themes/default/css/colorbox.css" rel="stylesheet" />
         <link href="/system/cms/themes/pyrocms/css/nouislider.fox.css" rel="stylesheet" />
         <link href="/system/cms/themes/pyrocms/css/mediasplitter.css" rel="stylesheet" />
-
         <link href="/system/cms/themes/default/css/styles.css" rel="stylesheet" />
         <link href="/system/cms/themes/default/img/favicon.ico" rel="shortcut icon" />
     </head>
@@ -27,9 +26,6 @@
         <script src="/system/cms/themes/pyrocms/js/lib/jwplayer.js"></script>
         <script src="/system/cms/themes/pyrocms/js/lib/jquery.nouislider.min.js"></script>
         <script src="/system/cms/themes/pyrocms/js/lib/splitter.js"></script>
-        
-
-        
         <script src="/system/cms/themes/default/js/scripts.js"></script>
     </body>
 </html>

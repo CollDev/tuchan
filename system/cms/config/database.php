@@ -51,7 +51,7 @@ $db[PYRO_DEVELOPMENT] = array(
 	// 'Tough love': Forces strict mode to test your app for best compatibility
 	'stricton' 		=> TRUE,
 );
- */
+*/
 
 // El Comercio -  DEV
 

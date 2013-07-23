@@ -67,7 +67,7 @@ class Videos_mp extends CI_Model {
     
     public function getVideosXIdDatos($id){
         $query  = "SELECT ca.id AS 'canal_id',ca.id_mongo AS 'id_mongo_ca',
-                (SELECT gm.id AS 'gm_id' FROM default_vw_maestros_videos vmv INNER JOIN default_cms_grupo_maestros gm ON vmv.gm3 = gm.id WHERE vmv.id = " . $id ." ) AS 'gm_id'                 
+                (SELECT gm.id AS 'gm_id' FROM default_vw_maestros_videos vmv INNER JOIN default_cms_grupo_maestros gm ON vmv.gm3 = gm.id WHERE v='m' and vmv.id = " . $id ." ) AS 'gm_id'                 
                 FROM default_cms_videos vi  INNER JOIN default_cms_canales ca ON ca.id =  vi.canales_id WHERE vi.id = ". $id;
         return $this->db->query($query)->result();
         

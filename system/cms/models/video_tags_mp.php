@@ -18,7 +18,7 @@ class Video_Tags_mp extends CI_Model {
     
     
     function getTagsVideosXId($id){
-        $query= "SELECT GROUP_CONCAT(nombre SEPARATOR '-' ) AS 'tags' FROM ".$this->_table."  vta INNER JOIN ".$this->_table_tags."  tag ON vta.tags_id=tag.id WHERE vta.videos_id=".$id;
+        $query= "SELECT GROUP_CONCAT(nombre SEPARATOR ' ' ) AS 'tags' FROM ".$this->_table."  vta INNER JOIN ".$this->_table_tags."  tag ON vta.tags_id=tag.id WHERE vta.videos_id=".$id;
         return $this->db->query($query)->result();
     }   
     

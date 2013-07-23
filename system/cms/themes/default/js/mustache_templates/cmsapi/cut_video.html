@@ -1,15 +1,6 @@
                         <form class="form-horizontal" action="/cmsapi/corte" enctype="multipart/form-data" id="cut_form" method="post">
                             <fieldset class="col-sm-6">
                                 <legend>Metadata</legend>
-                                <div class="row" style="display: none;">
-                                    <label class="col-sm-3 control-label" for="canal_id">Canales</label>
-                                    <div class="col-sm-9">
-                                        <select id="canal_id" name="canal_id">
-                                            <option value="0">Seleccione canal</option>
-                                            <option selected="selected" value="{{ canal_id }}">{{ canal_id }}</option>
-                                        </select>
-                                    </div>
-                                </div>
                                 <div class="row">
                                     <label class="col-sm-3 control-label" for="titulo">Título</label>
                                     <div class="col-sm-9">
@@ -117,6 +108,7 @@
                                     </div>
                                 </div>
                             </fieldset>
+                            <input type="hidden" name="canal_id" value="{{ canal_id }}" />
                             <input type="hidden" name="padre" value="{{ padre }}" />
                             <input type="hidden" name="video_id" value="{{ video_id }}" />
                             <input type="hidden" name="ubicacion" value="{{ ubicacion }}" />
