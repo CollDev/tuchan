@@ -18,23 +18,26 @@ jQuery(function($){
         firstDay: 1,
         isRTL: false,
         showMonthAfterYear: false,
-        yearSuffix: ''};
+        changeYear: true,
+        yearSuffix: '',
+        yearRange: "c-20:c"
+    };
     $.datepicker.setDefaults($.datepicker.regional['es']);
     
     $.timepicker.regional['es'] = {
-	    timeOnlyTitle: 'Elija la hora',
-	    timeText: '',
-	    hourText: 'Hora',
-	    minuteText: 'Minuto',
-	    secondText: 'Segundo',
-	    millisecText: 'Milsegundo',
-	    timezoneText: 'Zona horaria',
-	    currentText: 'Ahora',
-	    closeText: 'Cerrar',
-	    timeFormat: 'HH:mm',
-	    amNames: ['AM', 'A'],
-	    pmNames: ['PM', 'P'],
-	    isRTL: false
+        timeOnlyTitle: 'Elija la hora',
+        timeText: '',
+        hourText: 'Hora',
+        minuteText: 'Minuto',
+        secondText: 'Segundo',
+        millisecText: 'Milsegundo',
+        timezoneText: 'Zona horaria',
+        currentText: 'Ahora',
+        closeText: 'Cerrar',
+        timeFormat: 'HH:mm',
+        amNames: ['AM', 'A'],
+        pmNames: ['PM', 'P'],
+        isRTL: false
     };
     $.timepicker.setDefaults($.timepicker.regional['es']);
 });

@@ -1,4 +1,4 @@
-                        <form class="form-horizontal" action="/cmsapi/corte" enctype="multipart/form-data" id="cut_form" method="post">
+                        <form class="form-horizontal" action="" enctype="multipart/form-data" id="cut_form" method="post" novalidate>
                             <fieldset class="col-sm-6">
                                 <legend>Metadata</legend>
                                 <div class="row">
@@ -8,21 +8,21 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <label class="col-sm-3 control-label" for="fec_trans">Fecha de transmisión</label>
+                                    <label class="col-sm-3 control-label" for="cut_transmision">Fecha de transmisión</label>
                                     <div class="col-sm-9">
-                                        <input id="fec_trans" name="fec_trans" type="date" value="{{ fec_trans }}" />
+                                        <input id="cut_transmision" name="cut_transmision" type="text" value="{{ fec_trans }}" />
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <label class="col-sm-3 control-label" for="hora_trans_ini">Fecha inicio</label>
+                                    <label class="col-sm-3 control-label" for="hora_trans_cut_ini">Hora inicio</label>
                                     <div class="col-sm-9">
-                                        <input id="hora_trans_ini" name="hora_trans_ini" type="date" value="{{ hora_trans_ini }}" />
+                                        <input id="hora_trans_cut_ini" name="hora_trans_ini" type="text" value="{{ hora_trans_ini }}" />
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <label class="col-sm-3 control-label" for="hora_trans_fin">Fecha fin</label>
+                                    <label class="col-sm-3 control-label" for="hora_trans_cut_fin">Hora fin</label>
                                     <div class="col-sm-9">
-                                        <input id="hora_trans_fin" name="hora_trans_fin" type="date" value="{{ hora_trans_fin }}" />
+                                        <input id="hora_trans_cut_fin" name="hora_trans_fin" type="text" value="{{ hora_trans_fin }}" />
                                     </div>
                                 </div>
                                 <div class="row">
@@ -108,22 +108,24 @@
                                     </div>
                                 </div>
                             </fieldset>
-                            <input type="hidden" name="canal_id" value="{{ canal_id }}" />
-                            <input type="hidden" name="padre" value="{{ padre }}" />
-                            <input type="hidden" name="video_id" value="{{ video_id }}" />
-                            <input type="hidden" name="ubicacion" value="{{ ubicacion }}" />
-                            <input type="hidden" name="fec_pub_ini" value="{{ fec_pub_ini }}" />
-                            <input type="hidden" name="fec_pub_fin" value="{{ fec_pub_fin }}" />
-                            <input type="hidden" name="tipo_maestro" value="{{ tipo_maestro }}" />
-                            <input type="hidden" name="int_tipo_video" value="{{ int_tipo_video }}" />
-                            <input type="hidden" name="existe_fragmento" value="0" />
-                            <input type="hidden" name="video" id="video" value="{{ video_id }}.mp4" />
-                            <input type="hidden" name="APC_UPLOAD_PROGRESS" id="progress_key" value="{{ progress_key }}" />
+                            <input name="canal_id" type="hidden" value="{{ canal_id }}" />
+                            <input id="fec_cut_trans" name="fec_trans" type="hidden" value="{{ fec_trans }}" />
+                            <input name="padre" type="hidden" value="{{ padre }}" />
+                            <input name="video_id" type="hidden" value="{{ video_id }}" />
+                            <input name="ubicacion" type="hidden" value="{{ ubicacion }}" />
+                            <input name="fec_pub_ini" type="hidden" value="{{ fec_pub_ini }}" />
+                            <input name="fec_pub_fin" type="hidden" value="{{ fec_pub_fin }}" />
+                            <input name="tipo_maestro" type="hidden" value="{{ tipo_maestro }}" />
+                            <input name="int_tipo_video" type="hidden" value="{{ int_tipo_video }}" />
+                            <input name="existe_fragmento" type="hidden" value="0" />
+                            <input id="video" name="video" type="hidden" value="{{ video_id }}.mp4" />
+                            <input id="progress_key" name="APC_UPLOAD_PROGRESS" type="hidden" value="{{ progress_key }}" />
                         </form>
 
                         <script>
                             $(function() {
                                 $(".mediaspliter-edit").on('click', function(e) {
+                                    e.preventDefault();
                                     var _this = $(this)
                                             mediaBlock = _this.closest('div.mediasplitter').addClass('mediasplitter-show');
                                     new MediaSplitter('#' + mediaBlock.attr('id'));
@@ -144,4 +146,10 @@
                                     }
                                 });
                             });
+                            $("#cut_transmision").datepicker({ altField: "#fec_cut_trans" });
+                            $(document).on('keypress', "#cut_transmision", function(){
+                                $("#fec_cut_trans").val('');
+                            });
+                            $("#hora_trans_cut_ini").timepicker();
+                            $("#hora_trans_cut_fin").timepicker();
                         </script>

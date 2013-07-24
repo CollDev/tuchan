@@ -25,7 +25,7 @@ if (!empty($_SESSION['upload_result'])) {
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane active fade in" id="upload_form_tab">
-                        <form class="form-horizontal" action="" enctype="multipart/form-data" id="upload_form" method="post">
+                        <form class="form-horizontal" action="" enctype="multipart/form-data" id="upload_form" method="post" novalidate>
                             <fieldset class="col-sm-6">
                                 <legend>Metadata</legend>
                                 <div class="row">
@@ -143,16 +143,16 @@ if (!empty($_SESSION['upload_result'])) {
                                     <button class="btn btn-default pull-right">Subir video</button>
                                 </div>
                             </fieldset>
-                            <input type="hidden" name="canal_id" value="<?php echo $canal_id; ?>" />
-                            <input type="hidden" name="padre" value="0" />
-                            <input type="hidden" name="fec_trans" id="fec_trans" value="" />
-                            <input type="hidden" name="video_id" value="0" />
-                            <input type="hidden" name="ubicacion" value="" />
-                            <input type="hidden" name="fec_pub_fin" value="" />
-                            <input type="hidden" name="fec_pub_ini" value="" />
-                            <input type="hidden" name="tipo_maestro" value="" />
-                            <input type="hidden" name="int_tipo_video" value="1" />
-                            <input type="hidden" name="existe_fragmento" value="0" />
+                            <input id="canal_id" name="canal_id" type="hidden" value="<?php echo $canal_id; ?>" />
+                            <input name="padre" type="hidden" value="0" />
+                            <input id="fec_trans" name="fec_trans" type="hidden" value="" />
+                            <input name="video_id" type="hidden" value="0" />
+                            <input name="ubicacion" type="hidden" value="" />
+                            <input name="fec_pub_fin" type="hidden" value="" />
+                            <input name="fec_pub_ini" type="hidden" value="" />
+                            <input name="tipo_maestro" type="hidden" value="" />
+                            <input name="int_tipo_video" type="hidden" value="1" />
+                            <input name="existe_fragmento" type="hidden" value="0" />
                         </form>
                     </div>
                     <div class="tab-pane fade" id="search_form_tab">
@@ -177,9 +177,9 @@ if (!empty($_SESSION['upload_result'])) {
                                     </div>
                                 </div>
                                 <div class="col-sm-5">
-                                    <label class="col-sm-4 control-label" for="canal_id">Canales</label>
+                                    <label class="col-sm-4 control-label" for="canal_search_id">Canales</label>
                                     <div class="col-sm-8">
-                                        <select id="canal_id" name="canal_id">
+                                        <select id="canal_search_id" name="canal_search_id">
                                             <option value="0">Seleccione canal</option>
                                         </select>
                                     </div>

@@ -11,7 +11,7 @@
         <link href="/system/cms/themes/pyrocms/css/mediasplitter.css" rel="stylesheet" />
         <link href="/system/cms/themes/default/css/styles.css" rel="stylesheet" />
         <link href="/system/cms/themes/default/js/jquery-ui/css/flick/jquery-ui-1.10.3.custom.min.css" rel="stylesheet" />
-        <link href="/system/cms/themes/default/js/jquery-ui/css/flick/jquery-ui-timepicker-addon.css" rel="stylesheet" />
+        <link href="/system/cms/themes/default/js/jquery-ui/css/jquery-ui-timepicker-addon.css" rel="stylesheet" />
         <link href="/system/cms/themes/default/img/favicon.ico" rel="shortcut icon" />
     </head>
     
