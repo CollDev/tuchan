@@ -9,9 +9,10 @@
         <link href="/system/cms/themes/default/css/colorbox.css" rel="stylesheet" />
         <link href="/system/cms/themes/pyrocms/css/nouislider.fox.css" rel="stylesheet" />
         <link href="/system/cms/themes/pyrocms/css/mediasplitter.css" rel="stylesheet" />
-        <link href="/system/cms/themes/default/css/styles.css" rel="stylesheet" />
         <link href="/system/cms/themes/default/js/jquery-ui/css/flick/jquery-ui-1.10.3.custom.min.css" rel="stylesheet" />
-        <link href="/system/cms/themes/default/js/jquery-ui/css/flick/jquery-ui-timepicker-addon.css" rel="stylesheet" />
+        <link href="/system/cms/themes/default/js/jquery-ui/css/jquery-ui-timepicker-addon.css" rel="stylesheet" />
+        <link href="/system/cms/themes/default/css/jquery.tagsinput.css" rel="stylesheet" />
+        <link href="/system/cms/themes/default/css/styles.css" rel="stylesheet" />
         <link href="/system/cms/themes/default/img/favicon.ico" rel="shortcut icon" />
     </head>
     
@@ -30,6 +31,7 @@
         <script src="/system/cms/themes/default/js/jquery-ui/js/jquery-ui-1.10.3.custom.min.js"></script>
         <script src="/system/cms/themes/default/js/jquery-ui/js/jquery.ui.datepicker-es.js"></script>
         <script src="/system/cms/themes/default/js/jquery-ui/js/jquery-ui-timepicker-addon.js"></script>
+        <script src="/system/cms/themes/default/js/jquery.tagsinput.min.js"></script>
         <script src="/system/cms/themes/default/js/scripts.js"></script>
     </body>
 </html>

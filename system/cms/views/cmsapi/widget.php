@@ -25,7 +25,7 @@ if (!empty($_SESSION['upload_result'])) {
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane active fade in" id="upload_form_tab">
-                        <form class="form-horizontal" action="" enctype="multipart/form-data" id="upload_form" method="post">
+                        <form class="form-horizontal row" action="" enctype="multipart/form-data" id="upload_form" method="post" novalidate>
                             <fieldset class="col-sm-6">
                                 <legend>Metadata</legend>
                                 <div class="row">
@@ -69,21 +69,21 @@ if (!empty($_SESSION['upload_result'])) {
                                 <div id="status"></div>
                                 </div>
                                 <div class="row">
-                                    <label class="col-sm-3 control-label" for="fecha_transmision">Fecha de transmisión</label>
+                                    <label class="col-sm-3 control-label" for="fecha_transmision">Transmisión</label>
                                     <div class="col-sm-9">
-                                        <input id="fecha_transmision" name="fecha_transmision" type="date" />
+                                        <input id="fecha_transmision" name="fecha_transmision" placeholder="Seleccione una fecha" type="date" />
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <label class="col-sm-3 control-label" for="hora_trans_ini">Hora inicio</label>
+                                    <label class="col-sm-3 control-label" for="hora_trans_ini">Inicio</label>
                                     <div class="col-sm-9">
-                                        <input id="hora_trans_ini" name="hora_trans_ini" type="time" />
+                                        <input id="hora_trans_ini" name="hora_trans_ini" placeholder="Seleccione una hora" type="time" />
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <label class="col-sm-3 control-label" for="hora_trans_fin">Hora fin</label>
+                                    <label class="col-sm-3 control-label" for="hora_trans_fin">Fin</label>
                                     <div class="col-sm-9">
-                                        <input id="hora_trans_fin" name="hora_trans_fin" type="time" />
+                                        <input id="hora_trans_fin" name="hora_trans_fin" placeholder="Seleccione una hora" type="time" />
                                     </div>
                                 </div>
                                 <div class="row">
@@ -143,59 +143,57 @@ if (!empty($_SESSION['upload_result'])) {
                                     <button class="btn btn-default pull-right">Subir video</button>
                                 </div>
                             </fieldset>
-                            <input type="hidden" name="canal_id" value="<?php echo $canal_id; ?>" />
-                            <input type="hidden" name="padre" value="0" />
-                            <input type="hidden" name="fec_trans" id="fec_trans" value="" />
-                            <input type="hidden" name="video_id" value="0" />
-                            <input type="hidden" name="ubicacion" value="" />
-                            <input type="hidden" name="fec_pub_fin" value="" />
-                            <input type="hidden" name="fec_pub_ini" value="" />
-                            <input type="hidden" name="tipo_maestro" value="" />
-                            <input type="hidden" name="int_tipo_video" value="1" />
-                            <input type="hidden" name="existe_fragmento" value="0" />
+                            <input id="canal_id" name="canal_id" type="hidden" value="<?php echo $canal_id; ?>" />
+                            <input name="padre" type="hidden" value="0" />
+                            <input id="fec_trans" name="fec_trans" type="hidden" value="" />
+                            <input name="video_id" type="hidden" value="0" />
+                            <input name="ubicacion" type="hidden" value="" />
+                            <input name="fec_pub_fin" type="hidden" value="" />
+                            <input name="fec_pub_ini" type="hidden" value="" />
+                            <input name="tipo_maestro" type="hidden" value="" />
+                            <input name="int_tipo_video" type="hidden" value="1" />
+                            <input name="existe_fragmento" type="hidden" value="0" />
                         </form>
                     </div>
                     <div class="tab-pane fade" id="search_form_tab">
-                        <div class="row">
-                            <form class="form-horizontal" action="" id="search_form">
+                        <form class="form-horizontal row" action="" id="search_form">
+                            <fieldset class="row">
                                 <div class="col-sm-5">
-                                    <label class="col-sm-4 control-label" for="termino">Términos    </label>
-                                    <div class="col-sm-8">
-                                        <input id="termino" type="text" name="termino" placeholder="Ingrese un término" />
+                                    <div class="row">
+                                        <label class="col-sm-4 control-label" for="termino">Términos</label>
+                                        <div class="col-sm-8">
+                                            <input id="termino" type="text" name="termino" placeholder="Ingrese un término" />
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <label class="col-sm-4 control-label" for="canal_search_id">Canales</label>
+                                        <div class="col-sm-8">
+                                            <select id="canal_search_id" name="canal_search_id">
+                                                <option value="0">Seleccione canal</option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-sm-7">
-                                    <label class="col-sm-2 control-label" for="fec_ini">Fecha inicio</label>
-                                    <div class="col-sm-4">
+                                    <label class="col-sm-1 control-label" for="fec_ini">Inicio</label>
+                                    <div class="col-sm-5">
                                         <input id="fec_ini" type="date" name="fec_ini" />
-                                        <p class="help-block">Sólo en esta fecha.</p> 
+                                        <p class="help-block">Sólo aquí.</p> 
                                     </div>
-                                    <label class="col-sm-2 control-label" for="fec_fin">Fecha fin</label>
-                                    <div class="col-sm-4">
+                                    <label class="col-sm-1 control-label" for="fec_fin">Fin</label>
+                                    <div class="col-sm-5">
                                         <input id="fec_fin" type="date" name="fec_fin" />
-                                        <p class="help-block">Dentro del rango</p>
+                                        <p class="help-block">En el rango</p>
                                     </div>
-                                </div>
-                                <div class="col-sm-5">
-                                    <label class="col-sm-4 control-label" for="canal_id">Canales</label>
-                                    <div class="col-sm-8">
-                                        <select id="canal_id" name="canal_id">
-                                            <option value="0">Seleccione canal</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-sm-7">
                                     <button class="btn btn-default pull-right">Buscar</button>
                                 </div>
-                                <input id="fecha_inicio" name="fecha_inicio" type="hidden" value="" />
-                                <input id="fecha_fin" name="fecha_fin" type="hidden" value="" />
-                            </form>
-                        </div>
-                        <div id="search_results" class="row"></div>
+                            </fieldset>
+                            <input id="fecha_inicio" name="fecha_inicio" type="hidden" value="" />
+                            <input id="fecha_fin" name="fecha_fin" type="hidden" value="" />
+                        </form>
+                        <div id="search_results"></div>
                     </div>
-                    <div class="tab-pane fade" id="cut_form_tab">
-                        <div id="cut_this_video"></div>
-                    </div>
+                    <div class="tab-pane fade" id="cut_form_tab"></div>
                 </div>
 <?php
 $content = ob_get_clean();
