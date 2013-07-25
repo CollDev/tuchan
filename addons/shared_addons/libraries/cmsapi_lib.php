@@ -202,7 +202,7 @@ class cmsapi_lib extends MX_Controller {
                     
                     $_SESSION['upload_result']['type'] = 'success';
                     $_SESSION['upload_result']['title'] = 'Video subido con éxito';
-                    $_SESSION['upload_result']['message'] = '<a href="'.$this->config->item('motor').'/embed/' . $objBeanVideoSaved->id . '">El archivo subido estará ubicado aquí</a><br>http://micanal.pe/embed/' . $objBeanVideoSaved->id . '';
+                    $_SESSION['upload_result']['message'] = '<a href="'.$this->config->item('motor').'/embed/' . $objBeanVideoSaved->id . '">El archivo subido estará ubicado aquí</a><br>'.$this->config->item('motor').'/embed/' . $objBeanVideoSaved->id;
                 } else {
                     $_SESSION['upload_result']['type'] = 'danger';
                     $_SESSION['upload_result']['title'] = 'Error al subir video.';
