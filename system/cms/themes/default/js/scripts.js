@@ -90,21 +90,19 @@ $(document).on('ready', function() {
         }
         $('#flash_message').removeClass().addClass('alert').addClass('alert-' + type).delay(del).slideDown().delay(3000).slideUp();
     }
-    $('#upload_form').on('submit', function(e) {
-        e.preventDefault();
-        
+    $('#submit_upload').on('click', function(){
         var titulo = $("input#titulo"),
-        
+
         video = $("input#video"),
-        
+
         fecha_transmision = $("input#fecha_transmision"),
         hora_trans_ini = $("input#hora_trans_ini"),
         hora_trans_fin = $("input#hora_trans_fin"),
-        
+
         descripcion = $("input#descripcion"),
         tematicas = $("input#tematicas"),
         personajes = $("input#personajes"),
-        
+
         categoria = $("select#categoria"),
         programa = $("select#programa"),
         coleccion = $("select#coleccion"),
@@ -115,54 +113,85 @@ $(document).on('ready', function() {
         if (titulo.val() === "") {
             showMessage('danger','Debe ingresar un título.');
             titulo.focus();
-            return;
+            return false;
         } else if (video.val() === "") {
             showMessage('danger','Debe seleccionar un video.');
             video.focus();
-            return;
+            return false;
         } else if (fecha_transmision.val() === "") {
             showMessage('danger','Debe seleccionar una fecha de transmisión.');
             fecha_transmision.focus();
-            return;
+            return false;
         } else if (hora_trans_ini.val() === "") {
             showMessage('danger','Debe seleccionar una hora de inicio de transmisión.');
             hora_trans_ini.focus();
-            return;
+            return false;
         } else if (!hora_trans_ini.val().match(horaRegexp)) {
             showMessage('danger','Seleccione una hora de inicio de transmisión válida.');
             hora_trans_ini.focus();
-            return;
+            return false;
         } else if (hora_trans_fin.val() === "") {
             showMessage('danger','Debe seleccionar una hora de fin de transmisión.');
             hora_trans_fin.focus();
-            return;
+            return false;
         } else if (!hora_trans_fin.val().match(horaRegexp)) {
             showMessage('danger','Seleccione una hora de fin de transmisión válida.');
             hora_trans_fin.focus();
-            return;
+            return false;
         } else if (hora_trans_fin.val() <= hora_trans_ini.val()) {
             showMessage('danger','La hora inicio debe ser menor que la hora de fin de transmisión.');
             hora_trans_ini.focus();
-            return;
+            return false;
         } else if (descripcion.val() === "") {
             showMessage('danger','Debe ingresar una descripción.');
             descripcion.focus();
-            return;
+            return false;
         } else if (tematicas.val() === "") {
             showMessage('danger','Debe ingresar una o varias temáticas.');
             tematicas.focus();
-            return;
+            return false;
         } else if (personajes.val() === "") {
             showMessage('danger','Debe ingresar uno o varios personajes.');
             personajes.focus();
-            return;
+            return false;
         } else if (categoria.find(':selected').val() === "0") {
             showMessage('danger','Debe seleccionar una categoría.');
             categoria.focus();
-            return;
+            return false;
         }
-        
-        e.target.submit();
+    });
+    
+    var bar = $('.bar'),
+    percent = $('.percent'),
+    status = $('#status'),
+    progress = $('.progress');
+
+    $('form#upload_form').ajaxForm({
+        beforeSend: function() {
+            progress.show();
+            status.empty();
+            var percentVal = '0%';
+            bar.width(percentVal)
+            percent.html(percentVal);
+        },
+        uploadProgress: function(event, position, total, percentComplete) {
+            var percentVal = percentComplete + '%';
+            bar.width(percentVal)
+            percent.html(percentVal);
+        },
+        success: function() {
+            var percentVal = '100%';
+            bar.width(percentVal)
+            percent.html(percentVal);
+        },
+        complete: function(xhr) {
+            $('.wrap').prepend('<div class="alert alert-' + xhr.responseJSON.type + ' fade in">\n\
+                    <button class="close" data-dismiss="alert" type="button">×</button>\n\
+                    <strong>' + xhr.responseJSON.title + '</strong>\n\
+                    ' + xhr.responseJSON.message + '\n\
+                </div>');
+            progress.slideUp();
+        }
     });
     $('#search_form').on('submit', function(e) {
         e.preventDefault();
@@ -342,4 +371,5 @@ $(document).on('ready', function() {
         height: '38px',
         width: '100%'
     });
+    
 });

@@ -21,3 +21,19 @@ ul.pagination {
 #search_results .pagination {
     display: block;
 }
+.progress {
+    border: 1px solid #ddd;
+    height: 25px;
+    margin-bottom: 0px;
+    padding: 1px;
+}
+.bar {
+    border-radius: 3px;
+}
+.percent {
+    position: absolute;
+    display: inline-block;
+    top: 3px;
+    left: 48%;
+    color: #142994;
+}

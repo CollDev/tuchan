@@ -12,12 +12,9 @@ class cmsApi extends MX_Controller {
     
     public function widget($canal_id)
     {
-        if ($this->input->post()) {
-            $this->cmsapi_lib->widget($this->input->post(), $_FILES);
-        }
         $this->template
-                ->set('canal_id', $canal_id)
-                ->build('cmsapi/widget');
+            ->set('canal_id', $canal_id)
+            ->build('cmsapi/widget');
     }
 
     public function getCanalesList()
@@ -53,5 +50,9 @@ class cmsApi extends MX_Controller {
     public function corte($video_id)
     {
         return $this->cmsapi_lib->corte($video_id);
+    }
+    public function post_upload()
+    {
+        return $this->cmsapi_lib->post_upload($this->input->post(), $_FILES);
     }
 }

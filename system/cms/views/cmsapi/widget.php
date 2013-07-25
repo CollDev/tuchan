@@ -25,7 +25,7 @@ if (!empty($_SESSION['upload_result'])) {
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane active fade in" id="upload_form_tab">
-                        <form class="form-horizontal row" action="" enctype="multipart/form-data" id="upload_form" method="post" novalidate>
+                        <form class="form-horizontal row" action="<?php echo BASE_URL; ?>cmsapi/post_upload" enctype="multipart/form-data" id="upload_form" method="post" novalidate>
                             <fieldset class="col-sm-6">
                                 <legend>Metadata</legend>
                                 <div class="row">
@@ -62,11 +62,13 @@ if (!empty($_SESSION['upload_result'])) {
                                     <div class="col-sm-9">
                                         <input id="video" name="video" type="file" />
                                     </div>
-                                    <div class="progress_upload" style="display: none; clear: both;">
-                                    <div class="bar"></div>
-                                    <div class="percent">0%</div>
-                                </div>
-                                <div id="status"></div>
+                                    <div class="col-sm-9 col-offset-3">
+                                        <div class="progress progress-striped active" style="display: none;">
+                                            <div class="bar progress-bar"></div>
+                                            <div class="percent">0%</div>
+                                        </div>
+                                        <div id="status"></div>
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <label class="col-sm-3 control-label" for="fecha_transmision">Transmisión</label>
@@ -140,7 +142,7 @@ if (!empty($_SESSION['upload_result'])) {
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <button class="btn btn-default pull-right">Subir video</button>
+                                    <button id="submit_upload" class="btn btn-default pull-right">Subir video</button>
                                 </div>
                             </fieldset>
                             <input id="canal_id" name="canal_id" type="hidden" value="<?php echo $canal_id; ?>" />
