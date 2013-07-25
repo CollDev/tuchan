@@ -168,29 +168,32 @@ $(document).on('ready', function() {
 
     $('form#upload_form').ajaxForm({
         beforeSend: function() {
-            progress.show();
+            progress.slideDown();
+            percent.slideDown();
             status.empty();
             var percentVal = '0%';
-            bar.width(percentVal)
+            bar.width(percentVal);
             percent.html(percentVal);
         },
         uploadProgress: function(event, position, total, percentComplete) {
             var percentVal = percentComplete + '%';
-            bar.width(percentVal)
+            bar.width(percentVal);
             percent.html(percentVal);
         },
         success: function() {
             var percentVal = '100%';
-            bar.width(percentVal)
+            bar.width(percentVal);
             percent.html(percentVal);
         },
         complete: function(xhr) {
+            progress.delay(1000).slideUp(1000, function(){
             $('.wrap').prepend('<div class="alert alert-' + xhr.responseJSON.type + ' fade in">\n\
                     <button class="close" data-dismiss="alert" type="button">×</button>\n\
                     <strong>' + xhr.responseJSON.title + '</strong>\n\
                     ' + xhr.responseJSON.message + '\n\
                 </div>');
-            progress.slideUp();
+            });
+            percent.delay(1000).slideUp();
         }
     });
     $('#search_form').on('submit', function(e) {
@@ -317,10 +320,10 @@ $(document).on('ready', function() {
             data: $('#cut_form').serialize(),
             success: function(returnValue) //we're calling the response json array 'cities'
             {
-                if (returnValue.value === 0) {
+                if (returnValue.value == 0) {
                     showMessage('success', 'El corte se guardó satisfactoriamente');
                     setTimeout(function() {
-                        var $use_this_video = '<a class="btn btn-default col-lg-2 text-center" href="' + returnValue.video_id + '" id="use-this-video">Usar este corte de video</a>';
+                        var $use_this_video = '<div class="row"><a class="btn btn-default col-lg-2 text-center" href="' + $('#motor').val() + '/embed/' + returnValue.video_id + '" id="use-this-video">Usar este corte de video</a></div>';
                         $("div#cut_form_tab").html('').append($use_this_video);
                     }, 4200);
                 } else {

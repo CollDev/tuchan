@@ -14,6 +14,7 @@ class cmsApi extends MX_Controller {
     {
         $this->template
             ->set('canal_id', $canal_id)
+            ->set('motor', $this->config->item('motor'))
             ->build('cmsapi/widget');
     }
 

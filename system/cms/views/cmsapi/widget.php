@@ -25,7 +25,7 @@ if (!empty($_SESSION['upload_result'])) {
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane active fade in" id="upload_form_tab">
-                        <form class="form-horizontal row" action="<?php echo BASE_URL; ?>cmsapi/post_upload" enctype="multipart/form-data" id="upload_form" method="post" novalidate>
+                        <form class="form-horizontal row" action="<?php echo $motor; ?>/cmsapi/post_upload" enctype="multipart/form-data" id="upload_form" method="post" novalidate>
                             <fieldset class="col-sm-6">
                                 <legend>Metadata</legend>
                                 <div class="row">
@@ -95,13 +95,13 @@ if (!empty($_SESSION['upload_result'])) {
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <label class="col-sm-3 control-label" for="tematicas">Tematica</label>
+                                    <label class="col-sm-3 control-label" for="tematicas_tag">Tematica</label>
                                     <div class="col-sm-9">
                                         <input id="tematicas" name="tematicas" placeholder="Los temas tratados" required type="text" />
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <label class="col-sm-3 control-label" for="personajes">Personajes</label>
+                                    <label class="col-sm-3 control-label" for="personajes_tag">Personajes</label>
                                     <div class="col-sm-9">
                                         <input id="personajes" name="personajes" placeholder="Principales y secundarios" required type="text" />
                                     </div>
@@ -155,25 +155,22 @@ if (!empty($_SESSION['upload_result'])) {
                             <input name="tipo_maestro" type="hidden" value="" />
                             <input name="int_tipo_video" type="hidden" value="1" />
                             <input name="existe_fragmento" type="hidden" value="0" />
+                            <input id="motor" name="motor" type="hidden" value="<?php echo $motor; ?>" />
                         </form>
                     </div>
                     <div class="tab-pane fade" id="search_form_tab">
                         <form class="form-horizontal row" action="" id="search_form">
                             <fieldset class="row">
                                 <div class="col-sm-5">
-                                    <div class="row">
-                                        <label class="col-sm-4 control-label" for="termino">Términos</label>
-                                        <div class="col-sm-8">
-                                            <input id="termino" type="text" name="termino" placeholder="Ingrese un término" />
-                                        </div>
+                                    <label class="col-sm-4 control-label" for="termino">Términos</label>
+                                    <div class="col-sm-8">
+                                        <input id="termino" type="text" name="termino" placeholder="Ingrese un término" />
                                     </div>
-                                    <div class="row">
-                                        <label class="col-sm-4 control-label" for="canal_search_id">Canales</label>
-                                        <div class="col-sm-8">
-                                            <select id="canal_search_id" name="canal_search_id">
-                                                <option value="0">Seleccione canal</option>
-                                            </select>
-                                        </div>
+                                    <label class="col-sm-4 control-label" for="canal_search_id">Canales</label>
+                                    <div class="col-sm-8">
+                                        <select id="canal_search_id" name="canal_search_id">
+                                            <option value="0">Seleccione canal</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-sm-7">
