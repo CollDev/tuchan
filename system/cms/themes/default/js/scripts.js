@@ -160,18 +160,6 @@ $(document).on('ready', function() {
             showMessage('danger','Debe seleccionar una categoría.');
             categoria.focus();
             return;
-        } else if (programa.find(':selected').val() === "0") {
-            showMessage('danger','Debe seleccionar un programa.');
-            programa.focus();
-            return;
-        } else if (coleccion.find(':selected').val() === "0") {
-            showMessage('danger','Debe seleccionar una colección.');
-            coleccion.focus();
-            return;
-        } else if (lista.find(':selected').val() === "0") {
-            showMessage('danger','Debe seleccionar una lista.');
-            lista.focus();
-            return;
         }
         
         e.target.submit();
