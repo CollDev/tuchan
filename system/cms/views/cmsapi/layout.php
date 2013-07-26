@@ -32,6 +32,7 @@
         <script src="/system/cms/themes/default/js/jquery-ui/js/jquery.ui.datepicker-es.js"></script>
         <script src="/system/cms/themes/default/js/jquery-ui/js/jquery-ui-timepicker-addon.js"></script>
         <script src="/system/cms/themes/default/js/jquery.tagsinput.min.js"></script>
+        <script src="/system/cms/themes/pyrocms/js/jquery/jquery.form.js"></script>
         <script src="/system/cms/themes/default/js/scripts.js"></script>
     </body>
 </html>
