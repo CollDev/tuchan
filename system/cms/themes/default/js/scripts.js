@@ -230,7 +230,8 @@ $(document).on('ready', function() {
     });
     $(document).on('click', 'a#use-this-video', function(e) {
         e.preventDefault();
-        parent.getDataIframe(($(this).attr('href')));
+        console.log($(this).attr('href'));
+        parent.getDataIframe($(this).attr('href'));
     });
     $(document).on('click', 'a.corte_video', function() {
         $("div#cut_form_tab").html('<div class="text-center"><img src="/system/cms/themes/default/img/loading.gif" /></div>');
