@@ -228,10 +228,10 @@ $(document).on('ready', function() {
             $('a#use-this-video').addClass('disabled');
         }
     });
-    $(document).on('click', 'a#use-this-video', function(e) {
-        e.preventDefault();
-        parent.getDataIframe(($(this).attr('href')));
-    });
+//    $(document).on('click', 'a#use-this-video', function(e) {
+//        e.preventDefault();
+//        $('#edit-cargar-video').val($(this).attr('href'));
+//    });
     $(document).on('click', 'a.corte_video', function() {
         $("div#cut_form_tab").html('<div class="text-center"><img src="/system/cms/themes/default/img/loading.gif" /></div>');
         $('ul#myTab li.disabled a').attr('data-toggle', 'tab').parent().removeClass('disabled');
