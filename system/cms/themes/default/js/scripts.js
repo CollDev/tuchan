@@ -10,6 +10,7 @@ $(document).on('ready', function() {
                     .text(value));
             });
         });
+        
     $.getJSON("/cmsapi/getcategoriaslist")
         .done(function(res) {
             $.each(res, function(key, value) {
@@ -30,6 +31,7 @@ $(document).on('ready', function() {
                 }
             });
         });
+        
     $.getJSON("/cmsapi/getprogramaslist/" + $('#canal_id').val())
         .done(function(res) {
             $('#programa')
@@ -44,6 +46,7 @@ $(document).on('ready', function() {
                     .text(value));
             });
         });
+        
     $('#programa').on('change', function() {
         $('#coleccion').trigger('change');
         $('#lista').trigger('change');
@@ -63,6 +66,7 @@ $(document).on('ready', function() {
                 });
             });
     });
+    
     $('#coleccion').on('change', function() {
         $('#lista').trigger('change');
         var coleccion_id = $(this).find(":selected").val();
@@ -81,6 +85,7 @@ $(document).on('ready', function() {
                 });
             });
     });
+    
     function showMessage(type, title) {
         $('#flash_title').html('').append(title);
         var del = 0;
@@ -90,6 +95,7 @@ $(document).on('ready', function() {
         }
         $('#flash_message').removeClass().addClass('alert').addClass('alert-' + type).delay(del).slideDown().delay(3000).slideUp();
     }
+    
     $('#submit_upload').on('click', function(){
         var titulo = $("input#titulo"),
 
@@ -193,9 +199,11 @@ $(document).on('ready', function() {
                     ' + xhr.responseJSON.message + '\n\
                 </div>');
             });
+            $('i#use-this-video').attr('data-href', xhr.responseJSON.url);
             percent.delay(1000).slideUp();
         }
     });
+    
     $('#search_form').on('submit', function(e) {
         e.preventDefault();
         if ($('#termino').val() !== '') {
@@ -218,20 +226,19 @@ $(document).on('ready', function() {
                 });
         }
     });
+    
     $(document).on('click', 'a', function() {
         $(this).blur();
     });
+    
     $(document).on('keydown', function(event) {
         if (event.which === 27) {
             event.preventDefault();
-            $('table#table tbody tr').removeClass('success');
-            $('a#use-this-video').addClass('disabled');
+            $('table#table tbody tr').removeClass('info');
+            $('i#use-this-video').attr('data-href', '');
         }
     });
-//    $(document).on('click', 'a#use-this-video', function(e) {
-//        e.preventDefault();
-//        $('#edit-cargar-video').val($(this).attr('href'));
-//    });
+
     $(document).on('click', 'a.corte_video', function() {
         $("div#cut_form_tab").html('<div class="text-center"><img src="/system/cms/themes/default/img/loading.gif" /></div>');
         $('ul#myTab li.disabled a').attr('data-toggle', 'tab').parent().removeClass('disabled');
@@ -254,6 +261,7 @@ $(document).on('ready', function() {
                 });
             });
     });
+    
     $(document).on('click', '#submit_cut', function(e) {
         e.preventDefault();
         var values = {},
@@ -323,8 +331,7 @@ $(document).on('ready', function() {
                 if (returnValue.value == 0) {
                     showMessage('success', 'El corte se guardó satisfactoriamente');
                     setTimeout(function() {
-                        var $use_this_video = '<div class="row"><a class="btn btn-default col-lg-2 text-center" href="' + $('#motor').val() + '/embed/' + returnValue.video_id + '" id="use-this-video">Usar este corte de video</a></div>';
-                        $("div#cut_form_tab").html('').append($use_this_video);
+                        $("i#use-this-video").attr('data-href', $('#motor').val() + '/embed/' + returnValue.video_id);
                     }, 4200);
                 } else {
                     showMessage('warning', 'Ya existe un video con estos datos.');
@@ -332,12 +339,16 @@ $(document).on('ready', function() {
             }
         });
     });
+    
     $("#fecha_transmision").datepicker({ altField: "#fec_trans" });
+    
     $(document).on('keypress', "#fecha_transmision", function(){
         $("#fec_trans").val('');
     });
+    
     $("#hora_trans_ini").timepicker();
     $("#hora_trans_fin").timepicker();
+    
     $("#fec_ini").datepicker({
         altField: "#fecha_inicio",
         defaultDate: "+1w",
@@ -347,9 +358,11 @@ $(document).on('ready', function() {
             $("#fec_fin").datepicker("option", "minDate", selectedDate);
         }
     });
+    
     $(document).on('keypress', "#fec_ini", function(){
         $("#fecha_inicio").val('');
     });
+    
     $("#fec_fin").datepicker({
         altField: "#fecha_fin",
         defaultDate: "+1w",
@@ -359,20 +372,22 @@ $(document).on('ready', function() {
             $("#fec_ini").datepicker("option", "maxDate", selectedDate);
         }
     });
+    
     $(document).on('keypress', "#fec_fin", function(){
         $("#fecha_fin").val('');
     });
+    
     $('#tematicas').tagsInput({
         autocomplete_url: '/admin/videos/tematicas',
         defaultText: '',
         height: '38px',
         width: '100%'
     });
+    
     $('#personajes').tagsInput({
         autocomplete_url: '/admin/videos/personajes',
         defaultText: '',
         height: '38px',
         width: '100%'
     });
-    
 });

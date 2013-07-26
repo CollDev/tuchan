@@ -27,7 +27,6 @@
                                 <ul class="col-lg-2 pager">
                                     <li><a href="#"><div style="white-space:nowrap;">Videos del <span id="startrecord"></span> al <span id="endrecord"></span> de <span id="totalrecords"></span></div></a></li>
                                 </ul>
-                                <a class="btn btn-default col-lg-2 pull-right" href="http://dev.micanal.pe/embed/86" onclick="parent.getDataIframe('http://dev.micanal.pe/embed/86');" >Usar este video</a>
                             </div>
                             <table class="row table table-striped table-bordered table-condensed table-hover tinytable" id="table">
                                 <thead>
@@ -83,7 +82,7 @@
                                     $(this).parent().addClass('info');
                                     var tr_id = $(this).parent().attr('id');
                                     var split = tr_id.split('_');
-                                    $('a#use-this-video').removeClass('disabled').attr('href', $('#motor').val() + '/embed/' + split[1]);
+                                    $('i#use-this-video').attr('data-href', $('#motor').val() + '/embed/' + split[1]);
                                 });
                                 $('.first-page').on('click', function(){ sorter.move(-1,true); });
                                 $('.prev-page').on('click', function(){ sorter.move(-1); });

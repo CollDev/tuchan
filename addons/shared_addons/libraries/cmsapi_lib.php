@@ -211,6 +211,7 @@ class cmsapi_lib extends MX_Controller {
                             'type' => 'success',
                             'title' => 'Video subido con éxito',
                             'message' => '<a href="'.$this->config->item('motor').'/embed/' . $objBeanVideoSaved->id . '">El archivo subido estará ubicado aquí</a><br>'.$this->config->item('motor').'/embed/' . $objBeanVideoSaved->id,
+                            'url' => $this->config->item('motor').'/embed/' . $objBeanVideoSaved->id,
                         );
                     } else {
                         $return = array(
