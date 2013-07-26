@@ -198,6 +198,20 @@ if (!empty($_SESSION['upload_result'])) {
                     </div>
                     <div class="tab-pane fade" id="cut_form_tab"></div>
                 </div>
+<div class="modal fade" id="videoUrl">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button btn btn-default" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Video URL</h4>
+            </div>
+            <div class="modal-body"></div>
+            <div class="modal-footer">
+                <a href="#" data-dismiss="modal" class="btn btn-default">Close</a>
+            </div>
+        </div>
+    </div>
+</div>
 <?php
 $content = ob_get_clean();
 require_once 'layout.php';
