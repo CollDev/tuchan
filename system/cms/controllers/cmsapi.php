@@ -5,8 +5,9 @@
  * @author Joe Robles <joe.robles.pdj@gmail.com>
  */
 class cmsApi extends MX_Controller {
-    
-    function __construct() {
+
+    function __construct()
+    {
         $this->load->library("cmsapi_lib");
     }
     
@@ -52,6 +53,7 @@ class cmsApi extends MX_Controller {
     {
         return $this->cmsapi_lib->corte($video_id);
     }
+    
     public function post_upload()
     {
         return $this->cmsapi_lib->post_upload($this->input->post(), $_FILES);

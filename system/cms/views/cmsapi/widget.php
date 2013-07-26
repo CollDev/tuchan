@@ -162,15 +162,19 @@ if (!empty($_SESSION['upload_result'])) {
                         <form class="form-horizontal row" action="" id="search_form">
                             <fieldset class="row">
                                 <div class="col-sm-5">
-                                    <label class="col-sm-4 control-label" for="termino">Términos</label>
-                                    <div class="col-sm-8">
-                                        <input id="termino" type="text" name="termino" placeholder="Ingrese un término" />
+                                    <div class="row">
+                                        <label class="col-sm-4 control-label" for="termino">Términos</label>
+                                        <div class="col-sm-8">
+                                            <input id="termino" type="text" name="termino" placeholder="Ingrese un término" />
+                                        </div>
                                     </div>
-                                    <label class="col-sm-4 control-label" for="canal_search_id">Canales</label>
-                                    <div class="col-sm-8">
-                                        <select id="canal_search_id" name="canal_search_id">
-                                            <option value="0">Seleccione canal</option>
-                                        </select>
+                                    <div class="row">
+                                        <label class="col-sm-4 control-label" for="canal_search_id">Canales</label>
+                                        <div class="col-sm-8">
+                                            <select id="canal_search_id" name="canal_search_id">
+                                                <option value="0">Seleccione canal</option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-sm-7">

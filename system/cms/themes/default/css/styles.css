@@ -37,3 +37,6 @@ ul.pagination {
     left: 48%;
     color: #142994;
 }
+#table {
+    margin-bottom: 0;
+}
