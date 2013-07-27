@@ -6,16 +6,19 @@ class Grupo_Maestros_mp extends CI_Model {
 
     protected $_table = 'default_cms_grupo_maestros';
     protected $_table_canales = 'default_cms_canales';
+        protected $_table_grupo_detalles = 'default_cms_grupo_detalles';
     protected $_view_maestro_videos = 'default_vw_maestros_videos';
     
     function getGrupoMaestro(){
-        $query = "select *  from ". $this->_table;
+        $query = "select *  from ". $this->_table . " order by tipo_grupo_maestro_id desc";
         return $this->db->query($query)->result();
     }
 
     function getGrupoMaestroXId($tgm,$id) {
         $query= "SELECT gm.id,gm.nombre,gm.descripcion,gm.alias,gm.categorias_id,gm.estado,gm.estado_migracion,gm.id_mongo,ca.nombre AS 'nombre_ca',ca.alias AS 'alias_ca',ca.id_mongo AS 'idmongo_ca',
-                    (SELECT COUNT(id) FROM ".$this->_view_maestro_videos." vmv  WHERE  vmv.gm3 = ".$id."  AND vmv.v='v') AS 'vi'
+                    (SELECT COUNT(id) FROM ".$this->_view_maestro_videos." vmv  WHERE  vmv.gm3 = ".$id."  AND vmv.v='v') AS 'vi',
+                    (SELECT gm2.id_mongo FROM ". $this->_table." gm2 INNER JOIN ". $this->_table_grupo_detalles." gd2 ON gm2.id = gd2.grupo_maestro_padre WHERE 
+                        gd2.grupo_maestro_id = gm.id) AS 'idmongo_pa' 
                         FROM ". $this->_table." gm INNER JOIN ". $this->_table_canales." ca ON gm.canales_id = ca.id
                         WHERE gm.tipo_grupo_maestro_id=".$tgm." AND gm.id =".$id;
         
@@ -42,6 +45,17 @@ class Grupo_Maestros_mp extends CI_Model {
     
     function updateIdMongoGrupoMaestros($id, $id_mongo) {
         $query = "update " . $this->_table . " set id_mongo='" . $id_mongo . "' where id=" . $id;
+        $this->db->query($query);
+    }
+    
+        
+    function updateEstadoMigracionGrupoMaestros($id) {
+        $query = "update " . $this->_table . "  set estado_migracion=2, fecha_migracion = now() where id=" .$id;
+        $this->db->query($query);
+    }    
+    
+    function updateEstadoMigracionGrupoMaestrosActualizacion($id) {
+        $query = "update " . $this->_table . "  set estado_migracion=2, fecha_migracion_actualizacion = now() where id=" .$id;
         $this->db->query($query);
     }
     

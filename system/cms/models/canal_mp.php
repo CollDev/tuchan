@@ -77,17 +77,17 @@ class Canal_mp extends CI_Model {
 
 
 
-    function updateEstadoMigracionGrupoMaestros($id) {
-        $query = "update " . $this->_table_grupo_maestros . " set estado_migracion=2,fecha_migracion=now() where id=" . $id;
-        
-        $this->db->query($query);
-    }
-
-    function updateEstadoMigracionGrupoMaestrosActualizacion($id) {
-        $query = "update " . $this->_table_grupo_maestros . " set estado_migracion=2,fecha_migracion_actualizacion=now() where id=" . $id;
-        
-        $this->db->query($query);
-    }
+//    function updateEstadoMigracionGrupoMaestros($id) {
+//        $query = "update " . $this->_table_grupo_maestros . " set estado_migracion=2,fecha_migracion=now() where id=" . $id;
+//        
+//        $this->db->query($query);
+//    }
+//
+//    function updateEstadoMigracionGrupoMaestrosActualizacion($id) {
+//        $query = "update " . $this->_table_grupo_maestros . " set estado_migracion=2,fecha_migracion_actualizacion=now() where id=" . $id;
+//        
+//        $this->db->query($query);
+//    }
 
     function updateIdMongoVideos($id, $id_mongo) {
         $query = "update " . $this->_table_videos . " set id_mongo='" . $id_mongo . "' where id='" . $id."'";

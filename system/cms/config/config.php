@@ -491,4 +491,10 @@ $config['motor'] = 'http://dev.micanal.pe';
  $config['host:sphinx'] = '10.85.138.3';
  $config['port:sphinx'] = '3312';
  */
+ 
+ $config['nivel:canal'] = '0';
+ $config['nivel:programa'] = '1';
+ $config['nivel:coleccion'] = '2';
+ $config['nivel:listareproduccion'] ='3';
+ $config['nivel:video'] = '4';
 /* End of file config.php */
