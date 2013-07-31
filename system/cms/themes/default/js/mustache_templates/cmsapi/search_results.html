@@ -1,9 +1,9 @@
                             <div class="search row">
-                                <select class="col-lg-2" id="columns"></select>
-                                <input class="col-lg-2" type="text" id="query" />
+                                <select class="col-lg-2 col-6" id="columns"></select>
+                                <input class="col-lg-2 col-6" type="text" id="query" />
                             </div>
                             <div class="row">
-                                <div class="input-group col-lg-3">
+                                <div class="input-group col-lg-3 col-6">
                                     <select id="results-per-page">
                                         <option value="5" selected="selected">5</option>
                                         <option value="10">10</option>
@@ -13,20 +13,21 @@
                                     </select>
                                     <span class="input-group-addon">Resultados por página</span>
                                 </div>
-                                <div class="input-group col-lg-3">
+                                <div class="input-group col-lg-3 col-6">
                                     <span class="input-group-addon">Pagina</span>
                                     <select id="pagedropdown"></select>
                                     <div class="page input-group-addon"><span style="display:none" id="currentpage"></span> de <span id="totalpages"></span></div>
                                 </div>
-                                <ul class="col-lg-2 pagination">
+                                <ul class="col-lg-2 col-6 pagination">
                                     <li class="disabled"><a class="first-page" href="#"><<</a></li>
                                     <li class="disabled"><a class="prev-page" href="#"><</a></li>
                                     <li><a class="next-page" href="#">></a></li>
                                     <li><a class="last-page" href="#">>></a></li>
                                 </ul>
-                                <ul class="col-lg-2 pager">
+                                <ul class="col-lg-2 col-6 pager">
                                     <li><a href="#"><div style="white-space:nowrap;">Videos del <span id="startrecord"></span> al <span id="endrecord"></span> de <span id="totalrecords"></span></div></a></li>
                                 </ul>
+                                <a class="btn btn-default col-lg-2 pull-right disabled" href="#" id="use-this-video">Usar este video</a>
                             </div>
                             <table class="row table table-striped table-bordered table-condensed table-hover tinytable" id="table">
                                 <thead>
@@ -82,7 +83,7 @@
                                     $(this).parent().addClass('info');
                                     var tr_id = $(this).parent().attr('id');
                                     var split = tr_id.split('_');
-                                    $('i#use-this-video').attr('data-href', $('#motor').val() + '/embed/' + split[1]);
+                                    $('#search_results a#use-this-video').removeClass('disabled').attr('href', $('#motor').val() + '/embed/' + split[1]);
                                 });
                                 $('.first-page').on('click', function(){ sorter.move(-1,true); });
                                 $('.prev-page').on('click', function(){ sorter.move(-1); });

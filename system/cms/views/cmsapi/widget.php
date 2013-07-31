@@ -18,7 +18,6 @@ if (!empty($_SESSION['upload_result'])) {
                 <div id="flash_message" class="alert" style="display: none;">
                     <strong id="flash_title"></strong>
                 </div>
-                <i data-href="" id="use-this-video"></i>
                 <ul class="nav nav-tabs" id="myTab">
                     <li class="active"><a href="#upload_form_tab" data-toggle="tab">Subida de video</a></li>
                     <li><a href="#search_form_tab" data-toggle="tab">Búsqueda</a></li>
@@ -30,14 +29,14 @@ if (!empty($_SESSION['upload_result'])) {
                             <fieldset class="col-sm-6">
                                 <legend>Metadata</legend>
                                 <div class="row">
-                                    <label class="col-sm-3 control-label" for="titulo">Título</label>
-                                    <div class="col-sm-9">
+                                    <label class="col-sm-3 col-3 control-label" for="titulo">Título</label>
+                                    <div class="col-sm-9 col-9">
                                         <input id="titulo" name="titulo" placeholder="Ingrese un título para el video" required type="text" />
                                     </div>
                                 </div>
                                 <div class="row hidden">
-                                    <label class="col-sm-3 control-label" for="fragmento">Fragmento</label>
-                                    <div class="col-sm-9">
+                                    <label class="col-sm-3 col-3 control-label" for="fragmento">Fragmento</label>
+                                    <div class="col-sm-9 col-9">
                                         <select id="fragmento" name="fragmento">
                                             <option value="0">Seleccione un fragmento</option>
                                             <option value="1">1</option>
@@ -59,11 +58,11 @@ if (!empty($_SESSION['upload_result'])) {
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <label class="col-sm-3 control-label" for="video">Video</label>
-                                    <div class="col-sm-9">
+                                    <label class="col-sm-3 col-3 control-label" for="video">Video</label>
+                                    <div class="col-sm-9 col-9">
                                         <input id="video" name="video" type="file" />
                                     </div>
-                                    <div class="col-sm-9 col-offset-3">
+                                    <div class="col-sm-9 col-9 col-offset-3">
                                         <div class="progress progress-striped active" style="display: none;">
                                             <div class="bar progress-bar"></div>
                                             <div class="percent">0%</div>
@@ -72,38 +71,38 @@ if (!empty($_SESSION['upload_result'])) {
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <label class="col-sm-3 control-label" for="fecha_transmision">Transmisión</label>
-                                    <div class="col-sm-9">
+                                    <label class="col-sm-3 col-3 control-label" for="fecha_transmision">Transmisión</label>
+                                    <div class="col-sm-9 col-9">
                                         <input id="fecha_transmision" name="fecha_transmision" placeholder="Seleccione una fecha" type="date" />
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <label class="col-sm-3 control-label" for="hora_trans_ini">Inicio</label>
-                                    <div class="col-sm-9">
+                                    <label class="col-sm-3 col-3 control-label" for="hora_trans_ini">Inicio</label>
+                                    <div class="col-sm-9 col-9">
                                         <input id="hora_trans_ini" name="hora_trans_ini" placeholder="Seleccione una hora" type="time" />
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <label class="col-sm-3 control-label" for="hora_trans_fin">Fin</label>
-                                    <div class="col-sm-9">
+                                    <label class="col-sm-3 col-3 control-label" for="hora_trans_fin">Fin</label>
+                                    <div class="col-sm-9 col-9">
                                         <input id="hora_trans_fin" name="hora_trans_fin" placeholder="Seleccione una hora" type="time" />
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <label class="col-sm-3 control-label" for="descripcion">Descripcion</label>
-                                    <div class="col-sm-9">
+                                    <label class="col-sm-3 col-3 control-label" for="descripcion">Descripcion</label>
+                                    <div class="col-sm-9 col-9">
                                         <input id="descripcion" name="descripcion" placeholder="Una síntesis del video" required type="text" />
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <label class="col-sm-3 control-label" for="tematicas_tag">Tematica</label>
-                                    <div class="col-sm-9">
+                                    <label class="col-sm-3 col-3 control-label" for="tematicas_tag">Tematica</label>
+                                    <div class="col-sm-9 col-9">
                                         <input id="tematicas" name="tematicas" placeholder="Los temas tratados" required type="text" />
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <label class="col-sm-3 control-label" for="personajes_tag">Personajes</label>
-                                    <div class="col-sm-9">
+                                    <label class="col-sm-3 col-3 control-label" for="personajes_tag">Personajes</label>
+                                    <div class="col-sm-9 col-9">
                                         <input id="personajes" name="personajes" placeholder="Principales y secundarios" required type="text" />
                                     </div>
                                 </div>
@@ -111,32 +110,32 @@ if (!empty($_SESSION['upload_result'])) {
                             <fieldset class="col-sm-6">
                                 <legend>Jerarquía</legend>
                                 <div class="row">
-                                    <label class="col-sm-3 control-label" for="categoria">Categorías</label>
-                                    <div class="col-sm-9">
+                                    <label class="col-sm-3 col-3 control-label" for="categoria">Categorías</label>
+                                    <div class="col-sm-9 col-9">
                                         <select id="categoria" name="categoria">
                                             <option value="0">Seleccione categoría</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <label class="col-sm-3 control-label" for="programa">Programas</label>
-                                    <div class="col-sm-9">
+                                    <label class="col-sm-3 col-3 control-label" for="programa">Programas</label>
+                                    <div class="col-sm-9 col-9">
                                         <select id="programa" name="programa">
                                             <option value="0">Seleccione programa</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <label class="col-sm-3 control-label" for="coleccion">Colecciones</label>
-                                    <div class="col-sm-9">
+                                    <label class="col-sm-3 col-3 control-label" for="coleccion">Colecciones</label>
+                                    <div class="col-sm-9 col-9">
                                         <select id="coleccion" name="coleccion">
                                             <option value="0">Seleccione colección</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <label class="col-sm-3 control-label" for="lista">Listas</label>
-                                    <div class="col-sm-9">
+                                    <label class="col-sm-3 col-3 control-label" for="lista">Listas</label>
+                                    <div class="col-sm-9 col-9">
                                         <select id="lista" name="lista">
                                             <option value="0">Seleccione lista</option>
                                         </select>
@@ -164,14 +163,14 @@ if (!empty($_SESSION['upload_result'])) {
                             <fieldset class="row">
                                 <div class="col-sm-5">
                                     <div class="row">
-                                        <label class="col-sm-4 control-label" for="termino">Términos</label>
-                                        <div class="col-sm-8">
+                                        <label class="col-sm-4 col-3 control-label" for="termino">Términos</label>
+                                        <div class="col-sm-8 col-9">
                                             <input id="termino" type="text" name="termino" placeholder="Ingrese un término" />
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <label class="col-sm-4 control-label" for="canal_search_id">Canales</label>
-                                        <div class="col-sm-8">
+                                        <label class="col-sm-4 col-3 control-label" for="canal_search_id">Canales</label>
+                                        <div class="col-sm-8 col-9">
                                             <select id="canal_search_id" name="canal_search_id">
                                                 <option value="0">Seleccione canal</option>
                                             </select>
@@ -179,18 +178,22 @@ if (!empty($_SESSION['upload_result'])) {
                                     </div>
                                 </div>
                                 <div class="col-sm-7">
-                                    <label class="col-sm-1 control-label" for="fec_ini">Inicio</label>
-                                    <div class="col-sm-5">
-                                        <input id="fec_ini" type="date" name="fec_ini" />
-                                        <p class="help-block">Sólo aquí.</p> 
+                                    <div class="row">
+                                        <label class="col-sm-1 col-3 control-label" for="fec_ini">Inicio</label>
+                                        <div class="col-sm-5 col-9">
+                                            <input id="fec_ini" type="date" name="fec_ini" />
+                                            <p class="help-block">Sólo aquí.</p> 
+                                        </div>
+                                        <label class="col-sm-1 col-3 control-label" for="fec_fin">Fin</label>
+                                        <div class="col-sm-5 col-9">
+                                            <input id="fec_fin" type="date" name="fec_fin" />
+                                            <p class="help-block">En el rango</p>
+                                        </div>
                                     </div>
-                                    <label class="col-sm-1 control-label" for="fec_fin">Fin</label>
-                                    <div class="col-sm-5">
-                                        <input id="fec_fin" type="date" name="fec_fin" />
-                                        <p class="help-block">En el rango</p>
-                                    </div>
-                                    <button class="btn btn-default pull-right">Buscar</button>
                                 </div>
+                                    <div class="col-12">
+                                        <button class="btn btn-default pull-right">Buscar</button>
+                                    </div>
                             </fieldset>
                             <input id="fecha_inicio" name="fecha_inicio" type="hidden" value="" />
                             <input id="fecha_fin" name="fecha_fin" type="hidden" value="" />
@@ -198,6 +201,20 @@ if (!empty($_SESSION['upload_result'])) {
                         <div id="search_results"></div>
                     </div>
                     <div class="tab-pane fade" id="cut_form_tab"></div>
+                </div>
+                <div class="modal fade" id="videoUrl">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button btn btn-default" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title">Video URL</h4>
+                            </div>
+                            <div class="modal-body"></div>
+                            <div class="modal-footer">
+                                <a href="#" data-dismiss="modal" class="btn btn-default">Close</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 <?php
 $content = ob_get_clean();

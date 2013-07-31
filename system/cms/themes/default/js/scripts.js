@@ -235,10 +235,14 @@ $(document).on('ready', function() {
         if (event.which === 27) {
             event.preventDefault();
             $('table#table tbody tr').removeClass('info');
-            $('i#use-this-video').attr('data-href', '');
+            $('a#use-this-video').addClass('disabled');
         }
     });
-
+    $(document).on('click', 'a#use-this-video', function(e) {
+        e.preventDefault();
+        $('#videoUrl .modal-body').html('').append($(this).attr('href'));
+        $('#videoUrl').modal({ keyboard: false });
+    });
     $(document).on('click', 'a.corte_video', function() {
         $("div#cut_form_tab").html('<div class="text-center"><img src="/system/cms/themes/default/img/loading.gif" /></div>');
         $('ul#myTab li.disabled a').attr('data-toggle', 'tab').parent().removeClass('disabled');
@@ -331,7 +335,8 @@ $(document).on('ready', function() {
                 if (returnValue.value == 0) {
                     showMessage('success', 'El corte se guardó satisfactoriamente');
                     setTimeout(function() {
-                        $("i#use-this-video").attr('data-href', $('#motor').val() + '/embed/' + returnValue.video_id);
+                        var $use_this_video = '<div class="row"><a class="btn btn-default col-lg-2 text-center" href="' + $('#motor').val() + '/embed/' + returnValue.video_id + '" id="use-this-video">Usar este corte de video</a></div>';
+                        $("div#cut_form_tab").html('').append($use_this_video);
                     }, 4200);
                 } else {
                     showMessage('warning', 'Ya existe un video con estos datos.');

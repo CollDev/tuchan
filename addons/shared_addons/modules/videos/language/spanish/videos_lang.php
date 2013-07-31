@@ -108,7 +108,7 @@ $lang['videos:add_video_success'] = 'El video se registro en forma satisfactoria
 $lang['videos:not_found_video'] = 'El archivo no se pudo subir.';
 $lang['videos:format_invalid'] = 'El formato del archivo no es el correcto.';
 $lang['videos:youtube_invalid'] = 'La dirección de YouTube no es válida.';
-$lang['videos:bad_dates'] = 'La hora "fin de la transmisión" no debe ser menor que "hora inicial"';
+$lang['videos:bad_dates'] = 'La hora "fin" debe ser mayor que "inicio" de la fecha de transmisión.';
 $lang['videos:size_invalid'] = 'El tamaño del archivo no es el correcto.';
 $lang['videos:edit_video_success'] = 'Los cambios se guardaron satisfactoriamente';
 
