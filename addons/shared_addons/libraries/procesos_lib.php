@@ -919,6 +919,22 @@ class Procesos_lib extends MX_Controller {
 
                 $objmongo['cv'] = $value->vi;
 
+                $datovideo = $this->canal_mp->queryProcedure(4, $id);
+
+                if (!empty($datovideo[0]->xprogramaalias)) {
+                    if ($datovideo[0]->xfechatransmision == $datovideo[0]->xlistareproduccion) {
+                        $urltemp = $datovideo[0]->xprogramaalias . "/" . $datovideo[0]->xfechatransmision . "-" . $datovideo[0]->xvideoalias; //  2. micanal.pe/[programa]/[fecha]-[video]-id [ nombre de lista es igual a la fecha de transmisi?n de los videos.                      
+                    } else {
+                        $urltemp = $datovideo[0]->xprogramaalias . "/" . $datovideo[0]->xlistareproduccionalias . "/" . $datovideo[0]->xfechatransmision . "-" . $datovideo[0]->xvideoalias; //  1. micanal.pe/[programa]/[lista]/[fecha]-[video]-id                        
+                    }
+                } else {
+                    $urltemp = "video" . "/" . $datovideo[0]->xfechatransmision . "-" . $datovideo[0]->xvideoalias;
+                }
+
+                $objmongo['link'] = $urltemp;
+
+
+
                 if (!($this->canal_mp->existe_id_mongo($value->id_mongo))) {
                     $id_mongo = $this->canal_mp->setItemCollection($objmongo);
                     $this->grupo_maestros_mp->updateIdMongoGrupoMaestros($value->id, $id_mongo);
@@ -929,6 +945,7 @@ class Procesos_lib extends MX_Controller {
                     //$this->canal_mp->updateEstadoMigracionCanalesActualizacion($value->id);
                 }
                 unset($objmongo);
+
 //                } elseif ($value->estado == 0 || $value->estado == 2) {
 //                    $id_mongo = new MongoId($value->id_mongo);
 //                    $this->canal_mp->setItemCollectionUpdate(array("estado" => "0"), array('_id' => $id_mongo));
@@ -1661,13 +1678,27 @@ class Procesos_lib extends MX_Controller {
 
     private function _limpiarUploadVideo() {
         $files = get_dir_file_info($this->config->item('path:video'));
-        print_r($files);
-        $timesemanaant = strtotime("-1 day");
+        //print_r($files);
+        $timesemanaant = strtotime("-1 week");
+        //echo date('Y-m-d', $timesemanaant)."<br>";
 
-        foreach ($files as $file) {
-            if ($file['date'] < $timesemanaant) {
-                
+
+        foreach ($files as $file) {  
+            
+           // print_r($file);
+            $octper = "0".octal_permissions(fileperms($file["server_path"]));
+            echo $timesemanaant. " >> ". date('Y-m-d', $timesemanaant) . " >>> ".$file['date']." >> ".date('Y-m-d', $file['date'])." > ".$file['name']." >>> 0666".$octper."<br>";
+            
+
+            if ($timesemanaant > $file['date'] && ($file["name"] != "index.html") && ($octper == "0666")) {               
+                umask(0);
+                unlink($file["server_path"]);
             }
+            // print_r($file);            
+            //print_r( get_file_info($file["server_path"]));
+//            if ($file['date'] < $timesemanaant) {
+//                
+//            }
         }
     }
 

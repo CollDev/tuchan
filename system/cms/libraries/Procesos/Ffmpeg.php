@@ -53,12 +53,19 @@ class Ffmpeg {
 
             
             SPLITVIDEO:
+                
+            if(is_readable($video_in)){
+                umask(0);
+                chmod($video_in, 0644);             
+            }
                         
             if (!is_readable($video_out)) {
                 exec("ffmpeg  -ss " . $inicio . " -t " . $duracion . " -i " . $video_in . " " . $video_out . " -loglevel quiet");
             }
 
             if (is_readable($video_out)) {
+                  umask(0);
+                  chmod($video_in, 0666);
                 return true;
             }else{
                 if(file_exists($video_out)){
@@ -82,7 +89,7 @@ class Ffmpeg {
                 DONWLOADVIDEO:
                 Log::erroLog("Inicio descarga de Video id: ". $id_video);
                 Log::erroLog("Ruta : ". $ruta);
-                $fp = fopen($filePath, "w");
+                $fp = fopen($filePath, "x");
 
                 $ch = curl_init();
                 curl_setopt($ch, CURLOPT_URL, $ruta);
