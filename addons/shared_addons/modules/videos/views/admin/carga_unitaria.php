@@ -464,22 +464,41 @@
                     values['personajes'] = $.trim(values['personajes']);
                     values['hora_trans_fin'] = $.trim(values['hora_trans_fin']);
                     values['hora_trans_ini'] = $.trim(values['hora_trans_ini']);
-                    var hfin = $.trim($("#hora_trans_fin").val());
+                    var fec_trans = $('#fec_trans').val();
                     var hini = $.trim($("#hora_trans_ini").val());
+                    var hfin = $.trim($("#hora_trans_fin").val());
                     var hora_valida = true;
-                    if (hfin.length > 0 || hini.length > 0) {
-                        if (hfin > hini) {
-                            hora_valida = true;
-                        } else {
-                            hora_valida = false;
-                        }
-                    } else if (hfin === '00:00:00' && hini === '00:00:00') {
-                        hora_valida = true;
-                    } else {
-                        hora_valida = false;
-                    }
                     var $pass = true;
                     var $message = '';
+                    var $empty_trans = true;
+                    if ($.trim(fec_trans) === '' && $.trim(hini) === '' && $.trim(hfin) === '') {
+                        hora_valida = true;
+                    } else {
+                        if ($.trim(fec_trans) === '' || $.trim(hini) === '' || $.trim(hfin) === '') {
+                            if ($.trim(fec_trans) === '') {
+                                $message = 'Debe ingresar una fecha de transmisión.';
+                                $('#fec_trans').focus();
+                                $pass = false;
+                            }
+                            if ($.trim(hini) === '') {
+                                $message = 'Debe ingresar una hora de inicio.';
+                                $("#hora_trans_ini").focus();
+                                $pass = false;
+                            }
+                            if ($.trim(hfin) === '') {
+                                $message = 'Debe ingresar una hora de fin.';
+                                $("#hora_trans_fin").focus();
+                                $pass = false;
+                            }
+                            $empty_trans = false;
+                        } else {
+                            if ((hini === '00:00:00' || hini === '00:00') && (hfin === '00:00:00' || hfin === '00:00')) {
+                                hora_valida = true;
+                            } else if (hfin <= hini) {
+                                hora_valida = false;
+                            }
+                        }
+                    }
                     //validamos el ckeditor
                     var editorText = CKEDITOR.instances.descripcion.getData();
                     editorText = $.trim(editorText);
@@ -490,30 +509,33 @@
                     //validando si el formato del archivo es valido
                     var arrayFile = inputfile.split('.');
                     var ext = arrayFile[arrayFile.length - 1];
-                    
-                    if (!hora_valida) {
-                        $message = '<?php echo lang('videos:bad_dates') ?>';
-                        $pass = false;
-                    } else if (titulo.length === 0) {
+                    if (titulo.length === 0) {
                         $message = '<?php echo lang('videos:require_title') ?>';
+                        $("#titulo").focus();
                         $pass = false;
                     } else if (inputfile.length === 0) {
                         $message = '<?php echo lang('videos:require_video') ?>';
+                        $("#video").focus();
                         $pass = false;
                     } else if (!(ext && /^(mp4|mpg|flv|avi|wmv)$/.test(ext))) {
                         $message = '<?php echo lang('videos:format_invalid') ?>';
                         $pass = false;
-                    } else if (editorText.length === 0 && editorText2.length === 0) {
-                        $message = '<?php echo lang('videos:require_descripcion') ?>';
+                    } else if (!$empty_trans) {
                         $pass = false;
-                    } else if (values['categoria'] === 0) {
-                        $message = '<?php echo lang('videos:require_category') ?>';
+                    } else if (!hora_valida) {
+                        $message = '<?php echo lang('videos:bad_dates') ?>';
+                        $pass = false;
+                    } else if (editorText.length === 0 && editorText2.length === 0) {
+                        $message = '<?php echo lang('videos:require_description') ?>';
                         $pass = false;
                     } else if (values['tematicas'].length === 0) {
                         $message = '<?php echo lang('videos:require_tematicas') ?>';
                         $pass = false;
                     } else if (values['personajes'].length === 0) {
                         $message = '<?php echo lang('videos:require_personajes') ?>';
+                        $pass = false;
+                    } else if (values['categoria'] === "0") {
+                        $message = '<?php echo lang('videos:require_category') ?>';
                         $pass = false;
                     } else if (values['int_tipo_video'] === 0) {
                         $message = '<?php echo lang('videos:require_type') ?>';
@@ -523,28 +545,42 @@
                         $pass = false;
                     }
                     if ($pass) {
-                        if ($("#video_id").val() > 0) {
-                            var serializedData = $('#frm').serialize();
-                            //var post_url = "/admin/videos/save_maestro/"+values['txt_'+type_video]+"/"+values['canal_id']+"/"+values['categoria']+"/"+type_video;
-                            var post_url = "/admin/videos/updateVideo/" + values['canal_id'] + "/" + values['video_id'];
-                            $.ajax({
-                                type: "POST",
-                                url: post_url,
-                                dataType: 'json',
-                                data: serializedData,
-                                success: function(returnValue) //we're calling the response json array 'cities'
-                                {
-                                    if (returnValue.value == '0') {
-                                        var url = "admin/canales/videos/" + values['canal_id'];
-                                        showMessage('exit', '<?php echo lang('videos:edit_video_success') ?>', 1000, url);
-                                    } else {
-                                        showMessage('error', '<?php echo lang('videos:fragment_exist') ?>', 2000, '');
-                                        $("#btnSave").html('<a href="javascript:saveVideo();" class="btn orange" type="button"><?php echo lang('buttons.save'); ?><img src="<?php echo BASE_URL ?>system/cms/themes/pyrocms/img/save.png" /></a>');
-                                    }
-                                }
-                            });
+                        if (values['programa'] === "0") {
+                            $message = 'El video se asignará a un canal. ¿Está seguro?';
+                        } else if (values['coleccion'] === "0") {
+                            $message = 'El video se asignará a un programa. ¿Está seguro?';
+                        } else if (values['lista'] === "0") {
+                            $message = 'El video se asignará a una colección. ¿Está seguro?';
                         } else {
-                            existeFragmento();
+                            $message = 'El video se asignará a una lista de reproducción. ¿Está seguro?';
+                        }
+                        var proceed = confirm($message);
+                        if (proceed) {
+                            if ($("#video_id").val() > 0) {
+                                var serializedData = $('#frm').serialize();
+                                //var post_url = "/admin/videos/save_maestro/"+values['txt_'+type_video]+"/"+values['canal_id']+"/"+values['categoria']+"/"+type_video;
+                                var post_url = "/admin/videos/updateVideo/" + values['canal_id'] + "/" + values['video_id'];
+                                $.ajax({
+                                    type: "POST",
+                                    url: post_url,
+                                    dataType: 'json',
+                                    data: serializedData,
+                                    success: function(returnValue) //we're calling the response json array 'cities'
+                                    {
+                                        if (returnValue.value == '0') {
+                                            var url = "admin/canales/videos/" + values['canal_id'];
+                                            showMessage('exit', '<?php echo lang('videos:edit_video_success') ?>', 1000, url);
+                                        } else {
+                                            showMessage('error', '<?php echo lang('videos:fragment_exist') ?>', 2000, '');
+                                            $("#btnSave").html('<a href="javascript:saveVideo();" class="btn orange" type="button"><?php echo lang('buttons.save'); ?><img src="<?php echo BASE_URL ?>system/cms/themes/pyrocms/img/save.png" /></a>');
+                                        }
+                                    }
+                                });
+                            } else {
+                                existeFragmento();
+                            }
+                        } else {
+                            $("#btnSave").html('<a href="javascript:saveVideo();" class="btn orange" type="button"><?php echo lang('buttons.save'); ?><img src="<?php echo BASE_URL ?>system/cms/themes/pyrocms/img/save.png" /></a>');
                         }
                     } else {
                         showMessage('error', $message, 2000, '');
