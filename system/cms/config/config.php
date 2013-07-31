@@ -469,16 +469,16 @@ $config['motor'] = 'http://dev.micanal.pe';
 
 
 // SPHINX - local
-/*
+
  $config['host:sphinx'] = '192.168.1.35';
  $config['port:sphinx'] = 3312;
- */
+
 
 // SPHINX - DEV
-
+/*
  $config['host:sphinx'] = '10.85.138.3';
  $config['port:sphinx'] = 3312;
-
+*/
  
  // SPHINX - PRE
  /*
@@ -497,4 +497,6 @@ $config['motor'] = 'http://dev.micanal.pe';
  $config['nivel:coleccion'] = '2';
  $config['nivel:listareproduccion'] ='3';
  $config['nivel:video'] = '4';
+ 
+ $config['time:delete:video']="-1 week";
 /* End of file config.php */

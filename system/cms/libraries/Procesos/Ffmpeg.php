@@ -1,7 +1,10 @@
 <?php
+include 'Ffprobe.php';;
+
 set_time_limit(TIME_LIMIT);
 
-if (!defined('BASEPATH')) exit('No direct script access allowed');
+if (!defined('BASEPATH'))
+    exit('No direct script access allowed');
 
 class Ffmpeg {
 
@@ -10,32 +13,32 @@ class Ffmpeg {
 
 
             $video_in = PATH_VIDEOS . $id_video . ".vid";
-            Log::erroLog("video_in: ".$video_in);
+            Log::erroLog("video_in: " . $video_in);
 
             $video_out = PATH_VIDEOS . $id_video . ".mp4";
-            Log::erroLog("video_out: ".$video_out);
+            Log::erroLog("video_out: " . $video_out);
 
             if (!is_readable($video_out)) {
-                 Log::erroLog("entro a conversion");
+                Log::erroLog("entro a conversion");
                 exec("ffmpeg -i " . $video_in . " " . $video_out . " -loglevel quiet");
             }
 
             if (is_readable($video_out)) {
-                if(is_readable($video_in)){
-                    Log::erroLog("borrando archivo origen ". $id_video);
+                if (is_readable($video_in)) {
+                    Log::erroLog("borrando archivo origen " . $id_video);
                     unlink($video_in);
-                }   
-                $ruta =  base_url("curlproceso/uploadVideosXId/".$id_video);        
-                shell_exec("curl ".$ruta . " > /dev/null 2>/dev/null &");
-                
-                Log::erroLog("retornando true archivo convertido: ". $id_video);
+                }
+                $ruta = base_url("curlproceso/uploadVideosXId/" . $id_video);
+                shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");
+
+                Log::erroLog("retornando true archivo convertido: " . $id_video);
                 return true;
             } else {
-                Log::erroLog("retornando false archivo no convertido: ". $id_video);
+                Log::erroLog("retornando false archivo no convertido: " . $id_video);
                 return false;
             }
         } catch (Exception $e) {
-            Log::erroLog("excepxion de conversion: ". $id_video);
+            Log::erroLog("excepxion de conversion: " . $id_video);
             return false;
         }
     }
@@ -43,37 +46,37 @@ class Ffmpeg {
     function splitVideo($id_padre, $id_hijo, $inicio, $duracion) {
         try {
 
-             Log::erroLog("ENTRO DATOS ");
-             
+            Log::erroLog("ENTRO DATOS ");
+
             $video_in = PATH_VIDEOS . $id_padre . ".mp4";
             $video_out = PATH_VIDEOS . $id_hijo . ".mp4";
-            
-             Log::erroLog($video_in); 
-             Log::erroLog($video_out);
 
-            
+            Log::erroLog($video_in);
+            Log::erroLog($video_out);
+
+
             SPLITVIDEO:
-                
-            if(is_readable($video_in)){
-                umask(0);
-                chmod($video_in, 0644);             
+
+            if (is_readable($video_in)) {
+                umask(002);
+                chmod($video_in, 0444);
             }
-                        
+
             if (!is_readable($video_out)) {
                 exec("ffmpeg  -ss " . $inicio . " -t " . $duracion . " -i " . $video_in . " " . $video_out . " -loglevel quiet");
             }
 
             if (is_readable($video_out)) {
-                  umask(0);
-                  chmod($video_in, 0666);
+                umask(0);
+                chmod($video_in, 0666);
+                chmod($video_out, 0666);
                 return true;
-            }else{
-                if(file_exists($video_out)){
+            } else {
+                if (file_exists($video_out)) {
                     unlink($video_out);
                     goto SPLITVIDEO;
                 }
             }
-            
         } catch (Exception $e) {
             return false;
         }
@@ -87,8 +90,8 @@ class Ffmpeg {
                 return TRUE;
             } else {
                 DONWLOADVIDEO:
-                Log::erroLog("Inicio descarga de Video id: ". $id_video);
-                Log::erroLog("Ruta : ". $ruta);
+                Log::erroLog("Inicio descarga de Video id: " . $id_video);
+                Log::erroLog("Ruta : " . $ruta);
                 $fp = fopen($filePath, "x");
 
                 $ch = curl_init();
@@ -103,19 +106,19 @@ class Ffmpeg {
                 $result = curl_exec($ch);
                 curl_close($ch);
                 fclose($fp);
-                                
+
                 $info = curl_getinfo($ch);
-                
-                
-                Log::erroLog("descarga http_code postXML: " .   $info['http_code']);
-                Log::erroLog("descarga curl_errno: " .   curl_errno($ch));
+
+
+                Log::erroLog("descarga http_code postXML: " . $info['http_code']);
+                Log::erroLog("descarga curl_errno: " . curl_errno($ch));
 
                 if (is_readable($filePath)) {
-                    Log::erroLog("Termino descarga de Video id: ". $id_video);
-                    Log::erroLog("Duracion : ".$info['total_time']);
+                    Log::erroLog("Termino descarga de Video id: " . $id_video);
+                    Log::erroLog("Duracion : " . $info['total_time']);
                     return TRUE;
                 } else {
-                    Log::erroLog("Error de descarga reintento para video id: ". $id_video);
+                    Log::erroLog("Error de descarga reintento para video id: " . $id_video);
                     goto DONWLOADVIDEO;
                     //return FALSE;
                 }

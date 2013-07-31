@@ -334,6 +334,9 @@ class Procesos_lib extends MX_Controller {
 
                 ////error_log("dentro de " . $value->id);
                 if (empty($value->duracion) && empty($value->ruta) && empty($value->rutasplitter)) {
+                    Log::erroLog("Duracion :" . $value->duracion);
+                    Log::erroLog("Ruta :" . $value->ruta);
+                    Log::erroLog("rutasplitter :" . $value->rutasplitter);
                     $mediaarr = Liquid::obtenerDatosMedia($value);
                 }
 
@@ -359,23 +362,21 @@ class Procesos_lib extends MX_Controller {
                     }
                 }
 
-                $boolpublished = Liquid::getPublished($mediaarr);
-
-                if ($boolpublished) {
-                    Log::erroLog("Liquid retorna publicado para el video " . $id);
-                } elseif (!$boolpublished) {
-                    Log::erroLog("Liquid retorna no publicado para el video " . $id);
-                    $resultado = $this->videos_mp->getVideosNoPublicadosXId($id);
-                    if (count($resultado) > 0) {
-                        foreach ($resultado as $value) {
-                            Liquid::updatePublishedMediaNode($value);
-                        }
-                    }
-                } elseif ($boolpublished == NULL) {
-                    Log::erroLog("Liquid no retorna published para el video " . $id);
-                }
-
-
+//                $boolpublished = Liquid::getPublished($mediaarr);
+//
+//                if ($boolpublished) {
+//                    Log::erroLog("Liquid retorna publicado para el video " . $id);
+//                } elseif (!$boolpublished) {
+//                    Log::erroLog("Liquid retorna no publicado para el video " . $id);
+//                    $resultado = $this->videos_mp->getVideosNoPublicadosXId($id);
+//                    if (count($resultado) > 0) {
+//                        foreach ($resultado as $value) {
+//                            Liquid::updatePublishedMediaNode($value);
+//                        }
+//                    }
+//                } elseif ($boolpublished == NULL) {
+//                    Log::erroLog("Liquid no retorna published para el video " . $id);
+//                }
 
                 if ($value->imag == 0) {
 
@@ -1678,27 +1679,16 @@ class Procesos_lib extends MX_Controller {
 
     private function _limpiarUploadVideo() {
         $files = get_dir_file_info($this->config->item('path:video'));
-        //print_r($files);
-        $timesemanaant = strtotime("-1 week");
-        //echo date('Y-m-d', $timesemanaant)."<br>";
+        $timesemanaant = strtotime($this->config->item('time:delete:video'));
 
+        foreach ($files as $file) {
+            $octper = octal_permissions(fileperms($file["server_path"]));
 
-        foreach ($files as $file) {  
-            
-           // print_r($file);
-            $octper = "0".octal_permissions(fileperms($file["server_path"]));
-            echo $timesemanaant. " >> ". date('Y-m-d', $timesemanaant) . " >>> ".$file['date']." >> ".date('Y-m-d', $file['date'])." > ".$file['name']." >>> 0666".$octper."<br>";
-            
-
-            if ($timesemanaant > $file['date'] && ($file["name"] != "index.html") && ($octper == "0666")) {               
+            if ($timesemanaant > $file['date'] && ($file["name"] != "index.html") && ($octper == "666")) {
                 umask(0);
                 unlink($file["server_path"]);
+                Log::erroLog("Eliminando archivo de video " . $file['name'] . ", subido el " . date('Y-m-d H:i:s', $file['date']));
             }
-            // print_r($file);            
-            //print_r( get_file_info($file["server_path"]));
-//            if ($file['date'] < $timesemanaant) {
-//                
-//            }
         }
     }
 
