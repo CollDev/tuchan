@@ -20,6 +20,7 @@
         <div class="container wrap">
             <?php echo $content; ?>
         </div>
+        <iframe src="http://dev.americatv.multidiario.com/proxy/proxyA.html" id="iframeProxy" width="0" height="0" style="border:none"></iframe>
         <script src="/system/cms/themes/default/js/jquery.js"></script>
         <script src="/system/cms/themes/default/js/jquery.mustache.js"></script>
         <script src="/system/cms/themes/default/bootstrap/js/bootstrap.min.js"></script>
@@ -34,5 +35,15 @@
         <script src="/system/cms/themes/default/js/jquery.tagsinput.min.js"></script>
         <script src="/system/cms/themes/pyrocms/js/jquery/jquery.form.js"></script>
         <script src="/system/cms/themes/default/js/scripts.js"></script>
+        <script type="text/javascript">
+            function select_video(href) {
+                var iframeProxy = document.getElementById('iframeProxy');
+                var src = iframeProxy.src.split('#');
+                iframeProxy.src = src[0] + '#' + href;
+                document.getElementById('iframeProxy').width = parseInt(document.getElementById('iframeProxy').width) + 1;
+
+                return false;
+            }
+        </script>
     </body>
 </html>

@@ -216,10 +216,9 @@ $(document).on('ready', function() {
                 .done(function(data) {
                     $.get("/system/cms/themes/default/js/mustache_templates/cmsapi/search_results.html", function(template) {
                         $("div#search_results").html('');
-                        if (data.videos === '') {
-                            var app = '<div class="text-center"><h3>No hay resultados para la búsqueda:</h3><h3>' + $('#termino').val() + '</h3></div>';
-                        } else {
-                            var app = $.mustache(template, data);
+                        var app = '<div class="text-center"><h3>No hay resultados para la búsqueda:</h3><h3>' + $('#termino').val() + '</h3></div>';
+                        if (data.videos !== '') {
+                            app = $.mustache(template, data);
                         }
                         $("div#search_results").append(app);
                     });
@@ -240,8 +239,7 @@ $(document).on('ready', function() {
     });
     $(document).on('click', 'a#use-this-video', function(e) {
         e.preventDefault();
-        $('#videoUrl .modal-body').html('').append($(this).attr('href'));
-        $('#videoUrl').modal({ keyboard: false });
+        select_video($(this).attr('href'));
     });
     $(document).on('click', 'a.corte_video', function() {
         $("div#cut_form_tab").html('<div class="text-center"><img src="/system/cms/themes/default/img/loading.gif" /></div>');
@@ -255,11 +253,10 @@ $(document).on('ready', function() {
         $.getJSON("/cmsapi/corte/" + split[1])
             .done(function(data) {
                 $.get("/system/cms/themes/default/js/mustache_templates/cmsapi/cut_video.html", function(template) {
+                    var app = '<div class="text-center"><h3>Seleccione un video válido</h3></div>';
                     $("div#cut_form_tab").html('');
-                    if (data === '') {
-                        var app = '<div class="text-center"><h3>Seleccione un video válido</h3></div>';
-                    } else {
-                        var app = $.mustache(template, data);
+                    if (data !== '') {
+                        app = $.mustache(template, data);
                     }
                     $("div#cut_form_tab").append(app);
                 });
@@ -383,14 +380,14 @@ $(document).on('ready', function() {
     });
     
     $('#tematicas').tagsInput({
-        autocomplete_url: '/admin/videos/tematicas',
+        //autocomplete_url: '/admin/videos/tematicas',
         defaultText: '',
         height: '38px',
         width: '100%'
     });
     
     $('#personajes').tagsInput({
-        autocomplete_url: '/admin/videos/personajes',
+        //autocomplete_url: '/admin/videos/personajes',
         defaultText: '',
         height: '38px',
         width: '100%'
