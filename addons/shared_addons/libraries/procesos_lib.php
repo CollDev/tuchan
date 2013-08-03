@@ -544,11 +544,13 @@ class Procesos_lib extends MX_Controller {
                     unset($objmongo);
                     unset($array);
                 } elseif ($value->estado == 0 || $value->estado == 2) {
-                    //eliminacion item en coleccion micanal                    
-                    $id_mongo = new MongoId($value->id_mongo);
-                    $this->micanal_mp->setItemCollectionUpdate(array("estado" => "0"), array('_id' => $id_mongo));
-                    //$this->micanal_mp->SetItemCollectionDelete(array('_id' => $id_mongo));
-                    $this->micanal_mp->updateEstadoMigracionPortadasActualizacion($value->id);
+                    //eliminacion item en coleccion micanal 
+                    if (!empty($value->id_mongo)) {
+                        $id_mongo = new MongoId($value->id_mongo);
+                        $this->micanal_mp->setItemCollectionUpdate(array("estado" => "0"), array('_id' => $id_mongo));
+                        //$this->micanal_mp->SetItemCollectionDelete(array('_id' => $id_mongo));
+                        $this->micanal_mp->updateEstadoMigracionPortadasActualizacion($value->id);
+                    }
                 }
             }
         }
@@ -920,7 +922,7 @@ class Procesos_lib extends MX_Controller {
 
                 $objmongo['cv'] = $value->vi;
 
-                $datovideo = $this->canal_mp->queryProcedure(4, $id);
+                $datovideo = $this->micanal_mp->queryProcedure(4, "1," . $id);
 
                 if (!empty($datovideo[0]->xprogramaalias)) {
                     if ($datovideo[0]->xfechatransmision == $datovideo[0]->xlistareproduccion) {
@@ -933,6 +935,8 @@ class Procesos_lib extends MX_Controller {
                 }
 
                 $objmongo['link'] = $urltemp;
+                $objmongo['canal'] = $datovideo[0]->xcanal;
+                $objmongo['programa'] = $datovideo[0]->xprograma;
 
 
 

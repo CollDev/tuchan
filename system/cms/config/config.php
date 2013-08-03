@@ -398,8 +398,8 @@ $config['modules_locations'] = array(
 
 //servidor elemento
             
-$config['server:elemento'] = 'dev.e.micanal.e3.pe';
-$config['url:elemento'] = 'http://dev.e3.pe/index.php/api/v1';
+$config['server:elemento'] = 'e.micanal.e3.pe';
+$config['url:elemento'] = 'http://e3.pe/index.php/api/v1';
 $config['apikey:elemento'] = '590ee43e919b1f4baa2125a424f03cd160ff8901';
 $config['mensaje:elemento'] = 'cms.micanal.pe';
 
@@ -469,16 +469,16 @@ $config['motor'] = 'http://dev.micanal.pe';
 
 
 // SPHINX - local
-/*
+
  $config['host:sphinx'] = '192.168.1.35';
  $config['port:sphinx'] = 3312;
-*/
+
 
 // SPHINX - DEV
-
+/*
  $config['host:sphinx'] = '10.85.138.3';
  $config['port:sphinx'] = 3312;
-
+ */
  
  // SPHINX - PRE
  /*

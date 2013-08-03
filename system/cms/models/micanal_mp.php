@@ -46,18 +46,18 @@ class MiCanal_mp extends CI_Model {
     public function queryProcedure($option, $id) {
         switch ($option) {
             case '1':
-                $query = "call sp_llenartiposeccion6789()";                                
+                $query = "call sp_llenartiposeccion6789()";
                 break;
             case '4':
                 $query = "call sp_obtenerdatos(" . $id . ")";
-                break;            
+                break;
         }
 
 
 
         $objresult = $this->db->query($query);
         mysqli_next_result($this->db->conn_id);
-        return $objresult->result();        
+        return $objresult->result();
     }
 
     public function queryMysql($option, $id = "") {
@@ -86,15 +86,15 @@ class MiCanal_mp extends CI_Model {
 
 
             case '4':
-            $query = "SELECT se.tipo_secciones_id,po.tipo_portadas_id,ds.id,ds.descripcion_item,ds.videos_id,ds.grupo_maestros_id,
+                $query = "SELECT se.tipo_secciones_id,po.tipo_portadas_id,ds.id,ds.descripcion_item,ds.videos_id,ds.grupo_maestros_id,
                         (SELECT tipo_grupo_maestro_id FROM default_cms_grupo_maestros gm  WHERE gm.id= ds.grupo_maestros_id ) 
                         AS tipo_grupo_maestro, ds.canales_id,ds.imagenes_id,ds.peso,im.imagen,im.procedencia,ds.estado,ds.estado_migracion
                         FROM default_cms_detalle_secciones ds
                         INNER JOIN default_cms_imagenes im ON im.id=ds.imagenes_id
                         INNER JOIN default_cms_secciones se ON ds.secciones_id=se.id
                         INNER JOIN default_cms_portadas po ON po.id=se.portadas_id
-                        WHERE secciones_id=".$id." AND ds.estado=1  ORDER BY peso ASC ";               
-            break;
+                        WHERE secciones_id=" . $id . " AND ds.estado=1  ORDER BY peso ASC ";
+                break;
 
             case '5':
                 $query = "SELECT ca.descripcion AS 'canal_des',im.imagen AS 'canal_img',im.procedencia, (SELECT COUNT(id) FROM default_cms_videos WHERE canales_id=ca.id) AS 'canal_cv'
@@ -178,13 +178,13 @@ class MiCanal_mp extends CI_Model {
 
     public function updateEstadoMigracionDetalleSecciones($id) {
         $query = "update " . $this->_table_detalle_secciones . " set estado_migracion=2,fecha_migracion=now() where id=" . $id;
-       
+
         $this->db->query($query);
     }
 
     public function updateEstadoMigracionDetalleSeccionesActualizacion($id) {
         $query = "update " . $this->_table_detalle_secciones . " set estado_migracion=2,fecha_migracion_actualizacion=now() where id=" . $id;
-       
+
         $this->db->query($query);
     }
 
@@ -193,32 +193,35 @@ class MiCanal_mp extends CI_Model {
     }
 
     public function SetItemCollectionUpdate($set, $where) {
-        $result= $this->mongo_db->where($where)->set($set)->update($this->_tabla);
+        $result = $this->mongo_db->where($where)->set($set)->update($this->_tabla);
     }
 
     public function SetItemCollectionDelete($id_mongo) {
-       return $this->mongo_db->delete_where($this->_tabla,$id_mongo);
-         
+        return $this->mongo_db->delete_where($this->_tabla, $id_mongo);
     }
-    
-    public function existe_id_mongo($id)
-    {
-        $id_mongo = new MongoId($id);
-        $result = $this->mongo_db->get_where($this->_tabla, array('_id' => $id_mongo));
-        
-        if (count($result) > 0) {
-            return TRUE;
+
+    public function existe_id_mongo($id) {
+        if (!empty($id)) {
+            $id_mongo = new MongoId($id);
+            $result = $this->mongo_db->get_where($this->_tabla, array('_id' => $id_mongo));
+
+            if (count($result) > 0) {
+                return TRUE;
+            } else {
+                return FALSE;
+            }
         } else {
             return FALSE;
         }
     }
-    
-    public function getMiCanal(){
-        return $this->mongo_db->get($this->_tabla);;       
+
+    public function getMiCanal() {
+        return $this->mongo_db->get($this->_tabla);
+        ;
     }
-    
-     public function setItemCollectionDeleteXIdMongo($id) {
-         $this->mongo_db->delete_where($this->_tabla,array("_id"=>$id));       
+
+    public function setItemCollectionDeleteXIdMongo($id) {
+        $this->mongo_db->delete_where($this->_tabla, array("_id" => $id));
     }
 
 }
