@@ -499,4 +499,6 @@ $config['motor'] = 'http://dev.micanal.pe';
  $config['nivel:video'] = '4';
  
  $config['time:delete:video']="-1 week";
+ $config['datetime:unpublishDate:video']="2012-01-01T00:00:00-00:00";
+ 
 /* End of file config.php */
