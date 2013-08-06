@@ -1,7 +1,17 @@
 <style>
     .progress_upload{position:relative;width:400px;border:1px solid #ddd;padding:1px;border-radius:3px}
     .bar{background-color:#b4f5b4;width:0%;height:20px;border-radius:3px}
-    .percent{position:absolute;display:inline-block;top:3px;left:48%}</style>
+    .percent{position:absolute;display:inline-block;top:3px;left:48%}
+    #videos_results{}
+    #videos_results img{ width: 65px;}
+    table.video_result td {
+        line-height: 13.5px;
+        padding: 4px;
+        text-align: left;
+        vertical-align: middle;
+        width: 65px;
+    }
+</style>
 <section class="title">
     <div>
         <ul class="main_menu">
@@ -43,6 +53,7 @@
     var anew_width = ul_width - lilast_pos.left;
     $('section.title div ul.main_menu li.alast').css('width',anew_width);
 </script>
+<script src="/system/cms/themes/default/js/jquery.mustache.js"></script>
 <section class="item">
     <?php
     if ($objBeanForm->video_id > 0):
@@ -240,7 +251,7 @@
             </div>
 
             <div class="right_arm">
-
+                <div style="display:inline-block;vertical-align: top;width: 57%">
                 <!-- categoria -->
                 <label for="categoria"><?php echo lang('videos:categoria_label'); ?> <span class="required">*</span></label>
                 <?php echo form_error('categoria'); ?><br />
@@ -287,7 +298,7 @@
                 <label for="lista_rep"><?php echo lang('videos:lista_reprod_label'); ?></label>
                 <?php echo form_error('lista_rep'); ?><br/>
                 <?php
-                echo form_dropdown('lista', $lista_rep, $objBeanForm->lista);
+                echo form_dropdown('lista', $lista_rep, $objBeanForm->lista, 'onChange="videoxlist();"');
                 ?>
 
                 <!-- botón añadir -->
@@ -359,7 +370,9 @@
                     'style' => 'width:556px;',
                 );
                 echo form_input($ubicacion);
-                ?>        
+                ?>
+                </div>
+                <div id="videos_results" style="display:inline-block;vertical-align: top; width:42%"></div>
             </div>
             <div class="main_opt">            
                 <div  style="float: left;"></div>
@@ -545,16 +558,20 @@
                         $pass = false;
                     }
                     if ($pass) {
+                        var proceed;
                         if (values['programa'] === "0") {
-                            $message = 'El video se asignará a un canal. ¿Está seguro?';
+                            $message = 'El video se asignará directamente a un canal. ¿Está seguro?';
+                            proceed = confirm($message);
                         } else if (values['coleccion'] === "0") {
-                            $message = 'El video se asignará a un programa. ¿Está seguro?';
+                            $message = 'El video se asignará directamente a un programa. ¿Está seguro?';
+                            proceed = confirm($message);
                         } else if (values['lista'] === "0") {
-                            $message = 'El video se asignará a una colección. ¿Está seguro?';
+                            $message = 'El video se asignará directamente a una colección. ¿Está seguro?';
+                            proceed = confirm($message);
                         } else {
-                            $message = 'El video se asignará a una lista de reproducción. ¿Está seguro?';
+                            proceed = true;
                         }
-                        var proceed = confirm($message);
+                        
                         if (proceed) {
                             if ($("#video_id").val() > 0) {
                                 var serializedData = $('#frm').serialize();
@@ -592,6 +609,15 @@
                  * @returns {undefined}
                  */
                 function addMaestro(type_video) {
+                                var $haystack = new Array;
+                                $haystack = $('select[name=lista] option');
+//                                $haystack = $.each($('select[name=lista] option'),function(key, value){
+//                                    $haystack.push($(value).text());
+//                                });
+                                console.log('haystack: ' + $haystack.text());
+                                var fruits = ["Banana", "Orange", "Apple", "Mango"];
+                                fruits.push("Kiwi");
+                                console.log(fruits);
                     if ($('#txt_' + type_video).css('display') == 'inline' || $('#txt_' + type_video).css('display') == 'inline-block') {
                         $("#tipo_maestro").val(type_video);
                         var id_category_selected = $('select[name=categoria]').val();
@@ -602,51 +628,58 @@
                             });
                             values['txt_' + type_video] = $.trim(values['txt_' + type_video]);
                             if (values['txt_' + type_video].length > 0) {
-                                var serializedData = $('#frm').serialize();
-                                //var post_url = "/admin/videos/save_maestro/"+values['txt_'+type_video]+"/"+values['canal_id']+"/"+values['categoria']+"/"+type_video;
-                                var post_url = "/admin/videos/save_maestro";
-                                $.ajax({
-                                    type: "POST",
-                                    url: post_url,
-                                    //dataType: 'json',
-                                    data: serializedData,
-                                    success: function(tipo_maestro) //we're calling the response json array 'cities'
-                                    {
-                                        var resultado = false;
-                                        $.each(tipo_maestro, function(id, maestro) {
-                                            if (id == 'error' && maestro == '0') {
-                                                resultado = true;
-                                            }
-                                        });
-                                        if (resultado) {
-                                            showMessage('exit', '<?php echo lang('videos:add_programme') ?>', 1000, '');
-                                            $.each(tipo_maestro, function(id, maestro)
-                                            {
-                                                if (id != 'error') {
-                                                    var opt = $('<option />').attr("selected", "selected"); // here we're creating a new select option for each group
-                                                    opt.val(id);
-                                                    opt.text(maestro);
-                                                    $('select[name="' + type_video + '"]').prepend(opt);
+//                                var length = haystack.length;
+//                                for(var i = 0; i < length; i++) {
+//                                    if(haystack[i] == values['txt_' + type_video]) {
+//                                        
+//                                    }
+//                                }
+                                if ('' != '') {
+                                    var serializedData = $('#frm').serialize();
+                                    var post_url = "/admin/videos/save_maestro";
+                                    $.ajax({
+                                        type: "POST",
+                                        url: post_url,
+                                        //dataType: 'json',
+                                        data: serializedData,
+                                        success: function(tipo_maestro) //we're calling the response json array 'cities'
+                                        {
+                                            var resultado = false;
+                                            $.each(tipo_maestro, function(id, maestro) {
+                                                if (id == 'error' && maestro == '0') {
+                                                    resultado = true;
                                                 }
                                             });
-                                            //$("#coleccion option[id=" + myText +"]").attr("selected","selected") ;
-                                            $('select[name="' + type_video + '"]').trigger("liszt:updated");
-                                            $('#txt_' + type_video).val('');
-                                            $('#txt_' + type_video).css('display', 'none');
+                                            if (resultado) {
+                                                showMessage('exit', '<?php echo lang('videos:add_programme') ?>', 1000, '');
+                                                $.each(tipo_maestro, function(id, maestro)
+                                                {
+                                                    if (id != 'error') {
+                                                        var opt = $('<option />').attr("selected", "selected"); // here we're creating a new select option for each group
+                                                        opt.val(id);
+                                                        opt.text(maestro);
+                                                        $('select[name="' + type_video + '"]').prepend(opt);
+                                                    }
+                                                });
+                                                //$("#coleccion option[id=" + myText +"]").attr("selected","selected") ;
+                                                $('select[name="' + type_video + '"]').trigger("liszt:updated");
+                                                $('#txt_' + type_video).val('');
+                                                $('#txt_' + type_video).css('display', 'none');
 
-                                            if (type_video == 'programa') {
-                                                generate_collection();
-                                            } else {
-                                                if (type_video == 'coleccion') {
-                                                    generate_list();
+                                                if (type_video == 'programa') {
+                                                    generate_collection();
+                                                } else {
+                                                    if (type_video == 'coleccion') {
+                                                        generate_list();
+                                                    }
                                                 }
+                                            } else {
+                                                showMessage('error', '<?php echo lang('videos:exist_name') ?>', 2000, '');
                                             }
-                                        } else {
-                                            showMessage('error', '<?php echo lang('videos:exist_name') ?>', 2000, '');
-                                        }
 
-                                    } //end success
-                                }); //end AJAX
+                                        } //end success
+                                    }); //end AJAX
+                                }
                             } else {
                                 showMessage('error', '<?php echo lang('videos:missing_programme') ?>', 2000, '');
                             }
@@ -957,11 +990,22 @@
                             $('select[name="lista"]').prepend(opt);
                             $('select[name="lista"]').trigger("liszt:updated");
                             //limpiamos y generamos la nueva lista de reproducción relacionadas al canal directamente
-                            //if(values['programa'] == 0){
-                            generate_list();
-                            //}
+                            //generate_list();
                         } //end success
                     }); //end AJAX
+                    $('#videos_results').html('<div class="text-center"><img src="/system/cms/themes/default/img/loading.gif" /></div>');
+                    $.getJSON("/admin/videos/programa_videos/" + values['programa'])
+                        .done(function(res) {
+                            $('#videos_results').html('');
+                            if (res == '') {
+                                $('#videos_results').append('<div class="text-center">No hay videos directos al programa.</div>');
+                            } else {
+                                $.get("/system/cms/themes/default/js/mustache_templates/cmsapi/videosx.html", function(template) {
+                                    var app = $.mustache(template, res)
+                                    $('#videos_results').append(app);
+                                });
+                            }
+                        });
                 }
                 /**
                  * Generación de listas en base a los programas  o colecciones 
@@ -992,7 +1036,20 @@
                             });
                             $('select[name="lista"]').trigger("liszt:updated");
                         } //end success
-                    }); //end AJAX        
+                    }); //end AJAX
+                    $('#videos_results').html('<div class="text-center"><img src="/system/cms/themes/default/img/loading.gif" /></div>');
+                    $.getJSON("/admin/videos/coleccion_videos/" + values['coleccion'])
+                        .done(function(res) {
+                            $('#videos_results').html('');
+                            if (res == '') {
+                                $('#videos_results').append('<div class="text-center">No hay videos directos a la colección.</div>');
+                            } else {
+                                $.get("/system/cms/themes/default/js/mustache_templates/cmsapi/videosx.html", function(template) {
+                                    var app = $.mustache(template, res)
+                                    $('#videos_results').append(app);
+                                });
+                            }
+                        });
                 }
 
                 function addTitle() {
@@ -1008,6 +1065,25 @@
                         $("#titulo").val('');
                         $("#titulo").removeAttr("readonly", "readonly");
                     }
+                }
+                function videoxlist() {
+                    $('#videos_results').html('<div class="text-center"><img src="/system/cms/themes/default/img/loading.gif" /></div>');
+                    var values = {};
+                    $.each($('#frm').serializeArray(), function(i, field) {
+                        values[field.name] = field.value;
+                    });
+                    $.getJSON("/admin/videos/lista_videos/" + values['lista'])
+                        .done(function(res) {
+                            $('#videos_results').html('');
+                            if (res == '') {
+                                $('#videos_results').append('<div class="text-center">No hay videos directos a la lista.</div>');
+                            } else {
+                                $.get("/system/cms/themes/default/js/mustache_templates/cmsapi/videosx.html", function(template) {
+                                    var app = $.mustache(template, res)
+                                    $('#videos_results').append(app);
+                                });
+                            }
+                        });
                 }
             </script>
         </div>

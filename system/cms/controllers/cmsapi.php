@@ -58,4 +58,9 @@ class cmsApi extends MX_Controller {
     {
         return $this->cmsapi_lib->post_upload($this->input->post(), $_FILES);
     }
+    
+    public function insertCorteVideo($canal_id, $video_id)
+    {
+        return $this->cmsapi_lib->insertCorteVideo($canal_id, $video_id);
+    }
 }

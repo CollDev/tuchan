@@ -32,6 +32,7 @@ class Admin extends Admin_Controller {
         $this->load->model('tags_m');
         $this->load->model('video_tags_m');
         $this->load->model('grupo_maestro_tag_m');
+        $this->load->model('vw_maestro_video_m');
         $this->load->model('vw_organizar_m');
         $this->load->model('vw_programa_m');
         $this->load->model('vw_coleccion_m');
@@ -5614,6 +5615,65 @@ class Admin extends Admin_Controller {
         }
         return $returnValue;
     }
+    
+    public function programa_videos($programa_id)
+    {
+        $returnValue = array();
+        $objVideos = $this->vw_maestro_video_m->videos_x_programa($programa_id);
+        if (count($objVideos) > 0) {
+            foreach ($objVideos as $objVideo) {
+                if ($objVideo->imagen == '') {
+                    $imagen = 'uploads/imagenes/no_video.jpg';
+                } else {
+                    $imagen = $objVideo->imagen;
+                }
+                $array[] = array("src" => [$imagen], "titulo" => $objVideo->nombre);
+            }
+            $returnValue['videos'] = $array;
+        }
 
+        header("Content-Type: application/json; charset=utf-8");
+        echo json_encode($returnValue);
+    }
+    
+    public function coleccion_videos($coleccion_id)
+    {
+        $returnValue = array();
+        $objVideos = $this->vw_maestro_video_m->videos_x_coleccion($coleccion_id);
+        if (count($objVideos) > 0) {
+            foreach ($objVideos as $objVideo) {
+                if ($objVideo->imagen == '') {
+                    $imagen = 'uploads/imagenes/no_video.jpg';
+                } else {
+                    $imagen = $objVideo->imagen;
+                }
+                $array[] = array("src" => [$imagen], "titulo" => $objVideo->nombre);
+            }
+            $returnValue['videos'] = $array;
+        }
+
+        header("Content-Type: application/json; charset=utf-8");
+        echo json_encode($returnValue);
+    }
+    
+    public function lista_videos($lista_id)
+    {
+        $returnValue = array();
+        $objVideos = $this->vw_maestro_video_m->videos_x_lista($lista_id);
+        if (count($objVideos) > 0) {
+            foreach ($objVideos as $objVideo) {
+                if ($objVideo->imagen == '') {
+                    $imagen = 'uploads/imagenes/no_video.jpg';
+                } else {
+                    $imagen = $objVideo->imagen;
+                }
+                $array[] = array("src" => [$imagen], "titulo" => $objVideo->nombre);
+            }
+            $returnValue['videos'] = $array;
+        }
+
+        header("Content-Type: application/json; charset=utf-8");
+        echo json_encode($returnValue);
+    }
 }
 

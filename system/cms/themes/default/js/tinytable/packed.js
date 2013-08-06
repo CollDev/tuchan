@@ -291,6 +291,9 @@ TINY.table = function() {
                 }
             }
         }
+        $('html,body').animate({
+              scrollTop: '214'
+        }, 600);
     };
     sorter.prototype.goto = function(s) {
         if (s <= this.d && s > 0) {

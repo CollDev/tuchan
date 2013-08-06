@@ -478,7 +478,7 @@ $config['motor'] = 'http://dev.micanal.pe';
 
  $config['host:sphinx'] = '10.85.138.3';
  $config['port:sphinx'] = 3312;
- 
+
  
  // SPHINX - PRE
  /*

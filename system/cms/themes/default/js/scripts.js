@@ -224,6 +224,9 @@ $(document).on('ready', function() {
                     });
                 });
         }
+        $('html,body').animate({
+              scrollTop: '214'
+        }, 600);
     });
     
     $(document).on('click', 'a', function() {
@@ -324,7 +327,7 @@ $(document).on('ready', function() {
         }
         $.ajax({
             type: "POST",
-            url: "/admin/videos/insertCorteVideo/" + values['canal_id'] + "/" + values['video_id'],
+            url: "/cmsapi/insertCorteVideo/" + values['canal_id'] + "/" + values['video_id'],
             dataType: 'json',
             data: $('#cut_form').serialize(),
             success: function(returnValue) //we're calling the response json array 'cities'
