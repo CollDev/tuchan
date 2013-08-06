@@ -1406,8 +1406,7 @@ class Procesos_lib extends MX_Controller {
                 $videos = $this->videos_mp->getVideosxCodigo($value["id"]);
                
                 if (count($videos) == 1) {
-                    $retorno = Liquid::updatePublishedMedia($videos[0]->apikey,$videos[0]->codigo);
-                    echo $retorno."<br>";
+                   Liquid::updatePublishedMedia($videos[0]->apikey,$videos[0]->codigo);                   
                 }
             }
         }
