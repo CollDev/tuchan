@@ -26,7 +26,7 @@ if (!empty($_SESSION['upload_result'])) {
                 <div class="tab-content">
                     <div class="tab-pane active fade in" id="upload_form_tab">
                         <form class="form-horizontal row" action="<?php echo $motor; ?>/cmsapi/post_upload" enctype="multipart/form-data" id="upload_form" method="post" novalidate>
-                            <fieldset class="col-sm-6">
+                            <fieldset class="col-sm-6 col-6">
                                 <legend>Metadata</legend>
                                 <div class="row">
                                     <label class="col-sm-3 col-3 control-label" for="titulo">Título</label>
@@ -161,7 +161,7 @@ if (!empty($_SESSION['upload_result'])) {
                     <div class="tab-pane fade" id="search_form_tab">
                         <form class="form-horizontal row" action="" id="search_form">
                             <fieldset class="row">
-                                <div class="col-sm-5">
+                                <div class="col-6">
                                     <div class="row">
                                         <label class="col-sm-4 col-3 control-label" for="termino">Términos</label>
                                         <div class="col-sm-8 col-9">
@@ -177,23 +177,23 @@ if (!empty($_SESSION['upload_result'])) {
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-7">
+                                <div class="col-6">
                                     <div class="row">
-                                        <label class="col-sm-1 col-3 control-label" for="fec_ini">Inicio</label>
-                                        <div class="col-sm-5 col-9">
-                                            <input id="fec_ini" type="date" name="fec_ini" />
-                                            <p class="help-block">Sólo aquí.</p> 
+                                        <label class="col-sm-4 col-3 control-label" for="fec_ini">Inicio</label>
+                                        <div class="col-sm-8 col-9">
+                                            <input id="fec_ini" type="date" name="fec_ini" placeholder="Sólo aquí" />
                                         </div>
-                                        <label class="col-sm-1 col-3 control-label" for="fec_fin">Fin</label>
-                                        <div class="col-sm-5 col-9">
-                                            <input id="fec_fin" type="date" name="fec_fin" />
-                                            <p class="help-block">En el rango</p>
+                                    </div>
+                                    <div class="row">
+                                        <label class="col-sm-4 col-3 control-label" for="fec_fin">Fin</label>
+                                        <div class="col-sm-8 col-9">
+                                            <input id="fec_fin" type="date" name="fec_fin" placeholder="En el rango" />
                                         </div>
                                     </div>
                                 </div>
-                                    <div class="col-12">
-                                        <button class="btn btn-default pull-right">Buscar</button>
-                                    </div>
+                                <div class="col-12">
+                                    <button class="btn btn-default pull-right">Buscar</button>
+                                </div>
                             </fieldset>
                             <input id="fecha_inicio" name="fecha_inicio" type="hidden" value="" />
                             <input id="fecha_fin" name="fecha_fin" type="hidden" value="" />

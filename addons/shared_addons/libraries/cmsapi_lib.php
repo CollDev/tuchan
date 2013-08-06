@@ -588,10 +588,123 @@ class cmsapi_lib extends MX_Controller {
             return 0;
         }
     }
-    private function seconds_from_time($time)
-    { 
-        list($h, $m, $s) = explode(':', $time); 
-        
-        return ($h * 3600) + ($m * 60) + $s; 
-    } 
+    
+    public function verificarVideo($canal_id, $video_id, $post)
+    {
+        $returnValue = false;
+        $fromView = false;
+        if ($post == NULL) {
+            $post = $this->input->post();
+            $fromView = true;
+        }
+        $id_type = 0;
+        if ($post['lista'] > 0) {
+            $id_type = $post['lista'];
+        } else {
+            if ($post['coleccion'] > 0) {
+                $id_type = $post['coleccion'];
+            } else {
+                if ($post['programa'] > 0) {
+                    $id_type = $post['programa'];
+                }
+            }
+        }
+                
+        if ($id_type == 0) {
+            if ($this->videos_m->existVideo($post['titulo'], $canal_id, $video_id)) {
+                $objVideo2 = $this->videos_m->like('titulo', $post['titulo'], 'none')->get_by(array());
+                if (count($objVideo2) > 0) {
+                    if ($objVideo2->id != $video_id) {
+                        $returnValue = true;
+                    }
+                }
+            }
+        } else {
+            if ($id_type > 0) {
+                $objCollectionDetalle = $this->grupo_detalle_m->getGrupoDetalle(array("grupo_maestro_padre" => $id_type));
+                if (count($objCollectionDetalle) > 0) {
+                    foreach ($objCollectionDetalle as $index => $objDetalle) {
+                        if ($objDetalle->video_id != NULL) {
+                            if ($this->videos_m->existVideo($post['titulo'], $canal_id, $objDetalle->video_id, $video_id, $id_type)) {
+                                $returnValue = true;
+                                break;
+                            }
+                        }
+                    }
+                } else {
+                    $returnValue = false;
+                }
+            } else {
+                $returnValue = false;
+            }
+        }
+        if ($fromView) {
+            if ($returnValue) {
+                echo json_encode(array("errorValue" => "1"));
+            } else {
+                echo json_encode(array("errorValue" => "0"));
+            }
+        } else {
+            return $returnValue;
+        }
+    }
+    
+    public function insertCorteVideo($canal_id, $video_id)
+    {
+        if ($this->input->is_ajax_request()) {
+            if ($this->verificarVideo($canal_id, $video_id, $this->input->post())) {
+                echo json_encode(array("value" => '1'));
+            } else {
+                $user_id = (int) $this->session->userdata('user_id');
+                $objBeanVideo = new stdClass();
+                $objBeanVideo->id = $video_id;
+                $objBeanVideo->tipo_videos_id = $this->input->post('tipo');
+                $objBeanVideo->categorias_id = $this->input->post('categoria');
+                $objBeanVideo->usuarios_id = $user_id;
+                $objBeanVideo->canales_id = $this->input->post('canal_id');
+                $objBeanVideo->titulo = $this->input->post('titulo');
+                $objBeanVideo->alias = url_title(strtolower(convert_accented_characters($this->input->post('titulo')))) . '-' . $video_id;
+                $objBeanVideo->descripcion = $this->input->post('descripcion_updated');
+                $objBeanVideo->fragmento = 0;
+                $objBeanVideo->fecha_publicacion_inicio = date("Y-m-d H:i:s", strtotime($this->input->post('fec_pub_ini')));
+                $objBeanVideo->fecha_publicacion_fin = date("Y-m-d H:i:s", strtotime($this->input->post('fec_pub_fin')));
+                $objBeanVideo->fecha_transmision = date("Y-m-d H:i:s", strtotime($this->input->post('fec_trans')));
+                $objBeanVideo->horario_transmision_inicio = $this->input->post('hora_trans_ini');
+                $objBeanVideo->horario_transmision_fin = $this->input->post('hora_trans_fin');
+                $objBeanVideo->ubicacion = $this->input->post('ubicacion');
+                $objBeanVideo->fecha_actualizacion = date("Y-m-d H:i:s");
+                $objBeanVideo->usuario_actualizacion = $user_id;
+
+                $objBeanVideo->estado_liquid = 2;
+                $objBeanVideo->fecha_registro = date("Y-m-d H:i:s");
+                $objBeanVideo->usuario_registro = $user_id;
+                $objBeanVideo->estado_migracion = 0;
+                $objBeanVideo->estado_migracion_sphinx_tit = 0;
+                $objBeanVideo->estado_migracion_sphinx_des = 0;
+
+                $objBeanVideo->estado = 0;
+                $objBeanVideo->padre = $video_id;
+                $objBeanVideo->estado_migracion_sphinx = $this->config->item('sphinx:nuevo');
+                $objBeanVideo->procedencia = $this->config->item('procedencia:micanal');
+
+                $objvideotemp = $this->videos_m->save_video($objBeanVideo);
+
+                $this->_saveTagsTematicaPersonajes($objBeanVideo, $this->input->post());
+                //obtenemos el ID del maestro detalle del video
+                $objMaestroDetalle = $this->grupo_detalle_m->get_by(array("video_id" => $objBeanVideo->id));
+                $maestro_detalle_id = NULL;
+                if (count($objMaestroDetalle) > 0) {
+                    $maestro_detalle_id = $objMaestroDetalle->id;
+                }
+                //guardamos en la tabla grupo detalle
+                $this->_saveVideoMaestroDetalle($objBeanVideo, $this->input->post(), $maestro_detalle_id);
+
+                Log::erroLog("admin antes  curlCorteVideoXId");
+                $this->procesos_lib->curlCorteVideoXId($video_id, $objvideotemp->id, $this->input->post('ini_corte'), $this->input->post('dur_corte'));
+                Log::erroLog("admin despues curlCorteVideoXId");
+                echo json_encode(array("value" => '0', 'video_id' => $objvideotemp->id));
+                //echo json_encode(array($video_id, $objvideotemp->id, $this->input->post('ini_corte'), $this->input->post('dur_corte')));
+            }
+        }
+    }
 }

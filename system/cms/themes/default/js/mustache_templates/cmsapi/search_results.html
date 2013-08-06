@@ -18,13 +18,13 @@
                                     <select id="pagedropdown"></select>
                                     <div class="page input-group-addon"><span style="display:none" id="currentpage"></span> de <span id="totalpages"></span></div>
                                 </div>
-                                <ul class="col-lg-2 col-6 pagination">
+                                <ul class="col-lg-2 col-4 pagination">
                                     <li class="disabled"><a class="first-page" href="#"><<</a></li>
                                     <li class="disabled"><a class="prev-page" href="#"><</a></li>
                                     <li><a class="next-page" href="#">></a></li>
                                     <li><a class="last-page" href="#">>></a></li>
                                 </ul>
-                                <ul class="col-lg-2 col-6 pager">
+                                <ul class="col-lg-2 col-5 pager">
                                     <li><a href="#"><div style="white-space:nowrap;">Videos del <span id="startrecord"></span> al <span id="endrecord"></span> de <span id="totalrecords"></span></div></a></li>
                                 </ul>
                                 <a class="btn btn-default col-lg-2 pull-right disabled" href="#" id="use-this-video">Usar este video</a>
@@ -34,7 +34,6 @@
                                     <tr>
                                         <th class="nosort"><h3>Imagen</h3></th>
                                         <th><h3>Título</h3></th>
-                                        <th><h3>Categoría</h3></th>
                                         <th><h3>Programa</h3></th>
                                         <th><h3>Fecha</h3></th>
                                         <th><h3>Acciones</h3></th>
@@ -47,7 +46,6 @@
                                             <a class="iframe" data-placement="top" data-toggle="tooltip" href="http://micanal.pe/embed/{{ id }}" rel="tooltip" target="_blank" title="{{ nombre_vi }}"><img src="{{ imagen }}" /></a>
                                         </td>
                                         <td>{{ nombre_vi }}</td>
-                                        <td>{{ categorias_no }}</td>
                                         <td>{{ nombre_pr }}</td>
                                         <td>{{ fecha }}</td>
                                         <td><a class="corte_video" href="#">Corte</a></td>
