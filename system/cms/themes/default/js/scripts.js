@@ -220,13 +220,12 @@ $(document).on('ready', function() {
                         if (data.videos !== '') {
                             app = $.mustache(template, data);
                         }
-                        $("div#search_results").append(app);
+                        $("div#search_results").append(app).parent().parent().parent().parent().parent().animate({
+                            scrollTop: '214'
+                        }, 600);
                     });
                 });
         }
-        $('html,body').animate({
-              scrollTop: '214'
-        }, 600);
     });
     
     $(document).on('click', 'a', function() {
