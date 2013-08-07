@@ -43,3 +43,27 @@ ul.pagination {
 .mediasplitter {
     width: 100%;
 }
+div.wrap {
+    padding-bottom: 0;
+}
+#myModal .alert-success {
+    left: 25%;
+    position: absolute;
+    top: 25%;
+}
+#myModal button.close {
+    background: none repeat scroll 0 0 transparent;
+    border: 0 none;
+    color: inherit;
+    cursor: pointer;
+    float: right;
+    font-size: 21px;
+    font-weight: bold;
+    line-height: 1;
+    opacity: 0.2;
+    padding: 0;
+    position: relative;
+    right: -21px;
+    text-shadow: 0 1px 0 #FFFFFF;
+    top: -2px;
+}
