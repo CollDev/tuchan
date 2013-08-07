@@ -1,28 +1,32 @@
 .tinytable th {
     background: url(images/header-bg.gif);
-    text-align: left;
     color: #fff;
+    cursor: pointer;
+    text-align: left;
 }
-.tinytable th h3 {
+.tinytable th.nosort {
+    cursor: default;
+}
+.tinytable th span {
     font-size: 16px;
     margin: 0;
     font-weight: bold;
 }
-.tinytable .head h3 {
+.tinytable .head span {
     background: url(images/sort.gif) 7px center no-repeat;
-    cursor: pointer;
     padding-left: 18px;
 }
 .tinytable .desc, .tinytable .asc {
     background: url(images/header-selected-bg.gif);
 }
-.tinytable .desc h3 {
+.tinytable .desc span {
     background: url(images/desc.gif) 7px center no-repeat;
-    cursor: pointer;
     padding-left: 18px;
 }
-.tinytable .asc h3 {
+.tinytable .asc span {
     background: url(images/asc.gif) 7px  center no-repeat;
-    cursor: pointer;
     padding-left: 18px;
+}
+.table-condensed thead > tr > th, .table-condensed tbody > tr > th, .table-condensed tfoot > tr > th, .table-condensed thead > tr > td, .table-condensed tbody > tr > td, .table-condensed tfoot > tr > td {
+    padding: 2px 5px;
 }

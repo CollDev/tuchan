@@ -55,7 +55,7 @@ TINY.table = function() {
             if (d) {
                 var o = document.createElement('option');
                 o.value = i;
-                o.innerHTML = T$$('h3', c)[0].innerHTML;
+                o.innerHTML = T$$('span', c)[0].innerHTML;
                 d.appendChild(o)
             }
         }

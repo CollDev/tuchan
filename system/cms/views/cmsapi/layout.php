@@ -21,6 +21,13 @@
             <?php echo $content; ?>
         </div>
         <iframe src="http://dev.americatv.multidiario.com/proxy/proxyA.html" id="iframeProxy" width="0" height="0" style="border:none"></iframe>
+        <div id="myModal" class="modal fade">
+            <div class="alert alert-success fade in">
+                <button class="close" data-dismiss="modal" type="button">×</button>
+                <strong>Listo!</strong>
+                Video seleccionado con exito.
+            </div>
+        </div>
         <script src="/system/cms/themes/default/js/jquery.js"></script>
         <script src="/system/cms/themes/default/js/jquery.mustache.js"></script>
         <script src="/system/cms/themes/default/bootstrap/js/bootstrap.min.js"></script>
