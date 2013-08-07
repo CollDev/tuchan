@@ -1175,8 +1175,8 @@ class Procesos_lib extends MX_Controller {
             }
 
             Log::erroLog("actualizar_video: " . $id);
-            $this->_actualizarCantidadVideosXVideosId($id);
-            //$this->curlActualizarCantidadVideosXVideosId($id);
+            //$this->_actualizarCantidadVideosXVideosId($id);
+            $this->curlActualizarCantidadVideosXVideosId($id);
         } else {
             if ($this->canal_mp->existe_id($id)) {
                 $this->canal_mp->setItemCollectionDelete($id);
