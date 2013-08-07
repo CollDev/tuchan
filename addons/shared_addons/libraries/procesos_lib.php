@@ -415,10 +415,24 @@ class Procesos_lib extends MX_Controller {
                 if ((!empty($value->ruta) || !empty($urlvideo) || !empty($duracion) ) && ($value->imag != 0 || !empty($datos["imagen"]))) {
                     $this->videos_mp->setEstadosVideos($value->id, $this->config->item('v_e:publicado'), $this->config->item('v_l:publicado'));
                     Log::erroLog(" antes de actualizar_video: " . $id);
-                    $this->sincronizar_lib->agregar_video($value->id, 'pro');
+                    $this->curlSincronizarLibVideo($value->id);
                 }
             }
         }
+    }
+
+    public function curlSincronizarLibVideo($id) {
+        Log::erroLog("ini - curlSincronizarLibVideo: " . $id);
+        $ruta = base_url("curlproceso/sincronizarLibVideo/" . $id);
+        shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");
+    }
+
+    public function sincronizarLibVideo($id) {
+        $this->_sincronizarLibVideo($id);
+    }
+
+    private function _sincronizarLibVideo($id) {
+        $this->sincronizar_lib->agregar_video($id, 'pro');
     }
 
     /* Subir Videos - INICIO */
@@ -1134,7 +1148,7 @@ class Procesos_lib extends MX_Controller {
 
                     $objmongo['url'] = $urltemp;
                     $objmongo['padre'] = $value->idmongo_pa;
-                    $objmongo['nivel'] = "4";
+                    $objmongo['nivel'] = $this->config->item('nivel:video');
 
                     if (!($this->canal_mp->existe_id_mongo($value->id_mongo))) {
                         echo "entro ";
@@ -1152,13 +1166,17 @@ class Procesos_lib extends MX_Controller {
 
                     unset($objmongo);
                 } else {
-                    $id_mongo = new MongoId($value->id_mongo);
-                    $this->canal_mp->setItemCollectionUpdate(array("estado" => "0"), array('_id' => $id_mongo));
+
+                    if (!empty($value->id_mongo)) {
+                        $id_mongo = new MongoId($value->id_mongo);
+                        $this->canal_mp->setItemCollectionUpdate(array("estado" => "0"), array('_id' => $id_mongo));
+                    }
                 }
             }
 
             Log::erroLog("actualizar_video: " . $id);
-            $this->_actualizarCantidadVideosXVideosId($id);
+            //$this->_actualizarCantidadVideosXVideosId($id);
+            $this->curlActualizarCantidadVideosXVideosId($id);
         } else {
             if ($this->canal_mp->existe_id($id)) {
                 $this->canal_mp->setItemCollectionDelete($id);
@@ -1193,15 +1211,20 @@ class Procesos_lib extends MX_Controller {
             $arrayplaylist = array();
 
             $i = 0;
+
             foreach ($playlist as $datos) {
-                $arrayplaylist[$i] = new MongoId($datos->id_mongo);
-                $i++;
+                if (!empty($datos->id_mongo)) {
+                    $arrayplaylist[$i] = new MongoId($datos->id_mongo);
+                    $i++;
+                }
             }
 
             foreach ($playlist as $datos2) {
-                $set = array("playlist" => $arrayplaylist);
-                $tempmongo = array("_id" => new MongoId($datos2->id_mongo));
-                $this->canal_mp->SetItemCollectionUpdate($set, $tempmongo);
+                if (!empty($datos2->id_mongo)) {
+                    $set = array("playlist" => $arrayplaylist);
+                    $tempmongo = array("_id" => new MongoId($datos2->id_mongo));
+                    $this->canal_mp->SetItemCollectionUpdate($set, $tempmongo);
+                }
             }
 
             $tags = $this->video_tags_mp->getTagsVideosXId($id);
@@ -1241,12 +1264,16 @@ class Procesos_lib extends MX_Controller {
             $arrayrelacionados = array();
 
             $i = 0;
+
             foreach ($resultado as $value) {
-                if ($value != $mongo_id) {
-                    $arrayrelacionados[$i] = new MongoId($value);
-                    $i++;
+                if (!empty($value)) {
+                    if ($value != $mongo_id) {
+                        $arrayrelacionados[$i] = new MongoId($value);
+                        $i++;
+                    }
                 }
             }
+
             Log::erroLog("relacionados cantidad: " . count($arrayrelacionados));
 
 
@@ -1255,8 +1282,10 @@ class Procesos_lib extends MX_Controller {
 
             $i = 0;
             foreach ($itemsclips as $value) {
-                $arrayitemclips[$i] = new MongoId($value->id_mongo);
-                $i++;
+                if (!empty($value->id_mongo)) {
+                    $arrayitemclips[$i] = new MongoId($value->id_mongo);
+                    $i++;
+                }
             }
 
             $padreclips = $this->videos_mp->getVideoPadreXIdHijo($id);
@@ -1276,9 +1305,10 @@ class Procesos_lib extends MX_Controller {
 
     public function actualizarVideos() {
         $videos = $this->videos_mp->getVideosActivos();
+
         foreach ($videos as $value) {
-            $this->_obtenerImagesUrlVideosXId($value->id);
-            $this->_generarVideosXId($value->id);
+            $this->actualizarVideosXId($value->id);
+//            $this->curlActualizarVideosXId($value->id);
         }
     }
 
@@ -1404,9 +1434,9 @@ class Procesos_lib extends MX_Controller {
 
             foreach ($listavideos as $value) {
                 $videos = $this->videos_mp->getVideosxCodigo($value["id"]);
-               
+
                 if (count($videos) == 1) {
-                   Liquid::updatePublishedMedia($videos[0]->apikey,$videos[0]->codigo);                   
+                    Liquid::updatePublishedMedia($videos[0]->apikey, $videos[0]->codigo);
                 }
             }
         }
@@ -1483,6 +1513,16 @@ class Procesos_lib extends MX_Controller {
     private function _updateEstadoVideosXId($id, $ev, $el) {
         $this->videos_mp->setEstadosVideos($id, $ev, $el);
         echo "OK";
+    }
+
+    public function curlActualizarCantidadVideosXVideosId($id) {
+        Log::erroLog("ini - curlActualizarCantidadVideosXVideosId: " . $id);
+        $ruta = base_url("curlproceso/actualizarCantidadVideosXVideosId/" . $id);
+        shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");
+    }
+
+    public function actualizarCantidadVideosXVideosId($id) {
+        $this->_actualizarCantidadVideosXVideosId($id);
     }
 
     private function _actualizarCantidadVideosXVideosId($id) {
