@@ -35,7 +35,7 @@ class Vw_maestro_video_m extends MY_Model {
 
     public function videos_x_coleccion($coleccion_id)
     {
-        $query = "SELECT * FROM `" . $this->_table . "` WHERE `v` = 'v' AND `gm2` = '" . $coleccion_id . "';";
+        $query = "SELECT * FROM `" . $this->_table . "` WHERE `v` = 'v' AND `gm2` = '" . $coleccion_id . "' AND `gm1` IS NULL;";
         $result = $this->db->query($query)->result();
         
         return $result;
