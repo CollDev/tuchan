@@ -11,8 +11,9 @@ class cmsApi extends MX_Controller {
         $this->load->library("cmsapi_lib");
     }
     
-    public function widget($canal_id)
+    public function widget($key_canal)
     {
+        $canal_id = $this->cmsapi_lib->getCanalIdByKey($key_canal);
         $this->template
             ->set('canal_id', $canal_id)
             ->set('motor', $this->config->item('motor'))

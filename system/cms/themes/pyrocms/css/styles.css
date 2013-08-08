@@ -10,3 +10,8 @@ div.three-col
     display: inline-block;
     vertical-align: top;
 }
+
+input.input_key_canal {
+    font-family: monospace;
+    width: 300px;
+}
