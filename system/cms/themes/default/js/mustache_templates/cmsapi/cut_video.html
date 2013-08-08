@@ -1,147 +1,179 @@
-                        <form class="form-horizontal" action="/cmsapi/corte" enctype="multipart/form-data" id="cut_form" method="post">
-                            <fieldset class="col-sm-6">
-                                <legend>Metadata</legend>
-                                <div class="row">
-                                    <label class="col-sm-3 control-label" for="titulo">Título</label>
-                                    <div class="col-sm-9">
-                                        <input id="titulo" name="titulo" placeholder="Ingrese un título para el video" required type="text" value="{{ titulo }}" />
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <label class="col-sm-3 control-label" for="fec_trans">Fecha de transmisión</label>
-                                    <div class="col-sm-9">
-                                        <input id="fec_trans" name="fec_trans" type="date" value="{{ fec_trans }}" />
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <label class="col-sm-3 control-label" for="hora_trans_ini">Fecha inicio</label>
-                                    <div class="col-sm-9">
-                                        <input id="hora_trans_ini" name="hora_trans_ini" type="date" value="{{ hora_trans_ini }}" />
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <label class="col-sm-3 control-label" for="hora_trans_fin">Fecha fin</label>
-                                    <div class="col-sm-9">
-                                        <input id="hora_trans_fin" name="hora_trans_fin" type="date" value="{{ hora_trans_fin }}" />
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <label class="col-sm-3 control-label" for="descripcion">Descripción</label>
-                                    <div class="col-sm-9">
-                                        <input id="descripcion" name="descripcion" placeholder="Una síntesis del video" required type="text" value="{{ descripcion }}" />
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <label class="col-sm-3 control-label" for="tematicas">Tematicas</label>
-                                    <div class="col-sm-9">
-                                        <input id="tematicas" name="tematicas" placeholder="Los temas tratados" required type="text" value="{{ tematicas }}" />
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <label class="col-sm-3 control-label" for="personajes">Personajes</label>
-                                    <div class="col-sm-9">
-                                        <input id="personajes" name="personajes" placeholder="Principales y secundarios" required type="text" value="{{ personajes }}" />
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <button id="submit_cut" class="btn btn-default">Cortar video</button>
-                                </div>
-                            </fieldset>
-                            <fieldset class="col-sm-6" style="display: none;">
-                                <legend>Jerarquía</legend>
-                                <div class="row">
-                                    <label class="col-sm-3 control-label" for="categoria">Categorías</label>
-                                    <div class="col-sm-9">
-                                        <select id="categoria" name="categoria">
-                                            <option value="0">Seleccione categoría</option>
-                                            <option selected="selected" value="{{ categoria }}">{{ categoria }}</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <label class="col-sm-3 control-label" for="programa">Programas</label>
-                                    <div class="col-sm-9">
-                                        <select id="programa" name="programa">
-                                            <option value="0">Seleccione programa</option>
-                                            <option selected="selected" value="{{ programa }}">{{ programa }}</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <label class="col-sm-3 control-label" for="coleccion">Colecciones</label>
-                                    <div class="col-sm-9">
-                                        <select id="coleccion" name="coleccion">
-                                            <option value="0">Seleccione colección</option>
-                                            <option selected="selected" value="{{ coleccion }}">{{ coleccion }}</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <label class="col-sm-3 control-label" for="lista">Listas</label>
-                                    <div class="col-sm-9">
-                                        <select id="lista" name="lista">
-                                            <option value="0">Seleccione lista</option>
-                                            <option selected="selected" value="{{ lista }}">{{ lista }}</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </fieldset>
-                            <fieldset class="col-sm-6">
-                                <legend>Split</legend>
-                                <div class="row">
-                                    <div id="media-1" class="mediasplitter" data-src="{{ ruta }}">
-                                        <p><button class="mediaspliter-edit">Cortar video</button></p>
-                                        <div class="mediasplitter-wrapp">
-                                            <div class="mediasplitter-player"></div>
-                                            <div class="mediasplitter-controls">
-                                                <div class="noUiSlider mediasplitter-slider"></div>
-                                                <div class="mediasplitter-progress"><div class="mediasplitter-progress-indicator"></div></div>
-                                                <p>
-                                                    <span class="opaque">Comienza:</span> <input name="ini_corte" id="ini_corte" class="mediasplitter-time-start" autocomplete="off" value="" type="text" size="5" readonly /> 
-                                                    <span class="opaque">Termina:</span> <input name="fin_corte" id="fin_corte" class="mediasplitter-time-end" autocomplete="off" value="" size="5" type="text" readonly /> 
-                                                    <span class="opaque">Duración</span> <input name="dur_corte" id="dur_corte" class="mediasplitter-time-dur" autocomplete="off" value="" size="5" type="text" readonly /> <button class="mediasplitter-play" onClick="return false;">Play</button>
+                    <form class="form-horizontal row" action="" enctype="multipart/form-data" id="cut_form" method="post" novalidate>
+                        <fieldset class="col-sm-6">
+                            <legend>Split</legend>
+                            <div class="row">
+                                <div id="media-1" class="mediasplitter" data-src="{{ ruta }}">
+                                    <p><button class="mediaspliter-edit">Cortar video</button></p>
+                                    <div class="mediasplitter-wrapp">
+                                        <div class="mediasplitter-player"></div>
+                                        <div class="mediasplitter-controls">
+                                            <div class="noUiSlider mediasplitter-slider"></div>
+                                            <div class="mediasplitter-progress"><div class="mediasplitter-progress-indicator"></div></div>
+                                            <div class="row">
+                                                <label class="col-sm-3 col-3 control-label">Comienza:</label>
+                                                <div class="col-sm-9 col-9">
+                                                    <input name="ini_corte" id="ini_corte" class="mediasplitter-time-start" autocomplete="off" value="" type="text" size="5" readonly /> 
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <label class="col-sm-3 col-3 control-label">Termina:</label>
+                                                <div class="col-sm-9 col-9">
+                                                    <input name="fin_corte" id="fin_corte" class="mediasplitter-time-end" autocomplete="off" value="" size="5" type="text" readonly /> 
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <label class="col-sm-3 col-3 control-label">Duración</label>
+                                                <div class="col-sm-9 col-9">
+                                                    <input name="dur_corte" id="dur_corte" class="mediasplitter-time-dur" autocomplete="off" value="" size="5" type="text" readonly /> <button class="mediasplitter-play" onClick="return false;">Play</button>
                                                     <span class="mediasplitter-time"><span class="mediasplitter-time-remaming">0.00</span> <span class="opaque">seg.</span> </span>
-                                                </p>
+                                                </div>
                                             </div>
                                         </div>
-                                        <input name="dur_total" id="dur_total"  value="" type="hidden" />
                                     </div>
+                                    <input name="dur_total" id="dur_total"  value="" type="hidden" />
                                 </div>
-                            </fieldset>
-                            <input type="hidden" name="canal_id" value="{{ canal_id }}" />
-                            <input type="hidden" name="padre" value="{{ padre }}" />
-                            <input type="hidden" name="video_id" value="{{ video_id }}" />
-                            <input type="hidden" name="ubicacion" value="{{ ubicacion }}" />
-                            <input type="hidden" name="fec_pub_ini" value="{{ fec_pub_ini }}" />
-                            <input type="hidden" name="fec_pub_fin" value="{{ fec_pub_fin }}" />
-                            <input type="hidden" name="tipo_maestro" value="{{ tipo_maestro }}" />
-                            <input type="hidden" name="int_tipo_video" value="{{ int_tipo_video }}" />
-                            <input type="hidden" name="existe_fragmento" value="0" />
-                            <input type="hidden" name="video" id="video" value="{{ video_id }}.mp4" />
-                            <input type="hidden" name="APC_UPLOAD_PROGRESS" id="progress_key" value="{{ progress_key }}" />
-                        </form>
+                            </div>
+                        </fieldset>
+                        <fieldset class="col-sm-6">
+                            <legend>Metadata</legend>
+                            <div class="row">
+                                <label class="col-sm-3 col-3 control-label" for="titulo">Título</label>
+                                <div class="col-sm-9 col-9">
+                                    <input id="titulo" name="titulo" placeholder="Ingrese un título para el video" required type="text" value="{{ titulo }}" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="col-sm-3 col-3 control-label" for="cut_transmision">Fecha de transmisión</label>
+                                <div class="col-sm-9 col-9">
+                                    <input id="cut_transmision" name="cut_transmision" type="text" value="{{ fec_trans }}" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="col-sm-3 col-3 control-label" for="hora_trans_cut_ini">Hora inicio</label>
+                                <div class="col-sm-9 col-9">
+                                    <input id="hora_trans_cut_ini" name="hora_trans_ini" type="text" value="{{ hora_trans_ini }}" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="col-sm-3 col-3 control-label" for="hora_trans_cut_fin">Hora fin</label>
+                                <div class="col-sm-9 col-9">
+                                    <input id="hora_trans_cut_fin" name="hora_trans_fin" type="text" value="{{ hora_trans_fin }}" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="col-sm-3 col-3 control-label" for="descripcion">Descripción</label>
+                                <div class="col-sm-9 col-9">
+                                    <input id="descripcion" name="descripcion" placeholder="Una síntesis del video" required type="text" value="{{ descripcion }}" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="col-sm-3 col-3 control-label" for="tematicas">Tematicas</label>
+                                <div class="col-sm-9 col-9">
+                                    <input id="tematicas_cut" name="tematicas" placeholder="Los temas tratados" required type="text" value="{{ tematicas }}" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="col-sm-3 col-3 control-label" for="personajes">Personajes</label>
+                                <div class="col-sm-9 col-9">
+                                    <input id="personajes_cut" name="personajes" placeholder="Principales y secundarios" required type="text" value="{{ personajes }}" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <button id="submit_cut" class="btn btn-default">Cortar video</button>
+                            </div>
+                        </fieldset>
+                        <fieldset style="display: none;">
+                            <legend>Jerarquía</legend>
+                            <div class="row">
+                                <label class="col-sm-3 control-label" for="categoria">Categorías</label>
+                                <div class="col-sm-9">
+                                    <select id="categoria" name="categoria">
+                                        <option value="0">Seleccione categoría</option>
+                                        <option selected="selected" value="{{ categoria }}">{{ categoria }}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="col-sm-3 control-label" for="programa">Programas</label>
+                                <div class="col-sm-9">
+                                    <select id="programa" name="programa">
+                                        <option value="0">Seleccione programa</option>
+                                        <option selected="selected" value="{{ programa }}">{{ programa }}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="col-sm-3 control-label" for="coleccion">Colecciones</label>
+                                <div class="col-sm-9">
+                                    <select id="coleccion" name="coleccion">
+                                        <option value="0">Seleccione colección</option>
+                                        <option selected="selected" value="{{ coleccion }}">{{ coleccion }}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="col-sm-3 control-label" for="lista">Listas</label>
+                                <div class="col-sm-9">
+                                    <select id="lista" name="lista">
+                                        <option value="0">Seleccione lista</option>
+                                        <option selected="selected" value="{{ lista }}">{{ lista }}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <input name="canal_id" type="hidden" value="{{ canal_id }}" />
+                        <input id="fec_cut_trans" name="fec_trans" type="hidden" value="{{ fec_trans }}" />
+                        <input name="padre" type="hidden" value="{{ padre }}" />
+                        <input name="video_id" type="hidden" value="{{ video_id }}" />
+                        <input name="ubicacion" type="hidden" value="{{ ubicacion }}" />
+                        <input name="fec_pub_ini" type="hidden" value="{{ fec_pub_ini }}" />
+                        <input name="fec_pub_fin" type="hidden" value="{{ fec_pub_fin }}" />
+                        <input name="tipo_maestro" type="hidden" value="{{ tipo_maestro }}" />
+                        <input name="int_tipo_video" type="hidden" value="{{ int_tipo_video }}" />
+                        <input name="existe_fragmento" type="hidden" value="0" />
+                        <input id="video" name="video" type="hidden" value="{{ video_id }}.mp4" />
+                        <input id="progress_key" name="APC_UPLOAD_PROGRESS" type="hidden" value="{{ progress_key }}" />
+                    </form>
 
-                        <script>
-                            $(function() {
-                                $(".mediaspliter-edit").on('click', function(e) {
-                                    var _this = $(this)
-                                            mediaBlock = _this.closest('div.mediasplitter').addClass('mediasplitter-show');
-                                    new MediaSplitter('#' + mediaBlock.attr('id'));
-                                    _this.closest('p').remove();
-                                });
-                                //show the progress bar only if a file field was clicked
-                                var show_bar = 0;
-                                $('input[type="file"]').click(function() {
-                                    show_bar = 1;
-                                });
-                                //show iframe on form submit
-                                $("#cut_form").submit(function() {
-                                    if (show_bar === 1) {
-                                        function set() {
-                                            $('#upload_frame').attr('src', 'upload_frame.php?up_id=' + $('#progress_key').val());
-                                        }
-                                        setTimeout(set);
-                                    }
-                                });
-                            });
-                        </script>
+                    <script>
+                        $(".mediaspliter-edit").on('click', function(e) {
+                            e.preventDefault();
+                            var _this = $(this)
+                                    mediaBlock = _this.closest('div.mediasplitter').addClass('mediasplitter-show');
+                            new MediaSplitter('#' + mediaBlock.attr('id'));
+                            _this.closest('p').remove();
+                        });
+                        //show the progress bar only if a file field was clicked
+                        var show_bar = 0;
+                        $('input[type="file"]').click(function() {
+                            show_bar = 1;
+                        });
+                        //show iframe on form submit
+                        $("#cut_form").submit(function() {
+                            if (show_bar === 1) {
+                                function set() {
+                                    $('#upload_frame').attr('src', 'upload_frame.php?up_id=' + $('#progress_key').val());
+                                }
+                                setTimeout(set);
+                            }
+                        });
+                        $("#cut_transmision").datepicker({ altField: "#fec_cut_trans" });
+                        $(document).on('keypress', "#cut_transmision", function(){
+                            $("#fec_cut_trans").val('');
+                            $("#cut_transmision").val('');
+                        });
+                        $("#hora_trans_cut_ini").timepicker();
+                        $("#hora_trans_cut_fin").timepicker();
+                        $('#tematicas_cut').tagsInput({
+                            defaultText: '',
+                            width: '100%',
+                            height: '38px',
+                            autocomplete_url: '/admin/videos/tematicas'
+                        });
+                        $('#personajes_cut').tagsInput({
+                            defaultText: '',
+                            width: '100%',
+                            height: '38px',
+                            autocomplete_url: '/admin/videos/personajes'
+                        });
+                    </script>

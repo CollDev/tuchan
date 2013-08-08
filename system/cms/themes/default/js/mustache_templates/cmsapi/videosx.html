@@ -1,0 +1,18 @@
+                            <table class="video_result">
+                                <thead>
+                                    <tr>
+                                        <th>Imágen</th>
+                                        <th>Título</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {{ #videos }}
+                                    <tr>
+                                        <td>
+                                            <img src="{{ src }}" title="{{ titulo }}">
+                                        </td>
+                                        <td>{{ titulo }}</td>
+                                    </tr>
+                                    {{ /videos }}
+                                </tbody>
+                            </table>

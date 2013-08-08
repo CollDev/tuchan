@@ -65,7 +65,7 @@ class Liquid {
 
 
             Log::erroLog("url get " . $url);
-            
+
             $result = curl_exec($ch);
             $info = curl_getinfo($ch);
 
@@ -102,7 +102,7 @@ class Liquid {
     function updatePublishedMedia($apikey, $codigo) {
         $url = APIURL . "/medias/" . $codigo . "?key=" . $apikey;
 
-        $post = "<Media><published>true</published></Media>";
+        $post = "<Media><published>TRUE</published></Media>";
 
         Log::erroLog("url: " . $url);
         return self::postXML($url, $post);
@@ -122,10 +122,10 @@ class Liquid {
         $date = date("Y-m-d\TH:i:sP", strtotime($fecha));
 
         $post = "<Media><published>true</published>";
-        $post .= "<description>" . strip_tags($datos->descripcion) . "</description>";
+        $post .= "<description><![CDATA[" . strip_tags($datos->descripcion) . "]]</description>";
         $post .= "<highlighted>false</highlighted>";
         $post .= "<publishDate>" . $date . "</publishDate>";
-        $post .= "<title>" . $datos->titulo . "</title>";
+        $post .= "<title><![CDATA[" . $datos->titulo . "]]</title>";
         $post .= "<channelId>2</channelId>";
         $post .= "</Media>";
 
@@ -150,21 +150,21 @@ class Liquid {
         }
     }
 
-    function updateTitleMediaNode($mediaId, $datos, $apiKey) {
-
-        $mediaId = trim($mediaId);
-
-        $tags = '';
-        $date = date("Y-m-d\TH:i:sP", strtotime($datos->fecha));
-        $post = "<Media>" .
-                "<description>" . $datos->legend . "</description>" .
-                "<title>{$datos->title}</title>" .
-                $tags .
-                "</Media>";
-        $url = APIURL . "/medias/" . $mediaId . "?key=" . $apiKey;
-        //echo $url . "<br>";
-        return $this->postXML($url, $post);
-    }
+//    function updateTitleMediaNode($mediaId, $datos, $apiKey) {
+//
+//        $mediaId = trim($mediaId);
+//
+//        $tags = '';
+//        $date = date("Y-m-d\TH:i:sP", strtotime($datos->fecha));
+//        $post = "<Media>" .
+//                "<description><![CDATA[" . $datos->legend . "]]</description>" .
+//                "<title><![CDATA[{$datos->title}]]</title>" .
+//                $tags .
+//                "</Media>";
+//        $url = APIURL . "/medias/" . $mediaId . "?key=" . $apiKey;
+//        //echo $url . "<br>";
+//        return $this->postXML($url, $post);
+//    }
 
     function uploadVideoLiquid($id_video, $apiKey) {
 
@@ -530,12 +530,12 @@ class Liquid {
             curl_setopt($ch, CURLOPT_TIMEOUT, 15);
 
             Log::erroLog("entro getVerificarLiquidPostUpload " . $url);
-           
+
 
             $result = curl_exec($ch);
             $info = curl_getinfo($ch);
 
-           
+
 
             if ($info['http_code'] == '200' && $info["content_type"] == 'application/xml') {
                 Log::erroLog("return true");

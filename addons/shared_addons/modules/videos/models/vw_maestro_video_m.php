@@ -25,4 +25,27 @@ class Vw_maestro_video_m extends MY_Model {
         echo "</pre>";
     }
 
+    public function videos_x_programa($programa_id)
+    {
+        $query = "SELECT * FROM `" . $this->_table . "` WHERE `v` = 'v' AND `gm3` = '" . $programa_id . "' AND `gm1` IS NULL AND `gm2` IS NULL;";
+        $result = $this->db->query($query)->result();
+        
+        return $result;
+    }
+
+    public function videos_x_coleccion($coleccion_id)
+    {
+        $query = "SELECT * FROM `" . $this->_table . "` WHERE `v` = 'v' AND `gm2` = '" . $coleccion_id . "' AND `gm1` IS NULL;";
+        $result = $this->db->query($query)->result();
+        
+        return $result;
+    }
+
+    public function videos_x_lista($lista_id)
+    {
+        $query = "SELECT * FROM `" . $this->_table . "` WHERE `v` = 'v' AND `gm1` = '" . $lista_id . "';";
+        $result = $this->db->query($query)->result();
+        
+        return $result;
+    }
 }

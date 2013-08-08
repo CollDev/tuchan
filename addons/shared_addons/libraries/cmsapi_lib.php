@@ -156,67 +156,87 @@ class cmsapi_lib extends MX_Controller {
         echo json_encode($returnValue);
     }
     
-    public function widget($post, $files)
+    public function widget()
     {
-        $ruta_video = str_replace('cmsapi_lib.php', '', __FILE__).'../../../uploads/videos/' . $this->moveUploaded($files);
-        $archivo_video = pathinfo($ruta_video);
-        $ext = $archivo_video['extension'];
-        $size_video = filesize($ruta_video);
-        $arrayExt = explode("|", 'mp4|mpg|flv|avi|wmv');
-        if (in_array($ext, $arrayExt)) {
-            if ($size_video > 0 && $size_video <= 2147483648) { //10485760=>10MB 2147483648=>2GB
-                if (file_exists($ruta_video) && strlen(trim($archivo_video['basename'])) > 0) {//validamos que exista el archivo
+        return array();
+    }
+    
+    public function post_upload($post, $files)
+    {
+        if ($this->input->is_ajax_request()) {
+            $ruta_video = str_replace('cmsapi_lib.php', '', __FILE__).'../../../uploads/videos/' . $this->moveUploaded($files);
+            $archivo_video = pathinfo($ruta_video);
+            $ext = $archivo_video['extension'];
+            $size_video = filesize($ruta_video);
+            $arrayExt = explode("|", 'mp4|mpg|flv|avi|wmv');
+            $return = array();
+            if (in_array($ext, $arrayExt)) {
+                if ($size_video > 0 && $size_video <= 2147483648) { //10485760=>10MB 2147483648=>2GB
+                    if (file_exists($ruta_video) && strlen(trim($archivo_video['basename'])) > 0) {//validamos que exista el archivo
 
-                    $objBeanVideo = new stdClass();
-                    $objBeanVideo->id = NULL;
-                    $objBeanVideo->tipo_videos_id = $post['int_tipo_video'];
-                    $objBeanVideo->categorias_id = $post['categoria'];
-                    $objBeanVideo->usuarios_id = 1;
-                    $objBeanVideo->canales_id = $post['canal_id'];
-                    $objBeanVideo->titulo = $post['titulo'];
-                    $objBeanVideo->alias = url_title(strtolower(convert_accented_characters($post['titulo'])));
-                    $objBeanVideo->descripcion = $post['descripcion'];
-                    $objBeanVideo->fragmento = $post['fragmento'];
-                    $objBeanVideo->fecha_publicacion_inicio = date("H:i:s", strtotime($post['fec_pub_ini']));
-                    $objBeanVideo->fecha_publicacion_fin = date("H:i:s", strtotime($post['fec_pub_fin']));
-                    $objBeanVideo->fecha_transmision = date("Y-m-d H:i:s", strtotime($post['fec_trans']));
-                    $objBeanVideo->horario_transmision_inicio = date("H:i:s", strtotime($post['hora_trans_ini']));
-                    $objBeanVideo->horario_transmision_fin = date("H:i:s", strtotime($post['hora_trans_fin']));
-                    $objBeanVideo->ubicacion = $post['ubicacion'];
-                    $objBeanVideo->estado = 0;
-                    $objBeanVideo->estado_liquid = 0;
-                    $objBeanVideo->fecha_registro = date("Y-m-d H:i:s");
-                    $objBeanVideo->usuario_registro = 1;
-                    $objBeanVideo->estado_migracion = 0; //estado para mongoDB
-                    $objBeanVideo->estado_migracion_sphinx_tit = 0;
-                    $objBeanVideo->estado_migracion_sphinx_des = 0;
-                    $objBeanVideo->padre = 0;
-                    $objBeanVideo->estado_migracion_sphinx = 0;
-                    $objBeanVideoSaved = $this->videos_mp->save_video($objBeanVideo);
-                    //giardamos los tags de tematica y personajes
-                    $this->_saveTagsTematicaPersonajes($objBeanVideoSaved, $post);
-                    //guardamos en la tabla grupo detalle
-                    $this->_saveVideoMaestroDetalle($objBeanVideoSaved, $post);
-                    //cambiar nombre del video por el ID del registro del video 
-                    $this->renameVideo($objBeanVideoSaved, $archivo_video['basename']);
-                    
-                    $_SESSION['upload_result']['type'] = 'success';
-                    $_SESSION['upload_result']['title'] = 'Video subido con éxito';
-                    $_SESSION['upload_result']['message'] = '<a href="'.$this->config->item('motor').'/embed/' . $objBeanVideoSaved->id . '">El archivo subido estará ubicado aquí</a><br>http://micanal.pe/embed/' . $objBeanVideoSaved->id . '';
+                        $objBeanVideo = new stdClass();
+                        $objBeanVideo->id = NULL;
+                        $objBeanVideo->tipo_videos_id = $post['int_tipo_video'];
+                        $objBeanVideo->categorias_id = $post['categoria'];
+                        $objBeanVideo->usuarios_id = 1;
+                        $objBeanVideo->canales_id = $post['canal_id'];
+                        $objBeanVideo->titulo = $post['titulo'];
+                        $objBeanVideo->alias = url_title(strtolower(convert_accented_characters($post['titulo'])));
+                        $objBeanVideo->descripcion = $post['descripcion'];
+                        $objBeanVideo->fragmento = $post['fragmento'];
+                        $objBeanVideo->fecha_publicacion_inicio = date("H:i:s", strtotime($post['fec_pub_ini']));
+                        $objBeanVideo->fecha_publicacion_fin = date("H:i:s", strtotime($post['fec_pub_fin']));
+                        $objBeanVideo->fecha_transmision = date("Y-m-d H:i:s", strtotime($post['fec_trans']));
+                        $objBeanVideo->horario_transmision_inicio = date("H:i:s", strtotime($post['hora_trans_ini']));
+                        $objBeanVideo->horario_transmision_fin = date("H:i:s", strtotime($post['hora_trans_fin']));
+                        $objBeanVideo->ubicacion = $post['ubicacion'];
+                        $objBeanVideo->estado = 0;
+                        $objBeanVideo->estado_liquid = 0;
+                        $objBeanVideo->fecha_registro = date("Y-m-d H:i:s");
+                        $objBeanVideo->usuario_registro = 1;
+                        $objBeanVideo->estado_migracion = 0; //estado para mongoDB
+                        $objBeanVideo->estado_migracion_sphinx_tit = 0;
+                        $objBeanVideo->estado_migracion_sphinx_des = 0;
+                        $objBeanVideo->padre = 0;
+                        $objBeanVideo->estado_migracion_sphinx = 0;
+                        $objBeanVideoSaved = $this->videos_mp->save_video($objBeanVideo);
+                        //giardamos los tags de tematica y personajes
+                        $this->_saveTagsTematicaPersonajes($objBeanVideoSaved, $post);
+                        //guardamos en la tabla grupo detalle
+                        $this->_saveVideoMaestroDetalle($objBeanVideoSaved, $post);
+                        //cambiar nombre del video por el ID del registro del video 
+                        $this->renameVideo($objBeanVideoSaved, $archivo_video['basename']);
+
+                        $return = array(
+                            'type' => 'success',
+                            'title' => 'Video subido con éxito',
+                            'message' => '<a href="'.$this->config->item('motor').'/embed/' . $objBeanVideoSaved->id . '">El archivo subido estará ubicado aquí</a><br>'.$this->config->item('motor').'/embed/' . $objBeanVideoSaved->id,
+                            'url' => $this->config->item('motor').'/embed/' . $objBeanVideoSaved->id,
+                        );
+                    } else {
+                        $return = array(
+                            'type' => 'danger',
+                            'title' => 'Error al subir video.',
+                            'message' => 'Por favor vuelva a intentarlo en unos minutos',
+                        );
+                    }
                 } else {
-                    $_SESSION['upload_result']['type'] = 'danger';
-                    $_SESSION['upload_result']['title'] = 'Error al subir video.';
-                    $_SESSION['upload_result']['message'] = 'Por favor vuelva a intentarlo en unos minutos';
+                    $return = array(
+                        'type' => 'info',
+                        'title' => 'Video muy extenso',
+                        'message' => 'El tamaño del video supera el permitido de 2GB.',
+                    );
                 }
             } else {
-                $_SESSION['upload_result']['type'] = 'info';
-                $_SESSION['upload_result']['title'] = 'Video muy extenso';
-                $_SESSION['upload_result']['message'] = 'El tamaño del video supera el permitido de 2GB.';
+                $return = array(
+                    'type' => 'info',
+                    'title' => 'Formato no permitido',
+                    'message' => 'Por favor suba un video: mp4,mpg,flv,avi,wmv',
+                );
             }
-        } else {
-            $_SESSION['upload_result']['type'] = 'info';
-            $_SESSION['upload_result']['title'] = 'Formato no permitido';
-            $_SESSION['upload_result']['message'] = 'Por favor suba un video: mp4,mpg,flv,avi,wmv';
+
+            header("Content-Type: application/json; charset=utf-8");
+            echo json_encode($return);
         }
     }
     
@@ -568,10 +588,123 @@ class cmsapi_lib extends MX_Controller {
             return 0;
         }
     }
-    private function seconds_from_time($time)
-    { 
-        list($h, $m, $s) = explode(':', $time); 
-        
-        return ($h * 3600) + ($m * 60) + $s; 
-    } 
+    
+    public function verificarVideo($canal_id, $video_id, $post)
+    {
+        $returnValue = false;
+        $fromView = false;
+        if ($post == NULL) {
+            $post = $this->input->post();
+            $fromView = true;
+        }
+        $id_type = 0;
+        if ($post['lista'] > 0) {
+            $id_type = $post['lista'];
+        } else {
+            if ($post['coleccion'] > 0) {
+                $id_type = $post['coleccion'];
+            } else {
+                if ($post['programa'] > 0) {
+                    $id_type = $post['programa'];
+                }
+            }
+        }
+                
+        if ($id_type == 0) {
+            if ($this->videos_m->existVideo($post['titulo'], $canal_id, $video_id)) {
+                $objVideo2 = $this->videos_m->like('titulo', $post['titulo'], 'none')->get_by(array());
+                if (count($objVideo2) > 0) {
+                    if ($objVideo2->id != $video_id) {
+                        $returnValue = true;
+                    }
+                }
+            }
+        } else {
+            if ($id_type > 0) {
+                $objCollectionDetalle = $this->grupo_detalle_m->getGrupoDetalle(array("grupo_maestro_padre" => $id_type));
+                if (count($objCollectionDetalle) > 0) {
+                    foreach ($objCollectionDetalle as $index => $objDetalle) {
+                        if ($objDetalle->video_id != NULL) {
+                            if ($this->videos_m->existVideo($post['titulo'], $canal_id, $objDetalle->video_id, $video_id, $id_type)) {
+                                $returnValue = true;
+                                break;
+                            }
+                        }
+                    }
+                } else {
+                    $returnValue = false;
+                }
+            } else {
+                $returnValue = false;
+            }
+        }
+        if ($fromView) {
+            if ($returnValue) {
+                echo json_encode(array("errorValue" => "1"));
+            } else {
+                echo json_encode(array("errorValue" => "0"));
+            }
+        } else {
+            return $returnValue;
+        }
+    }
+    
+    public function insertCorteVideo($canal_id, $video_id)
+    {
+        if ($this->input->is_ajax_request()) {
+            if ($this->verificarVideo($canal_id, $video_id, $this->input->post())) {
+                echo json_encode(array("value" => '1'));
+            } else {
+                $user_id = (int) $this->session->userdata('user_id');
+                $objBeanVideo = new stdClass();
+                $objBeanVideo->id = $video_id;
+                $objBeanVideo->tipo_videos_id = $this->input->post('tipo');
+                $objBeanVideo->categorias_id = $this->input->post('categoria');
+                $objBeanVideo->usuarios_id = $user_id;
+                $objBeanVideo->canales_id = $this->input->post('canal_id');
+                $objBeanVideo->titulo = $this->input->post('titulo');
+                $objBeanVideo->alias = url_title(strtolower(convert_accented_characters($this->input->post('titulo')))) . '-' . $video_id;
+                $objBeanVideo->descripcion = $this->input->post('descripcion_updated');
+                $objBeanVideo->fragmento = 0;
+                $objBeanVideo->fecha_publicacion_inicio = date("Y-m-d H:i:s", strtotime($this->input->post('fec_pub_ini')));
+                $objBeanVideo->fecha_publicacion_fin = date("Y-m-d H:i:s", strtotime($this->input->post('fec_pub_fin')));
+                $objBeanVideo->fecha_transmision = date("Y-m-d H:i:s", strtotime($this->input->post('fec_trans')));
+                $objBeanVideo->horario_transmision_inicio = $this->input->post('hora_trans_ini');
+                $objBeanVideo->horario_transmision_fin = $this->input->post('hora_trans_fin');
+                $objBeanVideo->ubicacion = $this->input->post('ubicacion');
+                $objBeanVideo->fecha_actualizacion = date("Y-m-d H:i:s");
+                $objBeanVideo->usuario_actualizacion = $user_id;
+
+                $objBeanVideo->estado_liquid = 2;
+                $objBeanVideo->fecha_registro = date("Y-m-d H:i:s");
+                $objBeanVideo->usuario_registro = $user_id;
+                $objBeanVideo->estado_migracion = 0;
+                $objBeanVideo->estado_migracion_sphinx_tit = 0;
+                $objBeanVideo->estado_migracion_sphinx_des = 0;
+
+                $objBeanVideo->estado = 0;
+                $objBeanVideo->padre = $video_id;
+                $objBeanVideo->estado_migracion_sphinx = $this->config->item('sphinx:nuevo');
+                $objBeanVideo->procedencia = $this->config->item('procedencia:micanal');
+
+                $objvideotemp = $this->videos_m->save_video($objBeanVideo);
+
+                $this->_saveTagsTematicaPersonajes($objBeanVideo, $this->input->post());
+                //obtenemos el ID del maestro detalle del video
+                $objMaestroDetalle = $this->grupo_detalle_m->get_by(array("video_id" => $objBeanVideo->id));
+                $maestro_detalle_id = NULL;
+                if (count($objMaestroDetalle) > 0) {
+                    $maestro_detalle_id = $objMaestroDetalle->id;
+                }
+                //guardamos en la tabla grupo detalle
+                $this->_saveVideoMaestroDetalle($objBeanVideo, $this->input->post(), $maestro_detalle_id);
+
+                Log::erroLog("admin antes  curlCorteVideoXId");
+                $this->procesos_lib->curlCorteVideoXId($video_id, $objvideotemp->id, $this->input->post('ini_corte'), $this->input->post('dur_corte'));
+                Log::erroLog("admin despues curlCorteVideoXId");
+                echo json_encode(array("value" => '0', 'video_id' => $objvideotemp->id));
+                //echo json_encode(array($video_id, $objvideotemp->id, $this->input->post('ini_corte'), $this->input->post('dur_corte')));
+            }
+        }
+    }
 }

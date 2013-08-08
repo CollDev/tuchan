@@ -25,52 +25,62 @@ class Videos_mp extends CI_Model {
         $query = "select id,id_mongo from " . $this->_table . " where codigo is not null and estado_liquid = 6";
         return $this->db->query($query)->result();
     }
-    
-    public function getVideosActivosPublicados(){
+
+    public function getVideosActivosPublicados() {
         $query = " SELECT vi.*,ca.apikey,ca.playerkey FROM default_cms_videos vi INNER JOIN default_cms_canales ca ON vi.canales_id =  ca.id WHERE vi.estado = 2 and vi.estado_liquid=6";
         return $this->db->query($query)->result();
     }
-    
-    public function getVideosActivosPublicadosUlt7Dias(){
+
+    public function getVideosActivosPublicadosUlt7Dias() {
         $query = "SELECT vi.*,ca.apikey,ca.playerkey
                   FROM default_cms_videos vi INNER JOIN default_cms_canales ca ON vi.canales_id =  ca.id WHERE vi.estado = 2 AND vi.estado_liquid=6
                   AND (DATE_ADD(CONCAT(vi.fecha_transmision,' ',vi.horario_transmision_inicio) ,INTERVAL ca.ibope HOUR)) >  (DATE_SUB(NOW(),INTERVAL 7 DAY)) 
                   AND (DATE_ADD(CONCAT(vi.fecha_transmision,' ',vi.horario_transmision_inicio) ,INTERVAL ca.ibope HOUR)) <= NOW();";
         return $this->db->query($query)->result();
     }
-    
+
     public function getVideosxId($id) {
         $query = "SELECT vi.ruta,vi.id,vi.id_mongo,vi.estado_migracion,vi.estado,vi.fragmento, (SELECT GROUP_CONCAT(ta.nombre)
                     FROM default_cms_video_tags vt INNER JOIN default_cms_tags ta ON vt.tags_id = ta.id  
                     WHERE vt.videos_id=vi.id) AS 'etiquetas',
                     ( SELECT  imagen FROM default_cms_imagenes im WHERE im.tipo_imagen_id=5 AND canales_id=vi.canales_id AND im.estado=1 ) AS 'imagen'				
-                    ,IF((DATE_ADD(CONCAT(fecha_transmision,' ',horario_transmision_inicio) , INTERVAL ibope HOUR)<NOW()),1,0) AS 'est_tra'
+                    ,IF((DATE_ADD(CONCAT(fecha_transmision,' ',horario_transmision_inicio) , INTERVAL ibope HOUR)<NOW()),1,0) AS 'est_tra',
+                    (SELECT gm2.id_mongo FROM default_cms_grupo_maestros gm2 INNER JOIN default_cms_grupo_detalles gd2 ON gm2.id = gd2.grupo_maestro_padre WHERE 
+                        gd2.video_id = vi.id) AS 'idmongo_pa' 
                     FROM default_cms_videos vi  INNER JOIN default_cms_canales ca ON ca.id = vi.canales_id
                     WHERE vi.id =" . $id;
         return $this->db->query($query)->result();
     }
 
     public function getVideosxCodigo($codigo) {
-        
-        $query ="SELECT vi.id,vi.titulo,vi.descripcion,vi.codigo,ca.apikey FROM " . $this->_table . " vi 
+
+        $query = "SELECT vi.id,vi.titulo,vi.descripcion,vi.codigo,ca.apikey FROM " . $this->_table . " vi 
                 INNER JOIN " . $this->_table_canales . " ca ON  vi.canales_id=ca.id
-                WHERE  vi.codigo='" . $codigo."'";
-        
+                WHERE  vi.codigo='" . $codigo . "'";
+
         return $this->db->query($query)->result();
-    }    
+    }
 
     public function getVideosxIdConKey($id) {
         $query = "SELECT vi.*,ca.id as 'canal_id' , ca.apikey,ca.playerkey FROM default_cms_videos vi INNER JOIN default_cms_canales ca ON vi.canales_id =  ca.id WHERE vi.id=" . $id;
         return $this->db->query($query)->result();
     }
-    
-    
-    public function getVideosXIdDatos($id){
-        $query  = "SELECT ca.id AS 'canal_id',ca.id_mongo AS 'id_mongo_ca',
-                (SELECT gm.id AS 'gm_id' FROM default_vw_maestros_videos vmv INNER JOIN default_cms_grupo_maestros gm ON vmv.gm3 = gm.id WHERE v='m' and vmv.id = " . $id ." ) AS 'gm_id'                 
-                FROM default_cms_videos vi  INNER JOIN default_cms_canales ca ON ca.id =  vi.canales_id WHERE vi.id = ". $id;
+
+    public function getVideosXIdDatos($id) {
+        $query = "SELECT ca.id AS 'canal_id',ca.id_mongo AS 'id_mongo_ca',
+                    CASE 
+		WHEN (SELECT gd1.tipo_grupo_maestros_id FROM default_cms_grupo_detalles gd1 WHERE gd1.video_id = vi.id)  =3 THEN 
+			(SELECT gd1.grupo_maestro_padre  FROM default_cms_grupo_detalles gd1 WHERE gd1.video_id = vi.id AND gd1.tipo_grupo_maestros_id =3)
+	
+		WHEN (SELECT gd2.tipo_grupo_maestros_id FROM default_cms_grupo_detalles gd2 WHERE gd2.grupo_maestro_id = (SELECT gd3.grupo_maestro_padre FROM default_cms_grupo_detalles gd3 WHERE gd3.video_id = vi.id  ) )  =3 THEN 
+			(SELECT gd2.grupo_maestro_padre FROM default_cms_grupo_detalles gd2 WHERE gd2.grupo_maestro_id = (SELECT gd3.grupo_maestro_padre FROM default_cms_grupo_detalles gd3 WHERE gd3.video_id = vi.id  )   AND  gd2.tipo_grupo_maestros_id =3	)
+			
+		WHEN (SELECT gd4.tipo_grupo_maestros_id FROM default_cms_grupo_detalles gd4 WHERE gd4.grupo_maestro_id = (SELECT gd5.grupo_maestro_padre FROM default_cms_grupo_detalles gd5 WHERE gd5.grupo_maestro_id = (SELECT gd6.grupo_maestro_padre FROM default_cms_grupo_detalles gd6 WHERE gd6.video_id = vi.id )))=3 THEN 
+			(SELECT gd4.grupo_maestro_padre FROM default_cms_grupo_detalles gd4 WHERE gd4.grupo_maestro_id = (SELECT gd5.grupo_maestro_padre FROM default_cms_grupo_detalles gd5 WHERE gd5.grupo_maestro_id = (SELECT gd6.grupo_maestro_padre FROM default_cms_grupo_detalles gd6 WHERE gd6.video_id = vi.id )) AND  gd4.tipo_grupo_maestros_id =3	)
+		ELSE(SELECT NULL) 
+                    END AS 'gm_id'                                                  
+                FROM default_cms_videos vi  INNER JOIN default_cms_canales ca ON ca.id =  vi.canales_id WHERE vi.id =" . $id;
         return $this->db->query($query)->result();
-        
     }
 
     public function getVideosNuevos() {
@@ -127,15 +137,15 @@ class Videos_mp extends CI_Model {
 
         return $this->db->query($query)->result();
     }
-    
-    public function getVideosMasVistosXId($cant){
-        $query  ="select id,id_mongo from " . $this->_table . " WHERE estado=2 ORDER BY reproducciones DESC LIMIT ".$cant;        
+
+    public function getVideosMasVistosXId($cant) {
+        $query = "select id,id_mongo from " . $this->_table . " WHERE estado=2 ORDER BY reproducciones DESC LIMIT " . $cant;
         return $this->db->query($query)->result();
     }
-    
-    public function getVideoPadreXIdHijo($id){
-        
-        $query = "SELECT id,id_mongo FROM " . $this->_table . " WHERE id =  (SELECT padre FROM " . $this->_table . " WHERE id = ".$id.")";
+
+    public function getVideoPadreXIdHijo($id) {
+
+        $query = "SELECT id,id_mongo FROM " . $this->_table . " WHERE id =  (SELECT padre FROM " . $this->_table . " WHERE id = " . $id . ")";
         return $this->db->query($query)->result();
     }
 
@@ -145,7 +155,7 @@ class Videos_mp extends CI_Model {
     }
 
     public function setEstadosVideos($id = "", $estado = "", $estado_liquid = "") {
-        $query = "update " . $this->_table . " set estado=" . $estado . ",estado_liquid =" . $estado_liquid . " where id=" . $id. " and estado_liquid = " . ($estado_liquid - 1);
+        $query = "update " . $this->_table . " set estado=" . $estado . ",estado_liquid =" . $estado_liquid . " where id=" . $id . " and estado_liquid = " . ($estado_liquid - 1);
         $this->db->query($query);
         Log::erroLog("query setEstadosVideos  " . $query);
     }
@@ -167,7 +177,7 @@ class Videos_mp extends CI_Model {
         $this->db->query($query);
         Log::erroLog("setRutaVideos  " . $query);
     }
-    
+
     function setDuracionVideos($id = "", $duracion = "") {
         $query = "update " . $this->_table . " set duracion = SEC_TO_TIME(" . $duracion . ") where id = " . $id;
         $this->db->query($query);
@@ -182,9 +192,9 @@ class Videos_mp extends CI_Model {
 
     function getVideosPlaylist($id) {
         $query = "SELECT vi.id,vi.id_mongo FROM " . $this->_table_grupo_detalles . " gd INNER JOIN " . $this->_table_videos . " vi ON gd.video_id = vi.id 
-            WHERE gd.grupo_maestro_padre = (SELECT gd2.grupo_maestro_padre FROM " . $this->_table_grupo_detalles . " gd2 WHERE video_id=" . $id . ") AND vi.id_mongo IS NOT NULL
+            WHERE gd.grupo_maestro_padre = (SELECT gd2.grupo_maestro_padre FROM " . $this->_table_grupo_detalles . " gd2 WHERE tipo_grupo_maestros_id = 1 and  video_id=" . $id . ") AND vi.id_mongo IS NOT NULL
             ORDER BY vi.fragmento,vi.fecha_registro DESC";
-        
+
         return $this->db->query($query)->result();
     }
 
@@ -193,33 +203,31 @@ class Videos_mp extends CI_Model {
         $query = "SELECT id_mongo FROM default_cms_videos WHERE padre = " . $id;
         return $this->db->query($query)->result();
     }
-    
+
     function getShowProcedure() {
 
         $query = "SHOW PROCEDURE STATUS";
         return $this->db->query($query)->result();
     }
-       
+
     function getShowFunction() {
 
         $query = "SHOW FUNCTION STATUS";
         return $this->db->query($query)->result();
     }
-    
-     public function getExisteVideosXIdMongo($id){
-        $query = "select * from " . $this->_table . " where id_mongo = '".$id."'";
-        return  $this->db->query($query)->num_rows();
+
+    public function getExisteVideosXIdMongo($id) {
+        $query = "select * from " . $this->_table . " where id_mongo = '" . $id . "'";
+        return $this->db->query($query)->num_rows();
     }
-    
-    public function getTransmisionMenorIbope()
-    {
+
+    public function getTransmisionMenorIbope() {
         $query = "SELECT vi.id,vi.id_mongo FROM " . $this->_table_canales . " ca INNER JOIN " . $this->_table_videos . " vi ON ca.id = vi.canales_id 
-            WHERE ( DATE_ADD(CONCAT(fecha_transmision,' ',horario_transmision_inicio), INTERVAL ca.ibope HOUR )<NOW()) AND vi.id_mongo IS NULL AND vi.estado = '2'";        
+            WHERE ( DATE_ADD(CONCAT(fecha_transmision,' ',horario_transmision_inicio), INTERVAL ca.ibope HOUR )<NOW()) AND vi.id_mongo IS NULL AND vi.estado = '2'";
         return $this->db->query($query)->result();
     }
-    
-    public function insertVideo($objBeanVideo)
-    {
+
+    public function insertVideo($objBeanVideo) {
         $query = "INSERT INTO " . $this->_table . " 
             (
                 `tipo_videos_id`,
@@ -270,27 +278,27 @@ class Videos_mp extends CI_Model {
                 '" . $objBeanVideo->padre . "',
                 '" . $objBeanVideo->estado_migracion_sphinx . "'
             );";
-        
+
         $this->db->query($query);
         return $this->db->insert_id();
     }
-    
-    public function updateVideo($id, $data)
-    {
+
+    public function updateVideo($id, $data) {
         $key = array_keys($data);
         $value = array_values($data);
         $query = "UPDATE " . $this->_table . " SET
                 `" . $key[0] . "` = '" . $value[0] . "' 
                 WHERE `id` = '" . $id . "';";
-        
+
         $this->db->query($query);
     }
-    
+
     public function save_video($objBeanVideo) {
         $objBeanVideo->id = $this->insertVideo($objBeanVideo);
         $objBeanVideo->alias = $objBeanVideo->alias . '-' . $objBeanVideo->id;
         $this->updateVideo($objBeanVideo->id, array('alias' => $objBeanVideo->alias));
-        
+
         return $objBeanVideo;
     }
+
 }

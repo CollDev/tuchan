@@ -12,6 +12,11 @@ class Canales_mp extends CI_Model {
         $query = "select * from " . $this->_table . " where apikey is not null and playerkey is not null";
         return $this->db->query($query)->result();
     }
+    
+    public function getCanalesDistinctApiKey(){
+        $query ="SELECT DISTINCT(apikey) FROM " . $this->_table . " WHERE estado = 1";
+        return $this->db->query($query)->result();
+    }
 
     public function getCanalesXId($id) {
         $query = "SELECT ca.*,(SELECT COUNT(id) FROM " . $this->_table_videos . " vi WHERE vi.estado = 2 AND vi.canales_id =ca.id ) AS 'canal_cv',

@@ -58,10 +58,6 @@ class curlProceso extends MX_Controller {
         $this->procesos_lib->generarMiCanal();
     }
 
-    public function generarCanal() {
-        $this->procesos_lib->generarCanal();
-    }
-
     public function estadosVideos() {
         $this->procesos_lib->estadosVideos();
     }
@@ -104,6 +100,14 @@ class curlProceso extends MX_Controller {
 
     public function actualizarVideosXId($id) {
         $this->procesos_lib->actualizarVideosXId($id);
+    }
+    
+    public function sincronizarLibVideo($id){
+        $this->procesos_lib->sincronizarLibVideo($id);
+    }
+    
+    public function actualizarCantidadVideosXVideosId($id){
+        $this->procesos_lib->actualizarCantidadVideosXVideosId($id);
     }
 
     public function generarCanalesXId($id) {

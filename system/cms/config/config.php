@@ -472,14 +472,14 @@ $config['motor'] = 'http://dev.micanal.pe';
 /*
  $config['host:sphinx'] = '192.168.1.35';
  $config['port:sphinx'] = 3312;
- */
+*/
 
 // SPHINX - DEV
 
  $config['host:sphinx'] = '10.85.138.3';
  $config['port:sphinx'] = 3312;
 
- 
+  
  // SPHINX - PRE
  /*
  $config['host:sphinx'] = '10.85.138.3';
@@ -491,4 +491,14 @@ $config['motor'] = 'http://dev.micanal.pe';
  $config['host:sphinx'] = '10.85.138.3';
  $config['port:sphinx'] = '3312';
  */
+ 
+ $config['nivel:canal'] = '0';
+ $config['nivel:programa'] = '1';
+ $config['nivel:coleccion'] = '2';
+ $config['nivel:listareproduccion'] ='3';
+ $config['nivel:video'] = '4';
+ 
+ $config['time:delete:video']="-1 week";
+ $config['datetime:unpublishDate:video']="2012-01-01T00:00:00-00:00";
+ 
 /* End of file config.php */
