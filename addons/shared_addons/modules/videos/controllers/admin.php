@@ -5647,7 +5647,7 @@ class Admin extends Admin_Controller {
                 } else {
                     $imagen = $objVideo->imagen;
                 }
-                $array[] = array("src" => [$imagen], "titulo" => $objVideo->nombre);
+                $array[] = array("src" => $imagen, "titulo" => $objVideo->nombre);
             }
             $returnValue['videos'] = $array;
         }
@@ -5667,7 +5667,7 @@ class Admin extends Admin_Controller {
                 } else {
                     $imagen = $objVideo->imagen;
                 }
-                $array[] = array("src" => [$imagen], "titulo" => $objVideo->nombre);
+                $array[] = array("src" => $imagen, "titulo" => $objVideo->nombre);
             }
             $returnValue['videos'] = $array;
         }
