@@ -1117,7 +1117,8 @@ class Sincronizar_lib extends MX_Controller {
      * @param integer $hours Amount of hours to add
      * @return type
      */
-    function add_hours_to_date($originalDate, $hours){
+    private function add_hours_to_date($originalDate, $hours)
+    {
         return ($hours * 3600) + strtotime($originalDate);
     }
 }

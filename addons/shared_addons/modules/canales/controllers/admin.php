@@ -7566,6 +7566,35 @@ class Admin extends Admin_Controller {
                 ->set('canales', $canales);
         $this->input->is_ajax_request() ? $this->template->build('admin/tables/canales') : $this->template->build('admin/ibope');
     }
+    
+    public function key()
+    {
+        $canales = $this->canales_m->get_many_by(array('estado'=> $this->config->item('estado:publicado')));
+        foreach($canales as $canal) {
+            $imagen = $this->imagen_m->get_by(array('canales_id' => $canal->id, 'estado' => $this->config->item('estado:publicado'), 'tipo_imagen_id' => $this->config->item('imagen:iso')));
+            if (count($imagen) == 0) {
+                $logo = $this->config->item('url:iso');
+            } else {
+                $logo = $this->config->item('protocolo:http') . $this->config->item('server:elemento') . '/' . $imagen->imagen;
+            }
+            $canal->logo = $logo;
+        }
+        //do we need to unset the layout because the request is ajax?
+        $this->input->is_ajax_request() and $this->template->set_layout(FALSE);
+
+        $this->template
+                ->title($this->module_details['name'])
+                //->append_js('admin/filter.js')
+                //->append_js('module::jquery.ddslick.min.js')
+                //->set_partial('filters', 'admin/partials/filters')
+                ->set_partial('lista_canales', 'admin/tables/key')
+                ->append_js('module::scripts.js')
+                //->append_css('module::jquery.alerts.css')
+                //->set('pagination', $pagination)
+                //->set('estados', $estados)
+                ->set('canales', $canales);
+        $this->input->is_ajax_request() ? $this->template->build('admin/tables/canales') : $this->template->build('admin/key');
+    }
     /**
      * Actualiza campo ibope en canal
      * 
@@ -7595,6 +7624,26 @@ class Admin extends Admin_Controller {
                 $return = array('type' => 'exit', 'message' => 'Ibope actualizado.');
             } else {
                 $return = array('type' => 'error', 'message' => 'Error al actualizar ibope.');
+            }
+        
+            echo json_encode($return);
+        }
+    }
+    
+    public function actualizar_key()
+    {
+        if ($this->input->is_ajax_request()) {
+            $updated = FALSE;
+            if ($this->canales_m->get($this->input->get('canal_id'))->key_canal !== $this->input->get('key')) {
+                $updated = $this->canales_m->update($this->input->get('canal_id'), array('key_canal' => $this->input->get('key')));
+            } else {
+                echo json_encode(array('type' => 'info', 'message' => 'Ingrese otro valor.'));
+                return;
+            }
+            if ($updated) {
+                $return = array('type' => 'exit', 'message' => 'API key actualizado.');
+            } else {
+                $return = array('type' => 'error', 'message' => 'Error al actualizar API key.');
             }
         
             echo json_encode($return);
