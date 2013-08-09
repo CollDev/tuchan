@@ -14,10 +14,15 @@ class cmsApi extends MX_Controller {
     public function widget($key_canal)
     {
         $canal_id = $this->cmsapi_lib->getCanalIdByKey($key_canal);
-        $this->template
-            ->set('canal_id', $canal_id)
-            ->set('motor', $this->config->item('motor'))
-            ->build('cmsapi/widget');
+        if ($canal_id != null) {
+            $this->template
+                ->set('canal_id', $canal_id)
+                ->set('motor', $this->config->item('motor'))
+                ->build('cmsapi/widget');
+        } else {
+            $this->template
+                ->build('cmsapi/error');
+        }
     }
 
     public function getCanalesList()

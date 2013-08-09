@@ -711,7 +711,10 @@ class cmsapi_lib extends MX_Controller {
     public function getCanalIdByKey($key_canal)
     {
         $objCanal = $this->canales_m->get_by(array("key_canal" => $key_canal));
-        
-        return $objCanal->id;
+        if (count($objCanal) > 0) {
+            return $objCanal->id;
+        } else {
+            return;
+        }
     }
 }
