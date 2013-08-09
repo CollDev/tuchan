@@ -1318,6 +1318,7 @@ class Procesos_lib extends MX_Controller {
             $this->_actualizarPadreVideos($value->id);
 //            $this->curlActualizarVideosXId($value->id);
         }
+         echo "OK";     
     }
     
     private function _actualizarPadreVideos($id) {
@@ -1334,9 +1335,7 @@ class Procesos_lib extends MX_Controller {
                         $this->canal_mp->updateEstadoMigracionVideosActualizacion($value->id);
                     }
             }
-        }
-        
-        echo "OK";        
+        }                
     }
 
     public function curlActualizarVideosXId($id) {
