@@ -6,7 +6,7 @@
     </head>
     
     <body>
-        <p style="font-family: sans-serif;">Debe ingresar una API KEY correcta.</p>
-        <p style="font-family: sans-serif;">Solicítela a su administrador de sistemas</p>
+        <p style="font-family: sans-serif;">Debe ingresar un API KEY válido.</p>
+        <p style="font-family: sans-serif;">Solicítelo a su administrador de sistemas</p>
     </body>
 </html>
