@@ -1128,7 +1128,7 @@ class Procesos_lib extends MX_Controller {
                     $objmongo['related'] = array();
                     $objmongo['playlist'] = array();
                     $objmongo['clips'] = array();
-                    $objmongo['playerkeyca'] = $datovideo[0]->xplayerkey;
+                    $objmongo['playerkey'] = $datovideo[0]->xplayerkey;
                     $objmongo['apikey'] = $datovideo[0]->xapikey;
                     $objmongo['fragmento'] = (int) ($value->fragmento);
                     $objmongo['valoracion'] = $datovideo[0]->xvi_val;
