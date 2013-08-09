@@ -1010,8 +1010,7 @@ class Procesos_lib extends MX_Controller {
 
                 $objmongo['estado'] = ($value->estado == ESTADO_ACTIVO) ? $value->estado : '0';
                 $objmongo['padre'] = "";
-                $objmongo['nivel'] = $this->config->item('nivel:canal');
-                ;
+                $objmongo['nivel'] = $this->config->item('nivel:canal');               
                 $objmongo['apikey'] = $value->apikey;
                 $objmongo['playerkey'] = $value->playerkey;
                 $objmongo['cv'] = $value->canal_cv;
@@ -1129,7 +1128,7 @@ class Procesos_lib extends MX_Controller {
                     $objmongo['related'] = array();
                     $objmongo['playlist'] = array();
                     $objmongo['clips'] = array();
-                    $objmongo['playerkeyca'] = $datovideo[0]->xplayerkey;
+                    $objmongo['playerkey'] = $datovideo[0]->xplayerkey;
                     $objmongo['apikey'] = $datovideo[0]->xapikey;
                     $objmongo['fragmento'] = (int) ($value->fragmento);
                     $objmongo['valoracion'] = $datovideo[0]->xvi_val;
@@ -1310,6 +1309,33 @@ class Procesos_lib extends MX_Controller {
             $this->actualizarVideosXId($value->id);
 //            $this->curlActualizarVideosXId($value->id);
         }
+    }
+    
+    public function actualizarPadreVideos(){
+        $videos = $this->videos_mp->getVideosActivos();
+
+        foreach ($videos as $value) {
+            $this->_actualizarPadreVideos($value->id);
+//            $this->curlActualizarVideosXId($value->id);
+        }
+         echo "OK";     
+    }
+    
+    private function _actualizarPadreVideos($id) {
+        Log::erroLog("_actualizarPadreVideos: " . $id);
+
+        $video = $this->videos_mp->getVideosxId($id);
+
+        if (count($video) > 0) {
+            foreach ($video as $value) {
+                    $objmongo['padre'] = $value->idmongo_pa;                 
+                    if (($this->canal_mp->existe_id_mongo($value->id_mongo))) {                        
+                        $MongoId = array("_id" => new MongoId($value->id_mongo));
+                        $this->canal_mp->setItemCollectionUpdate($objmongo, $MongoId);
+                        $this->canal_mp->updateEstadoMigracionVideosActualizacion($value->id);
+                    }
+            }
+        }                
     }
 
     public function curlActualizarVideosXId($id) {
