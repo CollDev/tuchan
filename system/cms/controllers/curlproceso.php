@@ -102,6 +102,10 @@ class curlProceso extends MX_Controller {
         $this->procesos_lib->actualizarVideosXId($id);
     }
     
+    public function actualizarPadreVideos(){
+        $this->procesos_lib->actualizarPadreVideos();
+    }
+    
     public function sincronizarLibVideo($id){
         $this->procesos_lib->sincronizarLibVideo($id);
     }
