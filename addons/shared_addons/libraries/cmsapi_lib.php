@@ -6,7 +6,8 @@
  */
 class cmsapi_lib extends MX_Controller {
     
-    function __construct() {
+    function __construct()
+    {
         $this->load->library("procesos_lib");
         $this->load->library('session');
         $this->load->model("categoria_mp");
@@ -71,7 +72,8 @@ class cmsapi_lib extends MX_Controller {
         echo json_encode($returnValue);
     }
     
-    private function getChildrenCategorias($category_id){
+    private function getChildrenCategorias($category_id)
+    {
         $returnValue = array();
         $arrayData = $this->categoria_mp->getCategoriasList(array("categorias_id" => $category_id));
         if (count($arrayData) > 0) {
@@ -115,7 +117,8 @@ class cmsapi_lib extends MX_Controller {
         echo json_encode($returnValue);
     }
     
-    private function isType($grupo_maestro_id, $type) {
+    private function isType($grupo_maestro_id, $type)
+    {
         $returnValue = false;
         $objMaestro = $this->grupo_maestros_mp->get_by(array('id' => $grupo_maestro_id));
         if ($objMaestro[0]->tipo_grupo_maestro_id == $type) {
@@ -251,7 +254,8 @@ class cmsapi_lib extends MX_Controller {
         return $nameVideo;
     }
     
-    public function _saveTagsTematicaPersonajes($objBeanVideo, $post) {
+    public function _saveTagsTematicaPersonajes($objBeanVideo, $post)
+    {
         $user_id = 1;
         $arrayTagTematicas = explode(",", $post['tematicas']);
         $arraytagPersonajes = explode(",", $post['personajes']);
@@ -352,7 +356,8 @@ class cmsapi_lib extends MX_Controller {
         }
     }
     
-    public function _clearOldTags($objBeanVideo, $arraytag, $type_tag) {
+    public function _clearOldTags($objBeanVideo, $arraytag, $type_tag)
+    {
         if ($objBeanVideo->id > 0 && count($arraytag) > 0) {
             $collectionTagsByVideo = $this->_getTagsByIdVideo($objBeanVideo->id, $type_tag);
             if (count($collectionTagsByVideo) > 0) {
@@ -365,7 +370,8 @@ class cmsapi_lib extends MX_Controller {
         }
     }
     
-    public function _getTagsByIdVideo($video_id, $type_tag) {
+    public function _getTagsByIdVideo($video_id, $type_tag)
+    {
         $returnValue = array();
         $arrayVideoTags = $this->video_tags_m->getVideoTags(array("videos_id" => $video_id));
         if (count($arrayVideoTags) > 0) {
@@ -380,7 +386,8 @@ class cmsapi_lib extends MX_Controller {
         return $returnValue;
     }
     
-    public function _saveVideoMaestroDetalle($objBeanVideo, $post, $maestro_detalle_id = NULL) {
+    public function _saveVideoMaestroDetalle($objBeanVideo, $post, $maestro_detalle_id = NULL)
+    {
         $user_id = 1;
         $objBeanMaestroDetalle = new stdClass();
         $objBeanMaestroDetalle->id = $maestro_detalle_id;
@@ -424,7 +431,8 @@ class cmsapi_lib extends MX_Controller {
         return $isOkToSave;
     }
     
-    public function renameVideo($objBeanVideo, $name_file) {
+    public function renameVideo($objBeanVideo, $name_file)
+    {
         $returnValue = true;
         $path_video_old = str_replace('cmsapi_lib.php', '', __FILE__).'../../../uploads/videos/' . $name_file;
         $ext = pathinfo($path_video_old, PATHINFO_EXTENSION);
@@ -537,7 +545,8 @@ class cmsapi_lib extends MX_Controller {
         }
     }
     
-    public function _getTag($video_id, $tag_type) {
+    public function _getTag($video_id, $tag_type)
+    {
         $returnValue = '';
         $arrayVideoTags = $this->video_tags_m->getVideoTags(array("videos_id" => $video_id));
         if (count($arrayVideoTags) > 0) {
@@ -559,7 +568,8 @@ class cmsapi_lib extends MX_Controller {
         return $returnValue;
     }
     
-    public function _tieneAvatar($video_id) {
+    public function _tieneAvatar($video_id)
+    {
         $returnValue = false;
         //$this->config->load('videos/uploads');
         if ($video_id > 0) {
@@ -571,7 +581,8 @@ class cmsapi_lib extends MX_Controller {
         return $returnValue;
     }
     
-    public function getIdMaestro($grupo_maestro_padre, $type) {
+    public function getIdMaestro($grupo_maestro_padre, $type)
+    {
         $objMaestro = $this->grupo_maestro_m->get($grupo_maestro_padre);
         if (count($objMaestro) > 0) {
             if ($objMaestro->tipo_grupo_maestro_id == $type) {

@@ -244,38 +244,34 @@
                                             type: "POST",
                                             url: post_url,
                                             dataType: 'json',
-                                            //data: indexOrder,
                                             success: function(respuesta)
                                             {
                                                 switch (respuesta.value) {
-                                                    case 1 :
-                                                        //location.reload();
+                                                    case "1" :
                                                         $("#" + tipo + "_" + portada_id).empty();
                                                         $("#" + tipo + "_" + portada_id).html('Publicado');
                                                         var htmlButton = '';
                                                         htmlButton += '<a href="/admin/canales/previsualizar_portada/" target ="_blank" class="modal-large mode_preview">Previsualizar</a>';
                                                         htmlButton += '<a href="#" onclick="return false;" class="link_portada mode_edit">Editar</a>';
-                                                        //htmlButton += '<a href="#" onclick="eliminar_portada(' + portada_id + ',\'portada\');return false;" class="link_portada mode_delete">Eliminar</a>';
                                                         htmlButton += '<a href="#" class="link_portada mode_add" onclick="agregar_seccion(' + portada_id + ');return false;">Añadir sección</a>';
                                                         $("#" + tipo + "_boton_" + portada_id).html(htmlButton);
                                                         $('.link_portada').click(function(e) {
                                                             e.stopPropagation();
-                                                            //Your Code here(For example a call to your function)
                                                         });
                                                         break;
-                                                    case 2:
+                                                    case "2":
                                                         showMessage('error', 'No se puede publicar. No tiene videos publicados', 2000, '');
                                                         break;
-                                                    case 3:
+                                                    case "3":
                                                         showMessage('error', 'No se puede publicar. No tiene sección destacado publicado', 2000, '');
                                                         break;
-                                                    case 4:
+                                                    case "4":
                                                         showMessage('error', 'No se puede publicar. No tiene secciones publicadas', 2000, '');
                                                         break;
-                                                    case 5:
+                                                    case "5":
                                                         showMessage('error', 'No se puede publicar. El canal no está publicado', 2000, '');
                                                         break;
-                                                    case 6:
+                                                    case "6":
                                                         showMessage('error', 'No se puede publicar. No se encontró la portada', 2000, '');
                                                         break;
                                                     default :
