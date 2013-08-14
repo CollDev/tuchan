@@ -483,13 +483,13 @@ class Procesos_lib extends MX_Controller {
             foreach ($resquery as $value) {
                 Log::erroLog($value->estado_migracion . "  -  " . $value->estado);
 
-                if ($value->estado == 1) {
+//                if ($value->estado == 1) {
 
                     $array = array();
 
                     $array["tipo"] = "portada";
-                    $array["nombre"] = ($value->nombre);
-                    $array["estado"] = "1";
+                    $array["nombre"] = ($value->nombre);                    
+                    $array["estado"] = ($value->estado == ESTADO_ACTIVO) ? ESTADO_ACTIVO : '0';
 
 
                     $resquery2 = $this->micanal_mp->queryMysqlTipoPortadas($value->tipo_portadas_id, $value->origen_id);
@@ -557,15 +557,15 @@ class Procesos_lib extends MX_Controller {
 //                    }
                     unset($objmongo);
                     unset($array);
-                } elseif ($value->estado == 0 || $value->estado == 2) {
-                    //eliminacion item en coleccion micanal 
-                    if (!empty($value->id_mongo)) {
-                        $id_mongo = new MongoId($value->id_mongo);
-                        $this->micanal_mp->setItemCollectionUpdate(array("estado" => "0"), array('_id' => $id_mongo));
-                        //$this->micanal_mp->SetItemCollectionDelete(array('_id' => $id_mongo));
-                        $this->micanal_mp->updateEstadoMigracionPortadasActualizacion($value->id);
-                    }
-                }
+//                } elseif ($value->estado == 0 || $value->estado == 2) {
+//                    //eliminacion item en coleccion micanal 
+//                    if (!empty($value->id_mongo)) {
+//                        $id_mongo = new MongoId($value->id_mongo);
+//                        $this->micanal_mp->setItemCollectionUpdate(array("estado" => "0"), array('_id' => $id_mongo));
+//                        //$this->micanal_mp->SetItemCollectionDelete(array('_id' => $id_mongo));
+//                        $this->micanal_mp->updateEstadoMigracionPortadasActualizacion($value->id);
+//                    }
+//                }
             }
         }
     }
@@ -1766,6 +1766,16 @@ class Procesos_lib extends MX_Controller {
 
     public function actualizarVersion($tipo, $version) {
         $this->version_mp->set_version($tipo, $version);
+    }
+    
+    public function postbackliquid($xml){
+        
+         if (!empty($xml)) {
+            $mediaxml = new SimpleXMLElement($xml);
+            $mediaarr = json_decode(json_encode($mediaxml), true);
+            LOG::xmlLog($mediaarr);
+        }
+        
     }
 
 }

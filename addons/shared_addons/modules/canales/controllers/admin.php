@@ -3215,6 +3215,7 @@ class Admin extends Admin_Controller {
                                         $this->secciones_m->update($objSeccion->id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado" => $this->config->item('estado:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
                                     }
                                 }
+                                $this->procesos_lib->curlGenerarPortadasMiCanalXId($objPortada->id);
                             }
                         }
                         //eliminamos los videos
@@ -3232,10 +3233,12 @@ class Admin extends Admin_Controller {
                         }
                         //eliminamos el canal
                         $this->canales_m->update($canal_id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado" => $this->config->item('estado:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                        $this->procesos_lib->curlGenerarCanalesXId($canal_id);
                         echo json_encode(array("value" => "1")); //canal eliminado satisfactoriamente                        
                     } else {
                         //estado eliminado al registro del canal
                         $this->canales_m->update($canal_id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado_migracion_sphinx" => $this->config->item('sphinx:actualizar'), "estado" => $this->config->item('estado:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+                        $this->procesos_lib->curlGenerarCanalesXId($canal_id);
                         echo json_encode(array("value" => "1")); //canal eliminado satisfactoriamente
                     }
                 } else {
@@ -3274,6 +3277,7 @@ class Admin extends Admin_Controller {
             if (count($objPortada) > 0) {
                 $this->portada_m->update($objPortada->id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado" => $this->config->item('estado:borrador'), "estado_migracion" => $this->config->item('migracion:actualizado')));
             }
+            $this->procesos_lib->curlGenerarCanalesXId($canal_id);
             echo json_encode(array("value" => "1"));
         }
     }
@@ -3671,6 +3675,7 @@ class Admin extends Admin_Controller {
     public function eliminar_portada($portada_id) {
         if ($this->input->is_ajax_request()) {
             $this->portada_m->update($portada_id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado" => $this->config->item('estado:eliminado'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+            $thi->procesos_lib->curlGenerarPortadasMiCanalXId($portada_id);
             echo json_encode(array("value" => "1"));
         }
     }
@@ -3678,6 +3683,7 @@ class Admin extends Admin_Controller {
     public function restablecer_portada($portada_id) {
         if ($this->input->is_ajax_request()) {
             $this->portada_m->update($portada_id, array("fecha_actualizacion" => date("Y-m-d H:i:s"), "estado" => $this->config->item('estado:borrador'), "estado_migracion" => $this->config->item('migracion:actualizado')));
+            $thi->procesos_lib->curlGenerarPortadasMiCanalXId($portada_id);
             echo json_encode(array("value" => "1"));
         }
     }
@@ -7359,6 +7365,7 @@ class Admin extends Admin_Controller {
                                                     }
                                                     //eliminamos la portada
                                                     $this->portada_m->delete($objPortada->id);
+                                                    $this->procesos_lib->curlGenerarPortadasMiCanalXId($objPortada->id);
                                                 }
                                             }
                                             //eliminamos los items de los detalles de seccion de la portada del canal
@@ -7403,6 +7410,7 @@ class Admin extends Admin_Controller {
                                 }
                                 //eliminamos la portada
                                 $this->portada_m->delete($objPortada->id);
+                                $this->procesos_lib->curlGenerarPortadasMiCanalXId($objPortada->id);
                             }
                         }
                         echo json_encode(array("value" => "1")); //done
