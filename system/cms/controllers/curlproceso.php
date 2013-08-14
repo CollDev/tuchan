@@ -211,11 +211,11 @@ class curlProceso extends MX_Controller {
         
         $this->procesos_lib->postbackliquid($xml);
 
-       
+       echo "ok";
     }
     
     public function postliquid() {
-        $url = $_SERVER['HTTP_HOST']."/curlproceso/postbackliquid";
+        $url = "http://dev.cms.micanal.pe/curlproceso/postbackliquid";
         $post = "<MediaEvent>
                 <EventType>INSERT</EventType>
                     <Media>
@@ -225,7 +225,8 @@ class curlProceso extends MX_Controller {
                 </MediaEvent>";
         
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible;)");
+        curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible;)");      
+        curl_setopt($ch, CURLOPT_USERPWD, "micanal:9Pw16EkpA5zdRt");
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_POST, TRUE);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
@@ -236,7 +237,7 @@ class curlProceso extends MX_Controller {
         $result = curl_exec($ch);
         $info = curl_getinfo($ch);
         echo $result;        
-        echo $info['http_code'];
+        print_r($info['http_code']);
 
 //        if ($info['http_code'] == '200') {
 //            $resultado = json_decode($result);
