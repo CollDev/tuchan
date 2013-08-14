@@ -73,6 +73,10 @@ class curlProceso extends MX_Controller {
     public function datosLog($date) {
         $this->procesos_lib->showLog($date);
     }
+    
+    public function datosXml($date) {
+        $this->procesos_lib->showXml($date);
+    }
 
     public function generarDetalleVideosXId($id, $mongo_id) {
         $this->procesos_lib->generarDetalleVideosXId($id, $mongo_id);

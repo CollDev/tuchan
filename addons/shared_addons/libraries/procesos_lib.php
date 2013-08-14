@@ -1634,6 +1634,17 @@ class Procesos_lib extends MX_Controller {
         }
         fclose($file);
     }
+    
+    public function showXml($date) {
+        $ruta = $this->config->item('path:log') . $date . "_xml.txt";
+
+        $file = fopen($ruta, "r") or exit("ERROR AL ABRIR EL ARCHIVO");
+
+        while (!feof($file)) {
+            echo fgets($file) . "<br />";
+        }
+        fclose($file);
+    }
 
     public function publishedVideosXId($id) {
         $video = $this->videos_mp->getVideosxIdConKey($id);
