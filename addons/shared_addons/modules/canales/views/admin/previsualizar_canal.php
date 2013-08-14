@@ -4,7 +4,7 @@
 <div class="container-main">
     <div class="wrapper-main">
         <div class="mc_column mc_columnA ">
-            <div class="mc_column mc_columnE mc_mbottom  mc_mright">  
+            <div class="mc_column mc_columnE mc_mbottom  mc_mright">
                 <div class="mc_colum mc_columnA player_video_main3">
                     <div class="flexslider">
                         <ul class="slides">
@@ -30,7 +30,7 @@
                                                                             <h5>
                                                                                 <?php
                                                                                     $objMaestro = $objDetalleSeccion->objMaestro;
-                                                                                    if(count($objMaestro)>0){
+                                                                                    if (count($objMaestro)>0) {
                                                                                         echo $objMaestro->nombre;
                                                                                     }
                                                                                 ?>
@@ -48,38 +48,35 @@
                                                 <?php endif; ?>
                                             <?php endforeach; ?>
                                         <?php else: ?>
-                                            <img style="width:820px; height: 400px;" src="<?php echo $this->config->item('url:portada'); ?>" title="Insensato Corazón" alt="Insensato Corazón">
+                                            <img style="width:820px; height: 400px;" src="<?php echo $this->config->item('url:portada'); ?>" title="No disponible" alt="No disponible">
                                         <?php endif; ?>
                                         <div class="mode_fade">
                                             <a href="#">
                                                 <div class="layer_info">
                                                     <div class="data_info down_place4">
-                                                        <span class="span_text2"></span> 
+                                                        <span class="span_text2"></span>
                                                         <h5><?php echo $titulo; ?></h5>
                                                         <span class="span_text2"></span>
                                                     </div>
                                                 </div>
-
-                                            </a> 
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
                             </li>
                         </ul>
                     </div>
-
                 </div>
             </div>
 
             <div class="mc_column mc_columnF">
                 <div class="mc_column canal_data">
                     <div class="mc_column item_canal_logo">
-                        <img src="<?php echo $objCanal->logo; ?>" title="<?php echo $objCanal->descripcion; ?>" alt="<?php echo $objCanal->descripcion; ?>"> 
-
+                        <img src="<?php echo $objCanal->logo; ?>" title="<?php echo $objCanal->descripcion; ?>" alt="<?php echo $objCanal->descripcion; ?>">
                     </div>
                     <div class="mc_column item_canal_desc">
                         <?php echo $objCanal->descripcion; ?>
-                    </div>         
+                    </div>
                 </div>
                 <div class="mc_column canal_info">
                     <div class="mc_column item_canal_text1">
@@ -94,7 +91,7 @@
                     </div>
                     <div class="mc_column item_canal_text2">
                         <span>Favoritos</span>
-                    </div>        
+                    </div>
                 </div>
             </div>
         </div>
@@ -105,7 +102,7 @@
                     <div class="sli_item_">
                         <div class="head_section mc_column mc_columnA mc_mbottom">
                             <div class="bkg_col02 hsection">
-                                <h4>PROGRAMA</h4>               
+                                <h4>PROGRAMA</h4>
                             </div>
                         </div>
                         <div class="mc_column mc_columnA head_section mbottom str_E">
@@ -120,11 +117,11 @@
                                                 </div>
                                             </div>
                                         </a>
-                                    </div>                                    
+                                    </div>
                                 <?php endforeach; ?>
                             <?php endif; ?>
                         </div>
-                    </div>        
+                    </div>
                 <?php endif; ?>
             <?php endforeach; ?>
         <?php endif; ?>
@@ -133,19 +130,16 @@
         <!--start listas-->
         <?php if (count($objColeccionSeccion) > 0): ?>
             <?php foreach ($objColeccionSeccion as $puntero => $objSeccion): ?>
-                <?php if ($objSeccion->tipo_secciones_id == $this->config->item('seccion:lista')): ?>        
+                <?php if ($objSeccion->tipo_secciones_id == $this->config->item('seccion:lista')): ?>
                     <div class="sli_item">
                         <!-- ENCABEZADO -->
                         <div class="head_section mc_column mc_columnA mc_mbottom hd_sli">
                             <div class="bkg_col02 hsection">
-
-                                <h4>LISTAS</h4>           
-
+                                <h4>LISTAS</h4>
                                 <!--<div class="options_section">
                                     <span class="options_left"></span>
                                     <span class="options_center"><a href="#">+popular del d&#237;a</a></span>
                                     <span class="options_right"></span>-->
-
                                 <div class="controls-slider">
                                     <div class="hidden_links">
                                         <span class="back_link"></span>
@@ -155,9 +149,9 @@
                                     <a href="#" class="forward_linker_small">Anterior</a>
                                 </div>
                             </div>
-                        </div>  
+                        </div>
                         <div class="mc_column mc_columnA bd_sli">
-                            <ul class="sli_ver">          
+                            <ul class="sli_ver">
                                 <?php $coleccion_detalle_seccion = $objSeccion->detalle_seccion; ?>
                                 <?php if (count($coleccion_detalle_seccion) > 0): ?>
                                     <?php foreach ($coleccion_detalle_seccion as $indice => $objDetalleSeccion): ?>
@@ -171,31 +165,28 @@
                                             </div>
                                         </li>
                                     <?php endforeach; ?>
-                                <?php endif; ?>                                
+                                <?php endif; ?>
                             </ul>
-                        </div>   
+                        </div>
                     </div>
                 <?php endif; ?>
             <?php endforeach; ?>
-        <?php endif; ?>        
+        <?php endif; ?>
         <!--end listas-->
 
         <!--start los mas vistos -->
         <?php if (count($objColeccionSeccion) > 0): ?>
             <?php foreach ($objColeccionSeccion as $puntero => $objSeccion): ?>
-                <?php if ($objSeccion->tipo_secciones_id == $this->config->item('seccion:visto')): ?>        
+                <?php if ($objSeccion->tipo_secciones_id == $this->config->item('seccion:visto')): ?>
                     <div class="sli_item">
                         <!-- ENCABEZADO -->
                         <div class="head_section mc_column mc_columnA mc_mbottom hd_sli">
                             <div class="bkg_col02 hsection">
-
-                                <h4>LOS MAS VISTOS</h4>           
-
+                                <h4>LOS MAS VISTOS</h4>
                                 <!--<div class="options_section">
                                     <span class="options_left"></span>
                                     <span class="options_center"><a href="#">+popular del d&#237;a</a></span>
                                     <span class="options_right"></span>-->
-
                                 <div class="controls-slider">
                                     <div class="hidden_links">
                                         <span class="back_link"></span>
@@ -205,9 +196,9 @@
                                     <a href="#" class="forward_linker_small">Anterior</a>
                                 </div>
                             </div>
-                        </div>  
+                        </div>
                         <div class="mc_column mc_columnA bd_sli">
-                            <ul class="sli_ver">          
+                            <ul class="sli_ver">
                                 <?php $coleccion_detalle_seccion = $objSeccion->detalle_seccion; ?>
                                 <?php if (count($coleccion_detalle_seccion) > 0): ?>
                                     <?php $contador = 0; ?>
@@ -225,31 +216,28 @@
                                         <?php endif; ?>
                                         <?php $contador++; ?>
                                     <?php endforeach; ?>
-                                <?php endif; ?>                                
+                                <?php endif; ?>
                             </ul>
-                        </div>   
+                        </div>
                     </div>
                 <?php endif; ?>
             <?php endforeach; ?>
-        <?php endif; ?>        
+        <?php endif; ?>
         <!--end los mas vistos -->
-
+        
         <!--start los mas comentados -->
         <?php if (count($objColeccionSeccion) > 0): ?>
             <?php foreach ($objColeccionSeccion as $puntero => $objSeccion): ?>
-                <?php if ($objSeccion->tipo_secciones_id == $this->config->item('seccion:comentado')): ?>        
+                <?php if ($objSeccion->tipo_secciones_id == $this->config->item('seccion:comentado')): ?>
                     <div class="sli_item">
                         <!-- ENCABEZADO -->
                         <div class="head_section mc_column mc_columnA mc_mbottom hd_sli">
                             <div class="bkg_col02 hsection">
-
-                                <h4>LOS MAS COMENTADOS</h4>           
-
+                                <h4>LOS MAS COMENTADOS</h4>
                                 <!--<div class="options_section">
                                     <span class="options_left"></span>
                                     <span class="options_center"><a href="#">+popular del d&#237;a</a></span>
                                     <span class="options_right"></span>-->
-
                                 <div class="controls-slider">
                                     <div class="hidden_links">
                                         <span class="back_link"></span>
@@ -259,9 +247,9 @@
                                     <a href="#" class="forward_linker_small">Anterior</a>
                                 </div>
                             </div>
-                        </div>  
+                        </div>
                         <div class="mc_column mc_columnA bd_sli">
-                            <ul class="sli_ver">          
+                            <ul class="sli_ver">
                                 <?php $coleccion_detalle_seccion = $objSeccion->detalle_seccion; ?>
                                 <?php if (count($coleccion_detalle_seccion) > 0): ?>
                                     <?php $contador = 0; ?>
@@ -279,31 +267,28 @@
                                         <?php endif; ?>
                                         <?php $contador++; ?>
                                     <?php endforeach; ?>
-                                <?php endif; ?>                                
+                                <?php endif; ?>
                             </ul>
-                        </div>   
+                        </div>
                     </div>
                 <?php endif; ?>
             <?php endforeach; ?>
-        <?php endif; ?>        
+        <?php endif; ?>
         <!--end los mas comentados -->
 
         <!--start los mas recientes -->
         <?php if (count($objColeccionSeccion) > 0): ?>
             <?php foreach ($objColeccionSeccion as $puntero => $objSeccion): ?>
-                <?php if ($objSeccion->tipo_secciones_id == $this->config->item('seccion:reciente')): ?>        
+                <?php if ($objSeccion->tipo_secciones_id == $this->config->item('seccion:reciente')): ?>
                     <div class="sli_item">
                         <!-- ENCABEZADO -->
                         <div class="head_section mc_column mc_columnA mc_mbottom hd_sli">
                             <div class="bkg_col02 hsection">
-
-                                <h4>LOS MAS COMENTADOS</h4>           
-
+                                <h4>LOS MAS COMENTADOS</h4>
                                 <!--<div class="options_section">
                                     <span class="options_left"></span>
                                     <span class="options_center"><a href="#">+popular del d&#237;a</a></span>
                                     <span class="options_right"></span>-->
-
                                 <div class="controls-slider">
                                     <div class="hidden_links">
                                         <span class="back_link"></span>
@@ -313,9 +298,9 @@
                                     <a href="#" class="forward_linker_small">Anterior</a>
                                 </div>
                             </div>
-                        </div>  
+                        </div>
                         <div class="mc_column mc_columnA bd_sli">
-                            <ul class="sli_ver">          
+                            <ul class="sli_ver">
                                 <?php $coleccion_detalle_seccion = $objSeccion->detalle_seccion; ?>
                                 <?php if (count($coleccion_detalle_seccion) > 0): ?>
                                     <?php $contador = 0; ?>
@@ -333,14 +318,13 @@
                                         <?php endif; ?>
                                         <?php $contador++; ?>
                                     <?php endforeach; ?>
-                                <?php endif; ?>                                
+                                <?php endif; ?>
                             </ul>
-                        </div>   
+                        </div>
                     </div>
                 <?php endif; ?>
             <?php endforeach; ?>
-        <?php endif; ?>        
-        <!--end los mas recientes -->        
-
+        <?php endif; ?>
+        <!--end los mas recientes -->
     </div>
 </div>

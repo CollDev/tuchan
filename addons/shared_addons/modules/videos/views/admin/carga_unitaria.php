@@ -609,15 +609,6 @@
                  * @returns {undefined}
                  */
                 function addMaestro(type_video) {
-                                var $haystack = new Array;
-                                $haystack = $('select[name=lista] option');
-//                                $haystack = $.each($('select[name=lista] option'),function(key, value){
-//                                    $haystack.push($(value).text());
-//                                });
-                                console.log('haystack: ' + $haystack.text());
-                                var fruits = ["Banana", "Orange", "Apple", "Mango"];
-                                fruits.push("Kiwi");
-                                console.log(fruits);
                     if ($('#txt_' + type_video).css('display') == 'inline' || $('#txt_' + type_video).css('display') == 'inline-block') {
                         $("#tipo_maestro").val(type_video);
                         var id_category_selected = $('select[name=categoria]').val();
@@ -628,13 +619,6 @@
                             });
                             values['txt_' + type_video] = $.trim(values['txt_' + type_video]);
                             if (values['txt_' + type_video].length > 0) {
-//                                var length = haystack.length;
-//                                for(var i = 0; i < length; i++) {
-//                                    if(haystack[i] == values['txt_' + type_video]) {
-//                                        
-//                                    }
-//                                }
-                                if ('' != '') {
                                     var serializedData = $('#frm').serialize();
                                     var post_url = "/admin/videos/save_maestro";
                                     $.ajax({
@@ -679,7 +663,6 @@
 
                                         } //end success
                                     }); //end AJAX
-                                }
                             } else {
                                 showMessage('error', '<?php echo lang('videos:missing_programme') ?>', 2000, '');
                             }
