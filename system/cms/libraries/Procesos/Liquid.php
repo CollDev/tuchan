@@ -323,26 +323,39 @@ class Liquid {
         }
     }
 
-    function getimagenesLiquid($mediaarr = array()) {
-        $arrimg = array(1 => 146, 2 => 197, 3 => 304);
+    function getimagenesLiquid($mediaarr = array(),$tipo_imagenes = null ) {
+//        $arrimg = array(1 => 146, 2 => 197, 3 => 304);
         $result = array();
 
         if (!empty($mediaarr["thumbs"])) {
             foreach ($mediaarr["thumbs"] as $value) {
                 if (isset($value["url"])) {
-                    $retorno = array_search($value["height"], $arrimg);
+                    //$retorno = array_search($value["height"], $arrimg);
+                    
+                    $retorno = self::obtenerTipo($value,$tipo_imagenes);
                     //echo $retorno . "\n";
                     if ($retorno != FALSE) {
                         $value["tipo_imagen_id"] = $retorno;
                         $result = $value;
                     }
                 } else {
+                                   
+//                $tmp = Array(); 
+//                foreach($value as &$ma) 
+//                    $tmp[] = &$ma["height"]; 
+//                array_multisort($tmp, $value); 
+//                foreach($value as &$ma) 
+//                    echo $ma["height"]."<br/>"; 
+
 
                     foreach ($value as $value2) {
                         //echo "DAtos: ".array_search($value2["height"], $arrimg)."\n";
-                        $retorno = array_search($value2["height"], $arrimg);
+                       $retorno = self::obtenerTipo($value2,$tipo_imagenes);
+                       
+                       
                         //echo $retorno."\n";
                         if ($retorno != FALSE) {
+                            unset($tipo_imagenes[$retorno]);
                             $value2["tipo_imagen_id"] = $retorno;
                             //print_r($value2);
                             array_push($result, $value2);
@@ -354,10 +367,33 @@ class Liquid {
 
         if (count($result) > 0) {
             sort($result);
+            print_r($result);
             return $result;
         } else {
             return null;
         }
+    }
+    
+     function obtenerTipo($thumbs, $tipo_imagenes) {         
+         
+        $returnValue = FALSE;
+        //$ancho_mayor = $thumbs['width'] + $this->config->item('migracion:margen_error_imagen');
+        $alto_mayor = $thumbs['height'] +50;
+        //$ancho_menor = $thumbs['width'] - $this->config->item('migracion:margen_error_imagen');
+        $alto_menor = $thumbs['height'] - 50;
+        
+     
+        foreach ($tipo_imagenes  as $value) {
+            //$value->ancho <= $ancho_mayor && $value->ancho >= $ancho_menor &&
+            if ( $value->alto <= $alto_mayor && $value->alto >= $alto_menor) {
+                $returnValue = $value->id;
+            }  else {
+                echo "no paso " . $value->id;
+            }
+        }
+        echo $returnValue;
+
+        return $returnValue;
     }
 
     function getUrlVideoLiquidRawLite($mediaarr = array()) {
@@ -630,6 +666,7 @@ class Liquid {
         }
     }
 
+   
 }
 
 ?>
