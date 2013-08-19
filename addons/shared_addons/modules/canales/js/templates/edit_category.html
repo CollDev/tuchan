@@ -1,0 +1,15 @@
+<form id="send-categoria" action="admin/canales/categoria_editar">
+    {{ #categoria}}
+    <label>Nombre</label>
+    <input name="nombre" type="text" maxlength="45" value="{{ nombre }}">
+    <input type="hidden" name="id" value="{{ id }}">
+    <label>Padre</label>
+    <select id="categoria" name="categoria">
+        <option value="0">Seleccione una categoría</option>
+        {{ #categorias }}
+        <option value="{{ id }}" {{#sel}}selected{{/sel}}>{{ nombre }}</option>
+        {{ /categorias }}
+    </select>
+    <button class="btn blue btn_categoria">Editar</button>
+    {{ /categoria }}
+</form>

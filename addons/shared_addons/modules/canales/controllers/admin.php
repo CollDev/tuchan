@@ -7563,14 +7563,8 @@ class Admin extends Admin_Controller {
 
         $this->template
                 ->title($this->module_details['name'])
-                //->append_js('admin/filter.js')
-                //->append_js('module::jquery.ddslick.min.js')
-                //->set_partial('filters', 'admin/partials/filters')
                 ->set_partial('lista_canales', 'admin/tables/ibope')
                 ->append_js('module::scripts.js')
-                //->append_css('module::jquery.alerts.css')
-                //->set('pagination', $pagination)
-                //->set('estados', $estados)
                 ->set('canales', $canales);
         $this->input->is_ajax_request() ? $this->template->build('admin/tables/canales') : $this->template->build('admin/ibope');
     }
@@ -7592,17 +7586,79 @@ class Admin extends Admin_Controller {
 
         $this->template
                 ->title($this->module_details['name'])
-                //->append_js('admin/filter.js')
-                //->append_js('module::jquery.ddslick.min.js')
-                //->set_partial('filters', 'admin/partials/filters')
                 ->set_partial('lista_canales', 'admin/tables/key')
                 ->append_js('module::scripts.js')
-                //->append_css('module::jquery.alerts.css')
-                //->set('pagination', $pagination)
-                //->set('estados', $estados)
                 ->set('canales', $canales);
         $this->input->is_ajax_request() ? $this->template->build('admin/tables/canales') : $this->template->build('admin/key');
     }
+    
+    public function categoria()
+    {
+        $categorias = $this->categoria_m->get_many_by(array('estado'=> $this->config->item('estado:publicado'), 'categorias_id' => 0));
+        $children = array();
+        foreach ($categorias as $categoria) {
+            $this_categoria = $this->categoria_m->get_by(array('categorias_id' => $categoria->id));
+            if (!empty($this_categoria)) {
+                $children[$categoria->id] = $this->categoria_m->get_many_by(array('estado'=> $this->config->item('estado:publicado'), 'categorias_id' => $categoria->id));
+            }
+        }
+        //do we need to unset the layout because the request is ajax?
+        $this->input->is_ajax_request() and $this->template->set_layout(FALSE);
+
+        $this->template
+                ->title($this->module_details['name'])
+                ->set_partial('lista_categoria', 'admin/tables/categoria')
+                ->append_js('module::scripts.js')
+                ->set('categorias', $categorias)
+                ->set('children', $children);
+        $this->input->is_ajax_request() ? $this->template->build('admin/tables/categoria') : $this->template->build('admin/categoria');
+    }
+    
+    public function categorias_json($categoria_id)
+    {
+        $categorias = $this->categoria_m->get_many_by(
+            array(
+                'estado'=> $this->config->item('estado:publicado'),
+                'categorias_id' => $this->config->item('estado:borrador'),
+            )
+        );
+        $this_categoria = $this->categoria_m->get_by(
+            array(
+                'id' => $categoria_id
+            )
+        );
+        $categoria = array();
+        if (count($this_categoria) > 0) {
+            $categoria = array(
+                "id" => $this_categoria->id,
+                "nombre" => $this_categoria->nombre,
+                "padre" => $this_categoria->categorias_id,
+            );
+            foreach($categorias as $cat) {
+                if ($cat->id == $this_categoria->categorias_id) {
+                    $cat->sel = true;
+                }
+            }
+        }
+        echo json_encode(
+            array(
+                "categoria" => $categoria,
+                "categorias" => $categorias
+            )
+        );
+    }
+    
+    public function categoria_nueva()
+    {
+        $post = $this->input->post();
+        $user_id = (int) $this->session->userdata('user_id');
+        $post['user_id'] = $user_id;
+        $post['fecha_registro'] = date("Y-m-d H:i:s");
+        $post['message'] = 'Categoría creada con éxito';
+        
+        echo json_encode($this->categoria_m->insert($post));
+    }
+
     /**
      * Actualiza campo ibope en canal
      * 
@@ -7670,6 +7726,14 @@ class Admin extends Admin_Controller {
     public function prueba()
     {
         $this->sincronizar_lib->prueba();
+    }
+    
+    public function categoria_eliminar()
+    {
+        $post = $this->input->post();
+        $this->categoria_m->set_deleted($post['id']);
+        
+        echo json_encode(array('type' => 'exit', 'message' => 'Categoría eliminada.'));
     }
 }
 

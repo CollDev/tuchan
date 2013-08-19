@@ -39,4 +39,52 @@ $(document).ready(function(){
         
         return result;
     }
+    
+    $(".btn_categoria").on('click', function(e){
+        e.preventDefault();
+        $("div#categoria-modal").html('');
+        var $id = $(this).attr('id');
+        var $split = $id.split("_");
+        
+        $.getJSON('admin/canales/categorias_json/' + $split[1])
+            .done(function(data) {
+                $.get('addons/shared_addons/modules/canales/js/templates/' + $split[0] + '_category.html', function(template){
+                    var app = '<div class="text-center"><h3>No hay resultados para la búsqueda:</h3><h3>' + $('#termino').val() + '</h3></div>';
+                    if (data.categorias !== '') {
+                        app = $.mustache(template, data);
+                    }
+                    $("div#categoria-modal").append(app).dialog({
+                        maxHeight: 400,
+                        position: { my: "center", at: "center", of: "body" },
+                        modal: true,
+                    }).animate({ scrollTop: 0 }, 600);
+                });
+        });
+    });
+    
+    $(document).on('submit', "#send-categoria", function(e){
+        e.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: $(this).attr("action"),
+            dataType: 'json',
+            data: $(this).serialize(),
+            success: function(returnValue) {
+                $(".ui-dialog-titlebar-close").trigger('click');
+                if (returnValue.id !== '') {
+                    showMessage('exit', returnValue.message, 1000, '');
+                } else {
+                    showMessage('error', 'Error inténtelo nuevamente.', 2000, '');
+                }
+            }
+        });
+    });
+    
+    $(document).on("click", ".btn_close", function(){
+        $(".ui-dialog-titlebar-close").trigger('click');
+    });
+    
+    $(document).on("change", "#categoria", function(){
+        $("div#categoria-modal").animate({ scrollTop: 0 }, 600);
+    });
 });

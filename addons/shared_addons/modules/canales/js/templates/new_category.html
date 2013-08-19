@@ -1,0 +1,12 @@
+<form id="send-categoria" action="admin/canales/categoria_nueva">
+    <label>Nombre</label>
+    <input name="nombre" type="text" maxlength="45">
+    <label>Padre</label>
+    <select id="categoria" name="categoria">
+        <option value="0">Seleccione una categoría</option>
+        {{ #categorias }}
+        <option value="{{ id }}">{{ nombre }}</option>
+        {{ /categorias }}
+    </select>
+    <button class="btn blue btn_categoria">Crear</button>
+</form>

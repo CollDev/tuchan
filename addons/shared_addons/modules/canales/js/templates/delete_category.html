@@ -1,0 +1,13 @@
+<form id="send-categoria" action="admin/canales/categoria_eliminar">
+    {{ #categoria}}
+    <div>
+        Esta seguro que desea eliminar la categoría:
+        <p>{{ nombre }}</p>
+    </div>
+    <input name="id" type="hidden" value="{{ id }}">
+    <div>
+        <button class="btn blue btn_categoria">Sí</button>
+        <button class="btn red btn_close">No</button>
+    </div>
+    {{ /categoria }}
+</form>

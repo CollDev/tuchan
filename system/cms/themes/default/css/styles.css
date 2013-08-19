@@ -67,3 +67,6 @@ div.wrap {
     text-shadow: 0 1px 0 #FFFFFF;
     top: -2px;
 }
+div#categoria-modal {
+    overflow-y: hidden;
+}
