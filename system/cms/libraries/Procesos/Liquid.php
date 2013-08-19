@@ -323,14 +323,16 @@ class Liquid {
         }
     }
 
-    function getimagenesLiquid($mediaarr = array()) {
-        $arrimg = array(1 => 146, 2 => 197, 3 => 304);
+    function getimagenesLiquid($mediaarr = array(),$tipo_imagenes = null ) {
+//        $arrimg = array(1 => 146, 2 => 197, 3 => 304);
         $result = array();
 
         if (!empty($mediaarr["thumbs"])) {
             foreach ($mediaarr["thumbs"] as $value) {
                 if (isset($value["url"])) {
-                    $retorno = array_search($value["height"], $arrimg);
+                    //$retorno = array_search($value["height"], $arrimg);
+                    
+                    $retorno = self::obtenerTipo($value,$tipo_imagenes);
                     //echo $retorno . "\n";
                     if ($retorno != FALSE) {
                         $value["tipo_imagen_id"] = $retorno;
@@ -340,7 +342,7 @@ class Liquid {
 
                     foreach ($value as $value2) {
                         //echo "DAtos: ".array_search($value2["height"], $arrimg)."\n";
-                        $retorno = array_search($value2["height"], $arrimg);
+                       $retorno = self::obtenerTipo($value2,$tipo_imagenes);
                         //echo $retorno."\n";
                         if ($retorno != FALSE) {
                             $value2["tipo_imagen_id"] = $retorno;
@@ -358,6 +360,25 @@ class Liquid {
         } else {
             return null;
         }
+    }
+    
+     function obtenerTipo($thumbs, $tipo_imagenes) {         
+         
+        $returnValue = FALSE;
+        $ancho_mayor = $thumbs['width'] + $this->config->item('migracion:margen_error_imagen');
+        $alto_mayor = $thumbs['height'] + $this->config->item('migracion:margen_error_imagen');
+        $ancho_menor = $thumbs['width'] - $this->config->item('migracion:margen_error_imagen');
+        $alto_menor = $thumbs['height'] - $this->config->item('migracion:margen_error_imagen');
+        
+   
+        foreach ($tipo_imagenes  as $value) {
+            if ($value->ancho <= $ancho_mayor && $value->ancho >= $ancho_menor && $value->alto <= $alto_mayor && $value->alto >= $alto_menor) {
+                $returnValue = $value->id;
+            }
+        }
+
+
+        return $returnValue;
     }
 
     function getUrlVideoLiquidRawLite($mediaarr = array()) {
@@ -630,6 +651,7 @@ class Liquid {
         }
     }
 
+   
 }
 
 ?>

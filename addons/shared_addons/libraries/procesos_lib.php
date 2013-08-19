@@ -21,6 +21,7 @@ class Procesos_lib extends MX_Controller {
         $this->load->model('portadas_mp');
         $this->load->model('video_tags_mp');
         $this->load->model('grupo_maestros_mp');
+        $this->load->model('tipo_imagenes_mp');
 
         $this->load->model('sphinx/sphinx_m');
 
@@ -333,7 +334,7 @@ class Procesos_lib extends MX_Controller {
                 $mediaarr = array();
 
                 ////error_log("dentro de " . $value->id);
-                if (empty($value->duracion) && empty($value->ruta) && empty($value->rutasplitter)) {
+                if (empty($value->duracion) || empty($value->ruta) || empty($value->rutasplitter) || $value->imag == 0) {
                     Log::erroLog("Duracion :" . $value->duracion);
                     Log::erroLog("Ruta :" . $value->ruta);
                     Log::erroLog("rutasplitter :" . $value->rutasplitter);
@@ -379,8 +380,10 @@ class Procesos_lib extends MX_Controller {
 //                }
 
                 if ($value->imag == 0) {
+                    
+                    $tipo_imagenes = $this->tipo_imagenes_mp->getTipoImagenes();
 
-                    $imagenes = Liquid::getimagenesLiquid($mediaarr);
+                    $imagenes = Liquid::getimagenesLiquid($mediaarr,$tipo_imagenes);
 
                     if (count($imagenes) > 0) {
                         $imagenpadre = NULL;
