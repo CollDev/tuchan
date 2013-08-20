@@ -7735,6 +7735,21 @@ class Admin extends Admin_Controller {
         
         echo json_encode(array('type' => 'exit', 'message' => 'Categoría eliminada.'));
     }
+    
+    public function categoria_editar()
+    {
+        $post = $this->input->post();
+        $user_id = (int) $this->session->userdata('user_id');
+        
+        $this->categoria_m->update($post['id'], array(
+            'nombre' => $post['nombre'],
+            'alias' => $this->categoria_m->sanitize($post['nombre']),
+            'categorias_id' => $post['categoria'],
+            'usuario_actualizacion' => $user_id,
+            'fecha_actualizacion' => date("Y-m-d H:i:s")
+        ));
+        echo json_encode(array('type' => 'exit', 'message' => 'Categoría editada con éxito.'));
+    }
 }
 
 /* End of file admin.php */
