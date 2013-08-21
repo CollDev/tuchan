@@ -159,4 +159,14 @@ class Categoria_m extends MY_Model {
     {
         return parent::update($categoria_id, array('estado' => 0));
     }
+    
+    public function set_restored($categoria_id)
+    {
+        return parent::update($categoria_id, array('estado' => 1));
+    }
+    
+    public function set_purged($categoria_id)
+    {
+        return parent::delete($categoria_id);
+    }
 }

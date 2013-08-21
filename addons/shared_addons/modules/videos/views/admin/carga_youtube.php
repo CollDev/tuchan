@@ -1,7 +1,8 @@
 <style>
-    .progress_upload{position:relative;width:400px;border:1px solid #ddd;padding:1px;border-radius:3px}
+    .progress_upload{position:relative;width:400px;border:1px solid #ddd;padding:1px;border-radius:3px;display:none;}
     .bar{background-color:#b4f5b4;width:0%;height:20px;border-radius:3px}
-    .percent{position:absolute;display:inline-block;top:3px;left:48%}</style>
+    .percent{position:absolute;display:inline-block;top:3px;left:48%}
+</style>
 <section class="title">
     <div>
         <ul class="main_menu">
@@ -130,8 +131,6 @@
                                 $(".embed_content").val(embed);
                             }
                         </script>
-
-
                     <?php endif ?>
                 <?php endif ?>
 
@@ -521,7 +520,7 @@
 
                     $('#frm').ajaxForm({
                         beforeSend: function() {
-                            $(".progress_upload").css("display", "block");
+                            //$(".progress_upload").css("display", "block");
                             status.empty();
                             var percentVal = '0%';
                             bar.width(percentVal)
@@ -568,9 +567,7 @@
                                 this.enable();
                             }
                         });
-
 <?php } ?>
-
                 });
 
                 function saveImages(respuesta) {

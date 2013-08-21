@@ -1,4 +1,3 @@
-<a class="btn blue btn_categoria" id="new_categoria">Nuevo</a>
 <table>
     <thead>
         <tr>
@@ -24,8 +23,10 @@ foreach($categorias as $categoria) {
                 <?php echo $categoria->fecha_registro; ?>
             </td>
             <td>
-                <button class="btn blue btn_categoria" id="edit_<?php echo $categoria->id; ?>">Editar</button>
-                <button class="btn red btn_categoria" id="delete_<?php echo $categoria->id; ?>">Eliminar</button>
+                <?php if ($categoria->estado == 0) { ?>
+                <button class="btn blue btn_categoria" id="restore_<?php echo $categoria->id; ?>">Restaurar</button>
+                <button class="btn red btn_categoria" id="purge_<?php echo $categoria->id; ?>">Purgar</button>
+                <?php } ?>
             </td>
         </tr>
 <?php
@@ -41,8 +42,10 @@ foreach($categorias as $categoria) {
                 <?php echo $child->fecha_registro; ?>
             </td>
             <td>
-                <button class="btn blue btn_categoria" id="edit_<?php echo $child->id; ?>">Editar</button>
-                <button class="btn red btn_categoria" id="delete_<?php echo $child->id; ?>">Eliminar</button>
+                <?php if ($child->estado == 0) { ?>
+                <button class="btn blue btn_categoria" id="restore_<?php echo $child->id; ?>">Restaurar</button>
+                <button class="btn red btn_categoria" id="purge_<?php echo $child->id; ?>">Purgar</button>
+                <?php } ?>
             </td>
         </tr>
 <?php

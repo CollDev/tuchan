@@ -7733,7 +7733,12 @@ class Admin extends Admin_Controller {
         $post = $this->input->post();
         $this->categoria_m->set_deleted($post['id']);
         
-        echo json_encode(array('type' => 'exit', 'message' => 'Categoría eliminada.'));
+        echo json_encode(
+            array(
+                'type' => 'exit',
+                'message' => 'Categoría eliminada.'
+            )
+        );
     }
     
     public function categoria_editar()
@@ -7741,14 +7746,72 @@ class Admin extends Admin_Controller {
         $post = $this->input->post();
         $user_id = (int) $this->session->userdata('user_id');
         
-        $this->categoria_m->update($post['id'], array(
-            'nombre' => $post['nombre'],
-            'alias' => $this->categoria_m->sanitize($post['nombre']),
-            'categorias_id' => $post['categoria'],
-            'usuario_actualizacion' => $user_id,
-            'fecha_actualizacion' => date("Y-m-d H:i:s")
-        ));
-        echo json_encode(array('type' => 'exit', 'message' => 'Categoría editada con éxito.'));
+        $this->categoria_m->update(
+            $post['id'],
+            array(
+                'nombre' => $post['nombre'],
+                'alias' => $this->categoria_m->sanitize($post['nombre']),
+                'categorias_id' => $post['categoria'],
+                'usuario_actualizacion' => $user_id,
+                'fecha_actualizacion' => date("Y-m-d H:i:s")
+            )
+        );
+        echo json_encode(
+            array(
+                'type' => 'exit',
+                'message' => 'Categoría editada con éxito.'
+            )
+        );
+    }
+    
+    public function categoria_papelera()
+    {
+        $categorias = $this->categoria_m->get_many_by(
+            array('categorias_id' => 0)
+        );
+        $children = array();
+        foreach ($categorias as $categoria) {
+            $this_categoria = $this->categoria_m->get_by(
+                array('categorias_id' => $categoria->id)
+            );
+            if (!empty($this_categoria)) {
+                $children[$categoria->id] = $this->categoria_m->get_many_by(
+                    array('categorias_id' => $categoria->id)
+                );
+            }
+        }
+        $this->template
+            ->set_partial('papelera_categoria', 'admin/tables/categoria_papelera')
+            ->append_js('module::scripts.js')
+            ->set('categorias', $categorias)
+            ->set('children', $children);
+        $this->template->build('admin/categoria_papelera');
+    }
+    
+    public function categoria_restaurar()
+    {
+        $post = $this->input->post();
+        $this->categoria_m->set_restored($post['id']);
+        
+        echo json_encode(
+            array(
+                'type' => 'exit',
+                'message' => 'Categoría restaurada satisfactoriamente.'
+            )
+        );
+    }
+    
+    public function categoria_purgar()
+    {
+        $post = $this->input->post();
+        $this->categoria_m->set_purged($post['id']);
+        
+        echo json_encode(
+            array(
+                'type' => 'exit',
+                'message' => 'Categoría purgada satisfactoriamente.'
+            )
+        );
     }
 }
 
