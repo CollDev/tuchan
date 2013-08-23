@@ -31,6 +31,17 @@ $(document).ready(function(){
         });
     });
     
+    $('button.enviar_post').click(function(){
+        $.getJSON('admin/canales/actualizar_post_url',
+            {
+                post_url: $('input.input#input_post_' + $(this).attr('id').substring(9)).val(),
+                canal_id: $(this).attr('id').substring(9)
+            }
+        ).done(function(res) {
+            showMessage(res.type, res.message);
+        });
+    });
+    
     function generate_key(){
         var result = '';
         for (i = 0; i < 32; i++) {

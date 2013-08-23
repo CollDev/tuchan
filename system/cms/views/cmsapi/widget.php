@@ -25,7 +25,7 @@ if (!empty($_SESSION['upload_result'])) {
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane active fade in" id="upload_form_tab">
-                        <form class="form-horizontal row" action="<?php echo $motor; ?>/cmsapi/post_upload" enctype="multipart/form-data" id="upload_form" method="post" novalidate>
+                        <form class="form-horizontal row" action="<?php echo base_url(); ?>cmsapi/post_upload" enctype="multipart/form-data" id="upload_form" method="post" novalidate>
                             <fieldset class="col-sm-6 col-6">
                                 <legend>Metadata</legend>
                                 <div class="row">
@@ -73,7 +73,7 @@ if (!empty($_SESSION['upload_result'])) {
                                 <div class="row">
                                     <label class="col-sm-3 col-3 control-label" for="fecha_transmision">Transmisión</label>
                                     <div class="col-sm-9 col-9">
-                                        <input id="fecha_transmision" name="fecha_transmision" placeholder="Seleccione una fecha" type="date" />
+                                        <input id="fecha_transmision" name="fecha_transmision" placeholder="Seleccione una fecha" type="text" />
                                     </div>
                                 </div>
                                 <div class="row">
@@ -104,7 +104,7 @@ if (!empty($_SESSION['upload_result'])) {
                                     <label class="col-sm-3 col-3 control-label" for="personajes_tag">Personajes</label>
                                     <div class="col-sm-9 col-9">
                                         <input id="personajes" name="personajes" placeholder="Principales y secundarios" required type="text" />
-                                    </div>
+                                    </div>motor
                                 </div>
                             </fieldset>
                             <fieldset class="col-sm-6">
@@ -181,13 +181,13 @@ if (!empty($_SESSION['upload_result'])) {
                                     <div class="row">
                                         <label class="col-sm-4 col-3 control-label" for="fec_ini">Inicio</label>
                                         <div class="col-sm-8 col-9">
-                                            <input id="fec_ini" type="date" name="fec_ini" placeholder="Sólo aquí" />
+                                            <input id="fec_ini" type="text" name="fec_ini" placeholder="Sólo aquí" />
                                         </div>
                                     </div>
                                     <div class="row">
                                         <label class="col-sm-4 col-3 control-label" for="fec_fin">Fin</label>
                                         <div class="col-sm-8 col-9">
-                                            <input id="fec_fin" type="date" name="fec_fin" placeholder="En el rango" />
+                                            <input id="fec_fin" type="text" name="fec_fin" placeholder="En el rango" />
                                         </div>
                                     </div>
                                 </div>

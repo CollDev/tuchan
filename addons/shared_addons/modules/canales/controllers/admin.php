@@ -7813,6 +7813,59 @@ class Admin extends Admin_Controller {
             )
         );
     }
+    
+    public function post_url()
+    {
+        $canales = $this->canales_m->get_many_by(array('estado'=> $this->config->item('estado:publicado')));
+        foreach($canales as $canal) {
+            $imagen = $this->imagen_m->get_by(array('canales_id' => $canal->id, 'estado' => $this->config->item('estado:publicado'), 'tipo_imagen_id' => $this->config->item('imagen:iso')));
+            if (count($imagen) == 0) {
+                $logo = $this->config->item('url:iso');
+            } else {
+                $logo = $this->config->item('protocolo:http') . $this->config->item('server:elemento') . '/' . $imagen->imagen;
+            }
+            $canal->logo = $logo;
+        }
+        //do we need to unset the layout because the request is ajax?
+        $this->input->is_ajax_request() and $this->template->set_layout(FALSE);
+
+        $this->template
+                ->title($this->module_details['name'])
+                ->set_partial('lista_canales', 'admin/tables/post_url')
+                ->append_js('module::scripts.js')
+                ->set('canales', $canales);
+        $this->input->is_ajax_request() ? $this->template->build('admin/tables/canales') : $this->template->build('admin/post_url');
+    }
+    
+    /**
+     * Actualiza campo post_url en canal
+     * 
+     * @return json Respuesta de éxito o error
+     */
+    public function actualizar_post_url()
+    {
+        if ($this->input->is_ajax_request()) {
+            $updated = FALSE;
+            if ($this->input->get('post_url') !== '') {
+                if ($this->canales_m->get($this->input->get('canal_id'))->post_url !== $this->input->get('post_url')) {
+                    $updated = $this->canales_m->update($this->input->get('canal_id'), array('post_url' => $this->input->get('post_url')));
+                } else {
+                    echo json_encode(array('type' => 'info', 'message' => 'Ingrese otra URL.'));
+                    return;
+                }
+            } else {
+                echo json_encode(array('type' => 'error', 'message' => 'Ingrese una URL.'));
+                return;
+            }
+            if ($updated) {
+                $return = array('type' => 'exit', 'message' => 'Post URL actualizada.');
+            } else {
+                $return = array('type' => 'error', 'message' => 'Error al actualizar URL.');
+            }
+        
+            echo json_encode($return);
+        }
+    }
 }
 
 /* End of file admin.php */
