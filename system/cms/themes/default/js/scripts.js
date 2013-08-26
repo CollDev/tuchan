@@ -201,14 +201,14 @@ $(document).on('ready', function() {
             percent.delay(1000).slideUp();
 //            var url = xhr.responseJSON.url;
 //            var video_array = url.split("/");
-////            do {
-////                $.getJSON("/cmsapi/verificar_estado_video/" + video_array[4], {
-////                    
-////                })
-////                .done(function(data) {
-////                    console.log(data);
-////                });
-////            } while (true);
+//            do {
+//                $.getJSON("/cmsapi/verificar_estado_video/" + video_array[4], {
+//                    
+//                })
+//                .done(function(data) {
+//                    console.log(data);
+//                });
+//            } while (true);
         }
     });
     

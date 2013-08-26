@@ -54,7 +54,7 @@
 				</li>
 				
 				<li>
-					<input class="remember" class="remember" id="remember" type="checkbox" name="remember" value="1" />
+					<input class="remember" class="remember" id="remember" type="checkbox" name="remember" checked="checked" value="1" />
 					<label for="remember" class="remember"><?php echo lang('user_remember'); ?></label>
 				</li>
 				
