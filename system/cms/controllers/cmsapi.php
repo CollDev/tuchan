@@ -15,7 +15,7 @@ class cmsApi extends MX_Controller {
     {
         if ($key_canal) {
             $objCanal = $this->cmsapi_lib->getCanalByKey($key_canal);
-            if ($objCanal->key_canal != null) {
+            if ($objCanal != null) {
                 $this->template
                     ->set('canal_id', $objCanal->id)
                     ->set('post_url', $objCanal->post_url)
@@ -74,5 +74,10 @@ class cmsApi extends MX_Controller {
     public function insertCorteVideo($canal_id, $video_id)
     {
         return $this->cmsapi_lib->insertCorteVideo($canal_id, $video_id);
+    }
+    
+    public function verificar_estado_video($video_id)
+    {
+        return $this->cmsapi_lib->verificar_estado_video($video_id);
     }
 }

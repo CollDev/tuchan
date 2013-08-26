@@ -82,6 +82,7 @@ $config['procedencia:migracion'] = '1';
 $config['procedencia:micanal'] = '0';
 $config['procedencia:migracion'] = '1';
 $config['procedencia:youtube'] = '2';
+$config['procedencia:widget'] = '3';
 
 //tipos de tag
 $config['tag:tematicas'] = '1';

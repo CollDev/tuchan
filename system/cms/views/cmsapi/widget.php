@@ -104,7 +104,7 @@ if (!empty($_SESSION['upload_result'])) {
                                     <label class="col-sm-3 col-3 control-label" for="personajes_tag">Personajes</label>
                                     <div class="col-sm-9 col-9">
                                         <input id="personajes" name="personajes" placeholder="Principales y secundarios" required type="text" />
-                                    </div>motor
+                                    </div>
                                 </div>
                             </fieldset>
                             <fieldset class="col-sm-6">
