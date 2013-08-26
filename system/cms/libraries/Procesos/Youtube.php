@@ -10,12 +10,13 @@ class Youtube {
         if (is_readable($filePath)) {
             return TRUE;
         } else {
-
+            
+            $i = 0 ;
+            
             DONWLOADVIDEO:
 
             $fp = fopen($filePath, "w");
             $ruta = $data['url'] . '&signature=' . $data['sig'];
-
 
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL, $ruta);
@@ -29,12 +30,15 @@ class Youtube {
 
             if (is_readable($filePath)) {
                 Log::erroLog("Termino descarga de Video id: " . $id);
-
                 return TRUE;
             } else {
-                Log::erroLog("Error de descarga reintento para video id: " . $id);
-                goto DONWLOADVIDEO;
-                //return FALSE;
+                if($i < 5){
+                    Log::erroLog("Error de descarga reintento para video id: " . $id . " intento ".$i++);
+                    goto DONWLOADVIDEO;
+                }  else {
+                    return FALSE;
+                }
+                
             }
         }
     }
@@ -127,8 +131,8 @@ class Youtube {
 
         foreach ($quality as $value) {
             foreach ($streams as $stream) {
-                parse_str($stream, $data);
-                if ($data["quality"] == $value) {
+                parse_str($stream, $data);                                 
+                if ($data["quality"] == $value) {                   
                     $videostream = $stream;
                     break 2;
                 }
