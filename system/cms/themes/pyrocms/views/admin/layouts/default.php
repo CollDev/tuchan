@@ -279,5 +279,6 @@
     <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
     <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
     <![endif]-->
+    <script src="/system/cms/themes/default/js/jquery.mustache.js"></script>
 </body>
 </html>

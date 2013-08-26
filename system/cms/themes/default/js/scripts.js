@@ -98,7 +98,6 @@ $(document).on('ready', function() {
     
     $('#submit_upload').on('click', function(){
         var titulo = $("input#titulo"),
-
         video = $("input#video"),
 
         fecha_transmision = $("input#fecha_transmision"),
@@ -199,8 +198,17 @@ $(document).on('ready', function() {
                     ' + xhr.responseJSON.message + '\n\
                 </div>');
             });
-            $('i#use-this-video').attr('data-href', xhr.responseJSON.url);
             percent.delay(1000).slideUp();
+//            var url = xhr.responseJSON.url;
+//            var video_array = url.split("/");
+////            do {
+////                $.getJSON("/cmsapi/verificar_estado_video/" + video_array[4], {
+////                    
+////                })
+////                .done(function(data) {
+////                    console.log(data);
+////                });
+////            } while (true);
         }
     });
     

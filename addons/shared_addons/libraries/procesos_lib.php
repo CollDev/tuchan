@@ -1510,20 +1510,26 @@ class Procesos_lib extends MX_Controller {
 
     private function _obtenerVideoYoutube($id, $v) {
         $data = Youtube::obtenerVideo($v);
+        
+        Log::erroLog("data video $id " .$data);
 
         if (!empty($data)) {
 
             $this->videos_mp->setEstadosVideos($id, $this->config->item('v_e:codificando'), $this->config->item('v_l:codificando'));
             $retorno = Youtube::descargaVideo($id, $data);
-            if ($retorno == TRUE) {
-                $retorno = $this->curlUpdateEstadoVideosXId($id, $this->config->item('v_e:codificando'), $this->config->item('v_l:codificado'));
-                //$this->videos_mp->setEstadosVideos($id, $this->config->item('v_e:codificando'), $this->config->item('v_l:codificado'));
+            
+            if ($retorno) {
+                $retorno = $this->curlUpdateEstadoVideosXId($id, $this->config->item('v_e:codificando'), $this->config->item('v_l:codificado'));                
                 if (trim($retorno) === "OK") {
                     $this->curlUploadVideosXId($id);
                 }
             } else {
-                $this->curlUpdateEstadoVideosXId($id, $this->config->item('v_e:codificando'), -1);
+                $this->curlUpdateEstadoVideosXId($id, $this->config->item('v_e:error'),$this->config->item('v_l:nuevo'));
             }
+        }else{
+            Log::erroLog("data video $id  error de video " );
+            $this->curlUpdateEstadoVideosXId($id, $this->config->item('v_e:error'),$this->config->item('v_l:nuevo'));
+            Log::erroLog("data video $id  error de video " );
         }
     }
 

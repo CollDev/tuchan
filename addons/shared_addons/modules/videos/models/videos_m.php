@@ -51,6 +51,7 @@ class Videos_m extends MY_Model {
         $this->db->where($where);
 
         $result = $this->db->get()->result();
+        
         return $result;
     }
 
@@ -95,6 +96,7 @@ class Videos_m extends MY_Model {
                     JOIN  default_cms_imagenes i ON i.videos_id = v.id
                   WHERE `canales_id` = " . (int) $canal_id;
         $result = $this->db->query($query)->result();
+        
         return $result;
     }
 
@@ -148,10 +150,12 @@ class Videos_m extends MY_Model {
      * @return string
      */
     public function insert($input = array()) {
-        parent::insert(array(
-            'title' => $input['title'],
-            'slug' => url_title(strtolower(convert_accented_characters($input['title'])))
-        ));
+        parent::insert(
+            array(
+                'title' => $input['title'],
+                'slug' => url_title(strtolower(convert_accented_characters($input['title'])))
+            )
+        );
 
         return $input['title'];
     }
@@ -163,67 +167,85 @@ class Videos_m extends MY_Model {
      * @return boolean
      */
     public function publish($id = 0) {
-        return parent::update($id, array('estado' => '2', 'fecha_publicacion' => date('Y-m-d H:i:s')));
+        return parent::update(
+            $id,
+            array(
+                'estado' => '2',
+                'fecha_actualizacion' => date('Y-m-d H:i:s')
+            )
+        );
     }
 
     public function save_video($objBeanVideo) {
-        $objBeanVideo->id = parent::insert(array(
-                    'tipo_videos_id' => $objBeanVideo->tipo_videos_id,
-                    'categorias_id' => $objBeanVideo->categorias_id,
-                    'usuarios_id' => $objBeanVideo->usuarios_id,
-                    'canales_id' => $objBeanVideo->canales_id,
-                    //'fuente' => $objBeanVideo->fuente,
-                    'titulo' => $objBeanVideo->titulo,
-                    'alias' => $objBeanVideo->alias,
-                    'descripcion' => $objBeanVideo->descripcion,
-                    'fragmento' => $objBeanVideo->fragmento,
-                    'fecha_publicacion_inicio' => $objBeanVideo->fecha_publicacion_inicio,
-                    'fecha_publicacion_fin' => $objBeanVideo->fecha_publicacion_fin,
-                    'fecha_transmision' => $objBeanVideo->fecha_transmision,
-                    'horario_transmision_inicio' => $objBeanVideo->horario_transmision_inicio,
-                    'horario_transmision_fin' => $objBeanVideo->horario_transmision_fin,
-                    'ubicacion' => $objBeanVideo->ubicacion,
-                    'estado' => $objBeanVideo->estado,
-                    'estado_liquid' => $objBeanVideo->estado_liquid,
-                    'fecha_registro' => $objBeanVideo->fecha_registro,
-                    'usuario_registro' => $objBeanVideo->usuario_registro,
-                    'estado_migracion' => $objBeanVideo->estado_migracion,
-                    'estado_migracion_sphinx_tit' => $objBeanVideo->estado_migracion_sphinx_tit,
-                    'estado_migracion_sphinx_des' => $objBeanVideo->estado_migracion_sphinx_des,
-                    'padre' => $objBeanVideo->padre,
-                    'estado_migracion_sphinx' => $objBeanVideo->estado_migracion_sphinx,
-                    'procedencia' => $objBeanVideo->procedencia,
-        ));
+        $objBeanVideo->id = parent::insert(
+            array(
+                'tipo_videos_id' => $objBeanVideo->tipo_videos_id,
+                'categorias_id' => $objBeanVideo->categorias_id,
+                'usuarios_id' => $objBeanVideo->usuarios_id,
+                'canales_id' => $objBeanVideo->canales_id,
+                //'fuente' => $objBeanVideo->fuente,
+                'titulo' => $objBeanVideo->titulo,
+                'alias' => $objBeanVideo->alias,
+                'descripcion' => $objBeanVideo->descripcion,
+                'fragmento' => $objBeanVideo->fragmento,
+                'fecha_publicacion_inicio' => $objBeanVideo->fecha_publicacion_inicio,
+                'fecha_publicacion_fin' => $objBeanVideo->fecha_publicacion_fin,
+                'fecha_transmision' => $objBeanVideo->fecha_transmision,
+                'horario_transmision_inicio' => $objBeanVideo->horario_transmision_inicio,
+                'horario_transmision_fin' => $objBeanVideo->horario_transmision_fin,
+                'ubicacion' => $objBeanVideo->ubicacion,
+                'estado' => $objBeanVideo->estado,
+                'estado_liquid' => $objBeanVideo->estado_liquid,
+                'fecha_registro' => $objBeanVideo->fecha_registro,
+                'usuario_registro' => $objBeanVideo->usuario_registro,
+                'estado_migracion' => $objBeanVideo->estado_migracion,
+                'estado_migracion_sphinx_tit' => $objBeanVideo->estado_migracion_sphinx_tit,
+                'estado_migracion_sphinx_des' => $objBeanVideo->estado_migracion_sphinx_des,
+                'padre' => $objBeanVideo->padre,
+                'estado_migracion_sphinx' => $objBeanVideo->estado_migracion_sphinx,
+                'procedencia' => $objBeanVideo->procedencia,
+            )
+        );
         $objBeanVideo->alias = $objBeanVideo->alias . '-' . $objBeanVideo->id;
-        parent::update($objBeanVideo->id, array('alias' => $objBeanVideo->alias));
+        parent::update(
+            $objBeanVideo->id,
+            array(
+                'alias' => $objBeanVideo->alias
+            )
+        );
+        
         return $objBeanVideo;
     }
 
     public function update_video($objBeanVideo) {
-        parent::update($objBeanVideo->id, array(
-            'tipo_videos_id' => $objBeanVideo->tipo_videos_id,
-            'categorias_id' => $objBeanVideo->categorias_id,
-            'usuarios_id' => $objBeanVideo->usuarios_id,
-            'canales_id' => $objBeanVideo->canales_id,
-            //'fuente' => $objBeanVideo->fuente,
-            'titulo' => $objBeanVideo->titulo,
-            'alias' => $objBeanVideo->alias,
-            'descripcion' => $objBeanVideo->descripcion,
-            'fragmento' => $objBeanVideo->fragmento,
-            'fecha_publicacion_inicio' => $objBeanVideo->fecha_publicacion_inicio,
-            'fecha_publicacion_fin' => $objBeanVideo->fecha_publicacion_fin,
-            'fecha_transmision' => $objBeanVideo->fecha_transmision,
-            'horario_transmision_inicio' => $objBeanVideo->horario_transmision_inicio,
-            'horario_transmision_fin' => $objBeanVideo->horario_transmision_fin,
-            'ubicacion' => $objBeanVideo->ubicacion,
-            'fecha_actualizacion' => $objBeanVideo->fecha_actualizacion,
-            'usuario_actualizacion' => $objBeanVideo->usuario_actualizacion,
-            'padre' => $objBeanVideo->padre,
-            'estado_migracion' => $objBeanVideo->estado_migracion,
-            'estado_migracion_sphinx' => $objBeanVideo->estado_migracion_sphinx
-        ));
+        parent::update(
+            $objBeanVideo->id,
+            array(
+                'tipo_videos_id' => $objBeanVideo->tipo_videos_id,
+                'categorias_id' => $objBeanVideo->categorias_id,
+                'usuarios_id' => $objBeanVideo->usuarios_id,
+                'canales_id' => $objBeanVideo->canales_id,
+                //'fuente' => $objBeanVideo->fuente,
+                'titulo' => $objBeanVideo->titulo,
+                'alias' => $objBeanVideo->alias,
+                'descripcion' => $objBeanVideo->descripcion,
+                'fragmento' => $objBeanVideo->fragmento,
+                'fecha_publicacion_inicio' => $objBeanVideo->fecha_publicacion_inicio,
+                'fecha_publicacion_fin' => $objBeanVideo->fecha_publicacion_fin,
+                'fecha_transmision' => $objBeanVideo->fecha_transmision,
+                'horario_transmision_inicio' => $objBeanVideo->horario_transmision_inicio,
+                'horario_transmision_fin' => $objBeanVideo->horario_transmision_fin,
+                'ubicacion' => $objBeanVideo->ubicacion,
+                'fecha_actualizacion' => $objBeanVideo->fecha_actualizacion,
+                'usuario_actualizacion' => $objBeanVideo->usuario_actualizacion,
+                'padre' => $objBeanVideo->padre,
+                'estado_migracion' => $objBeanVideo->estado_migracion,
+                'estado_migracion_sphinx' => $objBeanVideo->estado_migracion_sphinx
+            )
+        );
         //disaramos un proceso de la libreria portadas para actualizar estados de maestros en las portadas y secciones
         //$this->portadas_lib->actualizar_video($objBeanVideo->id);
+        
         return $objBeanVideo;
     }
 
@@ -252,56 +274,65 @@ class Videos_m extends MY_Model {
         if (count($result) > 0) {
             $returnValue = true;
         }
+        
         return $returnValue;
     }
 
     public function save($objBeanVideo) {
-        $objBeanVideo->id = parent::insert(array(
-                    'tipo_videos_id' => $objBeanVideo->tipo_videos_id,
-                    'categorias_id' => $objBeanVideo->categorias_id,
-                    'usuarios_id' => $objBeanVideo->usuarios_id,
-                    'canales_id' => $objBeanVideo->canales_id,
-                    'nid' => $objBeanVideo->nid,
-                    'titulo' => $objBeanVideo->titulo,
-                    'alias' => $objBeanVideo->alias,
-                    'descripcion' => $objBeanVideo->descripcion,
-                    'fragmento' => $objBeanVideo->fragmento,
-                    'codigo' => $objBeanVideo->codigo,
-                    'reproducciones' => $objBeanVideo->reproducciones,
-                    'duracion' => $objBeanVideo->duracion,
-                    'fecha_publicacion_inicio' => $objBeanVideo->fecha_publicacion_inicio,
-                    'fecha_publicacion_fin' => $objBeanVideo->fecha_publicacion_fin,
-                    'fecha_transmision' => $objBeanVideo->fecha_transmision,
-                    'horario_transmision_inicio' => $objBeanVideo->horario_transmision_inicio,
-                    'horario_transmision_fin' => $objBeanVideo->horario_transmision_fin,
-                    'ubicacion' => $objBeanVideo->ubicacion,
-                    'id_mongo' => $objBeanVideo->id_mongo,
-                    'estado' => $objBeanVideo->estado,
-                    'estado_liquid' => $objBeanVideo->estado_liquid,
-                    'fecha_registro' => $objBeanVideo->fecha_registro,
-                    'usuario_registro' => $objBeanVideo->usuario_registro,
-                    'fecha_actualizacion' => $objBeanVideo->fecha_actualizacion,
-                    'usuario_actualizacion' => $objBeanVideo->usuario_actualizacion,
-                    'estado_migracion' => $objBeanVideo->estado_migracion,
-                    'fecha_migracion' => $objBeanVideo->fecha_migracion,
-                    'fecha_migracion_actualizacion' => $objBeanVideo->fecha_migracion_actualizacion,
-                    'estado_migracion_sphinx_tit' => $objBeanVideo->estado_migracion_sphinx_tit,
-                    'fecha_migracion_sphinx_tit' => $objBeanVideo->fecha_migracion_sphinx_tit,
-                    'fecha_migracion_actualizacion_sphinx_tit' => $objBeanVideo->fecha_migracion_actualizacion_sphinx_tit,
-                    'estado_migracion_sphinx_des' => $objBeanVideo->estado_migracion_sphinx_des,
-                    'fecha_migracion_sphinx_des' => $objBeanVideo->fecha_migracion_sphinx_des,
-                    'fecha_migracion_actualizacion_sphinx_des' => $objBeanVideo->fecha_migracion_actualizacion_sphinx_des,
-                    'valorizacion' => $objBeanVideo->valorizacion,
-                    'comentarios' => $objBeanVideo->comentarios,
-                    'ruta' => $objBeanVideo->ruta,
-                    'padre' => $objBeanVideo->padre,
-                    'estado_migracion_sphinx' => $objBeanVideo->estado_migracion_sphinx,
-                    'fecha_migracion_sphinx' => $objBeanVideo->fecha_migracion_sphinx,
-                    'fecha_migracion_actualizacion_sphinx' => $objBeanVideo->fecha_migracion_actualizacion_sphinx,
-                    'procedencia' => $objBeanVideo->procedencia
-        ));
+        $objBeanVideo->id = parent::insert(
+            array(
+                'tipo_videos_id' => $objBeanVideo->tipo_videos_id,
+                'categorias_id' => $objBeanVideo->categorias_id,
+                'usuarios_id' => $objBeanVideo->usuarios_id,
+                'canales_id' => $objBeanVideo->canales_id,
+                'nid' => $objBeanVideo->nid,
+                'titulo' => $objBeanVideo->titulo,
+                'alias' => $objBeanVideo->alias,
+                'descripcion' => $objBeanVideo->descripcion,
+                'fragmento' => $objBeanVideo->fragmento,
+                'codigo' => $objBeanVideo->codigo,
+                'reproducciones' => $objBeanVideo->reproducciones,
+                'duracion' => $objBeanVideo->duracion,
+                'fecha_publicacion_inicio' => $objBeanVideo->fecha_publicacion_inicio,
+                'fecha_publicacion_fin' => $objBeanVideo->fecha_publicacion_fin,
+                'fecha_transmision' => $objBeanVideo->fecha_transmision,
+                'horario_transmision_inicio' => $objBeanVideo->horario_transmision_inicio,
+                'horario_transmision_fin' => $objBeanVideo->horario_transmision_fin,
+                'ubicacion' => $objBeanVideo->ubicacion,
+                'id_mongo' => $objBeanVideo->id_mongo,
+                'estado' => $objBeanVideo->estado,
+                'estado_liquid' => $objBeanVideo->estado_liquid,
+                'fecha_registro' => $objBeanVideo->fecha_registro,
+                'usuario_registro' => $objBeanVideo->usuario_registro,
+                'fecha_actualizacion' => $objBeanVideo->fecha_actualizacion,
+                'usuario_actualizacion' => $objBeanVideo->usuario_actualizacion,
+                'estado_migracion' => $objBeanVideo->estado_migracion,
+                'fecha_migracion' => $objBeanVideo->fecha_migracion,
+                'fecha_migracion_actualizacion' => $objBeanVideo->fecha_migracion_actualizacion,
+                'estado_migracion_sphinx_tit' => $objBeanVideo->estado_migracion_sphinx_tit,
+                'fecha_migracion_sphinx_tit' => $objBeanVideo->fecha_migracion_sphinx_tit,
+                'fecha_migracion_actualizacion_sphinx_tit' => $objBeanVideo->fecha_migracion_actualizacion_sphinx_tit,
+                'estado_migracion_sphinx_des' => $objBeanVideo->estado_migracion_sphinx_des,
+                'fecha_migracion_sphinx_des' => $objBeanVideo->fecha_migracion_sphinx_des,
+                'fecha_migracion_actualizacion_sphinx_des' => $objBeanVideo->fecha_migracion_actualizacion_sphinx_des,
+                'valorizacion' => $objBeanVideo->valorizacion,
+                'comentarios' => $objBeanVideo->comentarios,
+                'ruta' => $objBeanVideo->ruta,
+                'padre' => $objBeanVideo->padre,
+                'estado_migracion_sphinx' => $objBeanVideo->estado_migracion_sphinx,
+                'fecha_migracion_sphinx' => $objBeanVideo->fecha_migracion_sphinx,
+                'fecha_migracion_actualizacion_sphinx' => $objBeanVideo->fecha_migracion_actualizacion_sphinx,
+                'procedencia' => $objBeanVideo->procedencia
+            )
+        );
         $objBeanVideo->alias = $objBeanVideo->alias . '-' . $objBeanVideo->id;
-        parent::update($objBeanVideo->id, array('alias' => $objBeanVideo->alias));
+        parent::update(
+            $objBeanVideo->id,
+            array(
+                'alias' => $objBeanVideo->alias
+            )
+        );
+        
         return $objBeanVideo;
     }
 

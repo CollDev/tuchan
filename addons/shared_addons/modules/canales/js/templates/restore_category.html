@@ -1,0 +1,13 @@
+<form id="send-categoria" action="admin/canales/categoria_restaurar">
+    {{ #categoria}}
+    <div>
+        Esta seguro que desea restaurar la categoría:
+        <p>{{ nombre }}</p>
+    </div>
+    <input name="id" type="hidden" value="{{ id }}">
+    <div>
+        <button class="btn blue btn_categoria">Sí</button>
+        <a class="btn red btn_close">No</a>
+    </div>
+    {{ /categoria }}
+</form>
