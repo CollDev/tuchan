@@ -20,7 +20,8 @@
         <div class="container wrap">
             <?php echo $content; ?>
         </div>
-        <iframe src="http://dev.americatv.multidiario.com/proxy/proxyA.html" id="iframeProxy" width="0" height="0" style="border:none"></iframe>
+        <!--Base de datos-->
+        <iframe src="<?php echo $post_url; ?>" id="iframeProxy" width="0" height="0" style="border:none"></iframe>
         <div id="myModal" class="modal fade">
             <div class="alert alert-success fade in">
                 <button class="close" data-dismiss="modal" type="button">×</button>

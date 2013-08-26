@@ -202,6 +202,7 @@ class cmsapi_lib extends MX_Controller {
                         $objBeanVideo->estado_migracion_sphinx_des = 0;
                         $objBeanVideo->padre = 0;
                         $objBeanVideo->estado_migracion_sphinx = 0;
+                        $objBeanVideo->procedencia = $this->config->item('procedencia:widget');
                         $objBeanVideoSaved = $this->videos_mp->save_video($objBeanVideo);
                         //giardamos los tags de tematica y personajes
                         $this->_saveTagsTematicaPersonajes($objBeanVideoSaved, $post);
@@ -529,6 +530,7 @@ class cmsapi_lib extends MX_Controller {
                 $objBeanForm->duracion = $objVideo->duracion;
                 $objBeanForm->ruta = trim($objVideo->ruta);
                 $objBeanForm->progress_key = uniqid();
+                $objBeanForm->procedencia = $this->config->item('procedencia:widget');
                 $objBeanForm->tiene_imagen = $this->_tieneAvatar($video_id);
                 if ($objBeanForm->tiene_imagen) {
                     $objBeanForm->avatar = $this->_getListImagen($video_id);
@@ -696,7 +698,7 @@ class cmsapi_lib extends MX_Controller {
                 $objBeanVideo->estado = 0;
                 $objBeanVideo->padre = $video_id;
                 $objBeanVideo->estado_migracion_sphinx = $this->config->item('sphinx:nuevo');
-                $objBeanVideo->procedencia = $this->config->item('procedencia:micanal');
+                $objBeanVideo->procedencia = $this->config->item('procedencia:widget');
 
                 $objvideotemp = $this->videos_m->save_video($objBeanVideo);
 
@@ -719,13 +721,30 @@ class cmsapi_lib extends MX_Controller {
         }
     }
     
-    public function getCanalIdByKey($key_canal)
+    public function getCanalByKey($key_canal)
     {
         $objCanal = $this->canales_m->get_by(array("key_canal" => $key_canal));
         if (count($objCanal) > 0) {
-            return $objCanal->id;
+            return $objCanal;
         } else {
             return;
         }
+    }
+    
+    public function verificar_estado_video($video_id)
+    {
+        if ($video_id != '') {
+            $objVideo = $this->videos_m->get($video_id);
+            if ($objVideo != null) {
+                $return = array("exit" => $objVideo->estado);
+            } else {
+                $return = array("error" => "El video no ha sido encontrado.");
+            }
+        } else {
+            $return = array("error" => "Ingrese un video.");
+        }
+
+        header("Content-Type: application/json; charset=utf-8");
+        echo json_encode($return);
     }
 }
