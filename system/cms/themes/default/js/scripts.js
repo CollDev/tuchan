@@ -192,23 +192,35 @@ $(document).on('ready', function() {
         },
         complete: function(xhr) {
             progress.delay(1000).slideUp(1000, function(){
-            $('.wrap').prepend('<div class="alert alert-' + xhr.responseJSON.type + ' fade in">\n\
-                    <button class="close" data-dismiss="alert" type="button">×</button>\n\
-                    <strong>' + xhr.responseJSON.title + '</strong>\n\
-                    ' + xhr.responseJSON.message + '\n\
-                </div>');
+                $('.wrap').prepend(
+                   '<div class="alert alert-' + xhr.responseJSON.type + ' fade in">\n\
+                        <button class="close" data-dismiss="alert" type="button">×</button>\n\
+                        <strong>' + xhr.responseJSON.title + '</strong>\n\
+                        ' + xhr.responseJSON.message + '\n\
+                    </div>'
+                );
             });
+            $('i#use-this-video').attr('data-href', xhr.responseJSON.url);
             percent.delay(1000).slideUp();
-//            var url = xhr.responseJSON.url;
-//            var video_array = url.split("/");
-//            do {
-//                $.getJSON("/cmsapi/verificar_estado_video/" + video_array[4], {
-//                    
-//                })
-//                .done(function(data) {
-//                    console.log(data);
-//                });
-//            } while (true);
+//            1000, function(){
+//                var url = xhr.responseJSON.url;
+//                var video_array = url.split("/");
+//                do {
+//                    var resp = setTimeout(function(){
+//                        var respuesta = $.getJSON("/cmsapi/verificar_estado_video/" + video_array[4], {
+//
+//                        })
+//                        .done(function(data) {
+//                            console.log("data: " + data);
+//                        });
+//                        
+//                        return respuesta;
+//                    },20000);
+//                    console.log(resp.exit);
+//                } while (resp.exit !== 6);
+//                
+//                return resp.exit;
+//            }
         }
     });
     
@@ -338,12 +350,12 @@ $(document).on('ready', function() {
             url: "/cmsapi/insertCorteVideo/" + values['canal_id'] + "/" + values['video_id'],
             dataType: 'json',
             data: $('#cut_form').serialize(),
-            success: function(returnValue) //we're calling the response json array 'cities'
+            success: function(returnValue)
             {
                 if (returnValue.value == 0) {
                     showMessage('success', 'El corte se guardó satisfactoriamente');
                     setTimeout(function() {
-                        var $use_this_video = '<div class="row"><a class="btn btn-default col-lg-2 text-center" href="' + $('#motor').val() + '/embed/' + returnValue.video_id + '" id="use-this-video">Usar este corte de video</a></div>';
+                        var $use_this_video = '<div class="row"><a class="btn btn-default col-lg-2 text-center" data-legend="' + returnValue.legend + '" href="' + $('#motor').val() + '/embed/' + returnValue.video_id + '" id="use-this-video">Usar este corte de video</a></div>';
                         $("div#cut_form_tab").html('').append($use_this_video);
                     }, 4200);
                 } else {

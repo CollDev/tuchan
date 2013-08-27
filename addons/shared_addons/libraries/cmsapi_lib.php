@@ -216,6 +216,7 @@ class cmsapi_lib extends MX_Controller {
                             'title' => 'Video subido con éxito',
                             'message' => '<a href="'.$this->config->item('motor').'/embed/' . $objBeanVideoSaved->id . '">El archivo subido estará ubicado aquí</a><br>'.$this->config->item('motor').'/embed/' . $objBeanVideoSaved->id,
                             'url' => $this->config->item('motor').'/embed/' . $objBeanVideoSaved->id,
+                            'legend' => $post['descripcion'],
                         );
                     } else {
                         $return = array(
@@ -736,15 +737,17 @@ class cmsapi_lib extends MX_Controller {
         if ($video_id != '') {
             $objVideo = $this->videos_m->get($video_id);
             if ($objVideo != null) {
-                $return = array("exit" => $objVideo->estado);
+                if ($objVideo->estado != 0) {
+                    header("Content-Type: application/json; charset=utf-8");
+                    echo json_encode(array("exit" => $objVideo->estado));
+                }
             } else {
-                $return = array("error" => "El video no ha sido encontrado.");
+                header("Content-Type: application/json; charset=utf-8");
+                echo json_encode(array("error" => "El video no ha sido encontrado."));
             }
         } else {
-            $return = array("error" => "Ingrese un video.");
+            header("Content-Type: application/json; charset=utf-8");
+            echo json_encode(array("error" => "Ingrese un video."));
         }
-
-        header("Content-Type: application/json; charset=utf-8");
-        echo json_encode($return);
     }
 }
