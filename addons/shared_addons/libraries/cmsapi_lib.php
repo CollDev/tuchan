@@ -716,7 +716,7 @@ class cmsapi_lib extends MX_Controller {
                 Log::erroLog("admin antes  curlCorteVideoXId");
                 $this->procesos_lib->curlCorteVideoXId($video_id, $objvideotemp->id, $this->input->post('ini_corte'), $this->input->post('dur_corte'));
                 Log::erroLog("admin despues curlCorteVideoXId");
-                echo json_encode(array("value" => '0', 'video_id' => $objvideotemp->id));
+                echo json_encode(array("value" => '0', 'video_id' => $objvideotemp->id, "legend" => $this->input->post('descripcion_updated')));
                 //echo json_encode(array($video_id, $objvideotemp->id, $this->input->post('ini_corte'), $this->input->post('dur_corte')));
             }
         }
