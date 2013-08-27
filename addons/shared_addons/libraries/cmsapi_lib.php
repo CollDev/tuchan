@@ -216,6 +216,7 @@ class cmsapi_lib extends MX_Controller {
                             'title' => 'Video subido con éxito',
                             'message' => '<a href="'.$this->config->item('motor').'/embed/' . $objBeanVideoSaved->id . '">El archivo subido estará ubicado aquí</a><br>'.$this->config->item('motor').'/embed/' . $objBeanVideoSaved->id,
                             'url' => $this->config->item('motor').'/embed/' . $objBeanVideoSaved->id,
+                            'legend' => $post['descripcion'],
                         );
                     } else {
                         $return = array(
@@ -715,7 +716,7 @@ class cmsapi_lib extends MX_Controller {
                 Log::erroLog("admin antes  curlCorteVideoXId");
                 $this->procesos_lib->curlCorteVideoXId($video_id, $objvideotemp->id, $this->input->post('ini_corte'), $this->input->post('dur_corte'));
                 Log::erroLog("admin despues curlCorteVideoXId");
-                echo json_encode(array("value" => '0', 'video_id' => $objvideotemp->id));
+                echo json_encode(array("value" => '0', 'video_id' => $objvideotemp->id, "legend" => $this->input->post('descripcion_updated')));
                 //echo json_encode(array($video_id, $objvideotemp->id, $this->input->post('ini_corte'), $this->input->post('dur_corte')));
             }
         }
@@ -736,15 +737,17 @@ class cmsapi_lib extends MX_Controller {
         if ($video_id != '') {
             $objVideo = $this->videos_m->get($video_id);
             if ($objVideo != null) {
-                $return = array("exit" => $objVideo->estado);
+                if ($objVideo->estado != 0) {
+                    header("Content-Type: application/json; charset=utf-8");
+                    echo json_encode(array("exit" => $objVideo->estado));
+                }
             } else {
-                $return = array("error" => "El video no ha sido encontrado.");
+                header("Content-Type: application/json; charset=utf-8");
+                echo json_encode(array("error" => "El video no ha sido encontrado."));
             }
         } else {
-            $return = array("error" => "Ingrese un video.");
+            header("Content-Type: application/json; charset=utf-8");
+            echo json_encode(array("error" => "Ingrese un video."));
         }
-
-        header("Content-Type: application/json; charset=utf-8");
-        echo json_encode($return);
     }
 }

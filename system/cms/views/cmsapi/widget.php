@@ -79,13 +79,13 @@ if (!empty($_SESSION['upload_result'])) {
                                 <div class="row">
                                     <label class="col-sm-3 col-3 control-label" for="hora_trans_ini">Inicio</label>
                                     <div class="col-sm-9 col-9">
-                                        <input id="hora_trans_ini" name="hora_trans_ini" placeholder="Seleccione una hora" type="time" />
+                                        <input id="hora_trans_ini" name="hora_trans_ini" placeholder="Seleccione una hora" type="text" />
                                     </div>
                                 </div>
                                 <div class="row">
                                     <label class="col-sm-3 col-3 control-label" for="hora_trans_fin">Fin</label>
                                     <div class="col-sm-9 col-9">
-                                        <input id="hora_trans_fin" name="hora_trans_fin" placeholder="Seleccione una hora" type="time" />
+                                        <input id="hora_trans_fin" name="hora_trans_fin" placeholder="Seleccione una hora" type="text" />
                                     </div>
                                 </div>
                                 <div class="row">
