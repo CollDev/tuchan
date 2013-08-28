@@ -358,7 +358,7 @@ $(document).on('ready', function() {
                 if (returnValue.value == 0) {
                     showMessage('success', 'El corte se guardó satisfactoriamente');
                     setTimeout(function() {
-                        var $use_this_video = "<div class='row'><a class='btn btn-default col-lg-2 text-center' href='#' data-href='{" + '"url":"' + $('#motor').val() + '/embed/' + returnValue.video_id + '", "legend":"' + returnValue.legend + '"' + "}' id='use-this-video'>Usar este corte de video</a></div>";
+                        var $use_this_video = '<div class="row"><a class="btn btn-default col-lg-2 text-center" href="#" data-href="{' + '"url":"' + $('#motor').val() + '/embed/' + returnValue.video_id + '", "legend":"' + returnValue.legend + '"}' + '" id="use-this-video">Usar este corte de video</a></div>';
                         $("div#cut_form_tab").html('').append($use_this_video);
                     }, 4200);
                 } else {
