@@ -173,6 +173,7 @@ $(document).on('ready', function() {
 
     $('form#upload_form').ajaxForm({
         beforeSend: function() {
+            $("html, body").animate({ scrollTop: 0 }, 600);
             progress.slideDown();
             percent.slideDown();
             status.empty();
@@ -191,39 +192,53 @@ $(document).on('ready', function() {
             percent.html(percentVal);
         },
         complete: function(xhr) {
-            $("html, body").animate({ scrollTop: 0 }, 600);
             progress.delay(1600).slideUp(1000, function(){
                 $('.wrap').prepend(
                    '<div class="alert alert-' + xhr.responseJSON.type + ' fade in">\n\
-                        <button class="close" data-dismiss="alert" type="button">×</button>\n\
+                        <button class="close" data-dismiss="modal" type="button">×</button>\n\
                         <strong>' + xhr.responseJSON.title + '</strong>\n\
                         ' + xhr.responseJSON.message + '\n\
                     </div>'
                 );
             });
-            percent.delay(1000).slideUp();
-//            1000, function(){
-//                var url = xhr.responseJSON.url;
-//                var video_array = url.split("/");
-//                do {
-//                    var resp = setTimeout(function(){
-//                        var respuesta = $.getJSON("/cmsapi/verificar_estado_video/" + video_array[4], {
-//
-//                        })
-//                        .done(function(data) {
-//                            console.log("data: " + data);
-//                        });
-//                        
-//                        return respuesta;
-//                    },20000);
-//                    console.log(resp.exit);
-//                    if (resp.exit) {
-//                        clearInterval(intervalId);
-//                    }
-//                } while (resp.exit !== 6);
-//                
-//                return resp.exit;
-//            }
+            percent.delay(1000).slideUp(
+                1000, function(){
+                    $('#myUploadModal').html(
+                       '<div id="myUploadModalDiv" class="text-center">\n\
+                            <div class="alert alert-warning fade in">\n\
+                                <button class="close" data-dismiss="modal" type="button">×</button>\n\
+                                <strong>Publicando el video</strong>\n\
+                                ' + xhr.responseJSON.url + '<br>\n\
+                                Por favor espere.<img src="/system/cms/themes/default/img/loading-small.gif" />\n\
+                            </div>\n\
+                        </div>'
+                    ).modal();
+                    var response = 0;
+                    var intervalId = window.setInterval(
+                    function () {
+                        if (response !== 6) {
+                            setTimeout(function(){
+                                var url = xhr.responseJSON.url;
+                                var video_array = url.split("/");
+                                $.getJSON("/cmsapi/verificar_estado_video/" + video_array[4])
+                                .done(function(data) {
+                                    if (data.exit == 6) {
+                                        response = 6;
+                                        clearInterval(intervalId);
+                                        $('#myUploadModalDiv').html(
+                                           '<div class="alert alert-success fade in">\n\
+                                                <button class="close" data-dismiss="modal" type="button">×</button>\n\
+                                                <strong>Finalizado.</strong>\n\
+                                                El video ha sido publicado.\n\
+                                            </div>'
+                                        );
+                                    }
+                                });
+                            },1000);
+                        }
+                    }, 80000);
+                }
+            );
         }
     });
     
