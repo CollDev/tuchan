@@ -81,7 +81,7 @@
                                     $(this).parent().addClass('info');
                                     var tr_id = $(this).parent().attr('id');
                                     var split = tr_id.split('_');
-                                    $('#search_results a#use-this-video').removeClass('disabled').attr('href', $('#motor').val() + '/embed/' + split[1]);
+                                    $('#search_results a#use-this-video').removeClass('disabled').attr('data-href', '{"url":"' + $('#motor').val() + '/embed/' + split[1] + '"}').attr('href', '#');
                                 });
                                 $('.first-page').on('click', function(){ sorter.move(-1,true); });
                                 $('.prev-page').on('click', function(){ sorter.move(-1); });

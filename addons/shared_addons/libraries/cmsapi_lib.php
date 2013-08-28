@@ -214,9 +214,10 @@ class cmsapi_lib extends MX_Controller {
                         $return = array(
                             'type' => 'success',
                             'title' => 'Video subido con éxito',
-                            'message' => '<a href="'.$this->config->item('motor').'/embed/' . $objBeanVideoSaved->id . '">El archivo subido estará ubicado aquí</a><br>'.$this->config->item('motor').'/embed/' . $objBeanVideoSaved->id,
+                            'message' => '<a href="' . $this->config->item('motor').'/embed/' . $objBeanVideoSaved->id . '">El archivo subido estará ubicado aquí</a>
+                                          <a id="use-this-video" class="btn btn-default col-lg-2 pull-right" href="#" data-href=' . "'" . '{"url":"' . $this->config->item('motor').'/embed/' . $objBeanVideoSaved->id . '", "legend":"' . $post['descripcion'] . '"}' . "'" . '>Usar este video</a><br>
+                                         '.$this->config->item('motor').'/embed/' . $objBeanVideoSaved->id,
                             'url' => $this->config->item('motor').'/embed/' . $objBeanVideoSaved->id,
-                            'legend' => $post['descripcion'],
                         );
                     } else {
                         $return = array(
@@ -716,8 +717,9 @@ class cmsapi_lib extends MX_Controller {
                 Log::erroLog("admin antes  curlCorteVideoXId");
                 $this->procesos_lib->curlCorteVideoXId($video_id, $objvideotemp->id, $this->input->post('ini_corte'), $this->input->post('dur_corte'));
                 Log::erroLog("admin despues curlCorteVideoXId");
-                echo json_encode(array("value" => '0', 'video_id' => $objvideotemp->id, "legend" => $this->input->post('descripcion_updated')));
-                //echo json_encode(array($video_id, $objvideotemp->id, $this->input->post('ini_corte'), $this->input->post('dur_corte')));
+                
+                header("Content-Type: application/json; charset=utf-8");
+                echo json_encode(array("value" => '0', 'video_id' => $objvideotemp->id, 'legend' => $this->input->post('descripcion')));
             }
         }
     }
