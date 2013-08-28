@@ -2,7 +2,6 @@
 	<table border="0" class="table-list">
 		<thead>
 			<tr>
-				<th width="20"><?php echo form_checkbox(array('name' => 'action_to_all', 'class' => 'check-all')); ?></th>
 				<th><?php echo lang('blog:post_label'); ?></th>
 				<th class="collapse"><?php echo lang('blog:category_label'); ?></th>
 				<th class="collapse"><?php echo lang('blog:date_label'); ?></th>
@@ -21,7 +20,6 @@
 		<tbody>
 			<?php foreach ($blog as $post) : ?>
 				<tr>
-					<td><?php echo form_checkbox('action_to[]', $post->id); ?></td>
 					<td><?php echo $post->title; ?></td>
 					<td class="collapse"><?php echo $post->category_title; ?></td>
 					<td class="collapse"><?php echo format_date($post->created_on); ?></td>

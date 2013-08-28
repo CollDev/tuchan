@@ -17,7 +17,6 @@
     <table border="0" class="table-list">
         <thead>
             <tr>
-                <th width="20"><?php echo form_checkbox(array('name' => 'action_to_all', 'class' => 'check-all')); ?></th>
                 <th></th>
                 <th><?php echo lang('canales:nombre_label'); ?></th>
                 <th class="collapse"><?php echo lang('canales:descripcion_label'); ?></th>
@@ -38,7 +37,6 @@
         <tbody>
             <?php foreach ($canales as $post) : ?>
                 <tr id="canal_<?php echo $post->id ?>">
-                    <td><?php echo form_checkbox('action_to[]', $post->id); ?></td>
                     <td class="collapse"><img src="<?php echo $post->imagen_iso; ?>" /></td>
                     <td class="collapse"><?php echo anchor('admin/canales/videos/' . $post->id, $post->nombre); //$post->nombre;      ?></td>
                     <td class="collapse"><?php echo strip_tags($post->descripcion); ?></td>					
@@ -86,7 +84,6 @@
         </tbody>
     </table>
     <div class="table_action_buttons">            
-        <?php $this->load->view('admin/partials/buttons', array('buttons' => array('delete', 'publish'))); ?>            
     </div>
 <?php else: ?>
     <div class="no_data"><?php echo lang('canales:no_data'); ?></div>

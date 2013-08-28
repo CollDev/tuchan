@@ -15,7 +15,6 @@
     <table border="0" class="table-list">
         <thead>
             <tr>
-                <th width="20"><?php echo form_checkbox(array('name' => 'action_to_all', 'class' => 'check-all')); ?></th>
                 <th><?php echo lang('videos:imagen_label'); ?></th>
                 <th><?php echo lang('videos:titulo_label'); ?></th>
                 <th><?php echo lang('videos:categoria_label'); ?></th>
@@ -36,7 +35,6 @@
         <tbody>                
             <?php foreach ($lista_videos as $video) : ?>
                 <tr id="item_<?php echo $video->id; ?>">
-                    <td><?php echo form_checkbox('action_to[]', $video->id); ?></td>
                     <?php if ($video->procedencia == '0'): ?>
                         <td class="collapse"><img style="width: 100px;" src="<?php echo $video->imagen ?>" border="0"></img></td>
                     <?php elseif ($video->procedencia == '1'): ?>
@@ -72,7 +70,6 @@
         </tbody>
     </table>
     <div class="table_action_buttons">            
-    <?php $this->load->view('admin/partials/buttons', array('buttons' => array('publish'))); ?>            
     </div>
 <?php else: ?>
     <?php echo lang('global:no_data') ?>
