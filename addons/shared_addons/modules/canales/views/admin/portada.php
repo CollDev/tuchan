@@ -59,8 +59,8 @@
                 mostrar_titulo();
                 var altura = $(document).height();
                 $(".bajada2").css('height', '800');
-                var nombre = $("#nombre"),
-                        nombre_seccion = $("#nombre_seccion"),
+                var nombre = $("#nombre");
+                var nombre_seccion = $("#nombre_seccion"),
                         descripcion = $("#descripcion"),
                         descripcion_seccion = $("#descripcion_seccion"),
                         tipo = $("select[name=tipo]"),
@@ -77,8 +77,8 @@
                     }, 500);
                 }
 
-                function checkLength(o, n, min, max) {
-                    if (o.val().length > max || o.val().length < min) {
+                function checkLength(o, n, min, max) {                      
+                      if (o.val().length > max || o.val().length < min) {
                         o.addClass("ui-state-error");
                         updateTips("La cantidad de texto del campo " + n + " debe estar entre " +
                                 min + " y " + max + ".");
@@ -149,8 +149,8 @@
                             var bValid = true;
                             allFields.removeClass("ui-state-error");
 
-                            bValid = bValid && checkLength(nombre, "nombre", 3, 150);
-                            bValid = bValid && checkLength(descripcion, "descripcion", 6, 200);
+                            bValid = bValid && checkLength($("#newPortada #nombre"), "nombre", 3, 150);
+                            bValid = bValid && checkLength($("#newPortada #descripcion"), "descripcion", 6, 200);
                             //bValid = bValid && checkLength(tipo, "tipo", 5, 16);
 
                             //bValid = bValid && checkRegexp(nombre, /^[a-z]([0-9a-z_])+$/i, "EL nombre solo es valido  caracteres alfanumericos a-z, 0-9");
@@ -164,7 +164,7 @@
                                     type: "POST",
                                     url: post_url,
                                     dataType: 'json',
-                                    data: 'nombre=' + nombre.val() + '&descripcion=' + descripcion.val() + '&tipo=' + tipo.val(),
+                                    data: 'nombre=' + $("#newPortada #nombre").val() + '&descripcion=' + $("#newPortada #descripcion").val() + '&tipo=' + tipo.val(),
                                     success: function(respuesta)
                                     {
                                         //$(".validateTips").empty();
@@ -201,7 +201,7 @@
                     width: 540,
                     modal: false,
                     buttons: {
-                        "Registrar": function() {
+                        "Registrar": function() {                                                        
                             var bValid = true;
                             allFields.removeClass("ui-state-error");
                             bValid = bValid && checkLength(nombre_seccion, "nombre", 3, 150);
@@ -295,13 +295,13 @@
                     <input type="text" name="nombre" id="nombre" class="text ui-widget-content ui-corner-all" style="width:420px;" />
                     <label for="descripcion"><?php echo lang('canales:descripcion_label'); ?></label>
                     <input type="text" name="descripcion" id="descripcion" value="" class="text ui-widget-content ui-corner-all" style="width:420px;" />
-                    <input type="hidden" nombre="portada_id" id="portada_id" value="" />
+                    <input type="hidden" name="portada_id" id="portada_id" value="" />
                 </fieldset>
             </form>            
         </div>
         <div id="dialog-form" title="Agregar nueva Portada"  style="display:none;">
             <p class="validateTips"><?php echo lang('portada:all_form_fiels_are_required'); ?></p>
-            <form>
+            <form  id="newPortada" name="newPortada">
                 <fieldset>
                     <label for="name"><?php echo lang('canales:nombre_label'); ?></label>
                     <input type="text" name="nombre" id="nombre" class="text ui-widget-content ui-corner-all" style="width:420px;" />
@@ -309,7 +309,7 @@
                     <input type="text" name="descripcion" id="descripcion" value="" class="text ui-widget-content ui-corner-all" style="width:420px;" />
                     <label for="password"><?php echo lang('portada:tipo_portada') ?></label>
                     <?php echo form_dropdown('tipo', $tipo, 0); ?>
-                    <input type="hidden" nombre="canal_id" id="canal_id" value="<?php echo $canal_id; ?>" />
+                    <input type="hidden" name="canal_id" id="canal_id" value="<?php echo $canal_id; ?>" />
                 </fieldset>
             </form>
         </div>
@@ -329,7 +329,7 @@
                     <label for="templates"><?php echo lang('portada:template') ?></label>
                     <?php echo form_dropdown('template', $templates, 0); ?>
 
-                    <input type="hidden" nombre="portada_id" id="portada_id" value="" />
+                    <input type="hidden" name="portada_id" id="portada_id" value="" />
                 </fieldset>
             </form>
         </div>
