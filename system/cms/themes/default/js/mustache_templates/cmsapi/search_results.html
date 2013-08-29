@@ -41,7 +41,7 @@
                                 </thead>
                                 <tbody>
                                     {{ #videos }}
-                                    <tr id="videoresult_{{ id }}">
+                                    <tr data-description="{{ descripcion }}" id="videoresult_{{ id }}">
                                         <td>
                                             <a class="iframe" data-placement="top" data-toggle="tooltip" href="http://micanal.pe/embed/{{ id }}" rel="tooltip" target="_blank" title="{{ nombre_vi }}"><img src="{{ imagen }}" /></a>
                                         </td>
@@ -80,8 +80,9 @@
                                     $('table#table tbody tr').removeClass('info');
                                     $(this).parent().addClass('info');
                                     var tr_id = $(this).parent().attr('id');
+                                    var tr_description = $(this).parent().attr('data-description');
                                     var split = tr_id.split('_');
-                                    $('#search_results a#use-this-video').removeClass('disabled').attr('data-href', '{"url":"' + $('#motor').val() + '/embed/' + split[1] + '"}').attr('href', '#');
+                                    $('#search_results a#use-this-video').removeClass('disabled').attr('data-href', '{"url":"' + $('#motor').val() + '/embed/' + split[1] + '", "legend":"' + tr_description + '"}').attr('href', '#');
                                 });
                                 $('.first-page').on('click', function(){ sorter.move(-1,true); });
                                 $('.prev-page').on('click', function(){ sorter.move(-1); });
