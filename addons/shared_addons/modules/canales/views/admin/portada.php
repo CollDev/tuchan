@@ -8,30 +8,30 @@
 <section class="title"> 
     <div>
         <ul class="main_menu">
-        <?php
-        if ($objCanal->tipo_canales_id != $this->config->item('canal:mi_canal')) {
-        ?>
+            <?php
+            if ($objCanal->tipo_canales_id != $this->config->item('canal:mi_canal')) {
+                ?>
+                <li>
+                    <?php echo anchor('admin/videos/carga_unitaria/' . $canal_id, $this->config->item('submenu:carga_unitaria'), array('class' => '')); ?>
+                </li>
+                <li>
+                    <?php echo anchor('admin/videos/carga_youtube/' . $canal_id, $this->config->item('submenu:carga_youtube'), array('class' => '')); ?>
+                </li>
+                <?php
+            }
+            ?>
             <li>
-        <?php echo anchor('admin/videos/carga_unitaria/' . $canal_id, $this->config->item('submenu:carga_unitaria'), array('class' => '')); ?>
-            </li>
-            <li>
-        <?php echo anchor('admin/videos/carga_youtube/' . $canal_id, $this->config->item('submenu:carga_youtube'), array('class' => '')); ?>
-            </li>
-        <?php 
-        }
-        ?>
-            <li>
-        <?php echo anchor('admin/videos/organizar/' . $canal_id, 'Organizar videos', array('class' => '')); ?>
+                <?php echo anchor('admin/videos/organizar/' . $canal_id, 'Organizar videos', array('class' => '')); ?>
             </li>
             <li class="active">
-        <?php echo anchor('admin/canales/portada/' . $canal_id, 'Portadas', array('class' => '')); ?>
+                <?php echo anchor('admin/canales/portada/' . $canal_id, 'Portadas', array('class' => '')); ?>
             </li>
             <li>
-        <?php echo anchor('/admin/videos/grupo_maestro/' . $canal_id, 'Crear programas', array('class' => '')); ?>
+                <?php echo anchor('/admin/videos/grupo_maestro/' . $canal_id, 'Crear programas', array('class' => '')); ?>
             </li>
             <li class="alast"></li>
             <li class="last">
-        <?php echo anchor('admin/canales/papelera/' . $canal_id, 'Papelera', array('class' => '')); ?>
+                <?php echo anchor('admin/canales/papelera/' . $canal_id, 'Papelera', array('class' => '')); ?>
             </li>
         </ul>
     </div>
@@ -39,14 +39,14 @@
 <script type="text/javascript">
     var ul_width = parseInt($('section.title div ul.main_menu').css('width'));
     var lilast_pos = $('section.title div ul.main_menu li.last').position();
- 
+
     var anew_width = ul_width - lilast_pos.left;
-    $('section.title div ul.main_menu li.alast').css('width',anew_width);
+    $('section.title div ul.main_menu li.alast').css('width', anew_width);
 </script>
 <?php if ($objCanal->tipo_canales_id == $this->config->item('canal:mi_canal')): ?>
-                            <!--    <section>
-                                    <a href="#" id="display-form" title="<?php //echo lang('portada:add_portada');        ?>"><?php //echo lang('portada:add_portada');        ?></a>
-                                </section>-->
+                                    <!--    <section>
+                                            <a href="#" id="display-form" title="<?php //echo lang('portada:add_portada');          ?>"><?php //echo lang('portada:add_portada');          ?></a>
+                                        </section>-->
 <?php endif; ?>
 <section class="item">
     <?php template_partial('filters'); ?>
@@ -64,9 +64,33 @@
                         descripcion = $("#descripcion"),
                         descripcion_seccion = $("#descripcion_seccion"),
                         tipo = $("select[name=tipo]"),
+                        categoria = $("select[name=categoria]"),
+                        divcategoria = $("#divcategoria"),
                         tipo_seccion = $("select[name=tipo_seccion]"),
                         allFields = $([]).add(nombre).add(descripcion).add(tipo),
-                        tips = $(".validateTips");
+                        tips = $(".validateTips"),
+                        numorigen = '';
+
+                tipo.live("change", function() {
+                    $("#newPortada #nombre").val("");
+                    $("#newPortada #descripcion").val("");
+
+                    if (tipo.val() ==<?php echo $this->config->item('portada:categoria'); ?>) {
+                        $("#newPortada #nombre").attr('readonly', 'readonly');
+                        divcategoria.show();
+                    } else {
+                        divcategoria.hide();
+                        numorigen='';   
+                        $("#newPortada #nombre").removeAttr('readonly');
+                        
+                    }
+                });
+
+                categoria.live("change", function() {
+                    $("#newPortada #nombre").val($("select[name=categoria] option:selected").text());
+                    numorigen = categoria.val();
+                });
+
 
                 function updateTips(t) {
                     tips
@@ -77,8 +101,8 @@
                     }, 500);
                 }
 
-                function checkLength(o, n, min, max) {                      
-                      if (o.val().length > max || o.val().length < min) {
+                function checkLength(o, n, min, max) {
+                    if (o.val().length > max || o.val().length < min) {
                         o.addClass("ui-state-error");
                         updateTips("La cantidad de texto del campo " + n + " debe estar entre " +
                                 min + " y " + max + ".");
@@ -113,6 +137,7 @@
                             if (bValid) {
                                 var post_url = "/admin/canales/editar_portada/" + $("#portada_id").val();
                                 var serializedData = $('#formPortada').serialize();
+                                alert(serializedData);
                                 $.ajax({
                                     type: "POST",
                                     url: post_url,
@@ -159,7 +184,7 @@
                             // bValid = bValid && checkRegexp(descripcion, /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i, "eg. ui@jquery.com");
                             //bValid = bValid && checkRegexp(tipo, /^([0-9a-zA-Z])+$/, "Password field only allow : a-z 0-9");
                             if (bValid) {
-                                var post_url = "/admin/canales/agregar_portada/" + $("#canal_id").val();
+                                var post_url = "/admin/canales/agregar_portada/" + $("#canal_id").val()+"/"+numorigen;
                                 $.ajax({
                                     type: "POST",
                                     url: post_url,
@@ -169,7 +194,7 @@
                                     {
                                         //$(".validateTips").empty();
                                         if (respuesta.error == 1) {
-                                            //$(".validateTips").html('<?php //echo lang('portada:portada_existe');           ?>');
+                                            //$(".validateTips").html('<?php //echo lang('portada:portada_existe');             ?>');
                                             updateTips('<?php echo lang('portada:portada_existe'); ?>');
                                         } else {
                                             $(this).dialog("close");
@@ -201,7 +226,7 @@
                     width: 540,
                     modal: false,
                     buttons: {
-                        "Registrar": function() {                                                        
+                        "Registrar": function() {
                             var bValid = true;
                             allFields.removeClass("ui-state-error");
                             bValid = bValid && checkLength(nombre_seccion, "nombre", 3, 150);
@@ -310,6 +335,10 @@
                     <label for="password"><?php echo lang('portada:tipo_portada') ?></label>
                     <?php echo form_dropdown('tipo', $tipo, 0); ?>
                     <input type="hidden" name="canal_id" id="canal_id" value="<?php echo $canal_id; ?>" />
+                    <div id="divcategoria" name="divcategoria" style="display:none">
+                        <label for="categoria"><?php echo lang('videos:select_category'); ?></label>
+                        <?php echo form_dropdown('categoria', $categorias, 0); ?>
+                    </div>
                 </fieldset>
             </form>
         </div>
