@@ -66,7 +66,7 @@ class Sphinx_m extends CI_Model {
 
                     $arraytemp["id"] = $res[$i]["attrs"]["idvi"];
                     $arraytemp["nombre_vi"] = str_replace('"', '\"', $res[$i]["attrs"]["titulo"]);
-                    //$arraytemp["descripcion"]=preg_replace("[\n|\r|\n\r]",' ', (strip_tags($res[$i]["attrs"]["descripcion"])));
+                    $arraytemp["descripcion"]=preg_replace("[\n|\r|\n\r]",' ', (strip_tags($res[$i]["attrs"]["descripcion"])));
                     $arraytemp["reproducciones"] = $res[$i]["attrs"]["reproducciones"];
                     $arraytemp["duracion"] = $res[$i]["attrs"]["duracion"];
                     //$arraytemp["fecha"]=$res[$i]["attrs"]["fecha_transmision"];
