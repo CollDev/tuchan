@@ -3405,6 +3405,24 @@ class Admin extends Admin_Controller {
         return $returnValue;
     }
 
+        /**
+     * Método para verificar si hay otra sección publicada ademas de la sección destacado
+     * @author Johnny Huamani <johnny1402@gmail.com>
+     * @param int $canal_id
+     * @return boolean
+     */
+    private function tiene_otra_seccion_publicada_general($origen_id,$tipo_portadas) {
+        $returnValue = FALSE;
+        $objPortadaCanal = $this->portada_m->get_by(array("origen_id" => $origen_id, "tipo_portadas_id" => $tipo_portadas));
+        if (count($objPortadaCanal) > 0) {
+            $objColeccionSecciones = $this->secciones_m->where_not_in('tipo_secciones_id', array($this->config->item('seccion:destacado')))->get_by(array("portadas_id" => $objPortadaCanal->id, "estado" => $this->config->item('estado:publicado')));
+            if (count($objColeccionSecciones) > 0) {
+                $returnValue = TRUE;
+            }
+        }
+        return $returnValue;
+    }
+    
     /**
      * Método para verificar si hay otra sección publicada ademas de la sección destacado
      * @author Johnny Huamani <johnny1402@gmail.com>
@@ -3805,7 +3823,7 @@ class Admin extends Admin_Controller {
                         //validamos que tenga la sección destacado publicada
                         if ($this->tiene_destacado_publicado($objPortada->origen_id, 'categoria')) {                            
                             //validamos que tenga otra sección este publicado ademas del destacado
-                            if ($this->tiene_otra_seccion_publicada($objPortada->origen_id)) {
+                            if ($this->tiene_otra_seccion_publicada_general($objPortada->origen_id,$objPortada->tipo_portadas_id)) {
                                 //recorremos los videos para agregar a las secciones
                                 //llamamos al metodo de agregar video de la libreria sincronizar
                                 //iteramos todos los videos encontramos de la variable $lista_maestros_publicados
