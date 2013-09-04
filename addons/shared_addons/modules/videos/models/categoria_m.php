@@ -152,7 +152,7 @@ class Categoria_m extends MY_Model {
         $spaces = array(" ", ";", ":", ",", ".", "_");
         $string = str_replace($spaces, "-", $string);
         
-        return $string;
+        return strtolower($string);
     }
     
     public function set_deleted($categoria_id)
