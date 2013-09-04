@@ -1,6 +1,5 @@
 <?php if ($canales) : ?>
-
-    <?php echo form_open(''); ?>
+    <?php echo form_open('', 'id="accesos"'); ?>
     <table border="0" class="table-list">
         <thead>
             <tr>
@@ -18,25 +17,25 @@
             </tr>
         </tfoot>-->
         <tbody>
-            <?php  
-            $checked = ""; 
+            <?php
+            $checked = "";
             $checked2 = ""; ?>
-            <?php foreach ($canales as $canal) : ?>            
-                <?php foreach ($canales_asignados as $asignado) : ?>                                                   
+            <?php foreach ($canales as $canal) : ?>
+                <?php foreach ($canales_asignados as $asignado) : ?>
                     <!-- Para el predeterminado -->
                     <?php if ($canal->id == $asignado->predeterminado) :
                         $checked2 = "checked";
-                     else : 
+                     else :
                         $checked2 = "";
-                    endif ?>          
+                    endif ?>
                     
                     <!-- Canales asignados -->
                     <?php if ($canal->id == $asignado->canal_id && $asignado->estado==1) :
                         $checked = "checked";
                         break;
-                    else : 
+                    else :
                         $checked = "";
-                    endif ?> 
+                    endif ?>
                 <?php endforeach; ?>
                 <tr>
                     <td><?php echo form_checkbox('action_to[]', $canal->id, $checked); ?></td>
@@ -50,7 +49,7 @@
         </tbody>
     </table>
     <div class="buttons float-right padding-top">
-        <button type="submit" name="btnAction" value="save" class="btn blue"><span><?php echo lang('buttons.save'); ?></span></button>	
+        <button id="accesosSubmit" type="submit" name="btnAction" value="save" class="btn blue"><span><?php echo lang('buttons.save'); ?></span></button>
         <a href="<?php echo site_url('admin/accesos/index/' . $usuario_id); ?>" class="btn gray cancel"><?php echo lang('buttons.cancel'); ?></a>
     </div>
     
