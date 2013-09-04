@@ -1772,9 +1772,13 @@ class Procesos_lib extends MX_Controller {
     private function _limpiarUploadVideo() {
         $files = get_dir_file_info($this->config->item('path:video'));
         $timesemanaant = strtotime($this->config->item('time:delete:video'));
+        
+        Log::erroLog("timesemana: " . $timesemanaant );
+        Log::erroLog("cantidad de archivos: " . count($files));
 
         foreach ($files as $file) {
             $octper = octal_permissions(fileperms($file["server_path"]));
+             Log::erroLog( $file['name'] . " > permiso: " . $octper);
 
             if ($timesemanaant > $file['date'] && ($file["name"] != "index.html") && ($octper == "666")) {
                 umask(0);
