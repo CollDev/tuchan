@@ -60,7 +60,7 @@ class Admin extends Admin_Controller
             $canalesx =  json_decode(json_encode($canales_asignados), true);
             
             if ($this->form_validation->run() === TRUE)
-            {                                            
+            {
                 if (TRUE) {
                     
                     // Recibe datos del formulario
@@ -68,70 +68,76 @@ class Admin extends Admin_Controller
                     $predeterminado = $this->input->post('default');
                     $predeterminado = $predeterminado[0];
                     
-                    // Convierte canalesx a un array simple                    
-                    $i=0;
-                    $arraytemp = array();                    
+                    // Convierte canalesx a un array simple
+                    $i = 0;
+                    $arraytemp = array();
                     foreach ($canalesx as $canal) {
                         $arraytemp[$i] = $canal['canal_id'];
                         $i++;
                     }
                     
                     // Cuando se quitan canales
-                    $quitar = array_diff($arraytemp, $post_data['canal_id']);                    
-
+                    $quitar = array_diff($arraytemp, $post_data['canal_id']);
+                    
                     if (count($quitar) > 0) {
-                        
-                        // Actualizar accesos                        
+                        // Actualizar accesos
                         $params['estado'] = 0;
                         $params['fecha_actualizacion'] = date("Y-m-d H:i:s");
                         $params['usuario_actualizacion'] = $this->current_user->id;
                         foreach ($quitar as $canal_id) {
                             $this->usuario_group_canales_m->update($canal_id, $id, $params);
-                        }                                                
+                        }
                     }
-                                        
-                    // Accesos                        
+                    
+                    //Accesos
                     $params['user_id']  = $data_usuario->user_id;
                     $params['group_id'] = $data_usuario->group_id;
                     $params['estado'] = 1;
                     $params['fecha_registro'] = date("Y-m-d H:i:s");
                     $params['usuario_registro'] = $this->current_user->id;
                     $params['predeterminado'] = 0;
-
-                    $activos=array();
+                    
+                    $activos = array();
                     $i = 0;
                     foreach ($canalesx as $value) {
                         if($value["estado"] == 1){
-                            $activos[$i]=$value["canal_id"];    
-                            $i++;        
-                        }    
+                            $activos[$i]=$value["canal_id"];
+                            $i++;
+                        }
                     }
                     
                     // Cuando se agregan nuevos canales y activan canales asignados
-                    $seleccionados = array_diff($post_data['canal_id'],$activos); 
-
+                    $seleccionados = array_diff($post_data['canal_id'],$activos);
+                    
                     foreach ($seleccionados as $value) {
-                        if(array_search($value, $arraytemp) === FALSE){
-                            $params['canal_id'] =$value;        
-                            $this->usuario_group_canales_m->insert($params);        
+                        if (array_search($value, $arraytemp) === FALSE) {
+                            $params['canal_id'] = $value;
+                            $duplicated = $this->available($value, $id, $data_usuario->group_id);
+                            if ($duplicated === '') {
+                                $this->usuario_group_canales_m->insert($params);
+                            } else {
+                                $this->session->set_flashdata('error', $duplicated);
+                                redirect('admin/accesos/index/' . $data_usuario->user_id);
+                                exit;
+                            }
                         } else {
-                            $this->usuario_group_canales_m->update($value, $id, $params);            
+                            $this->usuario_group_canales_m->update($value, $id, $params);
                         }
                     }
                     
                     // Grabar canal predeterminado
-                    $params = array(); 
+                    $params = array();
                     $params['predeterminado'] = $predeterminado;
                     $this->usuario_group_canales_m->update_predeterminado($params, $predeterminado, $id);
                     
                     $this->session->set_flashdata('msg_success', 'La asignación de canales fue realizada con éxito.');
-                    redirect('admin/accesos/index/' . $data_usuario->user_id);                    
+                    redirect('admin/accesos/index/' . $data_usuario->user_id);
                 }
-            }           
-
+            }
+            
             // Do we need to unset the layout because the request is ajax?
             $this->input->is_ajax_request() and $this->template->set_layout(FALSE);
-
+            
             $this->template
                     ->title($this->module_details['name'])
                     ->set_partial('canales', 'admin/tables/accesos')
@@ -139,18 +145,37 @@ class Admin extends Admin_Controller
                     ->append_css('module::jquery.alerts.css')
                     ->set('usuario_id', $data_usuario->user_id)
                     ->set('usuario', $usuario)
-                    ->set('canales_asignados', $canales_asignados)            
+                    ->set('canales_asignados', $canales_asignados)
                     ->set('canales', $canales);
             
-            $this->input->is_ajax_request() ? $this->template->build('admin/tables/accesos') : $this->template->build('admin/index');            
-            
+            $this->input->is_ajax_request() ? $this->template->build('admin/tables/accesos') : $this->template->build('admin/index');
         } else {
-
             redirect('admin#');
         }
     }
-
-
+    
+    public function available($canal_id, $user_id, $group_id)
+    {
+        //var_dump($canal_id, $user_id, $group_id);exit;
+        $data_usuario = $this->ion_auth->get_user($user_id);
+        $available = array();
+        $objUGC = $this->usuario_group_canales_m->get_many_by(
+            array(
+                'canal_id' => $canal_id,
+                'user_id' => $user_id,
+                'group_id' => $group_id,
+                'estado' => 1,
+            )
+        );
+        if (!empty($objUGC)) {
+            $available[] = $data_usuario->display_name;
+        }
+        $response = "";
+        if (!empty($available)) {
+            $response = "El usuario " . $available[0] . " tiene los mismos atributos, elija otros.";
+        }
+        
+        return $response;
+    }
 }
-
 /* End of file admin.php */

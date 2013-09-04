@@ -741,7 +741,7 @@ class cmsapi_lib extends MX_Controller {
             if ($objVideo != null) {
                 if ($objVideo->estado != 0) {
                     header("Content-Type: application/json; charset=utf-8");
-                    echo json_encode(array("exit" => $objVideo->estado));
+                    echo json_encode(array("exit" => $objVideo->estado_liquid));
                 }
             } else {
                 header("Content-Type: application/json; charset=utf-8");

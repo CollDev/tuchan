@@ -141,10 +141,10 @@ class Categoria_m extends MY_Model {
                      "Ũ", "Ṹ", "Ų", "Ū", "Ṻ", "Ủ", "Ȕ", "Ȗ", "Ư", "Ứ", "Ừ", "Ữ",
                      "Ử", "Ự", "Ụ", "Ṳ", "Ṷ", "Ṵ", "Ʉ", "Ｕ", "Ꜷ", "Ȣ");
         $string = str_replace($UES, "U", $string);
-        $string = str_replace($string, "ñ", "n");
-        $string = str_replace($string, "Ñ", "N");
-        $string = str_replace($string, "ç", "z");
-        $string = str_replace($string, "Ç", "Z");
+        $string = str_replace("ñ", "n", $string);
+        $string = str_replace("Ñ", "N", $string);
+        $string = str_replace("ç", "z", $string);
+        $string = str_replace("Ç", "Z", $string);
         
         $symbols = array("[", "]", "{", "}");
         $string = str_replace($symbols, "", $string);
@@ -152,7 +152,7 @@ class Categoria_m extends MY_Model {
         $spaces = array(" ", ";", ":", ",", ".", "_");
         $string = str_replace($spaces, "-", $string);
         
-        return $string;
+        return strtolower($string);
     }
     
     public function set_deleted($categoria_id)

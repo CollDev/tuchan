@@ -28,6 +28,7 @@
                 Video seleccionado con exito.
             </div>
         </div>
+        <div id="myUploadModal" class="modal fade"></div>
         <script src="/system/cms/themes/default/js/jquery.js"></script>
         <script src="/system/cms/themes/default/js/jquery.mustache.js"></script>
         <script src="/system/cms/themes/default/bootstrap/js/bootstrap.min.js"></script>
