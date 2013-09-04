@@ -54,8 +54,8 @@ $db[PYRO_DEVELOPMENT] = array(
  */
 
 // El Comercio -  DEV
-
-
+    
+    
 $db[PYRO_DEVELOPMENT] = array( 
 	'hostname'		=> 	'10.10.38.102',
 	'username'		=> 	'micanalcmsdev',
