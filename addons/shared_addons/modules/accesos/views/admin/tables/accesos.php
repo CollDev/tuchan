@@ -19,8 +19,8 @@
         <tbody>
             <?php
             $checked = "";
-            $checked2 = ""; ?>
-            <?php foreach ($canales as $canal) : ?>
+            $checked2 = "";
+            foreach ($canales as $canal) : ?>
                 <?php foreach ($canales_asignados as $asignado) : ?>
                     <!-- Para el predeterminado -->
                     <?php if ($canal->id == $asignado->predeterminado) :
@@ -30,7 +30,7 @@
                     endif ?>
                     
                     <!-- Canales asignados -->
-                    <?php if ($canal->id == $asignado->canal_id && $asignado->estado==1) :
+                    <?php if ($canal->id == $asignado->canal_id) :
                         $checked = "checked";
                         break;
                     else :
