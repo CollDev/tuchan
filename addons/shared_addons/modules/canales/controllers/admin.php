@@ -3805,7 +3805,7 @@ class Admin extends Admin_Controller {
                         //validamos que tenga la sección destacado publicada
                         if ($this->tiene_destacado_publicado($objPortada->origen_id, 'categoria')) {                            
                             //validamos que tenga otra sección este publicado ademas del destacado
-                            if ($this->tiene_otra_seccion_publicada($objPortada->canales_id)) {
+                            if ($this->tiene_otra_seccion_publicada($objPortada->origen_id)) {
                                 //recorremos los videos para agregar a las secciones
                                 //llamamos al metodo de agregar video de la libreria sincronizar
                                 //iteramos todos los videos encontramos de la variable $lista_maestros_publicados
