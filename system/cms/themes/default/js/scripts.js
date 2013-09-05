@@ -1,5 +1,5 @@
 $.ajaxSetup({
-    cache: false
+    cache: false,
 });
 $(document).on('ready', function() {
     $.getJSON("/cmsapi/getcanaleslist")
@@ -100,10 +100,6 @@ $(document).on('ready', function() {
         var titulo = $("input#titulo"),
         video = $("input#video"),
 
-        fecha_transmision = $("input#fecha_transmision"),
-        hora_trans_ini = $("input#hora_trans_ini"),
-        hora_trans_fin = $("input#hora_trans_fin"),
-
         descripcion = $("input#descripcion"),
         tematicas = $("input#tematicas"),
         personajes = $("input#personajes"),
@@ -123,30 +119,30 @@ $(document).on('ready', function() {
             showMessage('danger','Debe seleccionar un video.');
             video.focus();
             return false;
-        } else if (fecha_transmision.val() === "") {
-            showMessage('danger','Debe seleccionar una fecha de transmisión.');
-            fecha_transmision.focus();
-            return false;
-        } else if (hora_trans_ini.val() === "") {
-            showMessage('danger','Debe seleccionar una hora de inicio de transmisión.');
-            hora_trans_ini.focus();
-            return false;
-        } else if (!hora_trans_ini.val().match(horaRegexp)) {
-            showMessage('danger','Seleccione una hora de inicio de transmisión válida.');
-            hora_trans_ini.focus();
-            return false;
-        } else if (hora_trans_fin.val() === "") {
-            showMessage('danger','Debe seleccionar una hora de fin de transmisión.');
-            hora_trans_fin.focus();
-            return false;
-        } else if (!hora_trans_fin.val().match(horaRegexp)) {
-            showMessage('danger','Seleccione una hora de fin de transmisión válida.');
-            hora_trans_fin.focus();
-            return false;
-        } else if (hora_trans_fin.val() <= hora_trans_ini.val()) {
-            showMessage('danger','La hora inicio debe ser menor que la hora de fin de transmisión.');
-            hora_trans_ini.focus();
-            return false;
+//        } else if (fecha_transmision.val() === "") {
+//            showMessage('danger','Debe seleccionar una fecha de transmisión.');
+//            fecha_transmision.focus();
+//            return false;
+//        } else if (hora_trans_ini.val() === "") {
+//            showMessage('danger','Debe seleccionar una hora de inicio de transmisión.');
+//            hora_trans_ini.focus();
+//            return false;
+//        } else if (!hora_trans_ini.val().match(horaRegexp)) {
+//            showMessage('danger','Seleccione una hora de inicio de transmisión válida.');
+//            hora_trans_ini.focus();
+//            return false;
+//        } else if (hora_trans_fin.val() === "") {
+//            showMessage('danger','Debe seleccionar una hora de fin de transmisión.');
+//            hora_trans_fin.focus();
+//            return false;
+//        } else if (!hora_trans_fin.val().match(horaRegexp)) {
+//            showMessage('danger','Seleccione una hora de fin de transmisión válida.');
+//            hora_trans_fin.focus();
+//            return false;
+//        } else if (hora_trans_fin.val() <= hora_trans_ini.val()) {
+//            showMessage('danger','La hora inicio debe ser menor que la hora de fin de transmisión.');
+//            hora_trans_ini.focus();
+//            return false;
         } else if (descripcion.val() === "") {
             showMessage('danger','Debe ingresar una descripción.');
             descripcion.focus();

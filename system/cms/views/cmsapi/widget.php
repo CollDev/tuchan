@@ -70,7 +70,7 @@ if (!empty($_SESSION['upload_result'])) {
                                         <div id="status"></div>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <!--<div class="row">
                                     <label class="col-sm-3 col-3 control-label" for="fecha_transmision">Transmisión</label>
                                     <div class="col-sm-9 col-9">
                                         <input id="fecha_transmision" name="fecha_transmision" placeholder="Seleccione una fecha" type="text" />
@@ -87,7 +87,7 @@ if (!empty($_SESSION['upload_result'])) {
                                     <div class="col-sm-9 col-9">
                                         <input id="hora_trans_fin" name="hora_trans_fin" placeholder="Seleccione una hora" type="text" />
                                     </div>
-                                </div>
+                                </div>-->
                                 <div class="row">
                                     <label class="col-sm-3 col-3 control-label" for="descripcion">Descripcion</label>
                                     <div class="col-sm-9 col-9">
