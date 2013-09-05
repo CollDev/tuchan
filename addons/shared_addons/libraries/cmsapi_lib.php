@@ -202,7 +202,7 @@ class cmsapi_lib extends MX_Controller {
                         $objBeanVideo->estado_migracion_sphinx_des = 0;
                         $objBeanVideo->padre = 0;
                         $objBeanVideo->estado_migracion_sphinx = 0;
-                        $objBeanVideo->procedencia = $this->config->item('procedencia:widget');
+                        $objBeanVideo->procedencia = 3;
                         $objBeanVideoSaved = $this->videos_mp->save_video($objBeanVideo);
                         //giardamos los tags de tematica y personajes
                         $this->_saveTagsTematicaPersonajes($objBeanVideoSaved, $post);
@@ -532,7 +532,7 @@ class cmsapi_lib extends MX_Controller {
                 $objBeanForm->duracion = $objVideo->duracion;
                 $objBeanForm->ruta = trim($objVideo->ruta);
                 $objBeanForm->progress_key = uniqid();
-                $objBeanForm->procedencia = $this->config->item('procedencia:widget');
+                $objBeanForm->procedencia = 3;
                 $objBeanForm->tiene_imagen = $this->_tieneAvatar($video_id);
                 if ($objBeanForm->tiene_imagen) {
                     $objBeanForm->avatar = $this->_getListImagen($video_id);
@@ -700,7 +700,7 @@ class cmsapi_lib extends MX_Controller {
                 $objBeanVideo->estado = 0;
                 $objBeanVideo->padre = $video_id;
                 $objBeanVideo->estado_migracion_sphinx = $this->config->item('sphinx:nuevo');
-                $objBeanVideo->procedencia = $this->config->item('procedencia:widget');
+                $objBeanVideo->procedencia = 3;
 
                 $objvideotemp = $this->videos_m->save_video($objBeanVideo);
 

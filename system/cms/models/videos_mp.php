@@ -255,7 +255,8 @@ class Videos_mp extends CI_Model {
                 `estado_migracion_sphinx_tit`,
                 `estado_migracion_sphinx_des`,
                 `padre`,
-                `estado_migracion_sphinx`
+                `estado_migracion_sphinx`,
+                `procedencia`
             ) VALUES (
                 '" . $objBeanVideo->tipo_videos_id . "',
                 '" . $objBeanVideo->categorias_id . "',
@@ -279,7 +280,8 @@ class Videos_mp extends CI_Model {
                 '" . $objBeanVideo->estado_migracion_sphinx_tit . "',
                 '" . $objBeanVideo->estado_migracion_sphinx_des . "',
                 '" . $objBeanVideo->padre . "',
-                '" . $objBeanVideo->estado_migracion_sphinx . "'
+                '" . $objBeanVideo->estado_migracion_sphinx . "',
+                '" . $objBeanVideo->procedencia . "'
             );";
 
         $this->db->query($query);
