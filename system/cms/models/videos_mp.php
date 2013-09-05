@@ -130,10 +130,10 @@ class Videos_mp extends CI_Model {
     }
 
     public function getVideosObtenerDatosXId($id) {
-        $query = "SELECT vi.id,vi.estado,vi.codigo,vi.ruta,vi.rutasplitter,vi.duracion,ca.id as 'canal_id' , ca.apikey,(select count(im.id) from " . $this->_table_imagenes . " im  WHERE im.videos_id=vi.id and im.procedencia=1) as 'imag'
+        $query = "SELECT vi.id,vi.estado,vi.codigo,vi.ruta,vi.rutasplitter,vi.duracion,vi.procedencia,ca.id as 'canal_id' , ca.apikey,ca.postback_url , (select count(im.id) from " . $this->_table_imagenes . " im  WHERE im.videos_id=vi.id and im.procedencia=1) as 'imag'
                     FROM " . $this->_table . " vi  
                     INNER  JOIN " . $this->_table_canales . " ca ON  vi.canales_id=ca.id
-                    WHERE  vi.id=" . $id; //vi.estado_liquid=5 and
+                    WHERE  vi.id=" . $id;
 
         return $this->db->query($query)->result();
     }
