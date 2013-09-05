@@ -1,4 +1,4 @@
-<?php if ($canales) : ?>
+<?php if ($canales) { ?>
     <?php echo form_open('', 'id="accesos"'); ?>
     <table border="0" class="table-list">
         <thead>
@@ -18,42 +18,45 @@
         </tfoot>-->
         <tbody>
             <?php
-            $checked = "";
-            $checked2 = "";
-            foreach ($canales as $canal) : ?>
-                <?php foreach ($canales_asignados as $asignado) : ?>
-                    <!-- Para el predeterminado -->
-                    <?php if ($canal->id == $asignado->predeterminado) :
-                        $checked2 = "checked";
-                     else :
-                        $checked2 = "";
-                    endif ?>
-                    
-                    <!-- Canales asignados -->
-                    <?php if ($canal->id == $asignado->canal_id) :
-                        $checked = "checked";
-                        break;
-                    else :
-                        $checked = "";
-                    endif ?>
-                <?php endforeach; ?>
+             foreach ($canales as $canal) {
+                $checked = "";
+                $checked2 = "";
+                if (isset($canales_asignados[$canal->id])) {
+                    if ($canal->id == $canales_asignados[$canal->id]->canal_id && $canales_asignados[$canal->id]->estado === "1") {
+                        $checked = 'checked';
+                    } else {
+                        $checked = '';
+                    }
+
+                    if ($canales_asignados[$canal->id]->predeterminado === "1") {
+                        $checked2 = 'checked';
+                    } else {
+                        $checked2 = '';
+                    }
+                }
+                ?>
                 <tr>
                     <td><?php echo form_checkbox('action_to[]', $canal->id, $checked); ?></td>
                     <td class="collapse"><?php echo anchor('admin/canales/portada/' . $canal->id, $canal->nombre); ?></td>
-                    <td class="collapse"><?php echo lang('global:'.$canal->estado.'_estado'); ?></td>
+                    <td class="collapse"><?php echo lang('global:' . $canal->estado . '_estado'); ?></td>
                     <td>
-                       <?php echo form_radio('default[]', $canal->id, $checked2); ?>
+                        <?php
+                        if (isset($canales_asignados[$canal->id])) {
+                            echo form_radio('default[]', $canal->id, $checked2);
+                        } else {
+                            echo form_radio('default[]', $canal->id, 'disabled="disabled"');
+                        }
+                        ?>
                     </td>
                 </tr>
-            <?php endforeach; ?>
+            <?php } ?>
         </tbody>
     </table>
     <div class="buttons float-right padding-top">
         <button id="accesosSubmit" type="submit" name="btnAction" value="save" class="btn blue"><span><?php echo lang('buttons.save'); ?></span></button>
         <a href="<?php echo site_url('admin/accesos/index/' . $usuario_id); ?>" class="btn gray cancel"><?php echo lang('buttons.cancel'); ?></a>
     </div>
-    
-<?php else: ?>
+<?php echo form_close();
+    } else { ?>
     <div class="no_data"><?php echo lang('canales:no_data'); ?></div>
-<?php endif; ?>
-<?php echo form_close(); ?>
+<?php } ?>

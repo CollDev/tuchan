@@ -14,6 +14,8 @@
 </section>
 <script>
     $(document).ready(function() {
+        if($.browser.mozilla) $("form#accesos").attr("autocomplete", "off");
+        
         $("td input:radio").attr("disabled", "true");
         put_disabled();
         
