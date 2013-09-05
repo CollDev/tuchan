@@ -279,8 +279,25 @@ $(document).on('ready', function() {
     });
     $(document).on('click', 'a#use-this-video', function(e) {
         e.preventDefault();
-        select_video($(this).attr('data-href'));
-        $('#myModal').modal();
+        var $this = this;
+        var dataHref = $.parseJSON($($this).attr('data-href'));
+        var url = dataHref.url;
+        var video_array = url.split("/");
+        $.ajax({
+            url: "/cmsapi/verificar_estado_video/" + video_array[4],
+            success: function(data){
+                var published;
+                if (data.exit == null) {
+                    published = data.error;
+                } else {
+                    published = data.exit;
+                }
+                dataHref.published = published;
+                $($this).attr('data-href', '').attr('data-href', JSON.stringify(dataHref));
+                select_video($($this).attr('data-href'));
+                $('#myModal').modal();
+            }
+        });
     });
     $(document).on('click', 'a.corte_video', function() {
         $("div#cut_form_tab").html('<div class="text-center"><img src="/system/cms/themes/default/img/loading.gif" /></div>');

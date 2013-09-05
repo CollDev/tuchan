@@ -173,6 +173,13 @@ class Usuario_group_canales_m extends MY_Model
         return $query2;
     }
 
+    public function unset_predeterminado($user_id)
+    {
+        $sql = "UPDATE " . $this->_table . " SET `predeterminado` = '0' WHERE `user_id` = '" . $user_id . "';";
+        $result = $this->db->query($sql);
+        
+        return $result;
+    }
 }
 
 /* End of file usuario_rol_canales_m.php */
