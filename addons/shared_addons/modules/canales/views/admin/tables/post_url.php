@@ -5,6 +5,7 @@
             <th>Logo</th>
             <th>Nombre</th>
             <th>Post URL</th>
+            <th>Post Back URL</th>
             <th>Acciones</th>
         </tr>
     </thead>
@@ -25,6 +26,9 @@ foreach($canales as $canal) {
             </td>
             <td>
                 <input class="input" id="input_post_<?php echo $canal->id; ?>" type="text" value="<?php echo $canal->post_url; ?>" />
+            </td>
+            <td>
+                <input class="input" id="input_postback_<?php echo $canal->id; ?>" type="text" value="<?php echo $canal->postback_url; ?>" />
             </td>
             <td>
                 <button class="btn blue enviar_post" id="btn_post_<?php echo $canal->id; ?>">Enviar</button>
