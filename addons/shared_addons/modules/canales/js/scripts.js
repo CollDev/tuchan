@@ -35,6 +35,7 @@ $(document).ready(function(){
         $.getJSON('admin/canales/actualizar_post_url',
             {
                 post_url: $('input.input#input_post_' + $(this).attr('id').substring(9)).val(),
+                postback_url: $('input.input#input_postback_' + $(this).attr('id').substring(9)).val(),
                 canal_id: $(this).attr('id').substring(9)
             }
         ).done(function(res) {
