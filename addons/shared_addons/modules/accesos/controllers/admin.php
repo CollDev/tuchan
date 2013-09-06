@@ -108,11 +108,6 @@ class Admin extends Admin_Controller
 
                 foreach ($seleccionados as $value) {
                     $params['canal_id'] = $value;
-                    
-                    if ($value == $predeterminado) {
-                        $this->usuario_group_canales_m->unset_predeterminado($id);
-                        $params['predeterminado'] = 1;
-                    }
                     if (array_search($value, $arraytemp) === FALSE) {
                         $duplicated = $this->available($value, $id, $data_usuario->group_id);
                         if ($duplicated === '') {
@@ -123,13 +118,15 @@ class Admin extends Admin_Controller
                             exit;
                         }
                     } else {
+                        unset($params['canal_id']);
+                        unset($params['user_id']);
+                        unset($params['group_id']);
                         $this->usuario_group_canales_m->update($value, $id, $params);
                     }
                 }
-//                // Grabar canal predeterminado
-//                $params = array();
-//                $params['predeterminado'] = $predeterminado;
-//                $this->usuario_group_canales_m->update_predeterminado($params, $predeterminado, $id);
+                // Grabar canal predeterminado
+                $this->usuario_group_canales_m->unset_predeterminado($id);
+                $this->usuario_group_canales_m->set_predeterminado($predeterminado, $id, $data_usuario->group_id);
                 
                 $this->session->set_flashdata('msg_success', 'La asignación de canales fue realizada con éxito.');
                 redirect('admin/accesos/index/' . $data_usuario->user_id);
