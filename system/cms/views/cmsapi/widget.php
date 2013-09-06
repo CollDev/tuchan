@@ -27,7 +27,7 @@ if (!empty($_SESSION['upload_result'])) {
                     <div class="tab-pane active fade in" id="upload_form_tab">
                         <form class="form-horizontal row" action="<?php echo base_url(); ?>cmsapi/post_upload" enctype="multipart/form-data" id="upload_form" method="post" novalidate>
                             <fieldset class="col-sm-6 col-6">
-                                <legend>Metadata</legend>
+                                <!--<legend>Metadata</legend>-->
                                 <div class="row">
                                     <label class="col-sm-3 col-3 control-label" for="titulo">Título</label>
                                     <div class="col-sm-9 col-9">
@@ -108,7 +108,7 @@ if (!empty($_SESSION['upload_result'])) {
                                 </div>
                             </fieldset>
                             <fieldset class="col-sm-6">
-                                <legend>Jerarquía</legend>
+                                <!--<legend>Jerarquía</legend>-->
                                 <div class="row">
                                     <label class="col-sm-3 col-3 control-label" for="categoria">Categorías</label>
                                     <div class="col-sm-9 col-9">
