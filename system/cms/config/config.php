@@ -506,4 +506,10 @@ $config['proce:micanal'] = '0';
 $config['proce:migracion'] = '1';
 $config['proce:youtube'] = '2';
 $config['proce:widget'] = '3';
+
+$config['america:cms:url'] = 'http://dev.americatv.multidiario.com/';
+$config['america:cms:user'] = 'admin';
+$config['america:cms:pass'] = 'eeph0luSh2ou';
+
+
 /* End of file config.php */
