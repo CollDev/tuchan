@@ -130,10 +130,10 @@ class Videos_mp extends CI_Model {
     }
 
     public function getVideosObtenerDatosXId($id) {
-        $query = "SELECT vi.id,vi.estado,vi.codigo,vi.ruta,vi.rutasplitter,vi.duracion,ca.id as 'canal_id' , ca.apikey,(select count(im.id) from " . $this->_table_imagenes . " im  WHERE im.videos_id=vi.id and im.procedencia=1) as 'imag'
+        $query = "SELECT vi.id,vi.estado,vi.codigo,vi.ruta,vi.rutasplitter,vi.duracion,vi.procedencia,ca.id as 'canal_id' , ca.apikey,ca.postback_url , (select count(im.id) from " . $this->_table_imagenes . " im  WHERE im.videos_id=vi.id and im.procedencia=1) as 'imag'
                     FROM " . $this->_table . " vi  
                     INNER  JOIN " . $this->_table_canales . " ca ON  vi.canales_id=ca.id
-                    WHERE  vi.id=" . $id; //vi.estado_liquid=5 and
+                    WHERE  vi.id=" . $id;
 
         return $this->db->query($query)->result();
     }
@@ -242,11 +242,11 @@ class Videos_mp extends CI_Model {
                 `descripcion`,
                 `fragmento`,
                 `fecha_publicacion_inicio`,
-                `fecha_publicacion_fin`,
-                `fecha_transmision`,
-                `horario_transmision_inicio`,
-                `horario_transmision_fin`,
-                `ubicacion`,
+                `fecha_publicacion_fin`, ".
+//                `fecha_transmision`,
+//                `horario_transmision_inicio`,
+//                `horario_transmision_fin`,
+                "`ubicacion`,
                 `estado`,
                 `estado_liquid`,
                 `fecha_registro`,
@@ -255,7 +255,8 @@ class Videos_mp extends CI_Model {
                 `estado_migracion_sphinx_tit`,
                 `estado_migracion_sphinx_des`,
                 `padre`,
-                `estado_migracion_sphinx`
+                `estado_migracion_sphinx`,
+                `procedencia`
             ) VALUES (
                 '" . $objBeanVideo->tipo_videos_id . "',
                 '" . $objBeanVideo->categorias_id . "',
@@ -266,11 +267,11 @@ class Videos_mp extends CI_Model {
                 '" . $objBeanVideo->descripcion . "',
                 '" . $objBeanVideo->fragmento . "',
                 '" . $objBeanVideo->fecha_publicacion_inicio . "',
-                '" . $objBeanVideo->fecha_publicacion_fin . "',
-                '" . $objBeanVideo->fecha_transmision . "',
-                '" . $objBeanVideo->horario_transmision_inicio . "',
-                '" . $objBeanVideo->horario_transmision_fin . "',
-                '" . $objBeanVideo->ubicacion . "',
+                '" . $objBeanVideo->fecha_publicacion_fin . "', " .
+//                '" . $objBeanVideo->fecha_transmision . "',
+//                '" . $objBeanVideo->horario_transmision_inicio . "',
+//                '" . $objBeanVideo->horario_transmision_fin . "',
+                "'" . $objBeanVideo->ubicacion . "',
                 '" . $objBeanVideo->estado . "',
                 '" . $objBeanVideo->estado_liquid . "',
                 '" . $objBeanVideo->fecha_registro . "',
@@ -279,7 +280,8 @@ class Videos_mp extends CI_Model {
                 '" . $objBeanVideo->estado_migracion_sphinx_tit . "',
                 '" . $objBeanVideo->estado_migracion_sphinx_des . "',
                 '" . $objBeanVideo->padre . "',
-                '" . $objBeanVideo->estado_migracion_sphinx . "'
+                '" . $objBeanVideo->estado_migracion_sphinx . "',
+                '" . $objBeanVideo->procedencia . "'
             );";
 
         $this->db->query($query);

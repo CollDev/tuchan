@@ -211,35 +211,39 @@ class curlProceso extends MX_Controller {
         $this->procesos_lib->postbackliquid($xml);
     }
     
-    public function postliquid() {
-        $url = $_SERVER['HTTP_HOST']."/curlproceso/postbackliquid";
-        $post = "<MediaEvent>
-                <EventType>INSERT</EventType>
-                    <Media>
-                        <IdMedia>321321ec11c33c23</IdMedia>
-                        <Title>adasdas sad sad sa sa das as</Title>
-                    </Media>
-                </MediaEvent>";
-        
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible;)");
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_POST, TRUE);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-//        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-Type: text/xml"));
-
-        $result = curl_exec($ch);
-        $info = curl_getinfo($ch);
-        echo $result;        
-        echo $info['http_code'];
-
-//        if ($info['http_code'] == '200') {
-//            $resultado = json_decode($result);
-//        } else {
-//            $resultado = array();
-//        }
+    public function envioDatos(){
+        $this->procesos_lib->envioDatos();
     }
+    
+//    public function postliquid() {
+//        $url = $_SERVER['HTTP_HOST']."/curlproceso/postbackliquid";
+//        $post = "<MediaEvent>
+//                <EventType>INSERT</EventType>
+//                    <Media>
+//                        <IdMedia>321321ec11c33c23</IdMedia>
+//                        <Title>adasdas sad sad sa sa das as</Title>
+//                    </Media>
+//                </MediaEvent>";
+//        
+//        $ch = curl_init();
+//        curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible;)");
+//        curl_setopt($ch, CURLOPT_URL, $url);
+//        curl_setopt($ch, CURLOPT_POST, TRUE);
+//        curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+//        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+////        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
+//        curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-Type: text/xml"));
+//
+//        $result = curl_exec($ch);
+//        $info = curl_getinfo($ch);
+//        echo $result;        
+//        echo $info['http_code'];
+//
+////        if ($info['http_code'] == '200') {
+////            $resultado = json_decode($result);
+////        } else {
+////            $resultado = array();
+////        }
+//    }
 
 }

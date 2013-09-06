@@ -189,9 +189,9 @@ class cmsapi_lib extends MX_Controller {
                         $objBeanVideo->fragmento = $post['fragmento'];
                         $objBeanVideo->fecha_publicacion_inicio = date("H:i:s", strtotime($post['fec_pub_ini']));
                         $objBeanVideo->fecha_publicacion_fin = date("H:i:s", strtotime($post['fec_pub_fin']));
-                        $objBeanVideo->fecha_transmision = date("Y-m-d H:i:s", strtotime($post['fec_trans']));
-                        $objBeanVideo->horario_transmision_inicio = date("H:i:s", strtotime($post['hora_trans_ini']));
-                        $objBeanVideo->horario_transmision_fin = date("H:i:s", strtotime($post['hora_trans_fin']));
+//                        $objBeanVideo->fecha_transmision = date("Y-m-d H:i:s", strtotime($post['fec_trans']));
+//                        $objBeanVideo->horario_transmision_inicio = date("H:i:s", strtotime($post['hora_trans_ini']));
+//                        $objBeanVideo->horario_transmision_fin = date("H:i:s", strtotime($post['hora_trans_fin']));
                         $objBeanVideo->ubicacion = $post['ubicacion'];
                         $objBeanVideo->estado = 0;
                         $objBeanVideo->estado_liquid = 0;
@@ -202,7 +202,7 @@ class cmsapi_lib extends MX_Controller {
                         $objBeanVideo->estado_migracion_sphinx_des = 0;
                         $objBeanVideo->padre = 0;
                         $objBeanVideo->estado_migracion_sphinx = 0;
-                        $objBeanVideo->procedencia = $this->config->item('procedencia:widget');
+                        $objBeanVideo->procedencia = 3;
                         $objBeanVideoSaved = $this->videos_mp->save_video($objBeanVideo);
                         //giardamos los tags de tematica y personajes
                         $this->_saveTagsTematicaPersonajes($objBeanVideoSaved, $post);
@@ -522,9 +522,9 @@ class cmsapi_lib extends MX_Controller {
                 $objBeanForm->lista = $lista;
                 $objBeanForm->fec_pub_ini = date("d-m-Y H:i:s", strtotime($objVideo->fecha_publicacion_inicio)); //$objVideo->fecha_publicacion_inicio;
                 $objBeanForm->fec_pub_fin = date("d-m-Y H:i:s", strtotime($objVideo->fecha_publicacion_fin)); //$objVideo->fecha_publicacion_fin;
-                $objBeanForm->fec_trans = date("d-m-Y", strtotime($objVideo->fecha_transmision)); //$objVideo->fecha_transmision;
-                $objBeanForm->hora_trans_ini = $objVideo->horario_transmision_inicio;
-                $objBeanForm->hora_trans_fin = $objVideo->horario_transmision_fin;
+//                $objBeanForm->fec_trans = date("d-m-Y", strtotime($objVideo->fecha_transmision)); //$objVideo->fecha_transmision;
+//                $objBeanForm->hora_trans_ini = $objVideo->horario_transmision_inicio;
+//                $objBeanForm->hora_trans_fin = $objVideo->horario_transmision_fin;
                 $objBeanForm->ubicacion = $objVideo->ubicacion;
                 $objBeanForm->canal_id = $objVideo->canales_id;
                 $objBeanForm->tipo_maestro = '';
@@ -532,7 +532,7 @@ class cmsapi_lib extends MX_Controller {
                 $objBeanForm->duracion = $objVideo->duracion;
                 $objBeanForm->ruta = trim($objVideo->ruta);
                 $objBeanForm->progress_key = uniqid();
-                $objBeanForm->procedencia = $this->config->item('procedencia:widget');
+                $objBeanForm->procedencia = 3;
                 $objBeanForm->tiene_imagen = $this->_tieneAvatar($video_id);
                 if ($objBeanForm->tiene_imagen) {
                     $objBeanForm->avatar = $this->_getListImagen($video_id);
@@ -683,9 +683,9 @@ class cmsapi_lib extends MX_Controller {
                 $objBeanVideo->fragmento = 0;
                 $objBeanVideo->fecha_publicacion_inicio = date("Y-m-d H:i:s", strtotime($this->input->post('fec_pub_ini')));
                 $objBeanVideo->fecha_publicacion_fin = date("Y-m-d H:i:s", strtotime($this->input->post('fec_pub_fin')));
-                $objBeanVideo->fecha_transmision = date("Y-m-d H:i:s", strtotime($this->input->post('fec_trans')));
-                $objBeanVideo->horario_transmision_inicio = $this->input->post('hora_trans_ini');
-                $objBeanVideo->horario_transmision_fin = $this->input->post('hora_trans_fin');
+//                $objBeanVideo->fecha_transmision = date("Y-m-d H:i:s", strtotime($this->input->post('fec_trans')));
+//                $objBeanVideo->horario_transmision_inicio = $this->input->post('hora_trans_ini');
+//                $objBeanVideo->horario_transmision_fin = $this->input->post('hora_trans_fin');
                 $objBeanVideo->ubicacion = $this->input->post('ubicacion');
                 $objBeanVideo->fecha_actualizacion = date("Y-m-d H:i:s");
                 $objBeanVideo->usuario_actualizacion = $user_id;
@@ -700,7 +700,7 @@ class cmsapi_lib extends MX_Controller {
                 $objBeanVideo->estado = 0;
                 $objBeanVideo->padre = $video_id;
                 $objBeanVideo->estado_migracion_sphinx = $this->config->item('sphinx:nuevo');
-                $objBeanVideo->procedencia = $this->config->item('procedencia:widget');
+                $objBeanVideo->procedencia = 3;
 
                 $objvideotemp = $this->videos_m->save_video($objBeanVideo);
 
@@ -742,6 +742,9 @@ class cmsapi_lib extends MX_Controller {
                 if ($objVideo->estado != 0) {
                     header("Content-Type: application/json; charset=utf-8");
                     echo json_encode(array("exit" => $objVideo->estado_liquid));
+                } else {
+                    header("Content-Type: application/json; charset=utf-8");
+                    echo json_encode(array("error" => $objVideo->estado_liquid));
                 }
             } else {
                 header("Content-Type: application/json; charset=utf-8");

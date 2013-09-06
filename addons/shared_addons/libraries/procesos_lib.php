@@ -29,6 +29,7 @@ class Procesos_lib extends MX_Controller {
         $this->load->library("Procesos/liquid");
         $this->load->library("Procesos/ffmpeg");
         $this->load->library("Procesos/youtube");
+        $this->load->library("Procesos/america");
 
         $this->load->library("Procesos/log");
         $this->load->library('portadas_lib');
@@ -418,6 +419,11 @@ class Procesos_lib extends MX_Controller {
                 if ((!empty($value->ruta) || !empty($urlvideo) || !empty($duracion) ) && ($value->imag != 0 || !empty($datos["imagen"]))) {
                     $this->videos_mp->setEstadosVideos($value->id, $this->config->item('v_e:publicado'), $this->config->item('v_l:publicado'));
                     Log::erroLog(" antes de actualizar_video: " . $id);
+                    if(isset($value->postback_url) && ($value->procedencia  == $this->config->item('proce:widget'))){
+                      Log::erroLog("Enviando actualizacion de estado a canal de video:  " . $id);
+                      $this->envioDatos($value->postback_url,$value->id);
+                    }
+              
                     $this->curlSincronizarLibVideo($value->id);
                 }
             }
@@ -1801,5 +1807,12 @@ class Procesos_lib extends MX_Controller {
         }
         
     }
-
+    
+    public function envioDatos($urlpostback,$id){
+        $url = $this->config->item('america:cms:url');
+        $user = $this->config->item('america:cms:user');
+        $pass = $this->config->item('america:cms:pass');
+                
+        America::envioDatos($url,$urlpostback,$user,$pass,$id);
+    }
 }

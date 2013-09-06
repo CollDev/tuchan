@@ -7964,12 +7964,12 @@ class Admin extends Admin_Controller {
         if ($this->input->is_ajax_request()) {
             $updated = FALSE;
             if ($this->input->get('post_url') !== '') {
-                if ($this->canales_m->get($this->input->get('canal_id'))->post_url !== $this->input->get('post_url')) {
-                    $updated = $this->canales_m->update($this->input->get('canal_id'), array('post_url' => $this->input->get('post_url')));
-                } else {
-                    echo json_encode(array('type' => 'info', 'message' => 'Ingrese otra URL.'));
-                    return;
-                }
+                //if ($this->canales_m->get($this->input->get('canal_id'))->post_url !== $this->input->get('post_url')) {
+                    $updated = $this->canales_m->update($this->input->get('canal_id'), array('post_url' => $this->input->get('post_url'), 'postback_url' => $this->input->get('postback_url')));
+                //} else {
+//                    echo json_encode(array('type' => 'info', 'message' => 'Ingrese otra URL.'));
+//                    return;
+                //}
             } else {
                 echo json_encode(array('type' => 'error', 'message' => 'Ingrese una URL.'));
                 return;

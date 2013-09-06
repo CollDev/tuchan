@@ -71,13 +71,14 @@ class Usuario_group_canales_m extends MY_Model
     public function get_canales_by_usuario($where = array()) 
     {
         if (!is_array($where)) {
-            $where = array('user_id' => $where, 'c.estado'=>'1');
+            $where = array('user_id' => $where);
         }
 
         $this->db->select("urc.user_id, urc.group_id, urc.canal_id, c.nombre, urc.predeterminado,urc.estado");
         $this->db->from($this->_table . ' urc');
         $this->db->join('default_cms_canales c', 'c.id = urc.canal_id');
         $this->db->where($where);
+
         $result = $this->db->get()->result();
 
         return $result;
@@ -172,6 +173,13 @@ class Usuario_group_canales_m extends MY_Model
         return $query2;
     }
 
+    public function unset_predeterminado($user_id)
+    {
+        $sql = "UPDATE " . $this->_table . " SET `predeterminado` = '0' WHERE `user_id` = '" . $user_id . "';";
+        $result = $this->db->query($sql);
+        
+        return $result;
+    }
 }
 
 /* End of file usuario_rol_canales_m.php */
