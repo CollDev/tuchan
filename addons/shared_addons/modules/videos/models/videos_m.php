@@ -177,6 +177,24 @@ class Videos_m extends MY_Model {
     }
 
     public function save_video($objBeanVideo) {
+        if (isset($objBeanVideo->fecha_transmision)) {
+            $fecha_transmision = $objBeanVideo->fecha_transmision;
+        } else {
+            $fecha_transmision = '0000-00-00 00:00:00';
+        }
+        
+        if (isset($objBeanVideo->horario_transmision_inicio)) {
+            $horario_transmision_inicio = $objBeanVideo->horario_transmision_inicio;
+        } else {
+            $horario_transmision_inicio = '0000-00-00 00:00:00';
+        }
+        
+        if (isset($objBeanVideo->horario_transmision_fin)) {
+            $horario_transmision_fin = $objBeanVideo->horario_transmision_fin;
+        } else {
+            $horario_transmision_fin = '0000-00-00 00:00:00';
+        }
+        
         $objBeanVideo->id = parent::insert(
             array(
                 'tipo_videos_id' => $objBeanVideo->tipo_videos_id,
@@ -190,9 +208,9 @@ class Videos_m extends MY_Model {
                 'fragmento' => $objBeanVideo->fragmento,
                 'fecha_publicacion_inicio' => $objBeanVideo->fecha_publicacion_inicio,
                 'fecha_publicacion_fin' => $objBeanVideo->fecha_publicacion_fin,
-                'fecha_transmision' => $objBeanVideo->fecha_transmision,
-                'horario_transmision_inicio' => $objBeanVideo->horario_transmision_inicio,
-                'horario_transmision_fin' => $objBeanVideo->horario_transmision_fin,
+                'fecha_transmision' => $fecha_transmision,
+                'horario_transmision_inicio' => $horario_transmision_inicio,
+                'horario_transmision_fin' => $horario_transmision_fin,
                 'ubicacion' => $objBeanVideo->ubicacion,
                 'estado' => $objBeanVideo->estado,
                 'estado_liquid' => $objBeanVideo->estado_liquid,

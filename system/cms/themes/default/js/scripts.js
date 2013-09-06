@@ -342,30 +342,30 @@ $(document).on('ready', function() {
             showMessage('danger', 'Ingrese un título.');
             $("form#cut_form input#titulo").focus();
             return;
-        } else if (values['fec_trans'] === '') {
-            showMessage('danger', 'Ingrese una fecha de transmisión.');
-            $("form#cut_form input#cut_transmision").focus();
-            return;
-        } else if (values['hora_trans_ini'] === '') {
-            showMessage('danger', 'Debe ingresar una hora de inicio de transmisión.');
-            $("form#cut_form input#hora_trans_cut_ini").focus();
-            return;
-        } else if (!values['hora_trans_ini'].match(horaRegexp)) {
-            showMessage('danger', 'Ingrese una hora de inicio de transmisión válida.');
-            $("form#cut_form input#hora_trans_cut_ini").focus();
-            return;
-        } else if (values['hora_trans_fin'] === '') {
-            showMessage('danger', 'Debe ingresar una hora de fin de transmisión.');
-            $("form#cut_form input#hora_trans_cut_fin").focus();
-            return;
-        } else if (!values['hora_trans_fin'].match(horaRegexp)) {
-            showMessage('danger', 'Ingrese una hora de fin de transmisión válida.');
-            $("form#cut_form input#hora_trans_cut_fin").focus();
-            return;
-        } else if (values['hora_trans_fin'] <= values['hora_trans_ini']) {
-            showMessage('danger','La hora inicio debe ser menor que la hora de fin de transmisión.');
-            $("form#cut_form input#hora_trans_cut_ini").focus();
-            return;
+//        } else if (values['fec_trans'] === '') {
+//            showMessage('danger', 'Ingrese una fecha de transmisión.');
+//            $("form#cut_form input#cut_transmision").focus();
+//            return;
+//        } else if (values['hora_trans_ini'] === '') {
+//            showMessage('danger', 'Debe ingresar una hora de inicio de transmisión.');
+//            $("form#cut_form input#hora_trans_cut_ini").focus();
+//            return;
+//        } else if (!values['hora_trans_ini'].match(horaRegexp)) {
+//            showMessage('danger', 'Ingrese una hora de inicio de transmisión válida.');
+//            $("form#cut_form input#hora_trans_cut_ini").focus();
+//            return;
+//        } else if (values['hora_trans_fin'] === '') {
+//            showMessage('danger', 'Debe ingresar una hora de fin de transmisión.');
+//            $("form#cut_form input#hora_trans_cut_fin").focus();
+//            return;
+//        } else if (!values['hora_trans_fin'].match(horaRegexp)) {
+//            showMessage('danger', 'Ingrese una hora de fin de transmisión válida.');
+//            $("form#cut_form input#hora_trans_cut_fin").focus();
+//            return;
+//        } else if (values['hora_trans_fin'] <= values['hora_trans_ini']) {
+//            showMessage('danger','La hora inicio debe ser menor que la hora de fin de transmisión.');
+//            $("form#cut_form input#hora_trans_cut_ini").focus();
+//            return;
         } else if (values['descripcion'] === '') {
             showMessage('danger', 'Ingrese la descripción del video.');
             $("form#cut_form input#descripcion").focus();
@@ -438,14 +438,14 @@ $(document).on('ready', function() {
     $('#tematicas').tagsInput({
         //autocomplete_url: '/admin/videos/tematicas',
         defaultText: '',
-        height: '38px',
+        height: '41px',
         width: '100%'
     });
     
     $('#personajes').tagsInput({
         //autocomplete_url: '/admin/videos/personajes',
         defaultText: '',
-        height: '38px',
+        height: '41px',
         width: '100%'
     });
 });
