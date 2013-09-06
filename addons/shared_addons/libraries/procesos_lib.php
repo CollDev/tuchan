@@ -421,7 +421,7 @@ class Procesos_lib extends MX_Controller {
                     Log::erroLog(" antes de actualizar_video: " . $id);
                     if(isset($value->postback_url) && ($value->procedencia  == $this->config->item('proce:widget'))){
                       Log::erroLog("Enviando actualizacion de estado a canal de video:  " . $id);
-                      $this->envioDatos($value->id);
+                      $this->envioDatos($value->postback_url,$value->id);
                     }
               
                     $this->curlSincronizarLibVideo($value->id);
@@ -1808,13 +1808,11 @@ class Procesos_lib extends MX_Controller {
         
     }
     
-    public function envioDatos($id){
-                $url="http://dev.americatv.multidiario.com/";
-                $urlpostback ="http://dev.americatv.multidiario.com/service/v1/estadovideo/";
-                $user="admin";
-                $pass="eeph0luSh2ou";
+    public function envioDatos($urlpostback,$id){
+        $url = $this->config->item('america:cms:url');
+        $user = $this->config->item('america:cms:user');
+        $pass = $this->config->item('america:cms:pass');
                 
         America::envioDatos($url,$urlpostback,$user,$pass,$id);
     }
-
 }
