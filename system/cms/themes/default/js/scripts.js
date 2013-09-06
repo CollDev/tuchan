@@ -1,5 +1,5 @@
 $.ajaxSetup({
-    cache: false
+    cache: false,
 });
 $(document).on('ready', function() {
     $.getJSON("/cmsapi/getcanaleslist")
@@ -100,10 +100,6 @@ $(document).on('ready', function() {
         var titulo = $("input#titulo"),
         video = $("input#video"),
 
-        fecha_transmision = $("input#fecha_transmision"),
-        hora_trans_ini = $("input#hora_trans_ini"),
-        hora_trans_fin = $("input#hora_trans_fin"),
-
         descripcion = $("input#descripcion"),
         tematicas = $("input#tematicas"),
         personajes = $("input#personajes"),
@@ -123,30 +119,30 @@ $(document).on('ready', function() {
             showMessage('danger','Debe seleccionar un video.');
             video.focus();
             return false;
-        } else if (fecha_transmision.val() === "") {
-            showMessage('danger','Debe seleccionar una fecha de transmisión.');
-            fecha_transmision.focus();
-            return false;
-        } else if (hora_trans_ini.val() === "") {
-            showMessage('danger','Debe seleccionar una hora de inicio de transmisión.');
-            hora_trans_ini.focus();
-            return false;
-        } else if (!hora_trans_ini.val().match(horaRegexp)) {
-            showMessage('danger','Seleccione una hora de inicio de transmisión válida.');
-            hora_trans_ini.focus();
-            return false;
-        } else if (hora_trans_fin.val() === "") {
-            showMessage('danger','Debe seleccionar una hora de fin de transmisión.');
-            hora_trans_fin.focus();
-            return false;
-        } else if (!hora_trans_fin.val().match(horaRegexp)) {
-            showMessage('danger','Seleccione una hora de fin de transmisión válida.');
-            hora_trans_fin.focus();
-            return false;
-        } else if (hora_trans_fin.val() <= hora_trans_ini.val()) {
-            showMessage('danger','La hora inicio debe ser menor que la hora de fin de transmisión.');
-            hora_trans_ini.focus();
-            return false;
+//        } else if (fecha_transmision.val() === "") {
+//            showMessage('danger','Debe seleccionar una fecha de transmisión.');
+//            fecha_transmision.focus();
+//            return false;
+//        } else if (hora_trans_ini.val() === "") {
+//            showMessage('danger','Debe seleccionar una hora de inicio de transmisión.');
+//            hora_trans_ini.focus();
+//            return false;
+//        } else if (!hora_trans_ini.val().match(horaRegexp)) {
+//            showMessage('danger','Seleccione una hora de inicio de transmisión válida.');
+//            hora_trans_ini.focus();
+//            return false;
+//        } else if (hora_trans_fin.val() === "") {
+//            showMessage('danger','Debe seleccionar una hora de fin de transmisión.');
+//            hora_trans_fin.focus();
+//            return false;
+//        } else if (!hora_trans_fin.val().match(horaRegexp)) {
+//            showMessage('danger','Seleccione una hora de fin de transmisión válida.');
+//            hora_trans_fin.focus();
+//            return false;
+//        } else if (hora_trans_fin.val() <= hora_trans_ini.val()) {
+//            showMessage('danger','La hora inicio debe ser menor que la hora de fin de transmisión.');
+//            hora_trans_ini.focus();
+//            return false;
         } else if (descripcion.val() === "") {
             showMessage('danger','Debe ingresar una descripción.');
             descripcion.focus();
@@ -195,50 +191,53 @@ $(document).on('ready', function() {
             progress.delay(1600).slideUp(1000, function(){
                 $('.wrap').prepend(
                    '<div class="alert alert-' + xhr.responseJSON.type + ' fade in">\n\
-                        <button class="close" data-dismiss="modal" type="button">×</button>\n\
+                        <button class="close" data-dismiss="alert" type="button">×</button>\n\
                         <strong>' + xhr.responseJSON.title + '</strong>\n\
                         ' + xhr.responseJSON.message + '\n\
                     </div>'
                 );
-            });
-            percent.delay(1000).slideUp(
-                1000, function(){
-                    $('#myUploadModal').html(
-                       '<div id="myUploadModalDiv" class="text-center">\n\
-                            <div class="alert alert-warning fade in">\n\
-                                <button class="close" data-dismiss="modal" type="button">×</button>\n\
-                                <strong>Publicando el video</strong>\n\
-                                ' + xhr.responseJSON.url + '<br>\n\
-                                Por favor espere.<img src="/system/cms/themes/default/img/loading-small.gif" />\n\
-                            </div>\n\
-                        </div>'
-                    ).modal();
-                    var response = 0;
-                    var intervalId = window.setInterval(
-                    function () {
-                        if (response !== 6) {
-                            setTimeout(function(){
-                                var url = xhr.responseJSON.url;
-                                var video_array = url.split("/");
-                                $.getJSON("/cmsapi/verificar_estado_video/" + video_array[4])
-                                .done(function(data) {
-                                    if (data.exit == 6) {
-                                        response = 6;
-                                        clearInterval(intervalId);
-                                        $('#myUploadModalDiv').html(
-                                           '<div class="alert alert-success fade in">\n\
-                                                <button class="close" data-dismiss="modal" type="button">×</button>\n\
-                                                <strong>Finalizado.</strong>\n\
-                                                El video ha sido publicado.\n\
-                                            </div>'
-                                        );
-                                    }
-                                });
-                            },1000);
+                if (xhr.responseJSON.type === "success") {
+                    percent.slideUp(
+                        1000, function(){
+                            $('#myUploadModal').html(
+                               '<div id="myUploadModalDiv" class="text-center">\n\
+                                    <div class="alert alert-warning fade in">\n\
+                                        <strong>Publicando el video</strong>\n\
+                                        ' + xhr.responseJSON.url + '<br>\n\
+                                        Por favor espere.<img src="/system/cms/themes/default/img/loading-small.gif" />\n\
+                                    </div>\n\
+                                </div>'
+                            ).modal();
+                            var response = 0;
+                            var intervalId = window.setInterval(
+                            function () {
+                                if (response !== 6) {
+                                    setTimeout(function(){
+                                        var url = xhr.responseJSON.url;
+                                        var video_array = url.split("/");
+                                        $.getJSON("/cmsapi/verificar_estado_video/" + video_array[4])
+                                        .done(function(data) {
+                                            if (data.exit == 6) {
+                                                response = 6;
+                                                clearInterval(intervalId);
+                                                $('#myUploadModalDiv').html(
+                                                   '<div class="alert alert-success fade in">\n\
+                                                        <button class="close" data-dismiss="modal" type="button">×</button>\n\
+                                                        <strong>Finalizado.</strong>\n\
+                                                        El video ha sido publicado.\n\
+                                                    </div>'
+                                                );
+                                            }
+                                        });
+                                    },1000);
+                                }
+                            }, 80000);
                         }
-                    }, 80000);
+                    );
+                } else {
+                    percent.slideUp(1000);
                 }
-            );
+            });
         }
     });
     
