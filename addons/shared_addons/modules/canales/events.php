@@ -36,9 +36,6 @@ class Events_Canales
                         'canal' => $canal_usr->nombre,
                     );
                 }
-
-                // Guardar en sesion los id de canales y tipo de usuario
-                $this->ci->session->set_userdata("canal_usuario", $canal_usuario);
             }
         }
     }

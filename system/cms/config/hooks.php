@@ -12,9 +12,16 @@
 
 // PRE CONTROLLER HOOKS
 $hook['pre_controller'][] = array(
-	'function' => 'pick_language',
-	'filename' => 'pick_language.php',
-	'filepath' => 'hooks'
+    'function' => 'pick_language',
+    'filename' => 'pick_language.php',
+    'filepath' => 'hooks'
+);
+$hook['pre_controller'][] = array(
+    'class'    => 'GetCanalesAssigned',
+    'function' => 'canales_assigned',
+    'filename' => 'get_canales_assigned.php',
+    'filepath' => 'hooks',
+    'params'   => array('beer', 'wine', 'snacks')
 );
 
 # PERFORM-TWEAK: Disable this to make your system slightly quicker
