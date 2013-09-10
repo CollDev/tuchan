@@ -409,6 +409,11 @@ class Admin extends Admin_Controller {
                     $programa = $this->getIdMaestro($objGrupoDetalle->grupo_maestro_padre, $this->config->item('videos:programa'));
                 }
                 $objVideo = $this->videos_m->get($video_id);
+                if ($objVideo->fecha_transmision == '0000-00-00') {
+                    $fec_trans = $objVideo->fecha_transmision;
+                } else {
+                    $fec_trans = date("d-m-Y", strtotime($objVideo->fecha_transmision));
+                }
                 $objBeanForm->video_id = $video_id;
                 $objBeanForm->titulo = $objVideo->titulo;
                 $objBeanForm->video = '';
@@ -424,7 +429,7 @@ class Admin extends Admin_Controller {
                 $objBeanForm->lista = $lista;
                 $objBeanForm->fec_pub_ini = date("d-m-Y H:i:s", strtotime($objVideo->fecha_publicacion_inicio)); //$objVideo->fecha_publicacion_inicio;
                 $objBeanForm->fec_pub_fin = date("d-m-Y H:i:s", strtotime($objVideo->fecha_publicacion_fin)); //$objVideo->fecha_publicacion_fin;
-                $objBeanForm->fec_trans = date("d-m-Y", strtotime($objVideo->fecha_transmision)); //$objVideo->fecha_transmision;
+                $objBeanForm->fec_trans = $fec_trans; //$objVideo->fecha_transmision;
                 $objBeanForm->hora_trans_ini = $objVideo->horario_transmision_inicio;
                 $objBeanForm->hora_trans_fin = $objVideo->horario_transmision_fin;
                 $objBeanForm->ubicacion = $objVideo->ubicacion;

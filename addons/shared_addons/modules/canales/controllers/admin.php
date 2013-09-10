@@ -6638,18 +6638,19 @@ class Admin extends Admin_Controller {
                     $imagen = $objImagen->imagen;
                 }
                 $html = '<h2 class="channel_item" background="none" style="padding-left:0px !important;background:none;">';
-                $html.='<div class="logo_canal" style="width:40px;display: block;float:left;margin-right: 15px;">';
-                $html.='<img width="40" height="40" src="' . $imagen . '">';
-                $html.='</div>';
-                $html.='<a href="/admin/canales/videos/' . $canal_id . '" float="left"> ' . ucwords($objCanal->nombre) . ' |  </a>';
-                $html.='<a>' . ucwords($vista) . '</a>';
-                $html.='</h2>';
+                $html .= '<div class="logo_canal" style="width:40px;display: block;float:left;margin-right: 15px;">';
+                $html .= '<img width="40" height="40" src="' . $imagen . '">';
+                $html .= '</div>';
+                $html .= '<a href="/admin/canales/videos/' . $canal_id . '" float="left"> ' . ucwords($objCanal->nombre) . ' |  </a>';
+                $html .= '<a>' . ucwords($vista) . '</a>';
+                $html .= '</h2>';
             } else {
                 $html = '<h2 class="channel_item" style="padding-left:50px !important;">';
-                $html.='<a href="/admin/canales/videos/' . $canal_id . '" float="left"> ' . ucwords($objCanal->nombre) . ' |  </a>';
-                $html.='<a>' . ucwords($vista) . '</a>';
-                $html.='</h2>';
+                $html .= '<a href="/admin/canales/videos/' . $canal_id . '" float="left"> ' . ucwords($objCanal->nombre) . ' |  </a>';
+                $html .= '<a>' . ucwords($vista) . '</a>';
+                $html .= '</h2>';
             }
+            
             echo $html;
         }
     }

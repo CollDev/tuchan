@@ -19,20 +19,15 @@
         <tbody>
             <?php
              foreach ($canales as $canal) {
-                $checked = "";
-                $checked2 = "";
+                $checked = $checked2 = false;
                 if (isset($canales_asignados[$canal->id])) {
-                    if ($canal->id == $canales_asignados[$canal->id]->canal_id && $canales_asignados[$canal->id]->estado === "1") {
-                        $checked = 'checked';
-                    } else {
-                        $checked = '';
+                    if ($canales_asignados[$canal->id]->estado === "1") {
+                        $checked = true;
+                    }
+                    if ($canales_asignados[$canal->id]->predeterminado === "1") {
+                        $checked2 = true;
                     }
 
-                    if ($canales_asignados[$canal->id]->predeterminado === "1") {
-                        $checked2 = 'checked';
-                    } else {
-                        $checked2 = '';
-                    }
                 }
                 ?>
                 <tr>
@@ -41,10 +36,10 @@
                     <td class="collapse"><?php echo lang('global:' . $canal->estado . '_estado'); ?></td>
                     <td>
                         <?php
-                        if (isset($canales_asignados[$canal->id])) {
+                        if (isset($canales_asignados[$canal->id]) && $canales_asignados[$canal->id]->estado === "1") {
                             echo form_radio('default[]', $canal->id, $checked2);
                         } else {
-                            echo form_radio('default[]', $canal->id, 'disabled="disabled"');
+                            echo form_radio('default[]', $canal->id, false, 'disabled');
                         }
                         ?>
                     </td>

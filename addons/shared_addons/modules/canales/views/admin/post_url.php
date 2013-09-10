@@ -1,7 +1,4 @@
-<section class="title"> 
-
-</section>
-
+<section class="title"></section>
 <section class="item">
     <div id="filter-stage">
         <?php template_partial('lista_canales'); ?>
@@ -13,8 +10,8 @@
             autoHide: true, // added in v2.0
             TimeShown: duration,
             HorizontalPosition: 'center',
-            VerticalPosition: 'top',
-        }
+            VerticalPosition: 'top'
+        };
         if (type === 'error') {
             jError(
                 message, configs
