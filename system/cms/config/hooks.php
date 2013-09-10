@@ -16,19 +16,12 @@ $hook['pre_controller'][] = array(
     'filename' => 'pick_language.php',
     'filepath' => 'hooks'
 );
-$hook['pre_controller'][] = array(
-    'class'    => 'GetCanalesAssigned',
-    'function' => 'canales_assigned',
-    'filename' => 'get_canales_assigned.php',
-    'filepath' => 'hooks',
-    'params'   => array('beer', 'wine', 'snacks')
-);
 
 # PERFORM-TWEAK: Disable this to make your system slightly quicker
 $hook['pre_controller'][] = array(
-	'function' => 'check_installed',
-	'filename' => 'check_installed.php',
-	'filepath' => 'hooks'
+    'function' => 'check_installed',
+    'filename' => 'check_installed.php',
+    'filepath' => 'hooks'
 );
 
 /* End of file hooks.php */
