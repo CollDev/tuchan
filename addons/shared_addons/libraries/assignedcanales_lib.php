@@ -17,4 +17,11 @@ class assignedCanales_lib extends MX_Controller {
             return $this->usuario_group_canales_m->get_canales_activos_by_usuario($this->session->userdata['id']);
         }
     }
+    
+    public function canales_all()
+    {
+        if (isset($this->session->userdata['id'])) {
+            return $this->usuario_group_canales_m->get_canales($this->session->userdata['id']);
+        }
+    }
 }
