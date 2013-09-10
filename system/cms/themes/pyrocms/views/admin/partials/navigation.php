@@ -1,8 +1,7 @@
 <ul class="primary-nav">
-
     <!--<li id="dashboard-link"><?php //echo anchor('', lang('global:dashboard'), 'class="btn orange' . (!$this->module > '' ? ' current' : '').'"');?></li>-->
 
-    <?php   
+    <?php
     foreach ($menu_items as $menu_item) {
         $count = 0;
 
@@ -65,15 +64,28 @@
                         }
 
                         // Verifica si es administrador de canales
-                        if ($this->session->userdata['group'] && $this->session->userdata['group'] != "") {
+                        if (isset($this->session->userdata['group']) && $this->session->userdata['group'] != "") {
 
                             // Sólo muestra los canales que tiene asignados
-                            if ($module['name'] == lang('cp_nav_canales') && $this->session->userdata['group'] == 'administrador-canales') {
-                                echo '<li>' . anchor('admin/canales', $module['name'], array('class' => 'menu'));
+                            if ($module['name'] == lang('cp_nav_canales') && ($this->session->userdata['group'] == 'administrador-canales' || $this->session->userdata['group'] == 'admin')) {
+                                echo '<li>' . anchor('admin/canales', strtolower($module['name']), array('class' => 'menu'));
                                 // Sub menú canales
-                                if (count($this->session->userdata['canales_usuario']) > 0) {
+                                if ($this->session->userdata['id'] > 0) {
+                                    $objCanales_usuario = CI::$APP->config->item('objCanales_usuario');
+                                    if (count($objCanales_usuario) > 0) {
+
+                                        // Obtener todos los canales que pertenecen al usuario
+                                        foreach ($objCanales_usuario as $canal_usr) {
+                                            $canales_usuario[] = array(
+                                                'canal_id' => $canal_usr->canal_id,
+                                                'canal' => $canal_usr->nombre,
+                                            );
+                                        }
+                                    }
+                                }
+                                if (count($canales_usuario) > 0) {
                                     echo '<ul>';
-                                    foreach ($this->session->userdata['canales_usuario'] as $canal_usr) {
+                                    foreach ($canales_usuario as $canal_usr) {
                                         echo '<li>' . anchor('admin/' . $module['slug'] . '/videos/' . $canal_usr['canal_id'], $canal_usr['canal'], array('class' => $class)) . '</li>';
                                     }
                                     echo '</ul></li>';
