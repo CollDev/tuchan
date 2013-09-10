@@ -67,13 +67,15 @@
                         if (isset($this->session->userdata['group']) && $this->session->userdata['group'] != "") {
 
                             // Sólo muestra los canales que tiene asignados
-                            if ($module['name'] == lang('cp_nav_canales') && $this->session->userdata['group'] == 'administrador-canales') {
+                            if ($module['name'] == lang('cp_nav_canales') && ($this->session->userdata['group'] == 'administrador-canales' || $this->session->userdata['group'] == 'admin')) {
                                 echo '<li>' . anchor('admin/canales', $module['name'], array('class' => 'menu'));
                                 // Sub menú canales
-                                if (count($this->session->userdata['canales_usuario']) > 0) {
+                                $this->load->helper('assignedcanales_helper');
+                                $canales_assigned = assigned_canales();
+                                if (count($canales_assigned) > 0) {
                                     echo '<ul>';
-                                    foreach ($this->session->userdata['canales_usuario'] as $canal_usr) {
-                                        echo '<li>' . anchor('admin/' . $module['slug'] . '/videos/' . $canal_usr['canal_id'], $canal_usr['canal'], array('class' => $class)) . '</li>';
+                                    foreach ($canales_assigned as $canal_usr) {
+                                        echo '<li>' . anchor('admin/' . $module['slug'] . '/videos/' . $canal_usr->canal_id, $canal_usr->nombre, array('class' => $class)) . '</li>';
                                     }
                                     echo '</ul></li>';
                                 }
