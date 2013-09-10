@@ -14,7 +14,6 @@ class Admin extends Admin_Controller
 	{
             parent::__construct();
             $this->load->model('canales/usuario_group_canales_m');
-            $this->load->model('canales/usuario_group_canales_m');
             $this->load->helper('users/user');
 	}
 
@@ -35,24 +34,7 @@ class Admin extends Admin_Controller
 
             if ($this->session->userdata['group'] == 'administrador-canales') {
                 
-                $data = $this->ci->current_user ? $this->ci->current_user : $this->ci->ion_auth->get_user();
-                if ($data->user_id > 0) {
-                    
-                    $this->ci->load->model('canales/usuario_group_canales_m');
-                    $objCanales_usuario = $this->ci->usuario_group_canales_m->get_canales_activos_by_usuario($data->user_id);
-                    
-                    if (count($objCanales_usuario) > 0) {
-                        
-                        // Obtener todos los canales que pertenecen al usuario
-                        foreach ($objCanales_usuario as $canal_usr) {
-                            $canales_usuario[] = array(
-                                'canal_id' => $canal_usr->canal_id,
-                                'canal' => $canal_usr->nombre,
-                            );
-                        }
-                    }
-                }
-                if (isset($canales_usuario)) {
+                if (isset($this->session->userdata['canales_usuario'])) {
                     // Busca el canal por defecto para el usuario logueado
                     $predeterminado = $this->usuario_group_canales_m->get_canal_default_by_usuario();
                     $redirect = $this->_check_group($predeterminado);
