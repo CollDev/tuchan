@@ -70,15 +70,25 @@
                             $this->load->helper('assignedcanales_helper');
                             if ($module['name'] == lang('cp_nav_canales') && ($this->session->userdata['group'] == 'admin')) {
                                 echo '<li>' . anchor('admin/canales', $module['name'], array('class' => 'menu'));
+                                // Sub menú canales
                                 $canales_assigned = todos_canales();
                                 if (count($canales_assigned) > 0) {
-                                    echo '<ul>';
+                                    // Obtener todos los canales que pertenecen al usuario
                                     foreach ($canales_assigned as $canal_usr) {
-                                        echo '<li>' . anchor('admin/' . $module['slug'] . '/videos/' . $canal_usr->id, $canal_usr->nombre, array('class' => $class)) . '</li>';
+                                        $canales_usuario[] = array(
+                                            'canal_id' => $canal_usr->id,
+                                            'canal' => $canal_usr->nombre,
+                                        );
+                                    }
+                                }
+                                if (count($canales_usuario) > 0) {
+                                    echo '<ul>';
+                                    foreach ($canales_usuario as $canal_usr) {
+                                        echo '<li>' . anchor('admin/' . $module['slug'] . '/videos/' . $canal_usr['canal_id'], $canal_usr['canal'], array('class' => $class)) . '</li>';
                                     }
                                     echo '</ul></li>';
                                 }
-                            } else {
+                            } else if ($module['name'] == lang('cp_nav_canales') && ($this->session->userdata['group'] == 'administrador-canales')) {
                                 echo '<li>' . anchor('admin/canales', $module['name'], array('class' => 'menu'));
                                 // Sub menú canales
                                 $canales_assigned = assigned_canales();
@@ -89,6 +99,8 @@
                                     }
                                     echo '</ul></li>';
                                 }
+                            } else {
+                                echo '<li>' . anchor('admin/' . $module['slug'], $module['name'], array('class' => $class)) . '</li>';
                             }
                         } else {
                             echo '<li>' . anchor('admin/' . $module['slug'], $module['name'], array('class' => $class)) . '</li>';
