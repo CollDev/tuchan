@@ -194,6 +194,7 @@ class Procesos_lib extends MX_Controller {
             if (empty($video[0]->codigo)) {
                 if ($video[0]->estado_liquid == $this->config->item('v_l:codificado')) {
                     Log::erroLog("el video no se cargo me voy a  curlUploadVideosXId " . $id);
+                    sleep(45);
                     $this->curlUploadVideosXId($id);
                 } elseif ($video[0]->estado_liquid == $this->config->item('v_l:subiendo') || $video[0]->estado_liquid == $this->config->item('v_l:subido')) {
                     Log::erroLog("no hay datos me voy a curlVerificaVideosLiquidXId " . $id);
@@ -1114,8 +1115,10 @@ class Procesos_lib extends MX_Controller {
 
         if (count($video) > 0) {
             foreach ($video as $value) {
+                
+                $estado  = ($value->procedencia == $this->config->item('proce:widget'))?ESTADO_ACTIVO:$value->est_tra;
 
-                if (($value->estado == 1 || $value->estado == 2) && $value->est_tra == ESTADO_ACTIVO) {
+                if (($value->estado == 1 || $value->estado == 2) && $estado == ESTADO_ACTIVO) {
                     $datovideo = $this->canal_mp->queryProcedure(4, $value->id);
                     $objmongo['id'] = $value->id;
                     $objmongo['canal'] = ($datovideo[0]->xcanal);
