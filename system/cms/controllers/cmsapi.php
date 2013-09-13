@@ -80,4 +80,9 @@ class cmsApi extends MX_Controller {
     {
         return $this->cmsapi_lib->verificar_estado_video($video_id);
     }
+    
+    public function edit($canal_id, $video_id)
+    {
+        return $this->cmsapi_lib->editar_video($canal_id, $video_id, $this->input->post());
+    }
 }

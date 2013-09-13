@@ -1,5 +1,5 @@
 $.ajaxSetup({
-    cache: false,
+    cache: false
 });
 $(document).on('ready', function() {
     $.getJSON("/cmsapi/getcanaleslist")
@@ -104,12 +104,11 @@ $(document).on('ready', function() {
         tematicas = $("input#tematicas"),
         personajes = $("input#personajes"),
 
-        categoria = $("select#categoria"),
-        programa = $("select#programa"),
-        coleccion = $("select#coleccion"),
-        lista = $("select#lista"),
-
-        horaRegexp = /^([0-1][0-9]|[2][0-3]):([0-5][0-9])$/;
+        categoria = $("select#categoria");
+//        programa = $("select#programa"),
+//        coleccion = $("select#coleccion"),
+//        lista = $("select#lista"),
+//        horaRegexp = /^([0-1][0-9]|[2][0-3]):([0-5][0-9])$/;
 
         if (titulo.val() === "") {
             showMessage('danger','Debe ingresar un título.');
@@ -299,31 +298,21 @@ $(document).on('ready', function() {
         });
     });
     $(document).on('click', 'a.corte_video', function() {
-        $("div#cut_form_tab").html('<div class="text-center"><img src="/system/cms/themes/default/img/loading.gif" /></div>');
-        $('ul#myTab li.disabled a').attr('data-toggle', 'tab').parent().removeClass('disabled');
-        $('ul#myTab li a#corte_video').trigger('click');
-
         var $this = this;
         var tr_id = $($this).parent().parent().attr('id');
         var split = tr_id.split('_');
-
-        $.getJSON("/cmsapi/corte/" + split[1])
-            .done(function(data) {
-                $.get("/system/cms/themes/default/js/mustache_templates/cmsapi/cut_video.html", function(template) {
-                    var app = '<div class="text-center"><h3>Seleccione un video válido</h3></div>';
-                    $("div#cut_form_tab").html('');
-                    if (data !== '') {
-                        app = $.mustache(template, data);
-                    }
-                    $("div#cut_form_tab").append(app);
-                });
-            });
+        cut_this_video(split[1]);
     });
-    
+    $(document).on('click', 'a.edit_video', function() {
+        var $this = this;
+        var tr_id = $($this).parent().parent().attr('id');
+        var split = tr_id.split('_');
+        edit_this_video(split[1]);
+    });
     $(document).on('click', '#submit_cut', function(e) {
         e.preventDefault();
-        var values = {},
-        horaRegexp = /^([0-1][0-9]|[2][0-3]):([0-5][0-9])$/;
+        var values = {};
+//        horaRegexp = /^([0-1][0-9]|[2][0-3]):([0-5][0-9])$/;
         
         $.each($('#cut_form').serializeArray(), function(i, field) {
             values[field.name] = field.value;
@@ -387,15 +376,100 @@ $(document).on('ready', function() {
             success: function(returnValue)
             {
                 if (returnValue.value == 0) {
-                    showMessage('success', 'El corte se guardó satisfactoriamente');
-                    var $use_this_video = '<div class="row"><a class="btn btn-default col-lg-2 text-center use-this-video-legend" href="#" id="use-this-video">Usar este corte de video</a></div>';
-                    $("div#cut_form_tab").html('').append($use_this_video);
-                    $('a.use-this-video-legend').attr('data-href', '{"url":"' + $('#motor').val() + '/embed/' + returnValue.video_id + '","legend":"' + returnValue.legend + '"}')
+                    //showMessage('success', 'El corte se guardó satisfactoriamente');
+                    $('#myUploadModal').html(
+                               '<div id="myUploadModalDiv" class="text-center">\n\
+                                    <div class="alert alert-warning fade in">\n\
+                                        <strong>Publicando el video</strong>\n\
+                                        ' + $('#motor').val() + '/embed/' + returnValue.video_id + '\n\
+                                        Por favor espere.<img src="/system/cms/themes/default/img/loading-small.gif" />\n\
+                                    </div>\n\
+                                </div>'
+                            ).modal();
+                            var response = 0;
+                            var intervalId = window.setInterval(
+                            function () {
+                                if (response !== 6) {
+                                    setTimeout(function(){
+                                        $.getJSON("/cmsapi/verificar_estado_video/" + returnValue.video_id)
+                                        .done(function(data) {
+                                            if (data.exit == 6) {
+                                                response = 6;
+                                                clearInterval(intervalId);
+                                                $('#myUploadModalDiv').html(
+                                                   '<div class="alert alert-success fade in">\n\
+                                                        <button class="close" data-dismiss="modal" type="button">×</button>\n\
+                                                        <strong>Finalizado.</strong>\n\
+                                                        El video ha sido publicado.\n\
+                                                    </div>'
+                                                );
+                                                var $use_this_video = '<div class="row"><a class="btn btn-default col-lg-2 text-center use-this-video-legend-cut" href="#" id="use-this-video">Usar este corte de video</a></div>';
+                                                $("div#cut_form_tab").html('').append($use_this_video);
+                                                $('a.use-this-video-legend-cut').attr('data-href', '{"url":"' + $('#motor').val() + '/embed/' + returnValue.video_id + '","legend":"' + returnValue.legend + '"}');
+                                            }
+                                        });
+                                    },1000);
+                                }
+                            }, 80000);
                 } else {
                     showMessage('warning', 'Ya existe un video con estos datos.');
                 }
             }
         });
+    });
+    
+    $(document).on('click', '#submit_edit', function(e) {
+        e.preventDefault();
+        var values = {};
+        
+        $.each($('#edit_form').serializeArray(), function(i, field) {
+            values[field.name] = field.value;
+        });
+        values['tematicas'] = $.trim(values['tematicas']);
+        values['personajes'] = $.trim(values['personajes']);
+        
+        if (values['titulo'] === '') {
+            showMessage('danger', 'Ingrese un título.');
+            $("form#edit_form input#titulo").focus();
+            return;
+        } else if (values['descripcion'] === '') {
+            showMessage('danger', 'Ingrese la descripción del video.');
+            $("form#edit_form input#descripcion").focus();
+            return;
+        } else if (values['tematicas'] === '') {
+            showMessage('danger', 'Ingrese las temáticas.');
+            $("form#edit_form input#tematicas").focus();
+            return;
+        } else if (values['personajes'] === '') {
+            showMessage('danger', 'Ingrese los personajes.');
+            $("form#edit_form input#personajes").focus();
+            return;
+        }
+        $.ajax({
+            type: "POST",
+            url: "/cmsapi/edit/" + values['canal_id'] + '/' + values['video_id'],
+            dataType: 'json',
+            data: $('#edit_form').serialize(),
+            success: function(returnValue)
+            {
+                if (returnValue.value == 0) {
+                    showMessage('success', 'El video se editó satisfactoriamente');
+                    var $use_this_video = '<div class="row"><a class="btn btn-default col-lg-2 text-center use-this-video-legend-edit" href="#" id="use-this-video">Usar este video editado</a></div>';
+                    $("div#edit_form_tab").html('').append($use_this_video);
+                    $('a.use-this-video-legend-edit').attr('data-href', '{"url":"' + $('#motor').val() + '/embed/' + values['video_id'] + '","legend":"' + values['descripcion'] + '","published":"6"}');
+                } else {
+                    showMessage('warning', 'Ya existe un video con estos datos.');
+                }
+            }
+        });
+    });
+    $(document).on('click', 'a.use-this-video-legend-cut', function(){
+        $("div#cut_form_tab").html('');
+        $('ul#myTab a#corte_video').attr('data-toggle', '').parent().removeClass().addClass('disabled');
+    });
+    $(document).on('click', 'a.use-this-video-legend-edit', function(){
+        $("div#edit_form_tab").html('');
+        $('ul#myTab li.undisplayed').hide('slow');
     });
     
     $("#fecha_transmision").datepicker({ altField: "#fec_trans" });
