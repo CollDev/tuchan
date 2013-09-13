@@ -85,4 +85,14 @@ class cmsApi extends MX_Controller {
     {
         return $this->cmsapi_lib->editar_video($canal_id, $video_id, $this->input->post());
     }
+    
+    public function tematicas()
+    {
+        return $this->cmsapi_lib->tematicas();
+    }
+    
+    public function personajes()
+    {
+        return $this->cmsapi_lib->personajes();
+    }
 }

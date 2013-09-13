@@ -510,14 +510,14 @@ $(document).on('ready', function() {
     });
     
     $('#tematicas').tagsInput({
-        //autocomplete_url: '/admin/videos/tematicas',
+        autocomplete_url: '/cmsapi/tematicas',
         defaultText: '',
         height: '41px',
         width: '100%'
     });
     
     $('#personajes').tagsInput({
-        //autocomplete_url: '/admin/videos/personajes',
+        autocomplete_url: '/cmsapi/personajes',
         defaultText: '',
         height: '41px',
         width: '100%'

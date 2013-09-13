@@ -803,4 +803,16 @@ class cmsapi_lib extends MX_Controller {
             echo json_encode(array("value" => 0));
         }
     }
+    
+    public function tematicas() {
+        $objCollectionTag = $this->tags_m->getTagsByType($this->input->get('term'), 1);
+        
+        echo json_encode($objCollectionTag);
+    }
+
+    public function personajes() {
+        $objCollectionTag = $this->tags_m->getTagsByType($this->input->get('term'), 2);
+        
+        echo json_encode($objCollectionTag);
+    }
 }
