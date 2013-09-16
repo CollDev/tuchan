@@ -42,9 +42,9 @@ class Videos_mp extends CI_Model {
     public function getVideosxId($id) {
         $query = "SELECT vi.ruta,vi.id,vi.id_mongo,vi.estado_migracion,vi.estado,vi.fragmento, (SELECT GROUP_CONCAT(ta.nombre)
                     FROM default_cms_video_tags vt INNER JOIN default_cms_tags ta ON vt.tags_id = ta.id  
-                    WHERE vt.videos_id=vi.id) AS 'etiquetas',
-                    ( SELECT  imagen FROM default_cms_imagenes im WHERE im.tipo_imagen_id=5 AND canales_id=vi.canales_id AND im.estado=1 ) AS 'imagen'				
-                    ,IF((DATE_ADD(CONCAT(fecha_transmision,' ',horario_transmision_inicio) , INTERVAL ibope HOUR)<NOW()),1,0) AS 'est_tra',
+                    WHERE vt.videos_id=vi.id) AS 'etiquetas',vi.procedencia,     
+                    ( SELECT  imagen FROM default_cms_imagenes im WHERE im.tipo_imagen_id=5 AND canales_id=vi.canales_id AND im.estado=1 ) AS 'imagen'
+                    ,IF((DATE_ADD(CONCAT(fecha_transmision,' ',horario_transmision_inicio) , INTERVAL ibope HOUR)<NOW()),1,0) AS 'est_tra',                    
                     (SELECT gm2.id_mongo FROM default_cms_grupo_maestros gm2 INNER JOIN default_cms_grupo_detalles gd2 ON gm2.id = gd2.grupo_maestro_padre WHERE 
                         gd2.video_id = vi.id) AS 'idmongo_pa' 
                     FROM default_cms_videos vi  INNER JOIN default_cms_canales ca ON ca.id = vi.canales_id
@@ -188,9 +188,9 @@ class Videos_mp extends CI_Model {
     }
 
     function setComentariosValorizacion($id, $comentarios, $valorizacion) {
-        $query = "update " . $this->_table . " set comentarios= '" . $comentarios . "', valorizacion='" . $valorizacion . "' where id=" . $id;
+        $query = "update " . $this->_table . " set comentarios = ?, valorizacion = '" . $valorizacion . "' where id=" . $id;
 
-        $this->db->query($query);
+        $this->db->query($query, array($comentarios));
     }
 
     function getVideosPlaylist($id) {
@@ -262,9 +262,9 @@ class Videos_mp extends CI_Model {
                 '" . $objBeanVideo->categorias_id . "',
                 '" . $objBeanVideo->usuarios_id . "',
                 '" . $objBeanVideo->canales_id . "',
-                '" . $objBeanVideo->titulo . "',
+                ?,
                 '" . $objBeanVideo->alias . "',
-                '" . $objBeanVideo->descripcion . "',
+                ?,
                 '" . $objBeanVideo->fragmento . "',
                 '" . $objBeanVideo->fecha_publicacion_inicio . "',
                 '" . $objBeanVideo->fecha_publicacion_fin . "', " .
@@ -284,7 +284,7 @@ class Videos_mp extends CI_Model {
                 '" . $objBeanVideo->procedencia . "'
             );";
 
-        $this->db->query($query);
+        $this->db->query($query, array($objBeanVideo->titulo, $objBeanVideo->descripcion));
         return $this->db->insert_id();
     }
 
@@ -292,10 +292,10 @@ class Videos_mp extends CI_Model {
         $key = array_keys($data);
         $value = array_values($data);
         $query = "UPDATE " . $this->_table . " SET
-                `" . $key[0] . "` = '" . $value[0] . "' 
+                `" . $key[0] . "` = ? 
                 WHERE `id` = '" . $id . "';";
 
-        $this->db->query($query);
+        $this->db->query($query, $value[0]);
     }
 
     public function save_video($objBeanVideo) {
@@ -305,5 +305,4 @@ class Videos_mp extends CI_Model {
 
         return $objBeanVideo;
     }
-
 }
