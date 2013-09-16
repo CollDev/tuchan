@@ -177,8 +177,7 @@ class Liquid {
 
     function uploadVideoLiquid($id_video, $apiKey) {
 
-        try {
- Log::erroLog("$date: " . $date);
+        try {            
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_HEADER, 0);
             curl_setopt($ch, CURLOPT_VERBOSE, 0);
