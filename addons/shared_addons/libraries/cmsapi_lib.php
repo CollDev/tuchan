@@ -85,7 +85,7 @@ class cmsapi_lib extends MX_Controller {
         return $returnValue;        
     }
     
-    public function getColeccionesList($programa_id)
+    public function getColeccionesList($programa_gid)
     {
         $arrayCollection = $this->grupo_detalle_mp->getColeccionesList(array("grupo_maestro_padre" => $programa_id));
         //var_dump($arrayCollection);exit;
@@ -520,19 +520,22 @@ class cmsapi_lib extends MX_Controller {
                 $objBeanForm->programa = $programa;
                 $objBeanForm->coleccion = $coleccion;
                 $objBeanForm->lista = $lista;
-                $objBeanForm->fec_pub_ini = date("d-m-Y H:i:s", strtotime($objVideo->fecha_publicacion_inicio)); //$objVideo->fecha_publicacion_inicio;
-                $objBeanForm->fec_pub_fin = date("d-m-Y H:i:s", strtotime($objVideo->fecha_publicacion_fin)); //$objVideo->fecha_publicacion_fin;
-//                $objBeanForm->fec_trans = date("d-m-Y", strtotime($objVideo->fecha_transmision)); //$objVideo->fecha_transmision;
-//                $objBeanForm->hora_trans_ini = $objVideo->horario_transmision_inicio;
-//                $objBeanForm->hora_trans_fin = $objVideo->horario_transmision_fin;
+                $objBeanForm->fec_pub_ini = $objVideo->fecha_publicacion_inicio; //$objVideo->fecha_publicacion_inicio;
+                $objBeanForm->fec_pub_fin = $objVideo->fecha_publicacion_fin; //$objVideo->fecha_publicacion_fin;
+                $objBeanForm->fec_trans = $objVideo->fecha_transmision; //$objVideo->fecha_transmision;
+                $objBeanForm->hora_trans_ini = $objVideo->horario_transmision_inicio;
+                $objBeanForm->hora_trans_fin = $objVideo->horario_transmision_fin;
                 $objBeanForm->ubicacion = $objVideo->ubicacion;
                 $objBeanForm->canal_id = $objVideo->canales_id;
+                $objBeanForm->padre = $objVideo->padre;
+                $objBeanForm->estado_migracion = $objVideo->estado_migracion;
+                $objBeanForm->estado_migracion_sphinx = $objVideo->estado_migracion_sphinx;
                 $objBeanForm->tipo_maestro = '';
                 $objBeanForm->keywords = '';
                 $objBeanForm->duracion = $objVideo->duracion;
                 $objBeanForm->ruta = trim($objVideo->ruta);
                 $objBeanForm->progress_key = uniqid();
-                $objBeanForm->procedencia = 3;
+                $objBeanForm->procedencia = $objVideo->procedencia;
                 $objBeanForm->tiene_imagen = $this->_tieneAvatar($video_id);
                 if ($objBeanForm->tiene_imagen) {
                     $objBeanForm->avatar = $this->_getListImagen($video_id);
@@ -613,13 +616,13 @@ class cmsapi_lib extends MX_Controller {
             $fromView = true;
         }
         $id_type = 0;
-        if ($post['lista'] > 0) {
+        if (isset($post['lista']) && $post['lista'] > 0) {
             $id_type = $post['lista'];
         } else {
-            if ($post['coleccion'] > 0) {
+            if (isset($post['coleccion']) && $post['coleccion'] > 0) {
                 $id_type = $post['coleccion'];
             } else {
-                if ($post['programa'] > 0) {
+                if (isset($post['programa']) && $post['programa'] > 0) {
                     $id_type = $post['programa'];
                 }
             }
@@ -754,5 +757,62 @@ class cmsapi_lib extends MX_Controller {
             header("Content-Type: application/json; charset=utf-8");
             echo json_encode(array("error" => "Ingrese un video."));
         }
+    }
+    
+    public function editar_video($canal_id, $video_id, $post)
+    {
+        if ($this->verificarVideo($canal_id, $video_id, $post)) {
+            echo json_encode(array("value" => '1'));
+        } else {
+            $user_id = 1;
+            $objBeanVideo = new stdClass();
+            $objBeanVideo->id = $video_id;
+            $objBeanVideo->usuarios_id = $user_id;
+            $objBeanVideo->titulo = $post['titulo'];
+            $objBeanVideo->alias = url_title(strtolower(convert_accented_characters($post['titulo']))) . '-' . $video_id;
+            $objBeanVideo->descripcion = $post['descripcion'];
+            $objBeanVideo->fecha_actualizacion = date("Y-m-d H:i:s");
+            $objBeanVideo->usuario_actualizacion = $user_id;
+            $objBeanVideo->tipo_videos_id = $post['tipo_videos_id'];
+            $objBeanVideo->categorias_id = $post['categorias_id'];
+            $objBeanVideo->canales_id = $post['canales_id'];
+            $objBeanVideo->fragmento = $post['fragmento'];
+            $objBeanVideo->fecha_publicacion_inicio = $post['fecha_publicacion_inicio'];
+            $objBeanVideo->fecha_publicacion_fin = $post['fecha_publicacion_fin'];
+            $objBeanVideo->fecha_transmision = $post['fecha_transmision'];
+            $objBeanVideo->horario_transmision_inicio = $post['horario_transmision_inicio'];
+            $objBeanVideo->horario_transmision_fin = $post['horario_transmision_fin'];
+            $objBeanVideo->ubicacion = $post['ubicacion'];
+            $objBeanVideo->padre = $post['padre'];
+            $objBeanVideo->estado_migracion = $post['estado_migracion'];
+            $objBeanVideo->estado_migracion_sphinx = $post['estado_migracion_sphinx'];
+            $this->videos_m->update_video($objBeanVideo);
+
+            $this->_saveTagsTematicaPersonajes($objBeanVideo, $post);
+            //obtenemos el ID del maestro detalle del video
+            $objMaestroDetalle = $this->grupo_detalle_m->get_by(array("video_id" => $objBeanVideo->id));
+            $maestro_detalle_id = NULL;
+            if (count($objMaestroDetalle) > 0) {
+                //foreach ($objMaestroDetalle as $index => $objDetalle) {
+                $maestro_detalle_id = $objMaestroDetalle->id;
+                //}
+            }
+            //guardamos en la tabla grupo detalle
+            $this->_saveVideoMaestroDetalle($objBeanVideo, $post, $maestro_detalle_id);
+            $this->procesos_lib->curlActualizarVideosXId($video_id);
+            echo json_encode(array("value" => 0));
+        }
+    }
+    
+    public function tematicas() {
+        $objCollectionTag = $this->tags_m->getTagsByType($this->input->get('term'), 1);
+        
+        echo json_encode($objCollectionTag);
+    }
+
+    public function personajes() {
+        $objCollectionTag = $this->tags_m->getTagsByType($this->input->get('term'), 2);
+        
+        echo json_encode($objCollectionTag);
     }
 }

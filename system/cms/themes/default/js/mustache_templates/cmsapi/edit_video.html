@@ -1,0 +1,67 @@
+                        <form class="form-horizontal row" action="" id="edit_form">
+                            <fieldset class="row">
+                                <div class="col-6">
+                                    <div class="row">
+                                        <label class="col-sm-4 col-3 control-label" for="titulo">Título</label>
+                                        <div class="col-sm-8 col-9">
+                                            <input id="titulo" type="text" name="titulo" value="{{ titulo }}" required>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <label class="col-sm-4 col-3 control-label" for="descripcion">Descripción</label>
+                                        <div class="col-sm-8 col-9">
+                                            <input id="descripcion" type="text" name="descripcion" value="{{ descripcion }}" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="row">
+                                        <label class="col-sm-4 col-3 control-label" for="tematicas">Temáticas</label>
+                                        <div class="col-sm-8 col-9">
+                                            <input id="tematicas" class="tagsinput" name="tematicas" value="{{ tematicas }}" required type="text" />
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <label class="col-sm-4 col-3 control-label" for="personajes">Personajes</label>
+                                        <div class="col-sm-8 col-9">
+                                            <input id="personajes" class="tagsinput" name="personajes" value="{{ personajes }}" required type="text" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button id="submit_edit" class="btn btn-default pull-right">Editar</button>
+                                </div>
+                            </fieldset>
+                            <input id="video_id" name="video_id" type="hidden" value="{{ video_id }}" />
+                            <input id="canal_id" name="canal_id" type="hidden" value="{{ canal_id }}" />
+                            <input id="tipo_videos_id" name="tipo_videos_id" type="hidden" value="{{ tipo }}" />
+                            <input id="categorias_id" name="categorias_id" type="hidden" value="{{ categoria }}" />
+                            <input id="canales_id" name="canales_id" type="hidden" value="{{ canal_id }}" />
+                            <input id="fragmento" name="fragmento" type="hidden" value="{{ fragmento }}" />
+                            <input id="fecha_publicacion_inicio" name="fecha_publicacion_inicio" type="hidden" value="{{ fec_pub_ini }}" />
+                            <input id="fecha_publicacion_fin" name="fecha_publicacion_fin" type="hidden" value="{{ fec_pub_fin }}" />
+                            <input id="fecha_transmision" name="fecha_transmision" type="hidden" value="{{ fec_trans }}" />
+                            <input id="horario_transmision_inicio" name="horario_transmision_inicio" type="hidden" value="{{ hora_trans_ini }}" />
+                            <input id="horario_transmision_fin" name="horario_transmision_fin" type="hidden" value="{{ hora_trans_fin }}" />
+                            <input id="ubicacion" name="ubicacion" type="hidden" value="{{ ubicacion }}" />
+                            <input id="padre" name="padre" type="hidden" value="{{ padre }}" />
+                            <input id="estado_migracion" name="estado_migracion" type="hidden" value="{{ estado_migracion }}" />
+                            <input id="estado_migracion_sphinx" name="estado_migracion_sphinx" type="hidden" value="{{ estado_migracion_sphinx }}" />
+                            <input id="lista" name="lista" type="hidden" value="{{ lista }}" />
+                            <input id="coleccion" name="coleccion" type="hidden" value="{{ coleccion }}" />
+                            <input id="programa" name="programa" type="hidden" value="{{ programa }}" />
+                        </form>
+                        <script>
+                            $('form#edit_form #tematicas').tagsInput({
+                                defaultText: '',
+                                width: '100%',
+                                height: '41px',
+                              autocomplete_url: '/cmsapi/tematicas'
+                            });
+                            $('form#edit_form #personajes').tagsInput({
+                                defaultText: '',
+                                width: '100%',
+                                height: '41px',
+                              autocomplete_url: '/cmsapi/personajes'
+                            });
+                        </script>

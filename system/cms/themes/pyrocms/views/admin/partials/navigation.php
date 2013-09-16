@@ -67,27 +67,43 @@
                         if (isset($this->session->userdata['group']) && $this->session->userdata['group'] != "") {
 
                             // Sólo muestra los canales que tiene asignados
-                            if ($module['name'] == lang('cp_nav_canales') && $this->session->userdata['group'] == 'administrador-canales') {
+                            $this->load->helper('assignedcanales_helper');
+                            if ($module['name'] == lang('cp_nav_canales') && ($this->session->userdata['group'] == 'admin')) {
                                 echo '<li>' . anchor('admin/canales', $module['name'], array('class' => 'menu'));
                                 // Sub menú canales
-                                if (count($this->session->userdata['canales_usuario']) > 0) {
+                                $canales_assigned = todos_canales();
+                                if (count($canales_assigned) > 0) {
+                                    // Obtener todos los canales que pertenecen al usuario
+                                    foreach ($canales_assigned as $canal_usr) {
+                                        $canales_usuario[] = array(
+                                            'canal_id' => $canal_usr->id,
+                                            'canal' => $canal_usr->nombre,
+                                        );
+                                    }
+                                }
+                                if (count($canales_usuario) > 0) {
                                     echo '<ul>';
-                                    foreach ($this->session->userdata['canales_usuario'] as $canal_usr) {
+                                    foreach ($canales_usuario as $canal_usr) {
                                         echo '<li>' . anchor('admin/' . $module['slug'] . '/videos/' . $canal_usr['canal_id'], $canal_usr['canal'], array('class' => $class)) . '</li>';
                                     }
                                     echo '</ul></li>';
                                 }
-                            } elseif ($module['name'] == lang('cp_nav_canales') && 
-                                    ($this->session->userdata['group'] == 'admin' || $this->session->userdata['group'] == 'administrador-mi-canal')) {
-                                
-                                echo '<li>' . anchor('', $module['name'], array('class' => 'menu'));
-				//die( $this->session->userdata['canal_usuario']  );                                
-                                asort($this->session->userdata['canal_usuario']);
-                                
+                            } else if ($module['name'] == lang('cp_nav_canales') && ($this->session->userdata['group'] == 'administrador-canales')) {
+                                echo '<li>' . anchor('admin/canales', $module['name'], array('class' => 'menu'));
                                 // Sub menú canales
-                                if (count($this->session->userdata['canal_usuario']) > 0) {
+                                $canales_assigned = assigned_canales();
+                                if (count($canales_assigned) > 0) {
+                                    // Obtener todos los canales que pertenecen al usuario
+                                    foreach ($canales_assigned as $canal_usr) {
+                                        $canales_usuario[] = array(
+                                            'canal_id' => $canal_usr->canal_id,
+                                            'canal' => $canal_usr->nombre,
+                                        );
+                                    }
+                                }
+                                if (count($canales_usuario) > 0) {
                                     echo '<ul>';
-                                    foreach ($this->session->userdata['canal_usuario'] as $canal_usr) {
+                                    foreach ($canales_usuario as $canal_usr) {
                                         echo '<li>' . anchor('admin/' . $module['slug'] . '/videos/' . $canal_usr['canal_id'], $canal_usr['canal'], array('class' => $class)) . '</li>';
                                     }
                                     echo '</ul></li>';
