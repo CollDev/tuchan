@@ -9,7 +9,7 @@ $config['videos:max_execution_time'] = '10000';
 $config['videos:imagenes'] = UPLOAD_IMAGENES_VIDEOS;
 $config['videos:videos']   = UPLOAD_VIDEOS;
 
-$config['videos:formatos'] = 'mp4|mpg|flv|avi|wmv';
+$config['videos:formatos'] = 'mp4|mpg|flv|avi|wmv|asf';
 $config['videos:extension'] = 'vid';
 $config['extension:mp4'] = 'mp4';
 $config['videos:require_description'] = 'Ingrese la descripción del video.';
