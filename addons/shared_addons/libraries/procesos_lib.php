@@ -1476,9 +1476,10 @@ class Procesos_lib extends MX_Controller {
 
             foreach ($listavideos as $value) {
                 $videos = $this->videos_mp->getVideosxCodigo($value["id"]);
-
-                if (count($videos) == 1) {
-                    Liquid::updatePublishedMedia($videos[0]->apikey, $videos[0]->codigo);
+                if(isset($videos[0])) {
+                    if (!empty($videos[0]->codigo) && !empty($videos[0]->apikey)) {
+                        Liquid::updatePublishedNode($videos[0]);
+                    }
                 }
             }
         }
