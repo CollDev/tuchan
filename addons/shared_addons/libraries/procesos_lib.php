@@ -36,6 +36,7 @@ class Procesos_lib extends MX_Controller {
         $this->load->library('sincronizar_lib');
 
         $this->load->helper('file');
+        $this->load->helper('manejo_caracteres');
     }
 
     public function index() {
@@ -315,6 +316,9 @@ class Procesos_lib extends MX_Controller {
         //echo print_r($resultado) . "\n";
         if (count($resultado) > 0) {
             foreach ($resultado as $value) {
+                
+                $value->titulo = limpiar_caracteres($value->titulo);
+                $value->descripcion = limpiar_caracteres($value->descripcion);
 
                 $retorno = Liquid::updatePublishedMediaNode($value);
                 //var_dump($retorno);

@@ -37,8 +37,9 @@ class Liquid {
                 return $result;
             } elseif ($info['http_code'] == '500') {
                 sleep(15);
-                Log::erroLog("publishd datos genericos");
-                return self::updatePublishedMediaGeneral($url);
+                goto POST_XML;
+//                Log::erroLog("publishd datos genericos");
+//                return self::updatePublishedMediaGeneral($url);
             } else {
                 sleep(5);
                 Log::erroLog("no paso publish");
@@ -94,6 +95,7 @@ class Liquid {
         $fecha = date('Y-m-d H:i:s');
         $date = date("Y-m-d\TH:i:sP", strtotime($fecha));
 
+        Log::erroLog(" updatePublishedMediaGeneral  date: " . $date);
         $post = "<Media><title>Titulo</title><description>Descripcion</description><published>TRUE</published><publishDate>" . $date . "</publishDate></Media>";
         //echo $url . "<br>";
         return self::postXML($url, $post);
@@ -116,19 +118,26 @@ class Liquid {
     }
 
     function updatePublishedMediaNode($datos) {
+        sleep(60);
+        
+        Log::erroLog("description: " . $datos->descripcion);
+        Log::erroLog("titulo: " . $datos->titulo);
+        
         //PUBLISHED:
 
         $fecha = date('Y-m-d H:i:s');
         $date = date("Y-m-d\TH:i:sP", strtotime($fecha));
+        
+         Log::erroLog("$date: " . $date);
 
-        $post = "<Media><published>true</published>";
-        $post .= "<description><![CDATA[" . strip_tags($datos->descripcion) . "]]</description>";
-        $post .= "<highlighted>false</highlighted>";
+        $post = "<Media><published>TRUE</published>";
+        $post .= "<description>" . strip_tags($datos->descripcion) . "</description>";
         $post .= "<publishDate>" . $date . "</publishDate>";
-        $post .= "<title><![CDATA[" . $datos->titulo . "]]</title>";
-        $post .= "<channelId>2</channelId>";
+        $post .= "<title>" . $datos->titulo . "</title>";
         $post .= "</Media>";
 
+        Log::erroLog("post: " . $post);
+            
         $url = APIURL . "/medias/" . $datos->codigo . "?key=" . $datos->apikey;
         Log::erroLog("url pusblish: " . $url);
 
@@ -169,7 +178,7 @@ class Liquid {
     function uploadVideoLiquid($id_video, $apiKey) {
 
         try {
-
+ Log::erroLog("$date: " . $date);
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_HEADER, 0);
             curl_setopt($ch, CURLOPT_VERBOSE, 0);
