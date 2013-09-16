@@ -188,9 +188,9 @@ class Videos_mp extends CI_Model {
     }
 
     function setComentariosValorizacion($id, $comentarios, $valorizacion) {
-        $query = "update " . $this->_table . " set comentarios= '" . $comentarios . "', valorizacion='" . $valorizacion . "' where id=" . $id;
+        $query = "update " . $this->_table . " set comentarios = ?, valorizacion = '" . $valorizacion . "' where id=" . $id;
 
-        $this->db->query($query);
+        $this->db->query($query, array($comentarios));
     }
 
     function getVideosPlaylist($id) {
@@ -262,9 +262,9 @@ class Videos_mp extends CI_Model {
                 '" . $objBeanVideo->categorias_id . "',
                 '" . $objBeanVideo->usuarios_id . "',
                 '" . $objBeanVideo->canales_id . "',
-                '" . $objBeanVideo->titulo . "',
+                ?,
                 '" . $objBeanVideo->alias . "',
-                '" . $objBeanVideo->descripcion . "',
+                ?,
                 '" . $objBeanVideo->fragmento . "',
                 '" . $objBeanVideo->fecha_publicacion_inicio . "',
                 '" . $objBeanVideo->fecha_publicacion_fin . "', " .
@@ -284,7 +284,7 @@ class Videos_mp extends CI_Model {
                 '" . $objBeanVideo->procedencia . "'
             );";
 
-        $this->db->query($query);
+        $this->db->query($query, array($objBeanVideo->titulo, $objBeanVideo->descripcion));
         return $this->db->insert_id();
     }
 
@@ -292,10 +292,10 @@ class Videos_mp extends CI_Model {
         $key = array_keys($data);
         $value = array_values($data);
         $query = "UPDATE " . $this->_table . " SET
-                `" . $key[0] . "` = '" . $value[0] . "' 
+                `" . $key[0] . "` = ? 
                 WHERE `id` = '" . $id . "';";
 
-        $this->db->query($query);
+        $this->db->query($query, $value[0]);
     }
 
     public function save_video($objBeanVideo) {
@@ -305,5 +305,4 @@ class Videos_mp extends CI_Model {
 
         return $objBeanVideo;
     }
-
 }
