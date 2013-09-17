@@ -244,7 +244,7 @@ $(document).on('ready', function() {
         e.preventDefault();
         if ($('#termino').val() !== '') {
             $("div#search_results").html('<div class="text-center"><img src="/system/cms/themes/default/img/loading.gif" /></div>');
-            $.getJSON("/cmsapi/search/" + $('#termino').val(), {
+            $.getJSON("/cmsapi/search/" + encodeURIComponent($('#termino').val()), {
                 canal_id: $("#canal_search_id").val(),
                 fecha_inicio: $("#fecha_inicio").val(),
                 fecha_fin: $("#fecha_fin").val()
