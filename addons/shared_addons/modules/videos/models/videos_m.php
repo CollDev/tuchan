@@ -356,7 +356,7 @@ class Videos_m extends MY_Model {
 
     public function getAll()
     {
-        $query = "SELECT * FROM " . $this->_table;
+        $query = "SELECT * FROM " . $this->_table . " ORDER BY id DESC;";
         $result = $this->db->query($query)->result();
         
         return $result;

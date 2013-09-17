@@ -10,7 +10,7 @@
     </head>
     
     <body>
-        <div class="wrapper">
+        <div class="wrap">
             <?php echo $content; ?>
         </div>
         <script src="/system/cms/themes/migrate/js/jquery.js"></script>
