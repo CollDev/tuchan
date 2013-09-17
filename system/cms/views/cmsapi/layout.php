@@ -17,7 +17,7 @@
     </head>
     
     <body>
-        <div class="container wrap">
+        <div class="wrap">
             <?php echo $content; ?>
         </div>
         <iframe src="<?php echo $post_url; ?>" id="iframeProxy" width="0" height="0" style="border:none"></iframe>
