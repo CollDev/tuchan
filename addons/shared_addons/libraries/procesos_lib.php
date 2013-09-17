@@ -695,11 +695,12 @@ class Procesos_lib extends MX_Controller {
                     unset($array);
                     unset($objmongo);
                 } elseif ($value->estado == 2) {
-
-                    $id_mongo = new MongoId($value->mongo_se);
-                    $this->micanal_mp->setItemCollectionUpdate(array("estado" => "0"), array('_id' => $id_mongo));
-                    $this->secciones_mp->updateEstadoMigracionSeccionActualizacion($value->id);
-                    $this->_generarDetalleSeccionesMiCanalXSeccionId($value->id, $id_mongo);
+                    if(!empty($value->mongo_se)){
+                        $id_mongo = new MongoId($value->mongo_se);
+                        $this->micanal_mp->setItemCollectionUpdate(array("estado" => "0"), array('_id' => $id_mongo));
+                        $this->secciones_mp->updateEstadoMigracionSeccionActualizacion($value->id);
+                        $this->_generarDetalleSeccionesMiCanalXSeccionId($value->id, $id_mongo);
+                    }
                 }
             }
         }
