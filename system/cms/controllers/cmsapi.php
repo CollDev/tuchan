@@ -56,9 +56,9 @@ class cmsApi extends MX_Controller {
         return $this->cmsapi_lib->getListasList($coleccion_id);
     }
     
-    public function search($search,$dateini = "",$datefin = "")
+    public function search($search, $dateini = "", $datefin = "")
     {
-        return $this->cmsapi_lib->search($search,$dateini,$datefin);
+        return $this->cmsapi_lib->search($search, $dateini, $datefin);
     }
     
     public function corte($video_id)

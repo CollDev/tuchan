@@ -483,8 +483,7 @@ class cmsapi_lib extends MX_Controller {
                         'descripcion' => $this->config->item('peso_descripcion:sphinx')
             );
 //        }
-        
-        echo $this->sphinx_m->busquedaVideos($parametros,$search,$fechaini,$fechafin,$canales_id);        
+        echo $this->sphinx_m->busquedaVideos($parametros, urldecode($search), $fechaini, $fechafin, $canales_id);        
     }
     
     public function corte($video_id)
