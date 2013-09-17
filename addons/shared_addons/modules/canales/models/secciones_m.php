@@ -50,7 +50,7 @@ class Secciones_m extends MY_Model {
     
     public function update($id, $array){
         parent::update($id, $array);
-        $this->procesos_lib->curlGenerarSeccionesMiCanalXSeccionId($id);
+        $this->procesos_lib->curlGenerarSeccionesMiCanalXSeccionId($id);     
     }    
 
 }

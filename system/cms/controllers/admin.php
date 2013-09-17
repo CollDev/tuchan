@@ -33,7 +33,7 @@ class Admin extends Admin_Controller
             }
 
             if ($this->session->userdata['group'] == 'administrador-canales') {
-                    
+                
                 if (isset($this->session->userdata['canales_usuario'])) {
                     // Busca el canal por defecto para el usuario logueado
                     $predeterminado = $this->usuario_group_canales_m->get_canal_default_by_usuario();

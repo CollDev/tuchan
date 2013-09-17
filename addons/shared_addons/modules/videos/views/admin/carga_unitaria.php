@@ -530,7 +530,7 @@
                         $message = '<?php echo lang('videos:require_video') ?>';
                         $("#video").focus();
                         $pass = false;
-                    } else if (!(ext && /^(mp4|mpg|flv|avi|wmv)$/.test(ext))) {
+                    } else if (!(ext && /^(mp4|mpg|flv|avi|wmv|asf)$/.test(ext))) {
                         $message = '<?php echo lang('videos:format_invalid') ?>';
                         $pass = false;
                     } else if (!$empty_trans) {

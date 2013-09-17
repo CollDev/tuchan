@@ -22,6 +22,7 @@ if (!empty($_SESSION['upload_result'])) {
                     <li class="active"><a href="#upload_form_tab" data-toggle="tab">Subida de video</a></li>
                     <li><a href="#search_form_tab" data-toggle="tab">Búsqueda</a></li>
                     <li class="disabled"><a id="corte_video" href="#cut_form_tab" data-toggle="">Corte de video</a></li>
+                    <li class="undisplayed" style="display: none"><a id="edit_video" href="#edit_form_tab" data-toggle="tab">Editar video</a></li>
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane active fade in" id="upload_form_tab">
@@ -201,6 +202,7 @@ if (!empty($_SESSION['upload_result'])) {
                         <div id="search_results"></div>
                     </div>
                     <div class="tab-pane fade" id="cut_form_tab"></div>
+                    <div class="tab-pane fade" id="edit_form_tab"></div>
                 </div>
                 <div class="modal fade" id="videoUrl">
                     <div class="modal-dialog">

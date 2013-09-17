@@ -2615,8 +2615,10 @@ class Admin extends Admin_Controller {
      */
     public function actualizar_seccion() {
         if ($this->input->is_ajax_request()) {
-            $user_id = (int) $this->session->userdata('user_id');
-            $this->secciones_m->update($this->input->post('seccion_id'), array('estado_migracion' => $this->config->item('migracion:actualizado'), 'nombre' => $this->input->post('nombre'), 'descripcion' => $this->input->post('descripcion'), 'templates_id' => $this->input->post('template'), 'fecha_actualizacion' => date("Y-m-d H:i:s"), 'usuario_actualizacion' => $user_id));
+            $user_id = (int) $this->session->userdata('user_id');            
+            $ndetalles =  $this->detalle_secciones_m->obtener_id_detalle_seccion_activos($this->input->post('seccion_id'));            
+            $this->estado = ((count($ndetalles)>0)?1:0);                       
+            $this->secciones_m->update($this->input->post('seccion_id'), array('estado_migracion' => $this->config->item('migracion:actualizado'), 'nombre' => $this->input->post('nombre'), 'descripcion' => $this->input->post('descripcion'), 'templates_id' => $this->input->post('template'), 'fecha_actualizacion' => date("Y-m-d H:i:s"), 'usuario_actualizacion' => $user_id,'estado' => $this->estado));
             echo json_encode(array("value" => "1"));
         }
     }
@@ -6638,18 +6640,19 @@ class Admin extends Admin_Controller {
                     $imagen = $objImagen->imagen;
                 }
                 $html = '<h2 class="channel_item" background="none" style="padding-left:0px !important;background:none;">';
-                $html.='<div class="logo_canal" style="width:40px;display: block;float:left;margin-right: 15px;">';
-                $html.='<img width="40" height="40" src="' . $imagen . '">';
-                $html.='</div>';
-                $html.='<a href="/admin/canales/videos/' . $canal_id . '" float="left"> ' . ucwords($objCanal->nombre) . ' |  </a>';
-                $html.='<a>' . ucwords($vista) . '</a>';
-                $html.='</h2>';
+                $html .= '<div class="logo_canal" style="width:40px;display: block;float:left;margin-right: 15px;">';
+                $html .= '<img width="40" height="40" src="' . $imagen . '">';
+                $html .= '</div>';
+                $html .= '<a href="/admin/canales/videos/' . $canal_id . '" float="left"> ' . ucwords($objCanal->nombre) . ' |  </a>';
+                $html .= '<a>' . ucwords($vista) . '</a>';
+                $html .= '</h2>';
             } else {
                 $html = '<h2 class="channel_item" style="padding-left:50px !important;">';
-                $html.='<a href="/admin/canales/videos/' . $canal_id . '" float="left"> ' . ucwords($objCanal->nombre) . ' |  </a>';
-                $html.='<a>' . ucwords($vista) . '</a>';
-                $html.='</h2>';
+                $html .= '<a href="/admin/canales/videos/' . $canal_id . '" float="left"> ' . ucwords($objCanal->nombre) . ' |  </a>';
+                $html .= '<a>' . ucwords($vista) . '</a>';
+                $html .= '</h2>';
             }
+            
             echo $html;
         }
     }

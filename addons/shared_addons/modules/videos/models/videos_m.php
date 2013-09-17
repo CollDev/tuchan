@@ -354,6 +354,13 @@ class Videos_m extends MY_Model {
         return $objBeanVideo;
     }
 
+    public function getAll()
+    {
+        $query = "SELECT * FROM " . $this->_table . " ORDER BY id DESC;";
+        $result = $this->db->query($query)->result();
+        
+        return $result;
+    }
 }
 
 /* End of file videos_m.php */

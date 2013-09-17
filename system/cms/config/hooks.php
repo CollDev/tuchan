@@ -12,16 +12,16 @@
 
 // PRE CONTROLLER HOOKS
 $hook['pre_controller'][] = array(
-	'function' => 'pick_language',
-	'filename' => 'pick_language.php',
-	'filepath' => 'hooks'
+    'function' => 'pick_language',
+    'filename' => 'pick_language.php',
+    'filepath' => 'hooks'
 );
 
 # PERFORM-TWEAK: Disable this to make your system slightly quicker
 $hook['pre_controller'][] = array(
-	'function' => 'check_installed',
-	'filename' => 'check_installed.php',
-	'filepath' => 'hooks'
+    'function' => 'check_installed',
+    'filename' => 'check_installed.php',
+    'filepath' => 'hooks'
 );
 
 /* End of file hooks.php */

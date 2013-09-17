@@ -85,6 +85,21 @@ class Usuario_group_canales_m extends MY_Model
     }
     
     /**
+     * Obtiene los canales que pertenecen al usuario logueado
+     * @param array $where
+     * @return object
+     */
+    public function get_canales() 
+    {
+        $this->db->select("id, nombre");
+        $this->db->from('default_cms_canales');
+
+        $result = $this->db->get()->result();
+
+        return $result;
+    }
+    
+    /**
      * Obtiene el canal predeterminado del usuario logueado
      * @param array $where
      * @return object
@@ -111,10 +126,10 @@ class Usuario_group_canales_m extends MY_Model
     public function get_canales_activos_by_usuario($where = array()) 
     {
         if (!is_array($where)) {
-            $where = array('user_id' => $where, 'urc.estado' => '1');
+            $where = array('urc.user_id' => $where, 'urc.estado' => '1');
         }
 
-        $this->db->select("urc.user_id, urc.group_id, urc.canal_id, c.nombre, urc.predeterminado,urc.estado");
+        $this->db->select("urc.user_id, urc.group_id, urc.canal_id, c.nombre, urc.predeterminado, urc.estado");
         $this->db->from($this->_table . ' urc');
         $this->db->join('default_cms_canales c', 'c.id = urc.canal_id');
         $this->db->where($where);
@@ -176,6 +191,14 @@ class Usuario_group_canales_m extends MY_Model
     public function unset_predeterminado($user_id)
     {
         $sql = "UPDATE " . $this->_table . " SET `predeterminado` = '0' WHERE `user_id` = '" . $user_id . "';";
+        $result = $this->db->query($sql);
+        
+        return $result;
+    }
+    
+    public function set_predeterminado($canal_id, $user_id, $group_id)
+    {
+        $sql = "UPDATE " . $this->_table . " SET `predeterminado` = '1' WHERE `canal_id` = '" . $canal_id . "' AND `user_id` = '" . $user_id . "' AND `group_id` = '" . $group_id . "';";
         $result = $this->db->query($sql);
         
         return $result;

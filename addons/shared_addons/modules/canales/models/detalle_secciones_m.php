@@ -78,7 +78,7 @@ class Detalle_secciones_m extends MY_Model {
      * @param array $array
      */
     public function update($id, $array) {
-        parent::update($id, $array);
+        parent::update($id, $array);        
         //$this->procesos_lib->actualizarDetalleSecciones();
     }
 
@@ -94,15 +94,22 @@ class Detalle_secciones_m extends MY_Model {
         $result = $this->db->query($sql)->result();
         return $result;        
     }
+    
     public function obtener_detalle_seccion_menor($seccion_id, $peso) {
         $sql = 'SELECT * FROM ' . $this->_table . ' WHERE secciones_id = '.$seccion_id.' AND estado = '.$this->config->item('estado:publicado').' AND peso < '.$peso.' ORDER BY peso DESC LIMIT 1';
         $result = $this->db->query($sql)->result();
         return $result;        
     }
-
+    
+    public function obtener_id_detalle_seccion_activos($seccion_id){
+        $sql = 'SELECT id FROM ' . $this->_table . ' WHERE secciones_id = '.$seccion_id.' AND estado = '.$this->config->item('estado:publicado');
+        $result = $this->db->query($sql)->result();
+        return $result;
+    }
+    
     public function limpiar()
     {
-            $sql = 'DELETE FROM ' . $this->_table . " where videos_id is not null";
+        $sql = 'DELETE FROM ' . $this->_table . " where videos_id is not null";
         $this->db->query($sql);
     }
 }

@@ -56,9 +56,9 @@ class cmsApi extends MX_Controller {
         return $this->cmsapi_lib->getListasList($coleccion_id);
     }
     
-    public function search($search,$dateini = "",$datefin = "")
+    public function search($search, $dateini = "", $datefin = "")
     {
-        return $this->cmsapi_lib->search($search,$dateini,$datefin);
+        return $this->cmsapi_lib->search($search, $dateini, $datefin);
     }
     
     public function corte($video_id)
@@ -79,5 +79,20 @@ class cmsApi extends MX_Controller {
     public function verificar_estado_video($video_id)
     {
         return $this->cmsapi_lib->verificar_estado_video($video_id);
+    }
+    
+    public function edit($canal_id, $video_id)
+    {
+        return $this->cmsapi_lib->editar_video($canal_id, $video_id, $this->input->post());
+    }
+    
+    public function tematicas()
+    {
+        return $this->cmsapi_lib->tematicas();
+    }
+    
+    public function personajes()
+    {
+        return $this->cmsapi_lib->personajes();
     }
 }

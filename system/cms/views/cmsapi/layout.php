@@ -17,7 +17,7 @@
     </head>
     
     <body>
-        <div class="container wrap">
+        <div class="wrap">
             <?php echo $content; ?>
         </div>
         <iframe src="<?php echo $post_url; ?>" id="iframeProxy" width="0" height="0" style="border:none"></iframe>
@@ -52,6 +52,49 @@
 
                 return false;
             }
+            
+            function cut_this_video(video_id) {
+                $("div#cut_form_tab").html('<div class="text-center"><img src="/system/cms/themes/default/img/loading.gif" /></div>');
+                $('ul#myTab li.disabled a').attr('data-toggle', 'tab').parent().removeClass('disabled');
+                $('ul#myTab li a#corte_video').trigger('click');
+
+                $.getJSON("/cmsapi/corte/" + video_id)
+                    .done(function(data) {
+                        $.get("/system/cms/themes/default/js/mustache_templates/cmsapi/cut_video.html", function(template) {
+                            var app = '<div class="text-center"><h3>Seleccione un video válido</h3></div>';
+                            if (data !== '') {
+                                app = $.mustache(template, data);
+                            }
+                            $("div#cut_form_tab").html('').append(app);
+                        });
+                    });
+            }
+            function edit_this_video(video_id) {
+                $("div#edit_form_tab").html('<div class="text-center"><img src="/system/cms/themes/default/img/loading.gif" /></div>');
+                $('ul#myTab li.undisplayed').show('slow');
+                $('ul#myTab li a#edit_video').trigger('click');
+
+                $.getJSON("/cmsapi/corte/" + video_id)
+                    .done(function(data) {
+                        $.get("/system/cms/themes/default/js/mustache_templates/cmsapi/edit_video.html", function(template) {
+                            var app = '<div class="text-center"><h3>Seleccione un video válido</h3></div>';
+                            if (data !== '') {
+                                app = $.mustache(template, data);
+                            }
+                            $("div#edit_form_tab").html('').append(app);
+                        });
+                    });
+            }
+            window.addEventListener("message", function(event){
+            var data = $.parseJSON(event.data);
+                if (data.id !== '') {
+                    if (data.operation === "cut") {
+                        cut_this_video(data.id);
+                    } else if (data.operation === "edit") {
+                        edit_this_video(data.id);
+                    }
+                } 
+            }, false);
         </script>
     </body>
 </html>

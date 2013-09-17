@@ -109,7 +109,7 @@
             $imagen = array('name' => 'addIsotipo', 'id' => 'addIsotipo', 'type' => 'button', 'value' => 'Agrega un logo a tu canal');
             echo '<div style="float:left;">' . form_input($imagen) . '</div>';
             ?>
-            <div  class="loaderIsotipo" id="loaderIsotipo" style="display: none; float: left;">
+            <div class="loaderIsotipo" id="loaderIsotipo" style="display: none; float: left;">
                 <img src="uploads/imagenes/loading.gif">
             </div>
             <br /><br /><br />
