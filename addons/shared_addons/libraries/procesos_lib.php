@@ -36,6 +36,7 @@ class Procesos_lib extends MX_Controller {
         $this->load->library('sincronizar_lib');
 
         $this->load->helper('file');
+        $this->load->helper('manejo_caracteres');
     }
 
     public function index() {
@@ -194,6 +195,7 @@ class Procesos_lib extends MX_Controller {
             if (empty($video[0]->codigo)) {
                 if ($video[0]->estado_liquid == $this->config->item('v_l:codificado')) {
                     Log::erroLog("el video no se cargo me voy a  curlUploadVideosXId " . $id);
+                    sleep(45);
                     $this->curlUploadVideosXId($id);
                 } elseif ($video[0]->estado_liquid == $this->config->item('v_l:subiendo') || $video[0]->estado_liquid == $this->config->item('v_l:subido')) {
                     Log::erroLog("no hay datos me voy a curlVerificaVideosLiquidXId " . $id);
@@ -314,6 +316,9 @@ class Procesos_lib extends MX_Controller {
         //echo print_r($resultado) . "\n";
         if (count($resultado) > 0) {
             foreach ($resultado as $value) {
+                
+                $value->titulo = limpiar_caracteres($value->titulo);
+                $value->descripcion = limpiar_caracteres($value->descripcion);
 
                 $retorno = Liquid::updatePublishedMediaNode($value);
                 //var_dump($retorno);
@@ -1114,8 +1119,10 @@ class Procesos_lib extends MX_Controller {
 
         if (count($video) > 0) {
             foreach ($video as $value) {
+                
+                $estado  = ($value->procedencia == $this->config->item('proce:widget'))?ESTADO_ACTIVO:$value->est_tra;
 
-                if (($value->estado == 1 || $value->estado == 2) && $value->est_tra == ESTADO_ACTIVO) {
+                if (($value->estado == 1 || $value->estado == 2) && $estado == ESTADO_ACTIVO) {
                     $datovideo = $this->canal_mp->queryProcedure(4, $value->id);
                     $objmongo['id'] = $value->id;
                     $objmongo['canal'] = ($datovideo[0]->xcanal);
@@ -1469,9 +1476,10 @@ class Procesos_lib extends MX_Controller {
 
             foreach ($listavideos as $value) {
                 $videos = $this->videos_mp->getVideosxCodigo($value["id"]);
-
-                if (count($videos) == 1) {
-                    Liquid::updatePublishedMedia($videos[0]->apikey, $videos[0]->codigo);
+                if(isset($videos[0])) {
+                    if (!empty($videos[0]->codigo) && !empty($videos[0]->apikey)) {
+                        Liquid::updatePublishedNode($videos[0]);
+                    }
                 }
             }
         }
