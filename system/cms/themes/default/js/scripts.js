@@ -229,6 +229,7 @@ $(document).on('ready', function() {
                                             } else if (data.exit == 4) {
                                                 response = 4;
                                                 clearInterval(intervalId);
+                                                $('div#upload-response button').trigger('click');
                                                 $('#myUploadModalDiv').html(
                                                    '<div class="alert alert-danger fade in">\n\
                                                         <button class="close" data-dismiss="modal" type="button">×</button>\n\
