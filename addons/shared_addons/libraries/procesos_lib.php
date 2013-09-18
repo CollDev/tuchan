@@ -223,30 +223,37 @@ class Procesos_lib extends MX_Controller {
     }
 
     protected function _convertirVideosXId($id) {
+        try {
+            Log::erroLog("_convertirVideosXId: " . $id);
 
-        Log::erroLog("_convertirVideosXId: " . $id);
-
-        if (!empty($id)) {
-            Log::erroLog("video antes de conversion : " . $id . "  ");
-            $this->videos_mp->setEstadosVideos($id, $this->config->item('v_e:codificando'), $this->config->item('v_l:codificando'));
-            Log::erroLog("video despues de conversion : " . $id . "  ");
-            if (Ffmpeg::convertVideotoMp4($id)) {
-                Log::erroLog("video: " . $id . "convertido correctamente ");
-                $this->videos_mp->setEstadosVideos($id, $this->config->item('v_e:codificando'), $this->config->item('v_l:codificado'));
-            } else {
-                Log::erroLog("video: " . $id . "no convertido correctamente ");
-                $this->videos_mp->setEstadosVideos($id, $this->config->item('v_e:codificando'), -1);
+            if (!empty($id)) {
+                Log::erroLog("video antes de conversion : " . $id . "  ");
+                $this->videos_mp->setEstadosVideos($id, $this->config->item('v_e:codificando'), $this->config->item('v_l:codificando'));
+                Log::erroLog("video despues de conversion : " . $id . "  ");
+                if (Ffmpeg::convertVideotoMp4($id)) {
+                    Log::erroLog("video: " . $id . "convertido correctamente ");
+                    $this->videos_mp->setEstadosVideos($id, $this->config->item('v_e:codificando'), $this->config->item('v_l:codificado'));
+                } else {
+                    Log::erroLog("video: " . $id . "no convertido correctamente ");
+                    //$this->videos_mp->setEstadosVideos($id, $this->config->item('v_e:codificando'), -1);
+                    $this->curlUpdateEstadoVideosXId($id, $this->config->item('v_e:error'), $this->config->item('v_l:codificando'));
+                }
             }
+        } catch (Exception $exc) {
+             Log::erroLog("video: " . $id . "exception ");
+            $this->curlUpdateEstadoVideosXId($id, $this->config->item('v_e:error'), $this->config->item('v_l:codificando'));
         }
     }
 
     protected function _uploadVideosXId($id) {
         Log::erroLog("entro a protected uploadVideosXId: " . $id);
         $resultado = $this->videos_mp->getVideosMp4XId($id);
-        if (count($resultado) > 0) {
+        if (count($resultado) == 1 ) {
             foreach ($resultado as $value) {
 
-                $this->videos_mp->setEstadosVideos($value->id, $this->config->item('v_e:codificando'), $this->config->item('v_l:subiendo'));
+                $confir = $this->videos_mp->setEstadosVideos($value->id, $this->config->item('v_e:codificando'), $this->config->item('v_l:subiendo'));
+                
+                if ($confir == 1){
                 $this->curlVerificaVideosLiquidXId($id);
                 $retorno = Liquid::uploadVideoLiquid($value->id, $value->apikey);
                 Log::erroLog("retorno de upload video: " . $retorno);
@@ -293,6 +300,7 @@ class Procesos_lib extends MX_Controller {
                     }
                 }
             }
+        }
         }
     }
 
