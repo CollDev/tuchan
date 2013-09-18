@@ -159,8 +159,9 @@ class Videos_mp extends CI_Model {
         if($estado_liquid > 0){
             $query = $query . " and estado_liquid = " . ($estado_liquid - 1);  
         }        
-        $this->db->query($query);
+        $this->db->query($query);    
         Log::erroLog("query setEstadosVideos  " . $query);
+        return  $this->db->affected_rows();
     }
 
     function setMediaVideos($id, $media) {
