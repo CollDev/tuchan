@@ -189,10 +189,9 @@ $(document).on('ready', function() {
         complete: function(xhr) {
             progress.delay(1600).slideUp(1000, function(){
                 $('.wrap').prepend(
-                   '<div class="alert alert-' + xhr.responseJSON.type + ' fade in">\n\
+                   '<div id="upload-response" class="alert alert-' + xhr.responseJSON.type + ' fade in">\n\
                         <button class="close" data-dismiss="alert" type="button">×</button>\n\
                         <strong>' + xhr.responseJSON.title + '</strong>\n\
-                        ' + xhr.responseJSON.message + '\n\
                     </div>'
                 );
                 if (xhr.responseJSON.type === "success") {
@@ -210,20 +209,31 @@ $(document).on('ready', function() {
                             var response = 0;
                             var intervalId = window.setInterval(
                             function () {
-                                if (response !== 6) {
+                                if (response === 0) {
                                     setTimeout(function(){
                                         var url = xhr.responseJSON.url;
                                         var video_array = url.split("/");
                                         $.getJSON("/cmsapi/verificar_estado_video/" + video_array[4])
                                         .done(function(data) {
-                                            if (data.exit == 6) {
-                                                response = 6;
+                                            if (data.exit == 2) {
+                                                response = 2;
                                                 clearInterval(intervalId);
+                                                $('div#upload-response').append(xhr.responseJSON.message);
                                                 $('#myUploadModalDiv').html(
                                                    '<div class="alert alert-success fade in">\n\
                                                         <button class="close" data-dismiss="modal" type="button">×</button>\n\
                                                         <strong>Finalizado.</strong>\n\
                                                         El video ha sido publicado.\n\
+                                                    </div>'
+                                                );
+                                            } else if (data.exit == 4) {
+                                                response = 4;
+                                                clearInterval(intervalId);
+                                                $('#myUploadModalDiv').html(
+                                                   '<div class="alert alert-danger fade in">\n\
+                                                        <button class="close" data-dismiss="modal" type="button">×</button>\n\
+                                                        <strong>Error.</strong>\n\
+                                                        El video no ha sido publicado intente nuevamente.\n\
                                                     </div>'
                                                 );
                                             }
@@ -390,12 +400,12 @@ $(document).on('ready', function() {
                             var response = 0;
                             var intervalId = window.setInterval(
                             function () {
-                                if (response !== 6) {
+                                if (response === 0) {
                                     setTimeout(function(){
                                         $.getJSON("/cmsapi/verificar_estado_video/" + returnValue.video_id)
                                         .done(function(data) {
-                                            if (data.exit == 6) {
-                                                response = 6;
+                                            if (data.exit == 2) {
+                                                response = 2;
                                                 clearInterval(intervalId);
                                                 $('#myUploadModalDiv').html(
                                                    '<div class="alert alert-success fade in">\n\
@@ -407,6 +417,16 @@ $(document).on('ready', function() {
                                                 var $use_this_video = '<div class="row"><a class="btn btn-default col-lg-2 text-center use-this-video-legend-cut" href="#" id="use-this-video">Usar este corte de video</a></div>';
                                                 $("div#cut_form_tab").html('').append($use_this_video);
                                                 $('a.use-this-video-legend-cut').attr('data-href', '{"url":"' + $('#motor').val() + '/embed/' + returnValue.video_id + '","legend":"' + returnValue.legend + '"}');
+                                            } else if (data.exit == 4) {
+                                                response = 4;
+                                                clearInterval(intervalId);
+                                                $('#myUploadModalDiv').html(
+                                                   '<div class="alert alert-danger fade in">\n\
+                                                        <button class="close" data-dismiss="modal" type="button">×</button>\n\
+                                                        <strong>Error.</strong>\n\
+                                                        El video no ha sido publicado intente nuevamente.\n\
+                                                    </div>'
+                                                );
                                             }
                                         });
                                     },1000);
