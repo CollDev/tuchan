@@ -186,6 +186,15 @@ $(document).on('ready', function() {
             bar.width(percentVal);
             percent.html(percentVal);
         },
+        error: function() {
+            $('.wrap').prepend(
+                '<div class="alert alert-danger fade in">\n\
+                     <button class="close" data-dismiss="alert" type="button">×</button>\n\
+                     <strong>Error</strong>\n\
+                     Hubo un error al subir el archivo, recargue la página e intente nuevamente.\n\
+                 </div>'
+             );
+        },
         complete: function(xhr) {
             progress.delay(1600).slideUp(1000, function(){
                 $('.wrap').prepend(
