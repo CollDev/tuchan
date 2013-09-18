@@ -737,24 +737,23 @@ class cmsapi_lib extends MX_Controller {
     
     public function verificar_estado_video($video_id)
     {
+        $res = 'error';
         if ($video_id != '') {
             $objVideo = $this->videos_m->get($video_id);
             if ($objVideo != null) {
+                $mess = $objVideo->estado;
                 if ($objVideo->estado != 0) {
-                    header("Content-Type: application/json; charset=utf-8");
-                    echo json_encode(array("exit" => $objVideo->estado_liquid));
-                } else {
-                    header("Content-Type: application/json; charset=utf-8");
-                    echo json_encode(array("error" => $objVideo->estado_liquid));
+                    $res = 'exit';
                 }
             } else {
-                header("Content-Type: application/json; charset=utf-8");
-                echo json_encode(array("error" => "El video no ha sido encontrado."));
+                $mess = 'El video no ha sido encontrado.';
             }
         } else {
-            header("Content-Type: application/json; charset=utf-8");
-            echo json_encode(array("error" => "Ingrese un video."));
+            $mess = 'Ingrese un video.';
         }
+        
+        header("Content-Type: application/json; charset=utf-8");
+        echo json_encode(array($res => $mess));
     }
     
     public function editar_video($canal_id, $video_id, $post)
