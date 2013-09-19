@@ -1,10 +1,10 @@
 var TINY = {};
 
 function T$(i) {
-    return document.getElementById(i)
+    return document.getElementById(i);
 }
 function T$$(e, p) {
-    return p.getElementsByTagName(e)
+    return p.getElementsByTagName(e);
 }
 
 TINY.table = function() {
@@ -13,7 +13,7 @@ TINY.table = function() {
         this.id = t;
         this.p = p;
         if (this.p.init) {
-            this.init()
+            this.init();
         }
     }
     sorter.prototype.init = function() {
@@ -31,7 +31,7 @@ TINY.table = function() {
                 var o = document.createElement('option');
                 o.value = -1;
                 o.innerHTML = 'All Columns';
-                d.appendChild(o)
+                d.appendChild(o);
             }
             for (i; i < t.w; i++) {
                 var c = t.h.cells[i];
@@ -40,7 +40,7 @@ TINY.table = function() {
                     c.className = this.p.headclass;
                     c.onclick = new Function(this.n + '.sort(' + i + ')');
                     c.onmousedown = function() {
-                        return false
+                        return false;
                     };
                 }
                 if (this.p.columns) {
@@ -49,7 +49,7 @@ TINY.table = function() {
                         if (this.p.columns[x].index == i) {
                             var g = this.p.columns[x];
                             t.c[i].format = g.format == null ? 1 : g.format;
-                            t.c[i].decimals = g.decimals == null ? 2 : g.decimals
+                            t.c[i].decimals = g.decimals == null ? 2 : g.decimals;
                         }
                     }
                 }
@@ -57,12 +57,10 @@ TINY.table = function() {
                     var o = document.createElement('option');
                     o.value = i;
                     o.innerHTML = T$$('span', c)[0].innerHTML;
-                    d.appendChild(o)
+                    d.appendChild(o);
                 }
             }
-            this.reset()
-        } else {
-            
+            this.reset();
         }
     };
     sorter.prototype.reset = function() {
@@ -70,18 +68,18 @@ TINY.table = function() {
         t.t = t.l;
         for (var i = 0; i < t.l; i++) {
             t.a[i] = {};
-            t.a[i].s = 1
+            t.a[i].s = 1;
         }
         if (this.p.sortcolumn != undefined) {
-            this.sort(this.p.sortcolumn, 1, this.p.is)
+            this.sort(this.p.sortcolumn, 1, this.p.is);
         } else {
             if (this.p.paginate) {
-                this.size()
+                this.size();
             }
             this.alt();
-            this.sethover()
+            this.sethover();
         }
-        this.calc()
+        this.calc();
     };
     sorter.prototype.sort = function(x, f, z) {
         var t = this.t;
@@ -92,45 +90,45 @@ TINY.table = function() {
             var v = t.r[i].cells[t.y];
             t.r[i].style.display = '';
             while (v.hasChildNodes()) {
-                v = v.firstChild
+                v = v.firstChild;
             }
-            t.a[i].v = v.nodeValue ? v.nodeValue : ''
+            t.a[i].v = v.nodeValue ? v.nodeValue : '';
         }
         for (i = 0; i < t.w; i++) {
             var c = t.h.cells[i];
             if (c.className != 'nosort') {
-                c.className = this.p.headclass
+                c.className = this.p.headclass;
             }
         }
         if (t.p == t.y && !f) {
             t.a.reverse();
             x.className = t.d ? this.p.ascclass : this.p.descclass;
-            t.d = t.d ? 0 : 1
+            t.d = t.d ? 0 : 1;
         }
         else {
             t.p = t.y;
             f && this.p.sortdir == -1 ? t.a.sort(cp).reverse() : t.a.sort(cp);
             t.d = 0;
-            x.className = this.p.ascclass
+            x.className = this.p.ascclass;
         }
         for (i = 0; i < t.l; i++) {
             var r = t.r[t.a[i].o].cloneNode(true);
-            n.appendChild(r)
+            n.appendChild(r);
         }
         t.replaceChild(n, t.b);
         this.set();
         this.alt();
         if (this.p.paginate) {
-            this.size(z)
+            this.size(z);
         }
-        this.sethover()
+        this.sethover();
     };
     sorter.prototype.sethover = function() {
         if (this.p.hoverid) {
             for (var i = 0; i < this.t.l; i++) {
                 var r = this.t.r[i];
                 r.setAttribute('onmouseover', this.n + '.hover(' + i + ',1)');
-                r.setAttribute('onmouseout', this.n + '.hover(' + i + ',0)')
+                r.setAttribute('onmouseout', this.n + '.hover(' + i + ',0)');
             }
         }
     };
@@ -139,11 +137,11 @@ TINY.table = function() {
             var t = this.t, i = x = 0, f, r;
             if (!T$$('tfoot', t)[0]) {
                 f = document.createElement('tfoot');
-                t.appendChild(f)
+                t.appendChild(f);
             } else {
                 f = T$$('tfoot', t)[0];
                 while (f.hasChildNodes()) {
-                    f.removeChild(f.firstChild)
+                    f.removeChild(f.firstChild);
                 }
             }
             if (this.p.sum) {
@@ -154,14 +152,14 @@ TINY.table = function() {
                         var s = 0, m = t.c[i].format || '';
                         for (x = 0; x < this.t.l; x++) {
                             if (t.a[x].s) {
-                                s += parseFloat(t.r[x].cells[i].innerHTML.replace(/(\$|\,)/g, ''))
+                                s += parseFloat(t.r[x].cells[i].innerHTML.replace(/(\$|\,)/g, ''));
                             }
                         }
                         s = decimals(s, t.c[i].decimals ? t.c[i].decimals : 2);
                         s = isNaN(s) ? 'n/a' : m == '$' ? s = s.currency(t.c[i].decimals) : s + m;
-                        r.cells[i].innerHTML = s
+                        r.cells[i].innerHTML = s;
                     } else {
-                        r.cells[i].innerHTML = '&nbsp;'
+                        r.cells[i].innerHTML = '&nbsp;';
                     }
                 }
             }
@@ -174,14 +172,14 @@ TINY.table = function() {
                         for (x = 0; x < this.t.l; x++) {
                             if (t.a[x].s) {
                                 s += parseFloat(t.r[x].cells[i].innerHTML.replace(/(\$|\,)/g, ''));
-                                c++
+                                c++;
                             }
                         }
                         s = decimals(s / c, t.c[i].decimals ? t.c[i].decimals : 2);
                         s = isNaN(s) ? 'n/a' : m == '$' ? s = s.currency(t.c[i].decimals) : s + m;
-                        j.innerHTML = s
+                        j.innerHTML = s;
                     } else {
-                        j.innerHTML = '&nbsp;'
+                        j.innerHTML = '&nbsp;';
                     }
                 }
             }
@@ -191,9 +189,9 @@ TINY.table = function() {
         var r = document.createElement('tr'), i = 0;
         p.appendChild(r);
         for (i; i < this.t.w; i++) {
-            r.appendChild(document.createElement('td'))
+            r.appendChild(document.createElement('td'));
         }
-        return r
+        return r;
     };
     sorter.prototype.alt = function() {
         var t = this.t, i = x = 0;
@@ -203,22 +201,22 @@ TINY.table = function() {
                 r.className = x % 2 == 0 ? this.p.evenclass : this.p.oddclass;
                 var cells = T$$('td', r);
                 for (var z = 0; z < t.w; z++) {
-                    cells[z].className = t.y == z ? x % 2 == 0 ? this.p.evenselclass : this.p.oddselclass : ''
+                    cells[z].className = t.y == z ? x % 2 == 0 ? this.p.evenselclass : this.p.oddselclass : '';
                 }
-                x++
+                x++;
             }
             if (!t.a[i].s) {
-                r.style.display = 'none'
+                r.style.display = 'none';
             }
         }
     };
     sorter.prototype.page = function(s) {
         var t = this.t, i = x = 0, l = s + parseInt(this.p.size);
         if (this.p.totalrecid) {
-            T$(this.p.totalrecid).innerHTML = t.t
+            T$(this.p.totalrecid).innerHTML = t.t;
         }
         if (this.p.currentid) {
-            T$(this.p.currentid).innerHTML = this.g
+            T$(this.p.currentid).innerHTML = this.g;
         }
         if (this.p.startingrecid) {
             var b = ((this.g - 1) * this.p.size) + 1, m = b + (this.p.size - 1);
@@ -226,15 +224,15 @@ TINY.table = function() {
             m = m < t.t ? m : t.t;
             T$(this.p.startingrecid).innerHTML = t.t == 0 ? 0 : b;
             ;
-            T$(this.p.endingrecid).innerHTML = m
+            T$(this.p.endingrecid).innerHTML = m;
         }
         for (i; i < t.l; i++) {
             var r = t.r[i];
             if (t.a[i].s) {
                 r.style.display = x >= s && x < l ? '' : 'none';
-                x++
+                x++;
             } else {
-                r.style.display = 'none'
+                r.style.display = 'none';
             }
         }
     };
@@ -254,26 +252,22 @@ TINY.table = function() {
         $('.next-page').parent().removeClass('disabled');
         $('.last-page').parent().removeClass('disabled');
     };
-    sorter.prototype.move = function(d, m) {
-        this.goto(d == 1 ? (m ? this.d : this.g + 1) : (m ? 1 : this.g - 1));
-        this.disablepag(d, m);
-    };
     sorter.prototype.disablepag = function(d, m) {
         var selval = parseInt($('#pagedropdown').find(":selected").val());
         var selsumres = selval + parseInt(d);
         var optionsize = $('#pagedropdown option').size();
-        if (m) {//extemes
-            if (d > 0) {//last
+        if (m) {
+            if (d > 0) {
                 $("#pagedropdown").val(optionsize).attr('selected', true);
                 this.removefirstdisclass();
                 this.addlastdisclass();
-            } else if (d < 0) {//first
+            } else if (d < 0) {
                 $("#pagedropdown").val(1).attr('selected', true);
                 this.removelastdisclass();
                 this.addfirstdisclass();
             }
-        } else {//center
-            if (d > 0) {//next
+        } else {
+            if (d > 0) {
                 this.addlastdisclass();
                 if (selval < optionsize - 1) {
                     $("#pagedropdown").val(selsumres).attr('selected', true);
@@ -283,7 +277,7 @@ TINY.table = function() {
                     $("#pagedropdown").val(selsumres).attr('selected', true);
                     this.removefirstdisclass();
                 }
-            } else if (d < 0) {//prev
+            } else if (d < 0) {
                 this.addfirstdisclass();
                 if (selval > 2) {
                     $("#pagedropdown").val(selsumres).attr('selected', true);
@@ -299,10 +293,14 @@ TINY.table = function() {
               scrollTop: '214'
         }, 600);
     };
-    sorter.prototype.goto = function(s) {
+    sorter.prototype.mueve = function(d, m) {
+        this.vea(d == 1 ? (m ? this.d : this.g + 1) : (m ? 1 : this.g - 1));
+        this.disablepag(d, m);
+    };
+    sorter.prototype.vea = function(s) {
         if (s <= this.d && s > 0) {
             this.g = s;
-            this.page((s - 1) * this.p.size)
+            this.page((s - 1) * this.p.size);
         }
         if (s == 1) {
             this.removelastdisclass();
@@ -318,111 +316,108 @@ TINY.table = function() {
     sorter.prototype.size = function(s) {
         var t = this.t;
         if (s) {
-            this.p.size = s
+            this.p.size = s;
         }
         this.g = 1;
         this.d = Math.ceil(this.t.t / this.p.size);
-//        if (this.p.navid) {
-//            T$(this.p.navid).style.display = this.d < 2 ? 'none' : 'block'
-//        }
         this.page(0);
         if (this.p.totalid) {
-            T$(this.p.totalid).innerHTML = t.t == 0 ? 1 : this.d
+            T$(this.p.totalid).innerHTML = t.t == 0 ? 1 : this.d;
         }
         if (this.p.pageddid) {
             var d = T$(this.p.pageddid), l = this.d + 1;
-            d.setAttribute('onchange', this.n + '.goto(this.value)');
+            d.setAttribute('onchange', this.n + '.vea(this.value)');
             while (d.hasChildNodes()) {
-                d.removeChild(d.firstChild)
+                d.removeChild(d.firstChild);
             }
             for (var i = 1; i <= this.d; i++) {
                 var o = document.createElement('option');
                 o.value = i;
                 o.innerHTML = i;
-                d.appendChild(o)
+                d.appendChild(o);
             }
         }
         this.removelastdisclass();
         this.addfirstdisclass();
     };
     sorter.prototype.showall = function() {
-        this.size(this.t.t)
+        this.size(this.t.t);
     };
     sorter.prototype.search = function(f) {
         var i = x = n = 0, k = -1, q = T$(f).value.toLowerCase();
         if (this.p.colddid) {
-            k = T$(this.p.colddid).value
+            k = T$(this.p.colddid).value;
         }
         var s = (k == -1) ? 0 : k, e = (k == -1) ? this.t.w : parseInt(s) + 1;
         for (i; i < this.t.l; i++) {
             var r = this.t.r[i], v;
             if (q == '') {
-                v = 1
+                v = 1;
             } else {
                 for (x = s; x < e; x++) {
                     var b = r.cells[x].innerHTML.toLowerCase();
                     if (b.indexOf(q) == -1) {
-                        v = 0
+                        v = 0;
                     } else {
                         v = 1;
-                        break
+                        break;
                     }
                 }
             }
             if (v) {
-                n++
+                n++;
             }
-            this.t.a[i].s = v
+            this.t.a[i].s = v;
         }
         this.t.t = n;
         if (this.p.paginate) {
-            this.size()
+            this.size();
         }
         this.calc();
-        this.alt()
+        this.alt();
     };
     sorter.prototype.hover = function(i, d) {
-        this.t.r[i].id = d ? this.p.hoverid : ''
+        this.t.r[i].id = d ? this.p.hoverid : '';
     };
     sorter.prototype.set = function() {
         var t = T$(this.id);
         t.b = T$$('tbody', t)[0];
         t.r = t.b.rows;
-        this.t = t
+        this.t = t;
     };
     Array.prototype.exists = function(v) {
         for (var i = 0; i < this.length; i++) {
             if (this[i] == v) {
-                return 1
+                return 1;
             }
         }
-        return 0
+        return 0;
     };
     Number.prototype.currency = function(c) {
         var n = this, d = n.toFixed(c).split('.');
         d[0] = d[0].split('').reverse().join('').replace(/(\d{3})(?=\d)/g, '$1,').split('').reverse().join('');
-        return '$' + d.join('.')
+        return '$' + d.join('.');
     };
     function decimals(n, d) {
-        return Math.round(n * Math.pow(10, d)) / Math.pow(10, d)
+        return Math.round(n * Math.pow(10, d)) / Math.pow(10, d);
     }
-    ;
+
     function cp(f, c) {
         var g, h;
         f = g = f.v.toLowerCase();
         c = h = c.v.toLowerCase();
         var i = parseFloat(f.replace(/(\$|\,)/g, '')), n = parseFloat(c.replace(/(\$|\,)/g, ''));
         if (!isNaN(i) && !isNaN(n)) {
-            g = i, h = n
+            g = i, h = n;
         }
         i = Date.parse(f);
         n = Date.parse(c);
         if (!isNaN(i) && !isNaN(n)) {
             g = i;
-            h = n
+            h = n;
         }
-        return g > h ? 1 : (g < h ? -1 : 0)
+        return g > h ? 1 : (g < h ? -1 : 0);
     }
-    ;
-    return{sorter: sorter}
+
+    return { sorter: sorter };
 }();
