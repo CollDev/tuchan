@@ -451,20 +451,20 @@ class cmsapi_lib extends MX_Controller {
         return $returnValue;
     }
     
-    public function search($search)           
-    {//,$canales_id = null,$dateini=null,$datefin=null
+    public function search($search) {
+        //,$canales_id = null,$dateini=null,$datefin=null
         header("Content-Type: application/json; charset=utf-8");
-        
-        $dateini=$this->input->get('fecha_inicio',TRUE) ;
-        $datefin=$this->input->get('fecha_fin',TRUE);
-        $canales_id=$this->input->get('canal_id',TRUE);
-        
+
+        $dateini = $this->input->get('fecha_inicio', TRUE);
+        $datefin = $this->input->get('fecha_fin', TRUE);
+        $canales_id = $this->input->get('canal_id', TRUE);
+
         $fechaini = null;
         if ($dateini != null) {
-            list($dia1, $mes1, $año1) = explode('-', $dateini);            
+            list($dia1, $mes1, $año1) = explode('-', $dateini);
             $fechaini = strtotime($año1 . '-' . $mes1 . '-' . $dia1 . ' 00:00:00');
         }
-        
+
         $fechafin = null;
         if ($datefin != null) {
             list($dia2, $mes2, $año2) = explode('-', $datefin);
@@ -472,18 +472,18 @@ class cmsapi_lib extends MX_Controller {
         }
 
         //$palabrabusqueda = urldecode(str_replace("-", " ", $palabrabusqueda));
-        
+
         $parametros = array();
-        
+
 //        if ($parametro == ESTADO_ACTIVO) {
-            $parametros['estado'] = ESTADO_ACTIVO;
-            $parametros["peso_videos"] =
-                    array('tags' => $this->config->item('peso_tag:sphinx'),
-                        'titulo' => $this->config->item('peso_titulo:sphinx'),
-                        'descripcion' => $this->config->item('peso_descripcion:sphinx')
-            );
+        $parametros['estado'] = ESTADO_ACTIVO;
+        $parametros["peso_videos"] =
+                array('titulo' => $this->config->item('peso_tag:sphinx'),
+                    'tags' => $this->config->item('peso_titulo:sphinx'),
+                    'descripcion' => $this->config->item('peso_descripcion:sphinx')
+        );
 //        }
-        echo $this->sphinx_m->busquedaVideos($parametros, urldecode($search), $fechaini, $fechafin, $canales_id);        
+        echo $this->sphinx_m->busquedaVideos($parametros, urldecode($search), $fechaini, $fechafin, $canales_id);
     }
     
     public function corte($video_id)
