@@ -26,6 +26,8 @@ class Sphinx_m extends CI_Model {
         $cl->SetMatchMode(SPH_MATCH_ALL);
         $cl->SetRankingMode(SPH_RANK_PROXIMITY);
         $cl->SetLimits(0, 10000);
+        
+        $cl->SetSortMode(SPH_SORT_ATTR_DESC,"fecha_u");
 
         if (!empty($parametros["peso_videos"])) {
             $cl->SetFieldWeights($parametros["peso_videos"]);
