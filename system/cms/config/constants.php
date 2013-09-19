@@ -133,7 +133,8 @@ define('TIME_LIMIT',3500);
 | Custom constants
 |--------------------------------------------------------------------------
 */
-
+/* widget version */
+define('WIDGET_VERSION', 1);
 
 
 /* End of file constants.php */

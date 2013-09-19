@@ -20,6 +20,7 @@ class cmsApi extends MX_Controller {
                     ->set('canal_id', $objCanal->id)
                     ->set('post_url', $objCanal->post_url)
                     ->set('motor', $this->config->item('motor'))
+                    ->set('version', WIDGET_VERSION)
                     ->build('cmsapi/widget');
             } else {
                 $this->template
