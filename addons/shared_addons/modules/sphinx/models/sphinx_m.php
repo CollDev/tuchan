@@ -102,6 +102,9 @@ class Sphinx_m extends CI_Model {
                 
                 $res = array_unique($res);
                 
+                print_r($res);
+                exit;
+                
                 for ($i = 0; $i < count($res); $i++) {
                     $arraytemp = array();
 
