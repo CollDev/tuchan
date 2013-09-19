@@ -82,10 +82,10 @@
                                     var split = tr_id.split('_');
                                     $('#search_results a#use-this-video').removeClass('disabled').attr('data-href', '{"url":"' + $('#motor').val() + '/embed/' + split[1] + '", "legend":"' + tr_description + '"}').attr('href', '#');
                                 });
-                                $('.first-page').on('click', function(){ sorter.move(-1,true); });
-                                $('.prev-page').on('click', function(){ sorter.move(-1); });
-                                $('.next-page').on('click', function(){ sorter.move(1); });
-                                $('.last-page').on('click', function(){ sorter.move(1,true); });
+                                $('.first-page').on('click', function(){ sorter.mueve(-1,true); });
+                                $('.prev-page').on('click', function(){ sorter.mueve(-1); });
+                                $('.next-page').on('click', function(){ sorter.mueve(1); });
+                                $('.last-page').on('click', function(){ sorter.mueve(1,true); });
                                 $('#results-per-page').on('change', function(){ sorter.size(this.value) });
                                 $('#columns').on('change', function(){ sorter.search('query') });
                                 $('#query').on('keyup', function(){ sorter.search('query') });
