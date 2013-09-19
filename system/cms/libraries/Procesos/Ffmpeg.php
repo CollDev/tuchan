@@ -19,8 +19,9 @@ class Ffmpeg {
             Log::erroLog("video_out: " . $video_out);
 
             if (!is_readable($video_out)) {
-                Log::erroLog("entro a conversion");
-                exec("ffmpeg -i " . $video_in . " " . $video_out . " -loglevel quiet");
+                Log::erroLog("entro a conversion");                
+                exec ("ffmpeg -i " . $video_in . " " . $video_out. " -loglevel quiet"); 
+                Log::erroLog("termino conversion");
             }
 
             if (is_readable($video_out)) {
