@@ -100,9 +100,6 @@ class Sphinx_m extends CI_Model {
                 //$res = $result[0]["matches"];
                 
                 $res = array_merge($result[0]["matches"],$result[1]["matches"]);
-                                               
-                print_r(array_unique_multi($res));
-                exit;
                 
                 for ($i = 0; $i < count($res); $i++) {
                     $arraytemp = array();
