@@ -478,8 +478,8 @@ class cmsapi_lib extends MX_Controller {
 //        if ($parametro == ESTADO_ACTIVO) {
         $parametros['estado'] = ESTADO_ACTIVO;
         $parametros["peso_videos"] =
-                array('titulo' => $this->config->item('peso_tag:sphinx'),
-                    'tags' => $this->config->item('peso_titulo:sphinx'),
+                array('tags' => $this->config->item('peso_tag:sphinx'),
+                    'titulo' => $this->config->item('peso_titulo:sphinx'),
                     'descripcion' => $this->config->item('peso_descripcion:sphinx')
         );
 //        }

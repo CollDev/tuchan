@@ -95,7 +95,7 @@ class Sphinx_m extends CI_Model {
 
 
             $arrvideos = array();
-            if (!empty($result[0]["matches"]) || !empty($result[0]["matches"])) {
+            if (!empty($result[0]["matches"]) || !empty($result[1]["matches"])) {
                 
                 $res = $this->array_lib->array_unique_multi(array_merge($result[0]["matches"],$result[1]["matches"]));
               

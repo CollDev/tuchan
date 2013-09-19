@@ -6,7 +6,7 @@ class Array_lib extends MX_Controller {
         $id = array();
         $return = array();
 
-        foreach ($datos as $key => $dato) {
+        foreach ($datos as $dato) {
             if (!in_array($dato['id'], $id)) {
                 array_push($id, $dato['id']);
                 array_push($return, $dato);
@@ -16,5 +16,3 @@ class Array_lib extends MX_Controller {
     }
 
 }
-
-// Fin limpiar_caracteres_especiales
