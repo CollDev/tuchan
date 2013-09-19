@@ -15,7 +15,7 @@
 //        <link href="/system/cms/themes/default/css/jquery.tagsinput.css" rel="stylesheet">
 //        <link href="/system/cms/themes/default/css/styles.css" rel="stylesheet">
 ?>
-        <link href="/system/cms/themes/default/css/main.css?_=<?php echo $version; ?>" rel="stylesheet">
+        <link href="/system/cms/themes/default/css/main.css?_=<?php echo $cache; ?>" rel="stylesheet">
         <link href="/system/cms/themes/default/img/favicon.ico" rel="shortcut icon">
     </head>
     
@@ -48,6 +48,6 @@
 //        <script src="/system/cms/themes/pyrocms/js/jquery/jquery.form.js"></script>
 //        <script src="/system/cms/themes/default/js/scripts.js"></script>
 ?>
-        <script src="/system/cms/themes/default/js/main.js?_=<?php echo $version; ?>"></script>
+        <script src="/system/cms/themes/default/js/main.js?_=<?php echo $cache; ?>"></script>
     </body>
 </html>

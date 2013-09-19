@@ -134,7 +134,7 @@ define('TIME_LIMIT',3500);
 |--------------------------------------------------------------------------
 */
 /* widget version */
-define('WIDGET_VERSION', 1);
+define('WIDGET_CACHE', 1379613921);
 
 
 /* End of file constants.php */
