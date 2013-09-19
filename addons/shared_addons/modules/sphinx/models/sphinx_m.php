@@ -95,9 +95,10 @@ class Sphinx_m extends CI_Model {
 
 
             $arrvideos = array();
-            if (!empty($result[0]["matches"])) {
-                $res = $result[0]["matches"];
+            if (!empty($result[0]["matches"]) || !empty($result[0]["matches"])) {
+                //$res = $result[0]["matches"];
                 
+                $res = array_merge($result[0]["matches"],$result[1]["matches"]);
                 print_r($res);
                 exit;
                 
