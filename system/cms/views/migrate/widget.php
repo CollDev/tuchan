@@ -14,12 +14,12 @@ ob_start();
                                 <th>Título</th>
                                 <th>Estado</th>
                                 <th>Estado liquid</th>
-                                <th>Ruta splitter</th>
+                                <th>Fecha registro</th>
                             </tr>
                         </thead>
                         <tbody>
 <?php
-                            foreach ($videos as $video){
+                            foreach ($videos as $video) {
                                 switch ($video->estado_liquid) {
                                     case 0:
                                         $labell = 'default';
@@ -49,6 +49,10 @@ ob_start();
                                         $labell = 'success';
                                         $spanl = 'Publicado';
                                         break;
+                                    default:
+                                        $labell = 'danger';
+                                        $spanl = 'Desconocido';
+                                        break;
                                 }
                                 switch ($video->estado) {
                                     case 0:
@@ -67,10 +71,18 @@ ob_start();
                                         $labele = 'danger';
                                         $spane = 'Eliminado';
                                         break;
+                                    case 4:
+                                        $labele = 'danger';
+                                        $spane = 'Error';
+                                        break;
+                                    default:
+                                        $labele = 'danger';
+                                        $spane = 'Desconocido';
+                                        break;
                                 }
                                 $tr = 'default';
                                 $liquid_array = array("0", "1", "2", "3");
-                                $estado_array = array("0", "3");
+                                $estado_array = array("0", "3", "4");
                                 if ($video->estado_liquid == 6 && $video->estado == 2) {
                                     $tr = 'success';
                                 } else if (in_array($video->estado_liquid, $liquid_array, false)) {
@@ -90,7 +102,7 @@ ob_start();
                                 <td><?php echo $video->titulo; ?></td>
                                 <td><span class="label label-<?php echo $labele ?>"><?php echo $spane; ?></span></td>
                                 <td><span class="label label-<?php echo $labell ?>"><?php echo $spanl; ?></span></td>
-                                <td><?php echo trim($video->rutasplitter); ?></td>
+                                <td><?php echo $video->fecha_registro; ?></td>
                             </tr>
 <?php
                             }
