@@ -9,7 +9,7 @@ class Sphinx_m extends CI_Model {
 
     public function __construct() {
         $this->load->library('SphinxClient');
-        
+        $this->load->library('array_lib');
         $this->CLIENTSPHINX = new SphinxClient();
         $this->CLIENTSPHINX->SetServer($this->config->item("host:sphinx"), $this->config->item("port:sphinx"));
     }
@@ -19,8 +19,6 @@ class Sphinx_m extends CI_Model {
     }
 
     public function busquedaVideos($parametros, $palabrabusqueda = "", $fechaini = null, $fechafin = null, $canales_id = null) {
-
-        $this->load->helper('array_helper');
         
         $cl = $this->CLIENTSPHINX;
 
@@ -98,10 +96,8 @@ class Sphinx_m extends CI_Model {
 
             $arrvideos = array();
             if (!empty($result[0]["matches"]) || !empty($result[0]["matches"])) {
-                //$res = $result[0]["matches"];
                 
-                $res = array_merge($result[0]["matches"],$result[1]["matches"]);                                              
-//                $res = array_unique_multi($res);
+                $res = $this->array_lib->array_unique_multi(array_merge($result[0]["matches"],$result[1]["matches"]));
               
                 
                 for ($i = 0; $i < count($res); $i++) {
