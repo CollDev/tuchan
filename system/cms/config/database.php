@@ -51,12 +51,12 @@ $db[PYRO_DEVELOPMENT] = array(
 	// 'Tough love': Forces strict mode to test your app for best compatibility
 	'stricton' 		=> TRUE,
 );
-*/
+ */
 
 // El Comercio -  DEV
 
-/*
-$db[PYRO_DEVELOPMENT] = array(
+
+$db[PYRO_DEVELOPMENT] = array( 
 	'hostname'		=> 	'10.10.38.102',
 	'username'		=> 	'micanalcmsdev',
 	'password'		=> 	'joh2Yeyeimaeb4',
@@ -74,11 +74,10 @@ $db[PYRO_DEVELOPMENT] = array(
 	// 'Tough love': Forces strict mode to test your app for best compatibility
 	'stricton' 		=> TRUE,	'stricton' 		=> TRUE,
 );
-*/
 
 
 // El Comercio - PRE
-
+/*
 $db[PYRO_DEVELOPMENT] = array(
 	'hostname'		=> 	'10.203.31.139',
 	'username'		=> 	'micanalcmspre',
@@ -93,9 +92,11 @@ $db[PYRO_DEVELOPMENT] = array(
 	'char_set' 		=>	'utf8',
 	'dbcollat' 		=>	'utf8_unicode_ci',
 	'port' 	 		=>	'3306',
+
 	// 'Tough love': Forces strict mode to test your app for best compatibility
 	'stricton' 		=> TRUE,	'stricton' 		=> TRUE,
 );
+*/
 
 
 // Check the configuration group in use exists

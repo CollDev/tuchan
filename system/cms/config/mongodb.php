@@ -24,22 +24,21 @@ $config['mongo_db'] = 'micanal_pre2';
 
 // El Comercio  - DEV
 
-/*
-$config['mongo_host'] = '10.203.31.139';
+$config['mongo_host'] = '10.10.38.102';
 $config['mongo_db'] = 'micanaldevmdb';
 $config['mongo_port'] = 27017;
-*/
+
+
 // El Comercio  - PRE
-
+/*
 $config['mongo_host'] = '10.203.31.139';
-$config['mongo_db'] = 'micanalpremdb';
+$config['mongo_db'] = 'micanalpredb';
 $config['mongo_port'] = 27017;
-
+*/
+    
 /*
 $config['mongo_user'] = '';
 $config['mongo_pass'] = '';
 $config['mongo_persist'] = TRUE;
 $config['mongo_persist_key'] = 'ci_mongo_persist';
-
 */
-
