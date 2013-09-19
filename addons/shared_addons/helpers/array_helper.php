@@ -1,10 +1,4 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
-
-/**
- * Limpia caracteres especiales de una cadena
- * @param string $cadena
- * @return string
- */
 if (!function_exists('array_unique_multi')) {
 
     function array_unique_multi($datos = array()) {

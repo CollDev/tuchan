@@ -9,7 +9,7 @@ class Sphinx_m extends CI_Model {
 
     public function __construct() {
         $this->load->library('SphinxClient');
-        $this->load->helper('array_helper');
+        
         $this->CLIENTSPHINX = new SphinxClient();
         $this->CLIENTSPHINX->SetServer($this->config->item("host:sphinx"), $this->config->item("port:sphinx"));
     }
@@ -20,7 +20,8 @@ class Sphinx_m extends CI_Model {
 
     public function busquedaVideos($parametros, $palabrabusqueda = "", $fechaini = null, $fechafin = null, $canales_id = null) {
 
-
+        $this->load->helper('array_helper');
+        
         $cl = $this->CLIENTSPHINX;
 
         /* TODAS LAS PALABRAS EN LA CONSULTA DE LA BUSQUEDA*/
