@@ -38,6 +38,7 @@ class Ffmpeg {
                 
                 $ruta = base_url("curlproceso/comprobarConvertirVideosXId/" . $id_video);
                 shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");
+                Log::erroLog($ruta);
 
                 Log::erroLog("retornando true archivo convertido: " . $id_video);
                 return true;
