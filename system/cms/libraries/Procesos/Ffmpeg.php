@@ -23,7 +23,10 @@ class Ffmpeg {
                 exec ("ffmpeg -i " . $video_in . " " . $video_out. " -loglevel quiet"); 
                 Log::erroLog("termino conversion");
             }
-
+            
+            Log::errorLog(($video_out));
+            Log::errorLog(mime_content_type($video_out));
+                
             if (is_readable($video_out)) {
                 if (is_readable($video_in)) {
                     Log::erroLog("borrando archivo origen " . $id_video);
