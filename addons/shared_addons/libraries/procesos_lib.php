@@ -174,7 +174,7 @@ class Procesos_lib extends MX_Controller {
                 Log::erroLog("entro a _comprobarConvertirVideosXId");                            
                 $this->videos_mp->setEstadosVideos($id, $this->config->item('v_e:codificando'), $this->config->item('v_l:codificado'));
                 Log::erroLog("termino _comprobarConvertirVideosXId");
-                $ruta = base_url("curlproceso/uploadVideosXId/" . $id_video);
+                $ruta = base_url("curlproceso/uploadVideosXId/" . $id);
                 shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");
             }
     }
