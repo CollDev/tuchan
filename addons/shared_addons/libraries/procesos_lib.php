@@ -231,8 +231,8 @@ class Procesos_lib extends MX_Controller {
                 $this->videos_mp->setEstadosVideos($id, $this->config->item('v_e:codificando'), $this->config->item('v_l:codificando'));
                 Log::erroLog("video despues de conversion : " . $id . "  ");
                 if (Ffmpeg::convertVideotoMp4($id)) {
-                    Log::erroLog("video: " . $id . "convertido correctamente ");
                     $this->videos_mp->setEstadosVideos($id, $this->config->item('v_e:codificando'), $this->config->item('v_l:codificado'));
+                    Log::erroLog("video: " . $id . "convertido correctamente ");
                 } else {
                     Log::erroLog("video: " . $id . "no convertido correctamente ");
                     //$this->videos_mp->setEstadosVideos($id, $this->config->item('v_e:codificando'), -1);
