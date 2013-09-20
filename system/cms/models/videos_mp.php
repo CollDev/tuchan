@@ -156,7 +156,7 @@ class Videos_mp extends CI_Model {
 
     public function setEstadosVideos($id = "", $estado = "", $estado_liquid = "") {
         $query = "update " . $this->_table . " set estado=" . $estado . ",estado_liquid =" . $estado_liquid . " where id=" . $id ;        
-        if($estado_liquid !=0 || $estado_liquid != 4){
+        if($estado_liquid !=0 || $estado != 4){
             $query = $query . " and estado_liquid = " . ($estado_liquid - 1);  
         }        
         $this->db->query($query);    
