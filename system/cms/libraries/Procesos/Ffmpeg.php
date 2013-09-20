@@ -24,8 +24,8 @@ class Ffmpeg {
                 Log::erroLog("termino conversion");
             }
             
-            Log::errorLog(($video_out));
-            Log::errorLog(mime_content_type($video_out));
+            Log::erroLog($video_out);
+            Log::erroLog(mime_content_type($video_out));
                 
             if (is_readable($video_out)) {
                 if (is_readable($video_in)) {
