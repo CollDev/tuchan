@@ -19,8 +19,10 @@ class Ffmpeg {
             Log::erroLog("video_out: " . $video_out);
 
             if (!is_readable($video_out)) {
-                Log::erroLog("entro a conversion");                
-                exec ("ffmpeg -i " . $video_in . " " . $video_out. " -loglevel quiet"); 
+                Log::erroLog("entro a conversion");            
+                
+                //exec ("ffmpeg -i " . $video_in . " " . $video_out. " -loglevel quiet");
+                exec("ffmpeg -i " . $video_in . " " . $video_out. " 1>".PATH_VIDEOS."/".$id_video.".txt 2>&1");
                 Log::erroLog("termino conversion");
             }
             
