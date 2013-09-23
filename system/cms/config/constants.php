@@ -135,6 +135,7 @@ define('TIME_LIMIT',3500);
 */
 /* widget version */
 define('WIDGET_CACHE', 1379613921);
-
+define('OOYALA_API_KEY', 'k4Z2wxOgjSCnJUu1lmb46ZNJLSPp.2EPYP');
+define('OOYALA_API_SECRET', 'vJUBsm-lgyn63ZrhuzUET1MgQwdL6pML2ot8CPng');
 
 /* End of file constants.php */

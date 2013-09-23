@@ -19,4 +19,9 @@ class migrate extends MX_Controller {
             ->set('videos', $objVideos)
             ->build('migrate/widget');
     }
+    
+    public function upload()
+    {
+        return $this->migrate_lib->upload($_FILES);
+    }
 }

@@ -1,12 +1,11 @@
-/* 
-    Document   : styles
-    Created on : 13/09/2013, 05:48:19 PM
-    Author     : joerobles
-    Description:
-        Purpose of the stylesheet follows.
-*/
-
-root { 
-    display: block;
+div.container {
+    padding: 2%;
 }
-
+div.wrap {
+    padding-bottom: 0;
+}
+.tab-pane {
+    padding: 1%;
+    border: solid 1px #ddd;
+    border-top: none
+}

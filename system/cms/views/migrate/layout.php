@@ -10,12 +10,13 @@
     </head>
     
     <body>
-        <div class="wrap">
+        <div class="wrap container">
             <?php echo $content; ?>
         </div>
         <script src="/system/cms/themes/migrate/js/jquery.js"></script>
         <script src="/system/cms/themes/migrate/bootstrap/js/bootstrap.min.js"></script>
         <script src="/system/cms/themes/migrate/js/jquery.mustache.js"></script>
+        <script src="/system/cms/themes/pyrocms/js/jquery/jquery.form.js"></script>
         <script src="/system/cms/themes/migrate/js/scripts.js"></script>
     </body>
 </html>
