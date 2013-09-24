@@ -157,9 +157,26 @@ class Procesos_lib extends MX_Controller {
         $this->_convertirVideosXId($id);
         Log::erroLog("salio _convertirVideosXId " . $id);
 //        $this->_uploadVideosXId($id);
-        Log::erroLog("entro a curl upload video: " . $id);
-        $this->curlUploadVideosXId($id);
-        Log::erroLog("salio de curl upload video " . $id);
+//        Log::erroLog("entro a curl upload video: " . $id);
+//        $this->curlUploadVideosXId($id);
+//        Log::erroLog("salio de curl upload video " . $id);
+    }
+    
+    public   function comprobarConvertirVideosXId($id){
+        $this->_comprobarConvertirVideosXId($id);
+    }
+    
+    private function _comprobarConvertirVideosXId($id){
+            $video_out = PATH_VIDEOS . $id . ".mp4";
+            Log::erroLog("video_out: " . $video_out);
+
+            if (is_readable($video_out)) {
+                Log::erroLog("entro a _comprobarConvertirVideosXId");                            
+                $this->videos_mp->setEstadosVideos($id, $this->config->item('v_e:codificando'), $this->config->item('v_l:codificado'));
+                Log::erroLog("termino _comprobarConvertirVideosXId");
+                $ruta = base_url("curlproceso/uploadVideosXId/" . $id);
+                shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");
+            }
     }
 
     public function continuaProcesoVideos($id) {
@@ -222,7 +239,7 @@ class Procesos_lib extends MX_Controller {
         shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");
     }
 
-    protected function _convertirVideosXId($id) {
+    protected function _convertirVideosXId($id){
         try {
             Log::erroLog("_convertirVideosXId: " . $id);
 

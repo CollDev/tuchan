@@ -19,18 +19,26 @@ class Ffmpeg {
             Log::erroLog("video_out: " . $video_out);
 
             if (!is_readable($video_out)) {
-                Log::erroLog("entro a conversion");                
-                exec ("ffmpeg -i " . $video_in . " " . $video_out. " -loglevel quiet"); 
+                Log::erroLog("entro a conversion");            
+                
+                //exec ("ffmpeg -i " . $video_in . " " . $video_out. " -loglevel quiet");
+                exec("ffmpeg -i " . $video_in . " " . $video_out. " 1>".PATH_VIDEOS."/".$id_video.".txt 2>&1");
                 Log::erroLog("termino conversion");
             }
-
+            
+            Log::erroLog($video_out);
+            Log::erroLog(mime_content_type($video_out));
+                
             if (is_readable($video_out)) {
                 if (is_readable($video_in)) {
                     Log::erroLog("borrando archivo origen " . $id_video);
                     unlink($video_in);
                 }
-                $ruta = base_url("curlproceso/uploadVideosXId/" . $id_video);
+                Log::erroLog("retornando true archivo convertido: " . $id_video);
+                
+                $ruta = base_url("curlproceso/comprobarConvertirVideosXId/" . $id_video);
                 shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");
+                Log::erroLog($ruta);
 
                 Log::erroLog("retornando true archivo convertido: " . $id_video);
                 return true;
