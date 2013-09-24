@@ -24,4 +24,9 @@ class migrate extends MX_Controller {
     {
         return $this->migrate_lib->upload($_FILES);
     }
+    
+    public function verificar_estado($embed_code)
+    {
+        return $this->migrate_lib->verificar_estado($embed_code);
+    }
 }

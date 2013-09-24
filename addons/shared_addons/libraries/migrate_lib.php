@@ -25,11 +25,12 @@ class migrate_lib extends MX_Controller {
             "file_name" => $file['video']['name'],
             "asset_type" => "video",
             "file_size" => $file['video']['size'],
-            "post_processing_status" => "paused"
+            "post_processing_status" => "live"
         );
         $response_one = $this->ooyalaapi->post('assets', $post);
         $response_two = $this->ooyalaapi->get('assets/' . $response_one->embed_code . '/uploading_urls');
-        $this->upload_curl($response_two[0], $file['video']['tmp_name']);
+        $v = $this->upload_curl($response_two[0], $file['video']['tmp_name']);
+        var_dump($v);
         $response_three = $this->ooyalaapi->put('assets/' . $response_one->embed_code . '/upload_status', array("status" => "uploaded"));
         
         header("Content-Type: application/json; charset=utf-8");
@@ -43,10 +44,19 @@ class migrate_lib extends MX_Controller {
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         $postResult = curl_exec($ch);
         curl_close($ch);
-        if ($postResult != '') {
+        if ($postResult) {
             return true;
         } else {
-            return false;
+            return $postResult;
         }
     }
+    
+    public function verificar_estado($embed_code)
+    {
+        header("Content-Type: application/json; charset=utf-8");
+        echo json_encode($this->ooyalaapi->get('assets/' . $embed_code));
+    }
+    
+//    //url para reproducir
+//    $response_five = $this->ooyalaapi->get('assets/' . $response_one->embed_code . '/streams');
 }
