@@ -273,9 +273,8 @@ $(document).on('ready', function() {
                     $.get("/system/cms/themes/default/js/mustache_templates/cmsapi/search_results.html", function(template) {
                         $("div#search_results").html('');
                         var app = '<div class="text-center"><h3>No hay resultados para la búsqueda:</h3><h3>' + $('#termino').val() + '</h3></div>';
-                        if (data.videos == '') {
-                        } else {
-                            app = $.mustache(template, data);
+                        if (data.videos != '') {
+                            app = $.mustache(template.replace('http://micanal.pe', $('#motor').val()), data);
                         }
                         $("div#search_results").append(app).parent().parent().parent().parent().parent().animate({
                             scrollTop: '214'
