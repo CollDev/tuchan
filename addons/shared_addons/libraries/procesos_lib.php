@@ -161,22 +161,22 @@ class Procesos_lib extends MX_Controller {
 //        $this->curlUploadVideosXId($id);
 //        Log::erroLog("salio de curl upload video " . $id);
     }
-    
-    public   function comprobarConvertirVideosXId($id){
+
+    public function comprobarConvertirVideosXId($id) {
         $this->_comprobarConvertirVideosXId($id);
     }
-    
-    private function _comprobarConvertirVideosXId($id){
-            $video_out = PATH_VIDEOS . $id . ".mp4";
-            Log::erroLog("video_out: " . $video_out);
 
-            if (is_readable($video_out)) {
-                Log::erroLog("entro a _comprobarConvertirVideosXId");                            
-                $this->videos_mp->setEstadosVideos($id, $this->config->item('v_e:codificando'), $this->config->item('v_l:codificado'));
-                Log::erroLog("termino _comprobarConvertirVideosXId");
-                $ruta = base_url("curlproceso/uploadVideosXId/" . $id);
-                shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");
-            }
+    private function _comprobarConvertirVideosXId($id) {
+        $video_out = PATH_VIDEOS . $id . ".mp4";
+        Log::erroLog("video_out: " . $video_out);
+
+        if (is_readable($video_out)) {
+            Log::erroLog("entro a _comprobarConvertirVideosXId");
+            $this->videos_mp->setEstadosVideos($id, $this->config->item('v_e:codificando'), $this->config->item('v_l:codificado'));
+            Log::erroLog("termino _comprobarConvertirVideosXId");
+            $ruta = base_url("curlproceso/uploadVideosXId/" . $id);
+            shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");
+        }
     }
 
     public function continuaProcesoVideos($id) {
@@ -239,7 +239,7 @@ class Procesos_lib extends MX_Controller {
         shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");
     }
 
-    protected function _convertirVideosXId($id){
+    protected function _convertirVideosXId($id) {
         try {
             Log::erroLog("_convertirVideosXId: " . $id);
 
@@ -257,7 +257,7 @@ class Procesos_lib extends MX_Controller {
                 }
             }
         } catch (Exception $exc) {
-             Log::erroLog("video: " . $id . "exception ");
+            Log::erroLog("video: " . $id . "exception ");
             $this->curlUpdateEstadoVideosXId($id, $this->config->item('v_e:error'), $this->config->item('v_l:codificando'));
         }
     }
@@ -265,59 +265,59 @@ class Procesos_lib extends MX_Controller {
     protected function _uploadVideosXId($id) {
         Log::erroLog("entro a protected uploadVideosXId: " . $id);
         $resultado = $this->videos_mp->getVideosMp4XId($id);
-        if (count($resultado) == 1 ) {
+        if (count($resultado) == 1) {
             foreach ($resultado as $value) {
 
                 $confir = $this->videos_mp->setEstadosVideos($value->id, $this->config->item('v_e:codificando'), $this->config->item('v_l:subiendo'));
-                
-                if ($confir == 1){
-                $this->curlVerificaVideosLiquidXId($id);
-                $retorno = Liquid::uploadVideoLiquid($value->id, $value->apikey);
-                Log::erroLog("retorno de upload video: " . $retorno);
 
-                if (!empty($retorno)) {
-                    Log::erroLog("entro a : updateMediaVideosXId " . $value->id . "/" . $retorno);
-                    $ruta = base_url("curlproceso/updateMediaVideosXId/" . $value->id . "/" . $retorno);
-                    shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");
-                    Log::erroLog("return media " . trim($retorno));
-                } else {
-                    Log::erroLog("exception de upload  getObtenerMediaXId " . $value->id . "," . $value->apikey);
+                if ($confir == 1) {
+                    $this->curlVerificaVideosLiquidXId($id);
+                    $retorno = Liquid::uploadVideoLiquid($value->id, $value->apikey);
+                    Log::erroLog("retorno de upload video: " . $retorno);
 
-                    $contador = 0;
-                    BUSQUEDAMEDIA:
-
-                    sleep(300);
-                    $mediaarray = Liquid::getObtenerMediaXId($value->id, $value->apikey);
-
-                    if ($mediaarray != FALSE) {
-                        $mediaxml = new SimpleXMLElement($mediaarray);
-                        $mediaarr = json_decode(json_encode($mediaxml), TRUE);
-
-                        $media = Liquid::getObtenerMedia($mediaarr, $value->id);
-
-                        Log::erroLog("Media encontrada: " . $media);
-
-                        if (!empty($media)) {
-                            Log::erroLog("entro a : updateMediaVideosXId por error" . $value->id . "/" . $media);
-                            $ruta = base_url("curlproceso/updateMediaVideosXId/" . $value->id . "/" . $media);
-                            shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");
-                        } else {
-
-                            if ($contador == 10) {
-                                //$this->videos_mp->setEstadosVideos($value->id, $this->config->item('v_e:error'), $this->config->item('v_l:subiendo'));
-                                $this->curlUpdateEstadoVideosXId($value->id, $this->config->item('v_e:error'), $this->config->item('v_l:subiendo'));
-                            } else {
-                                $contador++;
-                                goto BUSQUEDAMEDIA;
-                            }
-                        }
+                    if (!empty($retorno)) {
+                        Log::erroLog("entro a : updateMediaVideosXId " . $value->id . "/" . $retorno);
+                        $ruta = base_url("curlproceso/updateMediaVideosXId/" . $value->id . "/" . $retorno);
+                        shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");
+                        Log::erroLog("return media " . trim($retorno));
                     } else {
-                        //$this->videos_mp->setEstadosVideos($value->id, $this->config->item('v_e:error'), $this->config->item('v_l:subiendo'));
-                        $this->curlUpdateEstadoVideosXId($value->id, $this->config->item('v_e:error'), $this->config->item('v_l:subiendo'));
+                        Log::erroLog("exception de upload  getObtenerMediaXId " . $value->id . "," . $value->apikey);
+
+                        $contador = 0;
+                        BUSQUEDAMEDIA:
+
+                        sleep(300);
+                        $mediaarray = Liquid::getObtenerMediaXId($value->id, $value->apikey);
+
+                        if ($mediaarray != FALSE) {
+                            $mediaxml = new SimpleXMLElement($mediaarray);
+                            $mediaarr = json_decode(json_encode($mediaxml), TRUE);
+
+                            $media = Liquid::getObtenerMedia($mediaarr, $value->id);
+
+                            Log::erroLog("Media encontrada: " . $media);
+
+                            if (!empty($media)) {
+                                Log::erroLog("entro a : updateMediaVideosXId por error" . $value->id . "/" . $media);
+                                $ruta = base_url("curlproceso/updateMediaVideosXId/" . $value->id . "/" . $media);
+                                shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");
+                            } else {
+
+                                if ($contador == 10) {
+                                    //$this->videos_mp->setEstadosVideos($value->id, $this->config->item('v_e:error'), $this->config->item('v_l:subiendo'));
+                                    $this->curlUpdateEstadoVideosXId($value->id, $this->config->item('v_e:error'), $this->config->item('v_l:subiendo'));
+                                } else {
+                                    $contador++;
+                                    goto BUSQUEDAMEDIA;
+                                }
+                            }
+                        } else {
+                            //$this->videos_mp->setEstadosVideos($value->id, $this->config->item('v_e:error'), $this->config->item('v_l:subiendo'));
+                            $this->curlUpdateEstadoVideosXId($value->id, $this->config->item('v_e:error'), $this->config->item('v_l:subiendo'));
+                        }
                     }
                 }
             }
-        }
         }
     }
 
@@ -341,7 +341,7 @@ class Procesos_lib extends MX_Controller {
         //echo print_r($resultado) . "\n";
         if (count($resultado) > 0) {
             foreach ($resultado as $value) {
-                
+
                 $value->titulo = limpiar_caracteres($value->titulo);
                 $value->descripcion = limpiar_caracteres($value->descripcion);
 
@@ -411,10 +411,10 @@ class Procesos_lib extends MX_Controller {
 //                }
 
                 if ($value->imag == 0) {
-                    
+
                     $tipo_imagenes = $this->tipo_imagenes_mp->getTipoImagenes();
 
-                    $imagenes = Liquid::getimagenesLiquid($mediaarr,$tipo_imagenes);
+                    $imagenes = Liquid::getimagenesLiquid($mediaarr, $tipo_imagenes);
 
                     if (count($imagenes) > 0) {
                         $imagenpadre = NULL;
@@ -449,11 +449,11 @@ class Procesos_lib extends MX_Controller {
                 if ((!empty($value->ruta) || !empty($urlvideo) || !empty($duracion) ) && ($value->imag != 0 || !empty($datos["imagen"]))) {
                     $this->videos_mp->setEstadosVideos($value->id, $this->config->item('v_e:publicado'), $this->config->item('v_l:publicado'));
                     Log::erroLog(" antes de actualizar_video: " . $id);
-                    if(isset($value->postback_url) && ($value->procedencia  == $this->config->item('proce:widget'))){
-                      Log::erroLog("Enviando actualizacion de estado a canal de video:  " . $id);
-                      $this->envioDatos($value->postback_url,$value->id);
+                    if (isset($value->postback_url) && ($value->procedencia == $this->config->item('proce:widget'))) {
+                        Log::erroLog("Enviando actualizacion de estado a canal de video:  " . $id);
+                        $this->envioDatos($value->postback_url, $value->id);
                     }
-              
+
                     $this->curlSincronizarLibVideo($value->id);
                 }
             }
@@ -503,15 +503,34 @@ class Procesos_lib extends MX_Controller {
         $this->_generarPortadasMiCanalXId($id);
         Log::erroLog("paso: " . $id);
     }
+    
+    public function curlGenerarPortadasMiCanalXIdOrigen($id) {
+        Log::erroLog("ini - curlGenerarPortadasMiCanalXIdOrigen: " . $id);
+        $ruta = base_url("curlproceso/generarPortadasMiCanalXIdOrigen/" . $id);
+        Log::erroLog($ruta);
+        shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");
+    }
 
-    public function generarPortadasMiCanalXId($id) {
-        $this->_generarPortadasMiCanalXId($id);
+    public function generarPortadasMiCanalXIdOrigen($id) {
+        $this->_generarPortadasMiCanalXIdOrigen($id);
+    }
+    
+    private function _generarPortadasMiCanalXIdOrigen($id){
+        $portadas =  $this->portadas_mp->getPortadasXIdOrigen($id);
+
+        foreach ($portadas as $portada) {
+            $this->_generarPortadasMiCanalXId($portada->id);
+        }
     }
 
     public function curlGenerarPortadasMiCanalXId($id) {
         Log::erroLog("ini - curlGenerarCanalesXId: " . $id);
         $ruta = base_url("curlproceso/generarPortadasMiCanalXId/" . $id);
         shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");
+    }
+    
+    public function generarPortadasMiCanalXId($id) {
+        $this->_generarPortadasMiCanalXId($id);
     }
 
     private function _generarPortadasMiCanalXId($id) {
@@ -524,78 +543,90 @@ class Procesos_lib extends MX_Controller {
 
 //                if ($value->estado == 1) {
 
-                    $array = array();
+                $array = array();
 
-                    $array["tipo"] = "portada";
-                    $array["nombre"] = ($value->nombre);                    
-                    $array["estado"] = ($value->estado == ESTADO_ACTIVO) ? ESTADO_ACTIVO : '0';
-
-
-                    $resquery2 = $this->micanal_mp->queryMysqlTipoPortadas($value->tipo_portadas_id, $value->origen_id);
-
-                    if (count($resquery2) > 0) {
-
-                        $row2 = $resquery2;
-
-                        if (isset($row2->nombre)) {
-                            $array["canal"] = ($row2[0]->nombre);
-                        } else {
-                            $array["canal"] = "";
-                        }
-
-                        $array["tipo_portadas_id"] = $value->tipo_portadas_id;
+                $array["tipo"] = "portada";
+                $array["nombre"] = ($value->nombre);
+                $array["estado"] = ($value->estado == ESTADO_ACTIVO) ? ESTADO_ACTIVO : '0';
 
 
-                        switch ($value->tipo_portadas_id) {
-                            case '1':
-                                $array["canal"] = ($row2[0]->nombre);
-                                $array["alias"] = "";
-                                break;
+                $imagenes = $this->imagenes_mp->getImagenesGrupoMaestrosXId($value->origen_id);
+                
+              
 
-                            case '2':
-                                $array["canal"] = ($row2[0]->nombre);
-                                $array["alias"] = $row2[0]->alias;
-                                break;
+                foreach ($imagenes as $value2) {
+                    if ($value2->procedencia == 0) {
+                        $array[$value2->nombre] = "http://" . $this->config->item('server:elemento') . "/" . $value2->imagen;
+                    } else {
+                        $array[$value2->nombre] = $value2->imagen;
+                    }
+                }
 
-                            case '4':
-                                $array["id_pro"] = $row2[0]->id;
-                                $array["canal"] = ($row2[0]->nombre);
-                                $array["alias"] = $row2[0]->alias;
-                                $array["categoria"] = $row2[0]->alias_ca;
-                                $array["programa"] = ($row2[0]->nombre);
-                                $array["descripcion"] = ($row2[0]->descripcion);
-                                break;
+                $resquery2 = $this->micanal_mp->queryMysqlTipoPortadas($value->tipo_portadas_id, $value->origen_id);
 
-                            case '5':
-                                $array["canal"] = ($row2[0]->nombre);
-                                $array["alias"] = $row2[0]->alias;
-                                $array["canal_des"] = ($row2[0]->descripcion);
-                                $array["canal_cv"] = ($row2[0]->canal_cv);
+                if (count($resquery2) > 0) {
 
-                                break;
-                        }
+                    $row2 = $resquery2;
+
+                    if (isset($row2->nombre)) {
+                        $array["canal"] = ($row2[0]->nombre);
+                    } else {
+                        $array["canal"] = "";
                     }
 
-                    $objmongo = $array;
+                    $array["tipo_portadas_id"] = $value->tipo_portadas_id;
+
+
+                    switch ($value->tipo_portadas_id) {
+                        case '1':
+                            $array["canal"] = ($row2[0]->nombre);
+                            $array["alias"] = "";
+                            break;
+
+                        case '2':
+                            $array["canal"] = ($row2[0]->nombre);
+                            $array["alias"] = $row2[0]->alias;
+                            break;
+
+                        case '4':
+                            $array["id_pro"] = $row2[0]->id;
+                            $array["canal"] = ($row2[0]->nombre);
+                            $array["alias"] = $row2[0]->alias;
+                            $array["categoria"] = $row2[0]->alias_ca;
+                            $array["programa"] = ($row2[0]->nombre);
+                            $array["descripcion"] = ($row2[0]->descripcion);
+                            break;
+
+                        case '5':
+                            $array["canal"] = ($row2[0]->nombre);
+                            $array["alias"] = $row2[0]->alias;
+                            $array["canal_des"] = ($row2[0]->descripcion);
+                            $array["canal_cv"] = ($row2[0]->canal_cv);
+
+                            break;
+                    }
+                }
+
+                $objmongo = $array;
 
 
 //                    if ($value->estado == 1) {
-                    if (!($this->micanal_mp->existe_id_mongo($value->id_mongo))) {
-                        $id_mongo = $this->micanal_mp->setItemCollection($objmongo);
-                        $this->micanal_mp->updateIdMongoPortadas($value->id, $id_mongo);
-                        $this->micanal_mp->updateEstadoMigracionPortadas($value->id);
-                    } else {//if ($value->estado_migracion == 9) {
-                        $id_mongo = new MongoId($value->id_mongo);
-                        Log::erroLog("entro a actualizar");
-                        $this->micanal_mp->setItemCollectionUpdate($objmongo, array('_id' => $id_mongo));
-                        $this->micanal_mp->updateEstadoMigracionPortadasActualizacion($value->id);
-                    }
+                if (!($this->micanal_mp->existe_id_mongo($value->id_mongo))) {
+                    $id_mongo = $this->micanal_mp->setItemCollection($objmongo);
+                    $this->micanal_mp->updateIdMongoPortadas($value->id, $id_mongo);
+                    $this->micanal_mp->updateEstadoMigracionPortadas($value->id);
+                } else {//if ($value->estado_migracion == 9) {
+                    $id_mongo = new MongoId($value->id_mongo);
+                    Log::erroLog("entro a actualizar");
+                    $this->micanal_mp->setItemCollectionUpdate($objmongo, array('_id' => $id_mongo));
+                    $this->micanal_mp->updateEstadoMigracionPortadasActualizacion($value->id);
+                }
 
-                    $this->_generarSeccionesMiCanalXPortadaXId($id);
+                $this->_generarSeccionesMiCanalXPortadaXId($id);
 
 //                    }
-                    unset($objmongo);
-                    unset($array);
+                unset($objmongo);
+                unset($array);
 //                } elseif ($value->estado == 0 || $value->estado == 2) {
 //                    //eliminacion item en coleccion micanal 
 //                    if (!empty($value->id_mongo)) {
@@ -720,7 +751,7 @@ class Procesos_lib extends MX_Controller {
                     unset($array);
                     unset($objmongo);
                 } elseif ($value->estado == 2) {
-                    if(!empty($value->mongo_se)){
+                    if (!empty($value->mongo_se)) {
                         $id_mongo = new MongoId($value->mongo_se);
                         $this->micanal_mp->setItemCollectionUpdate(array("estado" => "0"), array('_id' => $id_mongo));
                         $this->secciones_mp->updateEstadoMigracionSeccionActualizacion($value->id);
@@ -923,7 +954,7 @@ class Procesos_lib extends MX_Controller {
 
     public function curlGenerarGrupoMaestrosXId($tgm, $id) {
         Log::erroLog("ini - curlGenerarGrupoMaestroXId: " . $tgm . "/" . $id);
-        $ruta = base_url("curlproceso/generarGrupoMaestroXId/" . $tgm . "/" . $id);
+        $ruta = base_url("curlproceso/generarGrupoMaestrosXId/" . $tgm . "/" . $id);
         shell_exec("curl " . $ruta . " > /dev/null 2>/dev/null &");
     }
 
@@ -933,6 +964,7 @@ class Procesos_lib extends MX_Controller {
     }
 
     private function _generarGrupoMaestrosXId($tgm, $id) {
+         Log::erroLog("ini - _generarGrupoMaestrosXId: " . $tgm . " > " .  $id);
 
         $grupomaestro = $this->grupo_maestros_mp->getGrupoMaestroXId($tgm, $id);
 
@@ -961,10 +993,12 @@ class Procesos_lib extends MX_Controller {
                 $objmongo['estado'] = ($value->estado == ESTADO_ACTIVO) ? $value->estado : '0';
                 $objmongo['padre'] = (!empty($value->idmongo_pa)) ? $value->idmongo_pa : $value->idmongo_ca;
 
-
+                
+                
                 switch ($tgm) {
                     case 3:
                         $objmongo['nivel'] = $this->config->item('nivel:programa');
+                        $this->curlGenerarPortadasMiCanalXIdOrigen($id);
                         break;
                     case 2:
                         $objmongo['nivel'] = $this->config->item('nivel:coleccion');
@@ -1050,7 +1084,7 @@ class Procesos_lib extends MX_Controller {
 
                 $objmongo['estado'] = ($value->estado == ESTADO_ACTIVO) ? $value->estado : '0';
                 $objmongo['padre'] = "";
-                $objmongo['nivel'] = $this->config->item('nivel:canal');               
+                $objmongo['nivel'] = $this->config->item('nivel:canal');
                 $objmongo['apikey'] = $value->apikey;
                 $objmongo['playerkey'] = $value->playerkey;
                 $objmongo['cv'] = $value->canal_cv;
@@ -1145,8 +1179,8 @@ class Procesos_lib extends MX_Controller {
 
         if (count($video) > 0) {
             foreach ($video as $value) {
-                
-                $estado  = ($value->procedencia == $this->config->item('proce:widget'))?ESTADO_ACTIVO:$value->est_tra;
+
+                $estado = ($value->procedencia == $this->config->item('proce:widget')) ? ESTADO_ACTIVO : $value->est_tra;
 
                 if (($value->estado == 1 || $value->estado == 2) && $estado == ESTADO_ACTIVO) {
                     $datovideo = $this->canal_mp->queryProcedure(4, $value->id);
@@ -1352,17 +1386,17 @@ class Procesos_lib extends MX_Controller {
 //            $this->curlActualizarVideosXId($value->id);
         }
     }
-    
-    public function actualizarPadreVideos(){
+
+    public function actualizarPadreVideos() {
         $videos = $this->videos_mp->getVideosActivos();
 
         foreach ($videos as $value) {
             $this->_actualizarPadreVideos($value->id);
 //            $this->curlActualizarVideosXId($value->id);
         }
-         echo "OK";     
+        echo "OK";
     }
-    
+
     private function _actualizarPadreVideos($id) {
         Log::erroLog("_actualizarPadreVideos: " . $id);
 
@@ -1370,14 +1404,14 @@ class Procesos_lib extends MX_Controller {
 
         if (count($video) > 0) {
             foreach ($video as $value) {
-                    $objmongo['padre'] = $value->idmongo_pa;                 
-                    if (($this->canal_mp->existe_id_mongo($value->id_mongo))) {                        
-                        $MongoId = array("_id" => new MongoId($value->id_mongo));
-                        $this->canal_mp->setItemCollectionUpdate($objmongo, $MongoId);
-                        $this->canal_mp->updateEstadoMigracionVideosActualizacion($value->id);
-                    }
+                $objmongo['padre'] = $value->idmongo_pa;
+                if (($this->canal_mp->existe_id_mongo($value->id_mongo))) {
+                    $MongoId = array("_id" => new MongoId($value->id_mongo));
+                    $this->canal_mp->setItemCollectionUpdate($objmongo, $MongoId);
+                    $this->canal_mp->updateEstadoMigracionVideosActualizacion($value->id);
+                }
             }
-        }                
+        }
     }
 
     public function curlActualizarVideosXId($id) {
@@ -1502,7 +1536,7 @@ class Procesos_lib extends MX_Controller {
 
             foreach ($listavideos as $value) {
                 $videos = $this->videos_mp->getVideosxCodigo($value["id"]);
-                if(isset($videos[0])) {
+                if (isset($videos[0])) {
                     if (!empty($videos[0]->codigo) && !empty($videos[0]->apikey)) {
                         Liquid::updatePublishedNode($videos[0]);
                     }
@@ -1550,26 +1584,26 @@ class Procesos_lib extends MX_Controller {
 
     private function _obtenerVideoYoutube($id, $v) {
         $data = Youtube::obtenerVideo($v);
-        
-        Log::erroLog("data video $id " .$data);
+
+        Log::erroLog("data video $id " . $data);
 
         if (!empty($data)) {
 
             $this->videos_mp->setEstadosVideos($id, $this->config->item('v_e:codificando'), $this->config->item('v_l:codificando'));
             $retorno = Youtube::descargaVideo($id, $data);
-            
+
             if ($retorno) {
-                $retorno = $this->curlUpdateEstadoVideosXId($id, $this->config->item('v_e:codificando'), $this->config->item('v_l:codificado'));                
+                $retorno = $this->curlUpdateEstadoVideosXId($id, $this->config->item('v_e:codificando'), $this->config->item('v_l:codificado'));
                 if (trim($retorno) === "OK") {
                     $this->curlUploadVideosXId($id);
                 }
             } else {
-                $this->curlUpdateEstadoVideosXId($id, $this->config->item('v_e:error'),$this->config->item('v_l:nuevo'));
+                $this->curlUpdateEstadoVideosXId($id, $this->config->item('v_e:error'), $this->config->item('v_l:nuevo'));
             }
-        }else{
-            Log::erroLog("data video $id  error de video " );
-            $this->curlUpdateEstadoVideosXId($id, $this->config->item('v_e:error'),$this->config->item('v_l:nuevo'));
-            Log::erroLog("data video $id  error de video " );
+        } else {
+            Log::erroLog("data video $id  error de video ");
+            $this->curlUpdateEstadoVideosXId($id, $this->config->item('v_e:error'), $this->config->item('v_l:nuevo'));
+            Log::erroLog("data video $id  error de video ");
         }
     }
 
@@ -1683,7 +1717,7 @@ class Procesos_lib extends MX_Controller {
         }
         fclose($file);
     }
-    
+
     public function showXml($date) {
         $ruta = $this->config->item('path:log') . $date . "_xml.txt";
 
@@ -1812,13 +1846,13 @@ class Procesos_lib extends MX_Controller {
     private function _limpiarUploadVideo() {
         $files = get_dir_file_info($this->config->item('path:video'));
         $timesemanaant = strtotime($this->config->item('time:delete:video'));
-        
-        Log::erroLog("timesemana: " . $timesemanaant );
+
+        Log::erroLog("timesemana: " . $timesemanaant);
         Log::erroLog("cantidad de archivos: " . count($files));
 
         foreach ($files as $file) {
             $octper = octal_permissions(fileperms($file["server_path"]));
-             Log::erroLog( $file['name'] . " > permiso: " . $octper);
+            Log::erroLog($file['name'] . " > permiso: " . $octper);
 
             if ($timesemanaant > $file['date'] && ($file["name"] != "index.html") && ($octper == "666")) {
                 umask(0);
@@ -1831,22 +1865,22 @@ class Procesos_lib extends MX_Controller {
     public function actualizarVersion($tipo, $version) {
         $this->version_mp->set_version($tipo, $version);
     }
-    
-    public function postbackliquid($xml){
-        
-         if (!empty($xml)) {
+
+    public function postbackliquid($xml) {
+
+        if (!empty($xml)) {
             $mediaxml = new SimpleXMLElement($xml);
             $mediaarr = json_decode(json_encode($mediaxml), true);
             LOG::xmlLog($mediaarr);
         }
-        
     }
-    
-    public function envioDatos($urlpostback,$id){
+
+    public function envioDatos($urlpostback, $id) {
         $url = $this->config->item('america:cms:url');
         $user = $this->config->item('america:cms:user');
         $pass = $this->config->item('america:cms:pass');
-                
-        America::envioDatos($url,$urlpostback,$user,$pass,$id);
+
+        America::envioDatos($url, $urlpostback, $user, $pass, $id);
     }
+
 }
