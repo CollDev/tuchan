@@ -9,3 +9,19 @@ div.wrap {
     border: solid 1px #ddd;
     border-top: none
 }
+.progress {
+    border: 1px solid #ddd;
+    height: 25px;
+    margin-bottom: 0px;
+    padding: 1px;
+}
+.bar {
+    border-radius: 3px;
+}
+.percent {
+    position: relative;
+    display: inline-block;
+    top: 3px;
+    left: 48%;
+    color: #142994;
+}
