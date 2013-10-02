@@ -121,6 +121,7 @@ if (!empty($_SESSION['upload_result'])) {
                                     <td><span class="label label-<?php echo $labell ?>"><?php echo $spanl; ?></span></td>
                                     <td><?php echo $video->fecha_registro; ?></td>
                                     <td>
+                                        <div class="col-12">
                                         <form class="form-horizontal upload_video" id="upload_<?php echo $video->id; ?>" role="form" enctype="multipart/form-data" action="<?php echo base_url(); ?>migrate/upload" method="post">
                                             <button id="submit_upload" type="submit" class="btn btn-primary btn-xs pull-left">Subir</button>
                                             <input type="hidden" id="titulo" name="titulo" value="<?php echo $video->titulo; ?>">
@@ -131,6 +132,7 @@ if (!empty($_SESSION['upload_result'])) {
                                             <div id="<?php echo $video->id; ?>_percent" class="percent">0%</div>
                                         </div>
                                         <div id="<?php echo $video->id; ?>_status"></div>
+                                        </div>
                                     </td>
                                 </tr>
 <?php

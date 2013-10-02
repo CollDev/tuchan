@@ -42,7 +42,6 @@ $(document).on('ready', function(){
 
         $('form#' + $form_id).ajaxForm({
             beforeSend: function() {
-                alert('beforeSend');
                 progress.slideDown();
                 percent.slideDown();
                 status.empty();
@@ -51,22 +50,22 @@ $(document).on('ready', function(){
                 percent.html(percentVal);
             },
             uploadProgress: function(event, position, total, percentComplete) {
-                console.log('uploadProgress');
                 var percentVal = percentComplete + '%';
                 bar.width(percentVal);
                 percent.html(percentVal);
             },
+            error: function(){
+            },
             success: function() {
-                alert('success');
                 var percentVal = '100%';
                 bar.width(percentVal);
                 percent.html(percentVal);
                 progress.slideUp(1000);
                 percent.slideUp(1000);
-                status.html('<span class="label label-warning">Procesando</span>&nbsp;<img src="/system/cms/themes/default/img/loading-small.gif" />');
+                status.html('<span class="label label-warning">Procesando</span>&nbsp;<img src="/system/cms/themes/default/img/loading-small.gif">');
             },
             complete: function(xhr) {
-                alert('complete');
+        console.log(xhr);
                 if (xhr.responseJSON.type === "success") {
                     var response = 0;
                     var intervalId = window.setInterval(

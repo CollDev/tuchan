@@ -5,6 +5,7 @@
 }
 div.wrap {
     padding: 2%;
+    padding-bottom: 0;
 }
 #tablefooter .pagination, #tablefooter .pager {
     margin: 0;
@@ -42,9 +43,6 @@ ul.pagination {
 }
 .mediasplitter {
     width: 100%;
-}
-div.wrap {
-    padding-bottom: 0;
 }
 #myModal .alert-success {
     left: 25%;
