@@ -245,7 +245,7 @@ class Procesos_lib extends MX_Controller {
     }
 
     public function curlVerificaVideosLiquidXId($id, $inten) {
-        $inten = $inten++;
+        $inten = (int)$inten + 1 ;                
         Log::erroLog("entro a : curlVerificaVideosLiquidXId" . $id);
         $ruta = base_url("curlproceso/verificaVideosLiquidXId/" . $id . "/" . $inten);
         Log::erroLog($ruta);
