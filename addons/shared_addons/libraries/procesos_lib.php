@@ -222,7 +222,7 @@ class Procesos_lib extends MX_Controller {
                     }
                     
                     sleep(30);
-                    $inten=$inten++;
+                    
                     $this->curlVerificaVideosLiquidXId($id,$inten);
                 }
             } else {
@@ -237,7 +237,7 @@ class Procesos_lib extends MX_Controller {
                     }
                     sleep(30);
                     Log::erroLog("aun sin nada curlVerificaVideosLiquidXId " . $id);
-                    $inten=$inten++;
+                   
                     $this->curlVerificaVideosLiquidXId($id, $inten);
                 }
             }
@@ -245,6 +245,7 @@ class Procesos_lib extends MX_Controller {
     }
 
     public function curlVerificaVideosLiquidXId($id, $inten) {
+        $inten = $inten++;
         Log::erroLog("entro a : curlVerificaVideosLiquidXId" . $id);
         $ruta = base_url("curlproceso/verificaVideosLiquidXId/" . $id . "/" . $inten);
         Log::erroLog($ruta);
