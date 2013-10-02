@@ -10,8 +10,13 @@ class Grupo_Maestros_mp extends CI_Model {
     protected $_view_maestro_videos = 'default_vw_maestros_videos';
 
     function getGrupoMaestro() {
-        $query = "select *  from " . $this->_table . " order by tipo_grupo_maestro_id desc";
-        return $this->db->query($query)->result();
+        $this->db
+                ->select('*')
+                ->from($this->_table)                
+                ->order_by("tipo_grupo_maestro_id", "desc");
+
+        $query = $this->db->get();
+        return $query->result();        
     }
 
     function getGrupoMaestroXId($tgm, $id) {
@@ -38,14 +43,23 @@ class Grupo_Maestros_mp extends CI_Model {
         return $this->db->query($query)->result();
     }
 
-    function getMaestroDetallesXId($id) {
-        $query = "SELECT * FROM default_cms_grupo_detalles WHERE  grupo_maestro_id =" . $id;
-        return $this->db->query($query)->result();
+    function getMaestroDetallesXId($id) {      
+         $this->db
+                ->select('*')
+                ->from($this->_table_grupo_detalles)                
+                ->where(array('grupo_maestro_id'=>$id));
+
+        $query = $this->db->get();
+        return $query->result();    
     }
 
     function updateIdMongoGrupoMaestros($id, $id_mongo) {
-        $query = "update " . $this->_table . " set id_mongo='" . $id_mongo . "' where id=" . $id;
-        $this->db->query($query);
+//        $query = "update " . $this->_table . " set id_mongo='" . $id_mongo . "' where id=" . $id;
+//        $this->db->query($query);
+        
+        $data = array('id_mongo' => $id_mongo);
+        $this->db->where('id', $id);
+        $this->db->update($this->_table, $data);
     }
 
     function updateEstadoMigracionGrupoMaestros($id) {
@@ -63,9 +77,11 @@ class Grupo_Maestros_mp extends CI_Model {
         return $this->db->query($query);
     }
 
-    public function getExisteGrupoMaestroXIdMongo($id) {
-        $query = "select * from " . $this->_table . " where id_mongo = '" . $id . "'";
-        return $this->db->query($query)->num_rows();
+    public function getExisteGrupoMaestroXIdMongo($id) {       
+         $this->db
+                ->from($this->_table)
+                ->where(array('id_mongo' => $id));
+        return $this->db->count_all_results();
     }
 
     public function getProgramasList($where = array(), $order = NULL) {

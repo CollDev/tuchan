@@ -13,14 +13,23 @@ class Secciones_mp extends CI_Model {
         return $this->db->query($query)->result();
     }
     
-    public function getSeccionesTipo6789(){
-        $query = "SELECT id FROM " .$this->_table. " se WHERE se.tipo=0 AND se.tipo_secciones_id IN (6,7,8,9)";
-        return $this->db->query($query)->result();
+    public function getSeccionesTipo6789() {
+        $this->db
+                ->select('id')
+                ->from($this->_table)
+                ->where(array('tipo' => 0))
+                ->where_in('tipo_secciones_id', array(6, 7, 8, 9));
+        $query = $this->db->get();
+        return $query->result();
     }
     
-    public function getSeccionesXPortadaId($id){
-        $query = "SELECT * FROM default_cms_secciones WHERE portadas_id=".$id;
-        return $this->db->query($query)->result();
+    public function getSeccionesXPortadaId($id) {
+        $this->db
+                ->select('*')
+                ->from($this->_table)
+                ->where(array("portadas_id" => $id));
+        $query = $this->db->get();
+        return $query->result();
     }
     
     public function updateEstadoMigracionSeccion($id){
@@ -33,9 +42,11 @@ class Secciones_mp extends CI_Model {
             $this->db->query($query);        
     }
     
-    public function getExisteSeccionesXIdMongo($id){
-        $query = "select * from " . $this->_table . " where id_mongo = '".$id."'";
-        return  $this->db->query($query)->num_rows();
+    public function getExisteSeccionesXIdMongo($id) {
+        $this->db
+                ->from($this->_table)
+                ->where(array("id_mongo" => $id));
+        return $this->db->count_all_results();
     }
     
     public function updateSeccionesTipo6789(){

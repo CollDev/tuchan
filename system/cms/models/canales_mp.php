@@ -10,7 +10,7 @@ class Canales_mp extends CI_Model {
 
     public function getCanales() {
         $query = "select * from " . $this->_table . " where apikey is not null and playerkey is not null";
-        return $this->db->query($query)->result();
+        return $this->db->query($query)->result();                
     }
     
     public function getCanalesDistinctApiKey(){
@@ -37,9 +37,11 @@ class Canales_mp extends CI_Model {
         return $this->db->query($query)->result();
     }
     
-    public function getExisteCanalXIdMongo($id){
-        $query = "select * from " . $this->_table . " where id_mongo = '".$id."'";
-        return  $this->db->query($query)->num_rows();
+    public function getExisteCanalXIdMongo($id) {
+        $this->db
+                ->from($this->_table)
+                ->where(array('id_mongo' => $id));
+        return $this->db->count_all_results();
     }
 
 }
