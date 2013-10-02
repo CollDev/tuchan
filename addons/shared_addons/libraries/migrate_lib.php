@@ -144,8 +144,10 @@ class migrate_lib extends MX_Controller {
                         $opened[$val["level"]-1]++; 
                 break; 
                 case "close": 
-                    $opened[$val["level"]-1]++; 
-                    unset($opened[$val["level"]]); 
+                    if(isset($opened[$val["level"]-1]) && $opened[$val["level"]-1] !== '') {
+                        $opened[$val["level"]-1]++; 
+                        unset($opened[$val["level"]]);
+                    }
                 break; 
             } 
         } 
