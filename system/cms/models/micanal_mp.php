@@ -193,7 +193,7 @@ class MiCanal_mp extends CI_Model {
     }
 
     public function SetItemCollectionUpdate($set, $where) {
-        $result = $this->mongo_db->where($where)->set($set)->update($this->_tabla);
+        $this->mongo_db->where($where)->set($set)->update($this->_tabla);
     }
 
     public function SetItemCollectionDelete($id_mongo) {

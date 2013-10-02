@@ -17,13 +17,21 @@ class Videos_mp extends CI_Model {
     protected $_table_tags = 'default_cms_tags';
 
     public function getVideos() {
-        $query = "select * from " . $this->_table . " order by id desc limit 100";
-        return $this->db->query($query)->result();
+        $this->db
+                ->from($this->_table)
+                ->order_by("id", "desc")
+                ->limit(100);
+        $query = $this->db->get();
+        return $query->result();
     }
 
     public function getVideosActivos() {
-        $query = "select id,id_mongo from " . $this->_table . " where codigo is not null and estado_liquid = 6";
-        return $this->db->query($query)->result();
+        $this->db
+                ->from($this->_table)
+                ->where(array('estado_liquid' => $this->config->item('v_l:publicado')))
+                ->where('codigo IS NOT NULL');
+        $query = $this->db->get();
+        return $query->result();
     }
 
     public function getVideosActivosPublicados() {
@@ -54,16 +62,25 @@ class Videos_mp extends CI_Model {
 
     public function getVideosxCodigo($codigo) {
 
-        $query = "SELECT vi.id,vi.titulo,vi.descripcion,vi.codigo,ca.apikey FROM " . $this->_table . " vi 
-                INNER JOIN " . $this->_table_canales . " ca ON  vi.canales_id=ca.id
-                WHERE  vi.codigo='" . $codigo . "'";
+        $this->db
+                ->select('vi.id,vi.titulo,vi.descripcion,vi.codigo,ca.apikey')
+                ->from($this->_table . " as vi")
+                ->join($this->_table_canales . ' as ca', 'vi.canales_id=ca.id', 'inner')
+                ->where(array('vi.codigo' => $codigo));
 
-        return $this->db->query($query)->result();
+        $query = $this->db->get();
+        return $query->result();
     }
 
     public function getVideosxIdConKey($id) {
-        $query = "SELECT vi.*,ca.id as 'canal_id' , ca.apikey,ca.playerkey FROM default_cms_videos vi INNER JOIN default_cms_canales ca ON vi.canales_id =  ca.id WHERE vi.id=" . $id;
-        return $this->db->query($query)->result();
+        $this->db
+                ->select('vi.*,ca.id as canal_id , ca.apikey,ca.playerkey')
+                ->from($this->_table . " as vi")
+                ->join($this->_table_canales . ' as ca', 'vi.canales_id=ca.id', 'inner')
+                ->where(array('vi.id' => $id));
+
+        $query = $this->db->get();
+        return $query->result();        
     }
 
     public function getVideosXIdDatos($id) {
@@ -97,27 +114,36 @@ class Videos_mp extends CI_Model {
     }
 
     public function getVideosMp4XId($id) {
-        $query = "SELECT vi.id,ca.apikey FROM " . $this->_table . " vi 
-                INNER JOIN " . $this->_table_canales . " ca ON  vi.canales_id=ca.id
-                WHERE vi.estado_liquid=2 and vi.id=" . $id;
+        $this->db
+                ->select('vi.id,ca.apikey')
+                ->from($this->_table . " as vi")
+                ->join($this->_table_canales . ' as ca', 'vi.canales_id=ca.id', 'inner')
+                ->where(array('estado_liquid' => $this->config->item('v_l:codificado'), 'vi.id' => $id));
 
-        return $this->db->query($query)->result();
+        $query = $this->db->get();
+        return $query->result();
     }
 
     public function getVideosNoPublicados() {
-        $query = "SELECT vi.id,vi.titulo,vi.descripcion,vi.codigo,ca.apikey FROM " . $this->_table . " vi 
-                INNER JOIN " . $this->_table_canales . " ca ON  vi.canales_id=ca.id
-                WHERE vi.estado_liquid=4";
+        $this->db
+                ->select('vi.id,vi.titulo,vi.descripcion,vi.codigo,ca.apikey')
+                ->from($this->_table . " as vi")
+                ->join($this->_table_canales . ' as ca', 'vi.canales_id=ca.id', 'inner')
+                ->where(array('estado_liquid' => $this->config->item('v_l:subido')));
 
-        return $this->db->query($query)->result();
+        $query = $this->db->get();
+        return $query->result();
     }
 
     public function getVideosNoPublicadosXId($id) {
-        $query = "SELECT vi.id,vi.titulo,vi.descripcion,vi.codigo,ca.apikey FROM " . $this->_table . " vi 
-                INNER JOIN " . $this->_table_canales . " ca ON  vi.canales_id=ca.id
-                WHERE vi.estado_liquid=4 and vi.id=" . $id;
+        $this->db
+                ->select('vi.id,vi.titulo,vi.descripcion,vi.codigo,ca.apikey')
+                ->from($this->_table . " as vi")
+                ->join($this->_table_canales . ' as ca', 'vi.canales_id=ca.id', 'inner')
+                ->where(array('estado_liquid' => $this->config->item('v_l:subido'), 'vi.id' => $id));
 
-        return $this->db->query($query)->result();
+        $query = $this->db->get();
+        return $query->result();
     }
 
     public function getVideosObtenerDatos() {
@@ -139,8 +165,15 @@ class Videos_mp extends CI_Model {
     }
 
     public function getVideosMasVistosXId($cant) {
-        $query = "select id,id_mongo from " . $this->_table . " WHERE estado=2 ORDER BY reproducciones DESC LIMIT " . $cant;
-        return $this->db->query($query)->result();
+        $this->db
+                ->select('id, id_mongo')
+                ->from($this->_table)
+                ->where(array('estado' => $this->config->item('v_e:publicado')))
+                ->order_by("reproducciones", "desc")
+                ->limit($cant);
+
+        $query = $this->db->get();
+        return $query->result();
     }
 
     public function getVideoPadreXIdHijo($id) {
@@ -150,36 +183,40 @@ class Videos_mp extends CI_Model {
     }
 
     public function setReproduccionesVideosXId($id, $cant) {
-        $query = "update " . $this->_table . " set reproducciones='" . $cant . "' where id='" . $id . "'";
-        return $this->db->query($query);
+        $data = array('reproducciones' => $cant);
+        $this->db->where('id', $id);
+        $this->db->update($this->_table, $data);
     }
 
     public function setEstadosVideos($id = "", $estado = "", $estado_liquid = "") {
-        $query = "update " . $this->_table . " set estado=" . $estado . ",estado_liquid =" . $estado_liquid . " where id=" . $id ;        
-        if($estado_liquid >0 && $estado != 4){
-            $query = $query . " and estado_liquid = " . ($estado_liquid - 1);  
-        }        
-        $this->db->query($query);    
+        $query = "update " . $this->_table . " set estado=" . $estado . ",estado_liquid =" . $estado_liquid . " where id=" . $id;
+        if ($estado_liquid > 0 && $estado != 4) {
+            $query = $query . " and estado_liquid = " . ($estado_liquid - 1);
+        }
+        $this->db->query($query);
         Log::erroLog("query setEstadosVideos  " . $query);
-        return  $this->db->affected_rows();
+        return $this->db->affected_rows();
     }
 
     function setMediaVideos($id, $media) {
-        $query = "update " . $this->_table . " set codigo='" . $media . "' where id=" . $id;
-        $this->db->query($query);
-        Log::erroLog("query setEstadosVideos  " . $query);
+        $data = array('codigo' => $media);
+        $this->db->where('id', $id);
+        $this->db->update($this->_table, $data);
+        Log::erroLog("query setMediaVideos  ");
     }
 
     function setRutaVideos($id = "", $ruta = "") {
-        $query = "update " . $this->_table . " set ruta='" . $ruta . "' where id=" . $id;
-        $this->db->query($query);
-        Log::erroLog("setRutaVideos  " . $query);
+        $data = array('ruta' => $ruta);
+        $this->db->where('id', $id);
+        $this->db->update($this->_table, $data);
+        Log::erroLog("setRutaVideos  ");
     }
 
     function setRutaVideosSplitter($id = "", $ruta = "") {
-        $query = "update " . $this->_table . " set rutasplitter='" . $ruta . "' where id=" . $id;
-        $this->db->query($query);
-        Log::erroLog("setRutaVideos  " . $query);
+        $data = array('rutasplitter' => $ruta);
+        $this->db->where('id', $id);
+        $this->db->update($this->_table, $data);
+        Log::erroLog("setRutaVideos  ");
     }
 
     function setDuracionVideos($id = "", $duracion = "") {
@@ -203,9 +240,12 @@ class Videos_mp extends CI_Model {
     }
 
     function getVideosClips($id) {
-
-        $query = "SELECT id_mongo FROM default_cms_videos WHERE padre = " . $id;
-        return $this->db->query($query)->result();
+        $this->db
+                ->select("id_mongo")
+                ->from($this->_table)
+                ->where(array('padre' => $id));
+        $query = $this->db->get();
+        return $query->result();
     }
 
     function getShowProcedure() {
@@ -221,8 +261,11 @@ class Videos_mp extends CI_Model {
     }
 
     public function getExisteVideosXIdMongo($id) {
-        $query = "select * from " . $this->_table . " where id_mongo = '" . $id . "'";
-        return $this->db->query($query)->num_rows();
+
+        $this->db
+                ->from($this->_table)
+                ->where(array('id_mongo' => $id));
+        return $this->db->count_all_results();
     }
 
     public function getTransmisionMenorIbope() {
@@ -243,7 +286,7 @@ class Videos_mp extends CI_Model {
                 `descripcion`,
                 `fragmento`,
                 `fecha_publicacion_inicio`,
-                `fecha_publicacion_fin`, ".
+                `fecha_publicacion_fin`, " .
 //                `fecha_transmision`,
 //                `horario_transmision_inicio`,
 //                `horario_transmision_fin`,
@@ -306,4 +349,5 @@ class Videos_mp extends CI_Model {
 
         return $objBeanVideo;
     }
+
 }

@@ -7,8 +7,11 @@ class Portadas_mp extends CI_Model {
     protected $_table = 'default_cms_portadas';
 
     public function getPortadas() {
-        $query = " SELECT * FROM " . $this->_table;
-        return $this->db->query($query)->result();
+        $this->db
+                ->select('*')
+                ->from($this->_table);
+        $query = $this->db->get();
+        return $query->result();
     }
 
     public function getPortadasXId($id) {
@@ -23,13 +26,19 @@ class Portadas_mp extends CI_Model {
     }
 
     public function getExistePortadaXIdMongo($id) {
-        $query = "select * from " . $this->_table . " where id_mongo = '" . $id . "'";
-        return $this->db->query($query)->num_rows();
+        $this->db
+                ->from($this->_table)
+                ->where(array('id_mongo' => $id));
+        return $this->db->count_all_results();
     }
 
     public function getPortadasXIdOrigen($id) {
-        $query = "select * from " . $this->_table . " where origen_id = '" . $id . "'";
-        return $this->db->query($query)->result();
+        $this->db
+                ->select('*')
+                ->from($this->_table)
+                ->where(array('origen_id' => $id));
+        $query = $this->db->get();
+        return $query->result();
     }
 
 }
