@@ -20,6 +20,7 @@ class migrate_lib extends MX_Controller {
     public function upload($file)
     {
         $form_post = $this->input->post();
+        
         $post = array(
             "name" => $form_post['titulo'],
             "file_name" => $file['video']['name'],
@@ -27,14 +28,56 @@ class migrate_lib extends MX_Controller {
             "file_size" => $file['video']['size'],
             "post_processing_status" => "live"
         );
-        $response_one = $this->ooyalaapi->post('assets', $post);
-        $response_two = $this->ooyalaapi->get('assets/' . $response_one->embed_code . '/uploading_urls');
-        $v = $this->upload_curl($response_two[0], $file['video']['tmp_name']);
-        var_dump($v);
-        $response_three = $this->ooyalaapi->put('assets/' . $response_one->embed_code . '/upload_status', array("status" => "uploaded"));
+        $preext = explode('.', $file['video']['name']);
+        $ext = end($preext);
+        $arrayExt = explode('|', 'mp4|mpg|flv|avi|wmv');
         
+        if (in_array($ext, $arrayExt)) {
+            if ($file['video']['size'] > 0 && $file['video']['size'] <= 2147483648) {
+                if (file_exists($file['video']['tmp_name']) && strlen(trim($file['video']['name'])) > 0) {
+                    $response_one = $this->ooyalaapi->post('assets', $post);
+                    $response_two = $this->ooyalaapi->get('assets/' . $response_one->embed_code . '/uploading_urls');
+                    $this->upload_curl($response_two[0], $file['video']['tmp_name']);
+                    $response_three = $this->ooyalaapi->put('assets/' . $response_one->embed_code . '/upload_status', array("status" => "uploaded"));
+                    
+                    if (isset($response_three->status) && $response_three->status == 'uploaded') {
+                        $return = array(
+                            'type' => 'success',
+                            'title' => 'Video subido con éxito.',
+                            'message' => '',
+                            'embed_code' => $response_one->embed_code
+                        );
+                    } else {
+                        $return = array(
+                            'type' => 'danger',
+                            'title' => 'Error interno.',
+                            'message' => 'Por favor repórtelo al área.',
+                        );
+                    }
+                } else {
+                    $return = array(
+                        'type' => 'danger',
+                        'title' => 'Error al subir video.',
+                        'message' => 'Por favor vuelva a intentarlo en unos minutos.',
+                    );
+                }
+            } else {
+                $return = array(
+                    'type' => 'info',
+                    'title' => 'Video muy extenso',
+                    'message' => 'El tamaño del video supera el permitido de 2GB.',
+                );
+            }
+        } else {
+            $return = array(
+                'type' => 'info',
+                'title' => 'Formato no permitido',
+                'message' => 'Por favor suba un video: mp4,mpg,flv,avi,wmv.',
+            );
+        }
+
         header("Content-Type: application/json; charset=utf-8");
-        echo json_encode($response_three);
+        echo json_encode($return);
     }
     
     public function upload_curl($upload_url, $file)
@@ -42,6 +85,8 @@ class migrate_lib extends MX_Controller {
         $ch = curl_init($upload_url);
         curl_setopt($ch, CURLOPT_POSTFIELDS, array('file' => "@$file"));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         $postResult = curl_exec($ch);
         curl_close($ch);
         if ($postResult) {
@@ -51,10 +96,14 @@ class migrate_lib extends MX_Controller {
         }
     }
     
-    public function verificar_estado($embed_code)
+    public function verificar_estado_video($embed_code)
     {
+        $response = $this->ooyalaapi->get('assets/' . $embed_code);
+        
+        header("Cache-Control: no-store, no-cache, must-revalidate");
+        header("Pragma: no-cache");
         header("Content-Type: application/json; charset=utf-8");
-        echo json_encode($this->ooyalaapi->get('assets/' . $embed_code));
+        echo json_encode($response);
     }
     
 //    //url para reproducir

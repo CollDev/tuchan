@@ -3,10 +3,23 @@ if(!session_id()) {
     session_start();
 }
 ob_start();
+if (!empty($_SESSION['upload_result'])) {
 ?>
+            <div class="alert alert-<?php echo $_SESSION['upload_result']['type'] ?> fade in">
+                <button class="close" data-dismiss="alert" type="button">×</button>
+                <strong><?php echo $_SESSION['upload_result']['title'] ?></strong>
+                <?php echo $_SESSION['upload_result']['message'] ?>
+            </div>
+<?php
+    unset($_SESSION['upload_result']);
+}
+?>
+
+            <div id="flash_message" class="alert" style="display: none;">
+                <strong id="flash_title"></strong>
+            </div>
             <ul class="nav nav-tabs">
                 <li><a href="#videos_list" data-toggle="tab">Videos</a></li>
-                <li><a href="#upload" data-toggle="tab">Subida</a></li>
             </ul>
             <div class="tab-content">
                 <div class="tab-pane fade in active" id="videos_list">
@@ -17,8 +30,8 @@ ob_start();
                                     <th>Id</th>
                                     <th>Título</th>
                                     <th>Estado</th>
-                                    <th>Estado liquid</th>
-                                    <th>Fecha registro</th>
+                                    <th width="108">Estado liquid</th>
+                                    <th width="154">Fecha registro</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -107,6 +120,20 @@ ob_start();
                                     <td><span class="label label-<?php echo $labele ?>"><?php echo $spane; ?></span></td>
                                     <td><span class="label label-<?php echo $labell ?>"><?php echo $spanl; ?></span></td>
                                     <td><?php echo $video->fecha_registro; ?></td>
+                                    <td>
+                                        <div class="col-12">
+                                        <form class="form-horizontal upload_video" id="upload_<?php echo $video->id; ?>" role="form" enctype="multipart/form-data" action="<?php echo base_url(); ?>migrate/upload" method="post">
+                                            <button id="submit_upload" type="submit" class="btn btn-primary btn-xs pull-left">Subir</button>
+                                            <input type="hidden" id="titulo" name="titulo" value="<?php echo $video->titulo; ?>">
+                                            <input type="file" id="video" name="video">
+                                        </form>
+                                        <div id="<?php echo $video->id; ?>_progress" class="progress progress-striped active" style="display: none;">
+                                            <div id="<?php echo $video->id; ?>_bar" class="bar progress-bar"></div>
+                                            <div id="<?php echo $video->id; ?>_percent" class="percent">0%</div>
+                                        </div>
+                                        <div id="<?php echo $video->id; ?>_status"></div>
+                                        </div>
+                                    </td>
                                 </tr>
 <?php
                                 }
@@ -114,27 +141,6 @@ ob_start();
                             </tbody>
                         </table>
                     </div>
-                </div>
-                <div class="tab-pane fade" id="upload">
-                    <form class="form-horizontal" id="upload_video" role="form" enctype="multipart/form-data" action="<?php echo base_url(); ?>migrate/upload" method="post">
-                        <div class="form-group">
-                            <label for="titulo" class="col-sm-2 control-label">Título</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="titulo" name="titulo">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="video" class="col-sm-2 control-label">Video</label>
-                            <div class="col-sm-10">
-                                <input type="file" id="video" name="video">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
-                                <button id="submit_upload" type="submit" class="btn btn-primary">Subir</button>
-                            </div>
-                        </div>
-                    </form>
                 </div>
             </div>
 <?php
