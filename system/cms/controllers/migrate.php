@@ -11,6 +11,12 @@ class migrate extends MX_Controller {
         $this->load->library("migrate_lib");
     }
     
+    public function getLiquidApi()
+    {
+        return $this->migrate_lib->getLiquidApi();
+    }
+
+
     public function widget()
     {
         $objVideos = $this->migrate_lib->getVideosList();

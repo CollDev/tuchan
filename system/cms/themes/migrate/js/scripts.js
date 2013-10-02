@@ -65,7 +65,6 @@ $(document).on('ready', function(){
                 status.html('<span class="label label-warning">Procesando</span>&nbsp;<img src="/system/cms/themes/default/img/loading-small.gif">');
             },
             complete: function(xhr) {
-        console.log(xhr);
                 if (xhr.responseJSON.type === "success") {
                     var response = 0;
                     var intervalId = window.setInterval(

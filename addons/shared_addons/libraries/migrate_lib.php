@@ -11,6 +11,14 @@ class migrate_lib extends MX_Controller {
         $this->load->model('videos/videos_m');
         $this->load->library('OoyalaApi', array('apiKey' => OOYALA_API_KEY, 'secretKey' => OOYALA_API_SECRET, 'options' => array()));
     }
+    
+    public function getLiquidApi()
+    {
+        $return = shell_exec('curl http://fast.api.liquidplatform.com/2.0/medias/?key=301c1e9aaadb739b6872abd1fce8ecda');
+        
+        header("Content-Type: application/json; charset=utf-8");
+        echo json_encode($return);
+    }
 
     public function getVideosList()
     {
