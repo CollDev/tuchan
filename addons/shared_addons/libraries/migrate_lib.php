@@ -161,10 +161,9 @@ class migrate_lib extends MX_Controller {
         return $array;
     }
     
-    public function wget($url)
+    public function wget()
     {
-        var_dump($_GET);exit;
-        file_put_contents("/tmp/kernel.tar.xz", fopen($url, 'r'));
+        file_put_contents("/tmp/kernel.tar.xz", fopen($_GET['url'], 'r'));
         
         return 'downloaded';
     }
