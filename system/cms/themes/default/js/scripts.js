@@ -605,3 +605,6 @@ $(document).on('ready', function() {
         } 
     }, false);
 });
+$(document).on('click', 'table#table th', function(){
+    $(".iframe").colorbox({iframe:true, width:"80%", height:"80%"});
+});
