@@ -14,7 +14,6 @@ if (!empty($_SESSION['upload_result'])) {
     unset($_SESSION['upload_result']);
 }
 ?>
-
             <div id="flash_message" class="alert" style="display: none;">
                 <strong id="flash_title"></strong>
             </div>
@@ -23,7 +22,7 @@ if (!empty($_SESSION['upload_result'])) {
             </ul>
             <div class="tab-content">
                 <div class="tab-pane fade in active" id="videos_list">
-                    <div class="table-responsive">
+                    <div class="table-responsive">.
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
@@ -36,6 +35,7 @@ if (!empty($_SESSION['upload_result'])) {
                             </thead>
                             <tbody>
 <?php
+                                $rutasplitter = array();
                                 foreach ($videos as $video) {
                                     switch ($video->estado_liquid) {
                                         case 0:
@@ -102,6 +102,7 @@ if (!empty($_SESSION['upload_result'])) {
                                     $estado_array = array("0", "3", "4");
                                     if ($video->estado_liquid == 6 && $video->estado == 2) {
                                         $tr = 'success';
+                                        $rutasplitter[] = $video->rutasplitter;
                                     } else if (in_array($video->estado_liquid, $liquid_array, false)) {
                                         $tr = 'warning';
                                         if (!in_array($video->estado, $estado_array, false)) {
@@ -121,11 +122,11 @@ if (!empty($_SESSION['upload_result'])) {
                                     <td><span class="label label-<?php echo $labell ?>"><?php echo $spanl; ?></span></td>
                                     <td><?php echo $video->fecha_registro; ?></td>
                                     <td>
-                                        <div class="col-12">
+                                        <div class="col-12" style="position: relative;">
                                         <form class="form-horizontal upload_video" id="upload_<?php echo $video->id; ?>" role="form" enctype="multipart/form-data" action="<?php echo base_url(); ?>migrate/upload" method="post">
                                             <button id="submit_upload" type="submit" class="btn btn-primary btn-xs pull-left">Subir</button>
                                             <input type="hidden" id="titulo" name="titulo" value="<?php echo $video->titulo; ?>">
-                                            <input type="file" id="video" name="video">
+                                            <input type="file" id="video" name="video" value="/home/joerobles/Vídeos/1076.mp4">
                                         </form>
                                         <div id="<?php echo $video->id; ?>_progress" class="progress progress-striped active" style="display: none;">
                                             <div id="<?php echo $video->id; ?>_bar" class="bar progress-bar"></div>
@@ -143,6 +144,12 @@ if (!empty($_SESSION['upload_result'])) {
                     </div>
                 </div>
             </div>
+            <script>
+<?php
+echo '                var $videos = ' . json_encode($rutasplitter) . ';';
+?>
+
+            </script>
 <?php
 $content = ob_get_clean();
 require_once 'layout.php';

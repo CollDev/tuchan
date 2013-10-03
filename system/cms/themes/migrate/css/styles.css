@@ -22,7 +22,10 @@ div.wrap {
 .percent {
     position: absolute;
     display: inline-block;
-    top: -1px;
+    top: 3px;
     left: 48%;
     color: #142994;
+}
+div#myUploadModal {
+    position: fixed;
 }
