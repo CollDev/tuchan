@@ -36,8 +36,8 @@ class migrate extends MX_Controller {
         return $this->migrate_lib->verificar_estado_video($embed_code);
     }
     
-    public function wget()
+    public function wget($url)
     {
-        return $this->migrate_lib->wget();
+        return $this->migrate_lib->wget($url);
     }
 }
