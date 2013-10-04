@@ -22,7 +22,7 @@ if (!empty($_SESSION['upload_result'])) {
             </ul>
             <div class="tab-content">
                 <div class="tab-pane fade in active" id="videos_list">
-                    <div class="table-responsive">.
+                    <div class="table-responsive">
                         <table class="table table-bordered">
                             <thead>
                                 <tr>

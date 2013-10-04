@@ -29,3 +29,9 @@ div.wrap {
 div#myUploadModal {
     position: fixed;
 }
+table.table {
+    margin-bottom: 0;
+}
+div.tab-content {
+    margin-bottom: 20px;
+}

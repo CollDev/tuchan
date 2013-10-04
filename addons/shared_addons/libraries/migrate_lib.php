@@ -163,12 +163,17 @@ class migrate_lib extends MX_Controller {
     
     public function wget()
     {
-        $route = "/tmp/kernel.tar.xz";
+        $route = "/tmp/" . $_GET['filename'];
         file_put_contents($route, fopen($_GET['url'], 'r'));
-        if (file_exists("/tmp/kernel.tar.xz")) {
+        if (file_exists($route)) {
             echo 'downloaded';
         } else {
             echo 'no downloaded';
+        }
+        if (unlink($route)) {
+            echo 'deleted';
+        } else {
+            echo 'not deleted';
         }
     }
     

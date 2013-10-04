@@ -28,7 +28,7 @@ $(document).on('ready', function(){
         progress = $('#' + $id + '_progress');
 
         $('form#' + $form_id).ajaxForm({
-            beforeSend: function() {
+            beforeSend: function(){
                 progress.slideDown();
                 percent.slideDown();
                 status.empty();
@@ -36,14 +36,14 @@ $(document).on('ready', function(){
                 bar.width(percentVal);
                 percent.html(percentVal);
             },
-            uploadProgress: function(event, position, total, percentComplete) {
+            uploadProgress: function(event, position, total, percentComplete){
                 var percentVal = percentComplete + '%';
                 bar.width(percentVal);
                 percent.html(percentVal);
             },
             error: function(){
             },
-            success: function() {
+            success: function(){
                 var percentVal = '100%';
                 bar.width(percentVal);
                 percent.html(percentVal);
@@ -51,15 +51,15 @@ $(document).on('ready', function(){
                 percent.slideUp(1000);
                 status.html('<span class="label label-warning">Procesando</span>&nbsp;<img src="/system/cms/themes/default/img/loading-small.gif">');
             },
-            complete: function(xhr) {
+            complete: function(xhr){
                 if (xhr.responseJSON.type === "success") {
                     var response = 0;
                     var intervalId = window.setInterval(
-                    function () {
+                    function(){
                         if (response === 0) {
                             setTimeout(function(){
                                 $.getJSON("/migrate/verificar_estado_video/" + xhr.responseJSON.embed_code)
-                                .done(function(data) {
+                                .done(function(data){
                                     if (data.status == 'live') {
                                         response = 2;
                                         clearInterval(intervalId);
