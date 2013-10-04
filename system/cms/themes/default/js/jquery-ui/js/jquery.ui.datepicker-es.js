@@ -1,4 +1,7 @@
-/* Inicialización en español para la extensión 'UI date picker' para jQuery. */
+/*!
+    jQuery timepicker addon
+    Inicialización en español para la extensión 'UI date picker' para jQuery. 
+*/
 jQuery(function($){
     $.datepicker.regional['es'] = {
         closeText: 'Cerrar',

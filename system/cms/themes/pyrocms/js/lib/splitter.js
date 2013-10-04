@@ -1,3 +1,8 @@
+/*!
+
+    MediaSplitter plugin
+ 
+*/
 (function(win, $, undefined) {
   MediaSplitter = function(id, options) {
     var that = this,
@@ -58,7 +63,6 @@
           } else {
             ratio = 1;
           }
-          // player.height(player.width() * ratio);
           bindSlider();
         },
         timeUpdate: function(o) {
@@ -113,9 +117,9 @@
                 }
               }
               if (j == 0) {
-                // left handler change
+
               } else {
-                // right handler change
+
               }
               stats = vals.slice(0);
               handlers.updateVideoCutDuration();

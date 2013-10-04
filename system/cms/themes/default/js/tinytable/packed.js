@@ -1,3 +1,8 @@
+/*!
+
+    Tiny table
+
+*/
 var TINY = {};
 
 function T$(i) {

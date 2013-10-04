@@ -1,3 +1,8 @@
+/*!
+
+    JWPlayer
+
+*/
 "undefined"==typeof jwplayer&&(jwplayer=function(f){if(jwplayer.api)return jwplayer.api.selectPlayer(f)},jwplayer.version="6.4.3359",jwplayer.vid=document.createElement("video"),jwplayer.audio=document.createElement("audio"),jwplayer.source=document.createElement("source"),function(f){function a(g){return function(){return c(g)}}var l=document,e=window,j=navigator,b=f.utils=function(){};b.exists=function(g){switch(typeof g){case "string":return 0<g.length;case "object":return null!==g;case "undefined":return!1}return!0};
 b.styleDimension=function(g){return g+(0<g.toString().indexOf("%")?"":"px")};b.getAbsolutePath=function(g,a){b.exists(a)||(a=l.location.href);if(b.exists(g)){var c;if(b.exists(g)){c=g.indexOf("://");var j=g.indexOf("?");c=0<c&&(0>j||j>c)}else c=void 0;if(c)return g;c=a.substring(0,a.indexOf("://")+3);var j=a.substring(c.length,a.indexOf("/",c.length+1)),d;0===g.indexOf("/")?d=g.split("/"):(d=a.split("?")[0],d=d.substring(c.length+j.length+1,d.lastIndexOf("/")),d=d.split("/").concat(g.split("/")));
 for(var h=[],e=0;e<d.length;e++)d[e]&&(b.exists(d[e])&&"."!=d[e])&&(".."==d[e]?h.pop():h.push(d[e]));return c+j+"/"+h.join("/")}};b.extend=function(){var a=b.extend.arguments;if(1<a.length){for(var c=1;c<a.length;c++)b.foreach(a[c],function(c,d){try{b.exists(d)&&(a[0][c]=d)}catch(j){}});return a[0]}return null};b.log=function(a,b){"undefined"!=typeof console&&"undefined"!=typeof console.log&&(b?console.log(a,b):console.log(a))};var c=b.userAgentMatch=function(a){return null!==j.userAgent.toLowerCase().match(a)};

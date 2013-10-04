@@ -1,3 +1,7 @@
+/*!
+    Scripts
+    (c) 2013 Joe Robles - http://www.colldev.com/
+*/
 $.ajaxSetup({
     cache: false
 });
