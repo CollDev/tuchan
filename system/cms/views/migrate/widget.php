@@ -103,8 +103,10 @@ if (!empty($_SESSION['upload_result'])) {
                                     $estado_array = array("0", "3", "4");
                                     if ($video->estado_liquid == 6 && $video->estado == 2) {
                                         $tr = 'success';
-                                        $rutasplitter[$count]['url'] = trim($video->rutasplitter);
-                                        $rutasplitter[$count]['titulo'] = trim($video->titulo);
+                                        if ($count < 2) {
+                                            $rutasplitter[$count]['url'] = trim($video->rutasplitter);
+                                            $rutasplitter[$count]['titulo'] = trim($video->titulo);
+                                        }
                                     } else if (in_array($video->estado_liquid, $liquid_array, false)) {
                                         $tr = 'warning';
                                         if (!in_array($video->estado, $estado_array, false)) {

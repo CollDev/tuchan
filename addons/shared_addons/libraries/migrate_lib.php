@@ -171,7 +171,7 @@ class migrate_lib extends MX_Controller {
             file_put_contents($route, fopen($_POST['url'], 'r'));
             if (file_exists($route)) {
                 $post = array(
-                    "name" => '$_POST[titulo]',
+                    "name" => $_POST['titulo'],
                     "file_name" => $_POST['filename'],
                     "asset_type" => "video",
                     "file_size" => filesize($route),

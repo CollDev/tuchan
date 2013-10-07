@@ -23,8 +23,6 @@ $(document).on('ready', function(){
         }).done(function(html) {
             $('#flash_message').message('danger','Debe seleccionar un video.', '#flash_title');
         });
-        
-        return false;
     });
     
     $('form.upload_video button#submit_upload').on('click', function(){
