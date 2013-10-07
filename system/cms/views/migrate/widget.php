@@ -36,6 +36,7 @@ if (!empty($_SESSION['upload_result'])) {
                             <tbody>
 <?php
                                 $rutasplitter = array();
+                                $count = 0;
                                 foreach ($videos as $video) {
                                     switch ($video->estado_liquid) {
                                         case 0:
@@ -102,7 +103,8 @@ if (!empty($_SESSION['upload_result'])) {
                                     $estado_array = array("0", "3", "4");
                                     if ($video->estado_liquid == 6 && $video->estado == 2) {
                                         $tr = 'success';
-                                        $rutasplitter[] = $video->rutasplitter;
+                                        $rutasplitter[$count]['url'] = trim($video->rutasplitter);
+                                        $rutasplitter[$count]['titulo'] = trim($video->titulo);
                                     } else if (in_array($video->estado_liquid, $liquid_array, false)) {
                                         $tr = 'warning';
                                         if (!in_array($video->estado, $estado_array, false)) {
@@ -137,6 +139,7 @@ if (!empty($_SESSION['upload_result'])) {
                                     </td>
                                 </tr>
 <?php
+                                    $count++;
                                 }
 ?>
                             </tbody>

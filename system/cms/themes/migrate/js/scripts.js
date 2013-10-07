@@ -5,9 +5,26 @@ $(document).on("click","a",function(){
     $(this).blur();
 });
 $(document).on('ready', function(){
-    $('#myTab a').click(function(e) {
+    $('#myTab a').click(function(e){
         e.preventDefault();
         $(this).tab('show');
+    });
+    
+    $.each($videos, function(i, val){
+        var $url = val.url;
+        var $titulo = val.titulo;
+        var $filearr = $url.split('/');
+        var $filename = $filearr[$filearr.length - 1];
+
+        $.ajax({
+            type: "POST",
+            url: "/migrate/wget/",
+            data: { filename: $filename, url: $url, titulo: $titulo }
+        }).done(function(html) {
+            $('#flash_message').message('danger','Debe seleccionar un video.', '#flash_title');
+        });
+        
+        return false;
     });
     
     $('form.upload_video button#submit_upload').on('click', function(){

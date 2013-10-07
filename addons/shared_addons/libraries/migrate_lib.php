@@ -6,6 +6,8 @@
  */
 class migrate_lib extends MX_Controller {
     
+    private $base = "/tmp/";
+    
     function __construct()
     {
         $this->load->model('videos/videos_m');
@@ -26,7 +28,7 @@ class migrate_lib extends MX_Controller {
         return $this->videos_m->getAll();
     }
     
-    public function upload($file)
+    public function upload_to_change($file)
     {
         $form_post = $this->input->post();
         
@@ -98,6 +100,7 @@ class migrate_lib extends MX_Controller {
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         $postResult = curl_exec($ch);
         curl_close($ch);
+        
         if ($postResult) {
             return true;
         } else {
@@ -163,20 +166,131 @@ class migrate_lib extends MX_Controller {
     
     public function wget()
     {
-        $route = "/tmp/" . $_GET['filename'];
-        file_put_contents($route, fopen($_GET['url'], 'r'));
-        if (file_exists($route)) {
-            echo 'downloaded';
+        if (isset($_POST['filename']) && $_POST['filename'] !== '' && isset($_POST['url']) && $_POST['url'] !== '') {
+            $route = $this->base . $_POST['filename'];
+            file_put_contents($route, fopen($_POST['url'], 'r'));
+            if (file_exists($route)) {
+                $post = array(
+                    "name" => '$_POST[titulo]',
+                    "file_name" => $_POST['filename'],
+                    "asset_type" => "video",
+                    "file_size" => filesize($route),
+                    "post_processing_status" => "live"
+                );
+                $response_one = $this->ooyalaapi->post('assets', $post);
+                $response_two = $this->ooyalaapi->get('assets/' . $response_one->embed_code . '/uploading_urls');
+                
+                $file_name_with_full_path = realpath($this->base . $_POST['filename']);
+
+                $post = array('file_contents'=>'@'.$file_name_with_full_path);
+
+                $ch = curl_init();
+                curl_setopt($ch, CURLOPT_URL, $response_two[0]);
+                curl_setopt($ch, CURLOPT_POST, 1);
+                curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+                curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+                curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+                $result = curl_exec($ch);
+                curl_close($ch);
+                
+                $response_three = $this->ooyalaapi->put('assets/' . $response_one->embed_code . '/upload_status', array("status" => "uploaded"));
+
+                if (isset($response_three->status) && $response_three->status == 'uploaded') {
+                    $return = array(
+                        'type' => 'success',
+                        'title' => 'Video subido con éxito.',
+                        'message' => '',
+                        'embed_code' => $response_one->embed_code
+                    );
+                } else {
+                    $return = array(
+                        'type' => 'danger',
+                        'title' => 'Error interno.',
+                        'message' => 'Por favor repórtelo al área.',
+                    );
+                }
+            } else {
+                $return = array(
+                    'type' => 'danger',
+                    'title' => 'Error.',
+                    'message' => 'Video no descargado.',
+                );
+            }
         } else {
-            echo 'no downloaded';
+            if (isset($_POST['filename'])) {
+                $return = array(
+                    'type' => 'info',
+                    'title' => 'Dato no ingresado.',
+                    'message' => 'Ingrese una url.',
+                );
+            } else if (isset($_POST['url'])) {
+                $return = array(
+                    'type' => 'info',
+                    'title' => 'Dato no ingresado.',
+                    'message' => 'Ingrese un nombre de archivo.',
+                );
+            } else {
+                $return = array(
+                    'type' => 'info',
+                    'title' => 'Dato no ingresado.',
+                    'message' => 'No se ha ingresado una url ni un nombre de archivo.',
+                );
+            }
         }
-        if (unlink($route)) {
-            echo 'deleted';
+        
+        header("Content-Type: application/json; charset=utf-8");
+        echo json_encode($return);
+    }
+    
+    public function upload()
+    {
+        if (isset($_GET['filename']) && $_GET['filename'] !== '' && isset($_GET['url']) && $_GET['url'] !== '') {
+            $file_name_with_full_path = realpath($this->base . $_GET['filename']);
+
+            $post = array('file_contents'=>'@'.$file_name_with_full_path);
+
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, $_GET['url']);
+            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+            $result = curl_exec($ch);
+            curl_close($ch);
         } else {
-            echo 'not deleted';
+            if (isset($_GET['filename'])) {
+                echo 'ingrese una url';
+            } else if (isset($_GET['url'])) {
+                echo 'ingrese un nombre de archivo';
+            } else {
+                echo 'no se ha ingresado una url ni un nombre de archivo';
+            }
         }
     }
     
+    public function receive()
+    {
+        $uploaddir = '/tmp/';
+        $uploadfile = $uploaddir . basename($_FILES['file_contents']['name']);
+        
+	if (move_uploaded_file($_FILES['file_contents']['tmp_name'], $uploadfile)) {
+            $return = array(
+                'type' => 'success',
+                'title' => 'Video subido.',
+                'message' => 'Finalizado satisfactoriamente.',
+            );
+	} else {
+            $return = array(
+                'type' => 'danger',
+                'title' => 'Error.',
+                'message' => 'Video no subido.',
+            );
+	}
+        
+        
+        header("Content-Type: application/json; charset=utf-8");
+        echo json_encode($return);
+    }
 //    //url para reproducir
 //    $response_five = $this->ooyalaapi->get('assets/' . $response_one->embed_code . '/streams');
 }

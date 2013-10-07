@@ -40,4 +40,9 @@ class migrate extends MX_Controller {
     {
         return $this->migrate_lib->wget();
     }
+    
+    public function receive()
+    {
+        return $this->migrate_lib->receive();
+    }
 }
