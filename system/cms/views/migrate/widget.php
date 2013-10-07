@@ -31,6 +31,7 @@ if (!empty($_SESSION['upload_result'])) {
                                     <th>Estado</th>
                                     <th width="108">Estado liquid</th>
                                     <th width="154">Fecha registro</th>
+                                    <th>Estado</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -104,6 +105,7 @@ if (!empty($_SESSION['upload_result'])) {
                                     if ($video->estado_liquid == 6 && $video->estado == 2) {
                                         $tr = 'success';
                                         if ($count < 2) {
+                                            $rutasplitter[$count]['id'] = trim($video->id);
                                             $rutasplitter[$count]['url'] = trim($video->rutasplitter);
                                             $rutasplitter[$count]['titulo'] = trim($video->titulo);
                                         }
@@ -126,18 +128,7 @@ if (!empty($_SESSION['upload_result'])) {
                                     <td><span class="label label-<?php echo $labell ?>"><?php echo $spanl; ?></span></td>
                                     <td><?php echo $video->fecha_registro; ?></td>
                                     <td>
-                                        <div class="col-12" style="position: relative;">
-                                        <form class="form-horizontal upload_video" id="upload_<?php echo $video->id; ?>" role="form" enctype="multipart/form-data" action="<?php echo base_url(); ?>migrate/upload" method="post">
-                                            <button id="submit_upload" type="submit" class="btn btn-primary btn-xs pull-left">Subir</button>
-                                            <input type="hidden" id="titulo" name="titulo" value="<?php echo $video->titulo; ?>">
-                                            <input type="file" id="video" name="video" value="/home/joerobles/Vídeos/1076.mp4">
-                                        </form>
-                                        <div id="<?php echo $video->id; ?>_progress" class="progress progress-striped active" style="display: none;">
-                                            <div id="<?php echo $video->id; ?>_bar" class="bar progress-bar"></div>
-                                            <div id="<?php echo $video->id; ?>_percent" class="percent">0%</div>
-                                        </div>
                                         <div id="<?php echo $video->id; ?>_status"></div>
-                                        </div>
                                     </td>
                                 </tr>
 <?php

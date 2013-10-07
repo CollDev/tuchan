@@ -11,6 +11,7 @@ $(document).on('ready', function(){
     });
     
     $.each($videos, function(i, val){
+        var $id = val.id;
         var $url = val.url;
         var $titulo = val.titulo;
         var $filearr = $url.split('/');
@@ -21,7 +22,7 @@ $(document).on('ready', function(){
             url: "/migrate/wget/",
             data: { filename: $filename, url: $url, titulo: $titulo }
         }).done(function(html) {
-            $('#flash_message').message('danger','Debe seleccionar un video.', '#flash_title');
+            $($id + '_status').html('<span class="label label-warning">Procesando</span>&nbsp;<img src="/system/cms/themes/default/img/loading-small.gif">');
         });
     });
     
