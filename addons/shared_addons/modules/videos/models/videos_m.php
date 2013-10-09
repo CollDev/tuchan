@@ -360,7 +360,7 @@ class Videos_m extends MY_Model {
         $canales_id = $this->db->query($query, array($key_canal))->result();
         
         $query = "SELECT * FROM " .$this->_table ." WHERE `canales_id` = ? ORDER BY `id` DESC;";
-        $result = $this->db->query($query, array($canales_id))->result();
+        $result = $this->db->query($query, array($canales_id['id']))->result();
         
         return $result;
     }
