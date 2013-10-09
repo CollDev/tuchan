@@ -19,37 +19,37 @@ $(document).on('ready', function(){
             url: "/migrate/wget/",
             data: { filename: $filearr[$filearr.length - 1], url: $url, titulo: val.titulo }
         }).done(function(xhr) {
-            console.log(xhr);
-            $('#' + val.id + '_status').html('<span class="label label-warning">Procesando</span>&nbsp;<img src="/system/cms/themes/default/img/loading-small.gif">');
+            var $status = $('#' + val.id + '_status');
+            $status.html('<span class="label label-warning">Procesando</span>&nbsp;<img src="/system/cms/themes/default/img/loading-small.gif">');
             var response = 0;
             var intervalId = window.setInterval(
             function(){
                 if (response === 0) {
                     setTimeout(function(){
-                        $.getJSON("/migrate/verificar_estado_video/" + xhr.responseJSON.embed_code)
+                        $.getJSON("/migrate/verificar_estado_video/" + xhr.embed_code)
                         .done(function(data){
                             if (data.status == 'live') {
                                 response = 2;
                                 clearInterval(intervalId);
-                                status.html(
+                                $status.html(
                                    '<span class="label label-success">Publicado</span>'
                                 );
                             } else if (data.status == 'duplicate') {
                                 response = 4;
                                 clearInterval(intervalId);
-                                status.html(
+                                $status.html(
                                    '<span class="label label-info">Duplicado</span>'
                                 );
                             } else if (data.status == 'error') {
                                 response = 4;
                                 clearInterval(intervalId);
-                                status.html(
+                                $status.html(
                                    '<span class="label label-info">Error</span>'
                                 );
                             } else {
                                 response = 4;
                                 clearInterval(intervalId);
-                                status.html(
+                                $status.html(
                                    '<span class="label label-info">' + data.status + '</span>'
                                 );
                             }
