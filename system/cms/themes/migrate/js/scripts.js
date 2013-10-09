@@ -9,6 +9,11 @@ $(document).on('ready', function(){
         e.preventDefault();
         $(this).tab('show');
     });
+    $.each($videos, function(i, val){//modify
+        setTimeout(function() {
+            console.log(val);
+        },1000);
+    });
     
     $.each($videos, function(i, val){//modify
         var $url = val.url;

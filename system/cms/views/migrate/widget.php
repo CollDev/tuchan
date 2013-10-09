@@ -22,7 +22,7 @@ $total = count($videos['videos']);
                 <div class="col-sm-6"><h3>Videos <?php echo $videos['nombre']; ?></h3></div>
                 <div class="col-sm-6 text-right">
                     <h3>
-                        <span class="label label-info">
+                        <span class="label label-default">
                             <span id="elapsed">0</span>
                             <span>&nbsp;/ <?php echo $total; ?></span>
                         </span>
