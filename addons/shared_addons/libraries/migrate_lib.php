@@ -196,6 +196,7 @@ class migrate_lib extends MX_Controller {
                 $response_three = $this->ooyalaapi->put('assets/' . $response_one->embed_code . '/upload_status', array("status" => "uploaded"));
 
                 if (isset($response_three->status) && $response_three->status == 'uploaded') {
+                    unlink($file_name_with_full_path);
                     $return = array(
                         'type' => 'success',
                         'title' => 'Video subido con éxito.',

@@ -28,25 +28,25 @@ $(document).on('ready', function(){
                     setTimeout(function(){
                         $.getJSON("/migrate/verificar_estado_video/" + xhr.embed_code)
                         .done(function(data){
-                            if (data.status == 'live') {
+                            if (data.status === 'live') {
                                 response = 2;
                                 clearInterval(intervalId);
                                 $status.html(
                                    '<span class="label label-success">Publicado</span>'
                                 );
-                            } else if (data.status == 'duplicate') {
+                            } else if (data.status === 'duplicate') {
                                 response = 4;
                                 clearInterval(intervalId);
                                 $status.html(
                                    '<span class="label label-info">Duplicado</span>'
                                 );
-                            } else if (data.status == 'error') {
+                            } else if (data.status === 'error') {
                                 response = 4;
                                 clearInterval(intervalId);
                                 $status.html(
                                    '<span class="label label-info">Error</span>'
                                 );
-                            } else {
+                            } else if (data.status !== 'processing') {
                                 response = 4;
                                 clearInterval(intervalId);
                                 $status.html(
