@@ -17,9 +17,9 @@ class migrate extends MX_Controller {
     }
 
 
-    public function widget()
+    public function widget($key_canal)
     {
-        $objVideos = $this->migrate_lib->getVideosList();
+        $objVideos = $this->migrate_lib->getVideosList($key_canal);
         
         $this->template
             ->set('videos', $objVideos)

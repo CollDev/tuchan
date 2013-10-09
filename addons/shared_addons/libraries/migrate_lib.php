@@ -23,9 +23,9 @@ class migrate_lib extends MX_Controller {
         echo json_encode($return);
     }
 
-    public function getVideosList()
+    public function getVideosList($key_canal)
     {
-        return $this->videos_m->getAll();
+        return $this->videos_m->getAll($key_canal);
     }
     
     public function upload_to_change($file)
@@ -168,7 +168,7 @@ class migrate_lib extends MX_Controller {
     {
         if (isset($_POST['filename']) && $_POST['filename'] !== '' && isset($_POST['url']) && $_POST['url'] !== '') {
             $route = $this->base . $_POST['filename'];
-            file_put_contents($route, fopen($_POST['url'], 'r'));
+            file_put_contents($route, fopen($_POST['url'], 'r'));//Download
             if (file_exists($route)) {
                 $post = array(
                     "name" => $_POST['titulo'],
@@ -177,8 +177,8 @@ class migrate_lib extends MX_Controller {
                     "file_size" => filesize($route),
                     "post_processing_status" => "live"
                 );
-                $response_one = $this->ooyalaapi->post('assets', $post);
-                $response_two = $this->ooyalaapi->get('assets/' . $response_one->embed_code . '/uploading_urls');
+                $response_one = $this->ooyalaapi->post('assets', $post);//Request space
+                $response_two = $this->ooyalaapi->get('assets/' . $response_one->embed_code . '/uploading_urls');//upload url request
                 
                 $file_name_with_full_path = realpath($this->base . $_POST['filename']);
 
@@ -191,12 +191,12 @@ class migrate_lib extends MX_Controller {
                 curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
                 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
                 $result = curl_exec($ch);
-                curl_close($ch);
+                curl_close($ch);//upload
                 
-                $response_three = $this->ooyalaapi->put('assets/' . $response_one->embed_code . '/upload_status', array("status" => "uploaded"));
+                $response_three = $this->ooyalaapi->put('assets/' . $response_one->embed_code . '/upload_status', array("status" => "uploaded"));//set as uploaded
 
                 if (isset($response_three->status) && $response_three->status == 'uploaded') {
-                    unlink($file_name_with_full_path);
+                    unlink($file_name_with_full_path);//remove file
                     $return = array(
                         'type' => 'success',
                         'title' => 'Video subido con éxito.',

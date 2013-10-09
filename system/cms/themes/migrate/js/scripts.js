@@ -10,7 +10,7 @@ $(document).on('ready', function(){
         $(this).tab('show');
     });
     
-    $.each($videos, function(i, val){
+    $.each($videos, function(i, val){//modify
         var $url = val.url;
         var $filearr = $url.split('/');
         var $status = $('#' + val.id + '_status');
@@ -21,6 +21,7 @@ $(document).on('ready', function(){
             data: { filename: $filearr[$filearr.length - 1], url: $url, titulo: val.titulo }
         }).done(function(xhr) {
             $status.html('<span class="label label-warning">Procesando</span>&nbsp;<img src="/system/cms/themes/default/img/loading-small.gif">');
+            //next
             var response = 0;
             var intervalId = window.setInterval(
             function(){
