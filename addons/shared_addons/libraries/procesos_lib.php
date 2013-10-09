@@ -220,10 +220,10 @@ class Procesos_lib extends MX_Controller {
                         Log::erroLog("reincio de envio de video: " . $id);
                         $this->curlUpdateEstadoVideosXId($id, $this->config->item('v_e:codificando'), $this->config->item('v_l:codificado'));
                     }
-                    
+
                     sleep(30);
-                    
-                    $this->curlVerificaVideosLiquidXId($id,$inten);
+
+                    $this->curlVerificaVideosLiquidXId($id, $inten);
                 }
             } else {
                 Log::erroLog("si hay datos me voy a getVerificarLiquidPostUpload");
@@ -237,7 +237,7 @@ class Procesos_lib extends MX_Controller {
                     }
                     sleep(30);
                     Log::erroLog("aun sin nada curlVerificaVideosLiquidXId " . $id);
-                   
+
                     $this->curlVerificaVideosLiquidXId($id, $inten);
                 }
             }
@@ -245,7 +245,7 @@ class Procesos_lib extends MX_Controller {
     }
 
     public function curlVerificaVideosLiquidXId($id, $inten) {
-        $inten = (int)$inten + 1 ;                
+        $inten = (int) $inten + 1;
         Log::erroLog("entro a : curlVerificaVideosLiquidXId" . $id);
         $ruta = base_url("curlproceso/verificaVideosLiquidXId/" . $id . "/" . $inten);
         Log::erroLog($ruta);
@@ -284,7 +284,7 @@ class Procesos_lib extends MX_Controller {
                 $confir = $this->videos_mp->setEstadosVideos($value->id, $this->config->item('v_e:codificando'), $this->config->item('v_l:subiendo'));
 
                 if ($confir == 1) {
-                    $this->curlVerificaVideosLiquidXId($id,1);
+                    $this->curlVerificaVideosLiquidXId($id, 1);
                     $retorno = Liquid::uploadVideoLiquid($value->id, $value->apikey);
                     Log::erroLog("retorno de upload video: " . $retorno);
 
@@ -1840,6 +1840,21 @@ class Procesos_lib extends MX_Controller {
         $pass = $this->config->item('america:cms:pass');
 
         America::envioDatos($url, $urlpostback, $user, $pass, $id);
+    }
+
+    public function migracionVideosLiquid($key_canal) {
+        try {
+            $canales = $this->canales_mp->getCanalesXKeyCanal($key_canal);
+
+            foreach ($canales as $canal) {
+                $datos = Liquid::obtenerVideosXApiKey($canal->apikey);
+                
+                print_r($datos);
+                
+            }
+        } catch (Exception $exc) {
+            echo $exc->getTraceAsString();
+        }
     }
 
 }

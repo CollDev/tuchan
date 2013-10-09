@@ -10,11 +10,11 @@ class Canales_mp extends CI_Model {
 
     public function getCanales() {
         $query = "select * from " . $this->_table . " where apikey is not null and playerkey is not null";
-        return $this->db->query($query)->result();                
+        return $this->db->query($query)->result();
     }
-    
-    public function getCanalesDistinctApiKey(){
-        $query ="SELECT DISTINCT(apikey) FROM " . $this->_table . " WHERE estado = 1";
+
+    public function getCanalesDistinctApiKey() {
+        $query = "SELECT DISTINCT(apikey) FROM " . $this->_table . " WHERE estado = 1";
         return $this->db->query($query)->result();
     }
 
@@ -27,7 +27,7 @@ class Canales_mp extends CI_Model {
     }
 
     public function getCantVideosXCanalId($id) {
-        $query = "SELECT ca.*,COUNT(vi.id) as 'cv' FROM " . $this->_table . "  ca INNER JOIN " . $this->_table_videos . "	vi ON vi.canales_id = ca.id WHERE  vi.estado = ".$this->config->item("v_e:publicado")." AND vi.canales_id =" . $id;
+        $query = "SELECT ca.*,COUNT(vi.id) as 'cv' FROM " . $this->_table . "  ca INNER JOIN " . $this->_table_videos . "	vi ON vi.canales_id = ca.id WHERE  vi.estado = " . $this->config->item("v_e:publicado") . " AND vi.canales_id =" . $id;
         return $this->db->query($query)->result();
     }
 
@@ -36,12 +36,20 @@ class Canales_mp extends CI_Model {
                 (gm1 IS NULL AND gm2 IS NULL  AND gm3 IS NULL  AND tipo_grupo=2 ) OR (gm1 IS NULL AND gm2 IS NULL  AND gm3 IS NULL  AND tipo_grupo=1 ))";
         return $this->db->query($query)->result();
     }
-    
+
     public function getExisteCanalXIdMongo($id) {
         $this->db
                 ->from($this->_table)
                 ->where(array('id_mongo' => $id));
         return $this->db->count_all_results();
+    }
+
+    public function getCanalesXKeyCanal($key_canal) {
+        $this->db
+                ->from($this->_table)
+                ->where(array('key_canal' => $key_canal));
+        $query = $this->db->get();
+        return $query->result();
     }
 
 }

@@ -697,6 +697,47 @@ class Liquid {
         }
     }
 
+    function obtenerVideosXApiKey($apikey) {
+        try {
+            if (!empty($apikey)) {
+                $ini = 0;
+                $inc = 50;
+                $flat = 1;
+
+                $arraydatos = array();
+
+                do {
+                    //&filter=id;title;;thumbs;
+                    $url = APIURL . "/medias/?key=" . $apikey . "&search=published:false&first=" . $ini . "&limit=" . $inc;
+
+                    //error_log($url);
+
+                    $response = self::getCurl($url);
+                    if ($response != FALSE) {
+                        $mediaxml = new SimpleXMLElement($response);
+                        $mediaarr = json_decode(json_encode($mediaxml), true);
+
+                        foreach ($mediaarr["Media"] as $value) {
+                            array_push($arraydatos, $value);
+                        }
+
+                        $ini = $ini + $inc;
+                        //
+                        $response = FALSE;
+                    } else {
+                        break;
+                    }
+                } while (true);
+
+                return $arraydatos;
+            } else {
+                return array();
+            }
+        } catch (Exception $exc) {
+            Log::erroLog("Error en obtenerVideosXApiKey");
+        }
+    }
+
 }
 
 ?>
