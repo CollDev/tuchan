@@ -18,7 +18,7 @@ if (!empty($_SESSION['upload_result'])) {
                 <strong id="flash_title"></strong>
             </div>
             <ul class="nav nav-tabs">
-                <li><a href="#videos_list" data-toggle="tab">Videos <?php echo $videos['videos']; ?></a></li>
+                <li><a href="#videos_list" data-toggle="tab">Videos <?php echo $videos['nombre']; ?></a></li>
             </ul>
             <div class="tab-content">
                 <div class="tab-pane fade in active" id="videos_list">
