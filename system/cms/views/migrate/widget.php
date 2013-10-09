@@ -18,7 +18,7 @@ if (!empty($_SESSION['upload_result'])) {
                 <strong id="flash_title"></strong>
             </div>
             <ul class="nav nav-tabs">
-                <li><a href="#videos_list" data-toggle="tab">Videos</a></li>
+                <li><a href="#videos_list" data-toggle="tab">Videos <?php echo $videos['videos']; ?></a></li>
             </ul>
             <div class="tab-content">
                 <div class="tab-pane fade in active" id="videos_list">
@@ -38,7 +38,7 @@ if (!empty($_SESSION['upload_result'])) {
 <?php
                                 $rutasplitter = array();
                                 $count = 0;
-                                foreach ($videos as $video) {
+                                foreach ($videos['videos'] as $video) {
                                     switch ($video->estado_liquid) {
                                         case 0:
                                             $labell = 'default';

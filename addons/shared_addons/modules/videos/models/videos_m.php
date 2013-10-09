@@ -356,13 +356,12 @@ class Videos_m extends MY_Model {
 
     public function getAll($key_canal)
     {
-        $query = "SELECT `id` FROM `default_cms_canales` WHERE `key_canal` = ? ORDER BY `id` DESC;";
+        $query = "SELECT `id`, `nombre` FROM `default_cms_canales` WHERE `key_canal` = ? ORDER BY `id` DESC;";
         $canales_id = $this->db->query($query, array($key_canal))->result();
-        var_dump($canales_id[0]->id);
         $query = "SELECT * FROM " .$this->_table ." WHERE `canales_id` = ? ORDER BY `id` DESC;";
         $result = $this->db->query($query, array($canales_id[0]->id))->result();
         
-        return $result;
+        return array('videos' => $result, 'nombre' => $canales_id[0]->nombre);
     }
 }
 
