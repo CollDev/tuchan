@@ -15,59 +15,49 @@ $(document).on('ready', function(){
         var $filearr = $url.split('/');
         var $status = $('#' + val.id + '_status');
         $status.html('<span class="label label-info">Subiendo</span>&nbsp;<img src="/system/cms/themes/default/img/loading-small.gif">');
-        var response_each = 0;
-        var intervalId_each = window.setInterval(
-        function(){
-            if (response_each === 0) {
-                setTimeout(function(){
-                    $.ajax({
-                        type: "POST",
-                        url: "/migrate/wget/",
-                        data: { filename: $filearr[$filearr.length - 1], url: $url, titulo: val.titulo }
-                    }).done(function(xhr) {
-                        $status.html('<span class="label label-warning">Procesando</span>&nbsp;<img src="/system/cms/themes/default/img/loading-small.gif">');
-                        response_each = 2;
-                        clearInterval(intervalId_each);
-                        var response = 0;
-                        var intervalId = window.setInterval(
-                        function(){
-                            if (response === 0) {
-                                setTimeout(function(){
-                                    $.getJSON("/migrate/verificar_estado_video/" + xhr.embed_code)
-                                    .done(function(data){
-                                        if (data.status === 'live') {
-                                            response = 2;
-                                            clearInterval(intervalId);
-                                            $status.html(
-                                               '<span class="label label-success">Publicado</span>'
-                                            );
-                                        } else if (data.status === 'duplicate') {
-                                            response = 4;
-                                            clearInterval(intervalId);
-                                            $status.html(
-                                               '<span class="label label-info">Duplicado</span>'
-                                            );
-                                        } else if (data.status === 'error') {
-                                            response = 4;
-                                            clearInterval(intervalId);
-                                            $status.html(
-                                               '<span class="label label-info">Error</span>'
-                                            );
-                                        } else if (data.status !== 'processing') {
-                                            response = 4;
-                                            clearInterval(intervalId);
-                                            $status.html(
-                                               '<span class="label label-info">' + data.status + '</span>'
-                                            );
-                                        }
-                                    });
-                                } ,1000);
+        $.ajax({
+            type: "POST",
+            url: "/migrate/wget/",
+            data: { filename: $filearr[$filearr.length - 1], url: $url, titulo: val.titulo }
+        }).done(function(xhr) {
+            $status.html('<span class="label label-warning">Procesando</span>&nbsp;<img src="/system/cms/themes/default/img/loading-small.gif">');
+            var response = 0;
+            var intervalId = window.setInterval(
+            function(){
+                if (response === 0) {
+                    setTimeout(function(){
+                        $.getJSON("/migrate/verificar_estado_video/" + xhr.embed_code)
+                        .done(function(data){
+                            if (data.status === 'live') {
+                                response = 2;
+                                clearInterval(intervalId);
+                                $status.html(
+                                   '<span class="label label-success">Publicado</span>'
+                                );
+                            } else if (data.status === 'duplicate') {
+                                response = 4;
+                                clearInterval(intervalId);
+                                $status.html(
+                                   '<span class="label label-info">Duplicado</span>'
+                                );
+                            } else if (data.status === 'error') {
+                                response = 4;
+                                clearInterval(intervalId);
+                                $status.html(
+                                   '<span class="label label-info">Error</span>'
+                                );
+                            } else if (data.status !== 'processing') {
+                                response = 4;
+                                clearInterval(intervalId);
+                                $status.html(
+                                   '<span class="label label-info">' + data.status + '</span>'
+                                );
                             }
-                        }, 80000);
-                    });
-                }, 1000);
-            }
-        }, 1000);
+                        });
+                    },1000);
+                }
+            }, 80000);
+        });
     });
     
     $('form.upload_video button#submit_upload').on('click', function(){
