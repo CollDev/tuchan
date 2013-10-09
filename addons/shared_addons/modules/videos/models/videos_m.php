@@ -356,7 +356,7 @@ class Videos_m extends MY_Model {
 
     public function getAll($key_canal)
     {
-        $query = "SELECT * FROM ? ORDER BY id DESC WHERE `key_canal` = ?;";
+        $query = "SELECT * FROM ? WHERE `key_canal` = ? ORDER BY `id` DESC;";
         $result = $this->db->query($query, array($this->_table, $key_canal))->result();
         
         return $result;
