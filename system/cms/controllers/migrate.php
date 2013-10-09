@@ -17,13 +17,18 @@ class migrate extends MX_Controller {
     }
 
 
-    public function widget($key_canal)
+    public function widget($key_canal = false)
     {
-        $objVideos = $this->migrate_lib->getVideosList($key_canal);
-        
-        $this->template
-            ->set('videos', $objVideos)
-            ->build('migrate/widget');
+        if ($key_canal) {
+            $objVideos = $this->migrate_lib->getVideosList($key_canal);
+
+            $this->template
+                ->set('videos', $objVideos)
+                ->build('migrate/widget');
+        } else {
+            $this->template
+                ->build('cmsapi/error');
+        }
     }
     
     public function upload()
