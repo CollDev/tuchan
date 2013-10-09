@@ -13,13 +13,13 @@ $(document).on('ready', function(){
     $.each($videos, function(i, val){
         var $url = val.url;
         var $filearr = $url.split('/');
-
+        var $status = $('#' + val.id + '_status');
+        $status.html('<span class="label label-info">Subiendo</span>&nbsp;<img src="/system/cms/themes/default/img/loading-small.gif">');
         $.ajax({
             type: "POST",
             url: "/migrate/wget/",
             data: { filename: $filearr[$filearr.length - 1], url: $url, titulo: val.titulo }
         }).done(function(xhr) {
-            var $status = $('#' + val.id + '_status');
             $status.html('<span class="label label-warning">Procesando</span>&nbsp;<img src="/system/cms/themes/default/img/loading-small.gif">');
             var response = 0;
             var intervalId = window.setInterval(
