@@ -11,18 +11,51 @@ $(document).on('ready', function(){
     });
     
     $.each($videos, function(i, val){
-        var $id = val.id;
         var $url = val.url;
-        var $titulo = val.titulo;
         var $filearr = $url.split('/');
-        var $filename = $filearr[$filearr.length - 1];
 
         $.ajax({
             type: "POST",
             url: "/migrate/wget/",
-            data: { filename: $filename, url: $url, titulo: $titulo }
+            data: { filename: $filearr[$filearr.length - 1], url: $url, titulo: val.titulo }
         }).done(function(html) {
-            $($id + '_status').html('<span class="label label-warning">Procesando</span>&nbsp;<img src="/system/cms/themes/default/img/loading-small.gif">');
+            $('#' + val.id + '_status').html('<span class="label label-warning">Procesando</span>&nbsp;<img src="/system/cms/themes/default/img/loading-small.gif">');
+            var response = 0;
+            var intervalId = window.setInterval(
+            function(){
+                if (response === 0) {
+                    setTimeout(function(){
+                        $.getJSON("/migrate/verificar_estado_video/" + xhr.responseJSON.embed_code)
+                        .done(function(data){
+                            if (data.status == 'live') {
+                                response = 2;
+                                clearInterval(intervalId);
+                                status.html(
+                                   '<span class="label label-success">Publicado</span>'
+                                );
+                            } else if (data.status == 'duplicate') {
+                                response = 4;
+                                clearInterval(intervalId);
+                                status.html(
+                                   '<span class="label label-info">Duplicado</span>'
+                                );
+                            } else if (data.status == 'error') {
+                                response = 4;
+                                clearInterval(intervalId);
+                                status.html(
+                                   '<span class="label label-info">Error</span>'
+                                );
+                            } else {
+                                response = 4;
+                                clearInterval(intervalId);
+                                status.html(
+                                   '<span class="label label-info">' + data.status + '</span>'
+                                );
+                            }
+                        });
+                    },1000);
+                }
+            }, 80000);
         });
     });
     
