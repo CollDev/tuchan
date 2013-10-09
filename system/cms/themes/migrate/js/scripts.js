@@ -18,7 +18,8 @@ $(document).on('ready', function(){
             type: "POST",
             url: "/migrate/wget/",
             data: { filename: $filearr[$filearr.length - 1], url: $url, titulo: val.titulo }
-        }).done(function(html) {
+        }).done(function(xhr) {
+            console.log(xhr);
             $('#' + val.id + '_status').html('<span class="label label-warning">Procesando</span>&nbsp;<img src="/system/cms/themes/default/img/loading-small.gif">');
             var response = 0;
             var intervalId = window.setInterval(
