@@ -1889,7 +1889,7 @@ class Procesos_lib extends MX_Controller {
                         $objBeanVideo->tipo_videos_id = 1;
                         $objBeanVideo->categorias_id = 1;
                         $objBeanVideo->usuarios_id = $user_id;
-                        $objBeanVideo->canales_id = $canales->id;
+                        $objBeanVideo->canales_id = $canal->id;
                         //$objBeanVideo->fuente = $this->input->post('fuente');
                         $objBeanVideo->titulo = $this->titulo;
 //                    $objBeanVideo->alias = url_title(strtolower(convert_accented_characters($this->titulo))) . '-' . $video_id;
