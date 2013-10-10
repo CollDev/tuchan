@@ -1882,7 +1882,7 @@ class Procesos_lib extends MX_Controller {
 
                     print_r(Liquid::getTags($media));
 
-                    if (!empty($this->titulo) && !empty($this->descripcion) && !empty($this->secondurl)) {
+                    if (!empty($this->titulo) && !empty($this->secondurl)) {
                         $user_id = 1;
                         $objBeanVideo = new stdClass();
                         $objBeanVideo->id = NULL;
