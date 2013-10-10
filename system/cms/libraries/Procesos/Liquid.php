@@ -779,6 +779,7 @@ class Liquid {
                         }
 
                         $ini = $ini + $inc;
+                        break;
                     } else {
                         break;
                     }
