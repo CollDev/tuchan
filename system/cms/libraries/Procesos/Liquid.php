@@ -464,7 +464,7 @@ class Liquid {
                     foreach ($value as $value2) {
                         if ($value2["output"]["name"] != "_RAW") {
                             print_r($value2);
-                            
+
                             if ($value2["videoInfo"]["height"] < $min) {
                                 $min = $value2["videoInfo"]["height"];
                                 $video_filename = $value2["fileName"];
@@ -582,6 +582,54 @@ class Liquid {
         return $duration;
     }
 
+    function getSecondUrl($mediaarr = array()) {
+        $secondUrl = "";
+        if (!empty($mediaarr["secondUrl"])) {
+            $secondUrl = $mediaarr["secondUrl"];
+        }
+        return $secondUrl;
+    }
+
+    function getNumberOfViews($mediaarr = array()) {
+        $numberOfViews = 0;
+        if (!empty($mediaarr["numberOfViews"])) {
+            $numberOfViews = $mediaarr["numberOfViews"];
+        }
+        return $numberOfViews;
+    }
+
+    function getPostDate($mediaarr = array()) {
+        $postdate = 0;
+        if (!empty($mediaarr["postDate"])) {
+            $postdate = $mediaarr["postDate"];
+        }
+        return $postdate;
+    }
+
+    function getDescription($mediaarr = array()) {
+        $description = "";
+        if (!empty($mediaarr["description"])) {
+            $description = $mediaarr["description"];
+        }
+        return $description;
+    }
+
+    function getTitle($mediaarr = array()) {
+        $title = "";
+        if (!empty($mediaarr["title"])) {
+            $title = $mediaarr["title"];
+        }
+        return $title;
+    }
+    
+    function getTags($mediaarr = array()) {
+        $tags = "";
+        if (!empty($mediaarr["tags"])) {
+            $tags = $mediaarr["tags"];
+        }
+        return $tags;
+    }
+    
     function getPublished($mediaarr = array()) {
         if (!empty($mediaarr["published"])) {
             return (strtoupper($mediaarr["published"]) == 'TRUE') ? TRUE : FALSE;
