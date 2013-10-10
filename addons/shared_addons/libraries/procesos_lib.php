@@ -37,12 +37,14 @@ class Procesos_lib extends MX_Controller {
 
         $this->load->helper('file');
         $this->load->helper('manejo_caracteres');
+        $this->load->helper('form');
+        $this->load->helper('url');
     }
 
     public function index() {
         
     }
-    
+
     function SEC_TO_TIME($seconds) {
         $hours = floor($seconds / 3600);
         $minutes = floor($seconds % 3600 / 60);
@@ -1888,7 +1890,7 @@ class Procesos_lib extends MX_Controller {
 
 
 
-                    print_r(Liquid::getTags($media));
+//                    print_r(Liquid::getTags($media));
 
                     if (!empty($this->titulo) && !empty($this->secondurl)) {
                         $user_id = 1;
@@ -1932,10 +1934,11 @@ class Procesos_lib extends MX_Controller {
 
                         // print_r($objBeanVideo);
 
-                        $objBeanVideo = $this->videos_mp->insert_video($objBeanVideo);
+                        $objBeanVideo = $this->videos_mp->save_video($objBeanVideo);
+
 
                         echo $objBeanVideo->id . "<br>";
-                
+                        
                     }
                 }
             }
