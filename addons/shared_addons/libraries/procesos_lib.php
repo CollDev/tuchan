@@ -1902,7 +1902,7 @@ class Procesos_lib extends MX_Controller {
                         $objBeanVideo->canales_id = $canal->id;
                         //$objBeanVideo->fuente = $this->input->post('fuente');
                         $objBeanVideo->titulo = $this->titulo;
-//                    $objBeanVideo->alias = url_title(strtolower(convert_accented_characters($this->titulo))) . '-' . $video_id;
+                    $objBeanVideo->alias = url_title(strtolower(convert_accented_characters($this->titulo))) . '-' . $video_id;
                         $objBeanVideo->descripcion = $this->descripcion;
                         $objBeanVideo->fragmento = 0;
 //                    $objBeanVideo->fecha_publicacion_inicio = date("Y-m-d H:i:s", strtotime($this->input->post('fec_pub_ini')));
