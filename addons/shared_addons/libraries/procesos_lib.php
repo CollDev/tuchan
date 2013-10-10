@@ -1911,7 +1911,7 @@ class Procesos_lib extends MX_Controller {
 //                    $objBeanVideo->ubicacion = $this->input->post('ubicacion');
 //                    $objBeanVideo->fecha_actualizacion = date("Y-m-d H:i:s");
 //                    $objBeanVideo->usuario_actualizacion = $user_id;
-                        $objBeanVideo->duracion = self::SEC_TO_TIME(' . $this->duracion . ');
+                        $objBeanVideo->duracion = self::SEC_TO_TIME($this->duracion);
                         $objBeanVideo->estado_liquid = 6;
                         $objBeanVideo->fecha_registro = date("Y-m-d H:i:s");
                         $objBeanVideo->usuario_registro = $user_id;
@@ -1928,6 +1928,7 @@ class Procesos_lib extends MX_Controller {
 //                    $objBeanVideo->padre = $video_id;
                         $objBeanVideo->estado_migracion_sphinx = $this->config->item('sphinx:nuevo');
                         $objBeanVideo->procedencia = $this->config->item('procedencia:micanal');
+                        $objBeanVideo->proveedor = 1;
 
                         // print_r($objBeanVideo);
 
