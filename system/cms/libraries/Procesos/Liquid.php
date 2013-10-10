@@ -759,7 +759,8 @@ class Liquid {
                     //&filter=id;title;thumbs;
                     //search=published:false
                     $url = APIURL . "/medias/?key=" . $apikey . "&first=" . $ini . "&limit=" . $inc;
-
+                    echo $url . "<br>";
+                    
                     //error_log($url);
 
                     $response = self::getCurl($url);
