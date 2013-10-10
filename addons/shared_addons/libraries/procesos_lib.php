@@ -1851,8 +1851,10 @@ class Procesos_lib extends MX_Controller {
                 
                 foreach ($medias as $media) {
                     
-                    print_r($media);
-                    exit;
+                   echo Liquid::getUrlVideoLiquidRawLite($media)."<br>";
+                   echo Liquid::getUrlVideoLiquidRaw($media)."<br>";
+                   echo Liquid::getDurationLiquid($media)."<br>";
+                   
                 }
                 
                 
