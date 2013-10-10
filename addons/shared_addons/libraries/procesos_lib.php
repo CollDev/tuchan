@@ -42,6 +42,14 @@ class Procesos_lib extends MX_Controller {
     public function index() {
         
     }
+    
+    function SEC_TO_TIME($seconds) {
+        $hours = floor($seconds / 3600);
+        $minutes = floor($seconds % 3600 / 60);
+        $seconds = $seconds % 60;
+
+        return sprintf("%d:%02d:%02d", $hours, $minutes, $seconds);
+    }
 
     /* Corte video  -  INICIO */
 
@@ -1903,7 +1911,7 @@ class Procesos_lib extends MX_Controller {
 //                    $objBeanVideo->ubicacion = $this->input->post('ubicacion');
 //                    $objBeanVideo->fecha_actualizacion = date("Y-m-d H:i:s");
 //                    $objBeanVideo->usuario_actualizacion = $user_id;
-                        $objBeanVideo->duracion = SEC_TO_TIME(' . $this->duracion . ');
+                        $objBeanVideo->duracion = self::SEC_TO_TIME(' . $this->duracion . ');
                         $objBeanVideo->estado_liquid = 6;
                         $objBeanVideo->fecha_registro = date("Y-m-d H:i:s");
                         $objBeanVideo->usuario_registro = $user_id;
