@@ -354,7 +354,7 @@ class Videos_mp extends CI_Model {
         $this->db->insert($this->_table, $objBeanVideo);
         $objBeanVideo->id = $this->db->insert_id();
         
-        $objBeanVideo->alias = $objBeanVideo->alias . '-' . $objBeanVideo->id;
+        $objBeanVideo->alias = $objBeanVideo->alias .$objBeanVideo->id;
         $this->updateVideo($objBeanVideo->id, array('alias' => $objBeanVideo->alias));
         return $objBeanVideo;
     }
