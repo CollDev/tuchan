@@ -462,8 +462,7 @@ class Liquid {
                 } else {
                     $min = 9999;
                     foreach ($value as $value2) {
-                        if ($value2["output"]["name"] != "_RAW") {
-                            print_r($value2);
+                        if ($value2["output"]["name"] != "_RAW") {                           
 
                             if ($value2["videoInfo"]["height"] < $min) {
                                 $min = $value2["videoInfo"]["height"];
