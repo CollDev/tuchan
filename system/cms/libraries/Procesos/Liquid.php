@@ -766,7 +766,8 @@ class Liquid {
                 do {
                     //&filter=id;title;thumbs;
                     //search=published:false
-                    $url = APIURL . "/medias/?key=" . $apikey . "&limit=5&orderBy=numberOfViews&sort=desc";//"&first=" . $ini . "&limit=" . $inc;                    
+                    //"&limit=5&orderBy=numberOfViews&sort=desc";//
+                    $url = APIURL . "/medias/?key=" . $apikey . "&first=" . $ini . "&limit=" . $inc;                    
                     //error_log($url);
 
                     $response = self::getCurl($url);
@@ -779,7 +780,7 @@ class Liquid {
                         }
 
                         $ini = $ini + $inc;
-                        break;
+                     
                     } else {
                         break;
                     }
