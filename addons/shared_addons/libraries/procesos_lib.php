@@ -1934,7 +1934,7 @@ class Procesos_lib extends MX_Controller {
 
                         // print_r($objBeanVideo);
 
-                        $objBeanVideo = $this->videos_mp->save_video($objBeanVideo);
+                        $objBeanVideo = $this->videos_mp->insert_video($objBeanVideo);
 
 
                         echo $objBeanVideo->id . "<br>";
