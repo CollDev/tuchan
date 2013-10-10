@@ -622,7 +622,7 @@ class Liquid {
         return $title;
     }
     
-//    function getTags($mediaarr = array()) {
+    function getTags($mediaarr = array()) {
         $tags = "";
         if (!empty($mediaarr["tags"])) {
             $tags = $mediaarr["tags"];
