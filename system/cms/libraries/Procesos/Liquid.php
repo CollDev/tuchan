@@ -774,7 +774,7 @@ class Liquid {
 
                         $ini = $ini + $inc;
                         //
-                        $response = FALSE;
+                        break;
                     } else {
                         break;
                     }
