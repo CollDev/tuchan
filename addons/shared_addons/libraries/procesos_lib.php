@@ -1851,19 +1851,83 @@ class Procesos_lib extends MX_Controller {
 
                 foreach ($medias as $media) {
 //                    print_r($media);
+                    $this->codigo = Liquid::getId($media);
+                    echo "getId: " . $this->codigo . "<br>";
 
-                    echo "getUrlVideoLiquidRawLite: " . Liquid::getUrlVideoLiquidRawLite($media) . "<br>";
-                    echo "getUrlVideoLiquidRaw: " . Liquid::getUrlVideoLiquidRaw($media) . "<br>";
-                    echo "getDurationLiquid: " . Liquid::getDurationLiquid($media) . "<br>";
+                    $this->ruta = Liquid::getUrlVideoLiquidRawLite($media);
+                    echo "getUrlVideoLiquidRawLite: " . $this->ruta . "<br>";
 
-                    echo "getSecondUrl: " . Liquid::getSecondUrl($media) . "<br>";
-                    echo "getNumberOfViews: " . Liquid::getNumberOfViews($media) . "<br>";
-                    echo "getPostDate: " . Liquid::getPostDate($media) . "<br>";
-                    echo "getDescription: " . Liquid::getDescription($media) . "<br>";
-                    echo "getTitle: " . Liquid::getTitle($media) . "<br>";
+                    $this->rutasplitter = Liquid::getUrlVideoLiquidRawLite($media);
+                    echo "getUrlVideoLiquidRaw: " . $this->rutasplitter . "<br>";
+
+                    $this->duracion = Liquid::getDurationLiquid($media);
+                    echo "getDurationLiquid: " . $this->duracion . "<br>";
+
+                    $this->secondurl = Liquid::getSecondUrl($media);
+                    echo "getSecondUrl: " . $this->secondurl . "<br>";
+
+                    $this->reproducciones = Liquid::getNumberOfViews($media);
+                    echo "getNumberOfViews: " . $this->reproducciones . "<br>";
+
+                    $this->fecha_transmision = Liquid::getPostDate($media);
+                    echo "getPostDate: " . $this->fecha_transmision . "<br>";
+
+                    $this->descripcion = Liquid::getDescription($media);
+                    echo "getDescription: " . $this->descripcion . "<br>";
+
+                    $this->titulo = Liquid::getTitle($media);
+                    echo "getTitle: " . $this->titulo . "<br>";
+
+
 
                     print_r(Liquid::getTags($media));
-                   
+
+                    if (!empty($this->titulo) && !empty($this->descripcion) && !empty($this->secondurl)) {
+                        $user_id = 1;
+                        $objBeanVideo = new stdClass();
+                        $objBeanVideo->id = NULL;
+                        $objBeanVideo->tipo_videos_id = 1;
+                        $objBeanVideo->categorias_id = 1;
+                        $objBeanVideo->usuarios_id = $user_id;
+                        $objBeanVideo->canales_id = $canales->id;
+                        //$objBeanVideo->fuente = $this->input->post('fuente');
+                        $objBeanVideo->titulo = $this->titulo;
+//                    $objBeanVideo->alias = url_title(strtolower(convert_accented_characters($this->titulo))) . '-' . $video_id;
+                        $objBeanVideo->descripcion = $this->descripcion;
+                        $objBeanVideo->fragmento = 0;
+//                    $objBeanVideo->fecha_publicacion_inicio = date("Y-m-d H:i:s", strtotime($this->input->post('fec_pub_ini')));
+//                    $objBeanVideo->fecha_publicacion_fin = date("Y-m-d H:i:s", strtotime($this->input->post('fec_pub_fin')));
+                        $objBeanVideo->fecha_transmision = date("Y-m-d H:i:s", strtotime($this->fecha_transmision));
+//                    $objBeanVideo->horario_transmision_inicio = $this->input->post('hora_trans_ini');
+//                    $objBeanVideo->horario_transmision_fin = $this->input->post('hora_trans_fin');
+//                    $objBeanVideo->ubicacion = $this->input->post('ubicacion');
+//                    $objBeanVideo->fecha_actualizacion = date("Y-m-d H:i:s");
+//                    $objBeanVideo->usuario_actualizacion = $user_id;
+                        $objBeanVideo->duracion = 'SEC_TO_TIME(' . $this->duracion . ')';
+                        $objBeanVideo->estado_liquid = 6;
+                        $objBeanVideo->fecha_registro = date("Y-m-d H:i:s");
+                        $objBeanVideo->usuario_registro = $user_id;
+                        $objBeanVideo->estado_migracion = 0;
+//                    $objBeanVideo->estado_migracion_sphinx_tit = 0;
+//                    $objBeanVideo->estado_migracion_sphinx_des = 0;
+                        $objBeanVideo->reproducciones = $this->reproducciones;
+                        $objBeanVideo->secondurl = $this->secondurl;
+                        $objBeanVideo->estado = 2;
+
+                        $objBeanVideo->codigo = $this->codigo;
+                        $objBeanVideo->ruta = $this->ruta;
+                        $objBeanVideo->rutasplitter = $this->rutasplitter;
+//                    $objBeanVideo->padre = $video_id;
+                        $objBeanVideo->estado_migracion_sphinx = $this->config->item('sphinx:nuevo');
+                        $objBeanVideo->procedencia = $this->config->item('procedencia:micanal');
+
+                        // print_r($objBeanVideo);
+
+                        $objBeanVideo = $this->videos_mp->insert_video($objBeanVideo);
+
+                        echo $objBeanVideo->id . "<br>";
+                        break;
+                    }
                 }
             }
         } catch (Exception $exc) {

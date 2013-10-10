@@ -349,5 +349,11 @@ class Videos_mp extends CI_Model {
 
         return $objBeanVideo;
     }
+    
+    public function insert_video($objBeanVideo){
+        $this->db->insert($this->_table, $objBeanVideo);
+        $objBeanVideo->id = $this->db->insert_id();
+        return $objBeanVideo;
+    }
 
 }
