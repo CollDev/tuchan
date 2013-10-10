@@ -1847,9 +1847,14 @@ class Procesos_lib extends MX_Controller {
             $canales = $this->canales_mp->getCanalesXKeyCanal($key_canal);
 
             foreach ($canales as $canal) {
-                $datos = Liquid::obtenerVideosXApiKey($canal->apikey);
+                $medias = Liquid::obtenerVideosXApiKey($canal->apikey);
                 
-                print_r($datos);
+                foreach ($medias as $media) {
+                    
+                    print_r($media);
+                    exit;
+                }
+                
                 
             }
         } catch (Exception $exc) {
