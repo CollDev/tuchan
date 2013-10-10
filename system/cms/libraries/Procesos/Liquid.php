@@ -756,8 +756,9 @@ class Liquid {
                 $arraydatos = array();
 
                 do {
-                    //&filter=id;title;;thumbs;
-                    $url = APIURL . "/medias/?key=" . $apikey . "&search=published:false&first=" . $ini . "&limit=" . $inc;
+                    //&filter=id;title;thumbs;
+                    //search=published:false
+                    $url = APIURL . "/medias/?key=" . $apikey . "&first=" . $ini . "&limit=" . $inc;
 
                     //error_log($url);
 
