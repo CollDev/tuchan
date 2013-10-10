@@ -1850,6 +1850,7 @@ class Procesos_lib extends MX_Controller {
                 $medias = Liquid::obtenerVideosXApiKey($canal->apikey);
                 
                 foreach ($medias as $media) {
+                    print_r($media);
                     
                    echo "getUrlVideoLiquidRawLite: " .  Liquid::getUrlVideoLiquidRawLite($media)."<br>";
                    echo "getUrlVideoLiquidRaw: " . Liquid::getUrlVideoLiquidRaw($media)."<br>";
