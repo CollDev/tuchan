@@ -9,7 +9,8 @@ $(document).on('ready', function(){
         e.preventDefault();
         $(this).tab('show');
     });
-    $.each($videos, function(i, val){//modify
+    console.log($videos.length);
+    $.each($videos, function(i, val){
         console.log(val);
     });
     

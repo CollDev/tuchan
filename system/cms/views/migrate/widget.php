@@ -112,7 +112,7 @@ $total = count($videos['videos']);
                             $estado_array = array("0", "3", "4");
                             if ($video->estado_liquid == 6 && $video->estado == 2) {
                                 $tr = 'success';
-                                if ($count < 7) {
+                                if ($count < 13) {
                                     $rutasplitter[$count]['id'] = $video->id;
                                     $rutasplitter[$count]['url'] = trim($video->rutasplitter);
                                     $rutasplitter[$count]['titulo'] = trim($video->titulo);
