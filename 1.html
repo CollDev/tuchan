@@ -1,75 +1,45 @@
 <!DOCTYPE html>
 <html>
-    
-    <head>       
-    </head>
-    
-    <body>
+    <head>
+	
+	<style>
+	.oo_promo {
+	background-image: url(http://img.juegosyolimpicos.com/wp-content/uploads/2008/08/imagen-dia-12-adam-pretty.jpg) !important;
+	} 
 
+</style>
+    </head>
+    <body>
         <!-- <script src='http://player.ooyala.com/v3/playerId'></script> -->
         <script src='http://player.ooyala.com/v3/d97f04a6a549457290d81d0fbbb038b5?platform=html5'>
     </script>
-   
+    <div id='ooyalaplayer' style="width: 100%; height: 100%;">
+    </div>
     <script>
-    /*
-function onCreate(player) {
-  // Everything you do with the player should be done either in onCreate
-  // or as listeners on the message bus
-  // to ensure that the player is in the correct state.
-  console.log("-- onCreate");
-  player.mb.subscribe('*','myPage', function(eventName) {
-    console.log("RECEIVED EVENT: "+eventName);
-
-  // Player embedded parameters go here
-
-  });
-
-  // Preserve message bus
-  window.mb = player.mb;
-
-  // Error handling listener
-  // Subscribe to error event
-  mb.subscribe("error", "test-plugin", function(eventName, payload) {
-    console.log(eventName+": "+payload);
-  });
-}
-
-
     OO.ready(function() {
 
        var myPlayer =   OO.Player.create(
             'ooyalaplayer', 
-            'VpYXVvZTpcLaLy5nyejHETJJivLC1rpr',
+            'AxYm10ZjpIKd7WLwjVcFCfUI7KVbnCgs',
             {
                 height:'320px',
-                width:'480px',   
-
-                'vast':{
-                                tagUrl:'http://ad3.liverail.com/?LR_PUBLISHER_ID=1331&LR_CAMPAIGN_ID=229&LR_SCHEMA=vast2'
-                            },
-                                            autoplay:false,
-                onCreate: window.onCreate        
+                width:'480px',               
+				'vast':{
+					tagUrl: 'http://ad3.liverail.com/?LR_PUBLISHER_ID=1331&LR_CAMPAIGN_ID=229&LR_SCHEMA=vast2',         
+				}		
             }
         );
+		
+// myPlayer.play();
 
-    
+     //myPlayer.skipAd();
+	 
+	 
+	 
 
     });
-
-*/
- OO.ready(function() {
-var videoPlayer = OO.Player.create('ooyalaplayer','AxYm10ZjpIKd7WLwjVcFCfUI7KVbnCgs',
-{
-    height:'240px',
-    width:'320px',
-    'vast': {
-        tagUrl: 'http://ad3.liverail.com/?LR_PUBLISHER_ID=1331&LR_CAMPAIGN_ID=229&LR_SCHEMA=vast2'        
-    }
-  });
-});
     </script>
-     <div id='ooyalaplayer'>
-    </div>
+
     </body>
 
 </html>
