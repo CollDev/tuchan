@@ -37,10 +37,20 @@ class Procesos_lib extends MX_Controller {
 
         $this->load->helper('file');
         $this->load->helper('manejo_caracteres');
+        $this->load->helper('form');
+        $this->load->helper('url');
     }
 
     public function index() {
         
+    }
+
+    function SEC_TO_TIME($seconds) {
+        $hours = floor($seconds / 3600);
+        $minutes = floor($seconds % 3600 / 60);
+        $seconds = $seconds % 60;
+
+        return sprintf("%d:%02d:%02d", $hours, $minutes, $seconds);
     }
 
     /* Corte video  -  INICIO */
@@ -220,10 +230,10 @@ class Procesos_lib extends MX_Controller {
                         Log::erroLog("reincio de envio de video: " . $id);
                         $this->curlUpdateEstadoVideosXId($id, $this->config->item('v_e:codificando'), $this->config->item('v_l:codificado'));
                     }
-                    
+
                     sleep(30);
-                    
-                    $this->curlVerificaVideosLiquidXId($id,$inten);
+
+                    $this->curlVerificaVideosLiquidXId($id, $inten);
                 }
             } else {
                 Log::erroLog("si hay datos me voy a getVerificarLiquidPostUpload");
@@ -237,7 +247,7 @@ class Procesos_lib extends MX_Controller {
                     }
                     sleep(30);
                     Log::erroLog("aun sin nada curlVerificaVideosLiquidXId " . $id);
-                   
+
                     $this->curlVerificaVideosLiquidXId($id, $inten);
                 }
             }
@@ -245,7 +255,7 @@ class Procesos_lib extends MX_Controller {
     }
 
     public function curlVerificaVideosLiquidXId($id, $inten) {
-        $inten = (int)$inten + 1 ;                
+        $inten = (int) $inten + 1;
         Log::erroLog("entro a : curlVerificaVideosLiquidXId" . $id);
         $ruta = base_url("curlproceso/verificaVideosLiquidXId/" . $id . "/" . $inten);
         Log::erroLog($ruta);
@@ -284,7 +294,7 @@ class Procesos_lib extends MX_Controller {
                 $confir = $this->videos_mp->setEstadosVideos($value->id, $this->config->item('v_e:codificando'), $this->config->item('v_l:subiendo'));
 
                 if ($confir == 1) {
-                    $this->curlVerificaVideosLiquidXId($id,1);
+                    $this->curlVerificaVideosLiquidXId($id, 1);
                     $retorno = Liquid::uploadVideoLiquid($value->id, $value->apikey);
                     Log::erroLog("retorno de upload video: " . $retorno);
 
@@ -1193,6 +1203,7 @@ class Procesos_lib extends MX_Controller {
                     $objmongo['fragmento'] = (int) ($value->fragmento);
                     $objmongo['valoracion'] = $datovideo[0]->xvi_val;
                     $objmongo['publicidad'] = "0";
+                    $objmongo['proveedor'] = $datovideo[0]->proveedor;
                     $objmongo['estado'] = ($value->estado == 2) ? "1" : "0";
 
                     if (!empty($datovideo[0]->xprogramaalias)) {
@@ -1840,6 +1851,100 @@ class Procesos_lib extends MX_Controller {
         $pass = $this->config->item('america:cms:pass');
 
         America::envioDatos($url, $urlpostback, $user, $pass, $id);
+    }
+
+    public function migracionVideosLiquid($key_canal) {
+        try {
+            $canales = $this->canales_mp->getCanalesXKeyCanal($key_canal);
+
+            foreach ($canales as $canal) {
+                $medias = Liquid::obtenerVideosXApiKey($canal->apikey);
+
+                foreach ($medias as $media) {
+//                    print_r($media);
+                    $this->codigo = Liquid::getId($media);
+                    echo "getId: " . $this->codigo . "<br>";
+
+                    $this->ruta = Liquid::getUrlVideoLiquidRawLite($media);
+                    echo "getUrlVideoLiquidRawLite: " . $this->ruta . "<br>";
+
+                    $this->rutasplitter = Liquid::getUrlVideoLiquidRawLite($media);
+                    echo "getUrlVideoLiquidRaw: " . $this->rutasplitter . "<br>";
+
+                    $this->duracion = Liquid::getDurationLiquid($media);
+                    echo "getDurationLiquid: " . $this->duracion . "<br>";
+
+                    $this->secondurl = Liquid::getSecondUrl($media);
+                    echo "getSecondUrl: " . $this->secondurl . "<br>";
+
+                    $this->reproducciones = Liquid::getNumberOfViews($media);
+                    echo "getNumberOfViews: " . $this->reproducciones . "<br>";
+
+                    $this->fecha_transmision = Liquid::getPostDate($media);
+                    echo "getPostDate: " . $this->fecha_transmision . "<br>";
+
+                    $this->descripcion = Liquid::getDescription($media);
+                    echo "getDescription: " . $this->descripcion . "<br>";
+
+                    $this->titulo = Liquid::getTitle($media);
+                    echo "getTitle: " . $this->titulo . "<br>";
+
+
+
+//                    print_r(Liquid::getTags($media));
+
+                    if (!empty($this->titulo) && !empty($this->secondurl)) {
+                        $user_id = 1;
+                        $objBeanVideo = new stdClass();
+                        $objBeanVideo->id = NULL;
+                        $objBeanVideo->tipo_videos_id = 1;
+                        $objBeanVideo->categorias_id = 1;
+                        $objBeanVideo->usuarios_id = $user_id;
+                        $objBeanVideo->canales_id = $canal->id;
+                        //$objBeanVideo->fuente = $this->input->post('fuente');
+                        $objBeanVideo->titulo = $this->titulo;
+                        $objBeanVideo->alias = url_title(strtolower(convert_accented_characters($this->titulo))) . '-';
+                        $objBeanVideo->descripcion = $this->descripcion;
+                        $objBeanVideo->fragmento = 0;
+//                    $objBeanVideo->fecha_publicacion_inicio = date("Y-m-d H:i:s", strtotime($this->input->post('fec_pub_ini')));
+//                    $objBeanVideo->fecha_publicacion_fin = date("Y-m-d H:i:s", strtotime($this->input->post('fec_pub_fin')));
+                        $objBeanVideo->fecha_transmision = date("Y-m-d H:i:s", strtotime($this->fecha_transmision));
+//                    $objBeanVideo->horario_transmision_inicio = $this->input->post('hora_trans_ini');
+//                    $objBeanVideo->horario_transmision_fin = $this->input->post('hora_trans_fin');
+//                    $objBeanVideo->ubicacion = $this->input->post('ubicacion');
+//                    $objBeanVideo->fecha_actualizacion = date("Y-m-d H:i:s");
+//                    $objBeanVideo->usuario_actualizacion = $user_id;
+                        $objBeanVideo->duracion = self::SEC_TO_TIME($this->duracion);
+                        $objBeanVideo->estado_liquid = 6;
+                        $objBeanVideo->fecha_registro = date("Y-m-d H:i:s");
+                        $objBeanVideo->usuario_registro = $user_id;
+                        $objBeanVideo->estado_migracion = 0;
+//                    $objBeanVideo->estado_migracion_sphinx_tit = 0;
+//                    $objBeanVideo->estado_migracion_sphinx_des = 0;
+                        $objBeanVideo->reproducciones = $this->reproducciones;
+                        $objBeanVideo->secondurl = $this->secondurl;
+                        $objBeanVideo->estado = 2;
+
+                        $objBeanVideo->codigo = $this->codigo;
+                        $objBeanVideo->ruta = $this->ruta;
+                        $objBeanVideo->rutasplitter = $this->rutasplitter;
+//                    $objBeanVideo->padre = $video_id;
+                        $objBeanVideo->estado_migracion_sphinx = $this->config->item('sphinx:nuevo');
+                        $objBeanVideo->procedencia = $this->config->item('procedencia:micanal');
+                        $objBeanVideo->proveedor = 1;
+
+                        // print_r($objBeanVideo);
+
+                        $objBeanVideo = $this->videos_mp->insert_video($objBeanVideo);
+
+
+                        echo $objBeanVideo->id . "<br>";
+                    }
+                }
+            }
+        } catch (Exception $exc) {
+            echo $exc->getTraceAsString();
+        }
     }
 
 }

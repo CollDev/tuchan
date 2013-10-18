@@ -462,7 +462,8 @@ class Liquid {
                 } else {
                     $min = 9999;
                     foreach ($value as $value2) {
-                        if ($value2["output"]["name"] != "_RAW") {
+                        if ($value2["output"]["name"] != "_RAW") {                           
+
                             if ($value2["videoInfo"]["height"] < $min) {
                                 $min = $value2["videoInfo"]["height"];
                                 $video_filename = $value2["fileName"];
@@ -580,6 +581,62 @@ class Liquid {
         return $duration;
     }
 
+    function getSecondUrl($mediaarr = array()) {
+        $secondUrl = "";
+        if (!empty($mediaarr["secondUrl"])) {
+            $secondUrl = $mediaarr["secondUrl"];
+        }
+        return $secondUrl;
+    }
+
+    function getNumberOfViews($mediaarr = array()) {
+        $numberOfViews = 0;
+        if (!empty($mediaarr["numberOfViews"])) {
+            $numberOfViews = $mediaarr["numberOfViews"];
+        }
+        return $numberOfViews;
+    }
+
+    function getPostDate($mediaarr = array()) {
+        $postdate = 0;
+        if (!empty($mediaarr["postDate"])) {
+            $postdate = $mediaarr["postDate"];
+        }
+        return $postdate;
+    }
+
+    function getDescription($mediaarr = array()) {
+        $description = "";
+        if (!empty($mediaarr["description"])) {
+            $description = $mediaarr["description"];
+        }
+        return $description;
+    }
+
+    function getTitle($mediaarr = array()) {
+        $title = "";
+        if (!empty($mediaarr["title"])) {
+            $title = $mediaarr["title"];
+        }
+        return $title;
+    }
+    
+    function getTags($mediaarr = array()) {
+        $tags = "";
+        if (!empty($mediaarr["tags"])) {
+            $tags = $mediaarr["tags"];
+        }
+        return $tags;
+    }
+    
+    function getId($mediaarr = array()) {
+        $tags = "";
+        if (!empty($mediaarr["id"])) {
+            $tags = $mediaarr["id"];
+        }
+        return $tags;
+    }
+    
     function getPublished($mediaarr = array()) {
         if (!empty($mediaarr["published"])) {
             return (strtoupper($mediaarr["published"]) == 'TRUE') ? TRUE : FALSE;
@@ -694,6 +751,47 @@ class Liquid {
             }
         } catch (Exception $exc) {
             return FALSE;
+        }
+    }
+
+    function obtenerVideosXApiKey($apikey) {
+        try {
+            if (!empty($apikey)) {
+                $ini = 0;
+                $inc = 50;
+                $flat = 1;
+
+                $arraydatos = array();
+
+                do {
+                    //&filter=id;title;thumbs;
+                    //search=published:false
+                    //"&limit=5&orderBy=numberOfViews&sort=desc";//
+                    $url = APIURL . "/medias/?key=" . $apikey . "&first=" . $ini . "&limit=" . $inc;                    
+                    //error_log($url);
+
+                    $response = self::getCurl($url);
+                    if ($response != FALSE) {
+                        $mediaxml = new SimpleXMLElement($response);
+                        $mediaarr = json_decode(json_encode($mediaxml), true);
+
+                        foreach ($mediaarr["Media"] as $value) {
+                            array_push($arraydatos, $value);
+                        }
+
+                        $ini = $ini + $inc;
+                     
+                    } else {
+                        break;
+                    }
+                } while (true);
+
+                return $arraydatos;
+            } else {
+                return array();
+            }
+        } catch (Exception $exc) {
+            Log::erroLog("Error en obtenerVideosXApiKey");
         }
     }
 

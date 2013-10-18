@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	
+	<style>
+	.oo_promo {
+	background-image: url(http://img.juegosyolimpicos.com/wp-content/uploads/2008/08/imagen-dia-12-adam-pretty.jpg) !important;
+	} 
+
+</style>
+    </head>
+    <body>
+        <!-- <script src='http://player.ooyala.com/v3/playerId'></script> -->
+        <script src='http://player.ooyala.com/v3/d97f04a6a549457290d81d0fbbb038b5?platform=html5'>
+    </script>
+    <div id='ooyalaplayer' style="width: 100%; height: 100%;">
+    </div>
+    <script>
+    OO.ready(function() {
+
+       var myPlayer =   OO.Player.create(
+            'ooyalaplayer', 
+            'AxYm10ZjpIKd7WLwjVcFCfUI7KVbnCgs',
+            {
+                height:'320px',
+                width:'480px',               
+				'vast':{
+					tagUrl: 'http://ad3.liverail.com/?LR_PUBLISHER_ID=1331&LR_CAMPAIGN_ID=229&LR_SCHEMA=vast2',         
+				}		
+            }
+        );
+		
+// myPlayer.play();
+
+     //myPlayer.skipAd();
+	 
+	 
+	 
+
+    });
+    </script>
+
+    </body>
+
+</html>
+
+<!--
+
+    'vast':{
+                    tagUrl:'http://ad3.liverail.com/?LR_PUBLISHER_ID=1331&LR_CAMPAIGN_ID=229&LR_SCHEMA=vast2'
+                }       
+
+        $(".oo_promo").css("background-image",'http://e.americatv.e3.pe/ima/0/0/0/0/3/3110.jpg');
+
+showAdMarquee: 'true',
+   
+    image_url:'http://e.americatv.e3.pe/ima/0/0/0/0/3/3110.jpg',
+
+    'google': {
+        tagUrl: 'some url',       
+    }
+
+    -->

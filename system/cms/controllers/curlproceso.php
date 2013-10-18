@@ -224,4 +224,8 @@ class curlProceso extends MX_Controller {
     public function envioDatos(){
         $this->procesos_lib->envioDatos();
     }
+    
+    public function migracionVideosLiquid($key_canal){
+        $this->procesos_lib->migracionVideosLiquid($key_canal);
+    }
 }
