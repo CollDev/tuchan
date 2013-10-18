@@ -1203,6 +1203,7 @@ class Procesos_lib extends MX_Controller {
                     $objmongo['fragmento'] = (int) ($value->fragmento);
                     $objmongo['valoracion'] = $datovideo[0]->xvi_val;
                     $objmongo['publicidad'] = "0";
+                    $objmongo['proveedor'] = $datovideo[0]->proveedor;
                     $objmongo['estado'] = ($value->estado == 2) ? "1" : "0";
 
                     if (!empty($datovideo[0]->xprogramaalias)) {
