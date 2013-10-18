@@ -50,4 +50,9 @@ class migrate extends MX_Controller {
     {
         return $this->migrate_lib->receive();
     }
+    
+    public function actualizar_video()
+    {
+        return $this->migrate_lib->actualizar_video();
+    }
 }

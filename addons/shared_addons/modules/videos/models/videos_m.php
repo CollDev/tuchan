@@ -363,6 +363,19 @@ class Videos_m extends MY_Model {
         
         return array('videos' => $result, 'nombre' => $canales_id[0]->nombre);
     }
+    
+    public function updateOoyala($id, $ruta, $rutasplitter, $codigo) {
+        return parent::update(
+            $id,
+            array(
+                'proveedor' => '1',
+                'ruta' => $ruta,
+                'rutasplitter' => $rutasplitter,
+                'codigo' => $codigo,
+                'fecha_actualizacion' => date('Y-m-d H:i:s')
+            )
+        );
+    }
 }
 
 /* End of file videos_m.php */

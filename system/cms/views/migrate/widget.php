@@ -112,10 +112,11 @@ $total = count($videos['videos']);
                             $estado_array = array("0", "3", "4");
                             if ($video->estado_liquid == 6 && $video->estado == 2) {
                                 $tr = 'success';
-                                if ($count < 13) {
+                                if ($count < 2){
                                     $rutasplitter[$count]['id'] = $video->id;
                                     $rutasplitter[$count]['url'] = trim($video->rutasplitter);
                                     $rutasplitter[$count]['titulo'] = trim($video->titulo);
+                                    $count++;
                                 }
                             } else if (in_array($video->estado_liquid, $liquid_array, false)) {
                                 $tr = 'warning';
@@ -140,7 +141,6 @@ $total = count($videos['videos']);
                             </td>
                         </tr>
 <?php
-                            $count++;
                         }
 ?>
                     </tbody>

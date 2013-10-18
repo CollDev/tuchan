@@ -292,6 +292,13 @@ class migrate_lib extends MX_Controller {
         header("Content-Type: application/json; charset=utf-8");
         echo json_encode($return);
     }
-//    //url para reproducir
-//    $response_five = $this->ooyalaapi->get('assets/' . $response_one->embed_code . '/streams');
+
+    public function actualizar_video()
+    {
+        $response = $this->ooyalaapi->get('assets/' . $_POST['embed_code'] . '/streams');
+        
+        var_dump($return);
+        $return = $this->videos_m->updateOoyala($_POST['id'], $response[1]['url'], $response[0]['url'], $_POST['embed_code']);
+        
+    }
 }
