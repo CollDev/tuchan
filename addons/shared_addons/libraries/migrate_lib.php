@@ -296,9 +296,7 @@ class migrate_lib extends MX_Controller {
     public function actualizar_video()
     {
         $response = $this->ooyalaapi->get('assets/' . $_POST['embed_code'] . '/streams');
-        
-        var_dump($response);
-        $return = $this->videos_m->updateOoyala($_POST['id'], $response[1]['url'], $response[0]['url'], $_POST['embed_code']);
+        $return = $this->videos_m->updateOoyala($_POST['id'], $response[1]->url, $response[0]->url, $_POST['embed_code']);
         
     }
 }
