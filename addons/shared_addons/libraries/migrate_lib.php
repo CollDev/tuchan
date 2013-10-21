@@ -28,69 +28,6 @@ class migrate_lib extends MX_Controller {
         return $this->videos_m->getAll($key_canal);
     }
     
-    public function upload_to_change($file)
-    {
-        $form_post = $this->input->post();
-        
-        $post = array(
-            "name" => $form_post['titulo'],
-            "file_name" => $file['video']['name'],
-            "asset_type" => "video",
-            "file_size" => $file['video']['size'],
-            "post_processing_status" => "live"
-        );
-        $preext = explode('.', $file['video']['name']);
-        $ext = end($preext);
-        $arrayExt = explode('|', 'mp4|mpg|flv|avi|wmv');
-        
-        if (in_array($ext, $arrayExt)) {
-            if ($file['video']['size'] > 0 && $file['video']['size'] <= 2147483648) {
-                if (file_exists($file['video']['tmp_name']) && strlen(trim($file['video']['name'])) > 0) {
-                    $response_one = $this->ooyalaapi->post('assets', $post);
-                    $response_two = $this->ooyalaapi->get('assets/' . $response_one->embed_code . '/uploading_urls');
-                    $this->upload_curl($response_two[0], $file['video']['tmp_name']);
-                    $response_three = $this->ooyalaapi->put('assets/' . $response_one->embed_code . '/upload_status', array("status" => "uploaded"));
-                    
-                    if (isset($response_three->status) && $response_three->status == 'uploaded') {
-                        $return = array(
-                            'type' => 'success',
-                            'title' => 'Video subido con éxito.',
-                            'message' => '',
-                            'embed_code' => $response_one->embed_code
-                        );
-                    } else {
-                        $return = array(
-                            'type' => 'danger',
-                            'title' => 'Error interno.',
-                            'message' => 'Por favor repórtelo al área.',
-                        );
-                    }
-                } else {
-                    $return = array(
-                        'type' => 'danger',
-                        'title' => 'Error al subir video.',
-                        'message' => 'Por favor vuelva a intentarlo en unos minutos.',
-                    );
-                }
-            } else {
-                $return = array(
-                    'type' => 'info',
-                    'title' => 'Video muy extenso',
-                    'message' => 'El tamaño del video supera el permitido de 2GB.',
-                );
-            }
-        } else {
-            $return = array(
-                'type' => 'info',
-                'title' => 'Formato no permitido',
-                'message' => 'Por favor suba un video: mp4,mpg,flv,avi,wmv.',
-            );
-        }
-
-        header("Content-Type: application/json; charset=utf-8");
-        echo json_encode($return);
-    }
-    
     public function upload_curl($upload_url, $file)
     {
         $ch = curl_init($upload_url);
@@ -170,24 +107,22 @@ class migrate_lib extends MX_Controller {
             $route = $this->base . $_POST['filename'];
             file_put_contents($route, fopen($_POST['url'], 'r'));//Download
             if (file_exists($route)) {
-                $post = array(
-                    "name" => $_POST['titulo'],
-                    "file_name" => $_POST['filename'],
-                    "asset_type" => "video",
-                    "file_size" => filesize($route),
-                    "post_processing_status" => "live"
-                );
-                $response_one = $this->ooyalaapi->post('assets', $post);//Request space
+                $response_one = $this->ooyalaapi->post('assets', array(
+                        "name" => $_POST['titulo'],
+                        "file_name" => $_POST['filename'],
+                        "asset_type" => "video",
+                        "file_size" => filesize($route),
+                        "post_processing_status" => "live"
+                    )
+                );//Request space
                 $response_two = $this->ooyalaapi->get('assets/' . $response_one->embed_code . '/uploading_urls');//upload url request
                 
                 $file_name_with_full_path = realpath($this->base . $_POST['filename']);
 
-                $post = array('file_contents'=>'@'.$file_name_with_full_path);
-
                 $ch = curl_init();
                 curl_setopt($ch, CURLOPT_URL, $response_two[0]);
                 curl_setopt($ch, CURLOPT_POST, 1);
-                curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+                curl_setopt($ch, CURLOPT_POSTFIELDS, array('file_contents'=>'@'.$file_name_with_full_path));
                 curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
                 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
                 $result = curl_exec($ch);
@@ -296,7 +231,6 @@ class migrate_lib extends MX_Controller {
     public function actualizar_video()
     {
         $response = $this->ooyalaapi->get('assets/' . $_POST['embed_code'] . '/streams');
-        $return = $this->videos_m->updateOoyala($_POST['id'], $response[1]->url, $response[0]->url, $_POST['embed_code']);
-        
+        $this->videos_m->updateOoyala($_POST['id'], $response[1]->url, $response[0]->url, $_POST['embed_code']);
     }
 }
